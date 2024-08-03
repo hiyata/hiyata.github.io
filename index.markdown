@@ -15,35 +15,35 @@ Some viruses have evolved adjacently with their hosts for millions of years, suc
 
 ## Projects
 
-### [Modeling Novel Proteins of Mutant Human Cytomegalovirus](/projects/modeling-novel-proteins)
+### [Modeling Novel Proteins of Mutant Human Cytomegalovirus](/_projects/modeling-novel-proteins)
 
 
 (Poster: International Herpes Workshop 2023)
 
-### [From Dungeons and Dragons to Proteins and Predictions](/projects/from-dnd-to-proteins)
+### [From Dungeons and Dragons to Proteins and Predictions](/_projects/from-dnd-to-proteins)
 
 (Oral: WSUSOM Graduate Research Symposium)
 
 
-### [MambaVirus](/projects/mambavirus.md)
+### [MambaVirus](/_projects/mambavirus.md)
 
 Description: Developing a DNA-specific generative model architecture based on Mamba and self-attention mechanisms. (Poster WSUSOM Graduate Research Symposium)
 
-### [VIRUSBERT](/projects/VIRUSBERT)
+### [VIRUSBERT_](/_projects/VIRUSBERT)
 
 Description: Analyzing viral genomes to find host-specific markers and patterns using clustering techniques.
 
 
 
-### [System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)](/projects/sombra.md)
+### [System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)_](/_projects/sombra.md)
 
 
 (Poster: International Herpes Workshop 2024)
 
-### [ANYA](/projects/ANYA.md)
+### [ANYA](/_projects/ANYA.md)
 
 
-### [Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics](/projects/machine-learning-cookbook.md)
+### [Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics](/_projects/machine-learning-cookbook.md)
 
 
 
