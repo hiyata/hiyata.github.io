@@ -5,22 +5,47 @@ title: Welcome
 
 # Welcome to Hiyata's GitHub Page
 
-This is a simple page using the Minima theme. Feel free to explore my projects and learn more about my work.
 
-## About Me
+# Theoretical Virology and Artificial Intelligence
 
-I am a [brief description about yourself here]. I enjoy working on various projects related to [your interests or fields of work].
+Viruses are obligate, intracellular parasites and are most known for their role pathogenesis. Viruses come in many flavors, from DNA to RNA, single stranded or double stranded, and circular or linear. They are thought to have been some of the first life-forms to evolve on Earth and drivers of evolution in other forms of life. 
+
+Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistance are highly specialized viruses tailored to thrive in human hosts without causing pathogenesis. 
+
 
 ## Projects
 
-### Project 1: Genomic Clustering
+### [Modeling Novel Proteins of Mutant Human Cytomegalovirus](/projects/modeling-novel-proteins)
+
+
+(Poster: International Herpes Workshop 2023)
+
+### [From Dungeons and Dragons to Proteins and Predictions](/projects/from-dnd-to-proteins)
+
+(Oral: WSUSOM Graduate Research Symposium)
+
+
+### [MambaVirus](/projects/mambavirus.md)
+
+Description: Developing a DNA-specific generative model architecture based on Mamba and self-attention mechanisms. (Poster WSUSOM Graduate Research Symposium)
+
+### [VIRUSBERT](/projects/VIRUSBERT)
+
 Description: Analyzing viral genomes to find host-specific markers and patterns using clustering techniques.
 
-### Project 2: DNA Generative Model
-Description: Developing a DNA-specific generative model architecture based on Mamba and self-attention mechanisms.
 
-### Project 3: Advanced Game of Life Simulation
-Description: Simulating cells with pseudo DNA codes to study properties that survive under different environmental pressures.
+
+### [System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)](/projects/sombra.md)
+
+
+(Poster: International Herpes Workshop 2024)
+
+### [ANYA](/projects/ANYA.md)
+
+
+### [Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics](/projects/machine-learning-cookbook.md)
+
+
 
 ## Contact
 
