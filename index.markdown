@@ -1,22 +1,31 @@
 ---
 layout: default
-title: Home
+title: Welcome
 ---
 
-# Welcome to Hiyata's Blog
+# Welcome to Hiyata's GitHub Page
 
-Welcome to my personal blog where I showcase my projects and share insights. Feel free to explore my work and watch a live simulation in action.
+This is a simple page using the Minima theme. Feel free to explore my projects and learn more about my work.
 
-## Navigation
-- [About Me]({{ site.baseurl }}/about)
-- [Projects]({{ site.baseurl }}/projects)
-  - [Project 1]({{ site.baseurl }}/projects/project1)
-  - [Project 2]({{ site.baseurl }}/projects/project2)
-  - [Project 3]({{ site.baseurl }}/projects/project3)
-- [Live Stream]({{ site.baseurl }}/stream)
+## About Me
 
-## Introduction
-This is the home page of my blog. Here, you will find information about me and my projects. I have worked on various exciting projects, and you can find detailed descriptions and media related to each project on their respective pages.
+I am a [brief description about yourself here]. I enjoy working on various projects related to [your interests or fields of work].
 
-Thank you for visiting my blog!
+## Projects
 
+### Project 1: Genomic Clustering
+Description: Analyzing viral genomes to find host-specific markers and patterns using clustering techniques.
+
+### Project 2: DNA Generative Model
+Description: Developing a DNA-specific generative model architecture based on Mamba and self-attention mechanisms.
+
+### Project 3: Advanced Game of Life Simulation
+Description: Simulating cells with pseudo DNA codes to study properties that survive under different environmental pressures.
+
+## Contact
+
+You can reach me via email at [your-email@example.com] or connect with me on [LinkedIn](https://www.linkedin.com).
+
+---
+
+Thank you for visiting my page!
