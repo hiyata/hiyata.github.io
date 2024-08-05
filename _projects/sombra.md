@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
 ---
 
@@ -9,4 +9,3 @@ title: System for Operational Modeling of Biological Replication and Adaptation 
 
 **Abstract:**
 
-[Include detailed information about the project here.]

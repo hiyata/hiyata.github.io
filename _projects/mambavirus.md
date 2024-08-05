@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title: MambaVirus
 ---
 
@@ -9,4 +9,3 @@ title: MambaVirus
 
 **Abstract:**
 
-[Include detailed information about the project here.]

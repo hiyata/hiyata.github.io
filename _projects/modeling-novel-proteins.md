@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title: Modeling Novel Proteins of Mutant Human Cytomegalovirus
 ---
 
@@ -9,4 +9,3 @@ title: Modeling Novel Proteins of Mutant Human Cytomegalovirus
 
 **Abstract:**
 
-[Include detailed information about the project here.]

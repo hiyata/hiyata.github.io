@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title: From Dungeons and Dragons to Proteins and Predictions
 ---
 
@@ -9,4 +9,3 @@ title: From Dungeons and Dragons to Proteins and Predictions
 
 **Abstract:**
 
-[Include detailed information about the project here.]

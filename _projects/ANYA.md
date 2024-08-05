@@ -1,12 +1,11 @@
 ---
-layout: project
-title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
+layout: default
+title: ANYA
 ---
 
-# System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
+# ANYA
 
 **Presented at:** WSUSOM Graduate Research Symposium
 
 **Abstract:**
 
-[Include detailed information about the project here.]

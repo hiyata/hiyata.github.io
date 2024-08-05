@@ -1,10 +1,13 @@
 ---
 layout: default
-title: Live Stream
+title: ANYA Simulation
 ---
 
-# Live Simulation Stream
+## Live Simulation Stream
+---
 
-This page will feature a live stream of a simulation running on my other computer. Stay tuned for updates!
+Here, you can watch the ANYA simulation in real time.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Back to Home]({{ site.baseurl }}/)

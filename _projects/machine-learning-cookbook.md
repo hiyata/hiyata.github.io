@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 title:  Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
 ---
 
@@ -9,4 +9,3 @@ title:  Machine Learning Cookbook for Epidemiological Modeling and Viral Genomic
 
 **Abstract:**
 
-[Include detailed information about the project here.]

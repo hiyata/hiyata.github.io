@@ -1,29 +1,13 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
+layout: default
+title:  "Theoretical Virology"
 date:   2024-06-20 10:15:56 -0400
 categories: jekyll update
+excerpt: "Exploring the intersection of virology and artificial intelligence, this post delves into the evolutionary history of viruses and their role in driving evolution."
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-Jekyll requires blog post files to be named according to the following format:
+## Theoretical Virology and Artificial Intelligence
 
-`YEAR-MONTH-DAY-title.MARKUP`
+Viruses are obligate, intracellular parasites and are most known for their role in pathogenesis. Viruses come in many flavors, from DNA to RNA, single-stranded or double-stranded, and circular or linear. They are thought to have been some of the first life-forms to evolve on Earth and drivers of evolution in other forms of life. 
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistence is highly specialized viruses tailored to thrive in human hosts without causing pathogenesis.
