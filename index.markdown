@@ -16,7 +16,7 @@ title: Welcome
 <section class="about-section" id="about">
   <div class="container">
     <h2>Exploring the Intersection of AI and Virology</h2>
-    <p>Welcome to my technical journal where I document my journey through the fascinating world of AI-driven virology research. Here, I share insights on current projects, new ideas, and the challenges faced in this cutting-edge field.</p>
+    <p>Thanks for visiting my page! Here I talk about my current projects and new ideas. I also write about the problems and things I've learned in research. My research interests lie in the intersection of artificial intelligence and virology. I am specifically focused on epidemiology, artificial genome design, artificial life, and virus-host networks.</p>
     <div class="expertise-areas">
       <div class="expertise-item">
         <h3>Machine Learning</h3>
