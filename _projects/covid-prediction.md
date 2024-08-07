@@ -9,19 +9,34 @@ permalink: /covid-prediction/
 
 This page displays a 30-day forecast of COVID-19 cases, updated daily. Our model is trained on historical data and makes predictions for the next month. The graph below shows our predictions against the actual reported cases.
 
-<div id="prediction-chart"></div>
+<div id="prediction-chart" style="height: 500px;"></div>
 
 ## Model Performance
 
-Our model's performance is evaluated daily. Below are some key metrics:
-
-<div id="performance-metrics"></div>
+<div id="performance-metrics" style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <div style="text-align: center; background: #f2f2f2; padding: 20px; border-radius: 10px; width: 200px;">
+        <h3>Mean Absolute Error</h3>
+        <p id="mae" style="font-size: 24px; font-weight: bold;">N/A</p>
+    </div>
+    <div style="text-align: center; background: #f2f2f2; padding: 20px; border-radius: 10px; width: 200px;">
+        <h3>Root Mean Square Error</h3>
+        <p id="rmse" style="font-size: 24px; font-weight: bold;">N/A</p>
+    </div>
+    <div style="text-align: center; background: #f2f2f2; padding: 20px; border-radius: 10px; width: 200px;">
+        <h3>Mean Absolute Percentage Error</h3>
+        <p id="mape" style="font-size: 24px; font-weight: bold;">N/A</p>
+    </div>
+    <div style="text-align: center; background: #f2f2f2; padding: 20px; border-radius: 10px; width: 200px;">
+        <h3>Last Updated</h3>
+        <p id="last-updated" style="font-size: 24px; font-weight: bold;">N/A</p>
+    </div>
+</div>
 
 ## 30-Day Forecast
 
 The chart below shows the predicted number of COVID-19 cases for the next 30 days.
 
-<div id="forecast-chart"></div>
+<div id="forecast-chart" style="height: 500px; margin-top: 20px;"></div>
 
 ## Methodology
 
@@ -49,34 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();  // Get the response as JSON
         })
         .then(data => {
-            console.log('Data received:', data);
+            console.log('Data received:', data);     
             if (!data || !Array.isArray(data.dates) || !Array.isArray(data.actual) || !Array.isArray(data.predicted)) {
                 throw new Error('Data is missing required fields or they are not arrays');
-            }           
-            // Filter out entries with zero values for the actual vs. predicted chart
-            const filteredData = {
-                dates: [],
-                actual: [],
-                predicted: []
-            };
-            for (let i = 0; i < data.dates.length; i++) {
-                if (data.actual[i] !== 0 || data.predicted[i] !== 0) {
-                    filteredData.dates.push(data.dates[i]);
-                    filteredData.actual.push(data.actual[i]);
-                    filteredData.predicted.push(data.predicted[i]);
-                }
-            }
+            }            
             // Create the prediction chart
             const trace1 = {
-                x: filteredData.dates,
-                y: filteredData.actual,
+                x: data.dates.slice(0, -30),
+                y: data.actual.slice(0, -30),
                 type: 'scatter',
                 mode: 'lines',
                 name: 'Actual Cases'
             };
             const trace2 = {
-                x: filteredData.dates,
-                y: filteredData.predicted,
+                x: data.dates.slice(0, -30),
+                y: data.predicted.slice(0, -30),
                 type: 'scatter',
                 mode: 'lines',
                 name: 'Predicted Cases'
@@ -88,10 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             Plotly.newPlot('prediction-chart', [trace1, trace2], layout);
             // Create the forecast chart
-            const forecastDates = data.dates.slice(-30);  // Assuming the last 30 entries are the forecast
             const forecastTrace = {
-                x: forecastDates,
-                y: data.predicted.slice(-30),
+                x: data.dates.slice(-30),
+                y: data.future_predicted,
                 type: 'scatter',
                 mode: 'lines',
                 name: '30-Day Forecast'
@@ -103,13 +104,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             Plotly.newPlot('forecast-chart', [forecastTrace], forecastLayout);
             // Update performance metrics
-            const metricsDiv = document.getElementById('performance-metrics');
-            metricsDiv.innerHTML = `
-                <p>Mean Absolute Error: ${data.mae ? data.mae.toFixed(2) : 'N/A'}</p>
-                <p>Root Mean Square Error: ${data.rmse ? data.rmse.toFixed(2) : 'N/A'}</p>
-                <p>Mean Absolute Percentage Error: ${data.mape && isFinite(data.mape) ? (data.mape.toFixed(2)) + '%' : 'N/A'}</p>
-                <p>Last Updated: ${data.last_updated ? dayjs(data.last_updated).format('MMMM D, YYYY') : 'N/A'}</p>
-            `;
+            document.getElementById('mae').innerText = data.mae ? data.mae.toFixed(2) : 'N/A';
+            document.getElementById('rmse').innerText = data.rmse ? data.rmse.toFixed(2) : 'N/A';
+            document.getElementById('mape').innerText = data.mape && isFinite(data.mape) ? (data.mape.toFixed(2)) + '%' : 'N/A';
+            document.getElementById('last-updated').innerText = data.last_updated ? dayjs(data.last_updated).format('MMMM D, YYYY') : 'N/A';
         })
         .catch(error => {
             console.error('Error fetching or processing data:', error);
