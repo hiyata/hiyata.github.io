@@ -8,9 +8,6 @@ title: Welcome
     <h1 class="main-title">Hiyata's Technical Journal</h1>
     <div id="typing-container"></div>
   </div>
-  <div class="scroll-indicator">
-    <div class="mouse"></div>
-  </div>
 </div>
 
 <section class="about-section" id="about">
