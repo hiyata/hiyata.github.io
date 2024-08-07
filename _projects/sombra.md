@@ -1,35 +1,206 @@
 ---
 layout: default
+excerpt: This is a brief summary of the project.
 title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
 ---
 
-# HCMV Full Genome Sample Distribution
+<h1 style="text-align: center;">SOMBRA</h1>
+---
+Study of human cytomegalovirus (HCMV) evolution is crucial for understanding its genetic diversity, adaptation mechanisms, and impact on human health. Existing phylogenetic analyses of HCMV have begun to reveal important evolutionary patterns and relationships among geographically distinct strains, as demonstrated in recent works by Charles and Venturini et al. (1). However, the geographic resolution of phylogenetic analyses is limited by (i) the small number of publicly available complete HCMV genomes—351 in NCBI Virus, and (ii) the uneven geographic distribution of those sequences. 
 
+<br>
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <div id="neuralNetworkAnimation" style="width: 100%; height: 400px; margin-bottom: 20px;"></div>
-    <div id="mapid" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
-    <div id="scatterPlot" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>
-    <div id="chartContainer" style="height: 400px; width: 48%;">
-        <canvas id="sampleChart"></canvas>
+    <div id="scatterPlot" class="animate" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>
+</div>
+
+## MDS Scatterplot
+The scatterplot above depicts a multidimensional scaling (MDS) analyis of the merged reference dataset reveals genomic clusters associated with the continent where each sample was collected. Notably, clustering of African strains clustered on the peripheral of the European strains. Strains from the Americas cluster near Europe, however they have a larger range. This is consistent with findings published recently (1). 
+
+## Dataset 
+
+The map below displays the geographical locations where each was collected. Their strains and ID are attached as well. 
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <div style="width: 60%;">
+        <div id="mapid" class="animate" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
+        <div id="legend" class="animate" style="margin-top: 10px;">
+            <h3>Legend</h3>
+            <div><span style="color: red; font-size: 10px;">●</span> Continent</div>
+            <div><span style="color: orange; font-size: 10px;">●</span> Country</div>
+            <div><span style="color: green; font-size: 10px;">●</span> State (USA only)</div>
+        </div>
     </div>
-    <div id="strainList" style="height: 400px; width: 48%; overflow-y: auto;">
-        <h3>Strain List</h3>
-        <ul id="strainListContent"></ul>
+    <div style="width: 38%;">
+        <div id="chartContainer" class="animate" style="height: 400px; width: 100%;">
+            <canvas id="sampleChart"></canvas>
+        </div>
+        <div id="strainList" class="animate" style="height: 200px; width: 100%; overflow-y: auto; margin-top: 20px;">
+            <h3>Strain List</h3>
+            <ul id="strainListContent"></ul>
+        </div>
     </div>
 </div>
 
-<div id="legend" style="margin-top: 20px;">
-    <h3>Legend</h3>
-    <div><span style="color: red; font-size: 20px;">●</span> Continent</div>
-    <div><span style="color: orange; font-size: 20px;">●</span> Country</div>
-    <div><span style="color: green; font-size: 20px;">●</span> State (USA only)</div>
-</div>
+<br>
+
+<h1 style="text-align: center;font-size: 25px;">System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)</h1>
+
+SOMBRA uses a sliding window approach to extract trends and identify conserved regions across the alignment. For windows with less than 90% agreement, consensus voting is used to assign a nucleotide for a particular position.
+
+A k-mer index is generated from the MAFFT alignment to enable rapid alignment of each newly generated sequence with the reference alignment.
+
+The country where each sample was isolated was included in the header of each sequence, and the continent extrapolated for each country. SOMBRA extracted this data and organized each sequence into a group. 
+
+Once groups of sequences are assigned based on their continental origins, an ancestral sequences were generated for each continent. These sequences were constructed using the information extracted during initialization. Variable positions are determine by consensus voting across each continental group.  
+
+The inferred ancestral sequence for each continent serve as inputs.  This begins by aligning the ancestral and reference sequences to ensure consistency. For each continent, the average variability is calculated from differences between the ancestral sequence and the reference sequences from the same continent. 
+
+This average variability determines the number of mutations to apply to the ancestral sequence to simulate evolutionary changes. Precomputed base frequencies for each position guide substitutions by providing probabilities for each base at each position. Positions within indel hotspots are subjected to stochastic insertions or deletions.
+
+Additionally, recombination events are simulated by mixing segments from different sequences at random breakpoints, further increasing genetic diversity.  The final synthetic sequences are saved to FASTA and TSV files. Future versions will integrate generative models to further improve biological relevance of the new sequences. 
+
+<div id="neuralNetwork" style="width: 100%; height: 400px; position: relative;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<script>
+// Neural network animation
+function createNeuralNetworkAnimation() {
+    const container = document.getElementById('neuralNetwork');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    
+    const layers = [
+        { name: 'Input', nodes: 4, color: '#3498db' },
+        { name: 'Hidden 1', nodes: 6, color: '#e74c3c' },
+        { name: 'Hidden 2', nodes: 6, color: '#2ecc71' },
+        { name: 'Output', nodes: 4, color: '#f39c12' }
+    ];
+    const nodeRadius = 15;
+    const layerSpacing = width / (layers.length + 1);
+    
+    // Create connections and nodes
+    layers.forEach((layer, layerIndex) => {
+        // Create layer label
+        const label = document.createElement('div');
+        label.className = 'layer-label';
+        label.textContent = layer.name;
+        label.style.position = 'absolute';
+        label.style.left = `${(layerIndex + 1) * layerSpacing}px`;
+        label.style.top = '10px';
+        label.style.transform = 'translateX(-50%)';
+        label.style.fontWeight = 'bold';
+        container.appendChild(label);
+
+        for (let i = 0; i < layer.nodes; i++) {
+            const node = document.createElement('div');
+            node.className = 'node';
+            node.style.position = 'absolute';
+            node.style.width = `${nodeRadius * 2}px`;
+            node.style.height = `${nodeRadius * 2}px`;
+            node.style.borderRadius = '50%';
+            node.style.backgroundColor = layer.color;
+            node.style.zIndex = '2';
+            
+            const x = (layerIndex + 1) * layerSpacing;
+            const y = (height / (layer.nodes + 1)) * (i + 1);
+            
+            node.style.left = `${x - nodeRadius}px`;
+            node.style.top = `${y - nodeRadius}px`;
+            
+            container.appendChild(node);
+
+            // Create connections to next layer
+            if (layerIndex < layers.length - 1) {
+                for (let j = 0; j < layers[layerIndex + 1].nodes; j++) {
+                    const connection = document.createElement('div');
+                    connection.className = 'connection';
+                    connection.style.position = 'absolute';
+                    connection.style.height = '2px';
+                    connection.style.backgroundColor = '#bdc3c7';
+                    connection.style.transformOrigin = '0 0';
+                    connection.style.zIndex = '1';
+                    
+                    const x2 = (layerIndex + 2) * layerSpacing;
+                    const y2 = (height / (layers[layerIndex + 1].nodes + 1)) * (j + 1);
+                    
+                    const length = Math.sqrt(Math.pow(x2 - x, 2) + Math.pow(y2 - y, 2));
+                    const angle = Math.atan2(y2 - y, x2 - x) * 180 / Math.PI;
+                    
+                    connection.style.width = `${length}px`;
+                    connection.style.left = `${x}px`;
+                    connection.style.top = `${y}px`;
+                    connection.style.transform = `rotate(${angle}deg)`;
+                    
+                    container.appendChild(connection);
+                }
+            }
+        }
+    });
+    
+    // Animation timeline
+    const timeline = anime.timeline({
+        loop: true,
+        duration: 5000,
+        easing: 'linear'
+    });
+
+    // Animate nodes appearing
+    timeline.add({
+        targets: '.node',
+        scale: [0, 1],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeOutElastic(1, .5)',
+        delay: anime.stagger(100)
+    });
+
+    // Animate connections appearing
+    timeline.add({
+        targets: '.connection',
+        opacity: [0, 0.5],
+        scaleX: [0, 1],
+        duration: 1000,
+        easing: 'easeOutQuad',
+        delay: anime.stagger(50)
+    }, '-=500');  // Start before nodes finish appearing
+
+    // Keep everything visible
+    timeline.add({
+        duration: 2000  // Adjust this to control how long everything stays visible
+    });
+
+    // Animate connections disappearing
+    timeline.add({
+        targets: '.connection',
+        opacity: 0,
+        scaleX: 0,
+        duration: 500,
+        easing: 'easeInQuad',
+        delay: anime.stagger(25, {from: 'center'})
+    });
+
+    // Animate nodes disappearing
+    timeline.add({
+        targets: '.node',
+        scale: 0,
+        opacity: 0,
+        duration: 500,
+        easing: 'easeInQuad',
+        delay: anime.stagger(50, {from: 'last'})
+    }, '-=250');  // Start before connections finish disappearing
+}
+
+// Call the function when the page loads
+window.addEventListener('load', createNeuralNetworkAnimation);
+</script>
 
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
+
 
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -80,9 +251,15 @@ const stateCenters = {
 
 // Function to initialize the map
 function initMap() {
-    mymap = L.map('mapid').setView([20, 0], 2);
+    mymap = L.map('mapid', {
+        worldCopyJump: false,
+        maxBounds: [[-90, -180], [90, 180]],
+        minZoom: 2
+    }).setView([20, 0], 2);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        noWrap: true
     }).addTo(mymap);
 
     mymap.on('click', resetView);
@@ -254,6 +431,30 @@ function createCountryMarkers(countries, continent) {
     });
 }
 
+function createStateMarkers(states) {
+    Object.entries(states).forEach(([state, stateData]) => {
+        if (stateCenters[state]) {
+            const stateMarker = L.circleMarker(stateCenters[state], {
+                radius: Math.sqrt(stateData.count) * 2,
+                fillColor: "green",
+                color: "#000",
+                weight: 1,
+                opacity: 1,
+                fillOpacity: 0.8
+            }).addTo(mymap);
+
+            stateMarker.bindPopup(`${state}: ${stateData.count} strains`);
+            stateMarker.on('click', (e) => {
+                e.originalEvent.stopPropagation();
+                updateStrainList(
+                    Array.from(stateData.strains).map(s => JSON.parse(s)),
+                    `Strains in ${state}`
+                );
+            });
+        }
+    });
+}
+
 // Function to create state markers (for USA)
 function createScatterPlot(data) {
     const scatterPlot = document.getElementById('scatterPlot');
@@ -267,6 +468,15 @@ function createScatterPlot(data) {
         .append('svg')
         .attr('width', width)
         .attr('height', height);
+
+    // Add title to the scatterplot
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", margin.top / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "20px")
+        .style("font-weight", "bold")
+        .text("MDS of HCMV Genomes");
 
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
@@ -472,244 +682,6 @@ function loadData() {
         }
     });
 }
-
-// Neural Network Animation
-function createNeuralNetworkAnimation() {
-    const container = document.getElementById('neuralNetworkAnimation');
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-
-    // Create SVG
-    const svg = d3.select('#neuralNetworkAnimation')
-        .append('svg')
-        .attr('width', width)
-        .attr('height', height);
-
-    // Define colors
-    const colors = {
-        kmer: ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'],
-        layers: ['#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854']
-    };
-
-    // Phase 1: DNA Sequence and K-mers
-    const dnaSequence = 'ATCGATCGATCGATCGACTGATCGATCGATCG';
-    const kmerSize = 6;
-
-    const dnaText = svg.append('text')
-        .attr('x', width / 2)
-        .attr('y', height / 2)
-        .attr('text-anchor', 'middle')
-        .attr('class', 'dna-sequence')
-        .attr('font-size', '24px')
-        .attr('font-weight', 'bold')
-        .text(dnaSequence);
-
-    function breakIntoKmers() {
-        dnaText.remove();
-        const kmers = [];
-        for (let i = 0; i <= dnaSequence.length - kmerSize; i++) {
-            kmers.push(dnaSequence.substr(i, kmerSize));
-        }
-
-        kmers.forEach((kmer, index) => {
-            svg.append('text')
-                .attr('x', width / 2)
-                .attr('y', height / 2 + index * 30 - (kmers.length * 15))
-                .attr('text-anchor', 'middle')
-                .attr('class', 'kmer')
-                .attr('font-size', '18px')
-                .attr('fill', colors.kmer[index % colors.kmer.length])
-                .text(kmer);
-        });
-
-        return kmers;
-    }
-
-    // Phase 2: Neural Network
-    const layers = [
-        {name: 'Input', nodes: 6},
-        {name: 'Hidden1', nodes: 8},
-        {name: 'Hidden2', nodes: 6},
-        {name: 'Hidden3', nodes: 4},
-        {name: 'Output', nodes: 2}
-    ];
-
-    function createNeuralNetwork() {
-        svg.selectAll('*').remove();
-        const layerWidth = width / (layers.length + 1);
-
-        layers.forEach((layer, layerIndex) => {
-            const nodeSpacing = height / (layer.nodes + 1);
-            for (let i = 0; i < layer.nodes; i++) {
-                svg.append('circle')
-                    .attr('cx', (layerIndex + 1) * layerWidth)
-                    .attr('cy', (i + 1) * nodeSpacing)
-                    .attr('r', 10)
-                    .attr('fill', colors.layers[layerIndex])
-                    .attr('stroke', '#333')
-                    .attr('class', `node layer${layerIndex}`)
-                    .style('opacity', 0);
-            }
-        });
-
-        for (let i = 0; i < layers.length - 1; i++) {
-            const startNodes = svg.selectAll(`.layer${i}`);
-            const endNodes = svg.selectAll(`.layer${i+1}`);
-            
-            startNodes.each(function(_, startIndex) {
-                const start = d3.select(this);
-                endNodes.each(function(_, endIndex) {
-                    const end = d3.select(this);
-                    svg.append('line')
-                        .attr('x1', start.attr('cx'))
-                        .attr('y1', start.attr('cy'))
-                        .attr('x2', end.attr('cx'))
-                        .attr('y2', end.attr('cy'))
-                        .attr('stroke', '#999')
-                        .attr('stroke-width', 1)
-                        .attr('class', 'connection')
-                        .style('opacity', 0);
-                });
-            });
-        }
-
-        layers.forEach((layer, index) => {
-            svg.append('text')
-                .attr('x', (index + 1) * layerWidth)
-                .attr('y', height - 10)
-                .attr('text-anchor', 'middle')
-                .text(layer.name)
-                .style('opacity', 0);
-        });
-    }
-
-    // Phase 3: Decision
-    function showDecision() {
-        svg.selectAll('*').remove();
-        const lastHiddenLayer = layers[layers.length - 2];
-        const outputLayer = layers[layers.length - 1];
-
-        const nodeRadius = 20;
-        const layerSpacing = width / 3;
-
-        // Draw last hidden layer
-        lastHiddenLayer.nodes.forEach((_, i) => {
-            svg.append('circle')
-                .attr('cx', layerSpacing)
-                .attr('cy', (i + 1) * (height / (lastHiddenLayer.nodes + 1)))
-                .attr('r', nodeRadius)
-                .attr('fill', colors.layers[layers.length - 2]);
-        });
-
-        // Draw output layer
-        const outputs = ['DNA Correction Required', 'DNA Stable'];
-        outputLayer.nodes.forEach((_, i) => {
-            svg.append('circle')
-                .attr('cx', 2 * layerSpacing)
-                .attr('cy', (i + 1) * (height / (outputLayer.nodes + 1)))
-                .attr('r', nodeRadius)
-                .attr('fill', colors.layers[layers.length - 1]);
-
-            svg.append('text')
-                .attr('x', 2 * layerSpacing + nodeRadius + 10)
-                .attr('y', (i + 1) * (height / (outputLayer.nodes + 1)))
-                .attr('dominant-baseline', 'middle')
-                .attr('font-size', '16px')
-                .text(outputs[i]);
-        });
-
-        // Draw connections
-        lastHiddenLayer.nodes.forEach((_, i) => {
-            outputLayer.nodes.forEach((_, j) => {
-                svg.append('line')
-                    .attr('x1', layerSpacing)
-                    .attr('y1', (i + 1) * (height / (lastHiddenLayer.nodes + 1)))
-                    .attr('x2', 2 * layerSpacing)
-                    .attr('y2', (j + 1) * (height / (outputLayer.nodes + 1)))
-                    .attr('stroke', '#999')
-                    .attr('stroke-width', 1);
-            });
-        });
-
-        // Highlight decision
-        const decision = Math.random() < 0.5 ? 0 : 1;
-        svg.select(`circle:nth-child(${layers.length + decision + 1})`)
-            .transition()
-            .duration(1000)
-            .attr('r', nodeRadius * 1.2)
-            .attr('stroke', '#333')
-            .attr('stroke-width', 3);
-    }
-
-    // Animation timeline
-    function runAnimation() {
-        // Phase 1
-        anime({
-            targets: '.dna-sequence',
-            opacity: [0, 1],
-            duration: 1000,
-            easing: 'easeInOutQuad',
-            complete: () => {
-                const kmers = breakIntoKmers();
-                anime({
-                    targets: '.kmer',
-                    translateY: (el, i) => [100, 0],
-                    opacity: [0, 1],
-                    delay: anime.stagger(100),
-                    duration: 1000,
-                    easing: 'easeOutElastic(1, .5)',
-                    complete: () => {
-                        // Phase 2
-                        anime({
-                            targets: '.kmer',
-                            translateX: -width / 2 + 100,
-                            opacity: 0,
-                            duration: 1000,
-                            easing: 'easeInOutQuad',
-                            complete: () => {
-                                createNeuralNetwork();
-                                anime({
-                                    targets: '.node',
-                                    scale: [0, 1],
-                                    opacity: 1,
-                                    delay: anime.stagger(100, {grid: [layers.length, 8], from: 'first'}),
-                                    duration: 800,
-                                    easing: 'easeOutElastic(1, .5)',
-                                    complete: () => {
-                                        anime({
-                                            targets: '.connection',
-                                            opacity: 1,
-                                            strokeDashoffset: [anime.setDashoffset, 0],
-                                            delay: anime.stagger(10),
-                                            duration: 1000,
-                                            easing: 'easeInOutSine',
-                                            complete: () => {
-                                                // Phase 3
-                                                showDecision();
-                                            }
-                                        });
-                                    }
-                                });
-
-                                anime({
-                                    targets: 'text',
-                                    opacity: 1,
-                                    duration: 1000,
-                                    easing: 'easeInOutQuad'
-                                });
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-
-    runAnimation();
-}
-
-// Call the function to create and start the animation
-createNeuralNetworkAnimation();
 
 // Initialize everything
 initMap();
