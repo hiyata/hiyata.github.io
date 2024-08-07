@@ -17,11 +17,17 @@ Our model's performance is evaluated daily. Below are some key metrics:
 
 <div id="performance-metrics"></div>
 
+## 30-Day Forecast
+
+The chart below shows the predicted number of COVID-19 cases for the next 30 days.
+
+<div id="forecast-chart"></div>
+
 ## Methodology
 
-We use Facebook's Prophet model for time series forecasting. The model is trained on COVID-19 case data from Johns Hopkins University, which is updated daily. Our prediction pipeline follows these steps:
+We use a hybrid model combining LSTM, GRU, and CNN layers for time series forecasting. The model is trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
 
-1. Daily data collection from JHU CSSE COVID-19 dataset
+1. Daily data collection from various COVID-19 datasets
 2. Model retraining with the latest 6 months of data
 3. 30-day forecast generation
 4. Daily comparison of predictions with actual reported cases
@@ -66,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         filteredData.actual.push(data.actual[i]);
                         filteredData.predicted.push(data.predicted[i]);
                     }
-                }               
+                }
                 // Create the prediction chart
                 const trace1 = {
                     x: filteredData.dates,
@@ -88,6 +94,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     yaxis: { title: 'Number of Cases' }
                 };
                 Plotly.newPlot('prediction-chart', [trace1, trace2], layout);
+                // Create the forecast chart
+                const forecastDates = data.dates.slice(-30);  // Assuming the last 30 entries are the forecast
+                const forecastTrace = {
+                    x: forecastDates,
+                    y: data.predicted.slice(-30),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: '30-Day Forecast'
+                };
+                const forecastLayout = {
+                    title: '30-Day COVID-19 Case Forecast',
+                    xaxis: { title: 'Date' },
+                    yaxis: { title: 'Number of Cases' }
+                };
+                Plotly.newPlot('forecast-chart', [forecastTrace], forecastLayout);
                 // Update performance metrics
                 const metricsDiv = document.getElementById('performance-metrics');
                 metricsDiv.innerHTML = `
@@ -105,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching or processing data:', error);
             document.getElementById('prediction-chart').innerHTML = 'Error loading chart data: ' + error.message;
             document.getElementById('performance-metrics').innerHTML = 'Error loading performance metrics: ' + error.message;
+            document.getElementById('forecast-chart').innerHTML = 'Error loading forecast data: ' + error.message;
         });
 });
 </script>
