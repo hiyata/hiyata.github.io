@@ -137,8 +137,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Create the forecast chart
+            const lastDate = new Date(data.dates[data.dates.length - 1]);
+            const futureDates = Array.from({length: 30}, (_, i) => {
+                const date = new Date(lastDate);
+                date.setDate(date.getDate() + i + 1);
+                return date.toISOString().split('T')[0];
+            });
+
             const forecastTrace = {
-                x: data.future_dates,
+                x: futureDates,
                 y: data.future_predicted,
                 type: 'scatter',
                 mode: 'lines',
