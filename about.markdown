@@ -15,9 +15,9 @@ permalink: /about/
 
   <div class="about-content">
     <h2>About Me</h2>
-    <p>I am a researcher specializing in the intersection of machine learning and virology. My work primarily focuses on developing computational techniques to model virus behavior and their molecular interactions.</p>
+    <p>I am a researcher specializing in the applications of artificial intelligence and machine learning in the field of virology. My work primarily focuses on developing computational techniques to model virus behavior, genomes, and their molecular interactions.</p>
     
-    <p>By applying machine learning algorithms to vast datasets of viral genomes and epidemiological information, I aim to uncover patterns and insights that can lead to better predictive models and innovative solutions in virology.</p>
+    <p>From our genomic and epidemiological datasets, I design and train models to build artificial viral genomes and predict epidemiological information. I believe that through this, we can uncover patterns in this information that can be used to improve our response to novel pathogens. I hope that one day we can view viruses as tools to help cure diseases, modify human traits, and control ecosystems. I am working to catalyze this paradigm shift in our perspective on viruses from pathogens that make us sick to tools that cure disease and fight climate change. </p>
 
     <div class="skills-container">
       <h3>Core Competencies</h3>
