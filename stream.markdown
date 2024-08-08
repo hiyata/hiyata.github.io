@@ -14,7 +14,7 @@ title: ANYA Simulation Live Stream
 
   <div class="info-section">
     <h2>About ANYA Simulation</h2>
-    <p>Watch the ANYA (Artificial Network for Yielding Adaptations) simulation unfold in real-time. This groundbreaking project explores the intricate dynamics of viral evolution and adaptation within complex host environments.</p>
+    <p>Watch the ANYA simulation unfold in real-time. This project explores the intricate dynamics of viral evolution and adaptation within complex host environments.</p>
   </div>
 
   <div class="data-visualization">
