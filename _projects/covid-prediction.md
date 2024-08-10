@@ -67,6 +67,15 @@ category: virology
         margin-right: 5px;
         border-radius: 50%;
     }
+    .error-message {
+        color: #e74c3c;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+        background-color: #fadbd8;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
 </style>
 
 <div class="container">
@@ -78,30 +87,32 @@ category: virology
     </p>
 </div>
 
+<div id="error-container"></div>
+
 <div class="container">
     <h2>Model Performance</h2>
     <div class="metrics-grid">
         <div class="metric-card">
             <h3>Mean Absolute Error</h3>
-            <p class="metric-value" id="hybrid-mae">N/A</p>
-            <p id="prophet-mae">Prophet: N/A</p>
-            <p id="arima-mae">ARIMA: N/A</p>
+            <p class="metric-value" id="hybrid-mae">Loading...</p>
+            <p id="prophet-mae">Prophet: Loading...</p>
+            <p id="arima-mae">ARIMA: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Root Mean Square Error</h3>
-            <p class="metric-value" id="hybrid-rmse">N/A</p>
-            <p id="prophet-rmse">Prophet: N/A</p>
-            <p id="arima-rmse">ARIMA: N/A</p>
+            <p class="metric-value" id="hybrid-rmse">Loading...</p>
+            <p id="prophet-rmse">Prophet: Loading...</p>
+            <p id="arima-rmse">ARIMA: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Mean Absolute Percentage Error</h3>
-            <p class="metric-value" id="hybrid-mape">N/A</p>
-            <p id="prophet-mape">Prophet: N/A</p>
-            <p id="arima-mape">ARIMA: N/A</p>
+            <p class="metric-value" id="hybrid-mape">Loading...</p>
+            <p id="prophet-mape">Prophet: Loading...</p>
+            <p id="arima-mape">ARIMA: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Last Updated</h3>
-            <p class="metric-value" id="last-updated">N/A</p>
+            <p class="metric-value" id="last-updated">Loading...</p>
         </div>
     </div>
 </div>
@@ -172,66 +183,18 @@ category: virology
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM content loaded');
-    // Fetch the latest prediction data
-    fetch('/assets/covid-19-files/covid_predictions.json')
-        .then(response => {
-            console.log('Response status:', response.status);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Data received:', data);
-            if (!data || !Array.isArray(data.dates) || !Array.isArray(data.actual) || !Array.isArray(data.predicted)) {
-                throw new Error('Data is missing required fields or they are not arrays');
-            }
-            
-            // Create the historical performance chart
-            const trace1 = {
-                x: data.dates.slice(0, -30),
-                y: data.actual.slice(0, -30),
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Actual Cases',
-                line: {color: '#1f77b4'}
-            };
-            const trace2 = {
-                x: data.dates.slice(0, -30),
-                y: data.predicted.slice(0, -30),
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Hybrid Model Prediction',
-                line: {color: '#ff7f0e'}
-            };
-            const trace3 = {
-                x: data.dates.slice(0, -30),
-                y: data.prophet_predicted.slice(0, -30),
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Prophet Model Prediction',
-                line: {color: '#2ca02c'}
-            };
-            const trace4 = {
-                x: data.dates.slice(0, -30),
-                y: data.arima_predicted.slice(0, -30),
-                type: 'scatter',
-                mode: 'lines',
-                name: 'ARIMA Model Prediction',
-                line: {color: '#d62728'}
-            };
-            const layout = {
-                title: 'COVID-19 Cases: Actual vs Predicted',
-                xaxis: { title: 'Date', rangeslider: {visible: true} },
-                yaxis: { title: 'Number of Cases' },
-                legend: {orientation: 'h', y: -0.2}
-            };
-            Plotly.newPlot('historical-chart', [trace1, trace2, trace3, trace4], layout);
-
-            // Create the forecast comparison chart
-            const hybridForecastTrace = {
-                x: data.dates.slice(-30),
-                y: data.future_predicted,
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Hybrid Model
+    
+    function displayErrorMessage(message) {
+        const errorContainer = document.getElementById('error-container');
+        errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+    }
+    
+    function updateMetrics(data) {
+        document.getElementById('hybrid-mae').textContent = data.hybrid_mae.toFixed(2);
+        document.getElementById('hybrid-rmse').textContent = data.hybrid_rmse.toFixed(2);
+        document.getElementById('hybrid-mape').textContent = data.hybrid_mape.toFixed(2) + '%';
+        document.getElementById('prophet-mae').textContent = 'Prophet: ' + data.prophet_mae.toFixed(2);
+        document.getElementById('prophet-rmse').textContent = 'Prophet: ' + data.prophet_rmse.toFixed(2);
+        document.getElementById('prophet-mape').textContent = 'Prophet: ' + data.prophet_mape.toFixed(2) + '%';
+        document.getElementById('arima-mae').textContent = 'ARIMA: ' + data.arima_mae.toFixed(2);
+        document.getElementById('arima-rmse').textContent = 'ARIMA: ' + data.arima_rmse.
