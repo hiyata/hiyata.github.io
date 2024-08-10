@@ -1,7 +1,7 @@
 ---
 layout: page
 title: COVID-19 Case Prediction Model
-excerpt: An advanced COVID-19 case prediction model comparing hybrid deep learning, Prophet, and ARIMA algorithms.
+excerpt: An advanced COVID-19 case prediction model comparing ARIMA and LSTM algorithms.
 permalink: /covid-prediction/
 ---
 
@@ -80,12 +80,9 @@ permalink: /covid-prediction/
 <div class="container">
     <h1>COVID-19 Case Prediction Model</h1>
     <p>
-        This page displays a 30-day forecast of COVID-19 cases, updated daily. Our analysis compares three different models:
-        a hybrid deep learning approach (CNN-LSTM-GRU), Facebook's Prophet model, and the ARIMA model. The graphs below show
-        our predictions against the actual reported cases and compare the performance of all three models.
-    </p>
-    <p>
-        Our models are evaluated using the last 90 days of data to provide more meaningful performance metrics.
+        This page displays a 30-day forecast of COVID-19 cases, updated daily. Our analysis compares two different models:
+        the ARIMA (AutoRegressive Integrated Moving Average) model and the LSTM (Long Short-Term Memory) neural network model. 
+        The graphs below show our predictions against the actual reported cases and compare the performance of both models.
     </p>
 </div>
 
@@ -96,21 +93,18 @@ permalink: /covid-prediction/
     <div class="metrics-grid">
         <div class="metric-card">
             <h3>Mean Absolute Error</h3>
-            <p class="metric-value" id="hybrid-mae">Loading...</p>
-            <p id="prophet-mae">Prophet: Loading...</p>
-            <p id="arima-mae">ARIMA: Loading...</p>
+            <p class="metric-value" id="arima-mae">Loading...</p>
+            <p id="lstm-mae">LSTM: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Root Mean Square Error</h3>
-            <p class="metric-value" id="hybrid-rmse">Loading...</p>
-            <p id="prophet-rmse">Prophet: Loading...</p>
-            <p id="arima-rmse">ARIMA: Loading...</p>
+            <p class="metric-value" id="arima-rmse">Loading...</p>
+            <p id="lstm-rmse">LSTM: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Mean Absolute Percentage Error</h3>
-            <p class="metric-value" id="hybrid-mape">Loading...</p>
-            <p id="prophet-mape">Prophet: Loading...</p>
-            <p id="arima-mape">ARIMA: Loading...</p>
+            <p class="metric-value" id="arima-mape">Loading...</p>
+            <p id="lstm-mape">LSTM: Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Last Updated</h3>
@@ -122,8 +116,8 @@ permalink: /covid-prediction/
 <div class="container">
     <h2>Historical Performance</h2>
     <p>
-        The chart below shows the historical performance of our hybrid model, the Prophet model, and the ARIMA model
-        compared to the actual reported cases for the past 90 days.
+        The chart below shows the historical performance of our ARIMA model and LSTM model
+        compared to the actual reported cases.
     </p>
     <div id="historical-chart" class="chart-container"></div>
     <div class="model-key">
@@ -133,15 +127,11 @@ permalink: /covid-prediction/
         </div>
         <div class="model-key-item">
             <div class="model-key-color" style="background-color: #ff7f0e;"></div>
-            <span>Hybrid Model</span>
+            <span>ARIMA Model</span>
         </div>
         <div class="model-key-item">
             <div class="model-key-color" style="background-color: #2ca02c;"></div>
-            <span>Prophet Model</span>
-        </div>
-        <div class="model-key-item">
-            <div class="model-key-color" style="background-color: #d62728;"></div>
-            <span>ARIMA Model</span>
+            <span>LSTM Model</span>
         </div>
     </div>
 </div>
@@ -149,8 +139,8 @@ permalink: /covid-prediction/
 <div class="container">
     <h2>30-Day Forecast Comparison</h2>
     <p>
-        This chart displays the predicted number of COVID-19 cases for the next 30 days, comparing our hybrid model's
-        forecast with the Prophet model's forecast and the ARIMA model's forecast.
+        This chart displays the predicted number of COVID-19 cases for the next 30 days, comparing our ARIMA model's
+        forecast with the LSTM model's forecast.
     </p>
     <div id="forecast-chart" class="chart-container"></div>
 </div>
@@ -158,25 +148,24 @@ permalink: /covid-prediction/
 <div class="container">
     <h2>Methodology</h2>
     <p>
-        We use three different models for time series forecasting:
+        We use two different models for time series forecasting:
     </p>
     <ol>
-        <li>A hybrid model combining CNN, LSTM, and GRU layers</li>
-        <li>Facebook's Prophet model</li>
         <li>ARIMA (AutoRegressive Integrated Moving Average) model</li>
+        <li>LSTM (Long Short-Term Memory) neural network model</li>
     </ol>
     <p>
-        All models are trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
+        Both models are trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
     </p>
     <ol>
         <li>Daily data collection from various COVID-19 datasets</li>
         <li>Data preprocessing and cleaning</li>
         <li>Model retraining with the latest data</li>
-        <li>30-day forecast generation for all three models</li>
-        <li>Model evaluation using the last 90 days of actual data</li>
+        <li>30-day forecast generation for both models</li>
+        <li>Daily comparison of predictions with actual reported cases</li>
     </ol>
     <p>
-        For more details on our methodology, please visit our <a href="https://github.com/hiyata/covid-19-predictor">GitHub repository</a>.
+        For more details on our methodology, please visit our <a href="https://github.com/yourusername/covid-19-predictor">GitHub repository</a>.
     </p>
 </div>
 
@@ -192,86 +181,79 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        document.getElementById('hybrid-mae').textContent = data.hybrid_mae.toFixed(2);
-        document.getElementById('hybrid-rmse').textContent = data.hybrid_rmse.toFixed(2);
-        document.getElementById('hybrid-mape').textContent = data.hybrid_mape.toFixed(2) + '%';
-        document.getElementById('prophet-mae').textContent = 'Prophet: ' + data.prophet_mae.toFixed(2);
-        document.getElementById('prophet-rmse').textContent = 'Prophet: ' + data.prophet_rmse.toFixed(2);
-        document.getElementById('prophet-mape').textContent = 'Prophet: ' + data.prophet_mape.toFixed(2) + '%';
-        document.getElementById('arima-mae').textContent = 'ARIMA: ' + data.arima_mae.toFixed(2);
-        document.getElementById('arima-rmse').textContent = 'ARIMA: ' + data.arima_rmse.toFixed(2);
-        document.getElementById('arima-mape').textContent = 'ARIMA: ' + data.arima_mape.toFixed(2) + '%';
+        document.getElementById('arima-mae').textContent = data.arima_mae.toFixed(2);
+        document.getElementById('arima-rmse').textContent = data.arima_rmse.toFixed(2);
+document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) + '%';
+        document.getElementById('lstm-mae').textContent = 'LSTM: ' + data.lstm_mae.toFixed(2);
+        document.getElementById('lstm-rmse').textContent = 'LSTM: ' + data.lstm_rmse.toFixed(2);
+        document.getElementById('lstm-mape').textContent = 'LSTM: ' + data.lstm_mape.toFixed(2) + '%';
         document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
     }
     
     function createHistoricalChart(data) {
         const trace1 = {
-            x: data.dates.slice(-120, -30),
-            y: data.actual.slice(-120, -30),
+            x: data.dates.slice(0, -30),
+            y: data.actual.slice(0, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'Actual Cases',
             line: {color: '#1f77b4'}
         };
         const trace2 = {
-            x: data.dates.slice(-120, -30),
-            y: data.predicted.slice(-120, -30),
-            type: 'scatter',
-            mode: 'lines',
-            name: 'Hybrid Model Prediction',
-            line: {color: '#ff7f0e'}
-        };
-        const trace3 = {
-            x: data.dates.slice(-120, -30),
-            y: data.prophet_predicted.slice(-120, -30),
-            type: 'scatter',
-            mode: 'lines',
-            name: 'Prophet Model Prediction',
-            line: {color: '#2ca02c'}
-        };
-        const trace4 = {
-            x: data.dates.slice(-120, -30),
-            y: data.arima_predicted.slice(-120, -30),
+            x: data.dates.slice(0, -30),
+            y: data.arima_predicted.slice(0, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Prediction',
-            line: {color: '#d62728'}
+            line: {color: '#ff7f0e'}
+        };
+        const trace3 = {
+            x: data.dates.slice(0, -30),
+            y: data.lstm_predicted.slice(0, -30),
+            type: 'scatter',
+            mode: 'lines',
+            name: 'LSTM Model Prediction',
+            line: {color: '#2ca02c'}
         };
 
         const layout = {
-            title: 'COVID-19 Cases: Actual vs Predicted (Last 90 Days)',
+            title: 'COVID-19 Cases: Actual vs Predicted',
             xaxis: { title: 'Date', rangeslider: {visible: true} },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
         };
 
-        Plotly.newPlot('historical-chart', [trace1, trace2, trace3, trace4], layout);
+        Plotly.newPlot('historical-chart', [trace1, trace2, trace3], layout);
     }
     
     function createForecastChart(data) {
+        const lastActualDate = data.dates[data.dates.length - 31];
+        const futureDates = data.dates.slice(-30);
+        const actualValues = data.actual.slice(-30);
+
         const trace1 = {
-            x: data.dates.slice(-30),
-            y: data.future_predicted,
-            type: 'scatter',
-            mode: 'lines',
-            name: 'Hybrid Model Forecast',
-            line: {color: '#ff7f0e'}
-        };
-        const trace2 = {
-            x: data.dates.slice(-30),
-            y: data.prophet_future_predicted,
-            type: 'scatter',
-            mode: 'lines',
-            name: 'Prophet Model Forecast',
-            line: {color: '#2ca02c'}
-        };
-        const trace3 = {
-            x: data.dates.slice(-30),
+            x: futureDates,
             y: data.arima_future_predicted,
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Forecast',
-            line: {color: '#d62728'}
+            line: {color: '#ff7f0e'}
+        };
+        const trace2 = {
+            x: futureDates,
+            y: data.lstm_future_predicted,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'LSTM Model Forecast',
+            line: {color: '#2ca02c'}
+        };
+        const trace3 = {
+            x: futureDates.filter((_, i) => actualValues[i] !== null),
+            y: actualValues.filter(v => v !== null),
+            type: 'scatter',
+            mode: 'markers',
+            name: 'Actual Cases',
+            marker: {color: '#1f77b4', size: 8}
         };
 
         const layout = {
