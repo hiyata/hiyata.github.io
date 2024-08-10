@@ -84,6 +84,9 @@ permalink: /covid-prediction/
         a hybrid deep learning approach (CNN-LSTM-GRU), Facebook's Prophet model, and the ARIMA model. The graphs below show
         our predictions against the actual reported cases and compare the performance of all three models.
     </p>
+    <p>
+        Our models are evaluated using the last 90 days of data to provide more meaningful performance metrics.
+    </p>
 </div>
 
 <div id="error-container"></div>
@@ -99,7 +102,7 @@ permalink: /covid-prediction/
         </div>
         <div class="metric-card">
             <h3>Root Mean Square Error</h3>
-<p class="metric-value" id="hybrid-rmse">Loading...</p>
+            <p class="metric-value" id="hybrid-rmse">Loading...</p>
             <p id="prophet-rmse">Prophet: Loading...</p>
             <p id="arima-rmse">ARIMA: Loading...</p>
         </div>
@@ -120,7 +123,7 @@ permalink: /covid-prediction/
     <h2>Historical Performance</h2>
     <p>
         The chart below shows the historical performance of our hybrid model, the Prophet model, and the ARIMA model
-        compared to the actual reported cases.
+        compared to the actual reported cases for the past 90 days.
     </p>
     <div id="historical-chart" class="chart-container"></div>
     <div class="model-key">
@@ -170,7 +173,7 @@ permalink: /covid-prediction/
         <li>Data preprocessing and cleaning</li>
         <li>Model retraining with the latest data</li>
         <li>30-day forecast generation for all three models</li>
-        <li>Daily comparison of predictions with actual reported cases</li>
+        <li>Model evaluation using the last 90 days of actual data</li>
     </ol>
     <p>
         For more details on our methodology, please visit our <a href="https://github.com/hiyata/covid-19-predictor">GitHub repository</a>.
@@ -201,34 +204,34 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
     }
     
-    function createHistoricalChart(data, historicalData) {
+    function createHistoricalChart(data) {
         const trace1 = {
-            x: data.dates.slice(0, -30),
-            y: data.actual.slice(0, -30),
+            x: data.dates.slice(-120, -30),
+            y: data.actual.slice(-120, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'Actual Cases',
             line: {color: '#1f77b4'}
         };
         const trace2 = {
-            x: data.dates.slice(0, -30),
-            y: data.predicted.slice(0, -30),
+            x: data.dates.slice(-120, -30),
+            y: data.predicted.slice(-120, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'Hybrid Model Prediction',
             line: {color: '#ff7f0e'}
         };
         const trace3 = {
-            x: data.dates.slice(0, -30),
-            y: data.prophet_predicted.slice(0, -30),
+            x: data.dates.slice(-120, -30),
+            y: data.prophet_predicted.slice(-120, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'Prophet Model Prediction',
             line: {color: '#2ca02c'}
         };
         const trace4 = {
-            x: data.dates.slice(0, -30),
-            y: data.arima_predicted.slice(0, -30),
+            x: data.dates.slice(-120, -30),
+            y: data.arima_predicted.slice(-120, -30),
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Prediction',
@@ -236,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const layout = {
-            title: 'COVID-19 Cases: Actual vs Predicted',
+            title: 'COVID-19 Cases: Actual vs Predicted (Last 90 Days)',
             xaxis: { title: 'Date', rangeslider: {visible: true} },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
@@ -245,11 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Plotly.newPlot('historical-chart', [trace1, trace2, trace3, trace4], layout);
     }
     
-    function createForecastChart(data, historicalData) {
-        const lastActualDate = data.dates[data.dates.length - 31];
-        const actualDates = Object.keys(historicalData).filter(date => date > lastActualDate);
-        const actualValues = actualDates.map(date => data.actual[data.dates.indexOf(date)]);
-
+    function createForecastChart(data) {
         const trace1 = {
             x: data.dates.slice(-30),
             y: data.future_predicted,
@@ -274,14 +273,6 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'ARIMA Model Forecast',
             line: {color: '#d62728'}
         };
-        const trace4 = {
-            x: actualDates,
-            y: actualValues,
-            type: 'scatter',
-            mode: 'markers',
-            name: 'Actual Cases',
-            marker: {color: '#1f77b4', size: 8}
-        };
 
         const layout = {
             title: '30-Day COVID-19 Case Forecast',
@@ -290,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
             legend: {orientation: 'h', y: -0.2}
         };
 
-        Plotly.newPlot('forecast-chart', [trace1, trace2, trace3, trace4], layout);
+        Plotly.newPlot('forecast-chart', [trace1, trace2, trace3], layout);
     }
 
     // Fetch the latest prediction data
@@ -305,20 +296,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Prediction data received:', data);
             updateMetrics(data);
-
-            // Fetch historical data
-            return fetch('/assets/covid-19-files/historical_predictions.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(historicalData => {
-                    console.log('Historical data received:', historicalData);
-                    createHistoricalChart(data, historicalData);
-                    createForecastChart(data, historicalData);
-                });
+            createHistoricalChart(data);
+            createForecastChart(data);
         })
         .catch(error => {
             console.error('Error:', error);
