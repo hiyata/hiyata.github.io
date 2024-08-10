@@ -1,89 +1,178 @@
 ---
 layout: page
 title: COVID-19 Case Prediction Model
-excerpt: This is a brief summary of the project.
+excerpt: An advanced COVID-19 case prediction model comparing hybrid deep learning, Prophet, and ARIMA algorithms.
 permalink: /covid-prediction/
+category: virology
 ---
 
-# COVID-19 Case Prediction Model
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    h1, h2 {
+        color: #2c3e50;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .metric-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+    }
+    .metric-card h3 {
+        margin-top: 0;
+        color: #34495e;
+    }
+    .metric-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2980b9;
+    }
+    .chart-container {
+        height: 500px;
+        margin-top: 20px;
+    }
+    .model-key {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .model-key-item {
+        margin: 0 10px;
+        display: flex;
+        align-items: center;
+    }
+    .model-key-color {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+    }
+</style>
 
-This page displays a 30-day forecast of COVID-19 cases, updated daily. Our model is trained on historical data and makes predictions for the next month. The graph below shows our predictions against the actual reported cases.
+<div class="container">
+    <h1>COVID-19 Case Prediction Model</h1>
+    <p>
+        This page displays a 30-day forecast of COVID-19 cases, updated daily. Our analysis compares three different models:
+        a hybrid deep learning approach (CNN-LSTM-GRU), Facebook's Prophet model, and the ARIMA model. The graphs below show
+        our predictions against the actual reported cases and compare the performance of all three models.
+    </p>
+</div>
 
-<div id="prediction-chart" style="height: 500px;"></div>
-
-## Model Performance
-
-<div id="performance-metrics" class="metrics-container">
-    <div class="metric-card">
-        <h3>Mean Absolute Error</h3>
-        <p id="mae" class="metric-value">N/A</p>
-    </div>
-    <div class="metric-card">
-        <h3>Root Mean Square Error</h3>
-        <p id="rmse" class="metric-value">N/A</p>
-    </div>
-    <div class="metric-card">
-        <h3>Mean Absolute Percentage Error</h3>
-        <p id="mape" class="metric-value">N/A</p>
-    </div>
-    <div class="metric-card">
-        <h3>Last Updated</h3>
-        <p id="last-updated" class="metric-value">N/A</p>
+<div class="container">
+    <h2>Model Performance</h2>
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h3>Mean Absolute Error</h3>
+            <p class="metric-value" id="hybrid-mae">N/A</p>
+            <p id="prophet-mae">Prophet: N/A</p>
+            <p id="arima-mae">ARIMA: N/A</p>
+        </div>
+        <div class="metric-card">
+            <h3>Root Mean Square Error</h3>
+            <p class="metric-value" id="hybrid-rmse">N/A</p>
+            <p id="prophet-rmse">Prophet: N/A</p>
+            <p id="arima-rmse">ARIMA: N/A</p>
+        </div>
+        <div class="metric-card">
+            <h3>Mean Absolute Percentage Error</h3>
+            <p class="metric-value" id="hybrid-mape">N/A</p>
+            <p id="prophet-mape">Prophet: N/A</p>
+            <p id="arima-mape">ARIMA: N/A</p>
+        </div>
+        <div class="metric-card">
+            <h3>Last Updated</h3>
+            <p class="metric-value" id="last-updated">N/A</p>
+        </div>
     </div>
 </div>
 
-## 30-Day Forecast
+<div class="container">
+    <h2>Historical Performance</h2>
+    <p>
+        The chart below shows the historical performance of our hybrid model, the Prophet model, and the ARIMA model
+        compared to the actual reported cases.
+    </p>
+    <div id="historical-chart" class="chart-container"></div>
+    <div class="model-key">
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #1f77b4;"></div>
+            <span>Actual Cases</span>
+        </div>
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #ff7f0e;"></div>
+            <span>Hybrid Model</span>
+        </div>
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #2ca02c;"></div>
+            <span>Prophet Model</span>
+        </div>
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #d62728;"></div>
+            <span>ARIMA Model</span>
+        </div>
+    </div>
+</div>
 
-The chart below shows the predicted number of COVID-19 cases for the next 30 days.
+<div class="container">
+    <h2>30-Day Forecast Comparison</h2>
+    <p>
+        This chart displays the predicted number of COVID-19 cases for the next 30 days, comparing our hybrid model's
+        forecast with the Prophet model's forecast and the ARIMA model's forecast.
+    </p>
+    <div id="forecast-chart" class="chart-container"></div>
+</div>
 
-<div id="forecast-chart" style="height: 500px; margin-top: 20px;"></div>
-
-## Methodology
-
-We use a hybrid model combining LSTM, GRU, and CNN layers for time series forecasting. The model is trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
-
-1. Daily data collection from various COVID-19 datasets
-2. Model retraining with the latest 6 months of data
-3. 30-day forecast generation
-4. Daily comparison of predictions with actual reported cases
-
-For more details on our methodology, please visit our [GitHub repository](https://github.com/hiyata/covid-19-predictor).
+<div class="container">
+    <h2>Methodology</h2>
+    <p>
+        We use three different models for time series forecasting:
+    </p>
+    <ol>
+        <li>A hybrid model combining CNN, LSTM, and GRU layers</li>
+        <li>Facebook's Prophet model</li>
+        <li>ARIMA (AutoRegressive Integrated Moving Average) model</li>
+    </ol>
+    <p>
+        All models are trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
+    </p>
+    <ol>
+        <li>Daily data collection from various COVID-19 datasets</li>
+        <li>Data preprocessing and cleaning</li>
+        <li>Model retraining with the latest data</li>
+        <li>30-day forecast generation for all three models</li>
+        <li>Daily comparison of predictions with actual reported cases</li>
+    </ol>
+    <p>
+        For more details on our methodology, please visit our <a href="https://github.com/hiyata/covid-19-predictor">GitHub repository</a>.
+    </p>
+</div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
-<style>
-.metrics-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.metric-card {
-    background: linear-gradient(145deg, #f3f4f6, #ffffff);
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px #d1d9e6, -5px -5px 15px #ffffff;
-    padding: 20px;
-    width: 200px;
-    margin: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-.metric-card:hover {
-    transform: translateY(-5px);
-}
-.metric-value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #4a5568;
-    margin-top: 10px;
-}
-</style>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM content loaded');
+    // Fetch the latest prediction data
     fetch('/assets/covid-19-files/covid_predictions.json')
         .then(response => {
             console.log('Response status:', response.status);
@@ -98,101 +187,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Data is missing required fields or they are not arrays');
             }
             
-            // Create the prediction chart
+            // Create the historical performance chart
             const trace1 = {
-                x: data.dates,
-                y: data.actual,
+                x: data.dates.slice(0, -30),
+                y: data.actual.slice(0, -30),
                 type: 'scatter',
                 mode: 'lines',
                 name: 'Actual Cases',
-                line: {color: '#3182CE'}
+                line: {color: '#1f77b4'}
             };
             const trace2 = {
-                x: data.dates,
-                y: data.predicted,
+                x: data.dates.slice(0, -30),
+                y: data.predicted.slice(0, -30),
                 type: 'scatter',
                 mode: 'lines',
-                name: 'Predicted Cases',
-                line: {color: '#E53E3E'}
+                name: 'Hybrid Model Prediction',
+                line: {color: '#ff7f0e'}
+            };
+            const trace3 = {
+                x: data.dates.slice(0, -30),
+                y: data.prophet_predicted.slice(0, -30),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Prophet Model Prediction',
+                line: {color: '#2ca02c'}
+            };
+            const trace4 = {
+                x: data.dates.slice(0, -30),
+                y: data.arima_predicted.slice(0, -30),
+                type: 'scatter',
+                mode: 'lines',
+                name: 'ARIMA Model Prediction',
+                line: {color: '#d62728'}
             };
             const layout = {
                 title: 'COVID-19 Cases: Actual vs Predicted',
                 xaxis: { title: 'Date', rangeslider: {visible: true} },
                 yaxis: { title: 'Number of Cases' },
-                plot_bgcolor: '#F7FAFC',
-                paper_bgcolor: '#F7FAFC',
-                hovermode: 'closest'
+                legend: {orientation: 'h', y: -0.2}
             };
-            Plotly.newPlot('prediction-chart', [trace1, trace2], layout);
+            Plotly.newPlot('historical-chart', [trace1, trace2, trace3, trace4], layout);
 
-            // Animate the lines
-            anime({
-                targets: '#prediction-chart path.js-line',
-                strokeDashoffset: [anime.setDashoffset, 0],
-                easing: 'easeInOutSine',
-                duration: 1500,
-                delay: function(el, i) { return i * 250 },
-                direction: 'alternate',
-                loop: false
-            });
-
-            // Create the forecast chart
-            const forecastTrace = {
-                x: data.future_dates,
+            // Create the forecast comparison chart
+            const hybridForecastTrace = {
+                x: data.dates.slice(-30),
                 y: data.future_predicted,
                 type: 'scatter',
                 mode: 'lines',
-                name: '30-Day Forecast',
-                line: {color: '#38A169'}
-            };
-            const forecastLayout = {
-                title: '30-Day COVID-19 Case Forecast',
-                xaxis: { title: 'Date' },
-                yaxis: { title: 'Number of Cases' },
-                plot_bgcolor: '#F7FAFC',
-                paper_bgcolor: '#F7FAFC',
-                hovermode: 'closest'
-            };
-            Plotly.newPlot('forecast-chart', [forecastTrace], forecastLayout);
-
-            // Animate the forecast line
-            anime({
-                targets: '#forecast-chart path.js-line',
-                strokeDashoffset: [anime.setDashoffset, 0],
-                easing: 'easeInOutSine',
-                duration: 1500,
-                delay: 1000,
-                direction: 'alternate',
-                loop: false
-            });
-
-            // Update performance metrics with animation
-            const metrics = ['mae', 'rmse', 'mape', 'last-updated'];
-            metrics.forEach(metric => {
-                let el = document.getElementById(metric);
-                let value = data[metric];
-                if (metric === 'mape' && isFinite(value)) {
-                    value = value.toFixed(2) + '%';
-                } else if (metric === 'last-updated') {
-                    value = dayjs(value).format('MMMM D, YYYY');
-                } else if (typeof value === 'number') {
-                    value = value.toFixed(2);
-                }
-                el.innerText = '0';
-                anime({
-                    targets: el,
-                    innerHTML: [0, value],
-                    round: 1,
-                    easing: 'easeInOutExpo',
-                    duration: 2000
-                });
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching or processing data:', error);
-            document.getElementById('prediction-chart').innerHTML = 'Error loading chart data: ' + error.message;
-            document.getElementById('performance-metrics').innerHTML = 'Error loading performance metrics: ' + error.message;
-            document.getElementById('forecast-chart').innerHTML = 'Error loading forecast data: ' + error.message;
-        });
-});
-</script>
+                name: 'Hybrid Model

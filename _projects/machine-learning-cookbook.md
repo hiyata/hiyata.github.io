@@ -2,6 +2,7 @@
 layout: default
 excerpt: An extensive guide on applying machine learning to epidemiology and viral genomics.
 title:  Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
+category: ai
 ---
 
 <html lang="en">

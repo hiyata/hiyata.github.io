@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Projects
+title: Research Projects
 permalink: /projects/
 ---
 
 <div class="projects-container">
-  <h1 class="projects-title">My Research Projects</h1>
+  <h1 class="projects-title">Exploring the Frontiers of AI and Virology</h1>
   
   <div class="project-filter">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="ai">AI & ML</button>
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="ai">AI & Machine Learning</button>
     <button class="filter-btn" data-filter="virology">Virology</button>
     <button class="filter-btn" data-filter="genomics">Genomics</button>
   </div>
@@ -17,22 +17,13 @@ permalink: /projects/
   <div class="projects-grid">
     {% for project in site.projects %}
       <div class="project-card" data-category="{{ project.category }}">
-        <div class="project-content">
-          <h2 class="project-title">{{ project.title }}</h2>
-          <p class="project-excerpt">{{ project.excerpt | strip_html | truncate: 100 }}</p>
-          <a href="{{ project.url | relative_url }}" class="read-more">Read More</a>
-        </div>
-        <div class="project-image" style="background-image: url('{{ project.image | relative_url }}')"></div>
+        <div class="project-category">{{ project.category | capitalize }}</div>
+        <h2 class="project-title">{{ project.title }}</h2>
+        <p class="project-excerpt">{{ project.excerpt | strip_html | truncate: 100 }}</p>
+        <a href="{{ project.url | relative_url }}" class="read-more">Explore Project</a>
       </div>
     {% endfor %}
   </div>
-</div>
-
-<div class="dna-animation">
-  <svg width="100%" height="200" viewBox="0 0 1000 200">
-    <path id="dna-path" d="M0,100 Q250,0 500,100 T1000,100" fill="none" stroke="#3498db" stroke-width="2"/>
-    <g id="dna-group"></g>
-  </svg>
 </div>
 
 <style>
@@ -40,29 +31,33 @@ permalink: /projects/
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    background-color: #f9f9f9;
   }
 
   .projects-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     color: #2c3e50;
   }
 
   .project-filter {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .filter-btn {
     background-color: #ecf0f1;
     border: none;
     padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
+    margin: 0.25rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     border-radius: 20px;
+    font-weight: bold;
+    color: #34495e;
   }
 
   .filter-btn.active, .filter-btn:hover {
@@ -72,31 +67,38 @@ permalink: /projects/
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
   }
 
   .project-card {
     background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
-  .project-content {
-    padding: 1.5rem;
+  .project-category {
+    align-self: flex-start;
+    background-color: #3498db;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .project-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
     color: #2c3e50;
   }
 
@@ -104,6 +106,7 @@ permalink: /projects/
     font-size: 0.9rem;
     color: #7f8c8d;
     margin-bottom: 1rem;
+    flex-grow: 1;
   }
 
   .read-more {
@@ -113,21 +116,20 @@ permalink: /projects/
     color: white;
     text-decoration: none;
     border-radius: 20px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9rem;
   }
 
   .read-more:hover {
     background-color: #2980b9;
   }
 
-  .project-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .dna-animation {
-    margin-top: 3rem;
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
   }
 </style>
 
@@ -147,54 +149,32 @@ permalink: /projects/
 
         projectCards.forEach(card => {
           if (filter === 'all' || card.dataset.category === filter) {
-            card.style.display = 'block';
+            card.style.display = 'flex';
           } else {
             card.style.display = 'none';
           }
         });
+
+        // Animate the filtered cards
+        anime({
+          targets: '.project-card[style="display: flex"]',
+          opacity: [0, 1],
+          translateY: [20, 0],
+          easing: 'easeOutExpo',
+          duration: 600,
+          delay: anime.stagger(100),
+        });
       });
     });
 
-    // DNA Animation
-    const dnaGroup = document.getElementById('dna-group');
-    const dnaPath = document.getElementById('dna-path');
-    const pathLength = dnaPath.getTotalLength();
-
-    for (let i = 0; i < 20; i++) {
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('r', '4');
-      circle.setAttribute('fill', i % 2 === 0 ? '#e74c3c' : '#2ecc71');
-      dnaGroup.appendChild(circle);
-    }
-
-    anime({
-      targets: '#dna-group circle',
-      translateX: (el, i) => {
-        const progress = (i / 19) * pathLength;
-        const point = dnaPath.getPointAtLength(progress);
-        return point.x;
-      },
-      translateY: (el, i) => {
-        const progress = (i / 19) * pathLength;
-        const point = dnaPath.getPointAtLength(progress);
-        return point.y;
-      },
-      scale: (el, i) => anime.random(0.5, 1),
-      easing: 'easeInOutSine',
-      duration: 4000,
-      loop: true,
-      direction: 'alternate',
-      delay: (el, i) => i * 100,
-    });
-
-    // Project card animation
+    // Initial animation for project cards
     anime({
       targets: '.project-card',
       opacity: [0, 1],
-      translateY: [50, 0],
+      translateY: [20, 0],
       easing: 'easeOutExpo',
-      duration: 1000,
-      delay: anime.stagger(200),
+      duration: 800,
+      delay: anime.stagger(100),
     });
   });
 </script>

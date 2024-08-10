@@ -1,5 +1,6 @@
 ---
 layout: default
+category: virology
 excerpt: This is a brief summary of the project.
 title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
 ---
@@ -61,6 +62,15 @@ This average variability determines the number of mutations to apply to the ance
 Additionally, recombination events are simulated by mixing segments from different sequences at random breakpoints, further increasing genetic diversity.  The final synthetic sequences are saved to FASTA and TSV files. Future versions will integrate generative models to further improve biological relevance of the new sequences. 
 
 <div id="neuralNetwork" style="width: 100%; height: 400px; position: relative;"></div>
+
+## Generating Artificial HCMV Genomes
+
+
+
+
+## Towards Neural Network Integration and a Multi-Agent System
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
