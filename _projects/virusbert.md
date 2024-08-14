@@ -1,6 +1,6 @@
 ---
 layout: default
-excerpt: This is a brief summary of the project.
+excerpt: A 110-million BERT model designed to detect and classify viral genomes.
 title: VIRUSBERT
 category: genomics
 ---

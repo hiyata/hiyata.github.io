@@ -3,53 +3,57 @@ layout: default
 title: Welcome
 ---
 
+<!-- External CSS and JS Files -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 <script src="{{ '/assets/js/custom.js' | relative_url }}"></script>
+
 <div id="loading-overlay">
   <div class="spinner"></div>
 </div>
 
 <div id="content" style="display: none;">
-  <div class="hero-section" id="home">
-    <div class="hero-content">
+  <!-- Centerpiece Section -->
+  <div class="centerpiece-section" id="home">
+    <div class="centerpiece-content">
+      <div class="pdb-wrapper">
+        <div id="pdb-container"></div>
+      </div>
       <h1 class="main-title">Hiyata's Technical Journal</h1>
-      <div id="typing-container"></div>
+      <div id="typing-container" class="typing-effect"></div>
     </div>
     <div class="scroll-indicator">
-      <div class="mouse"></div>
+      <i class="fas fa-chevron-down"></i>
     </div>
   </div>
 
+  <!-- About Section -->
   <section class="about-section" id="about">
     <div class="container">
       <h2>Exploring the Intersection of AI and Virology</h2>
-      <p>Thanks for visiting my page! Here I talk about my current projects and new ideas. I also write about the problems and things I've learned in research. My research interests lie in the intersection of artificial intelligence and virology. I am specifically focused on epidemiology, artificial genome design, artificial life, and virus-host networks.</p>
+      <p>Welcome to my technical journal, where I delve into the latest projects and ideas at the intersection of AI and virology. Here, I share my research insights, lessons learned, and the challenges encountered along the way.</p>
       <div class="expertise-areas">
         <div class="expertise-item">
+          <i class="fas fa-brain"></i>
           <h3>Machine Learning</h3>
-          <p>Applying advanced algorithms to uncover patterns in viral data.</p>
+          <p>Leveraging advanced algorithms to uncover patterns in viral data.</p>
         </div>
         <div class="expertise-item">
+          <i class="fas fa-dna"></i>
           <h3>Viral Genomics</h3>
           <p>Decoding the genetic blueprint of viruses to understand their behavior.</p>
         </div>
         <div class="expertise-item">
+          <i class="fas fa-virus"></i>
           <h3>Epidemiology</h3>
-          <p>Studying the spread and control of viral diseases in populations.</p>
+          <p>Analyzing the spread and control of viral diseases in populations.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="visualization-section" id="visualization">
-    <div class="container">
-      <h2>Visualizing Viral Structures</h2>
-      <div class="pdb-wrapper">
-        <div id="pdb-container"></div>
-      </div>
-      <p class="pdb-caption">Artificial Hepatitis B DNA Polymerase</p>
-    </div>
-  </section>
-
+  <!-- Projects Section -->
   <section class="projects-section" id="projects">
     <div class="container">
       <h2>Recent Projects</h2>
@@ -64,10 +68,13 @@ title: Welcome
           </div>
         {% endfor %}
       </div>
+      <div class="contact-buttons">
       <a href="{{ '/projects' | relative_url }}" class="btn">Explore All Projects</a>
+      </div>
     </div>
   </section>
 
+  <!-- Blog Section -->
   <section class="blog-section" id="blog">
     <div class="container">
       <h2>Latest Insights</h2>
@@ -79,15 +86,18 @@ title: Welcome
             <span class="post-date">{{ post.date | date_to_string }}</span>
           </div>
         {% endfor %}
-      </div>
+      </div> 
+      <div class="contact-buttons">
       <a href="{{ '/blog' | relative_url }}" class="btn">Read More Insights</a>
+      </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section class="contact-section" id="contact">
     <div class="container">
       <h2>Let's Connect</h2>
-      <p>Interested in collaboration or have questions about my research? I'd love to hear from you!</p>
+      <p>Interested in collaborating or have questions about my research? Feel free to reach out!</p>
       <div class="contact-buttons">
         <a href="mailto:ga5808@wayne.edu" class="btn">Email Me</a>
         <a href="https://www.linkedin.com/in/yourprofile" class="btn">Connect on LinkedIn</a>
@@ -96,15 +106,17 @@ title: Welcome
   </section>
 </div>
 
+<!-- Styles -->
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
   :root {
-    --primary-color: #0078d7;
+    --primary-color: #004dff;
     --secondary-color: #00a2ff;
-    --text-color: #333;
-    --background-color: #f9f9f9;
-    --section-padding: 80px 0;
+    --accent-color: #ff4d4d;
+    --text-color: #2c2c2c;
+    --background-color: #ffffff;
+    --section-padding: 40px 0;
+    --font-family: 'Roboto', sans-serif;
+    --max-width: 1100px;
   }
 
   * {
@@ -114,13 +126,13 @@ title: Welcome
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-family);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
   }
 
   #loading-overlay {
@@ -137,8 +149,8 @@ title: Welcome
   }
 
   .spinner {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 3px solid var(--primary-color);
     border-top: 3px solid var(--secondary-color);
     border-radius: 50%;
@@ -151,108 +163,40 @@ title: Welcome
   }
 
   .container {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px;
   }
 
   h1, h2, h3 {
-    margin-bottom: 20px;
-  }
-
-  .hero-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-  }
-
-  .hero-content {
-    max-width: 800px;
-  }
-
-  .main-title {
-    font-size: 3.5em;
     font-weight: 700;
     margin-bottom: 20px;
   }
 
-  #typing-container {
-    font-size: 1.8em;
-    height: 1.5em;
-    font-weight: 300;
-  }
-
-  .scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .mouse {
-    width: 30px;
-    height: 50px;
-    border: 2px solid white;
-    border-radius: 20px;
-    position: relative;
-  }
-
-  .mouse::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background-color: white;
-    border-radius: 50%;
-    animation: scroll 1.5s infinite;
-  }
-
-  @keyframes scroll {
-    0% { transform: translate(-50%, 0); opacity: 0; }
-    40% { opacity: 1; }
-    80% { transform: translate(-50%, 20px); opacity: 0; }
-    100% { opacity: 0; }
-  }
-
-  section {
-    padding: var(--section-padding);
-  }
-
-  .about-section, .projects-section, .blog-section {
-    background-color: white;
-  }
-
-  .visualization-section, .contact-section {
-    background-color: var(--background-color);
-  }
-
-  .expertise-areas {
+  .centerpiece-section {
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--background-color);
+    padding: 0;
+    position: relative;
+    flex-direction: column;
   }
 
-  .expertise-item {
-    flex: 1;
-  }
-
-  .expertise-item h3 {
-    color: var(--primary-color);
+  .centerpiece-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
   }
 
   .pdb-wrapper {
-    width: 100%;
+    width: 500px;
     height: 500px;
-    margin: 40px 0;
+    margin-bottom: 20px;
     position: relative;
   }
 
@@ -264,80 +208,141 @@ title: Welcome
     left: 0;
   }
 
-  .pdb-caption {
+  .main-title {
+    font-size: 2.8em;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+
+  #typing-container {
+    font-size: 1.4em;
+    height: 1.5em;
+    font-weight: 400;
+    color: var(--text-color);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: var(--primary-color);
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-15px); }
+    60% { transform: translateX(-50%) translateY(-7px); }
+  }
+
+  section {
+    padding: var(--section-padding);
+  }
+
+  .about-section {
+    background-color: var(--background-color);
     text-align: center;
-    font-style: italic;
-    margin-top: 20px;
+    padding-top: 0;
+  }
+
+  .expertise-areas {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .expertise-item {
+    text-align: center;
+    max-width: 300px;
+  }
+
+  .expertise-item i {
+    font-size: 2.2em;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+  }
+
+  .expertise-item h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin-bottom: 8px;
+  }
+
+  .projects-section, .blog-section {
+    background-color: var(--background-color);
+    text-align: center;
   }
 
   .projects-list, .blog-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
   }
 
   .project-item, .blog-item {
     background-color: var(--background-color);
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .project-item:hover, .blog-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
   }
 
   .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 30px;
-    font-weight: 600;
+    font-weight: 500;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
   }
 
   .btn:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     transform: translateY(-2px);
   }
 
   .contact-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 15px;
+    margin-top: 20px;
   }
 
-  /* Mobile Styles */
   @media (max-width: 768px) {
     .main-title {
-      font-size: 2.5em;
+      font-size: 2.2em;
     }
 
     #typing-container {
-      font-size: 1.4em;
+      font-size: 1.1em;
+    }
+
+    .pdb-wrapper {
+      width: 300px;
+      height: 300px;
     }
 
     .expertise-areas {
       flex-direction: column;
+      gap: 20px;
     }
 
     .projects-list, .blog-list {
       grid-template-columns: 1fr;
-    }
-
-    .pdb-wrapper {
-      height: 300px;
-    }
-
-    .contact-buttons {
-      flex-direction: column;
-      align-items: center;
     }
 
     .btn {
@@ -346,123 +351,158 @@ title: Welcome
     }
   }
 
-  /* Tablet Styles */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .projects-list, .blog-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  /* Navigation bar visibility on mouse movement */
+  #nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
   }
+
+  body.show-nav #nav {
+    transform: translateY(0);
+  }
+
 </style>
 
+<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 
 <script>
-// Ensure the page is hidden until fully loaded
-document.body.style.visibility = 'hidden';
-document.body.style.opacity = '0';
+  // Ensure the page is hidden until fully loaded
+  document.body.style.visibility = 'hidden';
+  document.body.style.opacity = '0';
 
-window.addEventListener('load', function() {
-  // Hide loading overlay
-  document.getElementById('loading-overlay').style.display = 'none';
-  
-  // Show content
-  document.getElementById('content').style.display = 'block';
-  
-  // Make body visible
-  document.body.style.visibility = 'visible';
-  document.body.style.opacity = '1';
+  window.addEventListener('load', function() {
+    // Hide loading overlay
+    document.getElementById('loading-overlay').style.display = 'none';
 
-  // Typing animation
-  const typingContainer = document.getElementById('typing-container');
-  const texts = [
-    "Designing Genomes with Artificial Intelligence",
-    "Applying Machine Learning Models to Virus Predictions",
-    "Simulating Life and Evolution"
-  ];
-  let textIndex = 0;
-  let charIndex = 0;
+    // Show content
+    document.getElementById('content').style.display = 'block';
 
-  function type() {
-    if (charIndex < texts[textIndex].length) {
-      typingContainer.innerHTML += texts[textIndex].charAt(charIndex);
-      charIndex++;
-      setTimeout(type, 100);
-    } else {
-      setTimeout(erase, 2000);
+    // Make body visible
+    document.body.style.visibility = 'visible';
+    document.body.style.opacity = '1';
+
+    // Typing animation
+    const typingContainer = document.getElementById('typing-container');
+    const texts = [
+      "Designing Genomes with Artificial Intelligence",
+      "Applying Machine Learning Models to Virus Predictions",
+      "Simulating Life and Evolution"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex < texts[textIndex].length) {
+        typingContainer.innerHTML += texts[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
     }
-  }
 
-  function erase() {
-    if (charIndex > 0) {
-      typingContainer.innerHTML = texts[textIndex].substring(0, charIndex - 1);
-      charIndex--;
-      setTimeout(erase, 50);
-    } else {
-      textIndex = (textIndex + 1) % texts.length;
-      setTimeout(type, 1000);
+    function erase() {
+      if (charIndex > 0) {
+        typingContainer.innerHTML = texts[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, 1000);
+      }
     }
-  }
 
-  setTimeout(type, 1000);
+    setTimeout(type, 1000);
 
-  // PDB Viewer
-  let element = $('#pdb-container');
-  let config = { backgroundColor: 'transparent' };
-  let viewer = $3Dmol.createViewer(element, config);
-  
-  $.get('assets/pdb_files/artificial_hepB_ORF1.pdb', function(data) {
-    viewer.addModel(data, "pdb");
-    viewer.setStyle({}, {stick: {colorscheme:'spectral'}});
-    viewer.zoomTo();
-    viewer.render();
-    viewer.spin(true);
-  });
+    // PDB Viewer (Non-interactive, Rotating Ribbon Model)
+    let element = $('#pdb-container');
+    let config = { backgroundColor: 'white', spin: true, spinSpeed: 1 };
+    let viewer = $3Dmol.createViewer(element, config);
 
-  // Smooth scrolling
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+    $.get('assets/pdb_files/artificial_hepB_ORF1.pdb', function(data) {
+      viewer.addModel(data, "pdb");
+      viewer.setStyle({}, { cartoon: { color: 'spectrum' } });
+      viewer.zoomTo();
+      viewer.render();
+      viewer.spin(true);
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
+    });
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.main-title', {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      ease: 'power3.out'
+    });
+
+    gsap.from('.expertise-item', {
+      scrollTrigger: {
+        trigger: '.expertise-areas',
+        start: 'top 80%'
+      },
+      duration: 0.8,
+      y: 50,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out'
+    });
+
+    gsap.from('.project-item, .blog-item', {
+      scrollTrigger: {
+        trigger: '.projects-section',
+        start: 'top 80%'
+      },
+      duration: 0.8,
+      y: 50,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out'
     });
   });
 
-  // GSAP Animations
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.from('.main-title', {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: 'power3.out'
+  // Show navigation bar only when cursor moves up
+  let lastScrollTop = 0;
+  const nav = document.getElementById('nav');
+  document.addEventListener('mousemove', function(e) {
+    if (e.clientY < 100) {
+      document.body.classList.add('show-nav');
+    } else {
+      document.body.classList.remove('show-nav');
+    }
   });
 
-  gsap.from('.expertise-item', {
-    scrollTrigger: {
-      trigger: '.expertise-areas',
-      start: 'top 80%'
-    },
-    duration: 0.8,
-    y: 50,
-    opacity: 0,
-    stagger: 0.2,
-    ease: 'power3.out'
-  });
-
-  gsap.from('.project-item, .blog-item', {
-    scrollTrigger: {
-      trigger: '.projects-section',
-      start: 'top 80%'
-    },
-    duration: 0.8,
-    y: 50,
-    opacity: 0,
-    stagger: 0.2,
-    ease: 'power3.out'
-  });
-});
+  window.addEventListener('scroll', function() {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+      // Downscroll
+      document.body.classList.remove('show-nav');
+    } else {
+      // Upscroll
+      document.body.classList.add('show-nav');
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
 </script>

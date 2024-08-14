@@ -3,13 +3,14 @@ layout: default
 excerpt: A dive into protein predictions and conformational changes in the cellular transport protein Rab3a.
 title: From Dungeons and Dragons to Proteins and Predictions
 category: ai
+presented_at: WSUSOM Biochemistry, Molecular Biology, and Immunology Departmental Retreat 2023
 ---
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From Dungeons and Dragons to Proteins and Predictions: An Epic Scientific Quest</title>
+    <title>From Dungeons and Dragons to Proteins and Predictions</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
@@ -238,8 +239,8 @@ category: ai
     </div>
 
 <div class="section">
-        <h2>The Epic Battle: Full MSA vs Subsampled MSA</h2>
-        <p>The choice between Full MSA and Subsampled MSA depends on various factors, much like choosing between different weapons or spells in a D&D campaign:</p>
+        <h2>Right Tool for the Job: Full MSA vs Subsampled MSA</h2>
+        <p>Tools are the lifeblood of adventurers.  :</p>
         <ul>
             <li><strong>Computational Resources:</strong> Full MSA is like casting a high-level spell that requires a lot of mana (computational power). Subsampled MSA is a lower-level spell that can be cast more quickly and frequently.</li>
             <li><strong>Time Constraints:</strong> In a fast-paced battle (or research project with tight deadlines), the quicker Subsampled MSA might be preferable.</li>

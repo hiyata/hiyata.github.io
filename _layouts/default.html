@@ -5,18 +5,43 @@
   {%- include head-custom.html -%}
 
   <body>
-
+    {% if page.custom_js %}
+    <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"></script>
+    {% endif %}
     {%- include header.html -%}
-
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
-
-    {%- include footer.html -%}
+    {%- include footer.html -%}  
     {%- include body-end-custom.html -%}
-
+    <script>
+      function adjustLayout() {
+        var windowWidth = window.innerWidth;
+        var wrapper = document.querySelector('.wrapper');
+        
+        if (windowWidth < 768) {
+          wrapper.style.width = '95%';
+        } else if (windowWidth < 1200) {
+          wrapper.style.width = '90%';
+        } else if (windowWidth < 1600) {
+          wrapper.style.width = '85%';
+        } else {
+          wrapper.style.width = '80%';
+        }
+      }
+    
+      // Run on page load
+      adjustLayout();
+    
+      // Run on window resize
+      window.addEventListener('resize', adjustLayout);
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
   </body>
 
 </html>

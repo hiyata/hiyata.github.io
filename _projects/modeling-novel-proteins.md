@@ -1,8 +1,9 @@
 ---
 layout: default
-excerpt: This is a brief summary of the project.
+excerpt: Structural analysis of mutant Rab3A proteins in recombinant HCMV strains. 
 title: Modeling Novel Proteins of Mutant Human Cytomegalovirus
 category: virology
+presented_at: IHW 2023
 ---
 
 # Modeling Novel Proteins of Mutant Human Cytomegalovirus

@@ -1,8 +1,9 @@
 ---
 layout: default
 category: virology
-excerpt: This is a brief summary of the project.
+excerpt: A system to generate artificial HCMV genomes and simulate evolution to characterize geographical strain diversity. 
 title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
+presented_at: IHW 2024
 ---
 
 <h1 style="text-align: center;">SOMBRA</h1>

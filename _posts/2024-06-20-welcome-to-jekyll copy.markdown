@@ -8,11 +8,17 @@ excerpt: "Can ancient migration patterns explain the geographic diversity of HCM
 
 <h2>Migration Patterns Behind HCMV Diversity</h2>
 
-<p>Viruses are obligate, intracellular parasites and are most known for their role in pathogenesis. Viruses come in many flavors, from DNA to RNA, single-stranded or double-stranded, and circular or linear. They are thought to have been some of the first life-forms to evolve on Earth and drivers of evolution in other forms of life.</p>
+<p>Human betaherpesvirus 5 (HHV-5), also known as human cytomegalovirus (HCMV), is one of the most prevelant and specific viruses we know. Herpesviruses are thought to have co-evolved with their respective hosts across hundreds of millions of years (<a href="https://pubmed.ncbi.nlm.nih.gov/11888691/">1</a>). As a result, herpesviruses are usually well adapted to their specific host and seldom infect organisms outside of their normal host species. HCMV is also one of the most common viruses, with an estimated seroprevelance of up to 80% in adults across the world (<a href="https://doi.org/10.1002/rmv.2034">2</a>). Most seroprevelant adults will never display symptoms of an HCMV infection and remain unaware that the virus has established life-long residency within their cells.</p> 
 
-<p>Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistence is highly specialized viruses tailored to thrive in human hosts without causing pathogenesis.</p>
+<p>Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistence is highly specialized viruses tailored to thrive in human hosts without causing pathogenesis in most people. Many disease-causing pathogens we think of are of zoonotic origin, rather than human originating. Spillover events from viruses tend to be the cause deadly diseases and epidemics. For example, </p>
+
+<p>Recent findings have shown that HCMV strains have distinct geographical features and be clustered by such features. Strains collected from southeast africa form one of the most distinct clusters, clustering around the outer edges of our European strains.<p>
+
+<p>Some 
+
 
 <div id="scatterPlot" class="animate" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>
+
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -302,3 +308,10 @@ document.addEventListener('DOMContentLoaded', loadData);
 <p>test test test</p>
 
 <img src="/assets/images/world_map_of_y-dna_haplogroups.jpg" alt="World Map of Y-DNA Haplogroups">
+
+## References 
+
+1. Davison AJ. Evolution of the herpesviruses. Vet Microbiol. 2002 Apr 22;86(1-2):69-88. doi: 10.1016/s0378-1135(01)00492-8. PMID: 11888691.
+
+2. Zuhair M, Smit GSA, Wallis G, et al. Estimation of the worldwide seroprevalence of cytomegalovirus: A systematic review and meta-analysis. Rev Med Virol. 2019; 29:e2034. https://doi.org/10.1002/rmv.2034
+

@@ -1,6 +1,6 @@
 ---
 layout: default
-excerpt: This is a brief summary of the project.
+excerpt: Giving control of complex artificial life systems to an LLM agent.
 title: ANYA
 category: ai
 ---

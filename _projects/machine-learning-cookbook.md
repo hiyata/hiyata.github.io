@@ -1,239 +1,115 @@
 ---
 layout: default
-excerpt: An extensive guide on applying machine learning to epidemiology and viral genomics.
-title:  Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
+title: Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
 category: ai
+custom_css: machine-learning-cookbook
+custom_js: machine-learning-cookbook
 ---
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-
-        h1, h2, h3, h4, h5 {
-            color: #2c3e50;
-        }
-
-        h1 {
-            font-size: 2.8em;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 2em;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        h3 {
-            font-size: 1.6em;
-            margin-top: 30px;
-        }
-
-        h4 {
-            font-size: 1.4em;
-            margin-top: 20px;
-        }
-
-        h5 {
-            font-size: 1.2em;
-            margin-top: 15px;
-        }
-
-        p {
-            margin-bottom: 20px;
-        }
-
-        ul, ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .highlight {
-            background-color: #f1c40f;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .code-block {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-        }
-
-        .interactive-element {
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #3498db;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #2980b9;
-        }
-
-        #dna-animation {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 30px;
-        }
-
-        .plot {
-            width: 100%;
-            height: 400px;
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+<div class="container">
 <body>
-    <div class="container">
-        <h1>Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics</h1>
+    <h1>Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics</h1>
+    
+    <div id="dna-animation"></div>
+
+    <h2>Introduction</h2>
+    <p>
+        Welcome to my technical journal. Here, I describe and explain machine learning techniques I have learned and how I have used them. I also describe the challenges and difficulties I've come across in my learning journey. The goal of this project is provide an introduction for people interested in diving in to modeling for the first time and to describe the techniques I've learned that can be useful in virology. This is a living document that I will continue to update as I learn more. I will also provide links to relevant papers and explanations for techniques. Please, feel free to contact me with any questions!
+    </p>
+
+    <h2>1. Design Stages</h2>
+    <h3>1.1 Defining the Research Question</h3>
+    <p>
+        I'm going to begin with one of the most difficult parts of the process: defining the question. The first and most crucial step in any machine learning project is to clearly define the research question. In the context of epidemiology and viral genomics, some potential questions that I have been interested in include:
+    </p>
+    <ul>
+        <li>Can we predict future mutations in a specific viral genome based on historical mutation patterns?</li>
+        <li>How can we identify potential zoonotic spillover events before they occur?</li>
+        <li>What are the key factors influencing the spread of a particular virus in urban populations?</li>
+    </ul>
+    <p>
+        A well-defined question sets the scope of the project and guides all subsequent steps. I have found that collaborating with domain experts, such as virologists and epidemiologists, is essential to ensure that the question is both scientifically relevant and answerable with your available data. 
+    </p>
+
+    <h3>1.2 Assessing the Data</h3>
+    <p>
+        Once you have your research question established, it's crucial to assess whether the available data is sufficient to provide meaningful answers. To do this, you need to evaluate the quality, quantity, and relevance of the data. In virology and epidemiology, data may come from various sources:
+    </p>
+    <ul>
+        <li>Genomic sequences</li>
+        <li>Transcriptomic and proteomic datasets</li>
+        <li>Clinical records</li>
+        <li>Epidemiological studies</li>
+        <li>Environmental and demographic data</li>
+    </ul>
+    <p>
+        The data must be comprehensive and representative of the problem space. For example, if you're studying the spread of a respiratory virus in urban areas, you'll need:
+    </p>
+    <ul>
+        <li>High-quality clinical records from multiple cities</li>
+        <li>Detailed epidemiological data on transmission patterns</li>
+        <li>Demographic information about the affected populations</li>
+        <li>Environmental data (e.g., air quality, temperature, humidity)</li>
+    </ul>
+    <p>
+        Collecting high-quality data for ALL of these categories may be difficult or impossible in most cases. In which case, you will need to perform your predictions under constraints. This doesn't necessarily mean that your model will be less accurate, but a lack of certain data in your model should be kept in mind when you explain your model. 
         
-        <div id="dna-animation"></div>
+        For example, if we are lacking demographic information it will be difficult to determine if virus-spread is occuring predominantly certain communities. We could be able to predict the transmission patterns of the virus with high accuracy while missing the key to how it has spread or what communities are most impacted. 
 
-        <h2>Introduction</h2>
-        <p>
-            Welcome to our comprehensive guide on applying machine learning techniques to epidemiological modeling and viral genomics. This cookbook is designed to provide researchers, data scientists, and bioinformaticians with practical insights and hands-on examples for leveraging the power of machine learning in understanding and predicting viral outbreaks, as well as analyzing genomic data.
-        </p>
+        So, if the data is sparse, outdated, or lacks diversity, the findings may be incomplete or skewed, potentially leading to inaccurate predictions and ineffective interventions. A careful amount of thought must go into assessing the importance of your variables and any other variables could contain a factor of "explainability" in your predictions.
+    </p>
 
-        <h2>1. Design Stages</h2>
-        <h3>1.1 Defining the Research Question</h3>
-        <p>
-            The first and most crucial step in any machine learning project is to clearly define the research question. In the context of epidemiology and viral genomics, some potential questions might include:
-        </p>
-        <ul>
-            <li>Can we predict future mutations in a specific viral genome based on historical mutation patterns?</li>
-            <li>How can we identify potential zoonotic spillover events before they occur?</li>
-            <li>What are the key factors influencing the spread of a particular virus in urban populations?</li>
-        </ul>
-        <p>
-            A well-defined question sets the scope of the project and guides all subsequent steps. It's essential to collaborate with domain experts, such as virologists and epidemiologists, to ensure that the question is both scientifically relevant and answerable with the available data and techniques.
-        </p>
+    <h3>1.3 Selecting the Appropriate Model Architecture</h3>
+    <p>
+        Choosing the right model architecture is another crucial factor for the success of your machine learning system. Your selection depends on the nature of the data and the complexity of the research question. It's important to think about what has worked in the past for others, and how you can build on it. A degree of creativity can be highly beneficial at this stage as well. These are some common model architectures and some of their applications in epidemiology and viral genomics:
+    </p>
 
-        <h3>1.2 Assessing Data Sufficiency</h3>
-        <p>
-            Once the research question is established, it's crucial to assess whether the available data is adequate to provide meaningful answers. This involves evaluating the quality, quantity, and relevance of the data. In virology and epidemiology, data may come from various sources:
-        </p>
-        <ul>
-            <li>Genomic sequences</li>
-            <li>Transcriptomic and proteomic datasets</li>
-            <li>Clinical records</li>
-            <li>Epidemiological studies</li>
-            <li>Environmental and demographic data</li>
-        </ul>
-        <p>
-            The data must be comprehensive and representative of the problem space. For example, if you're studying the spread of a respiratory virus in urban areas, you'll need:
-        </p>
-        <ul>
-            <li>High-quality clinical records from multiple cities</li>
-            <li>Detailed epidemiological data on transmission patterns</li>
-            <li>Demographic information about the affected populations</li>
-            <li>Environmental data (e.g., air quality, temperature, humidity)</li>
-        </ul>
-        <p>
-            If the data is sparse, outdated, or lacks diversity, the findings may be incomplete or skewed, potentially leading to inaccurate predictions and ineffective interventions.
-        </p>
+    <table>
+        <tr>
+            <th>Model Architecture</th>
+            <th>Applications</th>
+        </tr>
+        <tr>
+            <td>Recurrent Neural Networks (RNNs)</td>
+            <td>Sequence-based tasks, such as predicting viral genome mutations or analyzing time-series epidemiological data</td>
+        </tr>
+        <tr>
+            <td>Convolutional Neural Networks (CNNs)</td>
+            <td>Image-based tasks, like analyzing medical imaging data or visualizing protein structures</td>
+        </tr>
+        <tr>
+            <td>Transformers</td>
+            <td>Natural language processing tasks and long-range dependencies in genomic sequences</td>
+        </tr>
+        <tr>
+            <td>Random Forests</td>
+            <td>Feature importance analysis in epidemiological studies, prediction of outbreak severity</td>
+        </tr>
+        <tr>
+            <td>Support Vector Machines (SVMs)</td>
+            <td>Classification tasks, such as identifying virus strains or predicting drug resistance</td>
+        </tr>
+    </table>
 
-        <div class="interactive-element">
-            <h4>Interactive Data Assessment Tool</h4>
-            <p>Use this tool to evaluate the sufficiency of your dataset for epidemiological modeling:</p>
-            <div id="data-assessment">
-                <label><input type="checkbox" id="genomic-data"> Genomic sequences available</label><br>
-                <label><input type="checkbox" id="clinical-records"> Comprehensive clinical records</label><br>
-                <label><input type="checkbox" id="epi-studies"> Detailed epidemiological studies</label><br>
-                <label><input type="checkbox" id="demographic-info"> Demographic information</label><br>
-                <label><input type="checkbox" id="environmental-data"> Environmental data</label><br>
-                <button class="button" onclick="assessData()">Assess Data Sufficiency</button>
-            </div>
-            <p id="assessment-result"></p>
-        </div>
+    <p>
+        The chosen architecture should align with the complexity and scale of the data, ensuring it can capture the necessary patterns and relationships. It's often beneficial to experiment with multiple architectures and compare their performance.
+    </p>
 
-        <h3>1.3 Selecting the Appropriate Model Architecture</h3>
-        <p>
-            Choosing the right model architecture is crucial for the success of your machine learning system. The selection depends on the nature of the data and the complexity of the research question. Here are some common model architectures and their applications in epidemiology and viral genomics:
-        </p>
+    <h2>2. Traditional Machine Learning Models</h2>
+    <h3>2.1 Linear and Logistic Regression</h3>
+    <p>
+        Linear and logistic regression models are often the first line of attack for problems where the relationship between the input and output is expected to be linear or when interpretability is crucial. These models are particularly useful in epidemiology for:
+    </p>
+    <ul>
+        <li>Identifying risk factors associated with disease spread</li>
+        <li>Predicting the likelihood of an outbreak based on environmental factors</li>
+        <li>Estimating the effectiveness of intervention strategies</li>
+    </ul>
 
-        <table>
-            <tr>
-                <th>Model Architecture</th>
-                <th>Applications</th>
-            </tr>
-            <tr>
-                <td>Recurrent Neural Networks (RNNs)</td>
-                <td>Sequence-based tasks, such as predicting viral genome mutations or analyzing time-series epidemiological data</td>
-            </tr>
-            <tr>
-                <td>Convolutional Neural Networks (CNNs)</td>
-                <td>Image-based tasks, like analyzing medical imaging data or visualizing protein structures</td>
-            </tr>
-            <tr>
-                <td>Transformers</td>
-                <td>Natural language processing tasks and long-range dependencies in genomic sequences</td>
-            </tr>
-            <tr>
-                <td>Random Forests</td>
-                <td>Feature importance analysis in epidemiological studies, prediction of outbreak severity</td>
-            </tr>
-            <tr>
-                <td>Support Vector Machines (SVMs)</td>
-                <td>Classification tasks, such as identifying virus strains or predicting drug resistance</td>
-            </tr>
-        </table>
+    <div class="code-block">
+        <pre><code>
 
-        <p>
-            The chosen architecture should align with the complexity and scale of the data, ensuring it can capture the necessary patterns and relationships. It's often beneficial to experiment with multiple architectures and compare their performance.
-        </p>
-
-        <h2>2. Traditional Machine Learning Models</h2>
-        <h3>2.1 Linear and Logistic Regression</h3>
-        <p>
-            Linear and logistic regression models are often the first line of attack for problems where the relationship between the input and output is expected to be linear or when interpretability is crucial. These models are particularly useful in epidemiology for:
-        </p>
-        <ul>
-            <li>Identifying risk factors associated with disease spread</li>
-            <li>Predicting the likelihood of an outbreak based on environmental factors</li>
-            <li>Estimating the effectiveness of intervention strategies</li>
-        </ul>
-
-        <div class="code-block">
-            <pre><code>
 import numpy as np
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -258,9 +134,8 @@ log_reg.fit(X_train, y_train)
 y_pred_log = log_reg.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred_log)
 print(f"Logistic Regression Accuracy: {accuracy}")
-            </code></pre>
-        </div>
-
+        </code></pre>
+    </div>
         <h3>2.2 Decision Trees and Ensemble Methods</h3>
         <p>
             Decision trees and ensemble methods like Random Forests and Gradient Boosting Machines (GBMs) are versatile models used for both classification and regression tasks. These models work well with heterogeneous data and can capture complex, nonlinear relationships without requiring extensive pre-processing of data.
@@ -519,8 +394,6 @@ print("Polynomial features:", X_poly.shape[1])
             <button class="button" onclick="subscribeNewsletter()">Subscribe</button>
             <p id="subscription-result"></p>
         </div>
-    </div>
-
     <script>
         // DNA Animation
         const dnaAnimation = anime({
@@ -650,20 +523,4 @@ print("Polynomial features:", X_poly.shape[1])
                 result.style.color = "orange";
             }
         }
-
-        // Newsletter Subscription
-        function subscribeNewsletter() {
-            const email = document.getElementById('email-subscription').value;
-            const result = document.getElementById('subscription-result');
-
-            if (email && email.includes('@')) {
-                result.textContent = "Thank you for subscribing to our newsletter!";
-                result.style.color = "green";
-            } else {
-                result.textContent = "Please enter a valid email address.";
-                result.style.color = "red";
-            }
-        }
-    </script>
 </body>
-</html>

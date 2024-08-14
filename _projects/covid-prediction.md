@@ -2,6 +2,7 @@
 layout: page
 title: COVID-19 Case Prediction Model
 excerpt: An advanced COVID-19 case prediction model comparing ARIMA and LSTM algorithms.
+category: virology
 permalink: /covid-prediction/
 ---
 
@@ -181,16 +182,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        document.getElementById('arima-mae').textContent = data.arima_mae.toFixed(2);
-        document.getElementById('arima-rmse').textContent = data.arima_rmse.toFixed(2);
-document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) + '%';
-        document.getElementById('lstm-mae').textContent = 'LSTM: ' + data.lstm_mae.toFixed(2);
-        document.getElementById('lstm-rmse').textContent = 'LSTM: ' + data.lstm_rmse.toFixed(2);
-        document.getElementById('lstm-mape').textContent = 'LSTM: ' + data.lstm_mape.toFixed(2) + '%';
-        document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
+        // Helper function to safely update metric
+        function safeUpdateMetric(id, value, suffix = '') {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = (value !== undefined && value !== null) 
+                    ? value.toFixed(2) + suffix 
+                    : 'N/A';
+            }
+        }
+
+        safeUpdateMetric('arima-mae', data.arima_mae);
+        safeUpdateMetric('arima-rmse', data.arima_rmse);
+        safeUpdateMetric('arima-mape', data.arima_mape, '%');
+        safeUpdateMetric('lstm-mae', data.lstm_mae, '', 'LSTM: ');
+        safeUpdateMetric('lstm-rmse', data.lstm_rmse, '', 'LSTM: ');
+        safeUpdateMetric('lstm-mape', data.lstm_mape, '%', 'LSTM: ');
+
+        const lastUpdatedElement = document.getElementById('last-updated');
+        if (lastUpdatedElement && data.last_updated) {
+            lastUpdatedElement.textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
+        } else {
+            lastUpdatedElement.textContent = 'N/A';
+        }
     }
     
     function createHistoricalChart(data) {
+        if (!data.dates || !data.actual || !data.arima_predicted || !data.lstm_predicted) {
+            console.error('Missing required data for historical chart');
+            return;
+        }
+
         const trace1 = {
             x: data.dates.slice(0, -30),
             y: data.actual.slice(0, -30),
@@ -227,13 +249,18 @@ document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) +
     }
     
     function createForecastChart(data) {
+        if (!data.dates || !data.actual || !data.arima_predicted || !data.lstm_predicted) {
+            console.error('Missing required data for forecast chart');
+            return;
+        }
+
         const lastActualDate = data.dates[data.dates.length - 31];
         const futureDates = data.dates.slice(-30);
         const actualValues = data.actual.slice(-30);
 
         const trace1 = {
             x: futureDates,
-            y: data.arima_future_predicted,
+            y: data.arima_predicted.slice(-30),
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Forecast',
@@ -241,7 +268,7 @@ document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) +
         };
         const trace2 = {
             x: futureDates,
-            y: data.lstm_future_predicted,
+            y: data.lstm_predicted.slice(-30),
             type: 'scatter',
             mode: 'lines',
             name: 'LSTM Model Forecast',
