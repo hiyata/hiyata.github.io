@@ -1,7 +1,7 @@
 ---
 layout: page
-title: COVID-19 Case Prediction Model
-excerpt: An advanced COVID-19 case prediction model using a hybrid CNN-LSTM-GRU approach.
+title: COVID-19 Case Prediction Model Comparison
+excerpt: An advanced COVID-19 case prediction model comparing LSTM/GRU, ARIMA, Random Forest, and XGBoost algorithms.
 category: virology
 permalink: /covid-prediction/
 ---
@@ -79,11 +79,12 @@ permalink: /covid-prediction/
 </style>
 
 <div class="container">
-    <h1>COVID-19 Case Prediction Model</h1>
+    <h1>COVID-19 Case Prediction Model Comparison</h1>
     <p>
-        This page displays a 14-day forecast of COVID-19 cases, updated daily. Our analysis uses a hybrid model
-        combining Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRU).
-        The graph below shows our predictions against the actual reported cases for the past 7 days and forecast for the next 7 days.
+        This page displays a 14-day comparison of COVID-19 case predictions using four different models:
+        LSTM/GRU (Long Short-Term Memory/Gated Recurrent Unit), ARIMA (AutoRegressive Integrated Moving Average),
+        Random Forest, and XGBoost. The graphs below show our predictions against the actual reported cases
+        and compare the performance of all models.
     </p>
 </div>
 
@@ -93,16 +94,20 @@ permalink: /covid-prediction/
     <h2>Model Performance</h2>
     <div class="metrics-grid">
         <div class="metric-card">
-            <h3>Mean Absolute Error</h3>
-            <p class="metric-value" id="mae">Loading...</p>
+            <h3>LSTM/GRU MAPE</h3>
+            <p class="metric-value" id="lstm-gru-mape">Loading...</p>
         </div>
         <div class="metric-card">
-            <h3>Root Mean Square Error</h3>
-            <p class="metric-value" id="rmse">Loading...</p>
+            <h3>ARIMA MAPE</h3>
+            <p class="metric-value" id="arima-mape">Loading...</p>
         </div>
         <div class="metric-card">
-            <h3>Mean Absolute Percentage Error</h3>
-            <p class="metric-value" id="mape">Loading...</p>
+            <h3>Random Forest MAPE</h3>
+            <p class="metric-value" id="rf-mape">Loading...</p>
+        </div>
+        <div class="metric-card">
+            <h3>XGBoost MAPE</h3>
+            <p class="metric-value" id="xgb-mape">Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Last Updated</h3>
@@ -112,20 +117,32 @@ permalink: /covid-prediction/
 </div>
 
 <div class="container">
-    <h2>14-Day Comparison and Forecast</h2>
+    <h2>14-Day Model Comparison</h2>
     <p>
-        This chart displays the actual cases for the past 7 days and the predicted number of COVID-19 cases
-        for the next 7 days using our hybrid model.
+        This chart displays the actual cases and predicted number of COVID-19 cases for the last 14 days,
+        comparing all four models: LSTM/GRU, ARIMA, Random Forest, and XGBoost.
     </p>
-    <div id="forecast-chart" class="chart-container"></div>
+    <div id="comparison-chart" class="chart-container"></div>
     <div class="model-key">
         <div class="model-key-item">
-            <div class="model-key-color" style="background-color: #1f77b4;"></div>
+            <div class="model-key-color" style="background-color: #000000;"></div>
             <span>Actual Cases</span>
         </div>
         <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #1f77b4;"></div>
+            <span>LSTM/GRU Model</span>
+        </div>
+        <div class="model-key-item">
             <div class="model-key-color" style="background-color: #ff7f0e;"></div>
-            <span>Predicted Cases</span>
+            <span>ARIMA Model</span>
+        </div>
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #2ca02c;"></div>
+            <span>Random Forest Model</span>
+        </div>
+        <div class="model-key-item">
+            <div class="model-key-color" style="background-color: #d62728;"></div>
+            <span>XGBoost Model</span>
         </div>
     </div>
 </div>
@@ -133,22 +150,25 @@ permalink: /covid-prediction/
 <div class="container">
     <h2>Methodology</h2>
     <p>
-        We use a hybrid model for time series forecasting that combines:
+        We use four different models for time series forecasting:
     </p>
     <ol>
-        <li>Convolutional Neural Networks (CNN)</li>
-        <li>Long Short-Term Memory (LSTM) neural networks</li>
-        <li>Gated Recurrent Units (GRU)</li>
+        <li>LSTM/GRU (Long Short-Term Memory/Gated Recurrent Unit) neural network model</li>
+        <li>ARIMA (AutoRegressive Integrated Moving Average) model</li>
+        <li>Random Forest Regressor</li>
+        <li>XGBoost Regressor</li>
     </ol>
     <p>
-        Our prediction pipeline follows these steps:
+        All models are trained on COVID-19 case data from the WHO dataset, which is updated daily. Our prediction pipeline follows these steps:
     </p>
     <ol>
-        <li>Daily data collection from WHO COVID-19 dataset</li>
+        <li>Daily data collection from the WHO COVID-19 dataset</li>
         <li>Data preprocessing and cleaning</li>
-        <li>Model retraining with the latest data</li>
-        <li>14-day forecast generation (7 days comparison + 7 days future)</li>
-        <li>Daily comparison of predictions with actual reported cases</li>
+        <li>Feature creation with a sequence length of 90 days</li>
+        <li>Model training with the latest data</li>
+        <li>14-day hindcast generation for all models</li>
+        <li>Comparison of predictions with actual reported cases</li>
+        <li>Calculation of Mean Absolute Percentage Error (MAPE) for each model</li>
     </ol>
     <p>
         For more details on our methodology, please visit our <a href="https://github.com/yourusername/covid-19-predictor">GitHub repository</a>.
@@ -167,39 +187,67 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        document.getElementById('mae').textContent = data.mae.toFixed(2);
-        document.getElementById('rmse').textContent = data.rmse.toFixed(2);
-        document.getElementById('mape').textContent = data.mape.toFixed(2) + '%';
+        document.getElementById('lstm-gru-mape').textContent = data.lstm_gru_mape.toFixed(2) + '%';
+        document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) + '%';
+        document.getElementById('rf-mape').textContent = data.rf_mape.toFixed(2) + '%';
+        document.getElementById('xgb-mape').textContent = data.xgb_mape.toFixed(2) + '%';
         document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
     }
     
-    function createForecastChart(data) {
+    function createComparisonChart(data) {
         const actualTrace = {
-            x: data.comparison_dates.slice(0, 7),
-            y: data.comparison_actual.slice(0, 7),
+            x: data.dates,
+            y: data.actual,
             type: 'scatter',
             mode: 'lines',
             name: 'Actual Cases',
+            line: {color: '#000000', width: 3}
+        };
+        
+        const lstmGruTrace = {
+            x: data.dates,
+            y: data.lstm_gru_predicted,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'LSTM/GRU Prediction',
             line: {color: '#1f77b4'}
         };
         
-        const predictedTrace = {
-            x: data.comparison_dates,
-            y: data.comparison_predicted,
+        const arimaTrace = {
+            x: data.dates,
+            y: data.arima_predicted,
             type: 'scatter',
             mode: 'lines',
-            name: 'Predicted Cases',
+            name: 'ARIMA Prediction',
             line: {color: '#ff7f0e'}
+        };
+        
+        const rfTrace = {
+            x: data.dates,
+            y: data.rf_predicted,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Random Forest Prediction',
+            line: {color: '#2ca02c'}
+        };
+        
+        const xgbTrace = {
+            x: data.dates,
+            y: data.xgb_predicted,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'XGBoost Prediction',
+            line: {color: '#d62728'}
         };
 
         const layout = {
-            title: '14-Day COVID-19 Case Comparison and Forecast',
+            title: '14-Day COVID-19 Case Prediction Comparison',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
         };
 
-        Plotly.newPlot('forecast-chart', [actualTrace, predictedTrace], layout);
+        Plotly.newPlot('comparison-chart', [actualTrace, lstmGruTrace, arimaTrace, rfTrace, xgbTrace], layout);
     }
 
     // Fetch the latest prediction data
@@ -214,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Prediction data received:', data);
             updateMetrics(data);
-            createForecastChart(data);
+            createComparisonChart(data);
         })
         .catch(error => {
             console.error('Error:', error);
