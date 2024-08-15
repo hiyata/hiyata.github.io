@@ -81,10 +81,10 @@ permalink: /covid-prediction/
 <div class="container">
     <h1>COVID-19 Case Prediction Model Comparison</h1>
     <p>
-        This page displays a 7-week forecast of COVID-19 cases, updated weekly. Our analysis compares four different models:
+        This page displays a 14-day comparison of COVID-19 case predictions using four different models:
         LSTM/GRU (Long Short-Term Memory/Gated Recurrent Unit), ARIMA (AutoRegressive Integrated Moving Average),
-        Random Forest, and XGBoost. The graph below shows our predictions against the actual reported cases
-        and compares the performance of all models.
+        Random Forest, and XGBoost. The graphs below show our predictions against the actual reported cases
+        and compare the performance of all models.
     </p>
 </div>
 
@@ -117,9 +117,9 @@ permalink: /covid-prediction/
 </div>
 
 <div class="container">
-    <h2>7-Week Model Comparison</h2>
+    <h2>14-Day Model Comparison</h2>
     <p>
-        This chart displays the actual cases and predicted number of COVID-19 cases for the next 7 weeks,
+        This chart displays the actual cases and predicted number of COVID-19 cases for the last 14 days,
         comparing all four models: LSTM/GRU, ARIMA, Random Forest, and XGBoost.
     </p>
     <div id="comparison-chart" class="chart-container"></div>
@@ -159,14 +159,14 @@ permalink: /covid-prediction/
         <li>XGBoost Regressor</li>
     </ol>
     <p>
-        All models are trained on COVID-19 case data from the WHO dataset, which is updated weekly. Our prediction pipeline follows these steps:
+        All models are trained on COVID-19 case data from the WHO dataset, which is updated daily. Our prediction pipeline follows these steps:
     </p>
     <ol>
-        <li>Weekly data collection from the WHO COVID-19 dataset</li>
-        <li>Data preprocessing and cleaning, including log transformation and scaling</li>
+        <li>Daily data collection from the WHO COVID-19 dataset</li>
+        <li>Data preprocessing and cleaning</li>
         <li>Feature creation with a sequence length of 90 days</li>
         <li>Model training with the latest data</li>
-        <li>7-week forecast generation for all models</li>
+        <li>14-day hindcast generation for all models</li>
         <li>Comparison of predictions with actual reported cases</li>
         <li>Calculation of Mean Absolute Percentage Error (MAPE) for each model</li>
     </ol>
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.actual,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'lines',
             name: 'Actual Cases',
             line: {color: '#000000', width: 3}
         };
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.lstm_gru_predicted,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'lines',
             name: 'LSTM/GRU Prediction',
             line: {color: '#1f77b4'}
         };
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.arima_predicted,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'lines',
             name: 'ARIMA Prediction',
             line: {color: '#ff7f0e'}
         };
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.rf_predicted,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'lines',
             name: 'Random Forest Prediction',
             line: {color: '#2ca02c'}
         };
@@ -235,13 +235,13 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.xgb_predicted,
             type: 'scatter',
-            mode: 'lines+markers',
+            mode: 'lines',
             name: 'XGBoost Prediction',
             line: {color: '#d62728'}
         };
 
         const layout = {
-            title: '7-Week COVID-19 Case Prediction Comparison',
+            title: '14-Day COVID-19 Case Prediction Comparison',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
