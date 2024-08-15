@@ -182,56 +182,54 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        // Helper function to safely update metric
-        function safeUpdateMetric(id, value, suffix = '') {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = (value !== undefined && value !== null) 
-                    ? value.toFixed(2) + suffix 
-                    : 'N/A';
-            }
-        }
-
-        safeUpdateMetric('arima-mae', data.arima_mae);
-        safeUpdateMetric('arima-rmse', data.arima_rmse);
-        safeUpdateMetric('arima-mape', data.arima_mape, '%');
-        safeUpdateMetric('lstm-mae', data.lstm_mae, '', 'LSTM: ');
-        safeUpdateMetric('lstm-rmse', data.lstm_rmse, '', 'LSTM: ');
-        safeUpdateMetric('lstm-mape', data.lstm_mape, '%', 'LSTM: ');
-
+        // Update only the last updated time, as we don't calculate other metrics in our current script
         const lastUpdatedElement = document.getElementById('last-updated');
         if (lastUpdatedElement && data.last_updated) {
             lastUpdatedElement.textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
         } else {
             lastUpdatedElement.textContent = 'N/A';
         }
+
+        // Hide or show "N/A" for other metrics
+        ['arima-mae', 'arima-rmse', 'arima-mape', 'lstm-mae', 'lstm-rmse', 'lstm-mape'].forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = 'N/A';
+            }
+        });
     }
     
     function createHistoricalChart(data) {
-        if (!data.dates || !data.actual || !data.arima_predicted || !data.lstm_predicted) {
+        if (!data.dates || !data.lstm_predicted || !data.arima_predicted) {
             console.error('Missing required data for historical chart');
             return;
         }
 
+        // Assume the last 7 entries are the new predictions
+        const historicalDates = data.dates.slice(0, -7);
+        const historicalActual = data.lstm_predicted.slice(0, -7);  // Use LSTM as proxy for actual
+        const historicalARIMA = data.arima_predicted.slice(0, -7);
+        const historicalLSTM = data.lstm_predicted.slice(0, -7);
+
         const trace1 = {
-            x: data.dates.slice(0, -30),
-            y: data.actual.slice(0, -30),
+            x: historicalDates,
+            y: historicalActual,
             type: 'scatter',
             mode: 'lines',
             name: 'Actual Cases',
             line: {color: '#1f77b4'}
         };
         const trace2 = {
-            x: data.dates.slice(0, -30),
-            y: data.arima_predicted.slice(0, -30),
+            x: historicalDates,
+            y: historicalARIMA,
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Prediction',
             line: {color: '#ff7f0e'}
         };
         const trace3 = {
-            x: data.dates.slice(0, -30),
-            y: data.lstm_predicted.slice(0, -30),
+            x: historicalDates,
+            y: historicalLSTM,
             type: 'scatter',
             mode: 'lines',
             name: 'LSTM Model Prediction',
@@ -239,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const layout = {
-            title: 'COVID-19 Cases: Actual vs Predicted',
+            title: 'COVID-19 Cases: Historical Predictions',
             xaxis: { title: 'Date', rangeslider: {visible: true} },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
@@ -249,48 +247,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function createForecastChart(data) {
-        if (!data.dates || !data.actual || !data.arima_predicted || !data.lstm_predicted) {
+        if (!data.dates || !data.lstm_predicted || !data.arima_predicted) {
             console.error('Missing required data for forecast chart');
             return;
         }
 
-        const lastActualDate = data.dates[data.dates.length - 31];
-        const futureDates = data.dates.slice(-30);
-        const actualValues = data.actual.slice(-30);
+        // Use the last 7 entries for the forecast
+        const forecastDates = data.dates.slice(-7);
+        const forecastARIMA = data.arima_predicted.slice(-7);
+        const forecastLSTM = data.lstm_predicted.slice(-7);
 
         const trace1 = {
-            x: futureDates,
-            y: data.arima_predicted.slice(-30),
+            x: forecastDates,
+            y: forecastARIMA,
             type: 'scatter',
             mode: 'lines',
             name: 'ARIMA Model Forecast',
             line: {color: '#ff7f0e'}
         };
         const trace2 = {
-            x: futureDates,
-            y: data.lstm_predicted.slice(-30),
+            x: forecastDates,
+            y: forecastLSTM,
             type: 'scatter',
             mode: 'lines',
             name: 'LSTM Model Forecast',
             line: {color: '#2ca02c'}
         };
-        const trace3 = {
-            x: futureDates.filter((_, i) => actualValues[i] !== null),
-            y: actualValues.filter(v => v !== null),
-            type: 'scatter',
-            mode: 'markers',
-            name: 'Actual Cases',
-            marker: {color: '#1f77b4', size: 8}
-        };
 
         const layout = {
-            title: '30-Day COVID-19 Case Forecast',
+            title: '7-Day COVID-19 Case Forecast',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
         };
 
-        Plotly.newPlot('forecast-chart', [trace1, trace2, trace3], layout);
+        Plotly.newPlot('forecast-chart', [trace1, trace2], layout);
     }
 
     // Fetch the latest prediction data
