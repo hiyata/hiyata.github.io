@@ -64,15 +64,29 @@ Additionally, recombination events are simulated by mixing segments from differe
 </div>
 
 ### MDS Scatterplot
+
+
 The scatterplot above depicts a multidimensional scaling (MDS) analyis of the merged reference dataset reveals genomic clusters associated with the continent where each sample was collected. Notably, clustering of African strains clustered on the peripheral of the European strains. Strains from the Americas cluster near Europe, however they have a larger range. This is consistent with findings published recently (1). 
 
 ### Generating Artificial HCMV Genomes
 
+![artificial_HCMV_MDS](images/artificial_HCMV_MDS.png)
+
 SOMBRA generated artificial HCMV genomes largely follow this pattern, with African clustering at the periphery of the European and American groups. Panel a depicts the original output from the MDS analyses. Panel b depicts an inversion of point positions around the centroid, revealing similar patterns with Asian, African, and Oceanic strains on the peripheral of  European and American strains at the center.     
+
+![artificial_HCMV_MDS](images/artificial_reference_genome_size_HCMV.png)
 
 Fig. 3 panel A depicts a length comparison between an generated African strain and a reference African strain. There is a notable size difference (~25%). Panel B displays a protein prediction comparison between memberane spanning protein US21, showing that generated strain contain the ORF, however terminates early. We suspect this is a likely result of inaccurate k-mer indexing we are working to correct.  
 
+![artificial_US21](images/artificial_US21.png)
+
 Panels C and D of Fig. 3 depict the results of a comparison of the genetic distances of every sequence, grouping by continent. Artificial sequences within continent show high in-group similarity, however, genetic distance between groups is higher. Notably, for both datasets, American derived genomes display a higher genetic distance.
+
+![distribution_of_artificial_HCMV](images/distribution_of_artificial_HCMV.png)
+
+![distribution_of_reference_HCMV](images/distribution_of_reference_HCMV.png)
+
+![phylogenetic_tree_artificial_HCMV](images/phylogenetic_tree_artificial_HCMV.png)
 
 Despite the size challenges, generated sequences display distinct lineage patterns (Fig. 4). The difference in the branch lengths between each continent are a reflection of existing diversity distributions within the reference. Overrepresentation of reference strains for both Europe and the Americas allow for a much more variable distribution of their generated counterparts. 
 

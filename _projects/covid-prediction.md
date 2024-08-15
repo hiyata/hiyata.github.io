@@ -1,7 +1,7 @@
 ---
 layout: page
 title: COVID-19 Case Prediction Model
-excerpt: An advanced COVID-19 case prediction model comparing ARIMA and LSTM algorithms.
+excerpt: An advanced COVID-19 case prediction model using a hybrid CNN-LSTM-GRU approach.
 category: virology
 permalink: /covid-prediction/
 ---
@@ -81,9 +81,9 @@ permalink: /covid-prediction/
 <div class="container">
     <h1>COVID-19 Case Prediction Model</h1>
     <p>
-        This page displays a 30-day forecast of COVID-19 cases, updated daily. Our analysis compares two different models:
-        the ARIMA (AutoRegressive Integrated Moving Average) model and the LSTM (Long Short-Term Memory) neural network model. 
-        The graphs below show our predictions against the actual reported cases and compare the performance of both models.
+        This page displays a 14-day forecast of COVID-19 cases, updated daily. Our analysis uses a hybrid model
+        combining Convolutional Neural Networks (CNN), Long Short-Term Memory (LSTM), and Gated Recurrent Units (GRU).
+        The graph below shows our predictions against the actual reported cases for the past 7 days and forecast for the next 7 days.
     </p>
 </div>
 
@@ -94,18 +94,15 @@ permalink: /covid-prediction/
     <div class="metrics-grid">
         <div class="metric-card">
             <h3>Mean Absolute Error</h3>
-            <p class="metric-value" id="arima-mae">Loading...</p>
-            <p id="lstm-mae">LSTM: Loading...</p>
+            <p class="metric-value" id="mae">Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Root Mean Square Error</h3>
-            <p class="metric-value" id="arima-rmse">Loading...</p>
-            <p id="lstm-rmse">LSTM: Loading...</p>
+            <p class="metric-value" id="rmse">Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Mean Absolute Percentage Error</h3>
-            <p class="metric-value" id="arima-mape">Loading...</p>
-            <p id="lstm-mape">LSTM: Loading...</p>
+            <p class="metric-value" id="mape">Loading...</p>
         </div>
         <div class="metric-card">
             <h3>Last Updated</h3>
@@ -115,12 +112,12 @@ permalink: /covid-prediction/
 </div>
 
 <div class="container">
-    <h2>Historical Performance</h2>
+    <h2>14-Day Comparison and Forecast</h2>
     <p>
-        The chart below shows the historical performance of our ARIMA model and LSTM model
-        compared to the actual reported cases.
+        This chart displays the actual cases for the past 7 days and the predicted number of COVID-19 cases
+        for the next 7 days using our hybrid model.
     </p>
-    <div id="historical-chart" class="chart-container"></div>
+    <div id="forecast-chart" class="chart-container"></div>
     <div class="model-key">
         <div class="model-key-item">
             <div class="model-key-color" style="background-color: #1f77b4;"></div>
@@ -128,41 +125,29 @@ permalink: /covid-prediction/
         </div>
         <div class="model-key-item">
             <div class="model-key-color" style="background-color: #ff7f0e;"></div>
-            <span>ARIMA Model</span>
-        </div>
-        <div class="model-key-item">
-            <div class="model-key-color" style="background-color: #2ca02c;"></div>
-            <span>LSTM Model</span>
+            <span>Predicted Cases</span>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <h2>30-Day Forecast Comparison</h2>
-    <p>
-        This chart displays the predicted number of COVID-19 cases for the next 30 days, comparing our ARIMA model's
-        forecast with the LSTM model's forecast.
-    </p>
-    <div id="forecast-chart" class="chart-container"></div>
-</div>
-
-<div class="container">
     <h2>Methodology</h2>
     <p>
-        We use two different models for time series forecasting:
+        We use a hybrid model for time series forecasting that combines:
     </p>
     <ol>
-        <li>ARIMA (AutoRegressive Integrated Moving Average) model</li>
-        <li>LSTM (Long Short-Term Memory) neural network model</li>
+        <li>Convolutional Neural Networks (CNN)</li>
+        <li>Long Short-Term Memory (LSTM) neural networks</li>
+        <li>Gated Recurrent Units (GRU)</li>
     </ol>
     <p>
-        Both models are trained on COVID-19 case data from multiple sources, which is updated daily. Our prediction pipeline follows these steps:
+        Our prediction pipeline follows these steps:
     </p>
     <ol>
-        <li>Daily data collection from various COVID-19 datasets</li>
+        <li>Daily data collection from WHO COVID-19 dataset</li>
         <li>Data preprocessing and cleaning</li>
         <li>Model retraining with the latest data</li>
-        <li>30-day forecast generation for both models</li>
+        <li>14-day forecast generation (7 days comparison + 7 days future)</li>
         <li>Daily comparison of predictions with actual reported cases</li>
     </ol>
     <p>
@@ -182,106 +167,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        // Update only the last updated time, as we don't calculate other metrics in our current script
-        const lastUpdatedElement = document.getElementById('last-updated');
-        if (lastUpdatedElement && data.last_updated) {
-            lastUpdatedElement.textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
-        } else {
-            lastUpdatedElement.textContent = 'N/A';
-        }
-
-        // Hide or show "N/A" for other metrics
-        ['arima-mae', 'arima-rmse', 'arima-mape', 'lstm-mae', 'lstm-rmse', 'lstm-mape'].forEach(id => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.textContent = 'N/A';
-            }
-        });
+        document.getElementById('mae').textContent = data.mae.toFixed(2);
+        document.getElementById('rmse').textContent = data.rmse.toFixed(2);
+        document.getElementById('mape').textContent = data.mape.toFixed(2) + '%';
+        document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
     }
     
-    function createHistoricalChart(data) {
-        if (!data.dates || !data.lstm_predicted || !data.arima_predicted) {
-            console.error('Missing required data for historical chart');
-            return;
-        }
-
-        // Assume the last 7 entries are the new predictions
-        const historicalDates = data.dates.slice(0, -7);
-        const historicalActual = data.lstm_predicted.slice(0, -7);  // Use LSTM as proxy for actual
-        const historicalARIMA = data.arima_predicted.slice(0, -7);
-        const historicalLSTM = data.lstm_predicted.slice(0, -7);
-
-        const trace1 = {
-            x: historicalDates,
-            y: historicalActual,
+    function createForecastChart(data) {
+        const actualTrace = {
+            x: data.comparison_dates.slice(0, 7),
+            y: data.comparison_actual.slice(0, 7),
             type: 'scatter',
             mode: 'lines',
             name: 'Actual Cases',
             line: {color: '#1f77b4'}
         };
-        const trace2 = {
-            x: historicalDates,
-            y: historicalARIMA,
+        
+        const predictedTrace = {
+            x: data.comparison_dates,
+            y: data.comparison_predicted,
             type: 'scatter',
             mode: 'lines',
-            name: 'ARIMA Model Prediction',
+            name: 'Predicted Cases',
             line: {color: '#ff7f0e'}
-        };
-        const trace3 = {
-            x: historicalDates,
-            y: historicalLSTM,
-            type: 'scatter',
-            mode: 'lines',
-            name: 'LSTM Model Prediction',
-            line: {color: '#2ca02c'}
         };
 
         const layout = {
-            title: 'COVID-19 Cases: Historical Predictions',
-            xaxis: { title: 'Date', rangeslider: {visible: true} },
-            yaxis: { title: 'Number of Cases' },
-            legend: {orientation: 'h', y: -0.2}
-        };
-
-        Plotly.newPlot('historical-chart', [trace1, trace2, trace3], layout);
-    }
-    
-    function createForecastChart(data) {
-        if (!data.dates || !data.lstm_predicted || !data.arima_predicted) {
-            console.error('Missing required data for forecast chart');
-            return;
-        }
-
-        // Use the last 7 entries for the forecast
-        const forecastDates = data.dates.slice(-7);
-        const forecastARIMA = data.arima_predicted.slice(-7);
-        const forecastLSTM = data.lstm_predicted.slice(-7);
-
-        const trace1 = {
-            x: forecastDates,
-            y: forecastARIMA,
-            type: 'scatter',
-            mode: 'lines',
-            name: 'ARIMA Model Forecast',
-            line: {color: '#ff7f0e'}
-        };
-        const trace2 = {
-            x: forecastDates,
-            y: forecastLSTM,
-            type: 'scatter',
-            mode: 'lines',
-            name: 'LSTM Model Forecast',
-            line: {color: '#2ca02c'}
-        };
-
-        const layout = {
-            title: '7-Day COVID-19 Case Forecast',
+            title: '14-Day COVID-19 Case Comparison and Forecast',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
         };
 
-        Plotly.newPlot('forecast-chart', [trace1, trace2], layout);
+        Plotly.newPlot('forecast-chart', [actualTrace, predictedTrace], layout);
     }
 
     // Fetch the latest prediction data
@@ -296,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Prediction data received:', data);
             updateMetrics(data);
-            createHistoricalChart(data);
             createForecastChart(data);
         })
         .catch(error => {
