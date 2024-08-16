@@ -54,10 +54,11 @@ permalink: /covid-prediction/
     .model-key {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         margin-top: 20px;
     }
     .model-key-item {
-        margin: 0 10px;
+        margin: 5px 10px;
         display: flex;
         align-items: center;
     }
@@ -81,7 +82,7 @@ permalink: /covid-prediction/
 <div class="container">
     <h1>COVID-19 Case Prediction Model Comparison</h1>
     <p>
-        This page displays a 14-day comparison of COVID-19 case predictions using four different models:
+        This page displays a 7-day comparison of COVID-19 case predictions using four different models:
         LSTM/GRU (Long Short-Term Memory/Gated Recurrent Unit), ARIMA (AutoRegressive Integrated Moving Average),
         Random Forest, and XGBoost. The graphs below show our predictions against the actual reported cases
         and compare the performance of all models.
@@ -117,9 +118,9 @@ permalink: /covid-prediction/
 </div>
 
 <div class="container">
-    <h2>14-Day Model Comparison</h2>
+    <h2>7-Day Model Comparison</h2>
     <p>
-        This chart displays the actual cases and predicted number of COVID-19 cases for the last 14 days,
+        This chart displays the actual cases and predicted number of COVID-19 cases for the last 7 days,
         comparing all four models: LSTM/GRU, ARIMA, Random Forest, and XGBoost.
     </p>
     <div id="comparison-chart" class="chart-container"></div>
@@ -166,7 +167,7 @@ permalink: /covid-prediction/
         <li>Data preprocessing and cleaning</li>
         <li>Feature creation with a sequence length of 90 days</li>
         <li>Model training with the latest data</li>
-        <li>14-day hindcast generation for all models</li>
+        <li>7-day hindcast generation for all models</li>
         <li>Comparison of predictions with actual reported cases</li>
         <li>Calculation of Mean Absolute Percentage Error (MAPE) for each model</li>
     </ol>
@@ -187,10 +188,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateMetrics(data) {
-        document.getElementById('lstm-gru-mape').textContent = data.lstm_gru_mape.toFixed(2) + '%';
-        document.getElementById('arima-mape').textContent = data.arima_mape.toFixed(2) + '%';
-        document.getElementById('rf-mape').textContent = data.rf_mape.toFixed(2) + '%';
-        document.getElementById('xgb-mape').textContent = data.xgb_mape.toFixed(2) + '%';
+        document.getElementById('lstm-gru-mape').textContent = data.mape.lstm_gru.toFixed(2) + '%';
+        document.getElementById('arima-mape').textContent = data.mape.arima.toFixed(2) + '%';
+        document.getElementById('rf-mape').textContent = data.mape.random_forest.toFixed(2) + '%';
+        document.getElementById('xgb-mape').textContent = data.mape.xgboost.toFixed(2) + '%';
         document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
     }
     
@@ -199,49 +200,49 @@ document.addEventListener('DOMContentLoaded', function() {
             x: data.dates,
             y: data.actual,
             type: 'scatter',
-            mode: 'lines',
+            mode: 'lines+markers',
             name: 'Actual Cases',
             line: {color: '#000000', width: 3}
         };
         
         const lstmGruTrace = {
             x: data.dates,
-            y: data.lstm_gru_predicted,
+            y: data.lstm_gru_predictions,
             type: 'scatter',
-            mode: 'lines',
+            mode: 'lines+markers',
             name: 'LSTM/GRU Prediction',
             line: {color: '#1f77b4'}
         };
         
         const arimaTrace = {
             x: data.dates,
-            y: data.arima_predicted,
+            y: data.arima_predictions,
             type: 'scatter',
-            mode: 'lines',
+            mode: 'lines+markers',
             name: 'ARIMA Prediction',
             line: {color: '#ff7f0e'}
         };
         
         const rfTrace = {
             x: data.dates,
-            y: data.rf_predicted,
+            y: data.rf_predictions,
             type: 'scatter',
-            mode: 'lines',
+            mode: 'lines+markers',
             name: 'Random Forest Prediction',
             line: {color: '#2ca02c'}
         };
         
         const xgbTrace = {
             x: data.dates,
-            y: data.xgb_predicted,
+            y: data.xgb_predictions,
             type: 'scatter',
-            mode: 'lines',
+            mode: 'lines+markers',
             name: 'XGBoost Prediction',
             line: {color: '#d62728'}
         };
 
         const layout = {
-            title: '14-Day COVID-19 Case Prediction Comparison',
+            title: '7-Day COVID-19 Case Prediction Comparison',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
@@ -251,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch the latest prediction data
-    fetch('/assets/covid-19-files/covid_predictions.json')
+    fetch('covid_predictions.json')
         .then(response => {
             console.log('Response status:', response.status);
             if (!response.ok) {
