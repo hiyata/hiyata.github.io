@@ -27,7 +27,7 @@ permalink: /about/
         <div class="intro-text">
           <p>I am a researcher specializing in the applications of <span class="highlight">artificial intelligence</span> in the field of <span class="highlight">virology</span>. My work primarily focuses on developing computational techniques to model virus behavior, genomes, and their molecular interactions. I currently work under <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School of Medicine in Detroit.</p>
 
-          <p>From our genomic and epidemiological datasets, I design and train models to build artificial viral genomes and predict epidemiological information. I believe that through this, we can uncover patterns in this information that can be used to improve our response to novel pathogens. I hope that one day we view viruses as tools and use them help cure disease, enhance human lifespan and immunity, and combat climate change.</p>
+          <p>From genomic and epidemiological datasets, I design and train models that build artificial viral genomes and predict epidemiological information. I believe that through this, we can uncover patterns in this information that can be used to improve our response to novel pathogens. I hope that one day we view viruses as tools and use them help cure disease, enhance human lifespan and immunity, and combat climate change.</p>
         </div>
         <div class="intro-vision">
           <h3>Research Interests</h3>

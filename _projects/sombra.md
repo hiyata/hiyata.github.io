@@ -6,8 +6,10 @@ title: System for Operational Modeling of Biological Replication and Adaptation 
 presented_at: IHW 2024
 ---
 
-<h1 style="text-align: center;">SOMBRA</h1>
+# SOMBRA
+
 ---
+
 Study of human cytomegalovirus (HCMV) evolution is crucial for understanding its genetic diversity, adaptation mechanisms, and impact on human health. Existing phylogenetic analyses of HCMV have begun to reveal important evolutionary patterns and relationships among geographically distinct strains, as demonstrated in recent works by Charles and Venturini et al. (1). However, the geographic resolution of phylogenetic analyses is limited by (i) the small number of publicly available complete HCMV genomes—351 in NCBI Virus, and (ii) the uneven geographic distribution of those sequences. 
 
 ## Dataset 
@@ -35,9 +37,7 @@ The map below displays the geographical locations where each was collected. Thei
     </div>
 </div>
 
-<br>
-
-<h1 style="text-align: center;font-size: 25px;">System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)</h1>
+## System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
 
 SOMBRA uses a sliding window approach to extract trends and identify conserved regions across the alignment. For windows with less than 90% agreement, consensus voting is used to assign a nucleotide for a particular position.
 
@@ -45,19 +45,17 @@ A k-mer index is generated from the MAFFT alignment to enable rapid alignment of
 
 The country where each sample was isolated was included in the header of each sequence, and the continent extrapolated for each country. SOMBRA extracted this data and organized each sequence into a group. 
 
-Once groups of sequences are assigned based on their continental origins, an ancestral sequences were generated for each continent. These sequences were constructed using the information extracted during initialization. Variable positions are determine by consensus voting across each continental group.  
+Once groups of sequences are assigned based on their continental origins, ancestral sequences were generated for each continent. These sequences were constructed using the information extracted during initialization. Variable positions are determined by consensus voting across each continental group.  
 
-The inferred ancestral sequence for each continent serve as inputs.  This begins by aligning the ancestral and reference sequences to ensure consistency. For each continent, the average variability is calculated from differences between the ancestral sequence and the reference sequences from the same continent. 
+The inferred ancestral sequence for each continent serve as inputs. This begins by aligning the ancestral and reference sequences to ensure consistency. For each continent, the average variability is calculated from differences between the ancestral sequence and the reference sequences from the same continent. 
 
 This average variability determines the number of mutations to apply to the ancestral sequence to simulate evolutionary changes. Precomputed base frequencies for each position guide substitutions by providing probabilities for each base at each position. Positions within indel hotspots are subjected to stochastic insertions or deletions.
 
-Additionally, recombination events are simulated by mixing segments from different sequences at random breakpoints, further increasing genetic diversity.  The final synthetic sequences are saved to FASTA and TSV files. Future versions will integrate generative models to further improve biological relevance of the new sequences. 
+Additionally, recombination events are simulated by mixing segments from different sequences at random breakpoints, further increasing genetic diversity. The final synthetic sequences are saved to FASTA and TSV files. Future versions will integrate generative models to further improve biological relevance of the new sequences. 
 
 <div id="neuralNetwork" style="width: 100%; height: 400px; position: relative;"></div>
 
 ## Simulated HCMV Genomes Have Ancestral Patterns That Parallel Clinical Samples 
-
-<br>
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
     <div id="scatterPlot" class="animate" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>
@@ -65,28 +63,39 @@ Additionally, recombination events are simulated by mixing segments from differe
 
 ### MDS Scatterplot
 
-
-The scatterplot above depicts a multidimensional scaling (MDS) analyis of the merged reference dataset reveals genomic clusters associated with the continent where each sample was collected. Notably, clustering of African strains clustered on the peripheral of the European strains. Strains from the Americas cluster near Europe, however they have a larger range. This is consistent with findings published recently (1). 
+The scatterplot above depicts a multidimensional scaling (MDS) analysis of the merged reference dataset reveals genomic clusters associated with the continent where each sample was collected. Notably, clustering of African strains clustered on the peripheral of the European strains. Strains from the Americas cluster near Europe, however they have a larger range. This is consistent with findings published recently (1). 
 
 ### Generating Artificial HCMV Genomes
 
-![artificial_HCMV_MDS](images/artificial_HCMV_MDS.png)
+<p align="center">
+  <img src="images/artificial_HCMV_MDS.png" alt="artificial_HCMV_MDS" style="max-width: 80%; height: auto;">
+</p>
 
-SOMBRA generated artificial HCMV genomes largely follow this pattern, with African clustering at the periphery of the European and American groups. Panel a depicts the original output from the MDS analyses. Panel b depicts an inversion of point positions around the centroid, revealing similar patterns with Asian, African, and Oceanic strains on the peripheral of  European and American strains at the center.     
+SOMBRA generated artificial HCMV genomes largely follow this pattern, with African clustering at the periphery of the European and American groups. Panel a depicts the original output from the MDS analyses. Panel b depicts an inversion of point positions around the centroid, revealing similar patterns with Asian, African, and Oceanic strains on the peripheral of European and American strains at the center.     
 
-![artificial_HCMV_MDS](images/artificial_reference_genome_size_HCMV.png)
+<p align="center">
+  <img src="images/artificial_reference_genome_size_HCMV.png" alt="artificial_reference_genome_size_HCMV" style="max-width: 80%; height: auto;">
+</p>
 
-Fig. 3 panel A depicts a length comparison between an generated African strain and a reference African strain. There is a notable size difference (~25%). Panel B displays a protein prediction comparison between memberane spanning protein US21, showing that generated strain contain the ORF, however terminates early. We suspect this is a likely result of inaccurate k-mer indexing we are working to correct.  
+Fig. 3 panel A depicts a length comparison between a generated African strain and a reference African strain. There is a notable size difference (~25%). Panel B displays a protein prediction comparison between membrane spanning protein US21, showing that generated strain contains the ORF, however terminates early. We suspect this is a likely result of inaccurate k-mer indexing we are working to correct.  
 
-![artificial_US21](images/artificial_US21.png)
+<p align="center">
+  <img src="images/artificial_US21.png" alt="artificial_US21" style="max-width: 80%; height: auto;">
+</p>
 
 Panels C and D of Fig. 3 depict the results of a comparison of the genetic distances of every sequence, grouping by continent. Artificial sequences within continent show high in-group similarity, however, genetic distance between groups is higher. Notably, for both datasets, American derived genomes display a higher genetic distance.
 
-![distribution_of_artificial_HCMV](images/distribution_of_artificial_HCMV.png)
+<p align="center">
+  <img src="images/distribution_of_artificial_HCMV.png" alt="distribution_of_artificial_HCMV" style="max-width: 80%; height: auto;">
+</p>
 
-![distribution_of_reference_HCMV](images/distribution_of_reference_HCMV.png)
+<p align="center">
+  <img src="images/distribution_of_reference_HCMV.png" alt="distribution_of_reference_HCMV" style="max-width: 80%; height: auto;">
+</p>
 
-![phylogenetic_tree_artificial_HCMV](images/phylogenetic_tree_artificial_HCMV.png)
+<p align="center">
+  <img src="images/phylogenetic_tree_artificial_HCMV.png" alt="phylogenetic_tree_artificial_HCMV" style="max-width: 80%; height: auto;">
+</p>
 
 Despite the size challenges, generated sequences display distinct lineage patterns (Fig. 4). The difference in the branch lengths between each continent are a reflection of existing diversity distributions within the reference. Overrepresentation of reference strains for both Europe and the Americas allow for a much more variable distribution of their generated counterparts. 
 
@@ -94,24 +103,23 @@ Despite the size challenges, generated sequences display distinct lineage patter
 
 There are trade-offs for rules-based and LLM-based simulations. Rules-based simulations are programmed with explicit instructions and offer interpretable results. Because the instructions are explicit, predictions are bounded by our current understanding of genomic patterns. 
 
-Neural networks are often referred to as "black boxes" because of the difficultly in understanding how complex relationships between seemingly unrelated variables are formed during training. Nonetheless, they can help guide the development of hypothesis-based experiments to explain underlying biological realities connected to machine-learned patterns. 
+Neural networks are often referred to as "black boxes" because of the difficulty in understanding how complex relationships between seemingly unrelated variables are formed during training. Nonetheless, they can help guide the development of hypothesis-based experiments to explain underlying biological realities connected to machine-learned patterns. 
 
-Though LLMs present a massive leap for natural language processing, it is up to our community test and adapt these models to answer tackle biological questions. 
+Though LLMs present a massive leap for natural language processing, it is up to our community to test and adapt these models to tackle biological questions. 
 
 ## MambaVirus, SOMBRA, and the Future
 
-The context problem poses a challenge to Herpesvirus researchers' ability utilize LLMs. As machine learning researchers continue to tackle the context length problem in other realms, we should continue to adapt their findings to answer our biological questions in our realm. 
+The context problem poses a challenge to Herpesvirus researchers' ability to utilize LLMs. As machine learning researchers continue to tackle the context length problem in other realms, we should continue to adapt their findings to answer our biological questions in our realm. 
 
 The progress in increasing context size, as illustrated by HyenaDNA (5) in the left panel of Fig. 6, demonstrates how researchers are adapting state-of-the-art architectures to address this challenge. We have taken an analogous approach with Mamba. 
 
 Model architectures vary and are useful for different tasks. The differences between BERT and Mamba architectures (Figs. 5 and 7) guide our usage of them. 
 
-VIRUSBERT's success in DNA classification tasks makes it a candidate for use to detect fatal mutation 
-in DNA. We are currently compiling a dataset to fine-tune VIRUSBERT for this purpose. 
+VIRUSBERT's success in DNA classification tasks makes it a candidate for use to detect fatal mutations in DNA. We are currently compiling a dataset to fine-tune VIRUSBERT for this purpose. 
 
 In addition to VIRUSBERT, we foresee MambaVirus as a tool to correct and regenerate sequences identified by VIRUSBERT. 
 
-Integrating our trained language models could greatly improve SOMBRA's ability to generate new genomes. We are continously training and testing new models for integration. Future development of SOMBRA aims to tackle broken protein sequences (Fig. 3, panel b), and develop autonomous agents that function independantly to make gene modifications. 
+Integrating our trained language models could greatly improve SOMBRA's ability to generate new genomes. We are continuously training and testing new models for integration. Future development of SOMBRA aims to tackle broken protein sequences (Fig. 3, panel b), and develop autonomous agents that function independently to make gene modifications. 
 
 With this, we hope that the continued development of SOMBRA leads to a powerful tool to model evolution.  
 
@@ -287,7 +295,7 @@ const countryCenters = {
     "South Korea": [35.9078, 127.7669],
     "Czech Republic": [49.8175, 15.4730],
     "Australia": [-25.2744, 133.7751],
-    "Greece": [39.0742, 21.8243],
+    "Greece": [39.0797, 21.8243],
     "Netherlands": [52.1326, 5.2913],
     "Uganda": [1.3733, 32.2903],
     "Kenya": [-0.0236, 37.9062],

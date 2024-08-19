@@ -172,7 +172,7 @@ permalink: /covid-prediction/
         <li>Calculation of Mean Absolute Percentage Error (MAPE) for each model</li>
     </ol>
     <p>
-        For more details on our methodology, please visit our <a href="https://github.com/yourusername/covid-19-predictor">GitHub repository</a>.
+        For more details on our methodology, please visit our <a href="https://github.com/hiyata/covid-19-predictor">GitHub repository</a>.
     </p>
 </div>
 
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Fetch the latest prediction data
-    fetch('covid_predictions.json')
+    fetch('/assets/covid-19-files/covid_predictions.json')
         .then(response => {
             console.log('Response status:', response.status);
             if (!response.ok) {
