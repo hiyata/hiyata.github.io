@@ -317,7 +317,7 @@ Linear and logistic regression are foundational models in machine learning, part
     y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n + \epsilon
     $$
 
-    where $y$ is the predicted value, $\beta_0$ is the intercept, $\beta_1, \beta_2, \dots, \beta_n$ are the coefficients for each feature, $x_1, x_2, \dots, x_n$ are the feature values, and $\epsilon$ is the error term.
+    where $$y$$ is the predicted value, $$\beta_0$$ is the intercept, $$\beta_1, \beta_2, \dots, \beta_n$$ are the coefficients for each feature, $$x_1, x_2, \dots, x_n$$ are the feature values, and $$\epsilon$$ is the error term.
 
 
 - **Application Example**:
