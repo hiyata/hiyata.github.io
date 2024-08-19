@@ -23,7 +23,7 @@ permalink: /about/
   <main>
     <section class="intro-section">
       <div class="section-content">
-        <h2>Revolutionizing Viral Research with AI</h2>
+        <h2>Integrating Artificial Intelligence with Virus Research</h2>
         <div class="intro-text">
           <p>I am a researcher specializing in the applications of <span class="highlight">artificial intelligence</span> in the field of <span class="highlight">virology</span>. My work primarily focuses on developing computational techniques to model virus behavior, genomes, and their molecular interactions. I currently work under <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School of Medicine in Detroit.</p>
 
