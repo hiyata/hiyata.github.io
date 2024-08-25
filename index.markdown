@@ -32,22 +32,22 @@ title: Welcome
   <section class="about-section" id="about">
     <div class="container">
       <h2>Exploring the Intersection of AI and Virology</h2>
-      <p>Welcome to my technical journal, where I delve into the latest projects and ideas at the intersection of AI and virology. Here, I share my research insights, lessons learned, and the challenges encountered along the way.</p>
+      <p>Welcome to my technical journal, where I write about my latest projects and ideas. My interests lie at the intersection of AI and virology. I currently work at Wayne State University School of Medicine under <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a>. Here, I share my research, the lessons I've learned, and the challenges I've encountered along the way.</p>
       <div class="expertise-areas">
         <div class="expertise-item">
           <i class="fas fa-brain"></i>
           <h3>Machine Learning</h3>
-          <p>Leveraging advanced algorithms to uncover patterns in viral data.</p>
+          <p>Advanced machine learning algorithms to learn latent patterns in viral DNA and behavior.</p>
         </div>
         <div class="expertise-item">
           <i class="fas fa-dna"></i>
           <h3>Viral Genomics</h3>
-          <p>Decoding the genetic blueprint of viruses to understand their behavior.</p>
+          <p>Using neural networks to for generative genome design and analysis.</p>
         </div>
         <div class="expertise-item">
           <i class="fas fa-virus"></i>
           <h3>Epidemiology</h3>
-          <p>Analyzing the spread and control of viral diseases in populations.</p>
+          <p>Analyzing the spread of viral diseases during outbreaks.</p>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@ title: Welcome
       <p>Interested in collaborating or have questions about my research? Feel free to reach out!</p>
       <div class="contact-buttons">
         <a href="mailto:ga5808@wayne.edu" class="btn">Email Me</a>
-        <a href="https://www.linkedin.com/in/yourprofile" class="btn">Connect on LinkedIn</a>
+        <a href="linkedin.com/in/alan-luis-carbajo-jr-9929b7138" class="btn">Connect on LinkedIn</a>
       </div>
     </div>
   </section>
@@ -395,9 +395,9 @@ title: Welcome
     // Typing animation
     const typingContainer = document.getElementById('typing-container');
     const texts = [
-      "Designing Genomes with Artificial Intelligence",
-      "Applying Machine Learning Models to Virus Predictions",
-      "Simulating Life and Evolution"
+      "Designing genomes with artificial intelligence",
+      "Applying machine learning models to virus predictions",
+      "Simulating evolutionary changes in artificial life"
     ];
     let textIndex = 0;
     let charIndex = 0;

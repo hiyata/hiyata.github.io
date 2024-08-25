@@ -12,9 +12,12 @@ excerpt: "Can ancient migration patterns explain the geographic diversity of HCM
 
 <p>Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistence is highly specialized viruses tailored to thrive in human hosts without causing pathogenesis in most people. Many disease-causing pathogens we think of are of zoonotic origin, rather than human originating. Spillover events from viruses tend to be the cause deadly diseases and epidemics. For example, </p>
 
-<p>Recent findings have shown that HCMV strains have distinct geographical features and be clustered by such features. Strains collected from southeast africa form one of the most distinct clusters, clustering around the outer edges of our European strains.<p>
+<p>Recent findings have shown that HCMV strains have distinct geographical features and be clustered by such features. Strains collected from southeast africa form one of the most distinct clusters, clustering around the outer edges of our European strains.</p>
 
-<p>Some 
+<p>Primary infection of HCMV is often asymptomatic in healthy adults. However, in some individuals disease manifests in the form of mononucleosis (<a href="https://www.mayoclinic.org/diseases-conditions/cmv/symptoms-causes/syc-20355358">3</a>). We currently do not understand why some healthy individuals manifest disease while others remain asymptomatic. 
+
+
+HCMV strains that have co-evolved with humans may be less damaging than HCMV strains that co-evolved with other hominid species before being re-introduced to humans. 
 
 
 <div id="scatterPlot" class="animate" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>

@@ -1,7 +1,6 @@
 ---
 layout: default
 title: About
-permalink: /about/
 ---
 
 <div class="portfolio-container">
@@ -10,7 +9,7 @@ permalink: /about/
       <div class="profile-image-container">
         <div class="profile-image"></div>
       </div>
-      <h1 class="name">Hiyata</h1>
+      <h1 class="name">Alan Carbajo</h1>
       <p class="title">Machine Learning Researcher in Virology</p>
       <div class="social-links">
         <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -27,26 +26,26 @@ permalink: /about/
         <div class="intro-text">
           <p>I am a researcher specializing in the applications of <span class="highlight">artificial intelligence</span> in the field of <span class="highlight">virology</span>. My work primarily focuses on developing computational techniques to model virus behavior, genomes, and their molecular interactions. I currently work under <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School of Medicine in Detroit.</p>
 
-          <p>From genomic and epidemiological datasets, I design and train models that build artificial viral genomes and predict epidemiological information. I believe that through this, we can uncover patterns in this information that can be used to improve our response to novel pathogens. I hope that one day we view viruses as tools and use them help cure disease, enhance human lifespan and immunity, and combat climate change.</p>
+          <p>I design and train neural networks to build artificial genomes and predict epidemiological behavior. I believe that through this, we can uncover patterns in virus behavior that can be exploited to improve our response to novel pathogens. I hope that one day we view viruses as useful tools to help cure disease, enhance human lifespan and immunity, and combat climate change.</p>
         </div>
         <div class="intro-vision">
           <h3>Research Interests</h3>
           <div class="vision-grid">
             <div class="vision-item">
               <i class="fas fa-dna"></i>
-              <span>Design artificial viral genomes for next-gen vaccines</span>
+              <span>Designing artificial viral genomes for next-gen vaccines</span>
             </div>
             <div class="vision-item">
               <i class="fas fa-lightbulb"></i>
-              <span>Train generative models to predict virus evolution</span>
+              <span>Simulating virus evolution</span>
             </div>
             <div class="vision-item">
               <i class="fas fa-globe"></i>
-              <span>Create predictive models for global epidemiological trends</span>
+              <span>Modeling global epidemiological trends</span>
             </div>
             <div class="vision-item">
               <i class="fas fa-microscope"></i>
-              <span>Characterize relational patterns between virus-host genomes using machine learning</span>
+              <span>Characterizing virus-host DNA patterns</span>
             </div>
           </div>
         </div>
@@ -55,7 +54,7 @@ permalink: /about/
 
     <section class="skills-section">
       <div class="section-content">
-        <h2>Technical Skills</h2>
+        <h2>Technical Skills and Experience</h2>
         <div class="skills-container">
           <div class="skill-category" id="ml-ai">
             <div class="skill-header">
@@ -97,7 +96,7 @@ permalink: /about/
                   <div class="skill-details">
                     <span>BERT</span>
                     <span>Transformers</span>
-                    <span>Selective State Spaces</span>
+                    <span>State Space Models</span>
                     <span>LLM Agent Design</span>
                     <span>Sentiment Analysis</span>
                   </div>
@@ -128,37 +127,19 @@ permalink: /about/
                   <h4>Molecular Virology</h4>
                   <div class="skill-details">
                     <span>Virus Plaque Assays</span>
-                    <span>Viral DNA Isolation and Detection with PCR</span>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item" data-skill="Viral Pathogenesis">
-                <div class="skill-icon"><i class="fas fa-disease"></i></div>
-                <div class="skill-info">
-                  <h4>Viral Pathogenesis</h4>
-                  <div class="skill-details">
-                    <span>Host-Pathogen Interactions</span>
-                    <span>Disease Mechanisms</span>
+                    <span>Viral DNA Isolation</span>
+                    <span>DNA detection with PCR</span>
                   </div>
                 </div>
               </div>
               <div class="skill-item" data-skill="Immunology">
-                <div class="skill-icon"><i class="fas fa-shield-virus"></i></div>
+                <div class="skill-icon"><i class="fas fa-disease"></i></div>
                 <div class="skill-info">
                   <h4>Immunology</h4>
                   <div class="skill-details">
-                    <span>Immune Responses</span>
-                    <span>Vaccine Development</span>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item" data-skill="Antiviral Research">
-                <div class="skill-icon"><i class="fas fa-capsules"></i></div>
-                <div class="skill-info">
-                  <h4>Antiviral Research</h4>
-                  <div class="skill-details">
-                    <span>Drug Discovery</span>
-                    <span>Resistance Mechanisms</span>
+                    <span>Mammalian Cell Culture</span>
+                    <span>Flourescence Imaging</span>
+                    <span>Antibody Staining</span>
                   </div>
                 </div>
               </div>
@@ -170,17 +151,6 @@ permalink: /about/
               <h3>Genomics</h3>
             </div>
             <div class="skill-grid">
-              <div class="skill-item" data-skill="NGS">
-                <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-                <div class="skill-info">
-                  <h4>Next-Generation Sequencing</h4>
-                  <div class="skill-details">
-                    <span>Illumina</span>
-                    <span>PacBio</span>
-                    <span>Oxford Nanopore</span>
-                  </div>
-                </div>
-              </div>
               <div class="skill-item" data-skill="Bioinformatics">
                 <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
                 <div class="skill-info">
@@ -198,16 +168,6 @@ permalink: /about/
                   <div class="skill-details">
                     <span>Evolutionary Analysis</span>
                     <span>Genome Annotation</span>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item" data-skill="CRISPR">
-                <div class="skill-icon"><i class="fas fa-edit"></i></div>
-                <div class="skill-info">
-                  <h4>CRISPR Gene Editing</h4>
-                  <div class="skill-details">
-                    <span>Genome Modification</span>
-                    <span>Gene Function Analysis</span>
                   </div>
                 </div>
               </div>
@@ -358,7 +318,7 @@ body {
 .profile-image {
   width: 100%;
   height: 100%;
-  background-image: url('path_to_your_image.jpg');
+  background-image: url('assets/images/Alan_3.jpg');
   background-size: cover;
   background-position: center;
 }

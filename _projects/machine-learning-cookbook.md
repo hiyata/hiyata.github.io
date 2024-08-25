@@ -150,7 +150,6 @@ If you don't already have data, you'll need to collect it. In the fields of viro
    - **Medicine**: Continuous glucose monitors can provide detailed data on blood sugar levels for diabetes research.
    - **Ecology and Climate**: Environmental sensors can collect data on temperature, humidity, and other factors affecting species distribution.
 
-   The [Kinsa HealthWeather](https://healthweather.us/) project uses data from smart thermometers to track fever levels across the United States, which can be an early indicator of disease outbreaks.
 
 5. **Surveys or experiments**
 

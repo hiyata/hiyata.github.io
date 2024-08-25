@@ -5,7 +5,8 @@ excerpt: An advanced COVID-19 case prediction model comparing LSTM/GRU, ARIMA, R
 category: virology
 permalink: /covid-prediction/
 ---
-
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
 <style>
     body {
         font-family: 'Arial', sans-serif;
@@ -176,8 +177,6 @@ permalink: /covid-prediction/
     </p>
 </div>
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM content loaded');
