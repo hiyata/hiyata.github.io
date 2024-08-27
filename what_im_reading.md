@@ -251,7 +251,7 @@ title: My Reading List
                         </a>
                         </h3>
                     <div class="author"> Andriy Burkov</div>
-                    <p>A brief review or description of why this book is recommended. This section allows you to highlight key takeaways or insights that make this book valuable.</p>
+                    <p></p>
                 </div>
             </div>
 
@@ -261,21 +261,22 @@ title: My Reading List
         <div class="recommendations">
             <h2>Recommended Papers</h2>
 
-            <div class="paper">
-                <img src="path_to_paper_thumbnail.jpg" alt="Paper Thumbnail">
-                <div class="details">
-                    <h3>Title of the Paper</h3>
-                    <div class="author">Paper Author</div>
-                    <p>A brief review or description of the paper, focusing on its contributions and why it’s worth reading.</p>
-                </div>
+        <div class="paper">
+            <img src="assets/images/DNABERT.png" alt="DNABERT">
+            <div class="details">
+                <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank">DNABERT</a></h3>
+                <div class="author">Yanrong Ji, Zhihan Zhou, Han Liu, Ramana V Davuluri.</div>
+                <p>Published in 2021, this is the first foundational model train on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
             </div>
+        </div>
+
 
             <div class="paper">
-                <img src="path_to_another_paper_thumbnail.jpg" alt="Paper Thumbnail">
+                <img src="assets/images/Toward_a_theory_of_evolution_as_multilevel_learning.png" alt="Multi-level_learning">
                 <div class="details">
-                    <h3>Title of Another Paper</h3>
-                    <div class="author">Another Paper Author</div>
-                    <p>A brief review or description of the paper, focusing on its contributions and why it’s worth reading.</p>
+                    <h3>Toward a Theory of Evolution as Multilevel Learning</h3>
+                    <div class="author">Vanchurin V, Wolf YI, Katsnelson MI, Koonin EV.</div>
+                    <p></p>
                 </div>
             </div>
 

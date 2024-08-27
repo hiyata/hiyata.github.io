@@ -178,9 +178,9 @@ permalink: /covid-prediction/
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM content loaded');
-    
+window.onload = function() {
+    console.log('Window loaded');
+
     function displayErrorMessage(message) {
         const errorContainer = document.getElementById('error-container');
         errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
@@ -268,5 +268,5 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             displayErrorMessage(`Error loading data: ${error.message}`);
         });
-});
+};
 </script>
