@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+---
+layout: page
+title: COVID-19 Case Prediction Model Comparison
+excerpt: An advanced COVID-19 case prediction model comparing LSTM/GRU, ARIMA, Random Forest, and XGBoost algorithms.
+category: virology
+permalink: /covid-prediction/
+---
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19 Case Prediction Model Comparison</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" defer></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -209,80 +215,85 @@
         </p>
     </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM fully loaded and parsed');
-
-        function displayErrorMessage(message) {
-            const errorContainer = document.getElementById('error-container');
-            errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function displayErrorMessage(message) {
+        const errorContainer = document.getElementById('error-container');
+        errorContainer.innerHTML = `<div class="error-message">${message}</div>`;
+    }
+    
+    function updateMetrics(data) {
+        document.getElementById('lstm-gru-mape').textContent = data.mape.lstm_gru.toFixed(2) + '%';
+        document.getElementById('arima-mape').textContent = data.mape.arima.toFixed(2) + '%';
+        document.getElementById('rf-mape').textContent = data.mape.random_forest.toFixed(2) + '%';
+        document.getElementById('xgb-mape').textContent = data.mape.xgboost.toFixed(2) + '%';
+        document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
+    }
+    
+    function createComparisonChart(data) {
+        if (typeof Plotly === 'undefined') {
+            displayErrorMessage('Plotly library is not loaded, please refresh the page to fix this.');
+            return;
         }
+
+        const actualTrace = {
+            x: data.dates,
+            y: data.actual,
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Actual Cases',
+            line: {color: '#000000', width: 3}
+        };
         
-        function updateMetrics(data) {
-            document.getElementById('lstm-gru-mape').textContent = data.mape.lstm_gru.toFixed(2) + '%';
-            document.getElementById('arima-mape').textContent = data.mape.arima.toFixed(2) + '%';
-            document.getElementById('rf-mape').textContent = data.mape.random_forest.toFixed(2) + '%';
-            document.getElementById('xgb-mape').textContent = data.mape.xgboost.toFixed(2) + '%';
-            document.getElementById('last-updated').textContent = dayjs(data.last_updated).format('MMMM D, YYYY HH:mm:ss');
-        }
+        const lstmGruTrace = {
+            x: data.dates,
+            y: data.lstm_gru_predictions,
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'LSTM/GRU Prediction',
+            line: {color: '#1f77b4'}
+        };
         
-        function createComparisonChart(data) {
-            const actualTrace = {
-                x: data.dates,
-                y: data.actual,
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'Actual Cases',
-                line: {color: '#000000', width: 3}
-            };
-            
-            const lstmGruTrace = {
-                x: data.dates,
-                y: data.lstm_gru_predictions,
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'LSTM/GRU Prediction',
-                line: {color: '#1f77b4'}
-            };
-            
-            const arimaTrace = {
-                x: data.dates,
-                y: data.arima_predictions,
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'ARIMA Prediction',
-                line: {color: '#ff7f0e'}
-            };
-            
-            const rfTrace = {
-                x: data.dates,
-                y: data.rf_predictions,
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'Random Forest Prediction',
-                line: {color: '#2ca02c'}
-            };
-            
-            const xgbTrace = {
-                x: data.dates,
-                y: data.xgb_predictions,
-                type: 'scatter',
-                mode: 'lines+markers',
-                name: 'XGBoost Prediction',
-                line: {color: '#d62728'}
-            };
+        const arimaTrace = {
+            x: data.dates,
+            y: data.arima_predictions,
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'ARIMA Prediction',
+            line: {color: '#ff7f0e'}
+        };
+        
+        const rfTrace = {
+            x: data.dates,
+            y: data.rf_predictions,
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'Random Forest Prediction',
+            line: {color: '#2ca02c'}
+        };
+        
+        const xgbTrace = {
+            x: data.dates,
+            y: data.xgb_predictions,
+            type: 'scatter',
+            mode: 'lines+markers',
+            name: 'XGBoost Prediction',
+            line: {color: '#d62728'}
+        };
 
-            const layout = {
-                title: '7-Day COVID-19 Case Prediction Comparison',
-                xaxis: { title: 'Date' },
-                yaxis: { title: 'Number of Cases' },
-                legend: {orientation: 'h', y: -0.2}
-            };
+        const layout = {
+            title: '7-Day COVID-19 Case Prediction Comparison',
+            xaxis: { title: 'Date' },
+            yaxis: { title: 'Number of Cases' },
+            legend: {orientation: 'h', y: -0.2}
+        };
 
-            Plotly.newPlot('comparison-chart', [actualTrace, lstmGruTrace, arimaTrace, rfTrace, xgbTrace], layout);
-        }
+        Plotly.newPlot('comparison-chart', [actualTrace, lstmGruTrace, arimaTrace, rfTrace, xgbTrace], layout);
+    }
 
-        // Fetch the latest prediction data
+    function fetchData() {
         fetch('/assets/covid-19-files/covid_predictions.json')
             .then(response => {
                 console.log('Response status:', response.status);
@@ -300,7 +311,20 @@
                 console.error('Error:', error);
                 displayErrorMessage(`Error loading data: ${error.message}`);
             });
-    });
-    </script>
+    }
+
+    if (typeof Plotly === 'undefined') {
+        const plotlyScript = document.createElement('script');
+        plotlyScript.src = 'https://cdn.plot.ly/plotly-latest.min.js';
+        plotlyScript.onload = fetchData;
+        plotlyScript.onerror = function() {
+            displayErrorMessage('Failed to load Plotly library, please refresh the page to fix this.');
+        };
+        document.head.appendChild(plotlyScript);
+    } else {
+        fetchData();
+    }
+});
+</script>
 </body>
 </html>
