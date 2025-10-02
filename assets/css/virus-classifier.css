@@ -1,0 +1,237 @@
+/* Namespace all styles under virus-classifier to avoid conflicts */
+.virus-classifier {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.virus-classifier .upload-section {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.virus-classifier .file-input-wrapper {
+    margin-bottom: 1rem;
+}
+
+.virus-classifier .file-input {
+    display: none;
+}
+
+.virus-classifier .file-input + label {
+    background: #fff;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.virus-classifier .file-input + label:hover {
+    background: #f0f0f0;
+}
+
+.virus-classifier .analyze-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.virus-classifier .analyze-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+.virus-classifier .analyze-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.virus-classifier .results-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.virus-classifier .prediction-result {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.virus-classifier .prediction-result h4 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.virus-classifier .prediction-details {
+    margin-left: 1rem;
+}
+
+.virus-classifier .prediction-label {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.virus-classifier .prediction-human {
+    color: #2196F3;
+}
+
+.virus-classifier .prediction-non-human {
+    color: #FF9800;
+}
+
+.virus-classifier .probability-bars {
+    margin-top: 1rem;
+}
+
+.virus-classifier .probability-bar {
+    margin-bottom: 0.5rem;
+}
+
+.virus-classifier .probability-bar label {
+    display: inline-block;
+    width: 120px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.virus-classifier .bar-container {
+    display: inline-block;
+    width: calc(100% - 130px);
+    height: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.virus-classifier .bar {
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.virus-classifier .bar-container span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.virus-classifier .loading-section {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.virus-classifier .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    animation: virus-classifier-spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+/* File info styles */
+.virus-classifier .file-info {
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.virus-classifier .file-info h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.virus-classifier .file-info p {
+    margin: 5px 0;
+    font-family: monospace;
+    color: #666;
+}
+
+/* Prediction results styles */
+.virus-classifier .prediction-results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #28a745;
+}
+
+.virus-classifier .prediction-results pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Status and error message styles */
+.virus-classifier .status {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f0f0f0;
+    border-left: 4px solid #2196F3;
+    font-family: monospace;
+}
+
+.virus-classifier .error {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff0f0;
+    border-left: 4px solid #f44336;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.virus-classifier .error-message {
+    color: #dc3545;
+    padding: 1rem;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.virus-classifier .info-section {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Pre element styles */
+.virus-classifier pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+@keyframes virus-classifier-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

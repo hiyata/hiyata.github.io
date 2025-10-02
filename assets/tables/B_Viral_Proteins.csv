@@ -1,0 +1,130 @@
+Gene,Abundance,Localization,Temporal_Class
+UL103,14.8572932051565,Tegument,Immediate Early
+UL104,11.2804692749293,OC,Immediate Early
+UL114,<1,,Immediate Early
+UL115,54.596423097808,,Immediate Early
+UL116,34.9882985458945,,Immediate Early
+UL117,,,Immediate Early
+UL119,2.33487867340097,Tegument,Immediate Early
+UL120,,,Immediate Early
+UL121,,,Immediate Early
+UL122,3.96969253606773,Tegument,Immediate Early
+UL123,,,Immediate Early
+UL13,<1,,True Early
+UL14,<1,,True Early
+UL16,,,True Early
+UL20,,,True Early
+UL23,<1,,True Early
+UL24,4.14855967028748,OC,True Early
+UL26,67.330861756331,,True Early
+UL27,,,True Early
+UL28,<1,,True Early
+UL29,<1,,True Early
+UL31,<1,,True Early
+UL34,<1,,True Early
+UL36,<1,,True Early
+UL37,,,True Early
+UL38,<1,,True Early
+UL49,<1,,True Early
+UL50,2.82042217938457,,True Early
+UL51,,,True Early
+UL57,<1,,True Early
+UL69,1.85755782875924,IT,True Early
+UL71,45.9805470039489,OT,True Early
+UL112,1.71420094734948,,True Early
+UL135,<1,,True Early
+UL136,<1,,True Early
+UL138,,,True Early
+UL148D,1.14399004618671,OT,True Early
+UL149,,,True Early
+US22,3.23379193613444,,True Early
+US26,<1,,True Early
+US34,,,True Early
+US34A,,,True Early
+UL17,<1,,Delayed Early
+UL21A,,,Delayed Early
+UL40,<1,,Delayed Early
+UL43,<1,,Delayed Early
+UL48A,924.175252713813,OC,Delayed Early
+UL54,,,Delayed Early
+UL55,120.971949393526,Tegument,Delayed Early
+UL56,<1,,Delayed Early
+UL78,<1,,Delayed Early
+UL96,11.6112116950888,OT,Delayed Early
+UL97,62.0151573958019,Tegument,Delayed Early
+UL98,<1,,Delayed Early
+UL102,<1,,Delayed Early
+UL105,,,Delayed Early
+UL132,102.483330571157,Env,Delayed Early
+UL133,,,Delayed Early
+UL145,<1,,Delayed Early
+UL147,,,Delayed Early
+UL147A,,,Delayed Early
+UL148,<1,,Delayed Early
+UL148A,,,Delayed Early
+US8,<1,,Delayed Early
+US9,<1,,Delayed Early
+US10,,,Delayed Early
+US11,,,Delayed Early
+US12,<1,,Delayed Early
+US13,<1,,Delayed Early
+US14,<1,,Delayed Early
+US15,,,Delayed Early
+US16,,,Delayed Early
+US18,<1,,Delayed Early
+US19,,,Delayed Early
+US20,1.81352704777073,,Delayed Early
+US23,<1,,Delayed Early
+US24,<1,,Delayed Early
+US28,<1,,Delayed Early
+US31,,,Delayed Early
+US32,,,Delayed Early
+UL25,567.484522214817,IT,Early-Late
+UL33,20.0753864594113,OT,Early-Late
+UL35,445.922023990098,Teg,Early-Late
+UL70,<1,,Early-Late
+UL76,<1,,Early-Late
+UL77,32.043208137385,OC,Early-Late
+UL80,10.3388452763534,OC,Early-Late
+UL80.5,3.71082516810749,OC,Early-Late
+UL99,76.0227407078091,Teg,Early-Late
+UL140,<1,,Early-Late
+RL10,26.4233686272506,Env,Replication Independent Late
+RL11,<1,,Replication Independent Late
+RL13,,,Replication Independent Late
+UL4,,,Replication Independent Late
+UL5,,,Replication Independent Late
+UL22A,4.54938879207595,,Replication Independent Late
+UL144,,,Replication Independent Late
+US27,34.4980554946959,IT,Replication Independent Late
+UL82,2029.56138095193,Teg,Translation Independent Late
+UL83,2094.41219447321,Teg,Translation Independent Late
+UL84,<1,,Translation Independent Late
+UL85,815.46456026311,OC,Translation Independent Late
+UL86,1285.72380656383,IC,Translation Independent Late
+UL89,1.02251058218648,IT,Translation Independent Late
+UL100,552.631845845403,Env,Translation Independent Late
+RL12,<1,,True Late
+UL11,,,True Late
+UL32,862.27642664049,Tegument,True Late
+UL41A,23.5734430251668,Env,True Late
+UL42,,,True Late
+UL44,6.06283536807431,,True Late
+UL46,190.602589621589,OC,True Late
+UL47,127.073910083965,IC,True Late
+UL48,119.906097641797,Tegument,True Late
+UL52,1.46289887417165,,True Late
+UL53,<1,,True Late
+UL72,<1,,True Late
+UL73,35.05837845633,Tegument,True Late
+UL74,9.61527117710991,,True Late
+UL75,111.935848177256,,True Late
+UL87,,,True Late
+UL88,116.973611630846,OC,True Late
+UL92,,,True Late
+UL93,11.3109215815318,OC,True Late
+UL94,349.474651816868,IT,True Late
+UL95,<1,,True Late
+UL150,<1,,True Late
+US29,<1,,True Late
+US30,<1,,True Late

@@ -1,0 +1,130 @@
+Gene,24,48,72,96,120,Temporal_Class
+UL103,Lysosome,Golgi,Golgi,Peroxisome,ER,Immediate Early
+UL104,,,Mitochondria,Undefined,Nucleus,Immediate Early
+UL114,,Nucleus,Nucleus,Nucleus,Nucleus,Immediate Early
+UL115,,,,,,Immediate Early
+UL116,,,,,,Immediate Early
+UL117,,,,,,Immediate Early
+UL119,Undefined,Golgi,ER,ER,ER,Immediate Early
+UL120,,,,,,Immediate Early
+UL121,,,,Undefined,ER,Immediate Early
+UL122,,Dense cytosol,,Nucleus,Nucleus,Immediate Early
+UL123,Nucleus,Nucleus,Nucleus,Nucleus,Nucleus,Immediate Early
+UL13,Plasma membrane,Undefined,Mitochondria,Plasma membrane,ER,True Early
+UL14,ER,Golgi,ER,ER,ER,True Early
+UL16,,,,Undefined,Lysosome,True Early
+UL20,,,,,,True Early
+UL23,,,,,,True Early
+UL24,,Nucleus,,Undefined,Nucleus,True Early
+UL26,,,Undefined,Nucleus,Nucleus,True Early
+UL27,,,,,,True Early
+UL28,,,,,,True Early
+UL29,,Nucleus,Nucleus,Nucleus,Nucleus,True Early
+UL31,,,,,,True Early
+UL34,Nucleus,,,,Nucleus,True Early
+UL36,Nucleus,Nucleus,Nucleus,,Undefined,True Early
+UL37,Mitochondria,Mitochondria,Mitochondria,Mitochondria,Mitochondria,True Early
+UL38,,,,,,True Early
+UL49,,,,,,True Early
+UL50,,,Cytoplasm,ER,ER,True Early
+UL51,,,,,,True Early
+UL57,,Undefined,,,Mitochondria,True Early
+UL69,,Nucleus,Nucleus,Nucleus,Nucleus,True Early
+UL71,ER,ER,Golgi,Golgi,ER,True Early
+UL112,,Nucleus,Nucleus,Nucleus,Nucleus,True Early
+UL135,,,,,,True Early
+UL136,,,,,,True Early
+UL138,,,,,,True Early
+UL148D,,,,,,True Early
+UL149,,,,,,True Early
+US22,Nucleus,Nucleus,Nucleus,Nucleus,Undefined,True Early
+US26,,,,,,True Early
+US34,ER,,,ER,ER,True Early
+US34A,,,,,,True Early
+UL17,,,,ER,Undefined,Delayed Early
+UL21A,,,,,,Delayed Early
+UL40,ER,,ER,Undefined,ER,Delayed Early
+UL43,,,,Nucleus,Nucleus,Delayed Early
+UL48A,,,,Undefined,Nucleus,Delayed Early
+UL54,Nucleus,Nucleus,,,Nucleus,Delayed Early
+UL55,,,,,,Delayed Early
+UL56,,,,Undefined,Nucleus,Delayed Early
+UL78,,,,ER,ER,Delayed Early
+UL96,,,,Undefined,Nucleus,Delayed Early
+UL97,Nucleus,Nucleus,Nucleus,Nucleus,Nucleus,Delayed Early
+UL98,Nucleus,Nucleus,Dense cytosol,Nucleus,Nucleus,Delayed Early
+UL102,Cytoplasm,,Dense cytosol,,Undefined,Delayed Early
+UL105,,,,,,Delayed Early
+UL132,,,ER,ER,ER,Delayed Early
+UL133,,,,,,Delayed Early
+UL145,,,,,,Delayed Early
+UL147,,,,,,Delayed Early
+UL147A,,,,,,Delayed Early
+UL148,,,,,,Delayed Early
+UL148A,,,,,,Delayed Early
+US8,ER,Golgi,ER,,Golgi,Delayed Early
+US9,ER,Undefined,Undefined,ER,ER,Delayed Early
+US10,Cytoplasm,Lysosome,ER,ER,Golgi,Delayed Early
+US11,ER,ER,Undefined,ER,Peroxisome,Delayed Early
+US12,Lysosome,Lysosome,ER,,ER,Delayed Early
+US13,,,,Undefined,Lysosome,Delayed Early
+US14,,,,ER,Undefined,Delayed Early
+US15,,,,ER,ER,Delayed Early
+US16,,,,Undefined,ER,Delayed Early
+US18,,,,,,Delayed Early
+US19,,,,,,Delayed Early
+US20,,,,,,Delayed Early
+US23,Nucleus,Nucleus,Nucleus,Nucleus,Nucleus,Delayed Early
+US24,,,,Undefined,Undefined,Delayed Early
+US28,,Golgi,Golgi,ER,ER,Delayed Early
+US31,,,,,,Delayed Early
+US32,,,,,,Delayed Early
+UL25,Nucleus,Nucleus,Peroxisome,Undefined,Nucleus,Early-Late
+UL33,,,,Undefined,ER,Early-Late
+UL35,,,Undefined,Undefined,Nucleus,Early-Late
+UL70,,,,Undefined,Nucleus,Early-Late
+UL76,,,,,,Early-Late
+UL77,,,,,,Early-Late
+UL80,,Nucleus,Lysosome,,Nucleus,Early-Late
+UL80.5,,,,,,Early-Late
+UL99,,,,ER,ER,Early-Late
+UL140,,,,,,Early-Late
+RL10,,,Lysosome,Lysosome,ER,Replication Independent Late
+RL11,,Golgi,Undefine,ER,ER,Replication Independent Late
+RL13,,,,Undefined,Lysosome,Replication Independent Late
+UL4,ER,ER,,ER,ER,Replication Independent Late
+UL5,,,,,,Replication Independent Late
+UL22A,,,Undefined,Golgi,ER,Replication Independent Late
+UL144,,,,,,Replication Independent Late
+US27,,,,,,Replication Independent Late
+UL82,,,Lysosome,Peroxisome,Undefined,Translation Independent Late
+UL83,,Nucleus,Nucleus,Nucleus,Undefined,Translation Independent Late
+UL84,Nucleus,Nucleus,Dense cytosol,Nucleus,Nucleus,Translation Independent Late
+UL85,,Nucleus,Lysosome,Lysosome,Nucleus,Translation Independent Late
+UL86,Nucleus,Nucleus,Lysosome,Lysosome,Nucleus,Translation Independent Late
+UL89,,,,Nucleus,Nucleus,Translation Independent Late
+UL100,,,,,,Translation Independent Late
+RL12,,Golgi,ER,Golgi,ER,True Late
+UL11,,,,,,True Late
+UL32,Nucleus,Nucleus,Lysosome,Lysosome,Nucleus,True Late
+UL41A,,,,ER,Golgi,True Late
+UL42,,,,,,True Late
+UL44,Nucleus,Dense cytosol,Peroxisome,Nucleus,Nucleus,True Late
+UL46,,,Lysosome,Lysosome,Nucleus,True Late
+UL47,,,Lysosome,Peroxisome,Nucleus,True Late
+UL48,,,Lysosome,Peroxisome,Nucleus,True Late
+UL52,,,Dense cytosol,Nucleus,Nucleus,True Late
+UL53,,,,Peroxisome,Nucleus,True Late
+UL72,,,,,,True Late
+UL73,,,,,,True Late
+UL74,,,Lysosome,Undefined,Lysosome,True Late
+UL75,,,,,,True Late
+UL87,,,,,,True Late
+UL88,,Mitochondria,Mitochondria,Peroxisome,Mitochondria,True Late
+UL92,,,,,,True Late
+UL93,,,,Undefined,Nucleus,True Late
+UL94,ER,Golgi,Undefined,Undefined,ER,True Late
+UL95,,,,Undefined,Nucleus,True Late
+UL150,,,,,,True Late
+US29,,,,,,True Late
+US30,,,,,,True Late

@@ -1,0 +1,130 @@
+Gene,P1,P2,Temporal_Class
+UL103,-1.0,Y,Immediate Early
+UL104,-10.0,N,Immediate Early
+UL114,-1.0,Y,Immediate Early
+UL115,-10.0,N,Immediate Early
+UL116,1.0,Y,Immediate Early
+UL117,-5.0,Y,Immediate Early
+UL119,1.0,Y,Immediate Early
+UL120,,,Immediate Early
+UL121,1.0,Y,Immediate Early
+UL122,-10.0,Y,Immediate Early
+UL123,-5.0,N,Immediate Early
+UL13,1.0,Y,True Early
+UL14,-1.0,Y,True Early
+UL16,1.0,Y,True Early
+UL20,-1.0,Y,True Early
+UL23,2.0,Y,True Early
+UL24,1.0,Y,True Early
+UL26,-5.0,Y,True Early
+UL27,1.0,Y,True Early
+UL28,-5.0,Y,True Early
+UL29,-1.0,Y,True Early
+UL31,-1.0,Y,True Early
+UL34,-10.0,N,True Early
+UL36,1.0,Y,True Early
+UL37,1.0,,True Early
+UL38,-1.0,Y,True Early
+UL49,-10.0,N,True Early
+UL50,-10.0,N,True Early
+UL51,-10.0,N,True Early
+UL57,-10.0,N,True Early
+UL69,-5.0,Y,True Early
+UL71,-10.0,Y,True Early
+UL112,-5.0,Y,True Early
+UL135,,,True Early
+UL136,,,True Early
+UL138,,,True Early
+UL148D,,,True Early
+UL149,,,True Early
+US22,1.0,Y,True Early
+US26,-5.0,Y,True Early
+US34,1.0,Y,True Early
+US34A,1.0,Y,True Early
+UL17,1.0,,Delayed Early
+UL21A,-5.0,Y,Delayed Early
+UL40,,,Delayed Early
+UL43,1.0,,Delayed Early
+UL48A,-10.0,N,Delayed Early
+UL54,-10.0,N,Delayed Early
+UL55,-10.0,N,Delayed Early
+UL56,-10.0,N,Delayed Early
+UL78,1.0,Y,Delayed Early
+UL96,-10.0,Y,Delayed Early
+UL97,-1.0,Y,Delayed Early
+UL98,-10.0,N,Delayed Early
+UL102,-10.0,N,Delayed Early
+UL105,-10.0,N,Delayed Early
+UL132,-1.0,,Delayed Early
+UL133,,,Delayed Early
+UL145,,,Delayed Early
+UL147,1.0,,Delayed Early
+UL147A,1.0,,Delayed Early
+UL148,,,Delayed Early
+UL148A,,,Delayed Early
+US8,1.0,,Delayed Early
+US9,1.0,,Delayed Early
+US10,1.0,Y,Delayed Early
+US11,1.0,,Delayed Early
+US12,1.0,,Delayed Early
+US13,-1.0,,Delayed Early
+US14,1.0,Y,Delayed Early
+US15,1.0,Y,Delayed Early
+US16,1.0,Y,Delayed Early
+US18,1.0,Y,Delayed Early
+US19,1.0,Y,Delayed Early
+US20,1.0,Y,Delayed Early
+US23,-1.0,Y,Delayed Early
+US24,1.0,Y,Delayed Early
+US28,1.0,,Delayed Early
+US31,1.0,Y,Delayed Early
+US32,1.0,Y,Delayed Early
+UL25,1.0,Y,Early-Late
+UL33,1.0,Y,Early-Late
+UL35,-1.0,Y,Early-Late
+UL70,-10.0,N,Early-Late
+UL76,-10.0,Y,Early-Late
+UL77,-10.0,N,Early-Late
+UL80,-10.0,N,Early-Late
+UL80.5,,N,Early-Late
+UL99,-10.0,Y/N,Early-Late
+UL140,,,Early-Late
+RL10,1.0,Y,Replication Independent Late
+RL11,1.0,Y,Replication Independent Late
+RL13,1.0,,Replication Independent Late
+UL4,1.0,,Replication Independent Late
+UL5,1.0,Y,Replication Independent Late
+UL22A,,,Replication Independent Late
+UL144,,,Replication Independent Late
+US27,1.0,,Replication Independent Late
+UL82,-5.0,Y,Translation Independent Late
+UL83,1.0,Y,Translation Independent Late
+UL84,-10.0,N,Translation Independent Late
+UL85,-10.0,N,Translation Independent Late
+UL86,-10.0,N,Translation Independent Late
+UL89,1.0,N,Translation Independent Late
+UL100,-10.0,N,Translation Independent Late
+RL12,1.0,Y,True Late
+UL11,-1.0,Y,True Late
+UL32,-10.0,N,True Late
+UL41A,,Y,True Late
+UL42,1.0,Y,True Late
+UL44,-10.0,N,True Late
+UL46,-10.0,N,True Late
+UL47,-1.0,Y,True Late
+UL48,-10.0,Y,True Late
+UL52,-10.0,N,True Late
+UL53,-10.0,N,True Late
+UL72,-1.0,Y,True Late
+UL73,-10.0,N,True Late
+UL74,-1.0,Y,True Late
+UL75,-10.0,N,True Late
+UL87,-10.0,N,True Late
+UL88,-1.0,Y,True Late
+UL92,-10.0,N,True Late
+UL93,-10.0,N,True Late
+UL94,-10.0,Y,True Late
+UL95,-10.0,N,True Late
+UL150,,,True Late
+US29,1.0,Y,True Late
+US30,2.0,Y,True Late
