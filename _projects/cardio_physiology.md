@@ -4,6 +4,7 @@ excerpt: An interactive learning tool for understanding the channels involved in
 title: Cardiac Cells Action Potential Channels Learning Tool 
 category: cardiophysiology 
 ---
+{% raw %}
 
 import React, { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -616,3 +617,4 @@ if (typeof window !== 'undefined' && window.__RUN_AP_TESTS__) {
 }
 
 export { runUnitTests };
+{% endraw %}
