@@ -1,9 +1,6 @@
 ---
 layout: default
-title: Cardiac Cells Action Potential Channels Learning Tool
-excerpt: Interactive tool for exploring ion-channel contributions to the cardiac action potential.
-category: cardiophysiology
-render_with_liquid: false
+title: Cardio Physio
 ---
 
 <div id="ap-app" style="max-width:1120px;margin:0 auto;padding:1.25rem"></div>
@@ -52,6 +49,7 @@ render_with_liquid: false
   .divider{height:1px;background:var(--grid);margin:12px 0}
 </style>
 
+{% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
@@ -408,3 +406,4 @@ function App(){
 
 ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
 </script>
+{% endraw %}
