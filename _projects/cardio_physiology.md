@@ -12,6 +12,9 @@ render_with_liquid: false
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
+<!-- IMPORTANT: react-is must load BEFORE Recharts -->
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+
 <!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
 
@@ -26,6 +29,7 @@ render_with_liquid: false
   .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
   .row{display:flex;gap:12px;align-items:center}
+  .flex1{flex:1}
   .field{display:flex;flex-direction:column;gap:6px}
   .label{font-size:12px;color:var(--muted)}
   input[type="range"]{width:100%}
@@ -226,13 +230,13 @@ function App(){
             <input value={name} onChange={(e)=>setName(e.target.value)} />
           </div>
           <div className="row">
-            <div className="field" style={{flex:1}}>
+            <div className="field flex1">
               <label className="label">Cell type</label>
               <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
                 {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </div>
-            <div className="field" style={{flex:1}}>
+            <div className="field flex1">
               <label className="label">Drug preset</label>
               <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
                 {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
@@ -240,13 +244,13 @@ function App(){
             </div>
           </div>
           <div className="row">
-            <div className="field" style={{flex:1}}>
+            <div className="field flex1">
               <label className="label">Environment</label>
               <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
                 {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
               </select>
             </div>
-            <div className="field" style={{flex:1}}>
+            <div className="field flex1">
               <label className="label">Pacing (BPM): {bpm}</label>
               <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
             </div>
@@ -305,14 +309,14 @@ function App(){
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
             <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-            <Tooltip formatter={(v)=>\`\${Number(v).toFixed(1)} mV\`} labelFormatter={(l)=>\`\${Number(l).toFixed(1)} ms\`} />
+            <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
             {showBaseline && (
               <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
             )}
             <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
             <ReferenceLine y={-85} stroke="#e5e7eb"/>
 
-            {layoutPhaseMarks(modified.marks).map((m,i)=>(
+            {laidOutMarks.map((m,i)=>(
               <Fragment key={i}>
                 <ReferenceLine segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
                 <ReferenceDot x={m.t} y={m.displayY} r={1} fill="#0f172a" isFront
