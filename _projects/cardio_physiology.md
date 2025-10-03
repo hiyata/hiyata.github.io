@@ -265,8 +265,11 @@ function App(){
             if(!keys.length) return null;
             return (
               <details key={g.label} open>
-                <summary className="label" style={{fontSize:14,color:'var(--ink)'}}>{g.label}</summary>
-                <div className="stack" style={{paddingTop:8}}>
+                <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>
+                  {g.label}
+                </summary>
+
+                <div className="stack" style={{ paddingTop: 8 }}>
                   {keys.map(key=>(
                     <div key={key} className="stack">
                       <div className="row" style={{justifyContent:'space-between'}}>
