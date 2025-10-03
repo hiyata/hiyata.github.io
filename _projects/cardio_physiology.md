@@ -52,7 +52,7 @@ render_with_liquid: false
   .divider{height:1px;background:var(--grid);margin:12px 0}
 </style>
 
-<script type="text/babel">
+<script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
 
