@@ -8,9 +8,6 @@
   --text-secondary: #4b5563;
   --border-soft: rgba(15, 23, 42, 0.08);
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
-  --page-max-width: 880px;
-  --page-gutter: clamp(1rem, 4vw, 2rem);
-  --page-content-width: min(var(--page-max-width), calc(100% - var(--page-gutter) * 2));
 }
 
 * {
@@ -19,7 +16,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -62,12 +58,9 @@ img,
   height: auto;
 }
 
-.layout-bound,
 .wrapper {
-  width: min(100%, var(--page-content-width));
+  width: min(1200px, 92vw);
   margin: 0 auto;
-  padding-left: var(--page-gutter);
-  padding-right: var(--page-gutter);
 }
 
 main.page-content {
@@ -131,13 +124,13 @@ body.page-transitioning #page-transition-overlay {
 }
 
 .header-inner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  padding: 0.85rem 0;
-  flex-wrap: wrap;
-  row-gap: 0.5rem;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
 }
 
 .brand {
@@ -151,22 +144,16 @@ body.page-transitioning #page-transition-overlay {
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: clamp(1rem, 1.6vw, 1.4rem);
-  flex-wrap: wrap;
-  row-gap: 0.5rem;
-  flex: 1 1 100%;
-  min-width: 0;
+  gap: 1.5rem;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  gap: 1.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -213,30 +200,12 @@ body.page-transitioning #page-transition-overlay {
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  flex-shrink: 0;
 }
 
 .nav-cta:hover,
 .nav-cta:focus {
   transform: translateY(-2px);
   box-shadow: var(--shadow-soft);
-}
-
-@media (min-width: 960px) {
-  .header-inner {
-    flex-wrap: nowrap;
-    row-gap: 0;
-  }
-
-  .site-nav {
-    flex: 0 1 auto;
-    justify-content: flex-end;
-    row-gap: 0;
-  }
-
-  .nav-list {
-    flex-wrap: nowrap;
-  }
 }
 
 .nav-toggle {
@@ -317,7 +286,7 @@ body.page-transitioning #page-transition-overlay {
   background-color: rgba(36, 86, 255, 0.18);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
   .site-nav {
     position: fixed;
     inset: 0 0 0 30%;
