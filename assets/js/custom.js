@@ -37,7 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.body.addEventListener('click', function(e) {
     const anchor = e.target.closest('a');
-    if (anchor && anchor.href && anchor.href.startsWith(window.location.origin) && !anchor.getAttribute('target')) {
+    if (!anchor) {
+      return;
+    }
+
+    const anchorHref = anchor.getAttribute('href') || '';
+    const isInternal = anchor.href && anchor.href.startsWith(window.location.origin);
+    const isPureHash = anchorHref.startsWith('#');
+    const isSamePageHash = Boolean(anchor.hash) && anchor.pathname === window.location.pathname;
+    const isHashLink = isPureHash || isSamePageHash;
+    const hasTarget = Boolean(anchor.getAttribute('target'));
+
+    if (isInternal && !hasTarget && !isHashLink) {
       e.preventDefault();
       startTransition(anchor.href);
     }
