@@ -1,0 +1,513 @@
+---
+layout: default
+title: Wiggers Diagram - Cardiac Cycle
+---
+
+<div id="wiggers-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;}
+  body{color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(300px,400px) 1fr;gap:32px}}
+  .section h2{font:600 12px/1.1 ui-sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .label{font-size:12px;color:var(--muted);font-weight:500}
+  button{border:1px solid var(--grid);border-radius:6px;padding:8px 16px;font-size:14px;cursor:pointer;background:#fff;transition:all 0.2s}
+  button:hover{background:#f8fafc;border-color:var(--blue)}
+  button.primary{background:var(--blue);color:white;border-color:var(--blue);font-weight:600}
+  button.primary:hover{background:#1d4ed8}
+  button.active{background:var(--blue);color:white}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle button{border:none;border-radius:0;padding:10px 20px}
+  .timeline{position:relative;height:60px;background:#f8fafc;border-radius:8px;margin:16px 0;padding:8px}
+  .event-marker{position:absolute;top:50%;transform:translateY(-50%);width:12px;height:12px;border-radius:50%;background:var(--blue);cursor:pointer;transition:all 0.2s;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+  .event-marker:hover{transform:translateY(-50%) scale(1.3)}
+  .event-marker.active{background:var(--green);width:16px;height:16px;box-shadow:0 0 0 4px rgba(5,150,105,0.2)}
+  .event-label{position:absolute;top:-20px;font-size:11px;font-weight:600;white-space:nowrap;transform:translateX(-50%);color:var(--ink)}
+  .valve-state{display:inline-flex;padding:4px 10px;border-radius:4px;font-size:12px;font-weight:600;margin:0 4px}
+  .valve-open{background:#dcfce7;color:#166534}
+  .valve-closed{background:#fee2e2;color:#991b1b}
+  .phase-box{padding:16px;background:#f8fafc;border-radius:8px;border-left:4px solid var(--blue);margin:12px 0}
+  .phase-name{font-weight:700;font-size:16px;margin-bottom:8px;color:var(--ink)}
+  .phase-desc{font-size:14px;line-height:1.6;color:var(--muted)}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;margin-bottom:8px}
+  .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
+  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
+  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600;justify-content:center}
+  .chart-container{width:100%;height:400px;margin:12px 0}
+  .divider{height:1px;background:var(--grid);margin:16px 0}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0;font-size:13px}
+  .legend-item{display:flex;align-items:center;gap:6px}
+  .legend-color{width:20px;height:3px;border-radius:2px}
+</style>
+
+<script type="text/babel" data-presets="env,react">
+const {useState, useMemo, useRef} = React;
+const {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine, Area, AreaChart} = Recharts;
+
+// Cardiac cycle events in sequence
+const EVENTS = [
+  {id: 'qrs', name: 'QRS', time: 0, ecg: 1, desc: 'Ventricular depolarization begins'},
+  {id: 'mvc', name: 'MV Close', time: 50, desc: 'Mitral valve closes (S1 begins)'},
+  {id: 'ivct', name: 'IVCT Start', time: 60, desc: 'Isovolumic contraction begins'},
+  {id: 'avo', name: 'AV Open', time: 110, desc: 'Aortic valve opens, ejection begins'},
+  {id: 'twave', name: 'T Wave', time: 200, ecg: 0.5, desc: 'Ventricular repolarization'},
+  {id: 'avc', name: 'AV Close', time: 350, desc: 'Aortic valve closes (S2 - dicrotic notch)'},
+  {id: 'ivrt', name: 'IVRT Start', time: 360, desc: 'Isovolumic relaxation begins'},
+  {id: 'mvo', name: 'MV Open', time: 410, desc: 'Mitral valve opens, filling begins'},
+  {id: 'pwave', name: 'P Wave', time: 650, ecg: 0.3, desc: 'Atrial depolarization'},
+  {id: 'atrial', name: 'Atrial Kick', time: 720, desc: 'Atrial contraction completes filling'}
+];
+
+// Generate physiological traces
+function generateTraces(currentEventIndex) {
+  const data = [];
+  const cycle = 800; // ms
+  
+  for(let t = 0; t <= cycle; t += 5) {
+    let ecg = 0;
+    let lvp = 10; // LV pressure (mmHg)
+    let aop = 80; // Aortic pressure
+    let lap = 5; // LA pressure
+    let lvv = 120; // LV volume (mL)
+    
+    // Only show data up to current event
+    const currentTime = currentEventIndex >= 0 ? EVENTS[currentEventIndex].time : -1;
+    if(t > currentTime && currentEventIndex < EVENTS.length - 1) {
+      data.push({t, ecg: null, lvp: null, aop: null, lap: null, lvv: null});
+      continue;
+    }
+    
+    // ECG
+    if(t >= 0 && t < 80) ecg = Math.sin((t/80) * Math.PI) * 1.5; // QRS
+    else if(t >= 200 && t < 280) ecg = Math.sin((t-200)/80 * Math.PI) * 0.6; // T wave
+    else if(t >= 650 && t < 700) ecg = Math.sin((t-650)/50 * Math.PI) * 0.4; // P wave
+    
+    // Pressures and volume based on phase
+    if(t < 50) { // Diastole (filling)
+      lvp = 5 + t/50 * 3;
+      aop = 80;
+      lap = 8;
+      lvv = 50 + t/50 * 70;
+    } else if(t < 110) { // IVCT
+      lvp = 8 + (t-50)/60 * 72;
+      aop = 80;
+      lap = 5;
+      lvv = 120;
+    } else if(t < 350) { // Ejection
+      const prog = (t-110)/240;
+      lvp = 80 + Math.sin(prog * Math.PI) * 40;
+      aop = 80 + Math.sin(prog * Math.PI) * 40;
+      lap = 5;
+      lvv = 120 - prog * 70;
+    } else if(t < 410) { // IVRT
+      lvp = 120 - (t-350)/60 * 110;
+      aop = 80 - (t-350)/60 * 5;
+      lap = 5;
+      lvv = 50;
+    } else if(t < 720) { // Passive filling
+      const prog = (t-410)/310;
+      lvp = 10 - prog * 5;
+      aop = 75 + Math.sin(prog * Math.PI * 2) * 3;
+      lap = 8 - prog * 3;
+      lvv = 50 + prog * 60;
+    } else { // Atrial kick
+      const prog = (t-720)/80;
+      lvp = 5 + prog * 3;
+      aop = 75;
+      lap = 8 + Math.sin(prog * Math.PI) * 4;
+      lvv = 110 + prog * 10;
+    }
+    
+    data.push({t, ecg, lvp, aop, lap, lvv});
+  }
+  
+  return data;
+}
+
+// Get valve states for current event
+function getValveStates(eventIndex) {
+  if(eventIndex < 0) return {mv: 'closed', av: 'closed'};
+  const time = EVENTS[eventIndex].time;
+  
+  const mv = (time >= 50 && time < 410) ? 'closed' : 'open';
+  const av = (time >= 110 && time < 350) ? 'open' : 'closed';
+  
+  return {mv, av};
+}
+
+// Get current phase info
+function getCurrentPhase(eventIndex) {
+  if(eventIndex < 0) return null;
+  const time = EVENTS[eventIndex].time;
+  
+  if(time >= 60 && time < 110) {
+    return {name: 'Isovolumic Contraction (IVCT)', desc: 'Both valves closed. LV pressure rising rapidly. Volume constant.'};
+  } else if(time >= 110 && time < 350) {
+    return {name: 'Ejection', desc: 'Aortic valve open. Blood ejected into aorta. LV pressure and aortic pressure track together.'};
+  } else if(time >= 360 && time < 410) {
+    return {name: 'Isovolumic Relaxation (IVRT)', desc: 'Both valves closed. LV pressure falling rapidly. Volume constant.'};
+  } else if(time >= 410 && time < 720) {
+    return {name: 'Rapid Filling', desc: 'Mitral valve open. Blood flows passively from LA to LV. Most filling occurs here.'};
+  } else if(time >= 720) {
+    return {name: 'Atrial Systole', desc: 'Atrial contraction (atrial kick). Contributes final ~20-30% of ventricular filling.'};
+  }
+  return {name: 'Early Diastole', desc: 'Ventricles relaxing, preparing for next cycle.'};
+}
+
+function ExploreMode() {
+  const [currentEvent, setCurrentEvent] = useState(-1);
+  const [autoPlay, setAutoPlay] = useState(false);
+  const timerRef = useRef(null);
+  
+  const traces = useMemo(() => generateTraces(currentEvent), [currentEvent]);
+  const valves = getValveStates(currentEvent);
+  const phase = getCurrentPhase(currentEvent);
+  
+  // Auto-advance
+  useMemo(() => {
+    if(autoPlay) {
+      timerRef.current = setInterval(() => {
+        setCurrentEvent(prev => prev >= EVENTS.length - 1 ? -1 : prev + 1);
+      }, 1500);
+    } else {
+      if(timerRef.current) clearInterval(timerRef.current);
+    }
+    return () => {if(timerRef.current) clearInterval(timerRef.current);};
+  }, [autoPlay]);
+  
+  const handleEventClick = (index) => {
+    setAutoPlay(false);
+    setCurrentEvent(index);
+  };
+  
+  const reset = () => {
+    setAutoPlay(false);
+    setCurrentEvent(-1);
+  };
+  
+  const currentTime = currentEvent >= 0 ? EVENTS[currentEvent].time : 0;
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Controls</h2>
+        <div className="stack">
+          <div className="row">
+            <button className={autoPlay ? 'active' : ''} onClick={() => setAutoPlay(!autoPlay)}>
+              {autoPlay ? '⏸ Pause' : '▶ Auto Play'}
+            </button>
+            <button onClick={reset}>↺ Reset</button>
+          </div>
+          
+          <div className="divider"></div>
+          
+          <div className="field">
+            <div className="label">CARDIAC CYCLE EVENTS</div>
+            <div className="timeline">
+              {EVENTS.map((evt, i) => {
+                const left = (evt.time / 800) * 100;
+                return (
+                  <div key={evt.id} style={{position: 'absolute', left: left + '%'}}>
+                    <div className="event-label">{evt.name}</div>
+                    <div 
+                      className={`event-marker ${i === currentEvent ? 'active' : ''}`}
+                      onClick={() => handleEventClick(i)}
+                      title={evt.desc}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          {currentEvent >= 0 && (
+            <>
+              <div className="phase-box">
+                <div className="phase-name">Event: {EVENTS[currentEvent].name}</div>
+                <div className="phase-desc">{EVENTS[currentEvent].desc}</div>
+              </div>
+              
+              <div className="field">
+                <div className="label">VALVE STATES</div>
+                <div className="row">
+                  <span className={`valve-state ${valves.mv === 'open' ? 'valve-open' : 'valve-closed'}`}>
+                    MV: {valves.mv.toUpperCase()}
+                  </span>
+                  <span className={`valve-state ${valves.av === 'open' ? 'valve-open' : 'valve-closed'}`}>
+                    AV: {valves.av.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+              
+              {phase && (
+                <div className="phase-box">
+                  <div className="phase-name">{phase.name}</div>
+                  <div className="phase-desc">{phase.desc}</div>
+                </div>
+              )}
+            </>
+          )}
+          
+          <div className="divider"></div>
+          
+          <div className="stack" style={{fontSize: 13, lineHeight: 1.6}}>
+            <div><strong>Key Concepts:</strong></div>
+            <div>• <strong>IVCT:</strong> Pressure rises, volume constant (both valves closed)</div>
+            <div>• <strong>Ejection:</strong> LV pressure &gt; Ao pressure → blood flows out</div>
+            <div>• <strong>IVRT:</strong> Pressure falls, volume constant (both valves closed)</div>
+            <div>• <strong>Filling:</strong> LA pressure &gt; LV pressure → blood flows in</div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Wiggers Diagram</h2>
+        
+        <div className="legend">
+          <div className="legend-item">
+            <div className="legend-color" style={{background: '#2563eb'}}></div>
+            <span>LV Pressure</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color" style={{background: '#dc2626'}}></div>
+            <span>Aortic Pressure</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color" style={{background: '#7c3aed'}}></div>
+            <span>LA Pressure</span>
+          </div>
+        </div>
+        
+        <ResponsiveContainer width="100%" height={250}>
+          <LineChart data={traces} margin={{top: 10, right: 30, bottom: 0, left: 0}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="t" label={{value: 'Time (ms)', position: 'insideBottomRight', offset: -5}} />
+            <YAxis label={{value: 'Pressure (mmHg)', angle: -90, position: 'insideLeft'}} />
+            <Tooltip />
+            <ReferenceLine x={currentTime} stroke="#059669" strokeWidth={2} strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="lvp" stroke="#2563eb" strokeWidth={2} dot={false} connectNulls />
+            <Line type="monotone" dataKey="aop" stroke="#dc2626" strokeWidth={2} dot={false} connectNulls />
+            <Line type="monotone" dataKey="lap" stroke="#7c3aed" strokeWidth={2} dot={false} connectNulls />
+          </LineChart>
+        </ResponsiveContainer>
+        
+        <div style={{marginTop: 20}}></div>
+        
+        <ResponsiveContainer width="100%" height={200}>
+          <LineChart data={traces} margin={{top: 10, right: 30, bottom: 0, left: 0}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="t" label={{value: 'Time (ms)', position: 'insideBottomRight', offset: -5}} />
+            <YAxis label={{value: 'Volume (mL)', angle: -90, position: 'insideLeft'}} domain={[0, 150]} />
+            <Tooltip />
+            <ReferenceLine x={currentTime} stroke="#059669" strokeWidth={2} strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="lvv" stroke="#059669" strokeWidth={2} dot={false} connectNulls />
+          </LineChart>
+        </ResponsiveContainer>
+        
+        <div style={{marginTop: 20}}></div>
+        
+        <ResponsiveContainer width="100%" height={150}>
+          <LineChart data={traces} margin={{top: 10, right: 30, bottom: 20, left: 0}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="t" label={{value: 'Time (ms)', position: 'insideBottomRight', offset: -5}} />
+            <YAxis label={{value: 'ECG', angle: -90, position: 'insideLeft'}} domain={[-0.5, 2]} />
+            <Tooltip />
+            <ReferenceLine x={currentTime} stroke="#059669" strokeWidth={2} strokeDasharray="5 5" />
+            <ReferenceLine y={0} stroke="#94a3b8" />
+            <Line type="monotone" dataKey="ecg" stroke="#0f172a" strokeWidth={2} dot={false} connectNulls />
+          </LineChart>
+        </ResponsiveContainer>
+      </section>
+    </div>
+  );
+}
+
+function QuizMode() {
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  
+  const questionTypes = [
+    {
+      type: 'valve_state',
+      generate: () => {
+        const event = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+        const valves = getValveStates(EVENTS.findIndex(e => e.id === event.id));
+        const askMV = Math.random() > 0.5;
+        const correctAnswer = askMV ? valves.mv : valves.av;
+        
+        return {
+          question: `At "${event.name}", what is the state of the ${askMV ? 'mitral valve (MV)' : 'aortic valve (AV)'}?`,
+          options: ['open', 'closed'].sort(() => Math.random() - 0.5),
+          correctAnswer,
+          eventName: event.name
+        };
+      }
+    },
+    {
+      type: 'phase_identification',
+      generate: () => {
+        const phases = [
+          {time: 80, name: 'Isovolumic Contraction', wrong: ['Ejection', 'Isovolumic Relaxation', 'Filling']},
+          {time: 200, name: 'Ejection', wrong: ['Isovolumic Contraction', 'Isovolumic Relaxation', 'Filling']},
+          {time: 380, name: 'Isovolumic Relaxation', wrong: ['Isovolumic Contraction', 'Ejection', 'Filling']},
+          {time: 500, name: 'Rapid Filling', wrong: ['Isovolumic Contraction', 'Ejection', 'Atrial Systole']},
+        ];
+        const phase = phases[Math.floor(Math.random() * phases.length)];
+        const options = [phase.name, ...phase.wrong].sort(() => Math.random() - 0.5);
+        
+        return {
+          question: `When both the mitral and aortic valves are closed and LV pressure is rising rapidly, which phase is this?`,
+          options,
+          correctAnswer: 'Isovolumic Contraction',
+          showPhase: true
+        };
+      }
+    },
+    {
+      type: 'event_sequence',
+      generate: () => {
+        const sequences = [
+          {q: 'What happens immediately after the QRS complex?', a: 'MV Close', w: ['AV Open', 'MV Open', 'AV Close']},
+          {q: 'What event marks the end of ejection?', a: 'AV Close', w: ['MV Close', 'MV Open', 'IVCT Start']},
+          {q: 'What happens after isovolumic relaxation?', a: 'MV Open', w: ['AV Open', 'MV Close', 'AV Close']},
+        ];
+        const seq = sequences[Math.floor(Math.random() * sequences.length)];
+        const options = [seq.a, ...seq.w].sort(() => Math.random() - 0.5);
+        
+        return {
+          question: seq.q,
+          options,
+          correctAnswer: seq.a
+        };
+      }
+    }
+  ];
+  
+  useMemo(() => {
+    if(!currentQuestion) {
+      const qType = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+      setCurrentQuestion(qType.generate());
+    }
+  }, [currentQuestion]);
+  
+  const handleAnswer = (answer) => {
+    if(showResult) return;
+    setSelectedAnswer(answer);
+    setShowResult(true);
+    setQuestionsAnswered(q => q + 1);
+    if(answer === currentQuestion.correctAnswer) {
+      setScore(s => s + 1);
+    }
+  };
+  
+  const nextQuestion = () => {
+    const qType = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+    setCurrentQuestion(qType.generate());
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  const resetQuiz = () => {
+    setScore(0);
+    setQuestionsAnswered(0);
+    setCurrentQuestion(null);
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  if(!currentQuestion) return <div>Loading...</div>;
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Quiz Settings</h2>
+        <div className="stack">
+          <div className="score-display">
+            <div>Score: {score}/{questionsAnswered}</div>
+            <div>{questionsAnswered > 0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
+          </div>
+          
+          <button onClick={resetQuiz}>Reset Quiz</button>
+          
+          <div className="divider"></div>
+          
+          <div>
+            <h3 style={{marginBottom: 16, fontSize: 15, fontWeight: 600, lineHeight: 1.5}}>
+              {currentQuestion.question}
+            </h3>
+            <div className="stack">
+              {currentQuestion.options.map(opt => (
+                <button
+                  key={opt}
+                  className={`quiz-option ${showResult ? (opt === currentQuestion.correctAnswer ? 'correct' : opt === selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`}
+                  onClick={() => handleAnswer(opt)}
+                  disabled={showResult}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {showResult && (
+            <>
+              <div style={{padding: 12, background: selectedAnswer === currentQuestion.correctAnswer ? '#f0fdf4' : '#fef2f2', borderRadius: 6, fontWeight: 600}}>
+                {selectedAnswer === currentQuestion.correctAnswer ? '✓ Correct!' : `✗ Incorrect. The answer is: ${currentQuestion.correctAnswer}`}
+              </div>
+              <button className="primary" onClick={nextQuestion}>Next Question</button>
+            </>
+          )}
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Reference</h2>
+        <div className="stack">
+          <div className="phase-box">
+            <div className="phase-name">Quick Reference</div>
+            <div className="phase-desc" style={{lineHeight: 1.8}}>
+              <strong>S1:</strong> Mitral valve closes<br/>
+              <strong>S2:</strong> Aortic valve closes<br/>
+              <strong>IVCT:</strong> Both valves closed, pressure ↑<br/>
+              <strong>IVRT:</strong> Both valves closed, pressure ↓<br/>
+              <strong>Ejection:</strong> AV open, blood flows to aorta<br/>
+              <strong>Filling:</strong> MV open, blood flows to ventricle
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function App() {
+  const [mode, setMode] = useState('explore');
+  
+  return (
+    <>
+      <div className="mode-toggle">
+        <button className={mode === 'explore' ? 'active' : ''} onClick={() => setMode('explore')}>Explore Mode</button>
+        <button className={mode === 'quiz' ? 'active' : ''} onClick={() => setMode('quiz')}>Quiz Mode</button>
+      </div>
+      {mode === 'explore' ? <ExploreMode /> : <QuizMode />}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('wiggers-app')).render(<App />);
+</script>

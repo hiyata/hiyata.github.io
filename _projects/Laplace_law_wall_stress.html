@@ -1,0 +1,503 @@
+---
+layout: default
+title: Laplace Law - Wall Stress
+---
+
+<div id="laplace-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--orange:#ea580c;}
+  body{color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px,420px) 1fr;gap:32px}}
+  .section h2{font:600 12px/1.1 ui-sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .label{font-size:13px;color:var(--ink);font-weight:500}
+  input[type="range"]{width:100%}
+  input[type="number"]{border:1px solid var(--grid);border-radius:6px;padding:8px 12px;font-size:14px;width:100px}
+  button{border:1px solid var(--grid);border-radius:6px;padding:8px 16px;font-size:14px;cursor:pointer;background:#fff;transition:all 0.2s}
+  button:hover{background:#f8fafc}
+  button.primary{background:var(--blue);color:white;border-color:var(--blue);font-weight:600}
+  button.primary:hover{background:#1d4ed8}
+  button.active{background:var(--blue);color:white}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle button{border:none;border-radius:0;padding:10px 20px}
+  .result-box{padding:20px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;text-align:center;border:2px solid var(--blue)}
+  .result-label{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;margin-bottom:4px}
+  .result-value{font-size:36px;font-weight:800;color:var(--blue);margin-bottom:8px}
+  .result-unit{font-size:16px;color:var(--muted);font-weight:500}
+  .formula-box{padding:16px;background:#f8fafc;border-radius:8px;font-family:monospace;font-size:15px;text-align:center;border:1px solid var(--grid)}
+  .info-box{padding:12px;background:#fef3c7;border-left:4px solid var(--orange);border-radius:4px;font-size:13px;line-height:1.6}
+  .warning-box{padding:12px;background:#fee2e2;border-left:4px solid var(--red);border-radius:4px;font-size:13px;line-height:1.6}
+  .divider{height:1px;background:var(--grid);margin:16px 0}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;margin-bottom:8px}
+  .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
+  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
+  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600;justify-content:center}
+  .comparison-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;padding:12px;background:#f8fafc;border-radius:6px;margin:8px 0}
+  .comparison-label{font-size:12px;color:var(--muted);font-weight:600}
+  .comparison-value{font-size:18px;font-weight:700}
+  .preset-btn{padding:8px 16px;background:#fff;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;font-size:13px;font-weight:500}
+  .preset-btn:hover{border-color:var(--blue);background:#f8fafc}
+  .preset-btn.active{border-color:var(--blue);background:#eff6ff;color:var(--blue)}
+</style>
+
+<script type="text/babel" data-presets="env,react">
+const {useState, useMemo} = React;
+const {BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LineChart, Line, CartesianGrid} = Recharts;
+
+// Laplace's Law for a sphere: σ = (P × r) / (2 × h)
+// σ = wall stress (dynes/cm²)
+// P = transmural pressure (mmHg → dynes/cm²)
+// r = radius (cm)
+// h = wall thickness (cm)
+
+const PRESETS = {
+  normal: {
+    label: 'Normal LV',
+    P: 120, // mmHg
+    r: 2.5, // cm
+    h: 1.0  // cm
+  },
+  dilated: {
+    label: 'Dilated Cardiomyopathy',
+    P: 120,
+    r: 4.0,  // Enlarged
+    h: 0.8   // Thinned wall
+  },
+  hypertrophic: {
+    label: 'Hypertrophic',
+    P: 150,  // Higher pressure
+    r: 2.0,  // Smaller chamber
+    h: 1.8   // Thick wall
+  },
+  hypertensive: {
+    label: 'Hypertension',
+    P: 180,  // High pressure
+    r: 2.5,
+    h: 1.3   // Compensatory thickening
+  }
+};
+
+function calculateStress(P_mmHg, r_cm, h_cm) {
+  // Convert pressure: 1 mmHg = 1333.22 dynes/cm²
+  const P_dynes = P_mmHg * 1333.22;
+  
+  // Calculate wall stress (dynes/cm²)
+  const sigma = (P_dynes * r_cm) / (2 * h_cm);
+  
+  // Also calculate in kPa for reference (1 dynes/cm² = 0.1 Pa = 0.0001 kPa)
+  const sigma_kPa = sigma * 0.0001;
+  
+  return {
+    dynes: Math.round(sigma),
+    kPa: sigma_kPa.toFixed(1)
+  };
+}
+
+function ExploreMode() {
+  const [pressure, setPressure] = useState(120); // mmHg
+  const [radius, setRadius] = useState(2.5);     // cm
+  const [thickness, setThickness] = useState(1.0); // cm
+  const [activePreset, setActivePreset] = useState('normal');
+  
+  const stress = useMemo(() => calculateStress(pressure, radius, thickness), [pressure, radius, thickness]);
+  const normalStress = useMemo(() => calculateStress(120, 2.5, 1.0), []);
+  
+  const loadPreset = (key) => {
+    const preset = PRESETS[key];
+    setPressure(preset.P);
+    setRadius(preset.r);
+    setThickness(preset.h);
+    setActivePreset(key);
+  };
+  
+  const reset = () => loadPreset('normal');
+  
+  // Determine if stress is elevated
+  const stressRatio = stress.dynes / normalStress.dynes;
+  const isElevated = stressRatio > 1.2;
+  
+  // Generate comparison data
+  const comparisonData = Object.entries(PRESETS).map(([key, preset]) => {
+    const s = calculateStress(preset.P, preset.r, preset.h);
+    return {
+      name: preset.label,
+      stress: parseInt(s.dynes / 1000), // Convert to thousands
+      key
+    };
+  });
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Calculator</h2>
+        <div className="stack">
+          <div className="formula-box">
+            σ = (P × r) / (2 × h)
+          </div>
+          
+          <div className="info-box">
+            <strong>Law of Laplace (Sphere):</strong> Wall stress increases with pressure and radius, but decreases with wall thickness.
+          </div>
+          
+          <div className="divider"></div>
+          
+          <div className="field">
+            <label className="label">Presets</label>
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8}}>
+              {Object.entries(PRESETS).map(([key, preset]) => (
+                <button
+                  key={key}
+                  className={`preset-btn ${activePreset === key ? 'active' : ''}`}
+                  onClick={() => loadPreset(key)}
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="divider"></div>
+          
+          <div className="field">
+            <label className="label">
+              Pressure (P): {pressure} mmHg
+            </label>
+            <input
+              type="range"
+              min="60"
+              max="200"
+              step="5"
+              value={pressure}
+              onChange={(e) => {setPressure(+e.target.value); setActivePreset(null);}}
+            />
+            <input
+              type="number"
+              min="60"
+              max="200"
+              step="5"
+              value={pressure}
+              onChange={(e) => {setPressure(+e.target.value || 60); setActivePreset(null);}}
+            />
+          </div>
+          
+          <div className="field">
+            <label className="label">
+              Radius (r): {radius} cm
+            </label>
+            <input
+              type="range"
+              min="1.5"
+              max="5.0"
+              step="0.1"
+              value={radius}
+              onChange={(e) => {setRadius(+e.target.value); setActivePreset(null);}}
+            />
+            <input
+              type="number"
+              min="1.5"
+              max="5.0"
+              step="0.1"
+              value={radius}
+              onChange={(e) => {setRadius(+e.target.value || 1.5); setActivePreset(null);}}
+            />
+          </div>
+          
+          <div className="field">
+            <label className="label">
+              Wall Thickness (h): {thickness} cm
+            </label>
+            <input
+              type="range"
+              min="0.4"
+              max="2.5"
+              step="0.1"
+              value={thickness}
+              onChange={(e) => {setThickness(+e.target.value); setActivePreset(null);}}
+            />
+            <input
+              type="number"
+              min="0.4"
+              max="2.5"
+              step="0.1"
+              value={thickness}
+              onChange={(e) => {setThickness(+e.target.value || 0.4); setActivePreset(null);}}
+            />
+          </div>
+          
+          <button onClick={reset}>Reset to Normal</button>
+          
+          {isElevated && (
+            <div className="warning-box">
+              <strong>⚠ Elevated Wall Stress</strong><br/>
+              {stressRatio.toFixed(1)}× normal. Chronic elevation can lead to ventricular remodeling and heart failure.
+            </div>
+          )}
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Results</h2>
+        
+        <div className="result-box">
+          <div className="result-label">Wall Stress (σ)</div>
+          <div className="result-value">
+            {(stress.dynes / 1000).toFixed(0)}
+            <span style={{fontSize: 24, marginLeft: 8}} className="result-unit">× 10³</span>
+          </div>
+          <div className="result-unit">dynes/cm²</div>
+          <div style={{marginTop: 12, fontSize: 14, color: 'var(--muted)'}}>
+            ({stress.kPa} kPa)
+          </div>
+        </div>
+        
+        <div className="divider"></div>
+        
+        <div className="comparison-row">
+          <div>
+            <div className="comparison-label">Current</div>
+            <div className="comparison-value" style={{color: isElevated ? 'var(--red)' : 'var(--green)'}}>
+              {(stress.dynes / 1000).toFixed(0)}k
+            </div>
+          </div>
+          <div style={{fontSize: 20, color: 'var(--muted)'}}>vs</div>
+          <div>
+            <div className="comparison-label">Normal</div>
+            <div className="comparison-value" style={{color: 'var(--blue)'}}>
+              {(normalStress.dynes / 1000).toFixed(0)}k
+            </div>
+          </div>
+        </div>
+        
+        <div className="divider"></div>
+        
+        <h2>Condition Comparison</h2>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={comparisonData} margin={{top: 20, right: 30, bottom: 60, left: 60}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis 
+              dataKey="name" 
+              angle={-20} 
+              textAnchor="end" 
+              height={80}
+              interval={0}
+            />
+            <YAxis 
+              label={{value: 'Wall Stress (× 10³ dynes/cm²)', angle: -90, position: 'insideLeft'}}
+            />
+            <Tooltip />
+            <Bar dataKey="stress" radius={[8, 8, 0, 0]}>
+              {comparisonData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.key === activePreset ? '#2563eb' : '#94a3b8'} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+        
+        <div className="info-box" style={{marginTop: 16}}>
+          <strong>Clinical Insights:</strong>
+          <div style={{marginTop: 8, lineHeight: 1.8}}>
+            • <strong>Dilated CM:</strong> ↑↑ radius + ↓ thickness → very high stress<br/>
+            • <strong>Hypertrophic:</strong> ↑ thickness reduces stress despite ↑ pressure<br/>
+            • <strong>Hypertension:</strong> Compensatory thickening helps normalize stress<br/>
+            • <strong>Afterload reduction</strong> (e.g., ACE-I) lowers pressure → ↓ stress
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function QuizMode() {
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  
+  const questionBank = [
+    {
+      q: 'According to Laplace\'s Law, what happens to wall stress if the ventricular radius doubles (all else equal)?',
+      options: ['Doubles', 'Quadruples', 'Halves', 'Stays the same'],
+      correct: 'Doubles',
+      explanation: 'σ ∝ r. If radius doubles, wall stress doubles (linear relationship).'
+    },
+    {
+      q: 'What happens to wall stress if wall thickness doubles (all else equal)?',
+      options: ['Halves', 'Doubles', 'Quadruples', 'Stays the same'],
+      correct: 'Halves',
+      explanation: 'σ ∝ 1/h. Wall stress is inversely proportional to thickness.'
+    },
+    {
+      q: 'In dilated cardiomyopathy, why is wall stress typically very high?',
+      options: ['Large radius + thin wall', 'Small radius + thick wall', 'High pressure only', 'Low contractility only'],
+      correct: 'Large radius + thin wall',
+      explanation: 'Dilated ventricle has ↑ radius and ↓ thickness, both increasing stress: σ = (P×r)/(2h)'
+    },
+    {
+      q: 'How does concentric hypertrophy (thick wall) affect wall stress?',
+      options: ['Decreases it', 'Increases it', 'No effect', 'Makes it irregular'],
+      correct: 'Decreases it',
+      explanation: 'Thicker wall (↑ h) reduces wall stress. This is an adaptive response to chronic pressure overload.'
+    },
+    {
+      q: 'Which chamber typically has higher wall stress: LV or RV at rest?',
+      options: ['LV (higher pressure)', 'RV (larger volume)', 'Equal', 'Neither has wall stress'],
+      correct: 'LV (higher pressure)',
+      explanation: 'LV generates ~120 mmHg vs RV\'s ~25 mmHg. Higher pressure → higher wall stress.'
+    },
+    {
+      q: 'If you reduce afterload with a vasodilator, what happens to wall stress?',
+      options: ['Decreases (lower pressure)', 'Increases', 'No change', 'Becomes negative'],
+      correct: 'Decreases (lower pressure)',
+      explanation: 'Lower afterload → lower LV pressure (P) → lower wall stress. This is why ACE inhibitors help in heart failure.'
+    },
+    {
+      q: 'In aortic stenosis, the LV compensates by developing:',
+      options: ['Concentric hypertrophy (↑ thickness)', 'Eccentric hypertrophy (↑ radius)', 'No hypertrophy', 'Wall thinning'],
+      correct: 'Concentric hypertrophy (↑ thickness)',
+      explanation: 'Pressure overload → concentric hypertrophy. Thicker wall helps normalize wall stress despite high pressure.'
+    },
+    {
+      q: 'What are the units of wall stress in the sphere formula?',
+      options: ['dynes/cm² or kPa', 'mmHg', 'cm', 'dimensionless'],
+      correct: 'dynes/cm² or kPa',
+      explanation: 'Wall stress is force per area: dynes/cm², Pa, or kPa. (1 mmHg ≈ 1333 dynes/cm²)'
+    }
+  ];
+  
+  useMemo(() => {
+    if(!currentQuestion) {
+      const q = questionBank[Math.floor(Math.random() * questionBank.length)];
+      setCurrentQuestion(q);
+    }
+  }, [currentQuestion]);
+  
+  const handleAnswer = (answer) => {
+    if(showResult) return;
+    setSelectedAnswer(answer);
+    setShowResult(true);
+    setQuestionsAnswered(q => q + 1);
+    if(answer === currentQuestion.correct) {
+      setScore(s => s + 1);
+    }
+  };
+  
+  const nextQuestion = () => {
+    const q = questionBank[Math.floor(Math.random() * questionBank.length)];
+    setCurrentQuestion(q);
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  const resetQuiz = () => {
+    setScore(0);
+    setQuestionsAnswered(0);
+    setCurrentQuestion(null);
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  if(!currentQuestion) return <div>Loading...</div>;
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Quiz</h2>
+        <div className="stack">
+          <div className="score-display">
+            <div>Score: {score}/{questionsAnswered}</div>
+            <div>{questionsAnswered > 0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
+          </div>
+          
+          <button onClick={resetQuiz}>Reset Quiz</button>
+          
+          <div className="divider"></div>
+          
+          <div>
+            <h3 style={{marginBottom: 16, fontSize: 15, fontWeight: 600, lineHeight: 1.5}}>
+              {currentQuestion.q}
+            </h3>
+            <div className="stack">
+              {currentQuestion.options.map(opt => (
+                <button
+                  key={opt}
+                  className={`quiz-option ${showResult ? (opt === currentQuestion.correct ? 'correct' : opt === selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`}
+                  onClick={() => handleAnswer(opt)}
+                  disabled={showResult}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {showResult && (
+            <>
+              <div style={{padding: 12, background: selectedAnswer === currentQuestion.correct ? '#f0fdf4' : '#fef2f2', borderRadius: 6}}>
+                <div style={{fontWeight: 600, marginBottom: 8}}>
+                  {selectedAnswer === currentQuestion.correct ? '✓ Correct!' : `✗ Incorrect. The answer is: ${currentQuestion.correct}`}
+                </div>
+                <div style={{fontSize: 13, lineHeight: 1.6}}>
+                  {currentQuestion.explanation}
+                </div>
+              </div>
+              <button className="primary" onClick={nextQuestion}>Next Question</button>
+            </>
+          )}
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Reference</h2>
+        
+        <div className="formula-box">
+          σ = (P × r) / (2 × h)
+        </div>
+        
+        <div style={{marginTop: 16, padding: 16, background: '#f8fafc', borderRadius: 8, fontSize: 13, lineHeight: 1.8}}>
+          <strong>Variables:</strong><br/>
+          • <strong>σ</strong> (sigma) = wall stress<br/>
+          • <strong>P</strong> = transmural pressure<br/>
+          • <strong>r</strong> = radius (chamber size)<br/>
+          • <strong>h</strong> = wall thickness
+        </div>
+        
+        <div className="info-box" style={{marginTop: 12}}>
+          <strong>Clinical Applications:</strong><br/>
+          • Echo measurements of wall thickness can estimate wall stress<br/>
+          • Explains adaptive hypertrophy in pressure/volume overload<br/>
+          • Guides treatment (e.g., afterload reduction in heart failure)
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function App() {
+  const [mode, setMode] = useState('explore');
+  
+  return (
+    <>
+      <div className="mode-toggle">
+        <button className={mode === 'explore' ? 'active' : ''} onClick={() => setMode('explore')}>Explore Mode</button>
+        <button className={mode === 'quiz' ? 'active' : ''} onClick={() => setMode('quiz')}>Quiz Mode</button>
+      </div>
+      {mode === 'explore' ? <ExploreMode /> : <QuizMode />}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('laplace-app')).render(<App />);
+</script>

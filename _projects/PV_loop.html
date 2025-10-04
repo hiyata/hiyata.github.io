@@ -1,0 +1,604 @@
+---
+layout: default
+title: PV Loop Sandbox - Cardiac Mechanics
+---
+
+<div id="pv-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;}
+  body{color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px,420px) 1fr;gap:32px}}
+  .section h2{font:600 12px/1.1 ui-sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .label{font-size:13px;color:var(--muted);font-weight:500}
+  input[type="range"]{width:100%}
+  input[type="number"]{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px;width:80px}
+  button{border:1px solid var(--grid);border-radius:6px;padding:8px 16px;font-size:14px;cursor:pointer;background:#fff;transition:all 0.2s}
+  button:hover{background:#f8fafc}
+  button.primary{background:var(--blue);color:white;border-color:var(--blue);font-weight:600}
+  button.primary:hover{background:#1d4ed8}
+  button.active{background:var(--blue);color:white}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle button{border:none;border-radius:0;padding:10px 20px}
+  .metric-box{padding:12px;background:#f8fafc;border-radius:6px;display:flex;flex-direction:column;gap:4px}
+  .metric-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase}
+  .metric-value{font-size:20px;font-weight:700;color:var(--ink)}
+  .metric-unit{font-size:12px;color:var(--muted)}
+  .info-box{padding:12px;background:#eff6ff;border-left:4px solid var(--blue);border-radius:4px;font-size:13px;line-height:1.6}
+  .divider{height:1px;background:var(--grid);margin:16px 0}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;margin-bottom:8px}
+  .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
+  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
+  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600;justify-content:center}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0;font-size:13px}
+  .legend-item{display:flex;align-items:center;gap:6px}
+  .legend-line{width:30px;height:3px;border-radius:2px}
+</style>
+
+<script type="text/babel" data-presets="env,react">
+const {useState, useMemo} = React;
+const {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine, Scatter, ScatterChart, ZAxis} = Recharts;
+
+// Generate PV loop data
+function generatePVLoop(preload, afterload, contractility) {
+  // Normalize inputs (100 = baseline)
+  const pNorm = preload / 100;
+  const aNorm = afterload / 100;
+  const cNorm = contractility / 100;
+  
+  // End-diastolic volume (affected by preload via Frank-Starling)
+  const edv = 120 * pNorm;
+  
+  // End-systolic volume (affected by afterload and contractility)
+  // Higher afterload → more blood left behind
+  // Higher contractility → less blood left behind
+  const esv = Math.max(30, edv - (70 * cNorm / aNorm));
+  
+  // Stroke volume
+  const sv = edv - esv;
+  
+  // Pressures
+  const edp = 5 + (preload - 100) * 0.1; // End-diastolic pressure
+  const esp = 120 * cNorm * aNorm; // End-systolic pressure
+  
+  // ESPVR (End-Systolic Pressure-Volume Relationship) - contractility line
+  // Slope increases with contractility
+  const espvrSlope = 2.0 * cNorm;
+  const espvrIntercept = -20;
+  
+  // EDPVR (End-Diastolic Pressure-Volume Relationship) - passive filling
+  const edpvrData = [];
+  for(let v = 0; v <= 200; v += 10) {
+    const p = 0.001 * Math.pow(v, 2.2); // Exponential relationship
+    edpvrData.push({v, p});
+  }
+  
+  // Arterial line (afterload) - diagonal representing arterial compliance
+  const arterialData = [];
+  const arterialSlope = 1.5 * aNorm;
+  for(let v = 0; v <= 200; v += 10) {
+    const p = arterialSlope * (v - 50);
+    if(p >= 0) arterialData.push({v, p});
+  }
+  
+  // ESPVR line
+  const espvrData = [];
+  for(let v = 0; v <= 200; v += 10) {
+    const p = espvrSlope * v + espvrIntercept;
+    if(p >= 0) espvrData.push({v, p});
+  }
+  
+  // PV Loop (counterclockwise)
+  const loop = [
+    {v: esv, p: esp, phase: 'End Systole'},
+    {v: esv + (edv - esv) * 0.2, p: esp * 0.7, phase: 'IVRT'},
+    {v: esv + (edv - esv) * 0.4, p: esp * 0.3, phase: 'IVRT'},
+    {v: edv * 0.7, p: edp * 0.5, phase: 'Filling'},
+    {v: edv * 0.9, p: edp * 0.8, phase: 'Filling'},
+    {v: edv, p: edp, phase: 'End Diastole'},
+    {v: edv, p: edp + (esp - edp) * 0.3, phase: 'IVCT'},
+    {v: edv, p: edp + (esp - edp) * 0.7, phase: 'IVCT'},
+    {v: edv * 0.95, p: esp * 0.95, phase: 'Ejection'},
+    {v: edv * 0.8, p: esp, phase: 'Ejection'},
+    {v: edv * 0.6, p: esp, phase: 'Ejection'},
+    {v: esv, p: esp, phase: 'End Systole'}
+  ];
+  
+  // Cardiac output (L/min) - assuming HR of 70
+  const co = (sv * 70) / 1000;
+  
+  // Ejection fraction
+  const ef = (sv / edv) * 100;
+  
+  return {
+    loop,
+    espvrData,
+    edpvrData,
+    arterialData,
+    metrics: {
+      edv: Math.round(edv),
+      esv: Math.round(esv),
+      sv: Math.round(sv),
+      co: co.toFixed(1),
+      ef: Math.round(ef),
+      esp: Math.round(esp),
+      edp: edp.toFixed(1)
+    }
+  };
+}
+
+function ExploreMode() {
+  const [preload, setPreload] = useState(100);
+  const [afterload, setAfterload] = useState(100);
+  const [contractility, setContractility] = useState(100);
+  const [showESPVR, setShowESPVR] = useState(true);
+  const [showEDPVR, setShowEDPVR] = useState(true);
+  const [showArterial, setShowArterial] = useState(true);
+  
+  const data = useMemo(() => generatePVLoop(preload, afterload, contractility), [preload, afterload, contractility]);
+  const baseline = useMemo(() => generatePVLoop(100, 100, 100), []);
+  
+  const reset = () => {
+    setPreload(100);
+    setAfterload(100);
+    setContractility(100);
+  };
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Controls</h2>
+        <div className="stack">
+          <div className="field">
+            <label className="label">Preload (Venous Return): {preload}%</label>
+            <input 
+              type="range" 
+              min="50" 
+              max="150" 
+              step="5" 
+              value={preload} 
+              onChange={(e) => setPreload(+e.target.value)} 
+            />
+            <div style={{fontSize: 12, color: 'var(--muted)', marginTop: 4}}>
+              ↑ Preload → ↑ EDV (Frank-Starling mechanism)
+            </div>
+          </div>
+          
+          <div className="field">
+            <label className="label">Afterload (Arterial Pressure): {afterload}%</label>
+            <input 
+              type="range" 
+              min="50" 
+              max="150" 
+              step="5" 
+              value={afterload} 
+              onChange={(e) => setAfterload(+e.target.value)} 
+            />
+            <div style={{fontSize: 12, color: 'var(--muted)', marginTop: 4}}>
+              ↑ Afterload → ↑ ESV (harder to eject)
+            </div>
+          </div>
+          
+          <div className="field">
+            <label className="label">Contractility (Inotropy): {contractility}%</label>
+            <input 
+              type="range" 
+              min="50" 
+              max="150" 
+              step="5" 
+              value={contractility} 
+              onChange={(e) => setContractility(+e.target.value)} 
+            />
+            <div style={{fontSize: 12, color: 'var(--muted)', marginTop: 4}}>
+              ↑ Contractility → steeper ESPVR, ↓ ESV
+            </div>
+          </div>
+          
+          <button onClick={reset}>Reset to Baseline</button>
+          
+          <div className="divider"></div>
+          
+          <div className="field">
+            <div className="label">SHOW REFERENCE LINES</div>
+            <label style={{fontSize: 13}}>
+              <input type="checkbox" checked={showESPVR} onChange={(e) => setShowESPVR(e.target.checked)} /> ESPVR (Contractility)
+            </label>
+            <label style={{fontSize: 13}}>
+              <input type="checkbox" checked={showEDPVR} onChange={(e) => setShowEDPVR(e.target.checked)} /> EDPVR (Passive Filling)
+            </label>
+            <label style={{fontSize: 13}}>
+              <input type="checkbox" checked={showArterial} onChange={(e) => setShowArterial(e.target.checked)} /> Arterial Line (Afterload)
+            </label>
+          </div>
+          
+          <div className="divider"></div>
+          
+          <div className="info-box">
+            <strong>Key Concepts:</strong>
+            <div style={{marginTop: 8, lineHeight: 1.8}}>
+              • <strong>ESPVR:</strong> End-Systolic P-V Relationship (contractility)<br/>
+              • <strong>EDPVR:</strong> End-Diastolic P-V Relationship (compliance)<br/>
+              • <strong>Frank-Starling:</strong> ↑ preload → ↑ SV (up to a point)<br/>
+              • <strong>Afterload:</strong> Resistance heart must overcome to eject
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Pressure-Volume Loop</h2>
+        
+        <div className="legend">
+          <div className="legend-item">
+            <div className="legend-line" style={{background: '#2563eb', height: 4}}></div>
+            <span>Current Loop</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-line" style={{background: '#94a3b8', height: 2}}></div>
+            <span>Baseline</span>
+          </div>
+          {showESPVR && (
+            <div className="legend-item">
+              <div className="legend-line" style={{background: '#dc2626', height: 2}}></div>
+              <span>ESPVR</span>
+            </div>
+          )}
+          {showArterial && (
+            <div className="legend-item">
+              <div className="legend-line" style={{background: '#7c3aed', height: 2}}></div>
+              <span>Arterial</span>
+            </div>
+          )}
+        </div>
+        
+        <ResponsiveContainer width="100%" height={500}>
+          <LineChart margin={{top: 20, right: 30, bottom: 40, left: 60}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis 
+              type="number" 
+              dataKey="v" 
+              domain={[0, 200]} 
+              label={{value: 'LV Volume (mL)', position: 'insideBottom', offset: -10}} 
+              tickCount={11}
+            />
+            <YAxis 
+              type="number"
+              domain={[0, 200]} 
+              label={{value: 'LV Pressure (mmHg)', angle: -90, position: 'insideLeft'}} 
+              tickCount={11}
+            />
+            <Tooltip />
+            
+            {showEDPVR && (
+              <Line 
+                data={data.edpvrData} 
+                type="monotone" 
+                dataKey="p" 
+                stroke="#94a3b8" 
+                strokeWidth={1.5} 
+                dot={false} 
+                strokeDasharray="5 5"
+                name="EDPVR"
+              />
+            )}
+            
+            {showESPVR && (
+              <Line 
+                data={data.espvrData} 
+                type="monotone" 
+                dataKey="p" 
+                stroke="#dc2626" 
+                strokeWidth={2} 
+                dot={false}
+                name="ESPVR"
+              />
+            )}
+            
+            {showArterial && (
+              <Line 
+                data={data.arterialData} 
+                type="monotone" 
+                dataKey="p" 
+                stroke="#7c3aed" 
+                strokeWidth={2} 
+                dot={false}
+                strokeDasharray="3 3"
+                name="Arterial"
+              />
+            )}
+            
+            <Line 
+              data={baseline.loop} 
+              type="linear" 
+              dataKey="p" 
+              stroke="#94a3b8" 
+              strokeWidth={2} 
+              dot={false}
+              name="Baseline Loop"
+            />
+            
+            <Line 
+              data={data.loop} 
+              type="linear" 
+              dataKey="p" 
+              stroke="#2563eb" 
+              strokeWidth={4} 
+              dot={false}
+              name="Current Loop"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+        
+        <div className="divider"></div>
+        
+        <h2>Hemodynamic Metrics</h2>
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 12}}>
+          <div className="metric-box">
+            <div className="metric-label">EDV</div>
+            <div className="metric-value">{data.metrics.edv} <span className="metric-unit">mL</span></div>
+          </div>
+          <div className="metric-box">
+            <div className="metric-label">ESV</div>
+            <div className="metric-value">{data.metrics.esv} <span className="metric-unit">mL</span></div>
+          </div>
+          <div className="metric-box">
+            <div className="metric-label">SV</div>
+            <div className="metric-value">{data.metrics.sv} <span className="metric-unit">mL</span></div>
+          </div>
+          <div className="metric-box">
+            <div className="metric-label">EF</div>
+            <div className="metric-value">{data.metrics.ef} <span className="metric-unit">%</span></div>
+          </div>
+          <div className="metric-box">
+            <div className="metric-label">CO</div>
+            <div className="metric-value">{data.metrics.co} <span className="metric-unit">L/min</span></div>
+          </div>
+          <div className="metric-box">
+            <div className="metric-label">ESP</div>
+            <div className="metric-value">{data.metrics.esp} <span className="metric-unit">mmHg</span></div>
+          </div>
+        </div>
+        
+        <div className="info-box" style={{marginTop: 16}}>
+          <div style={{fontSize: 12, lineHeight: 1.8}}>
+            <strong>∆ vs Baseline:</strong><br/>
+            SV: {data.metrics.sv - baseline.metrics.sv > 0 ? '+' : ''}{data.metrics.sv - baseline.metrics.sv} mL • 
+            EF: {data.metrics.ef - baseline.metrics.ef > 0 ? '+' : ''}{data.metrics.ef - baseline.metrics.ef}% • 
+            CO: {(data.metrics.co - baseline.metrics.co).toFixed(1)} L/min
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function QuizMode() {
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  
+  const questionBank = [
+    {
+      q: 'If preload increases (more venous return), what happens to stroke volume?',
+      options: ['Increases', 'Decreases', 'Stays the same', 'Becomes irregular'],
+      correct: 'Increases',
+      explanation: 'Frank-Starling mechanism: ↑ preload → ↑ EDV → ↑ SV (up to optimal sarcomere length)'
+    },
+    {
+      q: 'What does the slope of the ESPVR line represent?',
+      options: ['Contractility', 'Compliance', 'Afterload', 'Heart rate'],
+      correct: 'Contractility',
+      explanation: 'Steeper ESPVR = stronger contractility (inotropy). Positive inotropes shift ESPVR left and steeper.'
+    },
+    {
+      q: 'If afterload increases (higher arterial pressure), what happens to ESV?',
+      options: ['Increases', 'Decreases', 'Stays the same', 'Becomes zero'],
+      correct: 'Increases',
+      explanation: 'Higher afterload makes it harder to eject blood → more blood left behind → ↑ ESV, ↓ SV'
+    },
+    {
+      q: 'What is ejection fraction (EF) calculated as?',
+      options: ['SV / EDV', 'EDV / ESV', 'CO / HR', 'SV / ESV'],
+      correct: 'SV / EDV',
+      explanation: 'EF = (Stroke Volume / End-Diastolic Volume) × 100%. Normal EF is ~55-70%.'
+    },
+    {
+      q: 'A positive inotrope (like dobutamine) primarily affects which parameter?',
+      options: ['Contractility', 'Preload', 'Afterload', 'Heart size'],
+      correct: 'Contractility',
+      explanation: 'Positive inotropes ↑ contractility → steeper ESPVR → ↓ ESV, ↑ SV'
+    },
+    {
+      q: 'What happens to the PV loop during isovolumic contraction (IVCT)?',
+      options: ['Vertical line up (pressure ↑, volume constant)', 'Horizontal line right', 'Diagonal line', 'Loop collapses'],
+      correct: 'Vertical line up (pressure ↑, volume constant)',
+      explanation: 'During IVCT, both valves closed → volume constant, but pressure rises rapidly'
+    },
+    {
+      q: 'If you decrease preload and decrease afterload proportionally, what happens to stroke volume?',
+      options: ['Decreases', 'Increases', 'Stays roughly the same', 'Doubles'],
+      correct: 'Decreases',
+      explanation: 'Lower preload → lower EDV → lower SV (Frank-Starling). Lower afterload helps but can\'t fully compensate.'
+    },
+    {
+      q: 'Which point on the PV loop represents end-diastole?',
+      options: ['Bottom right corner (highest volume, lowest pressure)', 'Top right corner', 'Top left corner', 'Bottom left corner'],
+      correct: 'Bottom right corner (highest volume, lowest pressure)',
+      explanation: 'End-diastole: ventricle maximally filled, pressure still low before contraction'
+    }
+  ];
+  
+  useMemo(() => {
+    if(!currentQuestion) {
+      const q = questionBank[Math.floor(Math.random() * questionBank.length)];
+      setCurrentQuestion(q);
+    }
+  }, [currentQuestion]);
+  
+  const handleAnswer = (answer) => {
+    if(showResult) return;
+    setSelectedAnswer(answer);
+    setShowResult(true);
+    setQuestionsAnswered(q => q + 1);
+    if(answer === currentQuestion.correct) {
+      setScore(s => s + 1);
+    }
+  };
+  
+  const nextQuestion = () => {
+    const q = questionBank[Math.floor(Math.random() * questionBank.length)];
+    setCurrentQuestion(q);
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  const resetQuiz = () => {
+    setScore(0);
+    setQuestionsAnswered(0);
+    setCurrentQuestion(null);
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  
+  if(!currentQuestion) return <div>Loading...</div>;
+  
+  // Generate demonstration loop for current question
+  const demoPreload = 100;
+  const demoAfterload = 100;
+  const demoContractility = 100;
+  const demoData = generatePVLoop(demoPreload, demoAfterload, demoContractility);
+  
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Quiz</h2>
+        <div className="stack">
+          <div className="score-display">
+            <div>Score: {score}/{questionsAnswered}</div>
+            <div>{questionsAnswered > 0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
+          </div>
+          
+          <button onClick={resetQuiz}>Reset Quiz</button>
+          
+          <div className="divider"></div>
+          
+          <div>
+            <h3 style={{marginBottom: 16, fontSize: 15, fontWeight: 600, lineHeight: 1.5}}>
+              {currentQuestion.q}
+            </h3>
+            <div className="stack">
+              {currentQuestion.options.map(opt => (
+                <button
+                  key={opt}
+                  className={`quiz-option ${showResult ? (opt === currentQuestion.correct ? 'correct' : opt === selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`}
+                  onClick={() => handleAnswer(opt)}
+                  disabled={showResult}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {showResult && (
+            <>
+              <div style={{padding: 12, background: selectedAnswer === currentQuestion.correct ? '#f0fdf4' : '#fef2f2', borderRadius: 6}}>
+                <div style={{fontWeight: 600, marginBottom: 8}}>
+                  {selectedAnswer === currentQuestion.correct ? '✓ Correct!' : `✗ Incorrect. The answer is: ${currentQuestion.correct}`}
+                </div>
+                <div style={{fontSize: 13, lineHeight: 1.6}}>
+                  {currentQuestion.explanation}
+                </div>
+              </div>
+              <button className="primary" onClick={nextQuestion}>Next Question</button>
+            </>
+          )}
+        </div>
+      </section>
+      
+      <section className="section">
+        <h2>Reference PV Loop</h2>
+        
+        <ResponsiveContainer width="100%" height={400}>
+          <LineChart margin={{top: 20, right: 30, bottom: 40, left: 60}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis 
+              type="number" 
+              dataKey="v" 
+              domain={[0, 200]} 
+              label={{value: 'LV Volume (mL)', position: 'insideBottom', offset: -10}} 
+            />
+            <YAxis 
+              type="number"
+              domain={[0, 200]} 
+              label={{value: 'LV Pressure (mmHg)', angle: -90, position: 'insideLeft'}} 
+            />
+            <Tooltip />
+            
+            <Line 
+              data={demoData.espvrData} 
+              type="monotone" 
+              dataKey="p" 
+              stroke="#dc2626" 
+              strokeWidth={2} 
+              dot={false}
+              name="ESPVR (Contractility)"
+            />
+            
+            <Line 
+              data={demoData.loop} 
+              type="linear" 
+              dataKey="p" 
+              stroke="#2563eb" 
+              strokeWidth={4} 
+              dot={false}
+              name="PV Loop"
+            />
+          </LineChart>
+        </ResponsiveContainer>
+        
+        <div className="info-box" style={{marginTop: 16}}>
+          <strong>Quick Reference:</strong>
+          <div style={{marginTop: 8, fontSize: 12, lineHeight: 1.8}}>
+            • <strong>EDV:</strong> End-Diastolic Volume (bottom right)<br/>
+            • <strong>ESV:</strong> End-Systolic Volume (top left)<br/>
+            • <strong>SV = EDV - ESV</strong><br/>
+            • <strong>EF = SV / EDV</strong><br/>
+            • <strong>CO = SV × HR</strong>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function App() {
+  const [mode, setMode] = useState('explore');
+  
+  return (
+    <>
+      <div className="mode-toggle">
+        <button className={mode === 'explore' ? 'active' : ''} onClick={() => setMode('explore')}>Explore Mode</button>
+        <button className={mode === 'quiz' ? 'active' : ''} onClick={() => setMode('quiz')}>Quiz Mode</button>
+      </div>
+      {mode === 'explore' ? <ExploreMode /> : <QuizMode />}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('pv-app')).render(<App />);
+</script>
