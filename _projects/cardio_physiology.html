@@ -3,7 +3,14 @@ layout: default
 title: Cardio Physio
 ---
 
-<div id="ap-app" style="max-width:1120px;margin:0 auto;padding:1.25rem"></div>
+<div class="ap-container">
+  <header class="ap-header">
+    <h1>Cardio Physiology Playground</h1>
+    <p>Tweak channels, drugs, and environment to see AP changes across cell types.</p>
+  </header>
+
+  <div id="ap-app" class="ap-app"></div>
+</div>
 
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -19,10 +26,18 @@ title: Cardio Physio
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;}
-  body{color:var(--ink)}
-  .wrap{display:grid;grid-template-columns:1fr;gap:24px}
-  @media(min-width:1024px){.wrap{grid-template-columns:1fr 1fr 1fr}}
+  :root{
+    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;
+    --card:#ffffff;--bg:#fbfdff;--ring:#cbd5e1;
+  }
+  html,body{background:var(--bg);color:var(--ink)}
+  .ap-container{max-width:1120px;margin:0 auto;padding:1.25rem}
+  .ap-header{margin:6px 0 16px}
+  .ap-header h1{margin:0 0 6px;font:700 22px/1.2 ui-sans-serif,system-ui}
+  .ap-header p{margin:0;color:var(--muted)}
+  .ap-app{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:1024px){.ap-app{grid-template-columns:360px 1fr}}
+  .card{background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(2,6,23,.03)}
   .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
   .row{display:flex;gap:12px;align-items:center}
@@ -30,29 +45,32 @@ title: Cardio Physio
   .field{display:flex;flex-direction:column;gap:6px}
   .label{font-size:12px;color:var(--muted)}
   input[type="range"]{width:100%}
-  input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
-  button{cursor:pointer;background:#fff}
-  table{width:100%;border-collapse:collapse}
-  thead th{text-align:left;color:var(--muted);padding:8px 0}
-  tbody td{padding:8px 0;border-top:1px solid var(--grid)}
+  input[type="number"],select,button{border:1px solid var(--grid);border-radius:8px;padding:8px 10px;font-size:14px;background:#fff}
+  button{cursor:pointer}
   .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
-  .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
-  .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .pill .line{width:28px;height:3px;background:var(--ink);display:inline-block;border-radius:2px}
+  .pill .dash{width:28px;height:0;border-top:3px dashed #94a3b8;display:inline-block}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .metric{border:1px dashed var(--ring);border-radius:10px;padding:10px}
   .metric .k{color:var(--muted);font-size:12px}
-  .metric .v{font-weight:600}
+  .metric .v{font-weight:700}
   .metric .d{font-size:12px}
   .bar{position:relative;height:8px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:4px}
   .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
   .right{margin-left:50%}
   .divider{height:1px;background:var(--grid);margin:12px 0}
+  table{width:100%;border-collapse:collapse}
+  thead th{text-align:left;color:var(--muted);padding:8px 0}
+  tbody td{padding:8px 0;border-top:1px solid var(--grid)}
+  /* Phase label chip look */
+  .phase-chip{paint-order:stroke;stroke:var(--ring);stroke-width:1;rx:6;ry:6}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
-const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
+const {ResponsiveContainer,LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
 
 /* ---------------- Model constants ---------------- */
 const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
@@ -141,12 +159,13 @@ function generateAP(cellId, params){
   const marks = segs.map(s=>{
     const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
     for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
-    return {label:`Phase ${s.phase}`, t:nearest.t, v:nearest.v};
-  }).filter(m=>!(cellId==="sa" && (m.label==="Phase 1"||m.label==="Phase 2")));
+    return {label:`Phase ${s.phase}`, phase:s.phase, t:nearest.t, v:nearest.v};
+  }).filter(m=>!(cellId==="sa" && (m.phase===1||m.phase===2)));
 
   return {data, marks, segs};
 }
 
+/* Metrics */
 function computeMetrics(curve){
   const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
   const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
@@ -158,26 +177,60 @@ function computeMetrics(curve){
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
-const PHASE_GROUPS=[
-  {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
-  {label:'Phase 1 (Notch)', keys:['Ito']},
-  {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
-  {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
-  {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
-];
-
+/* Phase mark layout
+   - Keep labels readable
+   - Special rule: Phase 0 and Phase 1 must not overlap and should be on opposite sides if close
+*/
 function layoutPhaseMarks(marks){
   if(!marks||!marks.length) return [];
   const sorted=[...marks].sort((a,b)=>a.t-b.t);
-  const minGap=25, baseStem=18, extra=12, yMin=-95, yMax=45;
+  const minGap=28, baseStem=20, extra=12, yMin=-95, yMax=45;
+
+  // Find P0/P1 quickly
+  const p0=sorted.find(m=>m.phase===0);
+  const p1=sorted.find(m=>m.phase===1);
+
+  // Pass 1: assign levels with general anti-collision
   let lastT=-Infinity, level=0;
-  return sorted.map(m=>{
+  const prelim=sorted.map(m=>{
     if(m.t-lastT<minGap) level=(level+1)%3; else level=0;
     lastT=m.t;
-    const desired=m.v-(baseStem+level*extra);
-    const displayY=Math.max(yMin,Math.min(yMax,desired));
+    return {...m, _level:level};
+  });
+
+  // Pass 2: enforce Phase 0 vs Phase 1 separation if close in time
+  if(p0 && p1 && Math.abs(p1.t - p0.t) < 60){
+    // Put Phase 0 above, Phase 1 below (consistent, clear)
+    prelim.forEach(m=>{
+      if(m.phase===0) m._level = 0; // shortest stem (closest), will render above
+      if(m.phase===1) m._level = 2; // longer stem pushes label farther (below)
+    });
+  }
+
+  // Compute display positions
+  return prelim.map(m=>{
+    const sign = (m.phase===1) ? 1 : -1; // nudge default: 1 below for P1 when not forced
+    const offset = baseStem + m._level*extra;
+    const desired = m.v - (sign * offset);
+    const displayY = Math.max(yMin, Math.min(yMax, desired));
     return {...m, displayY};
   });
+}
+
+/* Custom label with white background so nothing hides text */
+function PhaseLabel({x, y, value}) {
+  if (x==null || y==null) return null;
+  const padX=6, padY=4;
+  const text = String(value||'');
+  // crude text width estimate (7px per char)
+  const w = Math.max(44, text.length*7) + padX*2;
+  const h = 18 + padY*2;
+  return (
+    <g transform={`translate(${x+8},${y- h/2})`}>
+      <rect className="phase-chip" width={w} height={h} fill="#fff"></rect>
+      <text x={padX} y={padY+13} fontSize="12" fill="#334155">{text}</text>
+    </g>
+  );
 }
 
 /* ---------------- App ---------------- */
@@ -218,15 +271,16 @@ function App(){
   function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
 
   return (
-    <div className="wrap">
+    <div className="ap-app">
       {/* Controls */}
-      <section className="section">
-        <h2>Controls</h2>
+      <section className="card">
+        <h2 className="section">Controls</h2>
         <div className="stack">
           <div className="field">
             <label className="label">Session name</label>
             <input value={name} onChange={(e)=>setName(e.target.value)} />
           </div>
+
           <div className="row">
             <div className="field flex1">
               <label className="label">Cell type</label>
@@ -241,6 +295,7 @@ function App(){
               </select>
             </div>
           </div>
+
           <div className="row">
             <div className="field flex1">
               <label className="label">Environment</label>
@@ -258,15 +313,18 @@ function App(){
 
           <div className="divider"></div>
 
-          {PHASE_GROUPS.map(g=>{
+          {[
+            {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
+            {label:'Phase 1 (Notch)', keys:['Ito']},
+            {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
+            {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
+            {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
+          ].map(g=>{
             const keys=g.keys.filter(k=>cell.uses[k]);
             if(!keys.length) return null;
             return (
               <details key={g.label} open>
-                <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>
-                  {g.label}
-                </summary>
-
+                <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>{g.label}</summary>
                 <div className="stack" style={{ paddingTop: 8 }}>
                   {keys.map(key=>(
                     <div key={key} className="stack">
@@ -292,46 +350,57 @@ function App(){
             );
           })}
 
-          <label style={{fontSize:12}}>
-            <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline
+          <label className="label" style={{display:'inline-flex',gap:8,alignItems:'center'}}>
+            <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline overlay
           </label>
         </div>
       </section>
 
       {/* Metrics + Chart */}
-      <section className="section">
-        <h2>{name}</h2>
+      <section className="card">
+        <h2 className="section">{name}</h2>
+
         <div className="legend">
           <span className="pill"><span className="line"></span> Modified</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
-        <div style={{overflowX:'auto'}}>
-          <LineChart width={900} height={420} data={modified.data} margin={{top:8,right:24,bottom:20,left:0}}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
-            <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-            <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
-            {showBaseline && (
-              <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-            )}
-            <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
-            <ReferenceLine y={-85} stroke="#e5e7eb"/>
 
-            {laidOutMarks.map((m,i)=>(
-              <Fragment key={i}>
-                <ReferenceLine segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
-                <ReferenceDot x={m.t} y={m.displayY} r={1} fill="#0f172a" isFront
-                  label={{value:m.label, position:'top', offset:6, fill:'#334155', fontSize:12}}/>
-              </Fragment>
-            ))}
+        <div style={{width:'100%', height:440}}>
+          <ResponsiveContainer>
+            <LineChart data={modified.data} margin={{top:8,right:24,bottom:20,left:10}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+              <Tooltip
+                formatter={(v)=>`${Number(v).toFixed(1)} mV`}
+                labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
+                contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
+              />
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
+                      stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <ReferenceLine y={-85} stroke="#e5e7eb"/>
 
-            <ReferenceDot x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
-              label={{value:'Modified', position:'right', offset:8, fill:'#0f172a', fontSize:12}} />
-            {showBaseline && (
-              <ReferenceDot x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
-                label={{value:'Baseline', position:'right', offset:8, fill:'#64748b', fontSize:12}} />
-            )}
-          </LineChart>
+              {/* Phase stems + labels (rendered last, with isFront) */}
+              {laidOutMarks.map((m,i)=>(
+                <Fragment key={i}>
+                  <ReferenceLine isFront segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
+                  <ReferenceDot isFront x={m.t} y={m.displayY} r={1} fill="#0f172a"
+                    label={(props)=><PhaseLabel {...props} value={m.label} />}/>
+                </Fragment>
+              ))}
+
+              {/* Edge labels for series */}
+              <ReferenceDot isFront x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
+                label={(props)=><PhaseLabel {...props} value="Modified" />}/>
+              {showBaseline && (
+                <ReferenceDot isFront x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
+                  label={(props)=><PhaseLabel {...props} value="Baseline" />}/>
+              )}
+            </LineChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="metrics" style={{marginTop:12}}>
@@ -386,19 +455,21 @@ function App(){
             );
           })}
         </div>
-      </section>
 
-      {/* Simple table for current values */}
-      <section className="section">
-        <h2>Parameters</h2>
-        <table>
-          <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-          <tbody>
-            {channelOrder.map(k=>(
-              <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="divider"></div>
+
+        {/* Simple table for current values */}
+        <section>
+          <h2 className="section">Parameters</h2>
+          <table>
+            <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
+            <tbody>
+              {channelOrder.map(k=>(
+                <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
       </section>
     </div>
   );
