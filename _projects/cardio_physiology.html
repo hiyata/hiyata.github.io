@@ -3,14 +3,16 @@ layout: default
 title: Cardio Physio
 ---
 
-<div id="ap-app" style="max-width:1120px;margin:0 auto;padding:1.25rem"></div>
+<div id="ap-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
+<!-- IMPORTANT: react-is must load BEFORE Recharts -->
 <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
 
+<!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
 
 <!-- Babel (compile JSX in the browser) -->
@@ -19,8 +21,8 @@ title: Cardio Physio
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;}
   body{color:var(--ink)}
-  .wrap{display:grid;grid-template-columns:1fr;gap:24px}
-  @media(min-width:1024px){.wrap{grid-template-columns:1fr 1fr 1fr}}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(300px, 400px) 1fr;gap:32px}}
   .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
   .row{display:flex;gap:12px;align-items:center}
@@ -94,7 +96,7 @@ function generateAP(cellId, params){
     }
   }
 
-  const data=[]; const push=(t,v)=>data.push({t,v});
+  const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
   const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
 
   if(params && typeof params.__targetCycle==='number'){
@@ -347,8 +349,6 @@ function App(){
           })}
         </div>
       </section>
-
-      {/* Parameters table section removed */}
     </div>
   );
 }
