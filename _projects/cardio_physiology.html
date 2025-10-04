@@ -80,7 +80,8 @@ const SIMILAR_CHANNEL_GROUPS = [
 const CELL_TYPES = [
   { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
   { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
-  { id:"sa", name:"SA Node (Pacemaker)", uses:{INa:0,ICaL:1,Ito:0,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:1,NaKATPase:1}},
+  // PATCH: SA node expresses very little IK1; set to 0 here
+  { id:"sa", name:"SA Node (Pacemaker)", uses:{INa:0,ICaL:1,Ito:0,IKr:1,IKs:1,IK1:0,If:1,ICaT:1,IK_ACh:1,NaKATPase:1}},
   { id:"purkinje", name:"Purkinje Cell", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:0,NaKATPase:1}},
 ];
 const DRUG_PRESETS = {
@@ -101,11 +102,18 @@ function generateAP(cellId, params){
         kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
 
   if(isPacemaker){
-    t1=0;t2=0;t0=15/clamp(kICaL,0.2,2); vmax=20*kICaL;
-    const kK=0.6*kIKr+0.4*kIKs; t3=150/clamp(kK,0.2,2);
-    const slope=0.4*kIf+0.2*kICaT-0.3*(kIK_ACh-1);
-    t4=clamp(220/clamp(1+slope,0.2,3),60,600);
-    vrest=-85-3*(kPump-1)+3*(1-kIK1);
+    // PATCH: SA node dynamics — Ca2+-mediated upstroke, weak IK1, strong IK_ACh influence, baseline ~ -60 mV
+    t1=0; t2=0;
+    t0 = 15 / clamp(kICaL, 0.2, 2);              // Ca2+-driven upstroke
+    vmax = 20 * kICaL;
+    const kK = 0.6*kIKr + 0.4*kIKs;              // delayed rectifiers
+    t3 = 150 / clamp(kK, 0.2, 2);
+    // Use deviations from baseline so base slope ≈ 0, strengthen IK_ACh effect
+    const slope = 0.4*(kIf - 1) + 0.2*(kICaT - 1) - 0.5*(kIK_ACh - 1);
+    t4 = clamp(220 / clamp(1 + slope, 0.2, 3), 60, 600);
+    // Resting potential closer to -60 mV; IK_ACh and pump shift it, IK1 excluded
+    const vrestSA = -60;
+    vrest = vrestSA - 6*(kIK_ACh - 1) - 3*(kPump - 1);
   } else {
     t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
     t1=clamp(8*(0.6+0.4*kIto),2,18);
@@ -113,7 +121,7 @@ function generateAP(cellId, params){
     t3=clamp(120/clamp(kK,0.3,2),30,300);
     vrest=-85-4*(kPump-1)+5*(1-kIK1);
     if(cellId==="purkinje"){
-      const s=0.1*(kIf-1)+0.05*(kICaT-1);
+      const s=0.12*(kIf-1)+0.06*(kICaT-1); // slightly more automaticity
       t4=clamp(100/clamp(1+s,0.3,2),40,300);
     }
   }
@@ -295,7 +303,7 @@ function QuizMode(){
           <div className="field">
             <label className="label">Cell type</label>
             <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
-              {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+              {CELL_TYPES.map(c=>\u003coption key={c.id} value={c.id}>{c.name}\u003c/option>)}
             </select>
           </div>
           
@@ -412,13 +420,13 @@ function ExploreMode(){
             <div className="field flex1">
               <label className="label">Cell type</label>
               <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
-                {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+                {CELL_TYPES.map(c=>\u003coption key={c.id} value={c.id}>{c.name}\u003c/option>)}
               </select>
             </div>
             <div className="field flex1">
               <label className="label">Drug preset</label>
               <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
-                {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+                {Object.keys(DRUG_PRESETS).map(p=>\u003coption key={p} value={p}>{p}\u003c/option>)}
               </select>
             </div>
           </div>
@@ -426,7 +434,7 @@ function ExploreMode(){
             <div className="field flex1">
               <label className="label">Environment</label>
               <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
-                {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+                {Object.keys(ENV_PRESETS).map(p=>\u003coption key={p} value={p}>{p}\u003c/option>)}
               </select>
             </div>
             <div className="field flex1">
