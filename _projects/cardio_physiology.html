@@ -9,7 +9,6 @@ title: Cardio Physio
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<!-- IMPORTANT: react-is must load BEFORE Recharts -->
 <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
 
 <!-- Recharts (UMD) -->
@@ -53,11 +52,14 @@ title: Cardio Physio
   .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
   .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
   .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
+  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
+  .badge.ko{background:#fef2f2;color:var(--red)}
+  .badge.increase{background:#f0fdf4;color:var(--green)}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,Fragment} = React;
+const {useMemo,useState,Fragment,useRef} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
 /* ---------------- Model constants ---------------- */
@@ -67,6 +69,14 @@ const CHANNEL_LABELS = {
   IKr:"I_Kr (rapid delayed rectifier K⁺)", IKs:"I_Ks (slow delayed rectifier K⁺)", IK1:"I_K1 (inward rectifier K⁺)",
   If:"I_f (funny)", ICaT:"I_CaT (T-type Ca²⁺)", IK_ACh:"I_K,ACh", NaKATPase:"Na⁺/K⁺-ATPase"
 };
+
+// Channels that have similar effects when modified
+const SIMILAR_CHANNEL_GROUPS = [
+  ['IKr', 'IKs'], // Both delayed rectifier K+ channels
+  ['ICaL', 'ICaT'], // Both Ca2+ channels
+  ['If', 'ICaT'], // Both contribute to pacemaker activity
+];
+
 const CELL_TYPES = [
   { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
   { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
@@ -172,6 +182,14 @@ const PHASE_GROUPS=[
   {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
 ];
 
+// Helper to check if two channels are in the same similarity group
+function areSimilarChannels(ch1, ch2){
+  for(const group of SIMILAR_CHANNEL_GROUPS){
+    if(group.includes(ch1) && group.includes(ch2)) return true;
+  }
+  return false;
+}
+
 /* ---------------- Quiz Component ---------------- */
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = useState("ventricular");
@@ -180,29 +198,58 @@ function QuizMode(){
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  const lastTargetRef = useRef(null);
 
   const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
   const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
 
   const generateQuestion = ()=>{
-    const targetChannel = availableChannels[Math.floor(Math.random()*availableChannels.length)];
-    const koParams = {...BASELINE_PARAMS, [targetChannel]:0, __targetCycle:600};
+    // Pick a target channel that's different from the last one
+    let targetChannel;
+    const eligibleChannels = availableChannels.filter(ch => ch !== lastTargetRef.current);
+    
+    if(eligibleChannels.length === 0){
+      // If somehow we only have one channel, just use it
+      targetChannel = availableChannels[0];
+    } else {
+      targetChannel = eligibleChannels[Math.floor(Math.random()*eligibleChannels.length)];
+    }
+    
+    lastTargetRef.current = targetChannel;
+    
+    // Randomly decide between knockout (0%) or increase (200%)
+    const isKnockout = Math.random() < 0.5;
+    const modValue = isKnockout ? 0 : 200;
+    const modType = isKnockout ? 'knockout' : 'increase';
+    
+    const modParams = {...BASELINE_PARAMS, [targetChannel]:modValue, __targetCycle:600};
     const baselineParams = {...BASELINE_PARAMS, __targetCycle:600};
     
-    // Generate 3 wrong answers from other channels
-    const wrongAnswers = availableChannels.filter(c=>c!==targetChannel)
+    // Generate wrong answers from other channels, avoiding similar ones
+    const wrongAnswers = availableChannels
+      .filter(c => c !== targetChannel && !areSimilarChannels(c, targetChannel))
       .sort(()=>Math.random()-0.5)
       .slice(0,3);
+    
+    // If we don't have enough dissimilar channels, fill in with any remaining channels
+    if(wrongAnswers.length < 3){
+      const remaining = availableChannels
+        .filter(c => c !== targetChannel && !wrongAnswers.includes(c))
+        .sort(()=>Math.random()-0.5);
+      wrongAnswers.push(...remaining.slice(0, 3 - wrongAnswers.length));
+    }
     
     const allOptions = [targetChannel, ...wrongAnswers].sort(()=>Math.random()-0.5);
     
     return {
       targetChannel,
-      koParams,
+      modType,
+      modValue,
+      modParams,
       baselineParams,
       options: allOptions,
       baseline: generateAP(cellTypeId, baselineParams),
-      knockout: generateAP(cellTypeId, koParams)
+      modified: generateAP(cellTypeId, modParams)
     };
   };
 
@@ -226,6 +273,15 @@ function QuizMode(){
     setShowResult(false);
   };
 
+  const resetQuiz = ()=>{
+    setScore(0);
+    setQuestionsAnswered(0);
+    lastTargetRef.current = null;
+    setCurrentQuestion(generateQuestion());
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+
   if(!currentQuestion) return <div>Loading...</div>;
 
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
@@ -238,7 +294,7 @@ function QuizMode(){
         <div className="stack">
           <div className="field">
             <label className="label">Cell type</label>
-            <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);setCurrentQuestion(null);}} disabled={showResult}>
+            <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
               {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </div>
@@ -250,10 +306,18 @@ function QuizMode(){
             <div>{questionsAnswered>0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
           </div>
 
+          <button onClick={resetQuiz}>Reset Quiz</button>
+
           <div className="divider"></div>
 
           <div>
-            <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>Which ion channel/transporter was knocked out?</h3>
+            <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
+              Which ion channel/transporter was 
+              <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
+                {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
+              </span>
+              ?
+            </h3>
             <div className="stack">
               {currentQuestion.options.map(opt=>(
                 <button 
@@ -282,18 +346,18 @@ function QuizMode(){
       <section className="section">
         <h2>Action Potential</h2>
         <div className="legend">
-          <span className="pill"><span className="line"></span> Knockout</span>
+          <span className="pill"><span className="line"></span> Modified ({currentQuestion.modType})</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
         <div style={{width: '100%'}}>
           <ResponsiveContainer width="100%" height={420}>
-            <LineChart data={currentQuestion.knockout.data} margin={{top:8,right:40,bottom:20,left:20}}>
+            <LineChart data={currentQuestion.modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
               <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
               <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.knockout.data} name="Knockout" stroke="#0f172a" strokeWidth={3}/>
+              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
               <ReferenceLine y={-85} stroke="#e5e7eb"/>
             </LineChart>
           </ResponsiveContainer>
