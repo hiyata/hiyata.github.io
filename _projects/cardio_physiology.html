@@ -3,14 +3,34 @@ layout: default
 title: Cardio Physio
 ---
 
-<div class="ap-shell">
-  <aside class="ap-side">
-    <h1>Cardio Physiology</h1>
-    <p class="muted">Tweak channels, drugs, and environment; see the AP reshape in real time.</p>
-    <div id="ap-controls"></div>
-  </aside>
-  <main class="ap-main">
-    <div id="ap-app"></div>
+<div class="ap-page">
+  <header class="ap-header">
+    <h1>Cardio Physio</h1>
+    <p>Tweak ionic currents and pacing to see how the action potential changes.</p>
+  </header>
+
+  <main class="ap-wrap">
+    <section class="ap-card ap-controls">
+      <h2>Controls</h2>
+      <div id="ap-controls"></div>
+    </section>
+
+    <section class="ap-card ap-viz">
+      <h2 id="ap-session-name">My Experiment</h2>
+      <div class="legend">
+        <span class="pill"><span class="line"></span> Modified</span>
+        <span class="pill"><span class="dash"></span> Baseline</span>
+      </div>
+      <div id="ap-chart"></div>
+      <div id="ap-metrics" class="metrics"></div>
+      <div class="divider"></div>
+      <div id="ap-sensitivity" class="stack"></div>
+    </section>
+
+    <section class="ap-card">
+      <h2>Parameters</h2>
+      <div id="ap-table"></div>
+    </section>
   </main>
 </div>
 
@@ -29,53 +49,67 @@ title: Cardio Physio
 
 <style>
   :root{
-    --ink:#0f172a; --muted:#64748b; --grid:#e5e7eb; --ring:#cbd5e1;
-    --bg:#fafcff; --card:#fff; --accent:#0ea5e9; --accent-soft:#e0f2fe;
-    --green:#059669; --red:#dc2626;
+    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--bg:#fafafa;
+    --card:#ffffff;--green:#059669;--red:#dc2626;--ring:#cbd5e1;
   }
-  html,body{background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui}
-  .ap-shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:18px;padding:16px}
-  @media (max-width: 980px){ .ap-shell{grid-template-columns:1fr} .ap-side{position:relative;top:auto} }
-  .ap-side{position:sticky; top:12px; align-self:start; background:var(--card); border:1px solid var(--grid);
-    border-radius:14px; padding:16px; box-shadow:0 1px 0 rgba(2,6,23,.04)}
-  .ap-side h1{font-size:18px; margin:0 0 4px; font-weight:700}
-  .ap-side .muted{margin:0 0 12px; color:var(--muted); font-size:14px}
-  .ap-main{display:grid; gap:18px}
-  .card{background:var(--card); border:1px solid var(--grid); border-radius:14px; padding:12px 14px; box-shadow:0 1px 0 rgba(2,6,23,.04)}
-  .row{display:flex; gap:10px; align-items:center}
-  .stack{display:flex; flex-direction:column; gap:10px}
-  .label{font-size:12px; color:var(--muted)}
-  .select, .input, button{border:1px solid var(--grid); border-radius:10px; padding:8px 10px; background:#fff; font-size:14px}
+  html,body{background:var(--bg);color:var(--ink)}
+  .ap-page{max-width:1120px;margin:0 auto;padding:20px}
+  .ap-header{margin:4px 0 16px}
+  .ap-header h1{font:700 22px/1.2 ui-sans-serif,system-ui;margin:0}
+  .ap-header p{color:var(--muted);margin:6px 0 0;font-size:14px}
+
+  .ap-wrap{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:1024px){.ap-wrap{grid-template-columns:360px 1fr}}
+
+  .ap-card{
+    background:var(--card); border:1px solid var(--grid); border-radius:14px;
+    padding:14px 14px 16px; box-shadow:0 2px 8px rgba(15,23,42,.04)
+  }
+  .ap-card h2{font:600 12px/1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center}
+  .flex1{flex:1}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .label{font-size:12px;color:var(--muted)}
   input[type="range"]{width:100%}
-  table{width:100%; border-collapse:collapse; font-size:14px}
-  thead th{color:var(--muted); text-align:left; padding:8px 0}
-  tbody td{padding:8px 0; border-top:1px solid var(--grid)}
-  .legend{display:flex; gap:14px; align-items:center; margin:6px 0 10px; font-size:13px}
-  .chip{display:inline-flex; gap:8px; align-items:center; padding:4px 8px; border:1px solid var(--ring); border-radius:999px; background:#fff}
-  .line-solid{width:24px; height:3px; background:var(--ink); border-radius:2px}
-  .line-dash{width:24px; height:0; border-top:3px dashed #94a3b8}
-  .metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
-  .metric{background:var(--accent-soft); border:1px solid var(--ring); border-radius:12px; padding:10px}
-  .metric .k{color:var(--muted); font-size:12px}
+  input[type="number"],select,button,input[type="text"]{
+    border:1px solid var(--grid);border-radius:10px;padding:8px 10px;font-size:14px;background:#fff
+  }
+  button{cursor:pointer}
+  .divider{height:1px;background:var(--grid);margin:12px 0}
+
+  /* legend + metrics */
+  .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
+  .pill{display:inline-flex;gap:8px;align-items:center}
+  .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block;border-radius:2px}
+  .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
+
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+  .metric{display:flex;flex-direction:column;gap:2px;padding:10px;border:1px solid var(--grid);border-radius:10px;background:#fff}
+  .metric .k{color:var(--muted);font-size:12px}
   .metric .v{font-weight:700}
-  .divider{height:1px; background:var(--grid); margin:12px 0}
-  .group{border:1px dashed var(--ring); border-radius:12px; padding:10px}
-  .group summary{cursor:pointer; list-style:none}
-  .group summary::-webkit-details-marker{display:none}
-  .group summary .title{font-weight:600; color:var(--ink); font-size:13px}
-  .krow{display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center}
-  .bar{position:relative;height:8px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:4px}
+  .metric .d{font-size:12px}
+
+  /* sensitivity bars */
+  .bar{position:relative;height:10px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:5px}
   .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
   .right{margin-left:50%}
-  .mini{font-size:12px; color:var(--muted)}
-  /* SVG label chip style (drawn in overlay) */
-  .phase-chip{paint-order:stroke; stroke:var(--ring); stroke-width:1; rx:6; ry:6}
+
+  /* table */
+  table{width:100%;border-collapse:collapse}
+  thead th{text-align:left;color:var(--muted);padding:8px 0;font-weight:600}
+  tbody td{padding:8px 0;border-top:1px solid var(--grid)}
+  .ap-viz h2{font:700 16px/1.2 ui-sans-serif,system-ui;color:var(--ink);text-transform:none;letter-spacing:0;margin:0 0 10px}
+
+  /* subtle focus ring */
+  input:focus,select:focus,button:focus{outline:none;box-shadow:0 0 0 3px var(--ring)}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
-const {ResponsiveContainer,LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot,Customized} = Recharts;
+const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
 
 /* ---------------- Model constants ---------------- */
 const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
@@ -109,8 +143,7 @@ function generateAP(cellId, params){
 
   if(isPacemaker){
     t1=0;t2=0;t0=15/clamp(kICaL,0.2,2); vmax=20*kICaL;
-    const kK=0.6+kIKr*0+0.4*kIKs; // harmless tweak to keep structure similar
-    t3=150/clamp(0.6*kIKr+0.4*kIKs,0.2,2);
+    const kK=0.6*kIKr+0.4*kIKs; t3=150/clamp(kK,0.2,2);
     const slope=0.4*kIf+0.2*kICaT-0.3*(kIK_ACh-1);
     t4=clamp(220/clamp(1+slope,0.2,3),60,600);
     vrest=-85-3*(kPump-1)+3*(1-kIK1);
@@ -165,12 +198,13 @@ function generateAP(cellId, params){
   const marks = segs.map(s=>{
     const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
     for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
-    return {label:`Phase ${s.phase}`, phase:s.phase, t:nearest.t, v:nearest.v};
-  }).filter(m=>!(cellId==="sa" && (m.phase===1||m.phase===2)));
+    return {label:`Phase ${s.phase}`, t:nearest.t, v:nearest.v, phase:s.phase};
+  }).filter(m=>!(cellId==="sa" && (m.label==="Phase 1"||m.label==="Phase 2")));
 
   return {data, marks, segs};
 }
 
+/* --------- Metrics ---------- */
 function computeMetrics(curve){
   const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
   const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
@@ -182,319 +216,345 @@ function computeMetrics(curve){
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
-/* Phase label layout (overlay, always on top) */
+const PHASE_GROUPS=[
+  {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
+  {label:'Phase 1 (Notch)', keys:['Ito']},
+  {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
+  {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
+  {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
+];
+
+/* ------- Label layout (no overlap; Phase 0 vs 1 separation; always front) ------- */
 function layoutPhaseMarks(marks){
   if(!marks||!marks.length) return [];
   const sorted=[...marks].sort((a,b)=>a.t-b.t);
-  const minGap=28, base=22, extra=12, yMin=-96, yMax=46;
+  const minGap=28, baseStem=18, extra=14, yMin=-95, yMax=45;
 
-  // Identify P0 and P1
-  const P0=sorted.find(m=>m.phase===0);
-  const P1=sorted.find(m=>m.phase===1);
+  // Pre-detect Phase 0/1 times
+  const p0=sorted.find(m=>m.phase===0);
+  const p1=sorted.find(m=>m.phase===1);
+  const tight01 = (p0 && p1) ? Math.abs(p1.t-p0.t) < 40 : false;
 
-  // first pass: time spacing levels
   let lastT=-Infinity, level=0;
-  const prelim=sorted.map(m=>{
-    if(m.t-lastT<minGap) level=(level+1)%3; else level=0;
+  return sorted.map(m=>{
+    if(tight01 && (m.phase===0 || m.phase===1)){
+      // Force clear separation if Phase 0 & 1 are close:
+      level = (m.phase===0)? 0 : 2; // 0 = higher label, 2 = lower label
+    } else {
+      if(m.t-lastT<minGap) level=(level+1)%4; else level=0;
+    }
     lastT=m.t;
-    return {...m,_level:level};
-  });
 
-  // enforce P0/P1 separation if close
-  if(P0 && P1 && Math.abs(P1.t-P0.t)<60){
-    prelim.forEach(m=>{
-      if(m.phase===0) m._level = 0; // closer to trace (above)
-      if(m.phase===1) m._level = 2; // further (below)
-    });
-  }
+    const desired = m.v - (baseStem + level*extra);
+    const displayY = Math.max(yMin,Math.min(yMax,desired));
 
-  // convert to displayY with signed offset: P0 above, P1 below
-  return prelim.map(m=>{
-    const sign = (m.phase===1) ? 1 : -1;
-    const offset = base + m._level*extra;
-    const desired = m.v + sign*offset;
-    const displayY = Math.max(yMin, Math.min(yMax, desired));
-    return {...m, displayY};
+    // slight horizontal nudge for readability when very tight
+    const xOffset = (tight01 && (m.phase===1)) ? 6 : 0;
+
+    return {...m, displayY, xOffset};
   });
 }
 
-/* Overlay renders on top of chart primitives */
-function PhaseOverlay({xScale,yScale,marks}) {
-  if(!xScale || !yScale || !marks?.length) return null;
-  const padX=6, padY=4, textH=13;
-  return (
-    <g pointerEvents="none">
-      {marks.map((m,i)=>{
-        const x = xScale(m.t);
-        const y = yScale(m.displayY);
-        const title = m.label;
-        const w = Math.max(48, title.length*7) + padX*2;
-        const h = textH + padY*2;
-        return (
-          <g key={i} transform={`translate(${x+8},${y - h/2})`}>
-            <rect className="phase-chip" width={w} height={h} fill="#fff" rx="6" ry="6"/>
-            <text x={padX} y={padY+textH-1} fontSize="12" fill="#334155">{title}</text>
-          </g>
-        );
-      })}
-    </g>
-  );
-}
-
-/* Simple control panel (keeps your draggable sliders) */
-function Controls({state, setState, schema}){
-  const {name, cellTypeId, preset, envPreset, bpm, params, ko, showBaseline} = state;
-  const set = (patch)=>setState({...state, ...patch});
-  const clampPct = (v)=>Math.max(0,Math.min(200,Math.round(v)));
-
-  function reset(){
-    set({ params:{...BASELINE_PARAMS}, ko:{}, preset:"None", envPreset:"None", bpm:60, name:"My Experiment" });
-  }
-
-  return (
-    <div className="stack">
-      <div className="stack card">
-        <div className="stack">
-          <label className="label">Session</label>
-          <input className="input" value={name} onChange={(e)=>set({name:e.target.value})}/>
-        </div>
-        <div className="row">
-          <div className="stack" style={{flex:1}}>
-            <label className="label">Cell type</label>
-            <select className="select" value={cellTypeId} onChange={(e)=>set({cellTypeId:e.target.value})}>
-              {schema.cells.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
-            </select>
-          </div>
-          <div className="stack" style={{flex:1}}>
-            <label className="label">Drug preset</label>
-            <select className="select" value={preset} onChange={(e)=>set({preset:e.target.value})}>
-              {Object.keys(schema.drugs).map(p=><option key={p} value={p}>{p}</option>)}
-            </select>
-          </div>
-        </div>
-        <div className="row">
-          <div className="stack" style={{flex:1}}>
-            <label className="label">Environment</label>
-            <select className="select" value={envPreset} onChange={(e)=>set({envPreset:e.target.value})}>
-              {Object.keys(schema.envs).map(p=><option key={p} value={p}>{p}</option>)}
-            </select>
-          </div>
-          <div className="stack" style={{flex:1}}>
-            <label className="label">Pacing (BPM): {bpm}</label>
-            <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>set({bpm:+e.target.value})}/>
-          </div>
-        </div>
-        <div className="row" style={{justifyContent:'space-between'}}>
-          <label className="label" style={{display:'inline-flex',gap:8,alignItems:'center'}}>
-            <input type="checkbox" checked={showBaseline} onChange={(e)=>set({showBaseline:e.target.checked})}/> Show baseline
-          </label>
-          <button onClick={reset}>Reset</button>
-        </div>
-      </div>
-
-      {[ // grouped channels
-        {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
-        {label:'Phase 1 (Notch)', keys:['Ito']},
-        {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
-        {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
-        {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
-      ].map(g=>{
-        const keys=g.keys.filter(k=>schema.cellUses[cellTypeId][k]);
-        if(!keys.length) return null;
-        return (
-          <details key={g.label} className="group" open>
-            <summary><span className="title">{g.label}</span></summary>
-            <div className="stack" style={{paddingTop:8}}>
-              {keys.map(k=>{
-                const disabled = !!ko[k];
-                return (
-                  <div key={k} className="stack">
-                    <div className="krow">
-                      <div style={{fontWeight:600, fontSize:14}}>{schema.labels[k]}</div>
-                      <label className="mini"><input type="checkbox" checked={!!ko[k]} onChange={(e)=>set({ko:{...ko, [k]:e.target.checked}})}/> KO</label>
-                    </div>
-                    <div className="row" style={{alignItems:'center'}}>
-                      <input type="range" min="0" max="200" step="5" disabled={disabled}
-                        value={disabled?0:(params[k]??100)}
-                        onChange={(e)=>set({params:{...params, [k]:+e.target.value}})}/>
-                      <input className="input" type="number" min="0" max="200" step="5" disabled={disabled}
-                        value={disabled?0:(params[k]??100)}
-                        onChange={(e)=>set({params:{...params, [k]:clampPct(+e.target.value||0)}})}/>
-                      <span className="mini">{disabled?0:(params[k]??100)}%</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </details>
-        );
-      })}
-    </div>
-  );
-}
-
+/* ---------------- App ---------------- */
 function App(){
-  const [state,setState]=useState({
-    name:"My Experiment", cellTypeId:"ventricular", preset:"None", envPreset:"None",
-    bpm:60, params:{...BASELINE_PARAMS}, ko:{}, showBaseline:true
-  });
+  const [cellTypeId,setCellTypeId]=useState("ventricular");
+  const [name,setName]=useState("My Experiment");
+  const [params,setParams]=useState({...BASELINE_PARAMS});
+  const [ko,setKo]=useState({});
+  const [preset,setPreset]=useState("None");
+  const [envPreset,setEnvPreset]=useState("None");
+  const [showBaseline,setShowBaseline]=useState(true);
+  const [bpm,setBpm]=useState(60);
 
-  const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===state.cellTypeId)||CELL_TYPES[0],[state.cellTypeId]);
+  const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
 
-  const schema = useMemo(()=>({
-    cells:CELL_TYPES,
-    labels:CHANNEL_LABELS,
-    drugs:DRUG_PRESETS,
-    envs:ENV_PRESETS,
-    cellUses:Object.fromEntries(CELL_TYPES.map(c=>[c.id,c.uses]))
-  }),[]);
-
-  // build effective params
   const workingParams=useMemo(()=>{
-    const apply=(base,map)=>{ const o={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in o) o[k]=Math.round(o[k]*(v/100));}); return o; };
-    const env=apply(state.params, ENV_PRESETS[state.envPreset]||{});
-    const drug=apply(env, DRUG_PRESETS[state.preset]||{});
+    const apply=(base, map)=>{ const out={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; }
+    const env=apply(params, ENV_PRESETS[envPreset]||{});
+    const drug=apply(env, DRUG_PRESETS[preset]||{});
     const out={...drug};
-    Object.keys(state.ko).forEach(k=>{ if(state.ko[k]) out[k]=0; });
+    Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; });
     Object.keys(out).forEach(k=>{ if(!cell.uses[k]) out[k]=0; });
-    out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,state.bpm)),250,3000);
+    out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
     return out;
-  },[state,cell]);
+  },[params,preset,envPreset,ko,cell,bpm]);
 
-  const baseline=useMemo(()=>generateAP(cell.id,{...BASELINE_PARAMS,__targetCycle:60000/state.bpm}),[cell.id,state.bpm]);
+  const baseline=useMemo(()=>generateAP(cell.id,{...BASELINE_PARAMS,__targetCycle:60000/bpm}),[cell.id,bpm]);
   const modified=useMemo(()=>generateAP(cell.id,workingParams),[cell.id,workingParams]);
-
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
 
   const laidOutMarks=useMemo(()=>layoutPhaseMarks(modified.marks),[modified.marks]);
+  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
 
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
-  // mount controls in sidebar
-  React.useEffect(()=>{
-    const ctr = document.getElementById('ap-controls');
-    if(ctr) ReactDOM.createRoot(ctr).render(<Controls state={state} setState={setState} schema={schema} />);
-  },[state, schema]);
+  function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
 
-  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
+  /* ---------- UI blocks rendered with React ---------- */
+  return (
+    <Fragment>
+      {/* Controls */}
+      <Controls
+        name={name} setName={setName}
+        cellTypeId={cellTypeId} setCellTypeId={setCellTypeId}
+        preset={preset} setPreset={setPreset}
+        envPreset={envPreset} setEnvPreset={setEnvPreset}
+        bpm={bpm} setBpm={setBpm}
+        params={params} setParams={setParams}
+        ko={ko} setKo={setKo}
+        showBaseline={showBaseline} setShowBaseline={setShowBaseline}
+        resetAll={resetAll}
+        cell={cell}
+      />
+
+      {/* Chart + Metrics + Sensitivity */}
+      <ChartAndMetrics
+        name={name}
+        baseline={baseline}
+        modified={modified}
+        laidOutMarks={laidOutMarks}
+        baseMetrics={baseMetrics}
+        curMetrics={curMetrics}
+        channelOrder={channelOrder}
+        params={params}
+        envPreset={envPreset}
+        preset={preset}
+        ko={ko}
+        bpm={bpm}
+        cellTypeId={cellTypeId}
+        xAxisLabel={xAxisLabel}
+        yAxisLabel={yAxisLabel}
+        showBaseline={showBaseline}
+      />
+
+      {/* Params Table */}
+      <ParamsTable channelOrder={channelOrder} params={params} ko={ko}/>
+    </Fragment>
+  );
+}
+
+/* ---------------- Smaller components ---------------- */
+function Controls(props){
+  const {
+    name,setName,cellTypeId,setCellTypeId,preset,setPreset,envPreset,setEnvPreset,
+    bpm,setBpm,params,setParams,ko,setKo,showBaseline,setShowBaseline,resetAll,cell
+  } = props;
 
   return (
     <div className="stack">
-      {/* Chart card */}
-      <section className="card">
-        <div className="row" style={{justifyContent:'space-between', alignItems:'baseline'}}>
-          <div style={{fontWeight:700}}>{state.name}</div>
-          <div className="legend">
-            <span className="chip"><span className="line-solid"></span> Modified</span>
-            <span className="chip"><span className="line-dash"></span> Baseline</span>
-          </div>
+      <div className="field">
+        <label className="label">Session name</label>
+        <input type="text" value={name} onChange={(e)=>{ setName(e.target.value); const el=document.getElementById('ap-session-name'); if(el) el.textContent=e.target.value||'My Experiment'; }} />
+      </div>
+      <div className="row">
+        <div className="field flex1">
+          <label className="label">Cell type</label>
+          <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
+            {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+          </select>
         </div>
-
-        <div style={{width:'100%', height:460, marginTop:8}}>
-          <ResponsiveContainer>
-            <LineChart data={modified.data} margin={{top:8,right:24,bottom:20,left:12}}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
-              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-              <Tooltip
-                formatter={(v)=>`${Number(v).toFixed(1)} mV`}
-                labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
-                contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
-              />
-              {state.showBaseline && (
-                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
-                      stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-              )}
-              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
-              <ReferenceLine y={-85} stroke="#e5e7eb"/>
-
-              {/* draw stems, then overlay labels */}
-              {laidOutMarks.map((m,i)=>(
-                <ReferenceLine key={'stem'+i} isFront segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
-              ))}
-              <Customized component={({xAxisMap,yAxisMap,width,height,offset})=>{
-                const xScale = Object.values(xAxisMap||{})[0]?.scale;
-                const yScale = Object.values(yAxisMap||{})[0]?.scale;
-                return <PhaseOverlay xScale={xScale} yScale={yScale} marks={laidOutMarks} />;
-              }}/>
-            </LineChart>
-          </ResponsiveContainer>
+        <div className="field flex1">
+          <label className="label">Drug preset</label>
+          <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
+            {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+          </select>
         </div>
-
-        <div className="metrics" style={{marginTop:12}}>
-          <div className="metric">
-            <div className="k">APD90</div>
-            <div className="v">{curMetrics.apd90} ms</div>
-            <div className="mini" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
-            </div>
-          </div>
-          <div className="metric">
-            <div className="k">dV/dtₘₐₓ</div>
-            <div className="v">{curMetrics.dvdtMax} mV/ms</div>
-            <div className="mini" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
-            </div>
-          </div>
-          <div className="metric">
-            <div className="k">Cycle</div>
-            <div className="v">{curMetrics.cycle} ms</div>
-            <div className="mini" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
-            </div>
-          </div>
+      </div>
+      <div className="row">
+        <div className="field flex1">
+          <label className="label">Environment</label>
+          <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
+            {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+          </select>
         </div>
+        <div className="field" style={{width:140}}>
+          <label className="label">BPM</label>
+          <input type="number" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(clamp(+e.target.value||60,20,220))}/>
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Pacing</label>
+        <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
+      </div>
 
-        <div className="divider"></div>
+      <div className="divider"></div>
 
-        {/* Sensitivity */}
-        <div className="stack">
-          {channelOrder.map(k=>{
-            const apply=(b,m)=>{const o={...b};Object.entries(m).forEach(([kk,v])=>{if(kk in o) o[kk]=Math.round(o[kk]*(v/100));});return o;};
-            const env=apply(state.params,ENV_PRESETS[state.envPreset]||{}); const drug=apply(env,DRUG_PRESETS[state.preset]||{});
-            const common={...drug}; Object.keys(state.ko).forEach(x=>{ if(state.ko[x]) common[x]=0; }); common.__targetCycle=60000/state.bpm;
-            const metrics=p=>computeMetrics(generateAP(state.cellTypeId,p));
-            const m0=metrics(common);
-            const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
-            const dn=metrics({...common,[k]:clamp((common[k]??100)*0.8,0,200)});
-            const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
-            return (
-              <div key={k} className="row" style={{alignItems:'center'}}>
-                <div style={{width:240,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
-                <div className="bar" style={{flex:1}}>
-                  <div className="mid"></div>
-                  <div style={{width:Math.min(100,Math.abs(dDn))+'%', height:'100%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
-                  <div className="right" style={{width:Math.min(100,Math.abs(dUp))+'%', height:'100%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
+      {PHASE_GROUPS.map(g=>{
+        const keys=g.keys.filter(k=>cell.uses[k]);
+        if(!keys.length) return null;
+        return (
+          <details key={g.label} open>
+            <summary className="label" style={{ fontSize: 14, color: 'var(--ink)', cursor:'pointer' }}>
+              {g.label}
+            </summary>
+
+            <div className="stack" style={{ paddingTop: 8 }}>
+              {keys.map(key=>(
+                <div key={key} className="stack">
+                  <div className="row" style={{justifyContent:'space-between'}}>
+                    <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
+                    <label style={{fontSize:12}}>
+                      <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
+                    </label>
+                  </div>
+                  <div className="row">
+                    <input type="range" min="0" max="200" step="5" disabled={!!ko[key]}
+                      value={ko[key]?0:(params[key]??100)}
+                      onChange={(e)=>setParams({...params,[key]:+e.target.value})}/>
+                    <input type="number" min="0" max="200" step="5" disabled={!!ko[key]}
+                      value={ko[key]?0:(params[key]??100)}
+                      onChange={(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}/>
+                    <span style={{color:'#64748b',minWidth:48,textAlign:'right'}}>{ko[key]?0:(params[key]??100)}%</span>
+                  </div>
                 </div>
-                <div className="mini" style={{width:220,textAlign:'right',fontFeatureSettings:'tnum'}}>
-                  ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="divider"></div>
-
-        {/* Parameters table */}
-        <section>
-          <div className="label" style={{fontWeight:700, color:'var(--ink)'}}>Parameters</div>
-          <table>
-            <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-            <tbody>
-              {channelOrder.map(k=>(
-                <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(state.ko[k]?0:state.params[k])}%</td><td>{state.ko[k]?'Yes':'No'}</td></tr>
               ))}
-            </tbody>
-          </table>
-        </section>
-      </section>
+            </div>
+          </details>
+        );
+      })}
+
+      <div className="row" style={{justifyContent:'space-between'}}>
+        <label className="label" style={{display:'flex',alignItems:'center',gap:8}}>
+          <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline
+        </label>
+        <button onClick={resetAll}>Reset</button>
+      </div>
     </div>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
+function ChartAndMetrics(props){
+  const {
+    name,baseline,modified,laidOutMarks,baseMetrics,curMetrics,channelOrder,
+    params,envPreset,preset,ko,bpm,cellTypeId,xAxisLabel,yAxisLabel,showBaseline
+  } = props;
+
+  // Build sensitivity rows once per render
+  const sensitivityRows = channelOrder.map(k=>{
+    const apply=(base,map)=>{ const out={...base}; Object.entries(map).forEach(([kk,v])=>{ if(kk in out) out[kk]=Math.round(out[kk]*(v/100));}); return out; };
+    const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
+    const common={...drug}; Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; }); common.__targetCycle=60000/bpm;
+    const metrics=p=>computeMetrics(generateAP(cellTypeId,p));
+    const m0=metrics(common);
+    const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
+    const dn=metrics({...common,[k]:clamp((common[k]??100)*0.8,0,200)});
+    const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
+    return {k,dUp,dDn};
+  });
+
+  return (
+    <Fragment>
+      <div style={{overflowX:'auto'}}>
+        <LineChart width={900} height={440} data={modified.data} margin={{top:8,right:40,bottom:24,left:6}}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+          <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+          <Tooltip
+            formatter={(v)=>`${Number(v).toFixed(1)} mV`}
+            labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
+          />
+          {showBaseline && (
+            <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+          )}
+          <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+          <ReferenceLine y={-85} stroke="#e5e7eb" ifOverflow="extendDomain"/>
+
+          {/* PHASE MARKS — drawn LAST and with isFront so labels are on top */}
+          {laidOutMarks.map((m,i)=>(
+            <Fragment key={i}>
+              <ReferenceLine segment={[{x:m.t,y:m.v},{x:m.t + (m.xOffset||0),y:m.displayY}]} stroke="#cbd5e1" ifOverflow="extendDomain"/>
+              <ReferenceDot
+                x={m.t + (m.xOffset||0)} y={m.displayY} r={1} fill="#0f172a" isFront
+                label={{
+                  value:m.label,
+                  position:'top',
+                  offset:6,
+                  fill:'#0f172a',
+                  fontSize:12
+                }}
+              />
+            </Fragment>
+          ))}
+
+          {/* Series end labels (also front) */}
+          <ReferenceDot x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
+            isFront
+            label={{value:'Modified', position:'right', offset:8, fill:'#0f172a', fontSize:12}} />
+          {showBaseline && (
+            <ReferenceDot x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
+              isFront
+              label={{value:'Baseline', position:'right', offset:8, fill:'#64748b', fontSize:12}} />
+          )}
+        </LineChart>
+      </div>
+
+      {/* Metrics cards */}
+      <div className="metrics">
+        <div className="metric">
+          <div className="k">APD90</div>
+          <div className="v">{curMetrics.apd90} ms</div>
+          <div className="d" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
+          </div>
+        </div>
+        <div className="metric">
+          <div className="k">dV/dtₘₐₓ</div>
+          <div className="v">{curMetrics.dvdtMax} mV/ms</div>
+          <div className="d" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
+          </div>
+        </div>
+        <div className="metric">
+          <div className="k">Cycle</div>
+          <div className="v">{curMetrics.cycle} ms</div>
+          <div className="d" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
+          </div>
+        </div>
+      </div>
+
+      {/* Sensitivity mini-panel */}
+      <div className="stack">
+        {sensitivityRows.map(({k,dUp,dDn})=>(
+          <div key={k} className="row" style={{alignItems:'center'}}>
+            <div style={{width:240,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
+            <div className="bar">
+              <div className="mid"></div>
+              <div className="seg" style={{width:Math.min(100,Math.abs(dDn))+'%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
+              <div className="seg right" style={{width:Math.min(100,Math.abs(dUp))+'%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
+            </div>
+            <div style={{width:230,textAlign:'right',fontFeatureSettings:'tnum'}}>
+              ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
+            </div>
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  );
+}
+
+function ParamsTable({channelOrder,params,ko}){
+  return (
+    <table>
+      <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
+      <tbody>
+        {channelOrder.map(k=>(
+          <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+/* Mount into the three target containers in the layout */
+function Mount(){
+  ReactDOM.createRoot(document.getElementById('ap-controls')).render(<App/>);
+}
+Mount();
+
+/* Also set the h2 title immediately (SSR text) */
+document.getElementById('ap-session-name').textContent = 'My Experiment';
 </script>
 {% endraw %}
