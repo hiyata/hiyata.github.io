@@ -9,10 +9,8 @@ title: Cardio Physio
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<!-- IMPORTANT: react-is must load BEFORE Recharts -->
 <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
 
-<!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
 
 <!-- Babel (compile JSX in the browser) -->
@@ -46,7 +44,7 @@ title: Cardio Physio
 {% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
-const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
+const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
 /* ---------------- Model constants ---------------- */
 const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
@@ -280,19 +278,20 @@ function App(){
           <span className="pill"><span className="line"></span> Modified</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
-        <div style={{overflowX:'auto'}}>
-          <LineChart width={900} height={420} data={modified.data} margin={{top:8,right:24,bottom:20,left:0}}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
-            <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-            <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
-            {showBaseline && (
-              <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-            )}
-            <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
-            <ReferenceLine y={-85} stroke="#e5e7eb"/>
-            {/* Phase markers removed */}
-          </LineChart>
+        <div style={{width: '100%'}}>
+          <ResponsiveContainer width="100%" height={420}>
+            <LineChart data={modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <ReferenceLine y={-85} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="metrics" style={{marginTop:12}}>
@@ -304,7 +303,7 @@ function App(){
             </div>
           </div>
           <div className="metric">
-            <div className="k">dV/dtₘₐₓ</div>
+            <div className="k">dV/dt_max</div>
             <div className="v">{curMetrics.dvdtMax} mV/ms</div>
             <div className="d" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
               {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
