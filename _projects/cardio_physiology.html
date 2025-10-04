@@ -32,9 +32,6 @@ title: Cardio Physio
   input[type="range"]{width:100%}
   input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
   button{cursor:pointer;background:#fff}
-  table{width:100%;border-collapse:collapse}
-  thead th{text-align:left;color:var(--muted);padding:8px 0}
-  tbody td{padding:8px 0;border-top:1px solid var(--grid)}
   .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
   .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
@@ -43,9 +40,6 @@ title: Cardio Physio
   .metric .k{color:var(--muted);font-size:12px}
   .metric .v{font-weight:600}
   .metric .d{font-size:12px}
-  .bar{position:relative;height:8px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:4px}
-  .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
-  .right{margin-left:50%}
   .divider{height:1px;background:var(--grid);margin:12px 0}
 </style>
 
@@ -138,6 +132,7 @@ function generateAP(cellId, params){
   for(let i=0;i<=n3;i++){ const f=i/n3; push(tA+f*t3, vStart+(vEnd-vStart)*(1-Math.cos(Math.PI*f))/2); }
   segs.push({phase:3,tStart:tA,tEnd:tA+t3}); tA+=t3;
 
+  // Create marks array but we won't render them (phase markers removed)
   const marks = segs.map(s=>{
     const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
     for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
@@ -166,24 +161,9 @@ const PHASE_GROUPS=[
   {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
 ];
 
-function layoutPhaseMarks(marks){
-  if(!marks||!marks.length) return [];
-  const sorted=[...marks].sort((a,b)=>a.t-b.t);
-  const minGap=25, baseStem=18, extra=12, yMin=-95, yMax=45;
-  let lastT=-Infinity, level=0;
-  return sorted.map(m=>{
-    if(m.t-lastT<minGap) level=(level+1)%3; else level=0;
-    lastT=m.t;
-    const desired=m.v-(baseStem+level*extra);
-    const displayY=Math.max(yMin,Math.min(yMax,desired));
-    return {...m, displayY};
-  });
-}
-
 /* ---------------- App ---------------- */
 function App(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
-  const [name,setName]=useState("My Experiment");
   const [params,setParams]=useState({...BASELINE_PARAMS});
   const [ko,setKo]=useState({});
   const [preset,setPreset]=useState("None");
@@ -209,7 +189,6 @@ function App(){
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
 
-  const laidOutMarks=useMemo(()=>layoutPhaseMarks(modified.marks),[modified.marks]);
   const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
 
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
@@ -223,10 +202,6 @@ function App(){
       <section className="section">
         <h2>Controls</h2>
         <div className="stack">
-          <div className="field">
-            <label className="label">Session name</label>
-            <input value={name} onChange={(e)=>setName(e.target.value)} />
-          </div>
           <div className="row">
             <div className="field flex1">
               <label className="label">Cell type</label>
@@ -298,9 +273,9 @@ function App(){
         </div>
       </section>
 
-      {/* Metrics + Chart */}
+      {/* Chart + Metrics */}
       <section className="section">
-        <h2>{name}</h2>
+        <h2>Action Potential</h2>
         <div className="legend">
           <span className="pill"><span className="line"></span> Modified</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
@@ -316,21 +291,7 @@ function App(){
             )}
             <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
             <ReferenceLine y={-85} stroke="#e5e7eb"/>
-
-            {laidOutMarks.map((m,i)=>(
-              <Fragment key={i}>
-                <ReferenceLine segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
-                <ReferenceDot x={m.t} y={m.displayY} r={1} fill="#0f172a" isFront
-                  label={{value:m.label, position:'top', offset:6, fill:'#334155', fontSize:12}}/>
-              </Fragment>
-            ))}
-
-            <ReferenceDot x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
-              label={{value:'Modified', position:'right', offset:8, fill:'#0f172a', fontSize:12}} />
-            {showBaseline && (
-              <ReferenceDot x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
-                label={{value:'Baseline', position:'right', offset:8, fill:'#64748b', fontSize:12}} />
-            )}
+            {/* Phase markers removed */}
           </LineChart>
         </div>
 
@@ -374,10 +335,10 @@ function App(){
             return (
               <div key={k} className="row" style={{alignItems:'center'}}>
                 <div style={{width:220,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
-                <div className="bar">
-                  <div className="mid"></div>
-                  <div className="seg" style={{width:Math.min(100,Math.abs(dDn))+'%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
-                  <div className="seg right" style={{width:Math.min(100,Math.abs(dUp))+'%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
+                <div style={{flex:1,height:8,background:'#f1f5f9',borderRadius:4,position:'relative',overflow:'hidden'}}>
+                  <div style={{position:'absolute',left:'50%',top:0,bottom:0,width:1,background:'#cbd5e1'}}></div>
+                  <div style={{width:Math.min(100,Math.abs(dDn))+'%', background:dDn<0?'var(--green)':'var(--red)', height:'100%'}}></div>
+                  <div style={{marginLeft:'50%', width:Math.min(100,Math.abs(dUp))+'%', background:dUp>0?'var(--green)':'var(--red)', height:'100%'}}></div>
                 </div>
                 <div style={{width:230,textAlign:'right',fontFeatureSettings:'tnum'}}>
                   ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
@@ -388,18 +349,7 @@ function App(){
         </div>
       </section>
 
-      {/* Simple table for current values */}
-      <section className="section">
-        <h2>Parameters</h2>
-        <table>
-          <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-          <tbody>
-            {channelOrder.map(k=>(
-              <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      {/* Parameters table section removed */}
     </div>
   );
 }
