@@ -4,98 +4,13 @@ title: Cardio Physio
 ---
 
 <div class="ap-shell">
-  <header class="ap-header">
-    <h1>Cardio Action Potential Lab</h1>
-    <p>Tune ionic currents, drugs, and conditions. The chart stays put while you experiment.</p>
-  </header>
-
-  <main class="ap-grid">
-    <!-- Sticky chart column -->
-    <section class="card ap-chart-col">
-      <h2 class="section">Action Potential</h2>
-      <div class="legend">
-        <span class="pill"><span class="line"></span> Modified</span>
-        <span class="pill"><span class="dash"></span> Baseline</span>
-      </div>
-      <div class="chart-wrap">
-        <div id="ap-app"></div>
-      </div>
-      <div class="metrics">
-        <div class="metric">
-          <div class="k">APD90</div><div class="v" id="m-apd">–</div>
-          <div class="d" id="m-apd-delta">–</div>
-        </div>
-        <div class="metric">
-          <div class="k">dV/dtₘₐₓ</div><div class="v" id="m-dvdt">–</div>
-          <div class="d" id="m-dvdt-delta">–</div>
-        </div>
-        <div class="metric">
-          <div class="k">Cycle</div><div class="v" id="m-cycle">–</div>
-          <div class="d" id="m-cycle-delta">–</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Controls column -->
-    <section class="card ap-controls">
-      <h2 class="section">Controls</h2>
-
-      <div class="stack">
-        <div class="row">
-          <div class="field flex1">
-            <label class="label">Session name</label>
-            <input id="inp-name" />
-          </div>
-          <div class="field flex1">
-            <label class="label">Pacing (BPM) <span id="lab-bpm">60</span></label>
-            <input id="inp-bpm" type="range" min="20" max="220" step="1" value="60" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field flex1">
-            <label class="label">Cell type</label>
-            <select id="sel-cell"></select>
-          </div>
-          <div class="field flex1">
-            <label class="label">Drug preset</label>
-            <select id="sel-drug"></select>
-          </div>
-          <div class="field flex1">
-            <label class="label">Environment</label>
-            <select id="sel-env"></select>
-          </div>
-        </div>
-
-        <div class="row">
-          <label class="label" style="display:inline-flex;gap:8px;align-items:center">
-            <input id="chk-baseline" type="checkbox" checked /> Show baseline overlay
-          </label>
-          <button id="btn-reset" class="ghost">Reset</button>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Channels -->
-        <h3 class="sub">Channels</h3>
-        <div id="channels-grid" class="channels-grid"></div>
-
-        <div class="divider"></div>
-
-        <!-- Sensitivity -->
-        <h3 class="sub">ΔAPD sensitivity (±20%)</h3>
-        <div id="sens-list" class="stack"></div>
-
-        <div class="divider"></div>
-
-        <!-- Current parameter table -->
-        <h3 class="sub">Parameters</h3>
-        <table id="param-table">
-          <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
+  <aside class="ap-side">
+    <h1>Cardio Physiology</h1>
+    <p class="muted">Tweak channels, drugs, and environment; see the AP reshape in real time.</p>
+    <div id="ap-controls"></div>
+  </aside>
+  <main class="ap-main">
+    <div id="ap-app"></div>
   </main>
 </div>
 
@@ -114,63 +29,53 @@ title: Cardio Physio
 
 <style>
   :root{
-    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--ring:#cbd5e1;
-    --green:#059669;--red:#dc2626;--card:#ffffff;--bg:#f8fafc;
+    --ink:#0f172a; --muted:#64748b; --grid:#e5e7eb; --ring:#cbd5e1;
+    --bg:#fafcff; --card:#fff; --accent:#0ea5e9; --accent-soft:#e0f2fe;
+    --green:#059669; --red:#dc2626;
   }
-  html,body{background:var(--bg);color:var(--ink)}
-  .ap-shell{max-width:1220px;margin:0 auto;padding:16px}
-  .ap-header h1{margin:0 0 4px;font:700 22px/1.2 ui-sans-serif,system-ui}
-  .ap-header p{margin:0;color:var(--muted)}
-  .ap-grid{display:grid;grid-template-columns: minmax(520px, 1fr) 520px; gap:16px}
-  @media(max-width:1100px){.ap-grid{grid-template-columns:1fr}}
-  .card{background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(2,6,23,.03)}
-  .ap-chart-col{position:sticky; top:12px; align-self:start; height: calc(100vh - 24px); display:flex; flex-direction:column}
-  .chart-wrap{position:relative; flex:1; min-height:380px}
-  .section{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
-  .sub{margin:0 0 6px;font:600 13px/1.2 ui-sans-serif,system-ui;color:#0b1220}
-  .stack{display:flex;flex-direction:column;gap:12px}
-  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  .flex1{flex:1}
-  .field{display:flex;flex-direction:column;gap:6px;min-width:160px}
-  .label{font-size:12px;color:var(--muted)}
+  html,body{background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui}
+  .ap-shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:18px;padding:16px}
+  @media (max-width: 980px){ .ap-shell{grid-template-columns:1fr} .ap-side{position:relative;top:auto} }
+  .ap-side{position:sticky; top:12px; align-self:start; background:var(--card); border:1px solid var(--grid);
+    border-radius:14px; padding:16px; box-shadow:0 1px 0 rgba(2,6,23,.04)}
+  .ap-side h1{font-size:18px; margin:0 0 4px; font-weight:700}
+  .ap-side .muted{margin:0 0 12px; color:var(--muted); font-size:14px}
+  .ap-main{display:grid; gap:18px}
+  .card{background:var(--card); border:1px solid var(--grid); border-radius:14px; padding:12px 14px; box-shadow:0 1px 0 rgba(2,6,23,.04)}
+  .row{display:flex; gap:10px; align-items:center}
+  .stack{display:flex; flex-direction:column; gap:10px}
+  .label{font-size:12px; color:var(--muted)}
+  .select, .input, button{border:1px solid var(--grid); border-radius:10px; padding:8px 10px; background:#fff; font-size:14px}
   input[type="range"]{width:100%}
-  input[type="number"],select,button{border:1px solid var(--grid);border-radius:10px;padding:8px 10px;font-size:14px;background:#fff}
-  button{cursor:pointer}
-  .ghost{background:#fff;border-color:var(--ring)}
-  .legend{display:flex;gap:16px;align-items:center;margin:4px 0 8px;font-size:14px}
-  .pill{display:inline-flex;gap:8px;align-items:center}
-  .pill .line{width:28px;height:3px;background:var(--ink);display:inline-block;border-radius:2px}
-  .pill .dash{width:28px;height:0;border-top:3px dashed #94a3b8;display:inline-block}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-  .metric{border:1px dashed var(--ring);border-radius:10px;padding:10px}
-  .metric .k{color:var(--muted);font-size:12px}
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  thead th{color:var(--muted); text-align:left; padding:8px 0}
+  tbody td{padding:8px 0; border-top:1px solid var(--grid)}
+  .legend{display:flex; gap:14px; align-items:center; margin:6px 0 10px; font-size:13px}
+  .chip{display:inline-flex; gap:8px; align-items:center; padding:4px 8px; border:1px solid var(--ring); border-radius:999px; background:#fff}
+  .line-solid{width:24px; height:3px; background:var(--ink); border-radius:2px}
+  .line-dash{width:24px; height:0; border-top:3px dashed #94a3b8}
+  .metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+  .metric{background:var(--accent-soft); border:1px solid var(--ring); border-radius:12px; padding:10px}
+  .metric .k{color:var(--muted); font-size:12px}
   .metric .v{font-weight:700}
-  .metric .d{font-size:12px}
-  .divider{height:1px;background:var(--grid);margin:12px 0}
-  table{width:100%;border-collapse:collapse}
-  thead th{text-align:left;color:var(--muted);padding:8px 0}
-  tbody td{padding:8px 0;border-top:1px solid var(--grid)}
-  .channels-grid{display:grid;grid-template-columns:1fr; gap:10px}
-  @media(min-width:540px){.channels-grid{grid-template-columns:1fr 1fr}}
-  @media(min-width:920px){.channels-grid{grid-template-columns:1fr 1fr}}
-  .ch-card{border:1px solid var(--grid);border-radius:10px;padding:10px}
-  .ch-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:4px}
-  .ch-name{font-weight:600;font-size:14px}
-  .ch-ko{font-size:12px;color:var(--muted)}
-  .ch-inline{display:flex; gap:8px; align-items:center}
-  .ch-inline input[type="number"]{width:80px}
-
-  /* Phase label chip */
-  .phase-chip{paint-order:stroke;stroke:#ffffff;stroke-width:6; rx:6; ry:6}
+  .divider{height:1px; background:var(--grid); margin:12px 0}
+  .group{border:1px dashed var(--ring); border-radius:12px; padding:10px}
+  .group summary{cursor:pointer; list-style:none}
+  .group summary::-webkit-details-marker{display:none}
+  .group summary .title{font-weight:600; color:var(--ink); font-size:13px}
+  .krow{display:grid; grid-template-columns:1fr auto; gap:8px; align-items:center}
+  .bar{position:relative;height:8px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:4px}
+  .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
+  .right{margin-left:50%}
+  .mini{font-size:12px; color:var(--muted)}
+  /* SVG label chip style (drawn in overlay) */
+  .phase-chip{paint-order:stroke; stroke:var(--ring); stroke-width:1; rx:6; ry:6}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,useEffect,Fragment} = React;
-const {
-  ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,
-  ReferenceLine, ReferenceDot, Customized
-} = Recharts;
+const {useMemo,useState,Fragment} = React;
+const {ResponsiveContainer,LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot,Customized} = Recharts;
 
 /* ---------------- Model constants ---------------- */
 const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
@@ -204,7 +109,8 @@ function generateAP(cellId, params){
 
   if(isPacemaker){
     t1=0;t2=0;t0=15/clamp(kICaL,0.2,2); vmax=20*kICaL;
-    const kK=0.6*kIKr+0.4*kIKs; t3=150/clamp(kK,0.2,2);
+    const kK=0.6+kIKr*0+0.4*kIKs; // harmless tweak to keep structure similar
+    t3=150/clamp(0.6*kIKr+0.4*kIKs,0.2,2);
     const slope=0.4*kIf+0.2*kICaT-0.3*(kIK_ACh-1);
     t4=clamp(220/clamp(1+slope,0.2,3),60,600);
     vrest=-85-3*(kPump-1)+3*(1-kIK1);
@@ -265,7 +171,6 @@ function generateAP(cellId, params){
   return {data, marks, segs};
 }
 
-/* Metrics */
 function computeMetrics(curve){
   const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
   const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
@@ -277,280 +182,319 @@ function computeMetrics(curve){
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
-/* Phase layout: ensure Phase 0/1 clear & separated and labels stay within Y range */
+/* Phase label layout (overlay, always on top) */
 function layoutPhaseMarks(marks){
   if(!marks||!marks.length) return [];
   const sorted=[...marks].sort((a,b)=>a.t-b.t);
-  const minGap=28, base=20, step=12, yMin=-95, yMax=45;
+  const minGap=28, base=22, extra=12, yMin=-96, yMax=46;
 
-  // initial levels to avoid crowding
+  // Identify P0 and P1
+  const P0=sorted.find(m=>m.phase===0);
+  const P1=sorted.find(m=>m.phase===1);
+
+  // first pass: time spacing levels
   let lastT=-Infinity, level=0;
   const prelim=sorted.map(m=>{
     if(m.t-lastT<minGap) level=(level+1)%3; else level=0;
     lastT=m.t;
-    return {...m, _level:level};
+    return {...m,_level:level};
   });
 
-  // enforce P0 vs P1 separation if near
-  const p0=prelim.find(m=>m.phase===0);
-  const p1=prelim.find(m=>m.phase===1);
-  if(p0 && p1 && Math.abs(p1.t - p0.t) < 80){
-    // put P0 above, P1 below
-    p0._dir = -1; p0._level = 0;
-    p1._dir = +1; p1._level = 2;
+  // enforce P0/P1 separation if close
+  if(P0 && P1 && Math.abs(P1.t-P0.t)<60){
+    prelim.forEach(m=>{
+      if(m.phase===0) m._level = 0; // closer to trace (above)
+      if(m.phase===1) m._level = 2; // further (below)
+    });
   }
 
+  // convert to displayY with signed offset: P0 above, P1 below
   return prelim.map(m=>{
-    const dir = m._dir ?? (m.phase===1 ? +1 : -1);
-    const offset = base + m._level*step;
-    const desired = m.v + dir*offset;
+    const sign = (m.phase===1) ? 1 : -1;
+    const offset = base + m._level*extra;
+    const desired = m.v + sign*offset;
     const displayY = Math.max(yMin, Math.min(yMax, desired));
     return {...m, displayY};
   });
 }
 
-/* SVG layer that always renders on top */
-function PhaseLayer({marks, xAxisMap, yAxisMap, clipPathId}) {
-  if(!marks || !marks.length) return null;
-  const xAxis = Object.values(xAxisMap)[0];
-  const yAxis = Object.values(yAxisMap)[0];
-  const xScale = xAxis.scale, yScale = yAxis.scale;
-
+/* Overlay renders on top of chart primitives */
+function PhaseOverlay({xScale,yScale,marks}) {
+  if(!xScale || !yScale || !marks?.length) return null;
+  const padX=6, padY=4, textH=13;
   return (
     <g pointerEvents="none">
       {marks.map((m,i)=>{
-        const x0 = xScale(m.t), y0 = yScale(m.v);
-        const x1 = xScale(m.t), y1 = yScale(m.displayY);
-        const label = m.label;
-        // label chip
-        const padX=6, padY=4, textSize=12;
-        const w = Math.max(54, label.length*7) + padX*2;
-        const h = 18 + padY*2;
-
+        const x = xScale(m.t);
+        const y = yScale(m.displayY);
+        const title = m.label;
+        const w = Math.max(48, title.length*7) + padX*2;
+        const h = textH + padY*2;
         return (
-          <g key={i}>
-            {/* stem */}
-            <line x1={x0} y1={y0} x2={x1} y2={y1} stroke="#cbd5e1" strokeWidth="1.5" />
-            {/* chip */}
-            <g transform={`translate(${x1+8},${y1 - h/2})`}>
-              <rect className="phase-chip" width={w} height={h} fill="#ffffff"/>
-              <text x={padX} y={padY+13} fontSize={textSize} fill="#334155">{label}</text>
-            </g>
+          <g key={i} transform={`translate(${x+8},${y - h/2})`}>
+            <rect className="phase-chip" width={w} height={h} fill="#fff" rx="6" ry="6"/>
+            <text x={padX} y={padY+textH-1} fontSize="12" fill="#334155">{title}</text>
           </g>
-        )
+        );
       })}
     </g>
   );
 }
 
-/* ---------------- App ---------------- */
+/* Simple control panel (keeps your draggable sliders) */
+function Controls({state, setState, schema}){
+  const {name, cellTypeId, preset, envPreset, bpm, params, ko, showBaseline} = state;
+  const set = (patch)=>setState({...state, ...patch});
+  const clampPct = (v)=>Math.max(0,Math.min(200,Math.round(v)));
+
+  function reset(){
+    set({ params:{...BASELINE_PARAMS}, ko:{}, preset:"None", envPreset:"None", bpm:60, name:"My Experiment" });
+  }
+
+  return (
+    <div className="stack">
+      <div className="stack card">
+        <div className="stack">
+          <label className="label">Session</label>
+          <input className="input" value={name} onChange={(e)=>set({name:e.target.value})}/>
+        </div>
+        <div className="row">
+          <div className="stack" style={{flex:1}}>
+            <label className="label">Cell type</label>
+            <select className="select" value={cellTypeId} onChange={(e)=>set({cellTypeId:e.target.value})}>
+              {schema.cells.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+            </select>
+          </div>
+          <div className="stack" style={{flex:1}}>
+            <label className="label">Drug preset</label>
+            <select className="select" value={preset} onChange={(e)=>set({preset:e.target.value})}>
+              {Object.keys(schema.drugs).map(p=><option key={p} value={p}>{p}</option>)}
+            </select>
+          </div>
+        </div>
+        <div className="row">
+          <div className="stack" style={{flex:1}}>
+            <label className="label">Environment</label>
+            <select className="select" value={envPreset} onChange={(e)=>set({envPreset:e.target.value})}>
+              {Object.keys(schema.envs).map(p=><option key={p} value={p}>{p}</option>)}
+            </select>
+          </div>
+          <div className="stack" style={{flex:1}}>
+            <label className="label">Pacing (BPM): {bpm}</label>
+            <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>set({bpm:+e.target.value})}/>
+          </div>
+        </div>
+        <div className="row" style={{justifyContent:'space-between'}}>
+          <label className="label" style={{display:'inline-flex',gap:8,alignItems:'center'}}>
+            <input type="checkbox" checked={showBaseline} onChange={(e)=>set({showBaseline:e.target.checked})}/> Show baseline
+          </label>
+          <button onClick={reset}>Reset</button>
+        </div>
+      </div>
+
+      {[ // grouped channels
+        {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
+        {label:'Phase 1 (Notch)', keys:['Ito']},
+        {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
+        {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
+        {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
+      ].map(g=>{
+        const keys=g.keys.filter(k=>schema.cellUses[cellTypeId][k]);
+        if(!keys.length) return null;
+        return (
+          <details key={g.label} className="group" open>
+            <summary><span className="title">{g.label}</span></summary>
+            <div className="stack" style={{paddingTop:8}}>
+              {keys.map(k=>{
+                const disabled = !!ko[k];
+                return (
+                  <div key={k} className="stack">
+                    <div className="krow">
+                      <div style={{fontWeight:600, fontSize:14}}>{schema.labels[k]}</div>
+                      <label className="mini"><input type="checkbox" checked={!!ko[k]} onChange={(e)=>set({ko:{...ko, [k]:e.target.checked}})}/> KO</label>
+                    </div>
+                    <div className="row" style={{alignItems:'center'}}>
+                      <input type="range" min="0" max="200" step="5" disabled={disabled}
+                        value={disabled?0:(params[k]??100)}
+                        onChange={(e)=>set({params:{...params, [k]:+e.target.value}})}/>
+                      <input className="input" type="number" min="0" max="200" step="5" disabled={disabled}
+                        value={disabled?0:(params[k]??100)}
+                        onChange={(e)=>set({params:{...params, [k]:clampPct(+e.target.value||0)}})}/>
+                      <span className="mini">{disabled?0:(params[k]??100)}%</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  );
+}
+
 function App(){
-  // --- state & wiring to external controls (so the chart can be sticky & independent) ---
-  const [cellTypeId,setCellTypeId]=useState("ventricular");
-  const [name,setName]=useState("My Experiment");
-  const [params,setParams]=useState({...BASELINE_PARAMS});
-  const [ko,setKo]=useState({});
-  const [preset,setPreset]=useState("None");
-  const [envPreset,setEnvPreset]=useState("None");
-  const [showBaseline,setShowBaseline]=useState(true);
-  const [bpm,setBpm]=useState(60);
+  const [state,setState]=useState({
+    name:"My Experiment", cellTypeId:"ventricular", preset:"None", envPreset:"None",
+    bpm:60, params:{...BASELINE_PARAMS}, ko:{}, showBaseline:true
+  });
 
-  const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
+  const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===state.cellTypeId)||CELL_TYPES[0],[state.cellTypeId]);
 
+  const schema = useMemo(()=>({
+    cells:CELL_TYPES,
+    labels:CHANNEL_LABELS,
+    drugs:DRUG_PRESETS,
+    envs:ENV_PRESETS,
+    cellUses:Object.fromEntries(CELL_TYPES.map(c=>[c.id,c.uses]))
+  }),[]);
+
+  // build effective params
   const workingParams=useMemo(()=>{
-    const apply=(base, map)=>{ const out={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; }
-    const env=apply(params, ENV_PRESETS[envPreset]||{});
-    const drug=apply(env, DRUG_PRESETS[preset]||{});
+    const apply=(base,map)=>{ const o={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in o) o[k]=Math.round(o[k]*(v/100));}); return o; };
+    const env=apply(state.params, ENV_PRESETS[state.envPreset]||{});
+    const drug=apply(env, DRUG_PRESETS[state.preset]||{});
     const out={...drug};
-    Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; });
+    Object.keys(state.ko).forEach(k=>{ if(state.ko[k]) out[k]=0; });
     Object.keys(out).forEach(k=>{ if(!cell.uses[k]) out[k]=0; });
-    out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
+    out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,state.bpm)),250,3000);
     return out;
-  },[params,preset,envPreset,ko,cell,bpm]);
+  },[state,cell]);
 
-  const baseline=useMemo(()=>generateAP(cell.id,{...BASELINE_PARAMS,__targetCycle:60000/bpm}),[cell.id,bpm]);
+  const baseline=useMemo(()=>generateAP(cell.id,{...BASELINE_PARAMS,__targetCycle:60000/state.bpm}),[cell.id,state.bpm]);
   const modified=useMemo(()=>generateAP(cell.id,workingParams),[cell.id,workingParams]);
+
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
-  const laidOutMarks=useMemo(()=>layoutPhaseMarks(modified.marks),[modified.marks]);
 
-  const channelOrder = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
+  const laidOutMarks=useMemo(()=>layoutPhaseMarks(modified.marks),[modified.marks]);
 
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
-  /* hook up DOM controls in the right column */
-  useEffect(()=>{
-    const $ = (id)=>document.getElementById(id);
+  // mount controls in sidebar
+  React.useEffect(()=>{
+    const ctr = document.getElementById('ap-controls');
+    if(ctr) ReactDOM.createRoot(ctr).render(<Controls state={state} setState={setState} schema={schema} />);
+  },[state, schema]);
 
-    // populate selects
-    const selCell = $('sel-cell'), selDrug=$('sel-drug'), selEnv=$('sel-env');
-    if(selCell && !selCell.options.length){
-      CELL_TYPES.forEach(c=>{ const o=document.createElement('option'); o.value=c.id; o.textContent=c.name; selCell.appendChild(o); });
-      Object.keys(DRUG_PRESETS).forEach(k=>{ const o=document.createElement('option'); o.value=k; o.textContent=k; selDrug.appendChild(o); });
-      Object.keys(ENV_PRESETS).forEach(k=>{ const o=document.createElement('option'); o.value=k; o.textContent=k; selEnv.appendChild(o); });
-    }
+  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
 
-    // set initial
-    $('inp-name').value = name;
-    selCell.value = cellTypeId;
-    selDrug.value = preset;
-    selEnv.value = envPreset;
-
-    $('chk-baseline').checked = showBaseline;
-    $('inp-bpm').value = String(bpm);
-    $('lab-bpm').textContent = String(bpm);
-
-    const on = (el, evt, fn)=>{ el && el.addEventListener(evt, fn); return ()=>el&&el.removeEventListener(evt, fn); }
-    const offs = [];
-    offs.push(on($('inp-name'),'input', e=>setName(e.target.value)));
-    offs.push(on(selCell,'change', e=>setCellTypeId(e.target.value)));
-    offs.push(on(selDrug,'change', e=>setPreset(e.target.value)));
-    offs.push(on(selEnv,'change', e=>setEnvPreset(e.target.value)));
-    offs.push(on($('chk-baseline'),'change', e=>setShowBaseline(e.target.checked)));
-    offs.push(on($('inp-bpm'),'input', e=>{ const v=+e.target.value; $('lab-bpm').textContent=String(v); setBpm(v); }));
-    offs.push(on($('btn-reset'),'click', ()=>{
-      setName("My Experiment"); $('inp-name').value="My Experiment";
-      setParams({...BASELINE_PARAMS}); setKo({});
-      setPreset("None"); selDrug.value="None";
-      setEnvPreset("None"); selEnv.value="None";
-      setBpm(60); $('inp-bpm').value="60"; $('lab-bpm').textContent="60";
-      setShowBaseline(true); $('chk-baseline').checked=true;
-    }));
-    return ()=>offs.forEach(fn=>fn&&fn());
-  },[]); // run once
-
-  /* render dynamic channel controls into #channels-grid and table + sensitivity list */
-  useEffect(()=>{
-    const grid = document.getElementById('channels-grid');
-    const tbody = document.querySelector('#param-table tbody');
-    const sens = document.getElementById('sens-list');
-    if(!grid||!tbody||!sens) return;
-
-    grid.innerHTML = '';
-    tbody.innerHTML = '';
-    sens.innerHTML = '';
-
-    const apply=(base,map)=>{ const out={...base}; Object.entries(map).forEach(([kk,v])=>{ if(kk in out) out[kk]=Math.round(out[kk]*(v/100));}); return out; };
-    const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
-    const common={...drug}; Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; }); common.__targetCycle=60000/Math.max(20,Math.min(220,bpm));
-
-    const metrics=p=>computeMetrics(generateAP(cellTypeId,p));
-    const m0=metrics(common);
-
-    channelOrder.forEach(k=>{
-      // channel card
-      const card = document.createElement('div'); card.className='ch-card';
-      const head = document.createElement('div'); head.className='ch-head';
-      const nameEl = document.createElement('div'); nameEl.className='ch-name'; nameEl.textContent = CHANNEL_LABELS[k];
-      const koWrap = document.createElement('label'); koWrap.className='ch-ko';
-      const koInp = document.createElement('input'); koInp.type='checkbox'; koInp.checked=!!ko[k];
-      koWrap.appendChild(koInp); koWrap.append(' KO');
-      head.appendChild(nameEl); head.appendChild(koWrap);
-
-      const row = document.createElement('div'); row.className='ch-inline';
-      const range = document.createElement('input'); range.type='range'; range.min='0'; range.max='200'; range.step='5';
-      const num = document.createElement('input'); num.type='number'; num.min='0'; num.max='200'; num.step='5';
-      const pct = document.createElement('span'); pct.style.color='var(--muted)';
-
-      const val = ko[k]?0:(params[k]??100);
-      range.value = String(val); num.value=String(val); pct.textContent = (ko[k]?0:(params[k]??100)) + '%';
-      range.disabled = koInp.checked; num.disabled = koInp.checked;
-
-      const updateVal = (v)=>{
-        const clamped = Math.min(200, Math.max(0, Math.round(v)));
-        setParams(p=>({...p,[k]:clamped}));
-      };
-
-      range.addEventListener('input', e=>updateVal(+e.target.value));
-      num.addEventListener('input', e=>updateVal(+e.target.value||0));
-      koInp.addEventListener('change', e=>{
-        setKo(prev=>({...prev,[k]:e.target.checked}));
-      });
-
-      row.appendChild(range); row.appendChild(num); row.appendChild(pct);
-      card.appendChild(head); card.appendChild(row);
-      grid.appendChild(card);
-
-      // parameter table row
-      const tr=document.createElement('tr');
-      const td1=document.createElement('td'); td1.textContent=CHANNEL_LABELS[k];
-      const td2=document.createElement('td'); td2.textContent=(ko[k]?0:(params[k]??100))+'%';
-      const td3=document.createElement('td'); td3.textContent=ko[k]?'Yes':'No';
-      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
-      tbody.appendChild(tr);
-
-      // sensitivity bars
-      const up=metrics({...common,[k]:Math.min(200,Math.round((common[k]??100)*1.2))});
-      const dn=metrics({...common,[k]:Math.max(0,Math.round((common[k]??100)*0.8))});
-      const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
-
-      const rowS = document.createElement('div'); rowS.className='row'; rowS.style.alignItems='center';
-      const lab = document.createElement('div'); lab.style.width='220px'; lab.style.whiteSpace='nowrap'; lab.style.overflow='hidden'; lab.style.textOverflow='ellipsis'; lab.textContent=CHANNEL_LABELS[k];
-      const bar = document.createElement('div'); bar.className='bar'; bar.style.flex='1'; bar.style.maxWidth='360px';
-      const mid = document.createElement('div'); mid.className='mid';
-      const segL = document.createElement('div'); segL.className='seg';
-      const segR = document.createElement('div'); segR.className='seg right';
-      segL.style.width=Math.min(100,Math.abs(dDn))+'%'; segL.style.background=(dDn<0?'var(--green)':'var(--red)');
-      segR.style.width=Math.min(100,Math.abs(dUp))+'%'; segR.style.background=(dUp>0?'var(--green)':'var(--red)');
-      bar.appendChild(mid); bar.appendChild(segL); bar.appendChild(segR);
-      const txt = document.createElement('div'); txt.style.width='230px'; txt.style.textAlign='right'; txt.style.fontFeatureSettings='tnum'; txt.textContent = `ΔAPD: −20% ${Math.round(dDn)} / +20% ${Math.round(dUp)} ms`;
-      rowS.appendChild(lab); rowS.appendChild(bar); rowS.appendChild(txt);
-      sens.appendChild(rowS);
-    });
-
-    // update metrics display
-    document.getElementById('m-apd').textContent = `${curMetrics.apd90} ms`;
-    document.getElementById('m-apd-delta').textContent = `${(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} ${Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline`;
-    document.getElementById('m-apd-delta').style.color = (curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)';
-
-    document.getElementById('m-dvdt').textContent = `${curMetrics.dvdtMax} mV/ms`;
-    document.getElementById('m-dvdt-delta').textContent = `${(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} ${Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline`;
-    document.getElementById('m-dvdt-delta').style.color = (curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)';
-
-    document.getElementById('m-cycle').textContent = `${curMetrics.cycle} ms`;
-    document.getElementById('m-cycle-delta').textContent = `${(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} ${Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline`;
-    document.getElementById('m-cycle-delta').style.color = (curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)';
-  }, [params, ko, envPreset, preset, bpm, cellTypeId, channelOrder, curMetrics, baseMetrics]);
-
-  // --- Chart ---
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={modified.data} margin={{top:8,right:24,bottom:20,left:10}}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
-        <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-        <Tooltip
-          formatter={(v)=>`${Number(v).toFixed(1)} mV`}
-          labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
-          contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
-        />
-        {showBaseline && (
-          <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
-                stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-        )}
-        <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
-        <ReferenceLine y={-85} stroke="#e5e7eb"/>
+    <div className="stack">
+      {/* Chart card */}
+      <section className="card">
+        <div className="row" style={{justifyContent:'space-between', alignItems:'baseline'}}>
+          <div style={{fontWeight:700}}>{state.name}</div>
+          <div className="legend">
+            <span className="chip"><span className="line-solid"></span> Modified</span>
+            <span className="chip"><span className="line-dash"></span> Baseline</span>
+          </div>
+        </div>
 
-        {/* Custom topmost phase overlay */}
-        <Customized component={(props)=><PhaseLayer {...props} marks={laidOutMarks} />} />
+        <div style={{width:'100%', height:460, marginTop:8}}>
+          <ResponsiveContainer>
+            <LineChart data={modified.data} margin={{top:8,right:24,bottom:20,left:12}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+              <Tooltip
+                formatter={(v)=>`${Number(v).toFixed(1)} mV`}
+                labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
+                contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
+              />
+              {state.showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
+                      stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <ReferenceLine y={-85} stroke="#e5e7eb"/>
 
-        {/* Right-edge labels for series (small, unobtrusive) */}
-        <ReferenceDot isFront x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
-          label={{value:'Modified', position:'right', offset:8, fill:'#0f172a', fontSize:12}} />
-        {showBaseline && (
-          <ReferenceDot isFront x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
-            label={{value:'Baseline', position:'right', offset:8, fill:'#64748b', fontSize:12}} />
-        )}
-      </LineChart>
-    </ResponsiveContainer>
+              {/* draw stems, then overlay labels */}
+              {laidOutMarks.map((m,i)=>(
+                <ReferenceLine key={'stem'+i} isFront segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
+              ))}
+              <Customized component={({xAxisMap,yAxisMap,width,height,offset})=>{
+                const xScale = Object.values(xAxisMap||{})[0]?.scale;
+                const yScale = Object.values(yAxisMap||{})[0]?.scale;
+                return <PhaseOverlay xScale={xScale} yScale={yScale} marks={laidOutMarks} />;
+              }}/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="metrics" style={{marginTop:12}}>
+          <div className="metric">
+            <div className="k">APD90</div>
+            <div className="v">{curMetrics.apd90} ms</div>
+            <div className="mini" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
+              {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
+            </div>
+          </div>
+          <div className="metric">
+            <div className="k">dV/dtₘₐₓ</div>
+            <div className="v">{curMetrics.dvdtMax} mV/ms</div>
+            <div className="mini" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
+              {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
+            </div>
+          </div>
+          <div className="metric">
+            <div className="k">Cycle</div>
+            <div className="v">{curMetrics.cycle} ms</div>
+            <div className="mini" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
+              {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
+            </div>
+          </div>
+        </div>
+
+        <div className="divider"></div>
+
+        {/* Sensitivity */}
+        <div className="stack">
+          {channelOrder.map(k=>{
+            const apply=(b,m)=>{const o={...b};Object.entries(m).forEach(([kk,v])=>{if(kk in o) o[kk]=Math.round(o[kk]*(v/100));});return o;};
+            const env=apply(state.params,ENV_PRESETS[state.envPreset]||{}); const drug=apply(env,DRUG_PRESETS[state.preset]||{});
+            const common={...drug}; Object.keys(state.ko).forEach(x=>{ if(state.ko[x]) common[x]=0; }); common.__targetCycle=60000/state.bpm;
+            const metrics=p=>computeMetrics(generateAP(state.cellTypeId,p));
+            const m0=metrics(common);
+            const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
+            const dn=metrics({...common,[k]:clamp((common[k]??100)*0.8,0,200)});
+            const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
+            return (
+              <div key={k} className="row" style={{alignItems:'center'}}>
+                <div style={{width:240,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
+                <div className="bar" style={{flex:1}}>
+                  <div className="mid"></div>
+                  <div style={{width:Math.min(100,Math.abs(dDn))+'%', height:'100%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
+                  <div className="right" style={{width:Math.min(100,Math.abs(dUp))+'%', height:'100%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
+                </div>
+                <div className="mini" style={{width:220,textAlign:'right',fontFeatureSettings:'tnum'}}>
+                  ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="divider"></div>
+
+        {/* Parameters table */}
+        <section>
+          <div className="label" style={{fontWeight:700, color:'var(--ink)'}}>Parameters</div>
+          <table>
+            <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
+            <tbody>
+              {channelOrder.map(k=>(
+                <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(state.ko[k]?0:state.params[k])}%</td><td>{state.ko[k]?'Yes':'No'}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </div>
   );
 }
 
-/* Mount */
-function mount(){
-  ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
-}
-mount();
+ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
 </script>
 {% endraw %}
