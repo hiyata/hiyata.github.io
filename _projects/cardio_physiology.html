@@ -51,7 +51,7 @@ title: Cardio Physio
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,Fragment} = React;
+const {useMemo,useState} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
 
 /* ---------------- Model constants ---------------- */
@@ -138,7 +138,6 @@ function generateAP(cellId, params){
   for(let i=0;i<=n3;i++){ const f=i/n3; push(tA+f*t3, vStart+(vEnd-vStart)*(1-Math.cos(Math.PI*f))/2); }
   segs.push({phase:3,tStart:tA,tEnd:tA+t3}); tA+=t3;
 
-  // We still compute marks internally but won't render them
   const marks = segs.map(s=>{
     const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
     for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
@@ -170,6 +169,7 @@ const PHASE_GROUPS=[
 /* ---------------- App ---------------- */
 function App(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
+  const [name,setName]=useState("My Experiment");
   const [params,setParams]=useState({...BASELINE_PARAMS});
   const [ko,setKo]=useState({});
   const [preset,setPreset]=useState("None");
@@ -208,6 +208,8 @@ function App(){
       <section className="section">
         <h2>Controls</h2>
         <div className="stack">
+          {/* Session name box removed */}
+
           <div className="row">
             <div className="field flex1">
               <label className="label">Cell type</label>
@@ -281,7 +283,7 @@ function App(){
 
       {/* Metrics + Chart */}
       <section className="section">
-        <h2>Cardio Physio</h2>
+        <h2>{name}</h2>
         <div className="legend">
           <span className="pill"><span className="line"></span> Modified</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
@@ -368,11 +370,11 @@ function App(){
         <h2>Parameters</h2>
         <table>
           <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-        <tbody>
-          {channelOrder.map(k=>(
-            <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
-          ))}
-        </tbody>
+          <tbody>
+            {channelOrder.map(k=>(
+              <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
+            ))}
+          </tbody>
         </table>
       </section>
     </div>
