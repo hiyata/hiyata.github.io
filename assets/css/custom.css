@@ -8,9 +8,6 @@
   --text-secondary: #4b5563;
   --border-soft: rgba(15, 23, 42, 0.08);
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
-  --page-max-width: 960px;
-  --page-gutter: clamp(1rem, 4vw, 2rem);
-  --page-content-width: min(var(--page-max-width), calc(100% - var(--page-gutter) * 2));
 }
 
 * {
@@ -19,7 +16,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -62,13 +58,9 @@ img,
   height: auto;
 }
 
-.layout-bound,
 .wrapper {
-  width: 100%;
-  max-width: var(--page-max-width);
+  width: min(1200px, 92vw);
   margin: 0 auto;
-  padding-left: var(--page-gutter);
-  padding-right: var(--page-gutter);
 }
 
 main.page-content {
@@ -132,14 +124,13 @@ body.page-transitioning #page-transition-overlay {
 }
 
 .header-inner {
-  width: 100%;
-  max-width: var(--page-max-width);
+  width: min(1200px, 92vw);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(1rem, 2vw, 1.5rem);
-  padding: 0.85rem var(--page-gutter);
+  gap: 1.5rem;
+  padding: 0.9rem 0;
 }
 
 .brand {
@@ -153,15 +144,13 @@ body.page-transitioning #page-transition-overlay {
 .site-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 1.6vw, 1.4rem);
+  gap: 1.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -297,7 +286,7 @@ body.page-transitioning #page-transition-overlay {
   background-color: rgba(36, 86, 255, 0.18);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
   .site-nav {
     position: fixed;
     inset: 0 0 0 30%;

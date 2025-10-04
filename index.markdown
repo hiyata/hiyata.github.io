@@ -13,12 +13,12 @@ custom_js: home
   <section class="hero-section" id="home">
     <div class="hero-grid">
       <div class="hero-copy" data-animate="fade-up">
-        <span class="eyebrow">Computational virologist &amp; designer</span>
-        <h1>Crafting humane AI for antiviral discovery</h1>
+        <span class="eyebrow">AI-driven virology insights</span>
+        <h1>Designing intelligent systems for viral discovery</h1>
         <p>
-          I'm Alan "Hiyata" Carbajo Jr., architecting machine learning pipelines at Wayne State University School of Medicine with
-          <a href="https://www.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>. I transform noisy genomic signals into visual stories,
-          tools, and experimental hypotheses that help teams accelerate translational research.
+          I'm Alan "Hiyata" Carbajo Jr., a researcher at Wayne State University School of Medicine
+          working with <a href="https://www.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a> to
+          explore how machine learning can accelerate breakthroughs in virology and genomic design.
         </p>
         <div class="typing-wrapper">
           <span class="typing-label">Currently exploring</span>
@@ -29,26 +29,9 @@ custom_js: home
           <a class="btn btn-secondary" href="#contact">Request collaboration</a>
         </div>
         <ul class="hero-highlights">
-          <li>Rapid diffusion-driven genome design experiments that surface interpretable motifs.</li>
-          <li>Bridging wet-lab assays with adaptive machine learning frameworks for viral phenotyping.</li>
-          <li>Designing immersive data stories that help clinicians, researchers, and funders align.</li>
-        </ul>
-        <ul class="hero-metrics">
-          <li class="hero-metric" data-animate="fade-up" data-animate-delay="220">
-            <span class="hero-metric-title">Years bridging ML &amp; design</span>
-            <span class="hero-metric-value">8+</span>
-            <span class="hero-metric-caption">Guiding translational teams from idea to deployable tooling.</span>
-          </li>
-          <li class="hero-metric" data-animate="fade-up" data-animate-delay="280">
-            <span class="hero-metric-title">Impact experiments shipped</span>
-            <span class="hero-metric-value">35</span>
-            <span class="hero-metric-caption">Prototypes and studies aligning researchers, clinicians, and funders.</span>
-          </li>
-          <li class="hero-metric" data-animate="fade-up" data-animate-delay="340">
-            <span class="hero-metric-title">Collaborative specialties</span>
-            <span class="hero-metric-value">Genomics · HCI · AI ethics</span>
-            <span class="hero-metric-caption">Shaping responsible systems for antiviral discovery.</span>
-          </li>
+          <li>Generative DNA design workflows guided by deep learning</li>
+          <li>Predictive models that capture viral behavior and tropism</li>
+          <li>Interactive data visualizations that tell scientific stories</li>
         </ul>
       </div>
       <div class="hero-visual" data-animate="fade-up" data-animate-delay="120">
@@ -70,57 +53,14 @@ custom_js: home
     </div>
   </section>
 
-  <section class="section spotlight-section" id="spotlight">
-    <div class="spotlight-inner">
-      <div class="spotlight-lede" data-animate="fade-up">
-        <span class="eyebrow">Signature workstreams</span>
-        <h2>Where I create outsized value for research-driven teams</h2>
-        <p>
-          I specialise in the liminal space where machine learning, wet-lab practice, and human storytelling overlap.
-          These workstreams help partners stand up durable platforms, validate hypotheses faster, and bring discoveries
-          to the people who need them most.
-        </p>
-      </div>
-      <div class="spotlight-grid">
-        <article class="spotlight-card" data-animate="fade-up" data-animate-delay="120">
-          <div class="spotlight-icon"><i class="fas fa-flask"></i></div>
-          <h3>Integrated research platforms</h3>
-          <p>
-            Architecting secure, end-to-end systems that connect lab notebooks, data lakes, and visual dashboards for
-            antiviral discovery teams.
-          </p>
-          <div class="spotlight-meta"><i class="fas fa-users"></i><span>Partnering with clinicians &amp; data scientists</span></div>
-        </article>
-        <article class="spotlight-card" data-animate="fade-up" data-animate-delay="200">
-          <div class="spotlight-icon"><i class="fas fa-seedling"></i></div>
-          <h3>Hypothesis prototyping sprints</h3>
-          <p>
-            Facilitating rapid cycles that pair generative models with lab assays to surface interpretable biomarkers
-            and prioritise experiments.
-          </p>
-          <div class="spotlight-meta"><i class="fas fa-stopwatch"></i><span>Cutting iteration time from months to weeks</span></div>
-        </article>
-        <article class="spotlight-card" data-animate="fade-up" data-animate-delay="280">
-          <div class="spotlight-icon"><i class="fas fa-lightbulb"></i></div>
-          <h3>Story-led stakeholder alignment</h3>
-          <p>
-            Designing immersive narratives and decision rooms that help funders, researchers, and policymakers align on
-            translational roadmaps.
-          </p>
-          <div class="spotlight-meta"><i class="fas fa-handshake"></i><span>From grant pitches to regulatory briefings</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="section about-section" id="about">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">About the journal</span>
       <h2>Exploring the intersection of artificial intelligence and virology</h2>
       <p>
-        This journal documents living prototypes, experiments, and reflections from my studio inside the virology lab.
-        Each entry distills how I pair computational intuition with wet-lab rigor to sketch antiviral tools, craft
-        collaborations, and translate complex datasets into shared understanding.
+        This journal documents experiments, prototypes, and reflections from my work designing computational tools for
+        virology. I share lessons from the lab, notes from current projects, and ideas that push the boundaries of how
+        we model and design biological systems.
       </p>
     </div>
     <div class="about-grid">
@@ -154,61 +94,6 @@ custom_js: home
         <i class="fas fa-chart-line"></i>
         <h3>Epidemiology</h3>
         <p>Modeling population-level spread to inform responses during outbreaks and emerging threats.</p>
-      </article>
-    </div>
-    <div class="impact-grid">
-      <article class="impact-card" data-animate="fade-up" data-animate-delay="60">
-        <span class="impact-number">Lab-ready</span>
-        <span class="impact-label">AI software ecosystems that guide virology experiments and decision-making.</span>
-      </article>
-      <article class="impact-card" data-animate="fade-up" data-animate-delay="140">
-        <span class="impact-number">Atlas-scale</span>
-        <span class="impact-label">Sequence intelligence frameworks connecting genomic design, surveillance, and insight.</span>
-      </article>
-      <article class="impact-card" data-animate="fade-up" data-animate-delay="220">
-        <span class="impact-number">Story-led</span>
-        <span class="impact-label">Collaborations shaped through narrative prototypes and facilitation across disciplines.</span>
-      </article>
-    </div>
-    <div class="journey-timeline">
-      <article class="journey-node" data-animate="fade-up" data-animate-delay="160">
-        <span class="journey-year">2023 — Present</span>
-        <h3>Wayne State University School of Medicine</h3>
-        <p>
-          Operating at the convergence of computational virology and interaction design—building decision systems that
-          pair molecular data with narrative artefacts for clinicians and researchers.
-        </p>
-        <ul class="journey-tags">
-          <li class="journey-tag">Deep learning</li>
-          <li class="journey-tag">Wet-lab integration</li>
-          <li class="journey-tag">Product strategy</li>
-        </ul>
-      </article>
-      <article class="journey-node" data-animate="fade-up" data-animate-delay="240">
-        <span class="journey-year">2019 — 2023</span>
-        <h3>Translational AI experimentation</h3>
-        <p>
-          Led rapid prototyping sprints with biomedical teams to validate generative models, design hypothesis engines,
-          and deploy visual analytics that shorten the loop between data, discovery, and action.
-        </p>
-        <ul class="journey-tags">
-          <li class="journey-tag">Model prototyping</li>
-          <li class="journey-tag">Team facilitation</li>
-          <li class="journey-tag">Research enablement</li>
-        </ul>
-      </article>
-      <article class="journey-node" data-animate="fade-up" data-animate-delay="320">
-        <span class="journey-year">Earlier</span>
-        <h3>Designing immersive science communication</h3>
-        <p>
-          Crafted interactive experiences for educators and storytellers that demystified complex biology, laying the
-          foundation for empathetic communication across disciplines.
-        </p>
-        <ul class="journey-tags">
-          <li class="journey-tag">Experience design</li>
-          <li class="journey-tag">Narrative strategy</li>
-          <li class="journey-tag">Systems thinking</li>
-        </ul>
       </article>
     </div>
   </section>
