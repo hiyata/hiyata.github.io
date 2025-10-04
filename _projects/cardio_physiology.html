@@ -3,13 +3,43 @@ layout: default
 title: Cardio Physio
 ---
 
-<div class="ap-container">
-  <header class="ap-header">
-    <h1>Cardio Physiology Playground</h1>
-    <p>Tweak channels, drugs, and environment to see AP changes across cell types.</p>
-  </header>
+<div class="ap-shell">
+  <aside class="ap-rail">
+    <h1>Cardio AP Lab</h1>
+    <p class="sub">Interactively explore how currents, drugs, and pacing shape the cardiac action potential.</p>
+    <div id="ap-controls"></div>
+  </aside>
 
-  <div id="ap-app" class="ap-app"></div>
+  <main class="ap-stage">
+    <section class="card chart-card">
+      <div class="chart-top">
+        <div>
+          <h2 class="h">Action Potential</h2>
+          <div class="legend">
+            <span class="pill"><span class="line"></span> Modified</span>
+            <span class="pill"><span class="dash"></span> Baseline</span>
+          </div>
+        </div>
+        <div id="ap-title" class="title-slot"></div>
+      </div>
+      <div id="ap-chart" class="chart-wrap"></div>
+    </section>
+
+    <section class="card">
+      <h3 class="h small">Key Metrics</h3>
+      <div id="ap-metrics"></div>
+    </section>
+
+    <section class="card">
+      <h3 class="h small">Sensitivity (ΔAPD from ±20% channel change)</h3>
+      <div id="ap-sens"></div>
+    </section>
+
+    <section class="card">
+      <h3 class="h small">Parameters</h3>
+      <div id="ap-table"></div>
+    </section>
+  </main>
 </div>
 
 <!-- React + ReactDOM (UMD) -->
@@ -27,31 +57,37 @@ title: Cardio Physio
 
 <style>
   :root{
-    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;
-    --card:#ffffff;--bg:#fbfdff;--ring:#cbd5e1;
+    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--bg:#f8fafc;--card:#fff;--ring:#cbd5e1;
   }
-  html,body{background:var(--bg);color:var(--ink)}
-  .ap-container{max-width:1120px;margin:0 auto;padding:1.25rem}
-  .ap-header{margin:6px 0 16px}
-  .ap-header h1{margin:0 0 6px;font:700 22px/1.2 ui-sans-serif,system-ui}
-  .ap-header p{margin:0;color:var(--muted)}
-  .ap-app{display:grid;grid-template-columns:1fr;gap:18px}
-  @media(min-width:1024px){.ap-app{grid-template-columns:360px 1fr}}
-  .card{background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(2,6,23,.03)}
-  .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
-  .stack{display:flex;flex-direction:column;gap:12px}
-  .row{display:flex;gap:12px;align-items:center}
-  .flex1{flex:1}
-  .field{display:flex;flex-direction:column;gap:6px}
-  .label{font-size:12px;color:var(--muted)}
-  input[type="range"]{width:100%}
-  input[type="number"],select,button{border:1px solid var(--grid);border-radius:8px;padding:8px 10px;font-size:14px;background:#fff}
-  button{cursor:pointer}
-  .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
+  html,body{background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui}
+  .ap-shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:16px;padding:16px}
+  @media (max-width: 980px){.ap-shell{grid-template-columns:1fr}}
+  .ap-rail{position:sticky;top:16px;align-self:start;background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:16px}
+  .ap-rail h1{font-weight:800;font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 12px;font-size:13px}
+  .ap-stage{display:grid;grid-template-columns:1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:14px}
+  .chart-card{padding:0}
+  .chart-top{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--grid)}
+  .h{margin:0;font-weight:700}
+  .h.small{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  .legend{display:flex;gap:16px;align-items:center;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
   .pill .line{width:28px;height:3px;background:var(--ink);display:inline-block;border-radius:2px}
   .pill .dash{width:28px;height:0;border-top:3px dashed #94a3b8;display:inline-block}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .title-slot{font-weight:600}
+  .chart-wrap{height:480px}
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .label{font-size:12px;color:var(--muted)}
+  input[type="range"]{width:100%}
+  input[type="number"],select,button{border:1px solid var(--grid);border-radius:10px;padding:8px 10px;font-size:14px;background:#fff}
+  button{cursor:pointer}
+  details{border:1px dashed var(--ring);border-radius:10px;padding:8px}
+  summary{cursor:pointer}
+  .divider{height:1px;background:var(--grid);margin:12px 0}
+  .metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .metric{border:1px dashed var(--ring);border-radius:10px;padding:10px}
   .metric .k{color:var(--muted);font-size:12px}
   .metric .v{font-weight:700}
@@ -59,18 +95,20 @@ title: Cardio Physio
   .bar{position:relative;height:8px;background:#f1f5f9;flex:1;overflow:hidden;border-radius:4px}
   .bar .mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
   .right{margin-left:50%}
-  .divider{height:1px;background:var(--grid);margin:12px 0}
-  table{width:100%;border-collapse:collapse}
+  table{width:100%;border-collapse:collapse;font-size:14px}
   thead th{text-align:left;color:var(--muted);padding:8px 0}
   tbody td{padding:8px 0;border-top:1px solid var(--grid)}
-  /* Phase label chip look */
-  .phase-chip{paint-order:stroke;stroke:var(--ring);stroke-width:1;rx:6;ry:6}
+  /* Label chip always on top, legible */
+  .phase-chip{paint-order:stroke;stroke:#dbe3ef;stroke-width:1;rx:6;ry:6}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,Fragment} = React;
-const {ResponsiveContainer,LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ReferenceDot} = Recharts;
+const {
+  ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,
+  ReferenceLine, ReferenceDot, Label
+} = Recharts;
 
 /* ---------------- Model constants ---------------- */
 const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
@@ -177,63 +215,278 @@ function computeMetrics(curve){
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
-/* Phase mark layout
-   - Keep labels readable
-   - Special rule: Phase 0 and Phase 1 must not overlap and should be on opposite sides if close
+/* Phase mark layout:
+   - ALWAYS separate Phase 0 and 1 if close (< 80 ms).
+   - Put Phase 0 above, Phase 1 below.
+   - Add anti-collision for the rest with 3 vertical lanes.
 */
 function layoutPhaseMarks(marks){
   if(!marks||!marks.length) return [];
   const sorted=[...marks].sort((a,b)=>a.t-b.t);
-  const minGap=28, baseStem=20, extra=12, yMin=-95, yMax=45;
+  const minGap=28, base=22, step=12, yMin=-96, yMax=46;
 
-  // Find P0/P1 quickly
   const p0=sorted.find(m=>m.phase===0);
   const p1=sorted.find(m=>m.phase===1);
+  const forceSplit = p0 && p1 && Math.abs(p1.t - p0.t) < 80;
 
-  // Pass 1: assign levels with general anti-collision
-  let lastT=-Infinity, level=0;
+  // First pass: lane assignment
+  let lastT=-Infinity, lane=0;
   const prelim=sorted.map(m=>{
-    if(m.t-lastT<minGap) level=(level+1)%3; else level=0;
+    if(m.t-lastT<minGap) lane=(lane+1)%3; else lane=0;
     lastT=m.t;
-    return {...m, _level:level};
+    return {...m, _lane:lane};
   });
 
-  // Pass 2: enforce Phase 0 vs Phase 1 separation if close in time
-  if(p0 && p1 && Math.abs(p1.t - p0.t) < 60){
-    // Put Phase 0 above, Phase 1 below (consistent, clear)
+  // Enforce Phase 0/1 separation
+  if(forceSplit){
     prelim.forEach(m=>{
-      if(m.phase===0) m._level = 0; // shortest stem (closest), will render above
-      if(m.phase===1) m._level = 2; // longer stem pushes label farther (below)
+      if(m.phase===0) m._lane = 0; // closest to trace, ABOVE
+      if(m.phase===1) m._lane = 2; // far lane, BELOW
     });
   }
 
-  // Compute display positions
+  // Compute Y with sign per lane: negative => above, positive => below
+  // default: alternating lanes above/below: 0 above, 1 below, 2 below-more
   return prelim.map(m=>{
-    const sign = (m.phase===1) ? 1 : -1; // nudge default: 1 below for P1 when not forced
-    const offset = baseStem + m._level*extra;
-    const desired = m.v - (sign * offset);
+    let sign = -1; // above by default
+    if(m._lane===1) sign = 1;
+    if(m._lane===2) sign = 1;
+    // If we forced Phase 0/1, keep P0 above and P1 below explicitly
+    if(forceSplit){
+      if(m.phase===0) sign = -1;
+      if(m.phase===1) sign = 1;
+    }
+    const desired = m.v - sign*(base + m._lane*step);
     const displayY = Math.max(yMin, Math.min(yMax, desired));
     return {...m, displayY};
   });
 }
 
-/* Custom label with white background so nothing hides text */
-function PhaseLabel({x, y, value}) {
-  if (x==null || y==null) return null;
+/* Label chip (drawn via <Label content={...} /> so it renders ABOVE) */
+function PhaseChipLabel(props){
+  // Recharts passes { viewBox: {x, y}, value }
+  const {viewBox, value} = props || {};
+  const x = viewBox?.x ?? 0;
+  const y = viewBox?.y ?? 0;
+  const text = String(value || "");
   const padX=6, padY=4;
-  const text = String(value||'');
-  // crude text width estimate (7px per char)
-  const w = Math.max(44, text.length*7) + padX*2;
-  const h = 18 + padY*2;
+  const width = Math.max(48, text.length*7) + padX*2;
+  const height = 18 + padY*2;
   return (
-    <g transform={`translate(${x+8},${y- h/2})`}>
-      <rect className="phase-chip" width={w} height={h} fill="#fff"></rect>
-      <text x={padX} y={padY+13} fontSize="12" fill="#334155">{text}</text>
+    <g transform={`translate(${x+8},${y-height/2})`} style={{pointerEvents:'none'}}>
+      <rect className="phase-chip" width={width} height={height} fill="#fff"></rect>
+      <text x={padX} y={padY+13} fontSize="12" fill="#1f2937">{text}</text>
     </g>
   );
 }
 
 /* ---------------- App ---------------- */
+function Controls({state, setState, cell, channelOrder}){
+  const {name, cellTypeId, preset, envPreset, bpm, params, ko, setName, setCellTypeId, setPreset, setEnvPreset, setBpm, setParams, setKo, resetAll} = state;
+
+  return (
+    <div className="stack">
+      <div className="grid2">
+        <div className="field">
+          <label className="label">Session</label>
+          <input value={name} onChange={(e)=>setName(e.target.value)} />
+        </div>
+        <div className="field">
+          <label className="label">Pacing (BPM): {bpm}</label>
+          <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
+        </div>
+      </div>
+
+      <div className="grid2">
+        <div className="field">
+          <label className="label">Cell type</label>
+          <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
+            {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+          </select>
+        </div>
+        <div className="field">
+          <label className="label">Drug preset</label>
+          <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
+            {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+          </select>
+        </div>
+      </div>
+
+      <div className="field">
+        <label className="label">Environment</label>
+        <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
+          {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+        </select>
+      </div>
+
+      <button onClick={resetAll}>Reset</button>
+
+      <div className="divider"></div>
+
+      {[
+        {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
+        {label:'Phase 1 (Notch)', keys:['Ito']},
+        {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
+        {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
+        {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
+      ].map(g=>{
+        const keys=g.keys.filter(k=>cell.uses[k]);
+        if(!keys.length) return null;
+        return (
+          <details key={g.label} open>
+            <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>{g.label}</summary>
+            <div className="stack" style={{ paddingTop: 8 }}>
+              {keys.map(key=>(
+                <div key={key} className="stack">
+                  <div className="row" style={{justifyContent:'space-between'}}>
+                    <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
+                    <label className="label">
+                      <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
+                    </label>
+                  </div>
+                  <div className="row">
+                    <input type="range" min="0" max="200" step="5" disabled={!!ko[key]}
+                      value={ko[key]?0:(params[key]??100)}
+                      onChange={(e)=>setParams({...params,[key]:+e.target.value})}/>
+                    <input type="number" min="0" max="200" step="5" disabled={!!ko[key]}
+                      value={ko[key]?0:(params[key]??100)}
+                      onChange={(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}/>
+                    <span className="label">{ko[key]?0:(params[key]??100)}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  );
+}
+
+function Metrics({baseMetrics, curMetrics}){
+  return (
+    <div className="metric-grid">
+      <div className="metric">
+        <div className="k">APD90</div>
+        <div className="v">{curMetrics.apd90} ms</div>
+        <div className="d" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
+          {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
+        </div>
+      </div>
+      <div className="metric">
+        <div className="k">dV/dtₘₐₓ</div>
+        <div className="v">{curMetrics.dvdtMax} mV/ms</div>
+        <div className="d" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
+          {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
+        </div>
+      </div>
+      <div className="metric">
+        <div className="k">Cycle</div>
+        <div className="v">{curMetrics.cycle} ms</div>
+        <div className="d" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
+          {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Sensitivity({cellTypeId, params, envPreset, preset, ko, bpm}){
+  const apply=(base,map)=>{ const out={...base}; for(const [k,v] of Object.entries(map)) if(k in out) out[k]=Math.round(out[k]*(v/100)); return out; };
+  const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
+  const common={...drug}; Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; }); common.__targetCycle=60000/bpm;
+
+  const metrics=p=>computeMetrics(generateAP(cellTypeId,p));
+  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k => CELL_TYPES.find(c=>c.id===cellTypeId).uses[k]);
+
+  return (
+    <div className="stack">
+      {channelOrder.map(k=>{
+        const m0=metrics(common);
+        const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
+        const dn=metrics({...common,[k]:clamp((common[k]??100)*0.8,0,200)});
+        const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
+        return (
+          <div key={k} className="row" style={{alignItems:'center'}}>
+            <div style={{width:220,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
+            <div className="bar">
+              <div className="mid"></div>
+              <div className="seg" style={{width:Math.min(100,Math.abs(dDn))+'%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
+              <div className="seg right" style={{width:Math.min(100,Math.abs(dUp))+'%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
+            </div>
+            <div style={{width:230,textAlign:'right',fontFeatureSettings:'tnum'}} className="label">
+              ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ParamsTable({cell, params, ko}){
+  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
+  return (
+    <table>
+      <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
+      <tbody>
+        {channelOrder.map(k=>(
+          <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+function Chart({baseline, modified, laidOutMarks, showBaseline}){
+  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
+  const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
+  return (
+    <div style={{width:'100%', height:'100%'}}>
+      <ResponsiveContainer>
+        <LineChart data={modified.data} margin={{top:8,right:24,bottom:24,left:10}}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+          <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+          <Tooltip
+            formatter={(v)=>`${Number(v).toFixed(1)} mV`}
+            labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
+            contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
+          />
+          {showBaseline && (
+            <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
+                  stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+          )}
+          <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+          <ReferenceLine y={-85} stroke="#e5e7eb"/>
+
+          {/* Stems first */}
+          {laidOutMarks.map((m,i)=>(
+            <ReferenceLine key={'stem-'+i} isFront segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
+          ))}
+
+          {/* Labels on top using <Label content /> inside ReferenceDot to guarantee "front" */}
+          {laidOutMarks.map((m,i)=>(
+            <ReferenceDot key={'lab-'+i} isFront x={m.t} y={m.displayY} r={0} fill="#0f172a">
+              <Label content={<PhaseChipLabel value={m.label} />} />
+            </ReferenceDot>
+          ))}
+
+          {/* Series edge labels */}
+          <ReferenceDot isFront x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}>
+            <Label content={<PhaseChipLabel value="Modified" />} />
+          </ReferenceDot>
+          {showBaseline && (
+            <ReferenceDot isFront x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}>
+              <Label content={<PhaseChipLabel value="Baseline" />} />
+            </ReferenceDot>
+          )}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
 function App(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
   const [name,setName]=useState("My Experiment");
@@ -265,216 +518,46 @@ function App(){
   const laidOutMarks=useMemo(()=>layoutPhaseMarks(modified.marks),[modified.marks]);
   const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
 
-  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
-  const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
+  const resetAll=()=>{ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); };
 
-  function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
+  // Mount three roots so the layout stays snappy and simple to reason about
+  React.useEffect(()=>{
+    ReactDOM.createRoot(document.getElementById('ap-controls')).render(
+      <Controls
+        state={{
+          name, cellTypeId, preset, envPreset, bpm, params, ko,
+          setName, setCellTypeId, setPreset, setEnvPreset, setBpm, setParams, setKo, resetAll
+        }}
+        setState={null}
+        cell={cell}
+        channelOrder={channelOrder}
+      />
+    );
+    ReactDOM.createRoot(document.getElementById('ap-title')).render(
+      <div className="row" style={{gap:12,alignItems:'center'}}>
+        <label className="label" style={{display:'inline-flex',gap:8,alignItems:'center'}}>
+          <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline
+        </label>
+        <div style={{fontWeight:600}}>{name}</div>
+      </div>
+    );
+    ReactDOM.createRoot(document.getElementById('ap-chart')).render(
+      <Chart baseline={baseline} modified={modified} laidOutMarks={laidOutMarks} showBaseline={showBaseline}/>
+    );
+    ReactDOM.createRoot(document.getElementById('ap-metrics')).render(
+      <Metrics baseMetrics={baseline?computeMetrics(baseline):{}} curMetrics={curMetrics}/>
+    );
+    ReactDOM.createRoot(document.getElementById('ap-sens')).render(
+      <Sensitivity cellTypeId={cellTypeId} params={params} envPreset={envPreset} preset={preset} ko={ko} bpm={bpm}/>
+    );
+    ReactDOM.createRoot(document.getElementById('ap-table')).render(
+      <ParamsTable cell={cell} params={params} ko={ko}/>
+    );
+  },[name, cellTypeId, preset, envPreset, bpm, params, ko, cell, showBaseline, baseline, modified, laidOutMarks, curMetrics]);
 
-  return (
-    <div className="ap-app">
-      {/* Controls */}
-      <section className="card">
-        <h2 className="section">Controls</h2>
-        <div className="stack">
-          <div className="field">
-            <label className="label">Session name</label>
-            <input value={name} onChange={(e)=>setName(e.target.value)} />
-          </div>
-
-          <div className="row">
-            <div className="field flex1">
-              <label className="label">Cell type</label>
-              <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
-                {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
-              </select>
-            </div>
-            <div className="field flex1">
-              <label className="label">Drug preset</label>
-              <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
-                {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
-              </select>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="field flex1">
-              <label className="label">Environment</label>
-              <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
-                {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
-              </select>
-            </div>
-            <div className="field flex1">
-              <label className="label">Pacing (BPM): {bpm}</label>
-              <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
-            </div>
-          </div>
-
-          <button onClick={resetAll}>Reset</button>
-
-          <div className="divider"></div>
-
-          {[
-            {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
-            {label:'Phase 1 (Notch)', keys:['Ito']},
-            {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
-            {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
-            {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
-          ].map(g=>{
-            const keys=g.keys.filter(k=>cell.uses[k]);
-            if(!keys.length) return null;
-            return (
-              <details key={g.label} open>
-                <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>{g.label}</summary>
-                <div className="stack" style={{ paddingTop: 8 }}>
-                  {keys.map(key=>(
-                    <div key={key} className="stack">
-                      <div className="row" style={{justifyContent:'space-between'}}>
-                        <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
-                        <label style={{fontSize:12}}>
-                          <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
-                        </label>
-                      </div>
-                      <div className="row">
-                        <input type="range" min="0" max="200" step="5" disabled={!!ko[key]}
-                          value={ko[key]?0:(params[key]??100)}
-                          onChange={(e)=>setParams({...params,[key]:+e.target.value})}/>
-                        <input type="number" min="0" max="200" step="5" disabled={!!ko[key]}
-                          value={ko[key]?0:(params[key]??100)}
-                          onChange={(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}/>
-                        <span style={{color:'#64748b'}}>{ko[key]?0:(params[key]??100)}%</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </details>
-            );
-          })}
-
-          <label className="label" style={{display:'inline-flex',gap:8,alignItems:'center'}}>
-            <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline overlay
-          </label>
-        </div>
-      </section>
-
-      {/* Metrics + Chart */}
-      <section className="card">
-        <h2 className="section">{name}</h2>
-
-        <div className="legend">
-          <span className="pill"><span className="line"></span> Modified</span>
-          <span className="pill"><span className="dash"></span> Baseline</span>
-        </div>
-
-        <div style={{width:'100%', height:440}}>
-          <ResponsiveContainer>
-            <LineChart data={modified.data} margin={{top:8,right:24,bottom:20,left:10}}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
-              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
-              <Tooltip
-                formatter={(v)=>`${Number(v).toFixed(1)} mV`}
-                labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`}
-                contentStyle={{borderRadius:10,border:'1px solid var(--ring)'}}
-              />
-              {showBaseline && (
-                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline"
-                      stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-              )}
-              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
-              <ReferenceLine y={-85} stroke="#e5e7eb"/>
-
-              {/* Phase stems + labels (rendered last, with isFront) */}
-              {laidOutMarks.map((m,i)=>(
-                <Fragment key={i}>
-                  <ReferenceLine isFront segment={[{x:m.t,y:m.v},{x:m.t,y:m.displayY}]} stroke="#cbd5e1"/>
-                  <ReferenceDot isFront x={m.t} y={m.displayY} r={1} fill="#0f172a"
-                    label={(props)=><PhaseLabel {...props} value={m.label} />}/>
-                </Fragment>
-              ))}
-
-              {/* Edge labels for series */}
-              <ReferenceDot isFront x={modified.data[modified.data.length-1]?.t} y={modified.data[modified.data.length-1]?.v} r={0}
-                label={(props)=><PhaseLabel {...props} value="Modified" />}/>
-              {showBaseline && (
-                <ReferenceDot isFront x={baseline.data[baseline.data.length-1]?.t} y={baseline.data[baseline.data.length-1]?.v} r={0}
-                  label={(props)=><PhaseLabel {...props} value="Baseline" />}/>
-              )}
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="metrics" style={{marginTop:12}}>
-          <div className="metric">
-            <div className="k">APD90</div>
-            <div className="v">{curMetrics.apd90} ms</div>
-            <div className="d" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
-            </div>
-          </div>
-          <div className="metric">
-            <div className="k">dV/dtₘₐₓ</div>
-            <div className="v">{curMetrics.dvdtMax} mV/ms</div>
-            <div className="d" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
-            </div>
-          </div>
-          <div className="metric">
-            <div className="k">Cycle</div>
-            <div className="v">{curMetrics.cycle} ms</div>
-            <div className="d" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
-              {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
-            </div>
-          </div>
-        </div>
-
-        <div className="divider"></div>
-
-        {/* Sensitivity mini-panel */}
-        <div className="stack">
-          {channelOrder.map(k=>{
-            const apply=(base,map)=>{ const out={...base}; Object.entries(map).forEach(([kk,v])=>{ if(kk in out) out[kk]=Math.round(out[kk]*(v/100));}); return out; };
-            const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
-            const common={...drug}; Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; }); common.__targetCycle=60000/bpm;
-            const metrics=p=>computeMetrics(generateAP(cellTypeId,p));
-            const m0=metrics(common);
-            const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
-            const dn=metrics({...common,[k]:clamp((common[k]??100)*0.8,0,200)});
-            const dUp=up.apd90-m0.apd90, dDn=dn.apd90-m0.apd90;
-            return (
-              <div key={k} className="row" style={{alignItems:'center'}}>
-                <div style={{width:220,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{CHANNEL_LABELS[k]}</div>
-                <div className="bar">
-                  <div className="mid"></div>
-                  <div className="seg" style={{width:Math.min(100,Math.abs(dDn))+'%', background:dDn<0?'var(--green)':'var(--red)'}}></div>
-                  <div className="seg right" style={{width:Math.min(100,Math.abs(dUp))+'%', background:dUp>0?'var(--green)':'var(--red)'}}></div>
-                </div>
-                <div style={{width:230,textAlign:'right',fontFeatureSettings:'tnum'}}>
-                  ΔAPD: −20% {Math.round(dDn)} / +20% {Math.round(dUp)} ms
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="divider"></div>
-
-        {/* Simple table for current values */}
-        <section>
-          <h2 className="section">Parameters</h2>
-          <table>
-            <thead><tr><th>Channel</th><th>% of baseline</th><th>KO</th></tr></thead>
-            <tbody>
-              {channelOrder.map(k=>(
-                <tr key={k}><td>{CHANNEL_LABELS[k]}</td><td>{(ko[k]?0:params[k])}%</td><td>{ko[k]?'Yes':'No'}</td></tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      </section>
-    </div>
-  );
+  return null; // we render into dedicated roots above for layout clarity
 }
 
-ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
+ReactDOM.createRoot(document.createElement('div')).render(<App/>);
 </script>
 {% endraw %}
