@@ -190,46 +190,57 @@ function areSimilarChannels(ch1, ch2){
   return false;
 }
 
-/* ---------------- Simple ECG synthesizer ---------------- */
-// Sum-of-Gaussians beat; durations are ms; returns ~3 beats
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=500}){
-  rr = clamp(rr, 300, 2000); // 30–200 bpm
+
+function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){ // fs→1000 Hz
+  rr = clamp(rr, 300, 2000);    // 30–200 bpm
   pr = clamp(pr, 100, 260);
   qrs = clamp(qrs, 70, 160);
   qt = clamp(qt, 280, 520);
 
-  const dt=1000/fs; // ms per sample
-  const total = Math.round(beats*rr/dt);
-  const data=[];
-  let t=0;
-  for(let i=0;i<total;i++,t+=dt){
-    const beatIndex = Math.floor(t/rr);
-    const tb = t - beatIndex*rr; // time within current beat
+  const dt = 1000/fs; // ms per sample
 
-    // centers (within one beat)
-    const pC = Math.max(0.11*rr, pr-0.5*qrs);     // place P to end before PR
-    const qrsC = pr;                               // QRS after PR
-    const tStart = qrsC + qrs;                     // end of QRS
-    const tC = tStart + 0.45*(qt-qrs);             // T center inside QT tail
+  // Build one clean beat first, then tile it
+  const oneBeat = [];
+  const nBeat = Math.round(rr/dt);
+  for(let i=0;i<nBeat;i++){
+    const tb = i*dt;
 
-    // widths (sigmas)
+    const pC   = Math.max(0.11*rr, pr-0.5*qrs);
+    const qrsC = pr;
+    const tStart = qrsC + qrs;
+    const tC   = tStart + 0.45*(qt-qrs);
+
     const pS = 0.05*rr;
     const qS = 0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
     const tS = 0.22*(qt-qrs);
 
-    // amplitudes (arbitrary mV scaling)
     let v = 0;
-    v += gaussian(tb, pC, pS, 0.12);               // P
-    v += gaussian(tb, qrsC-0.2*qrs, qS, -0.25);    // Q
-    v += gaussian(tb, qrsC,           rS,  1.00);  // R
-    v += gaussian(tb, qrsC+0.25*qrs,  sS, -0.35);  // S
-    v += gaussian(tb, tC,   tS,  0.35);            // T
+    v += gaussian(tb, pC,               pS,  0.12);
+    v += gaussian(tb, qrsC-0.20*qrs,    qS, -0.25);
+    v += gaussian(tb, qrsC,             rS,  1.00);
+    v += gaussian(tb, qrsC+0.25*qrs,    sS, -0.35);
+    v += gaussian(tb, tC,               tS,  0.35);
 
-    data.push({t: Math.round((t)/10)/100, v});     // t in seconds with 2 decimals
+    oneBeat.push(v);
+  }
+
+  // Remove any DC offset so isoelectric segments sit around 0 mV
+  const mean = oneBeat.reduce((a,b)=>a+b,0)/oneBeat.length;
+  for(let i=0;i<oneBeat.length;i++) oneBeat[i] -= mean;
+
+  // Tile beats and keep time in SECONDS without coarse rounding (3 decimals shown)
+  const data = [];
+  for(let b=0;b<beats;b++){
+    for(let i=0;i<nBeat;i++){
+      const t_ms = b*rr + i*dt;
+      const t_s  = t_ms/1000;
+      data.push({ t: Number(t_s.toFixed(3)), v: oneBeat[i] });
+    }
   }
   return data;
 }
+
 
 /* ---------------- Quiz Component (unchanged except no cycle clamp) ---------------- */
 function QuizMode(){
