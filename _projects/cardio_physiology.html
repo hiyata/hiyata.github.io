@@ -101,11 +101,21 @@ function generateAP(cellId, params){
         kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
 
   if(isPacemaker){
-    t1=0;t2=0;t0=15/clamp(kICaL,0.2,2); vmax=20*kICaL;
-    const kK=0.6*kIKr+0.4*kIKs; t3=150/clamp(kK,0.2,2);
-    const slope=0.4*kIf+0.2*kICaT-0.3*(kIK_ACh-1);
-    t4=clamp(220/clamp(1+slope,0.2,3),60,600);
-    vrest=-85-3*(kPump-1)+3*(1-kIK1);
+    // SA-node specific physiology
+    t1 = 0; t2 = 0;
+    // Phase 0 by ICaL (no fast INa)
+    t0   = 15 / clamp(kICaL,0.2,2);
+    // modest overshoot; weaker with more outward K+
+    const kK = 0.6*kIKr + 0.4*kIKs;
+    vmax = 20*kICaL - 5*(kK-1);
+    // Phase 3 governed by delayed rectifier K+
+    t3 = 150 / clamp(kK,0.2,2);
+    // Phase 4 slope: If & ICaT speed; IK,ACh and K+ slow
+    const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
+    t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
+    // SA MDP baseline around −65 mV, modulated by pump/IK1 and K+ availability
+    const vrestBase = -65;
+    vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
   } else {
     t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
     t1=clamp(8*(0.6+0.4*kIto),2,18);
@@ -121,6 +131,7 @@ function generateAP(cellId, params){
   const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
   const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
 
+  // Optional cycle clamp (used only when caller supplies it; not for pacemaker by default)
   if(params && typeof params.__targetCycle==='number'){
     const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
     t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
@@ -207,40 +218,31 @@ function QuizMode(){
     // Pick a target channel that's different from the last one
     let targetChannel;
     const eligibleChannels = availableChannels.filter(ch => ch !== lastTargetRef.current);
-    
-    if(eligibleChannels.length === 0){
-      // If somehow we only have one channel, just use it
-      targetChannel = availableChannels[0];
-    } else {
-      targetChannel = eligibleChannels[Math.floor(Math.random()*eligibleChannels.length)];
-    }
-    
+    targetChannel = (eligibleChannels.length===0) ? availableChannels[0] : eligibleChannels[Math.floor(Math.random()*eligibleChannels.length)];
     lastTargetRef.current = targetChannel;
-    
+
     // Randomly decide between knockout (0%) or increase (200%)
     const isKnockout = Math.random() < 0.5;
     const modValue = isKnockout ? 0 : 200;
     const modType = isKnockout ? 'knockout' : 'increase';
-    
-    const modParams = {...BASELINE_PARAMS, [targetChannel]:modValue, __targetCycle:600};
-    const baselineParams = {...BASELINE_PARAMS, __targetCycle:600};
-    
-    // Generate wrong answers from other channels, avoiding similar ones
+
+    // No cycle clamp here → pacemaker rate can change
+    const modParams = {...BASELINE_PARAMS, [targetChannel]:modValue};
+    const baselineParams = {...BASELINE_PARAMS};
+
+    // Wrong answers avoiding similar channels
     const wrongAnswers = availableChannels
       .filter(c => c !== targetChannel && !areSimilarChannels(c, targetChannel))
       .sort(()=>Math.random()-0.5)
       .slice(0,3);
-    
-    // If we don't have enough dissimilar channels, fill in with any remaining channels
     if(wrongAnswers.length < 3){
       const remaining = availableChannels
         .filter(c => c !== targetChannel && !wrongAnswers.includes(c))
         .sort(()=>Math.random()-0.5);
       wrongAnswers.push(...remaining.slice(0, 3 - wrongAnswers.length));
     }
-    
     const allOptions = [targetChannel, ...wrongAnswers].sort(()=>Math.random()-0.5);
-    
+
     return {
       targetChannel,
       modType,
@@ -386,11 +388,21 @@ function ExploreMode(){
     const out={...drug};
     Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; });
     Object.keys(out).forEach(k=>{ if(!cell.uses[k]) out[k]=0; });
-    out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
+    // Only clamp cycle for non-pacemaker cells
+    if(cell.id!=='sa' && cell.id!=='purkinje'){
+      out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
+    }
     return out;
   },[params,preset,envPreset,ko,cell,bpm]);
 
-  const baseline=useMemo(()=>generateAP(cell.id,{...BASELINE_PARAMS,__targetCycle:60000/bpm}),[cell.id,bpm]);
+  const baseline=useMemo(()=>{
+    const base={...BASELINE_PARAMS};
+    if(cell.id!=='sa' && cell.id!=='purkinje'){
+      base.__targetCycle = 60000/bpm;
+    }
+    return generateAP(cell.id, base);
+  },[cell.id,bpm]);
+
   const modified=useMemo(()=>generateAP(cell.id,workingParams),[cell.id,workingParams]);
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
@@ -533,7 +545,12 @@ function ExploreMode(){
           {channelOrder.map(k=>{
             const apply=(base,map)=>{ const out={...base}; Object.entries(map).forEach(([kk,v])=>{ if(kk in out) out[kk]=Math.round(out[kk]*(v/100));}); return out; };
             const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
-            const common={...drug}; Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; }); common.__targetCycle=60000/bpm;
+            const common={...drug};
+            Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; });
+            // Clamp only for non-pacemaker types
+            if(cellTypeId!=='sa' && cellTypeId!=='purkinje'){
+              common.__targetCycle=60000/Math.max(20,Math.min(220,bpm));
+            }
             const metrics=p=>computeMetrics(generateAP(cellTypeId,p));
             const m0=metrics(common);
             const up=metrics({...common,[k]:clamp((common[k]??100)*1.2,0,200)});
