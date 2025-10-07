@@ -59,7 +59,7 @@ title: Cardio Physio
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,Fragment,useRef} = React;
+const {useMemo,useState,useRef} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
 /* ---------------- Model constants ---------------- */
@@ -69,14 +69,9 @@ const CHANNEL_LABELS = {
   IKr:"I_Kr (rapid delayed rectifier K⁺)", IKs:"I_Ks (slow delayed rectifier K⁺)", IK1:"I_K1 (inward rectifier K⁺)",
   If:"I_f (funny)", ICaT:"I_CaT (T-type Ca²⁺)", IK_ACh:"I_K,ACh", NaKATPase:"Na⁺/K⁺-ATPase"
 };
-
-// Channels that have similar effects when modified
 const SIMILAR_CHANNEL_GROUPS = [
-  ['IKr', 'IKs'], // Both delayed rectifier K+ channels
-  ['ICaL', 'ICaT'], // Both Ca2+ channels
-  ['If', 'ICaT'], // Both contribute to pacemaker activity
+  ['IKr','IKs'], ['ICaL','ICaT'], ['If','ICaT'],
 ];
-
 const CELL_TYPES = [
   { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
   { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
@@ -103,17 +98,12 @@ function generateAP(cellId, params){
   if(isPacemaker){
     // SA-node specific physiology
     t1 = 0; t2 = 0;
-    // Phase 0 by ICaL (no fast INa)
-    t0   = 15 / clamp(kICaL,0.2,2);
-    // modest overshoot; weaker with more outward K+
     const kK = 0.6*kIKr + 0.4*kIKs;
-    vmax = 20*kICaL - 5*(kK-1);
-    // Phase 3 governed by delayed rectifier K+
-    t3 = 150 / clamp(kK,0.2,2);
-    // Phase 4 slope: If & ICaT speed; IK,ACh and K+ slow
+    t0   = 15 / clamp(kICaL,0.2,2);       // Phase 0 by ICaL
+    vmax = 20*kICaL - 5*(kK-1);           // overshoot weakens with more K+
+    t3   = 150 / clamp(kK,0.2,2);         // Phase 3 by IKr/IKs
     const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
-    t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
-    // SA MDP baseline around −65 mV, modulated by pump/IK1 and K+ availability
+    t4   = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
     const vrestBase = -65;
     vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
   } else {
@@ -131,7 +121,7 @@ function generateAP(cellId, params){
   const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
   const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
 
-  // Optional cycle clamp (used only when caller supplies it; not for pacemaker by default)
+  // Optional cycle clamp only if caller supplies it
   if(params && typeof params.__targetCycle==='number'){
     const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
     t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
@@ -193,7 +183,6 @@ const PHASE_GROUPS=[
   {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
 ];
 
-// Helper to check if two channels are in the same similarity group
 function areSimilarChannels(ch1, ch2){
   for(const group of SIMILAR_CHANNEL_GROUPS){
     if(group.includes(ch1) && group.includes(ch2)) return true;
@@ -201,7 +190,48 @@ function areSimilarChannels(ch1, ch2){
   return false;
 }
 
-/* ---------------- Quiz Component ---------------- */
+/* ---------------- Simple ECG synthesizer ---------------- */
+// Sum-of-Gaussians beat; durations are ms; returns ~3 beats
+function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
+function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=500}){
+  rr = clamp(rr, 300, 2000); // 30–200 bpm
+  pr = clamp(pr, 100, 260);
+  qrs = clamp(qrs, 70, 160);
+  qt = clamp(qt, 280, 520);
+
+  const dt=1000/fs; // ms per sample
+  const total = Math.round(beats*rr/dt);
+  const data=[];
+  let t=0;
+  for(let i=0;i<total;i++,t+=dt){
+    const beatIndex = Math.floor(t/rr);
+    const tb = t - beatIndex*rr; // time within current beat
+
+    // centers (within one beat)
+    const pC = Math.max(0.11*rr, pr-0.5*qrs);     // place P to end before PR
+    const qrsC = pr;                               // QRS after PR
+    const tStart = qrsC + qrs;                     // end of QRS
+    const tC = tStart + 0.45*(qt-qrs);             // T center inside QT tail
+
+    // widths (sigmas)
+    const pS = 0.05*rr;
+    const qS = 0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
+    const tS = 0.22*(qt-qrs);
+
+    // amplitudes (arbitrary mV scaling)
+    let v = 0;
+    v += gaussian(tb, pC, pS, 0.12);               // P
+    v += gaussian(tb, qrsC-0.2*qrs, qS, -0.25);    // Q
+    v += gaussian(tb, qrsC,           rS,  1.00);  // R
+    v += gaussian(tb, qrsC+0.25*qrs,  sS, -0.35);  // S
+    v += gaussian(tb, tC,   tS,  0.35);            // T
+
+    data.push({t: Math.round((t)/10)/100, v});     // t in seconds with 2 decimals
+  }
+  return data;
+}
+
+/* ---------------- Quiz Component (unchanged except no cycle clamp) ---------------- */
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = useState("ventricular");
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -215,22 +245,18 @@ function QuizMode(){
   const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
 
   const generateQuestion = ()=>{
-    // Pick a target channel that's different from the last one
     let targetChannel;
     const eligibleChannels = availableChannels.filter(ch => ch !== lastTargetRef.current);
     targetChannel = (eligibleChannels.length===0) ? availableChannels[0] : eligibleChannels[Math.floor(Math.random()*eligibleChannels.length)];
     lastTargetRef.current = targetChannel;
 
-    // Randomly decide between knockout (0%) or increase (200%)
     const isKnockout = Math.random() < 0.5;
     const modValue = isKnockout ? 0 : 200;
     const modType = isKnockout ? 'knockout' : 'increase';
 
-    // No cycle clamp here → pacemaker rate can change
     const modParams = {...BASELINE_PARAMS, [targetChannel]:modValue};
     const baselineParams = {...BASELINE_PARAMS};
 
-    // Wrong answers avoiding similar channels
     const wrongAnswers = availableChannels
       .filter(c => c !== targetChannel && !areSimilarChannels(c, targetChannel))
       .sort(()=>Math.random()-0.5)
@@ -244,12 +270,7 @@ function QuizMode(){
     const allOptions = [targetChannel, ...wrongAnswers].sort(()=>Math.random()-0.5);
 
     return {
-      targetChannel,
-      modType,
-      modValue,
-      modParams,
-      baselineParams,
-      options: allOptions,
+      targetChannel, modType, modValue, modParams, baselineParams, options: allOptions,
       baseline: generateAP(cellTypeId, baselineParams),
       modified: generateAP(cellTypeId, modParams)
     };
@@ -264,9 +285,7 @@ function QuizMode(){
     setSelectedAnswer(answer);
     setShowResult(true);
     setQuestionsAnswered(q=>q+1);
-    if(answer === currentQuestion.targetChannel){
-      setScore(s=>s+1);
-    }
+    if(answer === currentQuestion.targetChannel) setScore(s=>s+1);
   };
 
   const nextQuestion = ()=>{
@@ -276,12 +295,8 @@ function QuizMode(){
   };
 
   const resetQuiz = ()=>{
-    setScore(0);
-    setQuestionsAnswered(0);
-    lastTargetRef.current = null;
-    setCurrentQuestion(generateQuestion());
-    setSelectedAnswer(null);
-    setShowResult(false);
+    setScore(0); setQuestionsAnswered(0); lastTargetRef.current = null;
+    setCurrentQuestion(generateQuestion()); setSelectedAnswer(null); setShowResult(false);
   };
 
   if(!currentQuestion) return <div>Loading...</div>;
@@ -300,9 +315,9 @@ function QuizMode(){
               {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
           </div>
-          
+
           <div className="divider"></div>
-          
+
           <div className="score-display">
             <div>Score: {score}/{questionsAnswered}</div>
             <div>{questionsAnswered>0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
@@ -369,7 +384,7 @@ function QuizMode(){
   );
 }
 
-/* ---------------- Explore Mode Component ---------------- */
+/* ---------------- Explore Mode Component + ECG ---------------- */
 function ExploreMode(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
   const [params,setParams]=useState({...BASELINE_PARAMS});
@@ -381,34 +396,61 @@ function ExploreMode(){
 
   const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
 
-  const workingParams=useMemo(()=>{
-    const apply=(base, map)=>{ const out={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; }
+  // Helper: apply env/drug + KO + cell mask
+  const buildParamsFor = (id)=>{
+    const apply=(base, map)=>{ const out={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
     const env=apply(params, ENV_PRESETS[envPreset]||{});
     const drug=apply(env, DRUG_PRESETS[preset]||{});
     const out={...drug};
     Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; });
-    Object.keys(out).forEach(k=>{ if(!cell.uses[k]) out[k]=0; });
-    // Only clamp cycle for non-pacemaker cells
-    if(cell.id!=='sa' && cell.id!=='purkinje'){
+    // mask channels not used by this cell
+    const mask=CELL_TYPES.find(c=>c.id===id)?.uses||{};
+    Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
+    // pace clamp only for non-pacemakers
+    if(id!=='sa' && id!=='purkinje'){
       out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
     }
     return out;
-  },[params,preset,envPreset,ko,cell,bpm]);
+  };
 
+  const workingParams = useMemo(()=>buildParamsFor(cell.id),[params,preset,envPreset,ko,cell,bpm]);
+
+  // Baseline & modified for current view
   const baseline=useMemo(()=>{
     const base={...BASELINE_PARAMS};
-    if(cell.id!=='sa' && cell.id!=='purkinje'){
-      base.__targetCycle = 60000/bpm;
-    }
+    if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = 60000/bpm; }
     return generateAP(cell.id, base);
   },[cell.id,bpm]);
-
   const modified=useMemo(()=>generateAP(cell.id,workingParams),[cell.id,workingParams]);
+
+  // --- ECG inputs: compute SA, atrial, ventricular APs in parallel with same knobs
+  const saAP   = useMemo(()=>generateAP('sa',   buildParamsFor('sa')),[params,preset,envPreset,ko,bpm]);
+  const atrAP  = useMemo(()=>generateAP('atrial',buildParamsFor('atrial')),[params,preset,envPreset,ko,bpm]);
+  const ventAP = useMemo(()=>generateAP('ventricular',buildParamsFor('ventricular')),[params,preset,envPreset,ko,bpm]);
+
+  const saM   = useMemo(()=>computeMetrics(saAP),[saAP]);
+  const atrM  = useMemo(()=>computeMetrics(atrAP),[atrAP]);
+  const ventM = useMemo(()=>computeMetrics(ventAP),[ventAP]);
+
+  // Map AP metrics → ECG intervals (heuristic, education-only)
+  const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
+  const basePR=160;
+  const kICaL_atrial = pct((buildParamsFor('atrial').ICaL??100));
+  const kIKAch_atrial = pct((buildParamsFor('atrial').IK_ACh??100));
+  const pr_ms = clamp(basePR + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
+
+  const baseQRS=90;
+  const qrs_ms = clamp(baseQRS + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160); // lower dV/dt → wider
+  const qt_ms  = clamp(ventM.apd90 + 40, 280, 520); // APD90 proxy for QT
+
+  const ecgData = useMemo(()=>generateECGSeries({rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms, beats:3, fs:500}),
+    [rr_ms, pr_ms, qrs_ms, qt_ms]);
+
+  // Metrics for current view panel
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
 
   const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
-
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
@@ -540,14 +582,36 @@ function ExploreMode(){
 
         <div className="divider"></div>
 
+        {/* NEW: ECG (Lead II, synthetic) */}
+        <h2>ECG (Lead II — synthetic)</h2>
+        <div className="legend" style={{marginBottom:0}}>
+          <span className="pill"><span className="line"></span> ECG responds to SA (RR), atrial (PR), and ventricular (QRS/QT) changes</span>
+        </div>
+        <div style={{width:'100%', marginTop:8}}>
+          <ResponsiveContainer width="100%" height={200}>
+            <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} tickCount={5}
+                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2}/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="divider"></div>
+
         {/* Sensitivity mini-panel */}
         <div className="stack">
-          {channelOrder.map(k=>{
+          {Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]).map(k=>{
+            const env=ENV_PRESETS[envPreset]||{}; const drug=DRUG_PRESETS[preset]||{};
             const apply=(base,map)=>{ const out={...base}; Object.entries(map).forEach(([kk,v])=>{ if(kk in out) out[kk]=Math.round(out[kk]*(v/100));}); return out; };
-            const env=apply(params,ENV_PRESETS[envPreset]||{}); const drug=apply(env,DRUG_PRESETS[preset]||{});
-            const common={...drug};
+            const common=apply(apply({...params},env),drug);
             Object.keys(ko).forEach(x=>{ if(ko[x]) common[x]=0; });
-            // Clamp only for non-pacemaker types
+            const mask=CELL_TYPES.find(c=>c.id===cellTypeId)?.uses||{};
+            Object.keys(common).forEach(x=>{ if(!mask[x]) common[x]=0; });
             if(cellTypeId!=='sa' && cellTypeId!=='purkinje'){
               common.__targetCycle=60000/Math.max(20,Math.min(220,bpm));
             }
@@ -579,7 +643,6 @@ function ExploreMode(){
 /* ---------------- Main App ---------------- */
 function App(){
   const [mode, setMode] = useState('explore');
-
   return (
     <>
       <div className="mode-toggle">
@@ -590,7 +653,6 @@ function App(){
     </>
   );
 }
-
 ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
 </script>
 {% endraw %}
