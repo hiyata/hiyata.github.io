@@ -16,8 +16,8 @@ custom_js: home
         <span class="eyebrow">AI-driven virology insights</span>
         <h1>Designing intelligent systems for viral discovery</h1>
         <p>
-          I'm Alan "Hiyata" Carbajo Jr., a researcher at Wayne State University School of Medicine
-          working with <a href="https://www.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a> to
+          I'm Alan Carbajo, a researcher at Wayne State University School of Medicine
+          working with <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a> to
           explore how machine learning can accelerate breakthroughs in virology and genomic design.
         </p>
         <div class="typing-wrapper">
@@ -26,7 +26,6 @@ custom_js: home
         </div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ '/projects' | relative_url }}">View recent work</a>
-          <a class="btn btn-secondary" href="#contact">Request collaboration</a>
         </div>
         <ul class="hero-highlights">
           <li>Generative DNA design workflows guided by deep learning</li>
@@ -43,10 +42,6 @@ custom_js: home
           <div class="badge" data-animate="fade-up" data-animate-delay="220">
             <span class="badge-label">Latest focus</span>
             <p>Mapping latent genomic representations for antiviral discovery.</p>
-          </div>
-          <div class="badge" data-animate="fade-up" data-animate-delay="320">
-            <span class="badge-label">Collaborations</span>
-            <p>Wayne State University School of Medicine Virology Lab.</p>
           </div>
         </div>
       </div>
@@ -155,11 +150,10 @@ custom_js: home
   <section class="section contact-section" id="contact">
     <div class="contact-card" data-animate="fade-up">
       <div>
-        <span class="eyebrow">Let's collaborate</span>
-        <h2>Have a project or research question in mind?</h2>
+        <span class="eyebrow">Contact</span>
+        <h2>Get in touch</h2>
         <p>
-          I'm always interested in partnering with scientists, engineers, and storytellers to craft meaningful tooling
-          around viral research. Reach out and let's design something impactful together.
+          Have a question or want to say hello? I’d love to hear from you.
         </p>
       </div>
       <div class="contact-actions">
