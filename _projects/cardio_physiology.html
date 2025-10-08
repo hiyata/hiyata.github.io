@@ -438,6 +438,10 @@ function ExploreMode(){
   const [showBaseline,setShowBaseline]=useState(true);
   const [bpm,setBpm]=useState(60);
 
+  // Searchable list for the long drug names so the control fits nicely
+  const allPresetKeys = useMemo(()=>Object.keys(DRUG_PRESETS),[]);
+  const filteredPresetKeys = useMemo(()=> allPresetKeys.filter(k=>k.toLowerCase().includes(drugSearch.toLowerCase())), [allPresetKeys, drugSearch]);
+
   const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
 
   const buildParamsFor=(id, useCurrent=true)=>{
@@ -508,16 +512,18 @@ function ExploreMode(){
             </div>
             <div className="field flex1">
               <label className="label">Drug preset (lecture-only)</label>
-              <div className="combo">
-                <input type="text" placeholder="Type to filter…" value={drugSearch}
-                  onChange={(e)=>{ const v=e.target.value; setDrugSearch(v); if(DRUG_PRESETS[v]) setPreset(v); }} list="drug-presets" />
-                <datalist id="drug-presets">
-                  {Object.keys(DRUG_PRESETS).map(p=>
-                    <option key={p} value={p} />
+              <input type="text" placeholder="Filter presets…" value={drugSearch}
+                     onChange={(e)=>setDrugSearch(e.target.value)} />
+              {filteredPresetKeys.length===0 ? (
+                <div className="help">No matches. Clear the filter to see all.</div>
+              ) : (
+                <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
+                  {(filteredPresetKeys.includes(preset) ? filteredPresetKeys : [preset, ...filteredPresetKeys]).map(p=>
+                    <option key={p} value={p}>{p}</option>
                   )}
-                </datalist>
-              </div>
-              <div className="help">Start typing to narrow options. Current: <b>{preset}</b></div>
+                </select>
+              )}
+              <div className="help">Type to filter; selection persists. Current: <b>{preset}</b></div>
             </div>
           </div>
           <div className="row" style={{gap:12}}>
