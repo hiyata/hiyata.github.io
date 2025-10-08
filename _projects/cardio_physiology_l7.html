@@ -1,6 +1,6 @@
 ---
 layout: default
-title: L7 — ECG Essentials (Explore + Quiz)
+title: ECG Trainer (L7)
 ---
 
 <div id="l7-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
@@ -8,17 +8,19 @@ title: L7 — ECG Essentials (Explore + Quiz)
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
 <!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+
 <!-- Babel (compile JSX in the browser) -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;}
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb}
   body{color:var(--ink)}
-  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
-  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px, 420px) 1fr;gap:32px}}
-  h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px,400px) 1fr;gap:32px}}
+  .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
   .row{display:flex;gap:12px;align-items:center}
   .field{display:flex;flex-direction:column;gap:6px}
@@ -27,372 +29,319 @@ title: L7 — ECG Essentials (Explore + Quiz)
   input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
   button{cursor:pointer;background:#fff}
   button:hover{background:#f8fafc}
-  button.primary{background:var(--blue);color:white;font-weight:600}
+  button.primary{background:var(--blue);color:#fff;font-weight:600}
   button.primary:hover{background:#1d4ed8}
-  .divider{height:1px;background:var(--grid);margin:12px 0}
   .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
   .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
   .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
-  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
-  .ko{background:#fef2f2;color:var(--red)}
-  .increase{background:#f0fdf4;color:var(--green)}
+  .grid-note{font-size:12px;color:var(--muted)}
   .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
-  .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:white}
-  .mode-toggle button.active{background:var(--blue);color:white}
-  .card{border:1px solid var(--grid);border-radius:10px;padding:12px}
-  .title{font-weight:600}
-  .axis-meter{height:8px;background:#f1f5f9;border-radius:4px;position:relative;overflow:hidden}
-  .axis-needle{position:absolute;top:-6px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid var(--blue)}
-  .grid-hint{font-size:12px;color:var(--muted)}
+  .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:#fff}
+  .mode-toggle button.active{background:var(--blue);color:#fff}
+  .metric{display:flex;justify-content:space-between;border:1px solid var(--grid);padding:8px;border-radius:6px}
+  .axis-card{border:1px solid var(--grid);border-radius:12px;padding:12px;display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center}
+  .axis-rose{width:160px;height:160px;border-radius:999px;border:1px solid var(--grid);position:relative;background:conic-gradient(from 90deg at 50% 50%, #f8fafc 0 25%, #fff 0 100%)}
+  .axis-rose .needle{position:absolute;left:50%;top:50%;width:2px;height:70px;background:var(--blue);transform-origin:bottom center}
+  .axis-rose .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:#0f172a}
+  .axis-rose .label{position:absolute;font-size:11px;color:#64748b}
+  .axis-rose .lR{right:6px;top:calc(50% - 6px)} .axis-rose .lL{left:6px;top:calc(50% - 6px)}
+  .axis-rose .lU{top:6px;left:calc(50% - 6px)} .axis-rose .lD{bottom:6px;left:calc(50% - 6px)}
+  .quiz-card{border:1px solid var(--grid);border-radius:12px;padding:12px}
+  .quiz-option{padding:10px;border:2px solid var(--grid);border-radius:8px;cursor:pointer}
+  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
+  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,useRef} = React;
-const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
+const {useMemo,useState,useRef,Fragment} = React;
+const {ResponsiveContainer,LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine} = Recharts;
 
-/* -------------------- Shared helpers -------------------- */
+/* ---------------- Utilities ---------------- */
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-const degToRad=(d)=>d*Math.PI/180;
-const round=(x,n=0)=>Number(x.toFixed(n));
+const deg2rad=(d)=>d*Math.PI/180;
+const sign=(x)=>x>=0?1:-1;
 
-/* -------------------- ECG Synth -------------------- */
-// simple synthetic lead II beat (P, QRS, T as Gaussians)
+/* --- Synthetic ECG beat (Lead II-ish), box-calibrated --- */
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-function genECG({rr, pr, qrs, qt, beats=3, fs=1000}){
-  rr=clamp(rr,300,2000); pr=clamp(pr,100,260); qrs=clamp(qrs,70,160); qt=clamp(qt,280,520);
-  const dt=1000/fs, n=Math.round(rr/dt);
-  const one=[], tS=(qt-qrs);
-  for(let i=0;i<n;i++){
-    const t=i*dt, pC=Math.max(0.11*rr, pr-0.5*qrs), qrsC=pr, tC=qrsC+qrs+0.45*tS;
+function generateECG({rr=1000, pr=160, qrs=90, qt=380, beats=3, fs=1000}){
+  rr=clamp(rr,300,2000); pr=clamp(pr,80,300); qrs=clamp(qrs,60,180); qt=clamp(qt,250,560);
+  const dt=1000/fs, nBeat=Math.round(rr/dt), one=[];
+  for(let i=0;i<nBeat;i++){
+    const t=i*dt;
+    const pC=Math.max(0.11*rr, pr-0.5*qrs), qrsC=pr, tC=qrsC+qrs+0.45*(qt-qrs);
+    const pS=0.05*rr, qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs, tS=0.22*(qt-qrs);
     let v=0;
-    v+=gaussian(t,pC,0.05*rr, 0.12);
-    v+=gaussian(t,qrsC-0.20*qrs,0.12*qrs,-0.25);
-    v+=gaussian(t,qrsC,         0.09*qrs, 1.00);
-    v+=gaussian(t,qrsC+0.25*qrs,0.10*qrs,-0.35);
-    v+=gaussian(t,tC,           0.22*tS,  0.35);
+    v+=gaussian(t,pC,            pS,  0.12);
+    v+=gaussian(t,qrsC-0.20*qrs, qS, -0.25);
+    v+=gaussian(t,qrsC,          rS,  1.00);
+    v+=gaussian(t,qrsC+0.25*qrs, sS, -0.35);
+    v+=gaussian(t,tC,            tS,  0.35);
     one.push(v);
   }
-  const mean = one.reduce((a,b)=>a+b,0)/one.length; for(let i=0;i<one.length;i++) one[i]-=mean;
+  const mean=one.reduce((a,b)=>a+b,0)/one.length; for(let i=0;i<one.length;i++) one[i]-=mean;
   const data=[];
-  for(let b=0;b<beats;b++) for(let i=0;i<n;i++) data.push({t:round((b*rr+i*dt)/1000,3), v:one[i]});
+  for(let b=0;b<beats;b++){ for(let i=0;i<nBeat;i++){ data.push({t:+(((b*rr+i*dt)/1000).toFixed(3)), v:one[i]}); } }
   return data;
 }
 
-/* -------------------- Rate from RR helpers -------------------- */
-const hrFromRR = (rr_ms)=> round(60000/rr_ms);
+/* --- Box grid helpers --- */
+const BOX = { small:0.04, big:0.20 }; // seconds
+const HR_from_RR = (rr_ms)=>Math.round(60000/rr_ms);
 
-/* -------------------- Axis helpers -------------------- */
-// Compute MEA (frontal) from user-entered R/S deflections in I & aVF (fast method)
-function axisFromHeights({leadI_R, leadI_S, aVF_R, aVF_S}){
-  // Vector signs from net deflection (R - S)
-  const netI  = leadI_R - leadI_S;
-  const netVF = aVF_R - aVF_S;
-  // atan2 gives angle vs 0° = lead I, positive downwards (toward +aVF)
-  let theta = Math.atan2(netVF, netI) * 180 / Math.PI; // -180..+180
-  if(theta< -180) theta+=360; if(theta>180) theta-=360;
-  return round(theta);
+/* --- Mean Electrical Axis quick math from lead I & aVF amplitudes --- */
+function axisFromLeads({I=1, aVF=1}){
+  // atan2(y,x): y=aVF, x=Lead I; returns degrees -180..+180 (0 is rightward, +90 downward)
+  let deg = Math.atan2(aVF, I)*180/Math.PI;
+  // Convert to cardiology convention: normal axis -30 to +90
+  return Math.round(deg);
 }
-function axisCategory(theta){
-  if(theta>=-30 && theta<=90) return "Normal";
-  if(theta<-30) return "Left axis deviation (LAD)";
-  if(theta>90) return "Right axis deviation (RAD)";
-  return "Indeterminate";
+function axisQuadrant(angle){
+  if(angle>=-30 && angle<=90) return 'Normal';
+  if(angle<-30 && angle>=-90) return 'LAD';
+  if(angle>90 && angle<=180) return 'RAD';
+  if(angle<-90) return 'Extreme LAD';
+  return 'Indeterminate';
 }
+function QTc_Bazett(qt_ms, rr_ms){ return Math.round(qt_ms/Math.sqrt(rr_ms/1000)); }
 
-/* -------------------- Explore Mode -------------------- */
+/* ---------------- Explore Page ---------------- */
 function Explore(){
-  // Calibration + RR controls
-  const [rr,setRR]=useState(1000);         // ms (60 bpm)
-  const [pr,setPR]=useState(160);          // ms
-  const [qrs,setQRS]=useState(90);         // ms
-  const [qt,setQT]=useState(400);          // ms
+  // Intervals (ms) & rate
+  const [rr,setRR]=useState(1000); // 60 bpm
+  const [pr,setPR]=useState(160);
+  const [qrs,setQRS]=useState(90);
+  const [qt,setQT]=useState(380);
   const [showBaseline,setShowBaseline]=useState(true);
-  const baseline={rr:1000,pr:160,qrs:90,qt:400};
-  const ecg=useMemo(()=>genECG({rr,pr,qrs,qt,beats:3,fs:1000}),[rr,pr,qrs,qt]);
-  const ecgBase=useMemo(()=>genECG({...baseline,beats:3,fs:1000}),[]);
 
-  // Axis trainer inputs (user can tweak R/S heights)
-  const [leadI_R,setLeadI_R]=useState(8), [leadI_S,setLeadI_S]=useState(2);
-  const [aVF_R,setAVF_R]=useState(6), [aVF_S,setAVF_S]=useState(1);
-  const theta = axisFromHeights({leadI_R,leadI_S,aVF_R,aVF_S});
-  const thetaCat = axisCategory(theta);
+  // Axis trainer (simulate lead I & aVF bar heights from a chosen axis)
+  const [axis,setAxis]=useState(45); // degrees
+  // Derive synthetic lead I / aVF amplitudes from axis (just cos/sin scaling)
+  const leadI  = Math.cos(deg2rad(axis));      // ~parallel to 0°
+  const leadVF = Math.sin(deg2rad(axis));      // ~parallel to +90°
 
-  // Lead map (frontal) for teaching directions
-  const frontalLeads=[
-    {name:'I', angle:0}, {name:'II', angle:60}, {name:'III',angle:120},
-    {name:'aVR',angle:-150}, {name:'aVL',angle:-30}, {name:'aVF',angle:90},
-  ];
+  // ECG data
+  const modified = useMemo(()=>generateECG({rr,pr,qrs,qt,beats:3,fs:1000}),[rr,pr,qrs,qt]);
+  const baseline = useMemo(()=>generateECG({rr:1000,pr:160,qrs:90,qt:380,beats:3,fs:1000}),[]);
+
+  const HR = HR_from_RR(rr);
+  const QTc = QTc_Bazett(qt, rr);
+
+  // Big-box count ladder
+  const ladder = [300,150,100,75,60,50];
 
   return (
     <div className="wrap">
-      {/* LEFT: Controls & mini-learners */}
       <section className="section">
-        <h2>Controls</h2>
+        <h2>Explore Controls</h2>
         <div className="stack">
+          <div className="metric"><span>Rate (RR)</span><span>{rr} ms  •  {HR} bpm</span></div>
+          <input type="range" min="300" max="2000" step="10" value={rr} onChange={(e)=>setRR(+e.target.value)}/>
+          <div className="metric"><span>PR interval</span><span>{pr} ms</span></div>
+          <input type="range" min="80" max="300" step="5" value={pr} onChange={(e)=>setPR(+e.target.value)}/>
+          <div className="metric"><span>QRS width</span><span>{qrs} ms</span></div>
+          <input type="range" min="60" max="180" step="5" value={qrs} onChange={(e)=>setQRS(+e.target.value)}/>
+          <div className="metric"><span>QT interval • Bazett QTc</span><span>{qt} ms • {QTc} ms</span></div>
+          <input type="range" min="250" max="560" step="5" value={qt} onChange={(e)=>setQT(+e.target.value)}/>
 
-          <div className="card stack">
-            <div className="title">Rate & Intervals</div>
-            <div className="grid-hint">Adjust RR (rate), PR (AV conduction), QRS (ventricular depol), QT (APD proxy)</div>
-            <label className="label">RR (ms) — HR: <b>{hrFromRR(rr)}</b> bpm</label>
-            <input type="range" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)}/>
-            <label className="label">PR (ms)</label>
-            <input type="range" min="100" max="260" step="5" value={pr} onChange={e=>setPR(+e.target.value)}/>
-            <label className="label">QRS (ms)</label>
-            <input type="range" min="70" max="160" step="5" value={qrs} onChange={e=>setQRS(+e.target.value)}/>
-            <label className="label">QT (ms)</label>
-            <input type="range" min="280" max="520" step="5" value={qt} onChange={e=>setQT(+e.target.value)}/>
-            <label style={{fontSize:12}}>
-              <input type="checkbox" checked={showBaseline} onChange={e=>setShowBaseline(e.target.checked)}/> Show baseline overlay
-            </label>
-          </div>
+          <label className="label"><input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)}/> Show baseline overlay</label>
 
-          <div className="card stack">
-            <div className="title">Frontal Lead Directions</div>
-            <svg viewBox="-120 -120 240 240" width="100%" style={{background:'#fff'}}>
-              <circle cx="0" cy="0" r="90" fill="none" stroke="#e5e7eb"/>
-              {frontalLeads.map((L,i)=>{
-                const x=Math.cos(degToRad(L.angle))*85, y=Math.sin(degToRad(L.angle))*85;
-                return (
-                  <g key={L.name}>
-                    <line x1="0" y1="0" x2={x} y2={y} stroke="#94a3b8" strokeDasharray="4 3"/>
-                    <text x={x*1.08} y={y*1.08} fontSize="10" textAnchor="middle" dominantBaseline="middle">{L.name}</text>
-                  </g>
-                );
-              })}
-              {/* Axis needle */}
-              <line x1="0" y1="0" x2={Math.cos(degToRad(theta))*70} y2={Math.sin(degToRad(theta))*70} stroke="#2563eb" strokeWidth="3"/>
-              <text x="0" y="-100" fontSize="11" textAnchor="middle">MEA: {theta}° ({thetaCat})</text>
-            </svg>
-            <div className="grid-hint">MEA points toward the direction of the largest net QRS deflection across frontal leads</div>
-          </div>
+          <div className="divider" style={{height:1,background:'var(--grid)'}}></div>
 
-          <div className="card stack">
-            <div className="title">Axis Trainer (quick method)</div>
-            <div className="row">
-              <div className="field" style={{flex:1}}>
-                <label className="label">Lead I — R height</label>
-                <input type="range" min="0" max="20" value={leadI_R} onChange={e=>setLeadI_R(+e.target.value)}/>
-                <label className="label">Lead I — S depth</label>
-                <input type="range" min="0" max="20" value={leadI_S} onChange={e=>setLeadI_S(+e.target.value)}/>
-              </div>
-              <div className="field" style={{flex:1}}>
-                <label className="label">aVF — R height</label>
-                <input type="range" min="0" max="20" value={aVF_R} onChange={e=>setAVF_R(+e.target.value)}/>
-                <label className="label">aVF — S depth</label>
-                <input type="range" min="0" max="20" value={aVF_S} onChange={e=>setAVF_S(+e.target.value)}/>
-              </div>
+          <div className="axis-card">
+            <div className="axis-rose">
+              <div className="needle" style={{transform:`translate(-50%,-100%) rotate(${90+axis}deg)`}}></div>
+              <div className="center"></div>
+              <div className="label lR">0°</div>
+              <div className="label lU">-90°</div>
+              <div className="label lL">±180°</div>
+              <div className="label lD">+90°</div>
             </div>
-            <div>Computed MEA: <b>{theta}°</b> — <b>{thetaCat}</b></div>
-            <div className="axis-meter">
-              <div className="axis-needle" style={{left:`${(theta+180)/360*100}%`}}></div>
+            <div className="stack">
+              <div className="metric"><span>Mean Electrical Axis</span><span>{axis}° • {axisQuadrant(axis)}</span></div>
+              <input type="range" min="-180" max="180" step="1" value={axis} onChange={(e)=>{const a=+e.target.value; setAxis(a);}}/>
+              <div className="grid-note">Synthetic lead heights from axis: Lead I ≈ {leadI.toFixed(2)}, aVF ≈ {leadVF.toFixed(2)}</div>
+              <div className="grid-note">Quick rules: normal −30°→+90° • LAD &lt; −30° • RAD &gt; +90°</div>
             </div>
-            <div className="grid-hint">Net deflection = R − S. Positive in lead I points rightward; positive in aVF points down.</div>
           </div>
 
+          <div className="divider" style={{height:1,background:'var(--grid)'}}></div>
+
+          <div>
+            <div className="label">Big-box rate ladder (if RR spans N big boxes)</div>
+            <div className="row" style={{flexWrap:'wrap',gap:8}}>
+              {ladder.map((v,i)=><div key={i} style="border:1px solid var(--grid);padding:6px 10px;border-radius:6px">{v}</div>)}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* RIGHT: Visuals */}
       <section className="section">
-        <h2>Lead II ECG</h2>
-        <div className="legend">
-          <span className="pill"><span className="line"></span> Modified</span>
-          <span className="pill"><span className="dash"></span> Baseline</span>
-        </div>
-        <div style={{width:'100%'}}>
-          <ResponsiveContainer width="100%" height={220}>
-            <LineChart data={ecg} margin={{top:8,right:20,bottom:20,left:20}}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
-                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
-              <YAxis domain={[-1.2,1.4]} tickCount={5}
-                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+        <h2>ECG strip (Lead II — synthetic)</h2>
+        <div className="grid-note">Paper: 25 mm/s • Small box 0.04 s • Big box 0.20 s • Amplitude ~1 mV per 10 mm</div>
+        <div style={{width:'100%',marginTop:8}}>
+          <ResponsiveContainer width="100%" height={260}>
+            <LineChart data={modified} margin={{top:8,right:20,bottom:24,left:20}}>
+              <CartesianGrid strokeDasharray="1 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={9}
+                label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} tickCount={6}
+                label={{value:'mV', angle:-90, position:'insideLeft'}}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-              {showBaseline && <Line dot={false} type="monotone" dataKey="v" data={ecgBase} stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4" name="Baseline" />}
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baseline} stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4" name="Baseline"/>
+              )}
               <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5} name="Modified"/>
+              {/* Big-box vertical guides every 0.2 s */}
+              {[...Array(10)].map((_,i)=>(
+                <ReferenceLine key={i} x={0.2*(i+1)} stroke="#e5e7eb" strokeDasharray="2 2" ifOverflow="extendDomain"/>
+              ))}
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="divider"></div>
+        <div className="divider" style={{height:1,background:'var(--grid)',margin:'12px 0'}}></div>
 
-        <div className="card">
-          <div className="title">At a glance</div>
-          <ul style={{margin:'8px 0 0 16px'}}>
-            <li><b>Rate</b>: HR ≈ 300,150,100,75,60,50 using big boxes; exact HR = 60/RR(s).</li>
-            <li><b>Rhythm</b>: Sinus if upright P in II before every QRS, constant PR, regular RR.</li>
-            <li><b>Axis</b>: Use I & aVF — largest positive ≈ axis direction; isoelectric lead ≈ perpendicular.</li>
-            <li><b>Intervals</b>: PR ↔ AV node; QRS ↔ ventricular upstroke; QT ↔ ventricular AP duration.</li>
-          </ul>
+        <h2>Intervals</h2>
+        <div className="stack">
+          <div className="metric"><span>Rate</span><span>{HR} bpm (RR {rr} ms)</span></div>
+          <div className="metric"><span>PR</span><span>{pr} ms {pr>200?'• prolonged':''}</span></div>
+          <div className="metric"><span>QRS</span><span>{qrs} ms {qrs>=120?'• wide':''}</span></div>
+          <div className="metric"><span>QT / QTc (Bazett)</span><span>{qt} ms / {QTc} ms</span></div>
         </div>
       </section>
     </div>
   );
 }
 
-/* -------------------- Quiz Mode -------------------- */
-function randomInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
-function choice(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-
-function makeQuizItem(){
-  // types: rate, axis, interval, concept
-  const type = choice(['rate','axis','interval','concept']);
-
-  if(type==='rate'){
-    // pick RR between 360–1500 ms (~40–167 bpm)
-    const rr = randomInt(360,1500);
-    const hr = hrFromRR(rr);
-    const stem = `An ECG strip shows an RR interval of ${rr} ms. What is the heart rate?`;
-    const opts = [hr, hr+15, Math.max(30,hr-20), hr+30].map(x=>`${x} bpm`);
-    return {type, stem, rr, correct: `${hr} bpm`, options: shuffle(opts)};
-  }
-
-  if(type==='axis'){
-    // random R/S to generate a known axis bucket
-    const bucket = choice(['Normal','LAD','RAD']);
-    let theta;
-    if(bucket==='Normal') theta=randomInt(-10,70);
-    if(bucket==='LAD')    theta=randomInt(-60,-31);
-    if(bucket==='RAD')    theta=randomInt(91,150);
-    // invert to approximate R/S heights in I & aVF (rough)
-    const netI  = Math.cos(degToRad(theta));
-    const netVF = Math.sin(degToRad(theta));
-    const stem = `Given net QRS deflections: Lead I ${netI>=0? 'positive':'negative'}, aVF ${netVF>=0?'positive':'negative'}. What is the MEA category?`;
-    const opts = ['Normal','Left axis deviation (LAD)','Right axis deviation (RAD)','Indeterminate'];
-    const correct = bucket==='LAD'?'Left axis deviation (LAD)':bucket==='RAD'?'Right axis deviation (RAD)':'Normal';
-    return {type, stem, correct, options: shuffle(opts)};
-  }
-
-  if(type==='interval'){
-    const which = choice(['PR','QRS','QT']);
-    let stem, correct, distractors;
-    if(which==='PR'){
-      stem='Which interval is most likely prolonged in first-degree AV block?';
-      correct='PR';
-      distractors=['QRS','QT','RR'];
-    } else if(which==='QRS'){
-      stem='A Na⁺-channel blocker typically widens which interval?';
-      correct='QRS';
-      distractors=['PR','QT','RR'];
-    } else {
-      stem='Reduced I_Kr (delayed rectifier K⁺) most directly prolongs which interval?';
-      correct='QT';
-      distractors=['PR','QRS','RR'];
-    }
-    return {type, stem, correct, options: shuffle([correct,...distractors])};
-  }
-
-  // concept
-  const c = choice([
-    {stem:'In sinus rhythm, which lead is best for visible upright P waves?', correct:'Lead II', options:['Lead II','aVR','V1','Lead III']},
-    {stem:'The mean electrical axis points toward…', correct:'the direction of greatest net ventricular depolarization', options:['the SA node','the AV node','the tallest T wave','the direction of greatest net ventricular depolarization']},
-    {stem:'QT interval is most closely related to…', correct:'ventricular action potential duration', options:['atrial conduction velocity','His–Purkinje delay','ventricular action potential duration','sinus node automaticity']}
-  ]);
-  return {type:'concept', ...c, options: shuffle(c.options)};
-}
-function shuffle(a){ return [...a].sort(()=>Math.random()-0.5); }
-
+/* ---------------- Quiz Page ---------------- */
 function Quiz(){
-  const [q,setQ]=useState(makeQuizItem());
-  const [picked,setPicked]=useState(null);
+  const [q,setQ]=useState(null);
+  const [answered,setAnswered]=useState(false);
   const [score,setScore]=useState(0);
-  const [count,setCount]=useState(0);
+  const [total,setTotal]=useState(0);
 
-  const next=()=>{
-    setQ(makeQuizItem());
-    setPicked(null);
+  const genRRQ=()=>{
+    // Random RR in big-box multiples 0.2s
+    const boxes=[1,2,3,4,5,6]; const n=boxes[Math.floor(Math.random()*boxes.length)];
+    const rr= n*200; const hr=HR_from_RR(rr);
+    return {
+      kind:'rate',
+      prompt:`The RR interval spans ${n} big boxes (0.20 s each). What is the heart rate?`,
+      options:[hr, hr+25, Math.max(30,hr-25), hr+50].sort(()=>Math.random()-0.5),
+      answer:hr,
+      explain:`Big-box ladder: 300/${n} → ${hr} bpm (RR = ${rr} ms).`
+    };
   };
 
-  const choose=(opt)=>{
-    if(picked!==null) return;
-    setPicked(opt);
-    setCount(c=>c+1);
-    if(opt===q.correct) setScore(s=>s+1);
+  const genAxisQ=()=>{
+    // Choose a random axis and show lead I/aVF signs
+    const angle=[-60,-30,0,30,60,120].sort(()=>Math.random()-0.5)[0];
+    const I = Math.cos(deg2rad(angle)), aVF=Math.sin(deg2rad(angle));
+    const signI = I>=0?'+':'−', signVF=aVF>=0?'+':'−';
+    const ans = axisQuadrant(angle);
+    return {
+      kind:'axis',
+      prompt:`Lead I is ${signI}; aVF is ${signVF}. What is the mean frontal axis quadrant?`,
+      options:['Normal','LAD','RAD','Extreme LAD'].sort(()=>Math.random()-0.5),
+      answer:ans,
+      explain:`With Lead I ${signI} and aVF ${signVF}, the axis sits near ${angle}°, which is ${ans}.`
+    };
   };
+
+  const genIntervalQ=()=>{
+    // Randomly make one interval abnormal
+    let rr= [600,800,1000,1200][Math.floor(Math.random()*4)];
+    const hr=HR_from_RR(rr);
+    let pr= [140,160,180,220][Math.floor(Math.random()*4)];
+    let qrs=[90,100,120,140][Math.floor(Math.random()*4)];
+    let qt=[340,380,420,480][Math.floor(Math.random()*4)];
+    const qtc=QTc_Bazett(qt,rr);
+    const flags=[];
+    if(pr>200) flags.push('First-degree AV block (PR prolonged)');
+    if(qrs>=120) flags.push('Bundle-branch block (QRS wide)');
+    if(qtc>460) flags.push('QTc prolonged');
+    if(flags.length===0) flags.push('All intervals normal');
+
+    const all=['All intervals normal','First-degree AV block (PR prolonged)','Bundle-branch block (QRS wide)','QTc prolonged'];
+    return {
+      kind:'intervals',
+      prompt:`At RR=${rr} ms (≈${hr} bpm), PR=${pr} ms, QRS=${qrs} ms, QT=${qt} ms. Which statement is most accurate?`,
+      options:all.sort(()=>Math.random()-0.5),
+      answer:flags[0],
+      explain:`QTc≈${qtc} ms. Criteria: PR>200 ms, QRS≥120 ms, QTc>~460 ms.`
+    };
+  };
+
+  const genRhythmQ=()=>{
+    // Simple rhythm logic statements
+    const stems=[
+      {txt:'There is a P before every QRS, PR is constant, and rate is 70 bpm.', ans:'Normal sinus rhythm'},
+      {txt:'No visible P waves, regular narrow QRS at 45 bpm.', ans:'Junctional rhythm'},
+      {txt:'Irregularly irregular with absent P waves, narrow QRS.', ans:'Atrial fibrillation'},
+      {txt:'Sawtooth baseline at 300 bpm with regular 2:1 conduction.', ans:'Atrial flutter with 2:1 block'},
+    ];
+    const s=stems[Math.floor(Math.random()*stems.length)];
+    const options=['Normal sinus rhythm','Junctional rhythm','Atrial fibrillation','Atrial flutter with 2:1 block'].sort(()=>Math.random()-0.5);
+    return { kind:'rhythm', prompt:s.txt, options, answer:s.ans, explain:`Pattern best matches “${s.ans}”.`};
+  };
+
+  const genQ=()=>{
+    const makers=[genRRQ, genAxisQ, genIntervalQ, genRhythmQ];
+    return makers[Math.floor(Math.random()*makers.length)]();
+  };
+
+  React.useEffect(()=>{ if(!q) setQ(genQ()); },[q]);
+
+  const select=(opt)=>{
+    if(answered) return;
+    setAnswered(true);
+    setTotal(t=>t+1);
+    if(opt===q.answer) setScore(s=>s+1);
+  };
+  const next=()=>{ setQ(genQ()); setAnswered(false); };
+
+  if(!q) return <div>Loading…</div>;
 
   return (
-    <div className="wrap">
-      <section className="section">
-        <h2>Quiz</h2>
-        <div className="card">
-          <div style={{fontWeight:600, marginBottom:8}}>Q{count+1}. {q.stem}</div>
-          <div className="stack">
-            {q.options.map(opt=>{
-              const state = picked===null ? '' : (opt===q.correct ? 'background:#f0fdf4;border-color:#bbf7d0' :
-                                                    opt===picked ? 'background:#fef2f2;border-color:#fecaca' : '');
-              return (
-                <button key={opt} onClick={()=>choose(opt)}
-                        style={{border:'2px solid var(--grid)',borderRadius:6,padding:'10px',textAlign:'left', ...(state?{}:{})}}
-                        className={`quiz-option ${picked!==null?'disabled':''}`}>
-                  {opt}
-                </button>
-              );
-            })}
-          </div>
-          {picked!==null && (
-            <div style={{marginTop:12,fontWeight:600}}>
-              {picked===q.correct ? '✓ Correct!' : `✗ Incorrect. Answer: ${q.correct}`}
-            </div>
-          )}
-          <div className="row" style={{marginTop:12,justifyContent:'space-between'}}>
-            <div><b>Score:</b> {score}/{count}</div>
-            <button className="primary" onClick={next}>Next</button>
-          </div>
-        </div>
-      </section>
+    <div className="stack">
+      <div className="score-display">
+        <div>Score: {score}/{total}</div>
+        <div>{total? Math.round(100*score/total):'—'}%</div>
+      </div>
 
-      {/* Side panel: quick calculators for explanation */}
-      <section className="section">
-        <h2>Quick Tools</h2>
-        <div className="card stack">
-          <div className="title">Exact Rate from RR</div>
-          <RRTool/>
+      <div className="quiz-card">
+        <div style={{fontWeight:700,marginBottom:8}}>Question:</div>
+        <div style={{marginBottom:12}}>{q.prompt}</div>
+        <div className="stack">
+          {q.options.map(opt=>{
+            const cls = answered ? (opt===q.answer?'quiz-option correct': 'quiz-option'+(opt===q.selected?' incorrect':'')) : 'quiz-option';
+            return (
+              <button key={opt}
+                      className={cls}
+                      disabled={answered}
+                      onClick={()=>select(opt)}>{opt}</button>
+            );
+          })}
         </div>
-        <div className="card stack">
-          <div className="title">Axis Buckets (I & aVF)</div>
-          <AxisTool/>
-        </div>
-      </section>
+
+        {answered && (
+          <div style="margin-top:12px;padding:10px;border-radius:8px;background:#f8fafc">
+            <strong>Answer:</strong> {q.answer}<br/>
+            <span className="grid-note">{q.explain}</span>
+          </div>
+        )}
+      </div>
+
+      {answered && <button className="primary" onClick={next}>Next</button>}
     </div>
   );
 }
 
-function RRTool(){
-  const [rr,setRR]=useState(1000);
-  return (
-    <>
-      <div className="row">
-        <input type="range" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)} style={{flex:1}}/>
-        <input type="number" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)} style={{width:100}}/>
-      </div>
-      <div>Heart Rate: <b>{hrFromRR(rr)} bpm</b></div>
-      <div className="grid-hint">Touchstones: 300,150,100,75,60,50 with big boxes.</div>
-    </>
-  );
-}
-
-function AxisTool(){
-  const [leadI_R,setLeadI_R]=useState(7), [leadI_S,setLeadI_S]=useState(2);
-  const [aVF_R,setAVF_R]=useState(4), [aVF_S,setAVF_S]=useState(1);
-  const theta = axisFromHeights({leadI_R,leadI_S,aVF_R,aVF_S});
-  return (
-    <>
-      <div className="row"><span className="label" style={{minWidth:120}}>Lead I R/S</span>
-        <input type="range" min="0" max="20" value={leadI_R} onChange={e=>setLeadI_R(+e.target.value)} style={{flex:1}}/>
-        <input type="range" min="0" max="20" value={leadI_S} onChange={e=>setLeadI_S(+e.target.value)} style={{flex:1}}/>
-      </div>
-      <div className="row"><span className="label" style={{minWidth:120}}>aVF R/S</span>
-        <input type="range" min="0" max="20" value={aVF_R} onChange={e=>setAVF_R(+e.target.value)} style={{flex:1}}/>
-        <input type="range" min="0" max="20" value={aVF_S} onChange={e=>setAVF_S(+e.target.value)} style={{flex:1}}/>
-      </div>
-      <div>MEA: <b>{theta}°</b> — <b>{axisCategory(theta)}</b></div>
-    </>
-  );
-}
-
-/* -------------------- Main App -------------------- */
+/* ---------------- Main App ---------------- */
 function App(){
   const [mode,setMode]=useState('explore');
   return (
@@ -405,6 +354,7 @@ function App(){
     </>
   );
 }
+
 ReactDOM.createRoot(document.getElementById('l7-app')).render(<App/>);
 </script>
 {% endraw %}
