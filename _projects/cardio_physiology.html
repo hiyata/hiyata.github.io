@@ -76,9 +76,50 @@ const CELL_TYPES = [
   { id:"sa", name:"SA Node (Pacemaker)", uses:{INa:0,ICaL:1,Ito:0,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:1,NaKATPase:1}},
   { id:"purkinje", name:"Purkinje Cell", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:0,NaKATPase:1}},
 ];
+
+// Presets limited to drugs explicitly mentioned in the two attached lectures.
+// Where a drug's primary effect is systemic (e.g., ACEi/SGLT2i), it's omitted because it doesn't map to this ion-channel model.
 const DRUG_PRESETS = {
-  "None":{}, "Lidocaine":{INa:50}, "Tetrodotoxin":{INa:5}, "Ranolazine":{INa:70}, "Quinine":{INa:60},
-  "Verapamil":{ICaL:40}, "Nifedipine":{ICaL:50}, "Ivabradine":{If:30}, "Acetylcholine ↑":{IK_ACh:150}, "Ouabain":{NaKATPase:40}
+  "None":{},
+  // Sympathomimetics / β-agonists
+  "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
+  "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
+  // β-blockers (rate/inotropy ↓)
+  "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
+  "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
+  "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
+  "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
+  // Parasympathetic modifiers / nodal agents
+  "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
+  "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
+  "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
+  "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
+  // HCN/If
+  "Ivabradine (If blocker)":{ If:40 },
+  // Calcium channel blockers (Class IV)
+  "Verapamil (L-type CCB)":{ ICaL:50 },
+  "Diltiazem (L-type CCB)":{ ICaL:60 },
+  "Nifedipine (DHP CCB)":{ ICaL:60 },
+  "Amlodipine (DHP CCB)":{ ICaL:60 },
+  // Na⁺ channel blockers (Class I)
+  "Lidocaine (Class IB)":{ INa:60 },
+  "Mexiletine (Class IB)":{ INa:60 },
+  "Procainamide (Class IA)":{ INa:70, IKr:85 },
+  "Disopyramide (Class IA)":{ INa:70, IKr:90 },
+  "Quinidine (Class IA)":{ INa:70, IKr:85 },
+  "Flecainide (Class IC)":{ INa:50 },
+  // Late INa / multichannel
+  "Ranolazine (late INa)":{ INa:70 },
+  "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
+  // K⁺ channel blockers (Class III)
+  "Ibutilide (IKr blocker)":{ IKr:60 },
+  "Dofetilide (IKr blocker)":{ IKr:50 },
+  // Inotropes affecting Ca²⁺ handling
+  "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
+  "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
+  // Peripheral sympatholytics
+  "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
+  "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
 };
 const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperkalemia":{IK1:60,INa:80}, "Ischemia":{NaKATPase:50,IK1:70,IKr:120} };
 
@@ -166,7 +207,7 @@ function computeMetrics(curve){
   const v90=vrest+0.1*(vmax-vrest); const up=pts.findIndex(p=>p.v>v90);
   let down=pts.length-1; for(let i=pts.length-1;i>=0;i--){ if(pts[i].v>v90){ down=i; break; } }
   const apd90=(up>=0 && down>up)?(pts[down].t-pts[up].t):0;
-  let dvdtMax=0; for(let i=1;i<pts.length;i++){ const dv=pts[i].v-pts[i-1].v; const dt=pts[i].t-pts[i-1].t||1e-6; dvdtMax=Math.max(dvdtMax,dv/dt); }
+  let dvdtMax=0; for(let i=1;i<pts.length;i++){ const dv=pts[i].v-pts[i-1].v; const dt=pts[i].t-pts[i-1].t||1e-6; dvdtMax=Math.max(dv/dt,dvdtMax); }
   const cycle=pts[pts.length-1].t;
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
@@ -293,7 +334,9 @@ function QuizMode(){
           <div className="field">
             <label className="label">Cell type</label>
             <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
-              {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+              {CELL_TYPES.map(c=>
+                <option key={c.id} value={c.id}>{c.name}</option>
+              )}
             </select>
           </div>
 
@@ -434,13 +477,17 @@ function ExploreMode(){
             <div className="field flex1">
               <label className="label">Cell type</label>
               <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
-                {CELL_TYPES.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}
+                {CELL_TYPES.map(c=>
+                  <option key={c.id} value={c.id}>{c.name}</option>
+                )}
               </select>
             </div>
             <div className="field flex1">
               <label className="label">Drug preset</label>
               <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
-                {Object.keys(DRUG_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+                {Object.keys(DRUG_PRESETS).map(p=>
+                  <option key={p} value={p}>{p}</option>
+                )}
               </select>
             </div>
           </div>
@@ -448,7 +495,9 @@ function ExploreMode(){
             <div className="field flex1">
               <label className="label">Environment</label>
               <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
-                {Object.keys(ENV_PRESETS).map(p=><option key={p} value={p}>{p}</option>)}
+                {Object.keys(ENV_PRESETS).map(p=>
+                  <option key={p} value={p}>{p}</option>
+                )}
               </select>
             </div>
             <div className="field flex1">
