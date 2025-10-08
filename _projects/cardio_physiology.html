@@ -8,7 +8,6 @@ title: Cardio Physio
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
 <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
 
 <!-- Recharts (UMD) -->
@@ -77,47 +76,36 @@ const CELL_TYPES = [
   { id:"purkinje", name:"Purkinje Cell", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:0,NaKATPase:1}},
 ];
 
-// Presets limited to drugs explicitly mentioned in the two attached lectures.
-// Where a drug's primary effect is systemic (e.g., ACEi/SGLT2i), it's omitted because it doesn't map to this ion-channel model.
+// (Same drug/environment presets as your original)
 const DRUG_PRESETS = {
   "None":{},
-  // Sympathomimetics / β-agonists
   "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
   "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
-  // β-blockers (rate/inotropy ↓)
   "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
   "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
-  // Parasympathetic modifiers / nodal agents
   "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
   "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
-  // HCN/If
   "Ivabradine (If blocker)":{ If:40 },
-  // Calcium channel blockers (Class IV)
   "Verapamil (L-type CCB)":{ ICaL:50 },
   "Diltiazem (L-type CCB)":{ ICaL:60 },
   "Nifedipine (DHP CCB)":{ ICaL:60 },
   "Amlodipine (DHP CCB)":{ ICaL:60 },
-  // Na⁺ channel blockers (Class I)
   "Lidocaine (Class IB)":{ INa:60 },
   "Mexiletine (Class IB)":{ INa:60 },
   "Procainamide (Class IA)":{ INa:70, IKr:85 },
   "Disopyramide (Class IA)":{ INa:70, IKr:90 },
   "Quinidine (Class IA)":{ INa:70, IKr:85 },
   "Flecainide (Class IC)":{ INa:50 },
-  // Late INa / multichannel
   "Ranolazine (late INa)":{ INa:70 },
   "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
-  // K⁺ channel blockers (Class III)
   "Ibutilide (IKr blocker)":{ IKr:60 },
   "Dofetilide (IKr blocker)":{ IKr:50 },
-  // Inotropes affecting Ca²⁺ handling
   "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
   "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
-  // Peripheral sympatholytics
   "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
   "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
 };
@@ -126,81 +114,88 @@ const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperka
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const pct=(x)=>clamp(x/100,0,2);
 
-/* ---------------- AP generator ---------------- */
-function generateAP(cellId, params){
-  const isPacemaker = cellId==="sa";
-  let t0=2,t1=8,t2=180,t3=120,t4=100, vmax=30, vrest=-85;
-  const kINa=pct(params.INa), kICaL=pct(params.ICaL), kIto=pct(params.Ito),
-        kIKr=pct(params.IKr), kIKs=pct(params.IKs), kIK1=pct(params.IK1),
-        kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
+/* --------------------------------------------------------------------
+   NEW: Conductance-based toy engine (physiology-aligned, still tiny)
+-------------------------------------------------------------------- */
+function cardSim({cellId="ventricular", params={}, bpm=60, cycles=1}){
+  const scale = (name, def)=> clamp(((params?.[name]??100)/100)*def, 0, 2*def);
 
-  if(isPacemaker){
-    t1=0; t2=0;
-    const kK = 0.6*kIKr + 0.4*kIKs;
-    t0 = 15 / clamp(kICaL,0.2,2);
-    vmax = 20*kICaL - 5*(kK-1);
-    t3 = 150 / clamp(kK,0.2,2);
-    const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
-    t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
-    const vrestBase=-65;
-    vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
-  } else {
-    t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
-    t1=clamp(8*(0.6+0.4*kIto),2,18);
-    const kK=0.6*kIKr+0.4*kIKs; t2=clamp(180*(kICaL/clamp(kK,0.3,2)),40,400);
-    t3=clamp(120/clamp(kK,0.3,2),30,300);
-    vrest=-85-4*(kPump-1)+5*(1-kIK1);
-    if(cellId==="purkinje"){
-      const s=0.1*(kIf-1)+0.05*(kICaT-1);
-      t4=clamp(100/clamp(1+s,0.3,2),40,300);
-    }
+  // Reversal potentials (mV) and capacitance
+  const Cm=1.0, ENa=60, EK=-90, ECa=60, Eleak=-60;
+
+  // Cell-type defaults (mS/cm^2)
+  let gNa   = scale("INa",   cellId==="sa"?0:12);
+  let gCaL  = scale("ICaL",  1.6);
+  let gto   = scale("Ito",   cellId==="sa"?0:0.35);
+  let gKr   = scale("IKr",   0.5);
+  let gKs   = scale("IKs",   0.2);
+  let gK1   = scale("IK1",   cellId==="sa"?0.15:1.2);
+  let gf    = scale("If",    (cellId==="sa"||cellId==="purkinje")?0.25:0);
+  let gCaT  = scale("ICaT",  (cellId==="sa"||cellId==="purkinje")?0.12:0);
+  let gACh  = scale("IK_ACh",(cellId==="atrial"||cellId==="sa")?0.1:0);
+  const gLeak=0.02;
+
+  // Simple gating steady-states and time constants
+  const sig=(x,x0,k)=>1/(1+Math.exp((x0-x)/k));
+  const m_inf=V=>sig(V,-35,7);           // Na activation (instantaneous)
+  const h_inf=V=>sig(-V,-60,6),   tau_h=V=>1 + 4*sig(V,-40,7);
+  const d_inf=V=>sig(V,-15,6),    f_inf=V=>sig(-V,-25,6), tau_f=V=>20 + 60*sig(V,-10,7);
+  const a_inf=V=>sig(V,-30,7),    b_inf=V=>sig(-V,-65,6), tau_b=V=>8 + 20*sig(V,-50,7);
+  const n_inf=V=>sig(V,-20,6),    tau_n=V=>50/(1+Math.exp((V+25)/10)) + 10;
+  const r_inf=V=>sig(-V,-20,6),   tau_r=V=>8 + 30*sig(V,-40,7);
+  const s_inf=V=>sig(-V,-80,7),   tau_s=V=>70 + 200*sig(V,-90,7);
+  const rectK1=V=>1/(1+Math.exp((V+75)/5)); // inward rectifier factor
+
+  // Pacing: non-nodal cells get a brief stimulus; SA node self-fires
+  const CL = params.__targetCycle ? clamp(params.__targetCycle,250,3000)
+                                  : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
+  const stimAmp = 60;   // µA/cm^2
+  const stimMs  = 1.0;  // ms width
+  const Iapp = (t)=> (cellId==="sa" ? 0 : ((t%CL)<stimMs ? -stimAmp : 0));
+
+  // Integrate
+  const dt=0.02, T=cycles*CL;
+  let V=(cellId==="sa"?-60:-85);
+  let h=h_inf(V), n=n_inf(V), f=f_inf(V), r=r_inf(V), s=s_inf(V), b=b_inf(V), a=a_inf(V);
+
+  const data=[];
+  for(let t=0; t<=T; t+=dt){
+    // Ionic currents (outward positive)
+    const INa  = gNa  * Math.pow(m_inf(V),3) * h * (V-ENa);
+    const ICaL = gCaL * d_inf(V) * f * (V-ECa);
+    const ICaT = gCaT * a * b * (V-ECa);
+    const Ito  = gto  * r * (V-EK);
+    const IKr  = gKr  * n * (V-EK);
+    const IKs  = gKs  * n * (V-EK);
+    const IK1  = gK1  * rectK1(V) * (V-EK);
+    const IACh = gACh * (V-EK);
+    // funny current: inward (Na/K mixed) driving toward ~ -20 mV
+    const Ef=-20, If = gf * s * (V - Ef);
+    const Ileak = gLeak*(V-Eleak);
+
+    const Iion = INa + ICaL + ICaT + Ito + IKr + IKs + IK1 + IACh + If + Ileak;
+    V += dt * (-(Iion) + Iapp(t)) / Cm;
+
+    // update gates
+    h += dt*((h_inf(V)-h)/tau_h(V));
+    n += dt*((n_inf(V)-n)/tau_n(V));
+    f += dt*((f_inf(V)-f)/tau_f(V));
+    r += dt*((r_inf(V)-r)/tau_r(V));
+    s += dt*((s_inf(V)-s)/tau_s(V));
+    b += dt*((b_inf(V)-b)/tau_b(V));
+    a  = a_inf(V); // fast
+
+    if((t%1)===0) data.push({t:+t.toFixed(2), v:+V.toFixed(3)});
   }
 
-  const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
-  const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
-
-  if(params && typeof params.__targetCycle==='number'){
-    const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
-    t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
-  }
-
-  // phase 4
-  const n4=Math.max(5,Math.round(t4/2));
-  for(let i=0;i<=n4;i++){ const f=i/n4; push(tA+f*t4, vrest+(vTh-vrest)*f); }
-  segs.push({phase:4,tStart:tA,tEnd:tA+t4}); tA+=t4;
-
-  // phase 0
-  const n0=Math.max(5,Math.round(t0/0.5));
-  for(let i=0;i<=n0;i++){ const f=i/n0; push(tA+f*t0, vTh+(vmax-vTh)*(1-Math.pow(1-f,3))); }
-  segs.push({phase:0,tStart:tA,tEnd:tA+t0}); tA+=t0;
-
-  if(!isPacemaker){
-    // phase 1
-    const notch=vmax-20*kIto, n1=Math.max(3,Math.round(t1/0.5));
-    for(let i=0;i<=n1;i++){ const f=i/n1; push(tA+f*t1, vmax+(notch-vmax)*f); }
-    segs.push({phase:1,tStart:tA,tEnd:tA+t1}); tA+=t1;
-
-    // phase 2
-    const plateau=-5+10*(kICaL-(0.6*kIKr+0.4*kIKs)), n2=Math.max(10,Math.round(t2/2));
-    for(let i=0;i<=n2;i++){ const f=i/n2; push(tA+f*t2, notch+(plateau-notch)*(1-Math.cos(Math.PI*f))/2); }
-    segs.push({phase:2,tStart:tA,tEnd:tA+t2}); tA+=t2;
-  }
-
-  // phase 3
-  const vEnd=vrest, vStart=isPacemaker? vmax : (data[data.length-1]?.v ?? vmax);
-  const n3=Math.max(10,Math.round(t3/2));
-  for(let i=0;i<=n3;i++){ const f=i/n3; push(tA+f*t3, vStart+(vEnd-vStart)*(1-Math.cos(Math.PI*f))/2); }
-  segs.push({phase:3,tStart:tA,tEnd:tA+t3}); tA+=t3;
-
-  const marks = segs.map(s=>{
-    const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
-    for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
-    return {label:`Phase ${s.phase}`, t:nearest.t, v:nearest.v};
-  }).filter(m=>!(cellId==="sa" && (m.label==="Phase 1"||m.label==="Phase 2")));
-
-  return {data, marks, segs};
+  // One minimal mark so your UI still shows a label
+  const segs=[{phase:4,tStart:0,tEnd:data[data.length-1]?.t||0}];
+  const iMid=Math.floor(data.length*0.7);
+  const marks=[{label:'AP', t:data[iMid]?.t||0, v:data[iMid]?.v??-70}];
+  return {data, segs, marks};
 }
 
+/* ---------------- Metrics (unchanged) ---------------- */
 function computeMetrics(curve){
   const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
   const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
@@ -212,6 +207,7 @@ function computeMetrics(curve){
   return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
+/* ---------------- Phase groups (UI labels kept) ---------------- */
 const PHASE_GROUPS=[
   {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
   {label:'Phase 1 (Notch)', keys:['Ito']},
@@ -227,50 +223,34 @@ function areSimilarChannels(ch1, ch2){
   return false;
 }
 
-/* ---------------- ECG synthesizer (smooth, zero-mean) ---------------- */
+/* ---------------- ECG synthesizer (unchanged) ---------------- */
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-
 function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
   rr = clamp(rr, 300, 2000);  pr = clamp(pr, 100, 260);
   qrs = clamp(qrs, 70, 160);  qt = clamp(qt, 280, 520);
-
-  const dt = 1000/fs; // ms / sample
-  const oneBeat=[], nBeat=Math.round(rr/dt);
-
+  const dt=1000/fs, oneBeat=[], nBeat=Math.round(rr/dt);
   for(let i=0;i<nBeat;i++){
     const tb=i*dt;
     const pC=Math.max(0.11*rr, pr-0.5*qrs);
     const qrsC=pr;
     const tStart=qrsC+qrs;
     const tC=tStart+0.45*(qt-qrs);
-
-    const pS=0.05*rr;
-    const qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
-    const tS=0.22*(qt-qrs);
-
+    const pS=0.05*rr; const qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs; const tS=0.22*(qt-qrs);
     let v=0;
     v+=gaussian(tb,pC,            pS,  0.12);
     v+=gaussian(tb,qrsC-0.20*qrs, qS, -0.25);
     v+=gaussian(tb,qrsC,          rS,  1.00);
     v+=gaussian(tb,qrsC+0.25*qrs, sS, -0.35);
     v+=gaussian(tb,tC,            tS,  0.35);
-
     oneBeat.push(v);
   }
   const mean = oneBeat.reduce((a,b)=>a+b,0)/oneBeat.length;
   for(let i=0;i<oneBeat.length;i++) oneBeat[i]-=mean;
-
-  const data=[];
-  for(let b=0;b<beats;b++){
-    for(let i=0;i<nBeat;i++){
-      const t_s=(b*rr + i*dt)/1000;
-      data.push({t:Number(t_s.toFixed(3)), v:oneBeat[i]});
-    }
-  }
+  const data=[]; for(let b=0;b<beats;b++){ for(let i=0;i<nBeat;i++){ const t_s=(b*rr + i*dt)/1000; data.push({t:+t_s.toFixed(3), v:oneBeat[i]}); } }
   return data;
 }
 
-/* ---------------- Quiz ---------------- */
+/* ---------------- Quiz Mode (unchanged UI) ---------------- */
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = useState("ventricular");
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -307,8 +287,8 @@ function QuizMode(){
 
     return {
       targetChannel, modType, modValue, options,
-      baseline: generateAP(cellTypeId, baselineParams),
-      modified: generateAP(cellTypeId, modParams)
+      baseline: cardSim({cellId:cellTypeId, params:baselineParams, bpm:60, cycles:(cellTypeId==='sa'?3:1)}),
+      modified: cardSim({cellId:cellTypeId, params:modParams, bpm:60, cycles:(cellTypeId==='sa'?3:1)})
     };
   };
 
@@ -325,6 +305,9 @@ function QuizMode(){
   if(!currentQuestion) return <div>Loading...</div>;
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
+
+  const base={data:currentQuestion.baseline, segs:[{phase:4,tStart:0,tEnd:currentQuestion.baseline.at(-1)?.t||0}], marks:[]};
+  const mod ={data:currentQuestion.modified, segs:[{phase:4,tStart:0,tEnd:currentQuestion.modified.at(-1)?.t||0}], marks:[]};
 
   return (
     <div className="wrap">
@@ -389,13 +372,13 @@ function QuizMode(){
         </div>
         <div style={{width: '100%'}}>
           <ResponsiveContainer width="100%" height={420}>
-            <LineChart data={currentQuestion.modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
+            <LineChart data={mod.data} margin={{top:8,right:40,bottom:20,left:20}}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
               <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
-              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
-              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <Line dot={false} type="monotone" dataKey="v" data={base.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              <Line dot={false} type="monotone" dataKey="v" data={mod.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
               <ReferenceLine y={-85} stroke="#e5e7eb"/>
             </LineChart>
           </ResponsiveContainer>
@@ -405,7 +388,7 @@ function QuizMode(){
   );
 }
 
-/* ---------------- Explore Mode (no sensitivity panel) ---------------- */
+/* ---------------- Explore Mode (minor glue to pass cycle length) ---------------- */
 function ExploreMode(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
   const [params,setParams]=useState({...BASELINE_PARAMS});
@@ -432,20 +415,20 @@ function ExploreMode(){
 
   const baseline=useMemo(()=>{
     const base={...BASELINE_PARAMS};
-    if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = 60000/bpm; }
-    return generateAP(cell.id, base);
+    if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000); }
+    return cardSim({cellId:cell.id, params:base, bpm, cycles:(cell.id==='sa'?3:1)});
   },[cell.id,bpm]);
 
-  const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,envPreset,ko,bpm]);
+  const modified=useMemo(()=>cardSim({cellId:cell.id, params:buildParamsFor(cell.id,true), bpm, cycles:(cell.id==='sa'?3:1)}),[cell.id,params,preset,envPreset,ko,bpm]);
 
-  const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
-  const curMetrics =useMemo(()=>computeMetrics(modified),[modified]);
+  const baseMetrics=useMemo(()=>computeMetrics({data:baseline}),[baseline]);
+  const curMetrics =useMemo(()=>computeMetrics({data:modified}),[modified]);
 
   const intervalsFromParams=(useCurrent)=>{
-    const saAP   = generateAP('sa',        buildParamsFor('sa',useCurrent));
-    const atrAP  = generateAP('atrial',    buildParamsFor('atrial',useCurrent));
-    const ventAP = generateAP('ventricular',buildParamsFor('ventricular',useCurrent));
-    const saM=computeMetrics(saAP), atrM=computeMetrics(atrAP), ventM=computeMetrics(ventAP);
+    const saAP   = cardSim({cellId:'sa', params:buildParamsFor('sa',useCurrent), bpm, cycles:3});
+    const atrAP  = cardSim({cellId:'atrial', params:buildParamsFor('atrial',useCurrent), bpm, cycles:1});
+    const ventAP = cardSim({cellId:'ventricular', params:buildParamsFor('ventricular',useCurrent), bpm, cycles:1});
+    const saM=computeMetrics({data:saAP}), atrM=computeMetrics({data:atrAP}), ventM=computeMetrics({data:ventAP});
 
     const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
     const kICaL_atrial = pct((buildParamsFor('atrial',useCurrent).ICaL??100));
@@ -559,16 +542,16 @@ function ExploreMode(){
         </div>
         <div style={{width:'100%'}}>
           <ResponsiveContainer width="100%" height={420}>
-            <LineChart data={modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
+            <LineChart data={modified} margin={{top:8,right:40,bottom:20,left:20}}>
               <CartesianGrid strokeDasharray="3 3"/>
               <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
               <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
               {showBaseline && (
-                <Line dot={false} type="monotone" dataKey="v" data={baseline.data}
+                <Line dot={false} type="monotone" dataKey="v" data={baseline}
                       name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
               )}
-              <Line dot={false} type="monotone" dataKey="v" data={modified.data}
+              <Line dot={false} type="monotone" dataKey="v" data={modified}
                     name="Modified" stroke="#0f172a" strokeWidth={3}/>
               <ReferenceLine y={-85} stroke="#e5e7eb"/>
             </LineChart>
