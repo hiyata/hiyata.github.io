@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Cardio Physio — L7 Essentials (ECG Grid + Tight Quiz)
+title: Cardio Physio — L7 with ECG Grid
 ---
 
-<div id="l7-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
+<div id="l7-grid-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -17,24 +17,18 @@ title: Cardio Physio — L7 Essentials (ECG Grid + Tight Quiz)
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <style>
-  :root{
-    --ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--amber:#b45309;
-    --paper-small:4px;   /* “1 mm” visual */
-    --paper-big:20px;    /* “5 mm” visual = 5 * small */
-    --paper-light:#fde2e2; /* light red for small boxes */
-    --paper-dark:#f8b4b4;  /* darker red for big boxes */
-  }
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--amber:#b45309;--pink:#fce7f3}
   body{color:var(--ink)}
   .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
-  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px,420px) 1fr;gap:32px}}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px, 420px) 1fr;gap:32px}}
   .section h2{font:600 12px ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
-  .row{display:flex;gap:12px;align-items:center}
-  .field{display:flex;flex-direction:column;gap:6px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .field{display:flex;flex-direction:column;gap:6px;min-width:200px}
   .label{font-size:12px;color:var(--muted)}
   input[type="range"]{width:100%}
-  input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
-  button{cursor:pointer;background:#fff}
+  input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px;background:#fff}
+  button{cursor:pointer}
   button:hover{background:#f8fafc}
   button.primary{background:var(--blue);color:white;font-weight:600}
   button.primary:hover{background:#1d4ed8}
@@ -43,63 +37,39 @@ title: Cardio Physio — L7 Essentials (ECG Grid + Tight Quiz)
   .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
   .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
   .card{border:1px solid var(--grid);border-radius:8px;padding:12px}
-  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
+  .divider{height:1px;background:var(--grid);margin:12px 0}
+  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600}
   .badge.ok{background:#f0fdf4;color:var(--green)}
-  .badge.warn{background:#fffbeb;color:var(--amber)}
   .badge.err{background:#fef2f2;color:var(--red)}
-  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
-  .mini-grid{font:11px;color:#94a3b8}
-
-  /* QUIZ option styles */
-  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all .15s;background:white}
+  .mini{font:11px;color:#94a3b8}
+  .quiz-option{padding:10px 12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all .15s;background:#fff}
   .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
-  .quiz-option.selected{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  .quiz-option.selected{border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,.12)}
   .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
   .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
-  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
-
-  /* ECG PAPER GRID: two layered repeating gradients (small + big boxes) */
-  .ecg-paper{
-    position:relative;border:1px solid #f3a8a8;border-radius:8px;overflow:hidden;
-    background:
-      /* big 5mm squares */
-      linear-gradient(var(--paper-dark) 1px, transparent 1px),
-      linear-gradient(90deg, var(--paper-dark) 1px, transparent 1px),
-      /* small 1mm squares */
-      linear-gradient(var(--paper-light) 1px, transparent 1px),
-      linear-gradient(90deg, var(--paper-light) 1px, transparent 1px);
-    background-size:
-      var(--paper-big) var(--paper-big),
-      var(--paper-big) var(--paper-big),
-      var(--paper-small) var(--paper-small),
-      var(--paper-small) var(--paper-small);
-    background-position:
-      0 0, 0 0, 0 0, 0 0;
-  }
-  .ecg-paper .chart-wrap{
-    /* give the chart breathing room so the grid is visible around it */
-    padding:6px 10px;
-  }
-
-  /* callout for BP myth */
-  .callout{border:1px solid #fde68a;background:#fffbeb;border-radius:8px;padding:10px;font-size:14px}
-  .callout strong{color:#b45309}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.7}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle button{border:none;border-radius:0;padding:8px 16px}
+  .mode-toggle button.active{background:var(--blue);color:white}
+  .subtabs{display:flex;gap:8px;margin-bottom:8px}
+  .subtabs button{padding:6px 10px;border-radius:6px;border:1px solid var(--grid)}
+  .subtabs button.active{background:#eef2ff;border-color:#c7d2fe}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,useRef} = React;
+const {useMemo,useState,useRef,Fragment} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer,Area,AreaChart} = Recharts;
 
-/* ---------- Utils ---------- */
+/* ---------------- Utilities ---------------- */
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-const deg=rad=>rad*180/Math.PI;
-const rad=d=>d*Math.PI/180;
 const round=(x,n=0)=>Number(x.toFixed(n));
+const deg=(r)=>r*180/Math.PI;
+const rad=(d)=>d*Math.PI/180;
 
-/* ECG generator (Gaussian P/QRS/T), tiled beats, zero-mean for isoelectric baseline */
+/* ECG generator (Lead II-like) */
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-function genECG({rr, pr, qrs, qt, beats=3, fs=800}){
+function genECG({rr, pr, qrs, qt, beats=3, fs=800, tBoost=1.0, rAmp=0.95}){
   rr=clamp(rr,300,2000); pr=clamp(pr,100,260); qrs=clamp(qrs,70,180); qt=clamp(qt,280,520);
   const dt=1000/fs, nBeat=Math.round(rr/dt), beat=[];
   for(let i=0;i<nBeat;i++){
@@ -109,20 +79,47 @@ function genECG({rr, pr, qrs, qt, beats=3, fs=800}){
     let v=0;
     v+=gaussian(t,pC,pS, 0.12);
     v+=gaussian(t,qrsC-0.22*qrs,qS,-0.25);
-    v+=gaussian(t,qrsC,        rS,  0.95);
+    v+=gaussian(t,qrsC,        rS,  rAmp);
     v+=gaussian(t,qrsC+0.28*qrs,sS,-0.35);
-    v+=gaussian(t,tC,tS,  0.35);
+    v+=gaussian(t,tC,tS,  0.35*tBoost);
     beat.push(v);
   }
   const mn=beat.reduce((a,b)=>a+b,0)/beat.length;
   for(let i=0;i<beat.length;i++) beat[i]-=mn;
   const data=[];
   for(let b=0;b<beats;b++){
-    for(let i=0;i<beat.length;i++) data.push({t:round((b*rr + i*dt)/1000,3), v:beat[i]});
+    for(let i=0;i<beat.length;i++){
+      data.push({t:round((b*rr + i*dt)/1000,3), v:beat[i]});
+    }
   }
   return data;
 }
 
+/* ECG grid lines aligned to time/voltage:
+   - Small box = 0.04 s (40 ms) horizontally, 0.1 mV vertically
+   - Big box  = 0.20 s (200 ms) horizontally, 0.5 mV vertically
+   We draw them as many ReferenceLines based on current domain. */
+function ECGGrid({xMax, yMin=-1.2, yMax=1.4}){
+  const xs=[]; const ys=[];
+  for(let x=0; x<=xMax+1e-6; x+=0.04){ xs.push(round(x,2)); }            // small 0.04s
+  for(let y=Math.ceil(yMin/0.1)*0.1; y<=yMax+1e-6; y+=0.1){ ys.push(round(y,1)); } // small 0.1mV
+  return (
+    <Fragment>
+      {/* small pink grid */}
+      {xs.map((x,i)=><ReferenceLine key={'sx'+i} x={x} stroke="#fce7f3" ifOverflow="extendDomain"/>)}
+      {ys.map((y,i)=><ReferenceLine key={'sy'+i} y={y} stroke="#fce7f3" ifOverflow="extendDomain"/>)}
+      {/* heavy every 5th line */}
+      {xs.filter((x)=>Math.abs((x/0.2)-Math.round(x/0.2))<1e-6).map((x,i)=>
+        <ReferenceLine key={'bx'+i} x={x} stroke="#f9a8d4" strokeWidth={2} ifOverflow="extendDomain"/>
+      )}
+      {ys.filter((y)=>Math.abs((y/0.5)-Math.round(y/0.5))<1e-6).map((y,i)=>
+        <ReferenceLine key={'by'+i} y={y} stroke="#f9a8d4" strokeWidth={2} ifOverflow="extendDomain"/>
+      )}
+    </Fragment>
+  );
+}
+
+/* Helpers */
 const rateBucket = (bpm)=> bpm<60?'Brady': bpm<=100?'Normal':'Tachy';
 const axisBucket = (ang)=>{
   if(ang>=-30 && ang<=90) return 'Normal axis';
@@ -134,55 +131,43 @@ const axisBucket = (ang)=>{
 const qtcBazett = (qt_ms, rr_ms)=> round(qt_ms/Math.sqrt(rr_ms/1000));
 const within = (x,[lo,hi]) => x>=lo && x<=hi;
 
-/* ---------- Explore ---------- */
+/* ---------------- Explore Panel ---------------- */
 function Explore(){
   const [rr,setRR]=useState(1000);
   const [pr,setPR]=useState(160);
   const [qrs,setQRS]=useState(90);
   const [qt,setQT]=useState(400);
-  const [leadI,setLeadI]=useState(8);
-  const [aVF,setAVF]=useState(6);
-  const [showPaper,setShowPaper]=useState(true);
-  const [showAxes,setShowAxes]=useState(false); // hide axes for “count boxes” practice
+  const [showBaseline,setShowBaseline]=useState(true);
+  const [baselineRR] = useState(1000);
+  const [baselinePR] = useState(160);
+  const [baselineQRS] = useState(90);
+  const [baselineQT] = useState(400);
 
   const PRESETS={
-    'Normal (60 bpm)':   {rr:1000, pr:160, qrs:90,  qt:400},
-    'Sinus Brady (45)':  {rr:1330, pr:170, qrs:90,  qt:420},
-    'Sinus Tach (120)':  {rr:500,  pr:150, qrs:85,  qt:360},
-    '1° AV block':       {rr:1000, pr:220, qrs:90,  qt:400},
-    'RBBB pattern':      {rr:1000, pr:160, qrs:140, qt:420},
-    'IKr block (QT↑)':   {rr:1000, pr:160, qrs:90,  qt:480},
-    'HyperK (t-peaked)': {rr:1000, pr:160, qrs:100, qt:420},
+    'Normal (60 bpm)':   {rr:1000, pr:160, qrs:90,  qt:400, tBoost:1.0, rAmp:0.95},
+    'Sinus Brady (45)':  {rr:1330, pr:170, qrs:90,  qt:420, tBoost:1.0, rAmp:0.95},
+    'Sinus Tach (120)':  {rr:500,  pr:150, qrs:85,  qt:360, tBoost:1.0, rAmp:0.95},
+    '1° AV block':       {rr:1000, pr:220, qrs:90,  qt:400, tBoost:1.0, rAmp:0.95},
+    'RBBB pattern':      {rr:1000, pr:160, qrs:150, qt:430, tBoost:1.0, rAmp:0.95},
+    'IKr block (QT↑)':   {rr:1000, pr:160, qrs:90,  qt:480, tBoost:1.1, rAmp:0.95},
+    'Low voltage + tachy':{rr:550, pr:150, qrs:90,  qt:380, tBoost:0.9, rAmp:0.45}, // hypotension-ish look
   };
 
   const bpm = round(60000/rr);
   const qtc = qtcBazett(qt, rr);
 
-  const presetName = useRef('Normal (60 bpm)');
+  const presetRef = useRef('Normal (60 bpm)');
   const ecgData = useMemo(()=>{
-    const base = genECG({rr, pr, qrs, qt, beats:3, fs:800});
-    if(presetName.current==='HyperK (t-peaked)'){
-      return base.map(p => ({...p, v: p.v>0 ? p.v*1.4 : p.v}));
-    }
-    return base;
+    const p=PRESETS[presetRef.current]||PRESETS['Normal (60 bpm)'];
+    return genECG({rr, pr, qrs, qt, beats:3, fs:800, tBoost:p.tBoost, rAmp:p.rAmp});
   },[rr,pr,qrs,qt]);
 
-  const theta = useMemo(()=> round(deg(Math.atan2(aVF, leadI))), [leadI,aVF]);
+  const baselineData = useMemo(()=>genECG({rr:baselineRR,pr:baselinePR,qrs:baselineQRS,qt:baselineQT,beats:3,fs:800}),[]);
+  const xMax = (ecgData[ecgData.length-1]?.t)||3;
 
   const applyPreset = (name)=>{
-    presetName.current=name;
+    presetRef.current=name;
     const p=PRESETS[name]; setRR(p.rr); setPR(p.pr); setQRS(p.qrs); setQT(p.qt);
-    if(name==='RBBB pattern'){ setLeadI(6); setAVF(4); }
-    else { setLeadI(8); setAVF(6); }
-  };
-
-  const miniMsg = ()=>{
-    const msgs=[];
-    msgs.push(`Rate: ${bpm} bpm (${rateBucket(bpm)})`);
-    msgs.push(`PR ${pr} ms ${within(pr,[120,200])?'(normal)':'(abnormal)'}`);
-    msgs.push(`QRS ${qrs} ms ${within(qrs,[70,110])?'(normal)':'(wide)'}`);
-    msgs.push(`QT ${qt} ms, QTc ${qtc} ms ${within(qtc,[350,470])?'(≈normal)':'(prolonged/shortened)'}`);
-    return msgs.join(' • ');
   };
 
   return (
@@ -191,21 +176,25 @@ function Explore(){
         <h2>Explore</h2>
 
         <div className="stack">
-          <div className="field">
-            <label className="label">Preset case</label>
-            <select onChange={(e)=>applyPreset(e.target.value)} defaultValue="Normal (60 bpm)">
-              {Object.keys(PRESETS).map(k=><option key={k}>{k}</option>)}
-            </select>
+          <div className="row">
+            <div className="field">
+              <label className="label">Preset case</label>
+              <select onChange={(e)=>applyPreset(e.target.value)} defaultValue="Normal (60 bpm)">
+                {Object.keys(PRESETS).map(k=><option key={k}>{k}</option>)}
+              </select>
+            </div>
+            <label className="label" style={{display:'flex',alignItems:'center',gap:8}}>
+              <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)}/>
+              Show baseline overlay
+            </label>
           </div>
 
           <div className="card">
             <div className="row">
               <div className="field" style={{flex:1}}>
-                <label className="label">RR (ms) — heart rate via RR: {round(60000/rr)} bpm</label>
+                <label className="label">RR (ms) — HR {round(60000/rr)} bpm</label>
                 <input type="range" min="350" max="1600" step="10" value={rr} onChange={(e)=>setRR(+e.target.value)} />
               </div>
-            </div>
-            <div className="row">
               <div className="field" style={{flex:1}}>
                 <label className="label">PR (ms)</label>
                 <input type="range" min="100" max="260" step="5" value={pr} onChange={(e)=>setPR(+e.target.value)} />
@@ -219,212 +208,289 @@ function Explore(){
                 <input type="range" min="280" max="520" step="5" value={qt} onChange={(e)=>setQT(+e.target.value)} />
               </div>
             </div>
-            <div className="mini-grid">{miniMsg()}</div>
           </div>
 
-          <div className="divider"></div>
-
-          {/* Axis Trainer */}
-          <div className="card">
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-              <div style={{fontWeight:600}}>Mean Electrical Axis (frontal)</div>
-              <div>
-                Angle: <b>{theta}°</b> <span className="badge ok">{axisBucket(theta)}</span>
-              </div>
-            </div>
-            <div className="row" style={{marginTop:8}}>
-              <div className="field" style={{flex:1}}>
-                <label className="label">Lead I net (mm)</label>
-                <input type="range" min="-20" max="20" step="1" value={leadI} onChange={(e)=>setLeadI(+e.target.value)} />
-              </div>
-              <div className="field" style={{flex:1}}>
-                <label className="label">aVF net (mm)</label>
-                <input type="range" min="-20" max="20" step="1" value={aVF} onChange={(e)=>setAVF(+e.target.value)} />
-              </div>
-            </div>
-          </div>
-
-          <div className="divider"></div>
-          <div className="row" style={{gap:16}}>
-            <label className="label"><input type="checkbox" checked={showPaper} onChange={e=>setShowPaper(e.target.checked)} /> Show ECG paper grid</label>
-            <label className="label"><input type="checkbox" checked={showAxes} onChange={e=>setShowAxes(e.target.checked)} /> Show numeric axes</label>
-          </div>
         </div>
       </section>
 
       <section className="section">
-        <h2>ECG (Lead II — synthetic)</h2>
-        <div className="legend">
-          <span className="pill"><span className="line"></span> Rate from RR, PR via AV node, QRS via ventricular conduction, QT via ventricular APD</span>
-        </div>
-
-        <div className={showPaper?'ecg-paper':''}>
-          <div className="chart-wrap">
-            <ResponsiveContainer width="100%" height={260}>
-              <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
-                {/* Hide Recharts grid; the paper background is the actual ECG grid */}
-                {!showAxes && <CartesianGrid stroke="transparent" />}
-                {showAxes && <CartesianGrid strokeDasharray="3 3" />}
-                <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
-                       tick={!showAxes?false:undefined}
-                       label={!showAxes?undefined:{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
-                <YAxis domain={[-1.2,1.4]} tickCount={5}
-                       tick={!showAxes?false:undefined}
-                       label={!showAxes?undefined:{value:'mV', angle:-90, position:'insideLeft'}}/>
-                <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-                <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
-                <ReferenceLine y={0} stroke="#e5e7eb"/>
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+        <h2>ECG (Lead II — ECG grid)</h2>
+        <div className="mini">Small boxes: 0.04 s × 0.1 mV • Big boxes: 0.20 s × 0.5 mV</div>
+        <div style={{width:'100%',marginTop:6}}>
+          <ResponsiveContainer width="100%" height={280}>
+            <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
+              {/* ECG grid behind the waveform */}
+              <ECGGrid xMax={xMax}/>
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} ticks={[-1,-0.5,0,0.5,1,1.4]}
+                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baselineData} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
+              <ReferenceLine y={0} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="divider"></div>
 
-        <div className="callout">
-          <strong>Heads up:</strong> You cannot read an actual blood pressure (systolic/diastolic) from an ECG alone.
-          What you <em>can</em> practice is spotting rhythms/rates that are likely to compromise perfusion (e.g., very fast VT, very slow brady, polymorphic VT) and thus correlate with low BP. The quiz below adds that “perfusion risk” call.
+        <h2>Rate Ladder (big-box rule)</h2>
+        <div className="mini">Memorize: 300 → 150 → 100 → 75 → 60 → 50 (big boxes between R peaks)</div>
+        <div style={{width:'100%',marginTop:8}}>
+          <ResponsiveContainer width="100%" height={120}>
+            <AreaChart data={[{x:0,y:300},{x:1,y:150},{x:2,y:100},{x:3,y:75},{x:4,y:60},{x:5,y:50}]}
+                       margin={{top:8,right:20,bottom:8,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="x" ticks={[0,1,2,3,4,5]} tickFormatter={(i)=>['1','2','3','4','5','6'][i]}
+                     label={{value:'Big boxes', position:'insideBottomRight', offset:-5}}/>
+              <YAxis domain={[0,320]} ticks={[50,60,75,100,150,300]}
+                     label={{value:'bpm', angle:-90, position:'insideLeft'}}/>
+              <Area type="monotone" dataKey="y" stroke="#0f172a" fill="#e5e7eb"/>
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </section>
     </div>
   );
 }
 
-/* ---------- Quiz (no leaks) ---------- */
+/* ---------------- Quiz Mode ---------------- */
 function Quiz(){
-  // We hide truth until “Check answers”. No HR/PR/QRS/QT numbers up front.
-  // Each case also has a perfusionRisk tag for the conceptual BP question.
-  const CASES = [
-    {name:'Case A', rr:860, pr:160, qrs:90,  qt:400, leadI:10, aVF:8,  tweak:null, risk:'low'},
-    {name:'Case B', rr:1400,pr:230, qrs:90,  qt:420, leadI:8,  aVF:6,  tweak:null, risk:'maybe'}, // brady + 1° AVB
-    {name:'Case C', rr:500, pr:150, qrs:85,  qt:360, leadI:8,  aVF:7,  tweak:null, risk:'maybe'}, // sinus tach
-    {name:'Case D', rr:1000,pr:160, qrs:150, qt:430, leadI:6,  aVF:4,  tweak:null, risk:'higher'},// wide QRS
-    {name:'Case E', rr:1000,pr:160, qrs:90,  qt:490, leadI:7,  aVF:5,  tweak:'QT+', risk:'maybe'}, // long QT
-    {name:'Case F', rr:420, pr:150, qrs:85,  qt:340, leadI:-3, aVF:12, tweak:null, risk:'higher'}, // very fast
-    {name:'Case G', rr:1800,pr:180, qrs:90,  qt:410, leadI:8,  aVF:-8, tweak:null, risk:'higher'}, // very slow
-  ];
-  const [idx,setIdx]=useState(0);
-  const [show,setShow]=useState(false);
-  const [answers,setAnswers]=useState({rate:null, pr:null, qrs:null, qt:null, axis:null, risk:null});
-
-  const c = CASES[idx];
-  const bpm = round(60000/c.rr);
-  const qtc = qtcBazett(c.qt, c.rr);
-  const theta = Math.round(deg(Math.atan2(c.aVF, c.leadI)));
-  const data = useMemo(()=>{
-    const base = genECG({rr:c.rr, pr:c.pr, qrs:c.qrs, qt:c.qt, beats:3, fs:800});
-    if(c.tweak==='QT+') return base.map(p=>({...p, v: p.v>0 ? p.v*1.15 : p.v}));
-    return base;
-  },[idx]);
-
-  const KEY = {
-    rate: rateBucket(bpm),
-    pr: within(c.pr,[120,200])?'Normal':'Abnormal',
-    qrs: within(c.qrs,[70,110])?'Normal':'Wide',
-    qt: within(qtc,[350,470])?'Normal(QTc)':'Abnormal(QTc)',
-    axis: axisBucket(theta),
-    risk: (()=>{
-      // simple teaching heuristic: very fast (>150) or very slow (<40) or wide QRS (>130) → higher perfusion risk
-      if(bpm>150 || bpm<40 || c.qrs>130) return 'higher';
-      if(bpm<55 || bpm>110 || c.pr>200 || (qtc<350||qtc>470)) return 'maybe';
-      return 'low';
-    })()
-  };
-
-  const options = {
-    rate:['Brady','Normal','Tachy'],
-    pr:['Normal','Abnormal'],
-    qrs:['Normal','Wide'],
-    qt:['Normal(QTc)','Abnormal(QTc)'],
-    axis:['Normal axis','Left axis deviation','Right axis deviation','Extreme LAD'],
-    risk:['low','maybe','higher'] // proxy for BP impact (conceptual)
-  };
-
-  const pick=(k,v)=> setAnswers(a=>({...a,[k]:v}));
-  const reset=()=>{ setAnswers({rate:null, pr:null, qrs:null, qt:null, axis:null, risk:null}); setShow(false); };
-  const next=()=>{ setIdx((i)=> (i+1)%CASES.length); reset(); };
-
-  const Q = ['rate','pr','qrs','qt','axis','risk'];
+  const [tab,setTab]=useState('intervals'); // 'intervals' or 'bp'
 
   return (
     <div className="wrap">
       <section className="section">
         <h2>Quiz</h2>
-        <div className="stack">
-          <div className="card">
-            <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
-              <div style={{fontWeight:600}}>Identify: rate bucket, PR, QRS, QTc, axis quadrant, perfusion risk</div>
-              <div>Case: <b>{c.name}</b></div>
-            </div>
-
-            {/* ECG with paper grid and NO numeric axes so you can “count boxes” */}
-            <div className="ecg-paper" style={{marginBottom:12}}>
-              <div className="chart-wrap">
-                <ResponsiveContainer width="100%" height={220}>
-                  <LineChart data={data} margin={{top:8,right:20,bottom:10,left:10}}>
-                    <CartesianGrid stroke="transparent" />
-                    <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tick={false}/>
-                    <YAxis domain={[-1.2,1.4]} tick={false}/>
-                    <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-                    <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.2}/>
-                    <ReferenceLine y={0} stroke="#ef4444" strokeDasharray="6 6"/>
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </div>
-
-            {/* Questions */}
-            <div className="stack">
-              {Q.map(key=>(
-                <div key={key}>
-                  <div style={{fontSize:13,color:'var(--muted)',marginBottom:6,textTransform:'uppercase',letterSpacing:'.05em'}}>{key}</div>
-                  <div className="row" style={{flexWrap:'wrap'}}>
-                    {options[key].map(o=>{
-                      const selected = answers[key]===o;
-                      const graded = show;
-                      const correct = graded && o===KEY[key];
-                      const wrong   = graded && selected && o!==KEY[key];
-                      const cls = `quiz-option ${!graded && selected ? 'selected':''} ${graded ? (correct?'correct': (wrong?'incorrect':'')) : ''} ${graded?'disabled':''}`;
-                      return (
-                        <button key={o} className={cls} onClick={()=>!graded&&pick(key,o)} disabled={graded}
-                                aria-pressed={selected} style={{marginRight:8, marginBottom:8}}>
-                          {o}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  {show && (
-                    <div style={{marginTop:6}}>
-                      <span className={`badge ${answers[key]===KEY[key]?'ok':'err'}`}>
-                        {answers[key]===KEY[key] ? '✓ Correct' : '✗ Incorrect'}
-                      </span>
-                      <span style={{marginLeft:8, color:'var(--muted)'}}>Answer: <b>{KEY[key]}</b></span>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="row" style={{marginTop:12}}>
-              {!show && <button className="primary" onClick={()=>setShow(true)}>Check answers</button>}
-              {show && <button onClick={next}>Next case</button>}
-              <button onClick={reset}>Reset</button>
-            </div>
-
-            {/* Truth panel appears ONLY after grading */}
-            {show && (
-              <div className="score-display" style={{marginTop:12}}>
-                <div>HR {round(60000/c.rr)} bpm • PR {c.pr} ms • QRS {c.qrs} ms • QT {c.qt} ms (QTc {qtc} ms) • Axis {theta}°</div>
-              </div>
-            )}
-          </div>
+        <div className="subtabs">
+          <button className={tab==='intervals'?'active':''} onClick={()=>setTab('intervals')}>Rate/Intervals/Axis</button>
+          <button className={tab==='bp'?'active':''} onClick={()=>setTab('bp')}>BP-related Inference</button>
         </div>
+        {tab==='intervals' ? <IntervalsQuiz/> : <BPInferenceQuiz/>}
       </section>
     </div>
   );
 }
 
-/* ---------- App ---------- */
+/* ---- Intervals/Axis quiz (no answers shown until "Check") ---- */
+function IntervalsQuiz(){
+  const CASES = [
+    {name:'Normal 70', rr:860, pr:160, qrs:90, qt:400, leadI:10, aVF:8, tBoost:1.0, rAmp:0.95},
+    {name:'Brady + 1°AVB', rr:1400, pr:230, qrs:90, qt:420, leadI:8, aVF:6, tBoost:1.0, rAmp:0.95},
+    {name:'Sinus Tach 120', rr:500, pr:150, qrs:85, qt:360, leadI:8, aVF:7, tBoost:1.0, rAmp:0.95},
+    {name:'RBBB wide', rr:1000, pr:160, qrs:150, qt:430, leadI:6, aVF:4, tBoost:1.0, rAmp:0.95},
+    {name:'IKr block (QT↑)', rr:1000, pr:160, qrs:90, qt:490, leadI:7, aVF:5, tBoost:1.1, rAmp:0.95},
+    {name:'LAD example', rr:900, pr:200, qrs:100, qt:420, leadI:8, aVF:-8, tBoost:1.0, rAmp:0.95},
+    {name:'RAD example', rr:900, pr:160, qrs:90, qt:400, leadI:-3, aVF:12, tBoost:1.0, rAmp:0.95},
+  ];
+  const [idx,setIdx]=useState(0);
+  const [answers,setAnswers]=useState({rate:null, pr:null, qrs:null, qt:null, axis:null});
+  const [graded,setGraded]=useState(false);
+  const c = CASES[idx];
+
+  const bpm = round(60000/c.rr);
+  const qtc = qtcBazett(c.qt, c.rr);
+  const data = useMemo(()=>genECG({rr:c.rr, pr:c.pr, qrs:c.qrs, qt:c.qt, beats:3, fs:800, tBoost:c.tBoost, rAmp:c.rAmp}),[idx]);
+  const xMax = (data[data.length-1]?.t)||3;
+  const theta = Math.round(deg(Math.atan2(c.aVF, c.leadI)));
+
+  const KEY = {
+    rate: bpm<60?'Brady': bpm<=100?'Normal':'Tachy',
+    pr: within(c.pr,[120,200])?'Normal':'Abnormal',
+    qrs: within(c.qrs,[70,110])?'Normal':'Wide',
+    qt: within(qtc,[350,470])?'Normal(QTc)':'Abnormal(QTc)',
+    axis: axisBucket(theta)
+  };
+
+  const OPT = {
+    rate:['Brady','Normal','Tachy'],
+    pr:['Normal','Abnormal'],
+    qrs:['Normal','Wide'],
+    qt:['Normal(QTc)','Abnormal(QTc)'],
+    axis:['Normal axis','Left axis deviation','Right axis deviation','Extreme LAD']
+  };
+
+  const pick=(k,v)=> setAnswers(a=>({...a,[k]:v}));
+  const reset=()=>{ setAnswers({rate:null,pr:null,qrs:null,qt:null,axis:null}); setGraded(false); };
+  const next=()=>{ setIdx((i)=> (i+1)%CASES.length); reset(); };
+
+  const question = (key,label)=>(
+    <div key={key}>
+      <div className="label" style={{fontSize:13,marginBottom:6,textTransform:'uppercase',letterSpacing:'.05em'}}>{label}</div>
+      <div className="row">
+        {OPT[key].map(o=>{
+          const selected = answers[key]===o;
+          const correct = graded && o===KEY[key];
+          const wrong   = graded && selected && o!==KEY[key];
+          const cls = `quiz-option ${!graded && selected ? 'selected':''} ${graded ? (correct?'correct': (wrong?'incorrect':'')) : ''} ${graded?'disabled':''}`;
+          return (
+            <button key={o} className={cls} onClick={()=>!graded&&pick(key,o)} disabled={graded} aria-pressed={selected}>{o}</button>
+          );
+        })}
+      </div>
+      {graded && (
+        <div style={{marginTop:6}}>
+          <span className={`badge ${answers[key]===KEY[key]?'ok':'err'}`}>
+            {answers[key]===KEY[key] ? '✓ Correct' : '✗ Incorrect'}
+          </span>
+          <span style={{marginLeft:8,color:'var(--muted)'}}>Answer: <b>{KEY[key]}</b></span>
+        </div>
+      )}
+    </div>
+  );
+
+  return (
+    <Fragment>
+      <div className="card" style={{marginBottom:12}}>
+        <div style={{fontWeight:600, marginBottom:8}}>Strip</div>
+        <ResponsiveContainer width="100%" height={260}>
+          <LineChart data={data} margin={{top:8,right:20,bottom:20,left:20}}>
+            <ECGGrid xMax={xMax}/>
+            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                   label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+            <YAxis domain={[-1.2,1.4]} ticks={[-1,-0.5,0,0.5,1,1.4]}
+                   label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+            <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+            <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
+            <ReferenceLine y={0} stroke="#e5e7eb"/>
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="card">
+        <div style={{fontWeight:600, marginBottom:8}}>{c.name}</div>
+        <div className="stack">
+          {question('rate','Rate (bucket)')}
+          {question('pr','PR interval')}
+          {question('qrs','QRS width')}
+          {question('qt','QTc')}
+          {question('axis','Frontal axis (Lead I/aVF logic)')}
+        </div>
+
+        <div className="row" style={{marginTop:12}}>
+          {!graded && <button className="primary" onClick={()=>setGraded(true)}>Check answers</button>}
+          {graded && <button onClick={next}>Next case</button>}
+          <button onClick={reset}>Reset</button>
+        </div>
+      </div>
+    </Fragment>
+  );
+}
+
+/* ---- BP-related inference quiz (educational, not direct BP measurement) ---- */
+function BPInferenceQuiz(){
+  /* We present either a strip (low-voltage + sinus tach) or voltage numbers (Sokolow-Lyon).
+     Students pick the most reasonable BP-related inference. */
+  const CASES = [
+    // Low perfusion hint: sinus tach + low voltage
+    {type:'strip', name:'Low-voltage tachy', rr:550, pr:150, qrs:90, qt:380, tBoost:0.9, rAmp:0.45,
+     question:'Most likely inference regarding blood pressure?',
+     options:['Suggests hypotension/low perfusion','Suggests chronic hypertension (LVH)','Indeterminate'],
+     key:'Suggests hypotension/low perfusion',
+     note:'Sinus tach + globally low QRS amplitude can accompany low stroke volume/perfusion states. Not diagnostic.'},
+
+    // LVH criteria sample (Sokolow-Lyon)
+    {type:'numbers', name:'LVH voltage example',
+     values:{V1_S:22, V5_R:28, aVL_R:14},
+     question:'Based on these voltages, the ECG most suggests:',
+     options:['Chronic hypertension with LVH','Hypotension','Indeterminate'],
+     key:'Chronic hypertension with LVH',
+     note:'Sokolow-Lyon: S(V1)+R(V5/V6) > 35 mm or R in aVL > 11 mm supports LVH; often from chronic HTN.'},
+
+    // Indeterminate example
+    {type:'strip', name:'Normal voltage + normal rate', rr:1000, pr:160, qrs:90, qt:400, tBoost:1.0, rAmp:0.95,
+     question:'Most likely inference regarding blood pressure?',
+     options:['Suggests hypotension/low perfusion','Suggests chronic hypertension (LVH)','Indeterminate'],
+     key:'Indeterminate',
+     note:'ECG cannot measure BP directly; normal voltage/rate does not determine BP.'},
+  ];
+
+  const [idx,setIdx]=useState(0);
+  const [answer,setAnswer]=useState(null);
+  const [graded,setGraded]=useState(false);
+  const c = CASES[idx];
+
+  const data = useMemo(()=>{
+    if(c.type!=='strip') return null;
+    return genECG({rr:c.rr, pr:c.pr, qrs:c.qrs, qt:c.qt, beats:3, fs:800, tBoost:c.tBoost, rAmp:c.rAmp});
+  },[idx]);
+  const xMax = data? (data[data.length-1]?.t)||3 : 3;
+
+  const pick=(v)=> setAnswer(v);
+  const reset=()=>{ setAnswer(null); setGraded(false); };
+  const next=()=>{ setIdx((i)=> (i+1)%CASES.length); reset(); };
+
+  return (
+    <Fragment>
+      <div className="card" style={{marginBottom:12}}>
+        <div style={{fontWeight:600, marginBottom:8}}>{c.name}</div>
+        {c.type==='strip' ? (
+          <ResponsiveContainer width="100%" height={240}>
+            <LineChart data={data} margin={{top:8,right:20,bottom:20,left:20}}>
+              <ECGGrid xMax={xMax}/>
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} ticks={[-1,-0.5,0,0.5,1,1.4]}
+                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
+              <ReferenceLine y={0} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
+        ) : (
+          <div className="mini" style={{lineHeight:1.6}}>
+            <div>Provided voltages (mm):</div>
+            <ul>
+              <li>S<sub>V1</sub> = <b>{c.values.V1_S}</b> mm</li>
+              <li>R<sub>V5</sub> = <b>{c.values.V5_R}</b> mm</li>
+              <li>R<sub>aVL</sub> = <b>{c.values.aVL_R}</b> mm</li>
+            </ul>
+            <div>Check Sokolow-Lyon: S(V1)+R(V5) = {c.values.V1_S + c.values.V5_R} mm (≥35 suggests LVH).</div>
+          </div>
+        )}
+      </div>
+
+      <div className="card">
+        <div style={{fontWeight:600, marginBottom:8}}>{c.question}</div>
+        <div className="row">
+          {c.options.map(o=>{
+            const selected = answer===o;
+            const correct = graded && o===c.key;
+            const wrong   = graded && selected && o!==c.key;
+            const cls = `quiz-option ${!graded && selected ? 'selected':''} ${graded ? (correct?'correct': (wrong?'incorrect':'')) : ''} ${graded?'disabled':''}`;
+            return (
+              <button key={o} className={cls} onClick={()=>!graded&&pick(o)} disabled={graded} aria-pressed={selected}>{o}</button>
+            );
+          })}
+        </div>
+
+        {graded && (
+          <div style={{marginTop:8}}>
+            <span className={`badge ${answer===c.key?'ok':'err'}`}>
+              {answer===c.key ? '✓ Correct' : '✗ Incorrect'}
+            </span>
+            <span style={{marginLeft:8,color:'var(--muted)'}}>{c.note}</span>
+          </div>
+        )}
+
+        <div className="row" style={{marginTop:12}}>
+          {!graded && <button className="primary" onClick={()=>setGraded(true)} disabled={answer==null}>Check answer</button>}
+          {graded && <button onClick={next}>Next</button>}
+          <button onClick={reset}>Reset</button>
+        </div>
+
+        <div className="mini" style={{marginTop:8}}>
+          Note: ECG cannot directly measure blood pressure. These questions use pattern recognition (e.g., LVH voltage suggesting chronic HTN; low-voltage tachy often seen with low perfusion) for teaching only.
+        </div>
+      </div>
+    </Fragment>
+  );
+}
+
+/* ---------------- App Shell ---------------- */
 function App(){
   const [mode,setMode]=useState('explore');
   return (
@@ -438,6 +504,6 @@ function App(){
   );
 }
 
-ReactDOM.createRoot(document.getElementById('l7-app')).render(<App/>);
+ReactDOM.createRoot(document.getElementById('l7-grid-app')).render(<App/>);
 </script>
 {% endraw %}
