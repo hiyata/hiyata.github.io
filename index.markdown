@@ -132,7 +132,7 @@ custom_js: home
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Latest writing</span>
       <h2>Notes, experiments, and observations from the lab</h2>
-      <p>Insights on AI-driven biology, research tooling, and the craft of technical storytelling.</p>
+      <p>Insights on AI-driven biology, research tooling, and the craft of storytelling.</p>
     </div>
     <div class="cards-grid">
       {% for post in site.posts limit:2 %}

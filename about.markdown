@@ -54,7 +54,7 @@ title: About
 
     <section class="skills-section">
       <div class="section-content">
-        <h2>Technical Skills and Experience</h2>
+        <h2>Skills and Experience</h2>
         <div class="skills-container">
           <div class="skill-category" id="ml-ai">
             <div class="skill-header">

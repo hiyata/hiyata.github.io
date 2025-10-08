@@ -55,6 +55,9 @@ title: Cardio Physio
   .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
   .badge.ko{background:#fef2f2;color:var(--red)}
   .badge.increase{background:#f0fdf4;color:var(--green)}
+  .field select, .field input[type="text"]{width:100%;max-width:100%;font-size:12px}
+  .combo{position:relative}
+  .help{font-size:11px;color:var(--muted)}
 </style>
 
 {% raw %}
@@ -81,45 +84,63 @@ const CELL_TYPES = [
 // Where a drug's primary effect is systemic (e.g., ACEi/SGLT2i), it's omitted because it doesn't map to this ion-channel model.
 const DRUG_PRESETS = {
   "None":{},
-  // Sympathomimetics / β-agonists
   "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
   "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
-  // β-blockers (rate/inotropy ↓)
   "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
   "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
-  "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
-  // Parasympathetic modifiers / nodal agents
+  "Esmolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
   "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
-  // HCN/If
   "Ivabradine (If blocker)":{ If:40 },
-  // Calcium channel blockers (Class IV)
   "Verapamil (L-type CCB)":{ ICaL:50 },
   "Diltiazem (L-type CCB)":{ ICaL:60 },
   "Nifedipine (DHP CCB)":{ ICaL:60 },
   "Amlodipine (DHP CCB)":{ ICaL:60 },
-  // Na⁺ channel blockers (Class I)
   "Lidocaine (Class IB)":{ INa:60 },
   "Mexiletine (Class IB)":{ INa:60 },
   "Procainamide (Class IA)":{ INa:70, IKr:85 },
   "Disopyramide (Class IA)":{ INa:70, IKr:90 },
   "Quinidine (Class IA)":{ INa:70, IKr:85 },
   "Flecainide (Class IC)":{ INa:50 },
-  // Late INa / multichannel
   "Ranolazine (late INa)":{ INa:70 },
   "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
-  // K⁺ channel blockers (Class III)
   "Ibutilide (IKr blocker)":{ IKr:60 },
   "Dofetilide (IKr blocker)":{ IKr:50 },
-  // Inotropes affecting Ca²⁺ handling
   "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
   "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
-  // Peripheral sympatholytics
   "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
   "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
+};
+
+// Channel-focused, lecture-listed inhibitors only (single dominant effect)
+const DRUG_CHANNEL_ONLY = {
+  "None":{},
+  // INa blockers
+  "Lidocaine → INa↓":{ INa:60 },
+  "Mexiletine → INa↓":{ INa:60 },
+  "Procainamide → INa↓":{ INa:70 },
+  "Disopyramide → INa↓":{ INa:70 },
+  "Quinidine → INa↓":{ INa:70 },
+  "Flecainide → INa↓":{ INa:50 },
+  "Ranolazine → late INa↓":{ INa:70 },
+  // ICaL blockers
+  "Verapamil → ICaL↓":{ ICaL:50 },
+  "Diltiazem → ICaL↓":{ ICaL:60 },
+  "Nifedipine → ICaL↓":{ ICaL:60 },
+  "Amlodipine → ICaL↓":{ ICaL:60 },
+  // If blocker
+  "Ivabradine → If↓":{ If:40 },
+  // IKr blockers
+  "Ibutilide → IKr↓":{ IKr:60 },
+  "Dofetilide → IKr↓":{ IKr:50 },
+  // IK,ACh modifiers (antagonists reduce IK,ACh)
+  "Atropine → IK,ACh↓":{ IK_ACh:70 },
+  "Scopolamine → IK,ACh↓":{ IK_ACh:70 },
+  // Na⁺/K⁺-ATPase inhibitor
+  "Digoxin → Na⁺/K⁺-ATPase↓":{ NaKATPase:40 },
 };
 const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperkalemia":{IK1:60,INa:80}, "Ischemia":{NaKATPase:50,IK1:70,IKr:120} };
 
@@ -411,6 +432,8 @@ function ExploreMode(){
   const [params,setParams]=useState({...BASELINE_PARAMS});
   const [ko,setKo]=useState({});
   const [preset,setPreset]=useState("None");
+  const [preset2,setPreset2]=useState("None");
+  const [drugSearch,setDrugSearch]=useState("");
   const [envPreset,setEnvPreset]=useState("None");
   const [showBaseline,setShowBaseline]=useState(true);
   const [bpm,setBpm]=useState(60);
@@ -422,7 +445,8 @@ function ExploreMode(){
     const apply=(obj,map)=>{ const out={...obj}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
     const env = useCurrent ? (ENV_PRESETS[envPreset]||{}) : {};
     const drug = useCurrent ? (DRUG_PRESETS[preset]||{}) : {};
-    const out = apply(apply(base,env),drug);
+    const drug2= useCurrent ? (DRUG_CHANNEL_ONLY[preset2]||{}) : {};
+    const out = apply(apply(apply(base,env),drug),drug2);
     if(useCurrent){ Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; }); }
     const mask=CELL_TYPES.find(c=>c.id===id)?.uses||{};
     Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
@@ -436,7 +460,7 @@ function ExploreMode(){
     return generateAP(cell.id, base);
   },[cell.id,bpm]);
 
-  const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,envPreset,ko,bpm]);
+  const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,preset2,envPreset,ko,bpm]);
 
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
   const curMetrics =useMemo(()=>computeMetrics(modified),[modified]);
@@ -456,7 +480,7 @@ function ExploreMode(){
     return {rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms};
   };
 
-  const intsMod  = useMemo(()=>intervalsFromParams(true), [params,preset,envPreset,ko,bpm]);
+  const intsMod  = useMemo(()=>intervalsFromParams(true), [params,preset,preset2,envPreset,ko,bpm]);
   const intsBase = useMemo(()=>intervalsFromParams(false),[bpm]);
 
   const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
@@ -465,7 +489,7 @@ function ExploreMode(){
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
-  function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
+  function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setPreset2("None"); setDrugSearch(""); setEnvPreset("None"); setBpm(60); }); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
 
   return (
     <div className="wrap">
@@ -473,7 +497,7 @@ function ExploreMode(){
       <section className="section">
         <h2>Controls</h2>
         <div className="stack">
-          <div className="row">
+          <div className="row" style={{gap:12}}>
             <div className="field flex1">
               <label className="label">Cell type</label>
               <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
@@ -483,15 +507,29 @@ function ExploreMode(){
               </select>
             </div>
             <div className="field flex1">
-              <label className="label">Drug preset</label>
-              <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
-                {Object.keys(DRUG_PRESETS).map(p=>
+              <label className="label">Drug preset (lecture-only)</label>
+              <div className="combo">
+                <input type="text" placeholder="Type to filter…" value={drugSearch}
+                  onChange={(e)=>{ const v=e.target.value; setDrugSearch(v); if(DRUG_PRESETS[v]) setPreset(v); }} list="drug-presets" />
+                <datalist id="drug-presets">
+                  {Object.keys(DRUG_PRESETS).map(p=>
+                    <option key={p} value={p} />
+                  )}
+                </datalist>
+              </div>
+              <div className="help">Start typing to narrow options. Current: <b>{preset}</b></div>
+            </div>
+          </div>
+          <div className="row" style={{gap:12}}>
+            <div className="field flex1">
+              <label className="label">Channel inhibitor (lecture-listed)</label>
+              <select value={preset2} onChange={(e)=>setPreset2(e.target.value)}>
+                {Object.keys(DRUG_CHANNEL_ONLY).map(p=>
                   <option key={p} value={p}>{p}</option>
                 )}
               </select>
+              <div className="help">Applies a single dominant channel block (e.g., "Ibutilide → IKr↓").</div>
             </div>
-          </div>
-          <div className="row">
             <div className="field flex1">
               <label className="label">Environment</label>
               <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
@@ -500,6 +538,8 @@ function ExploreMode(){
                 )}
               </select>
             </div>
+          </div>
+          <div className="row">
             <div className="field flex1">
               <label className="label">Pacing (BPM): {bpm}</label>
               <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />

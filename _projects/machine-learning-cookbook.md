@@ -9,7 +9,7 @@ custom_js: machine-learning-cookbook
 
 ## Introduction
 
-Welcome to this technical journal on machine learning techniques applied to epidemiology and viral genomics. This living document aims to provide an introduction for those new to modeling in these fields and to describe advanced techniques that can be useful in virology. As I continue to learn and explore, I'll update this document with new insights, challenges, and solutions.
+Welcome to my journal on machine learning techniques applied to epidemiology and viral genomics. This living document aims to provide an introduction for those new to modeling in these fields and to describe advanced techniques that can be useful in virology. As I continue to learn and explore, I'll update this document with new insights, challenges, and solutions.
 
 ## Table of Contents
 
