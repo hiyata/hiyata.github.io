@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cardio Physio — L7 Essentials
+title: L7 — ECG Essentials (Explore + Quiz)
 ---
 
 <div id="l7-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
@@ -8,20 +8,17 @@ title: Cardio Physio — L7 Essentials
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
-
 <!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
-
 <!-- Babel (compile JSX in the browser) -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--amber:#b45309}
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;}
   body{color:var(--ink)}
   .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
   @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px, 420px) 1fr;gap:32px}}
-  .section h2{font:600 12px ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
   .stack{display:flex;flex-direction:column;gap:12px}
   .row{display:flex;gap:12px;align-items:center}
   .field{display:flex;flex-direction:column;gap:6px}
@@ -32,388 +29,370 @@ title: Cardio Physio — L7 Essentials
   button:hover{background:#f8fafc}
   button.primary{background:var(--blue);color:white;font-weight:600}
   button.primary:hover{background:#1d4ed8}
+  .divider{height:1px;background:var(--grid);margin:12px 0}
   .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
   .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
   .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .metric .k{color:var(--muted);font-size:12px}
-  .metric .v{font-weight:600}
-  .metric .d{font-size:12px}
-  .divider{height:1px;background:var(--grid);margin:12px 0}
+  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
+  .ko{background:#fef2f2;color:var(--red)}
+  .increase{background:#f0fdf4;color:var(--green)}
   .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
   .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:white}
   .mode-toggle button.active{background:var(--blue);color:white}
-  .card{border:1px solid var(--grid);border-radius:8px;padding:12px}
-  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
-  .badge.ok{background:#f0fdf4;color:var(--green)}
-  .badge.warn{background:#fffbeb;color:var(--amber)}
-  .badge.err{background:#fef2f2;color:var(--red)}
-  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s}
-  .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
-  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
-  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
-  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
-  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
-  .mini-grid{font:11px;color:#94a3b8}
+  .card{border:1px solid var(--grid);border-radius:10px;padding:12px}
+  .title{font-weight:600}
+  .axis-meter{height:8px;background:#f1f5f9;border-radius:4px;position:relative;overflow:hidden}
+  .axis-needle{position:absolute;top:-6px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:12px solid var(--blue)}
+  .grid-hint{font-size:12px;color:var(--muted)}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
 const {useMemo,useState,useRef} = React;
-const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer,Area,AreaChart} = Recharts;
+const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
-/* ---------------- Utilities ---------------- */
+/* -------------------- Shared helpers -------------------- */
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-const deg=rad=>rad*180/Math.PI;
-const rad=d=>d*Math.PI/180;
+const degToRad=(d)=>d*Math.PI/180;
 const round=(x,n=0)=>Number(x.toFixed(n));
 
-/* ECG generator: Gaussian P, QRS, T, tiled beats; zero-mean so the isoelectric line is ~0 mV */
+/* -------------------- ECG Synth -------------------- */
+// simple synthetic lead II beat (P, QRS, T as Gaussians)
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-function genECG({rr, pr, qrs, qt, beats=3, fs=800}){
-  rr=clamp(rr,300,2000); pr=clamp(pr,100,260); qrs=clamp(qrs,70,180); qt=clamp(qt,280,520);
-  const dt=1000/fs, nBeat=Math.round(rr/dt), beat=[];
-  for(let i=0;i<nBeat;i++){
-    const t=i*dt;
-    const qrsC=pr, pC=Math.max(0.11*rr, pr-0.5*qrs), tStart=qrsC+qrs, tC=tStart+0.45*(qt-qrs);
-    const pS=0.05*rr, qS=0.12*qrs, rS=0.10*qrs, sS=0.11*qrs, tS=0.25*(qt-qrs);
+function genECG({rr, pr, qrs, qt, beats=3, fs=1000}){
+  rr=clamp(rr,300,2000); pr=clamp(pr,100,260); qrs=clamp(qrs,70,160); qt=clamp(qt,280,520);
+  const dt=1000/fs, n=Math.round(rr/dt);
+  const one=[], tS=(qt-qrs);
+  for(let i=0;i<n;i++){
+    const t=i*dt, pC=Math.max(0.11*rr, pr-0.5*qrs), qrsC=pr, tC=qrsC+qrs+0.45*tS;
     let v=0;
-    v+=gaussian(t,pC,pS, 0.12);
-    v+=gaussian(t,qrsC-0.22*qrs,qS,-0.25);
-    v+=gaussian(t,qrsC,        rS,  0.95);
-    v+=gaussian(t,qrsC+0.28*qrs,sS,-0.35);
-    v+=gaussian(t,tC,tS,  0.35);
-    beat.push(v);
+    v+=gaussian(t,pC,0.05*rr, 0.12);
+    v+=gaussian(t,qrsC-0.20*qrs,0.12*qrs,-0.25);
+    v+=gaussian(t,qrsC,         0.09*qrs, 1.00);
+    v+=gaussian(t,qrsC+0.25*qrs,0.10*qrs,-0.35);
+    v+=gaussian(t,tC,           0.22*tS,  0.35);
+    one.push(v);
   }
-  const mn=beat.reduce((a,b)=>a+b,0)/beat.length;
-  for(let i=0;i<beat.length;i++) beat[i]-=mn;
+  const mean = one.reduce((a,b)=>a+b,0)/one.length; for(let i=0;i<one.length;i++) one[i]-=mean;
   const data=[];
-  for(let b=0;b<beats;b++){
-    for(let i=0;i<beat.length;i++){
-      data.push({t:round((b*rr + i*dt)/1000,3), v:beat[i]});
-    }
-  }
+  for(let b=0;b<beats;b++) for(let i=0;i<n;i++) data.push({t:round((b*rr+i*dt)/1000,3), v:one[i]});
   return data;
 }
 
-/* Derived labels */
-const rateBucket = (bpm)=> bpm<60?'Brady': bpm<=100?'Normal':'Tachy';
-const axisBucket = (ang)=>{
-  // Using conventional: 0° = Lead I rightwards, +90° = aVF down
-  if(ang>=-30 && ang<=90) return 'Normal axis';
-  if(ang<-30 && ang>=-90) return 'Left axis deviation';
-  if(ang>90 && ang<=180) return 'Right axis deviation';
-  if(ang<-90) return 'Extreme LAD';
-  return 'Indeterminate';
-};
-const qtcBazett = (qt_ms, rr_ms)=> round(qt_ms/Math.sqrt(rr_ms/1000));
-const within = (x,[lo,hi]) => x>=lo && x<=hi;
+/* -------------------- Rate from RR helpers -------------------- */
+const hrFromRR = (rr_ms)=> round(60000/rr_ms);
 
-/* ---------------- Explore Panel ---------------- */
+/* -------------------- Axis helpers -------------------- */
+// Compute MEA (frontal) from user-entered R/S deflections in I & aVF (fast method)
+function axisFromHeights({leadI_R, leadI_S, aVF_R, aVF_S}){
+  // Vector signs from net deflection (R - S)
+  const netI  = leadI_R - leadI_S;
+  const netVF = aVF_R - aVF_S;
+  // atan2 gives angle vs 0° = lead I, positive downwards (toward +aVF)
+  let theta = Math.atan2(netVF, netI) * 180 / Math.PI; // -180..+180
+  if(theta< -180) theta+=360; if(theta>180) theta-=360;
+  return round(theta);
+}
+function axisCategory(theta){
+  if(theta>=-30 && theta<=90) return "Normal";
+  if(theta<-30) return "Left axis deviation (LAD)";
+  if(theta>90) return "Right axis deviation (RAD)";
+  return "Indeterminate";
+}
+
+/* -------------------- Explore Mode -------------------- */
 function Explore(){
-  // Base intervals (ms)
-  const [rr,setRR]=useState(1000); // 60 bpm
-  const [pr,setPR]=useState(160);
-  const [qrs,setQRS]=useState(90);
-  const [qt,setQT]=useState(400);
+  // Calibration + RR controls
+  const [rr,setRR]=useState(1000);         // ms (60 bpm)
+  const [pr,setPR]=useState(160);          // ms
+  const [qrs,setQRS]=useState(90);         // ms
+  const [qt,setQT]=useState(400);          // ms
+  const [showBaseline,setShowBaseline]=useState(true);
+  const baseline={rr:1000,pr:160,qrs:90,qt:400};
+  const ecg=useMemo(()=>genECG({rr,pr,qrs,qt,beats:3,fs:1000}),[rr,pr,qrs,qt]);
+  const ecgBase=useMemo(()=>genECG({...baseline,beats:3,fs:1000}),[]);
 
-  // Axis trainer (use net QRS deflection in Lead I & aVF)
-  const [leadI,setLeadI]=useState(8);   // mm (pos up, neg down)
-  const [aVF,setAVF]=useState(6);
+  // Axis trainer inputs (user can tweak R/S heights)
+  const [leadI_R,setLeadI_R]=useState(8), [leadI_S,setLeadI_S]=useState(2);
+  const [aVF_R,setAVF_R]=useState(6), [aVF_S,setAVF_S]=useState(1);
+  const theta = axisFromHeights({leadI_R,leadI_S,aVF_R,aVF_S});
+  const thetaCat = axisCategory(theta);
 
-  // Presets
-  const PRESETS={
-    'Normal (60 bpm)':   {rr:1000, pr:160, qrs:90,  qt:400},
-    'Sinus Brady (45)':  {rr:1330, pr:170, qrs:90,  qt:420},
-    'Sinus Tach (120)':  {rr:500,  pr:150, qrs:85,  qt:360},
-    '1° AV block':       {rr:1000, pr:220, qrs:90,  qt:400},
-    'RBBB pattern':      {rr:1000, pr:160, qrs:140, qt:420},
-    'IKr block (QT↑)':   {rr:1000, pr:160, qrs:90,  qt:480},
-    'HyperK (t-peaked)': {rr:1000, pr:160, qrs:100, qt:420}, // visual only (we’ll bump T amplitude)
-  };
-
-  const bpm = round(60000/rr);
-  const qtc = qtcBazett(qt, rr);
-
-  // ECG data (with a little T bump for the HyperK preset)
-  const presetName = useRef('Normal (60 bpm)');
-  const ecgData = useMemo(()=>{
-    const base = genECG({rr, pr, qrs, qt, beats:3, fs:800});
-    if(presetName.current==='HyperK (t-peaked)'){
-      // amplify T by 40% to emulate hyperkalemia look
-      return base.map(p => ({...p, v: p.v>0 ? p.v*1.4 : p.v}));
-    }
-    return base;
-  },[rr,pr,qrs,qt]);
-
-  const miniMsg = ()=>{
-    const msgs=[];
-    msgs.push(`Rate: ${bpm} bpm (${rateBucket(bpm)})`);
-    msgs.push(`PR ${pr} ms ${within(pr,[120,200])?'(normal)':'(abnormal)'}`);
-    msgs.push(`QRS ${qrs} ms ${within(qrs,[70,110])?'(normal)':'(wide)'}`);
-    msgs.push(`QT ${qt} ms, QTc ${qtc} ms ${within(qtc,[350,470])?'(≈normal)':'(prolonged/shortened)'}`);
-    return msgs.join(' • ');
-  };
-
-  // Axis calculations from Lead I & aVF
-  const theta = useMemo(()=> round(deg(Math.atan2(aVF, leadI))), [leadI,aVF]);
-
-  const applyPreset = (name)=>{
-    presetName.current=name;
-    const p=PRESETS[name]; setRR(p.rr); setPR(p.pr); setQRS(p.qrs); setQT(p.qt);
-    if(name==='RBBB pattern'){ setLeadI(6); setAVF(4); }
-    else if(name==='1° AV block'){ setLeadI(8); setAVF(6); }
-    else if(name==='IKr block (QT↑)'){ setLeadI(8); setAVF(6); }
-    else { setLeadI(8); setAVF(6); }
-  };
+  // Lead map (frontal) for teaching directions
+  const frontalLeads=[
+    {name:'I', angle:0}, {name:'II', angle:60}, {name:'III',angle:120},
+    {name:'aVR',angle:-150}, {name:'aVL',angle:-30}, {name:'aVF',angle:90},
+  ];
 
   return (
     <div className="wrap">
+      {/* LEFT: Controls & mini-learners */}
       <section className="section">
-        <h2>Explore</h2>
-
+        <h2>Controls</h2>
         <div className="stack">
-          <div className="field">
-            <label className="label">Preset case</label>
-            <select onChange={(e)=>applyPreset(e.target.value)} defaultValue="Normal (60 bpm)">
-              {Object.keys(PRESETS).map(k=><option key={k}>{k}</option>)}
-            </select>
+
+          <div className="card stack">
+            <div className="title">Rate & Intervals</div>
+            <div className="grid-hint">Adjust RR (rate), PR (AV conduction), QRS (ventricular depol), QT (APD proxy)</div>
+            <label className="label">RR (ms) — HR: <b>{hrFromRR(rr)}</b> bpm</label>
+            <input type="range" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)}/>
+            <label className="label">PR (ms)</label>
+            <input type="range" min="100" max="260" step="5" value={pr} onChange={e=>setPR(+e.target.value)}/>
+            <label className="label">QRS (ms)</label>
+            <input type="range" min="70" max="160" step="5" value={qrs} onChange={e=>setQRS(+e.target.value)}/>
+            <label className="label">QT (ms)</label>
+            <input type="range" min="280" max="520" step="5" value={qt} onChange={e=>setQT(+e.target.value)}/>
+            <label style={{fontSize:12}}>
+              <input type="checkbox" checked={showBaseline} onChange={e=>setShowBaseline(e.target.checked)}/> Show baseline overlay
+            </label>
           </div>
 
-          <div className="card">
-            <div className="row">
-              <div className="field" style={{flex:1}}>
-                <label className="label">RR (ms) — heart rate via RR: {bpm} bpm</label>
-                <input type="range" min="350" max="1600" step="10" value={rr} onChange={(e)=>setRR(+e.target.value)} />
-              </div>
-            </div>
-            <div className="row">
-              <div className="field" style={{flex:1}}>
-                <label className="label">PR (ms)</label>
-                <input type="range" min="100" max="260" step="5" value={pr} onChange={(e)=>setPR(+e.target.value)} />
-              </div>
-              <div className="field" style={{flex:1}}>
-                <label className="label">QRS (ms)</label>
-                <input type="range" min="70" max="180" step="5" value={qrs} onChange={(e)=>setQRS(+e.target.value)} />
-              </div>
-              <div className="field" style={{flex:1}}>
-                <label className="label">QT (ms) → QTc (Bazett): {qtc} ms</label>
-                <input type="range" min="280" max="520" step="5" value={qt} onChange={(e)=>setQT(+e.target.value)} />
-              </div>
-            </div>
-            <div className="mini-grid">{miniMsg()}</div>
+          <div className="card stack">
+            <div className="title">Frontal Lead Directions</div>
+            <svg viewBox="-120 -120 240 240" width="100%" style={{background:'#fff'}}>
+              <circle cx="0" cy="0" r="90" fill="none" stroke="#e5e7eb"/>
+              {frontalLeads.map((L,i)=>{
+                const x=Math.cos(degToRad(L.angle))*85, y=Math.sin(degToRad(L.angle))*85;
+                return (
+                  <g key={L.name}>
+                    <line x1="0" y1="0" x2={x} y2={y} stroke="#94a3b8" strokeDasharray="4 3"/>
+                    <text x={x*1.08} y={y*1.08} fontSize="10" textAnchor="middle" dominantBaseline="middle">{L.name}</text>
+                  </g>
+                );
+              })}
+              {/* Axis needle */}
+              <line x1="0" y1="0" x2={Math.cos(degToRad(theta))*70} y2={Math.sin(degToRad(theta))*70} stroke="#2563eb" strokeWidth="3"/>
+              <text x="0" y="-100" fontSize="11" textAnchor="middle">MEA: {theta}° ({thetaCat})</text>
+            </svg>
+            <div className="grid-hint">MEA points toward the direction of the largest net QRS deflection across frontal leads</div>
           </div>
 
-          <div className="divider"></div>
-
-          {/* Axis Trainer */}
-          <div className="card">
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-              <div style={{fontWeight:600}}>Mean Electrical Axis (frontal plane)</div>
-              <div>
-                Angle: <b>{theta}°</b> <span className="badge ok">{axisBucket(theta)}</span>
-              </div>
-            </div>
-            <div className="row" style={{marginTop:8}}>
+          <div className="card stack">
+            <div className="title">Axis Trainer (quick method)</div>
+            <div className="row">
               <div className="field" style={{flex:1}}>
-                <label className="label">Lead I net (mm)</label>
-                <input type="range" min="-20" max="20" step="1" value={leadI} onChange={(e)=>setLeadI(+e.target.value)} />
+                <label className="label">Lead I — R height</label>
+                <input type="range" min="0" max="20" value={leadI_R} onChange={e=>setLeadI_R(+e.target.value)}/>
+                <label className="label">Lead I — S depth</label>
+                <input type="range" min="0" max="20" value={leadI_S} onChange={e=>setLeadI_S(+e.target.value)}/>
               </div>
               <div className="field" style={{flex:1}}>
-                <label className="label">aVF net (mm)</label>
-                <input type="range" min="-20" max="20" step="1" value={aVF} onChange={(e)=>setAVF(+e.target.value)} />
+                <label className="label">aVF — R height</label>
+                <input type="range" min="0" max="20" value={aVF_R} onChange={e=>setAVF_R(+e.target.value)}/>
+                <label className="label">aVF — S depth</label>
+                <input type="range" min="0" max="20" value={aVF_S} onChange={e=>setAVF_S(+e.target.value)}/>
               </div>
             </div>
-
-            {/* Compass */}
-            <div style={{display:'grid',gridTemplateColumns:'160px 1fr',gap:16,alignItems:'center',marginTop:8}}>
-              <svg width="160" height="160" viewBox="0 0 160 160">
-                <circle cx="80" cy="80" r="70" fill="white" stroke="#cbd5e1"/>
-                <line x1="10" y1="80" x2="150" y2="80" stroke="#94a3b8" strokeDasharray="4 4"/> {/* Lead I */}
-                <line x1="80" y1="10" x2="80" y2="150" stroke="#94a3b8" strokeDasharray="4 4"/> {/* aVF */}
-                {/* axis needle */}
-                <line x1="80" y1="80" x2={80+60*Math.cos(rad(theta))} y2={80+60*Math.sin(rad(theta))} stroke="#0f172a" strokeWidth="3" />
-                <text x="135" y="92" fontSize="10" fill="#64748b">Lead I (0°)</text>
-                <text x="84" y="18" fontSize="10" fill="#64748b">aVF (+90°)</text>
-              </svg>
-              <div className="mini-grid">
-                <div>Quick method tips:</div>
-                <ul>
-                  <li>Largest positive lead ≈ axis roughly parallel.</li>
-                  <li>Most isoelectric lead ≈ axis ⟂ to that lead.</li>
-                  <li>Lead I + aVF signs nail quadrant fast.</li>
-                </ul>
-              </div>
+            <div>Computed MEA: <b>{theta}°</b> — <b>{thetaCat}</b></div>
+            <div className="axis-meter">
+              <div className="axis-needle" style={{left:`${(theta+180)/360*100}%`}}></div>
             </div>
+            <div className="grid-hint">Net deflection = R − S. Positive in lead I points rightward; positive in aVF points down.</div>
           </div>
 
         </div>
       </section>
 
+      {/* RIGHT: Visuals */}
       <section className="section">
-        <h2>ECG (Lead II — synthetic)</h2>
+        <h2>Lead II ECG</h2>
         <div className="legend">
-          <span className="pill"><span className="line"></span> Rate from RR, PR via AV node, QRS via ventricular conduction, QT via ventricular APD</span>
+          <span className="pill"><span className="line"></span> Modified</span>
+          <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
         <div style={{width:'100%'}}>
-          <ResponsiveContainer width="100%" height={260}>
-            <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
+          <ResponsiveContainer width="100%" height={220}>
+            <LineChart data={ecg} margin={{top:8,right:20,bottom:20,left:20}}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
                      label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
               <YAxis domain={[-1.2,1.4]} tickCount={5}
                      label={{value:'mV', angle:-90, position:'insideLeft'}}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
-              <ReferenceLine y={0} stroke="#e5e7eb"/>
+              {showBaseline && <Line dot={false} type="monotone" dataKey="v" data={ecgBase} stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4" name="Baseline" />}
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5} name="Modified"/>
             </LineChart>
           </ResponsiveContainer>
         </div>
 
         <div className="divider"></div>
 
-        {/* Big-box ladder helper */}
-        <h2>Rate Ladder (big box rule)</h2>
-        <div className="mini-grid">Memorize: 300 → 150 → 100 → 75 → 60 → 50</div>
-        <div style={{width:'100%',marginTop:8}}>
-          <ResponsiveContainer width="100%" height={120}>
-            <AreaChart data={[{x:0,y:300},{x:1,y:150},{x:2,y:100},{x:3,y:75},{x:4,y:60},{x:5,y:50}]}
-                       margin={{top:8,right:20,bottom:8,left:20}}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="x" ticks={[0,1,2,3,4,5]} tickFormatter={(i)=>['1','2','3','4','5','6'][i]}
-                     label={{value:'Big boxes between R peaks', position:'insideBottomRight', offset:-5}}/>
-              <YAxis domain={[0,320]} ticks={[50,60,75,100,150,300]}
-                     label={{value:'bpm', angle:-90, position:'insideLeft'}}/>
-              <Area type="monotone" dataKey="y" stroke="#0f172a" fill="#e5e7eb"/>
-            </AreaChart>
-          </ResponsiveContainer>
+        <div className="card">
+          <div className="title">At a glance</div>
+          <ul style={{margin:'8px 0 0 16px'}}>
+            <li><b>Rate</b>: HR ≈ 300,150,100,75,60,50 using big boxes; exact HR = 60/RR(s).</li>
+            <li><b>Rhythm</b>: Sinus if upright P in II before every QRS, constant PR, regular RR.</li>
+            <li><b>Axis</b>: Use I & aVF — largest positive ≈ axis direction; isoelectric lead ≈ perpendicular.</li>
+            <li><b>Intervals</b>: PR ↔ AV node; QRS ↔ ventricular upstroke; QT ↔ ventricular AP duration.</li>
+          </ul>
         </div>
       </section>
     </div>
   );
 }
 
-/* ---------------- Quiz Mode ---------------- */
+/* -------------------- Quiz Mode -------------------- */
+function randomInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+function choice(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+function makeQuizItem(){
+  // types: rate, axis, interval, concept
+  const type = choice(['rate','axis','interval','concept']);
+
+  if(type==='rate'){
+    // pick RR between 360–1500 ms (~40–167 bpm)
+    const rr = randomInt(360,1500);
+    const hr = hrFromRR(rr);
+    const stem = `An ECG strip shows an RR interval of ${rr} ms. What is the heart rate?`;
+    const opts = [hr, hr+15, Math.max(30,hr-20), hr+30].map(x=>`${x} bpm`);
+    return {type, stem, rr, correct: `${hr} bpm`, options: shuffle(opts)};
+  }
+
+  if(type==='axis'){
+    // random R/S to generate a known axis bucket
+    const bucket = choice(['Normal','LAD','RAD']);
+    let theta;
+    if(bucket==='Normal') theta=randomInt(-10,70);
+    if(bucket==='LAD')    theta=randomInt(-60,-31);
+    if(bucket==='RAD')    theta=randomInt(91,150);
+    // invert to approximate R/S heights in I & aVF (rough)
+    const netI  = Math.cos(degToRad(theta));
+    const netVF = Math.sin(degToRad(theta));
+    const stem = `Given net QRS deflections: Lead I ${netI>=0? 'positive':'negative'}, aVF ${netVF>=0?'positive':'negative'}. What is the MEA category?`;
+    const opts = ['Normal','Left axis deviation (LAD)','Right axis deviation (RAD)','Indeterminate'];
+    const correct = bucket==='LAD'?'Left axis deviation (LAD)':bucket==='RAD'?'Right axis deviation (RAD)':'Normal';
+    return {type, stem, correct, options: shuffle(opts)};
+  }
+
+  if(type==='interval'){
+    const which = choice(['PR','QRS','QT']);
+    let stem, correct, distractors;
+    if(which==='PR'){
+      stem='Which interval is most likely prolonged in first-degree AV block?';
+      correct='PR';
+      distractors=['QRS','QT','RR'];
+    } else if(which==='QRS'){
+      stem='A Na⁺-channel blocker typically widens which interval?';
+      correct='QRS';
+      distractors=['PR','QT','RR'];
+    } else {
+      stem='Reduced I_Kr (delayed rectifier K⁺) most directly prolongs which interval?';
+      correct='QT';
+      distractors=['PR','QRS','RR'];
+    }
+    return {type, stem, correct, options: shuffle([correct,...distractors])};
+  }
+
+  // concept
+  const c = choice([
+    {stem:'In sinus rhythm, which lead is best for visible upright P waves?', correct:'Lead II', options:['Lead II','aVR','V1','Lead III']},
+    {stem:'The mean electrical axis points toward…', correct:'the direction of greatest net ventricular depolarization', options:['the SA node','the AV node','the tallest T wave','the direction of greatest net ventricular depolarization']},
+    {stem:'QT interval is most closely related to…', correct:'ventricular action potential duration', options:['atrial conduction velocity','His–Purkinje delay','ventricular action potential duration','sinus node automaticity']}
+  ]);
+  return {type:'concept', ...c, options: shuffle(c.options)};
+}
+function shuffle(a){ return [...a].sort(()=>Math.random()-0.5); }
+
 function Quiz(){
-  // We’ll quiz on: Rate bucket, PR/QRS/QT normal/abnormal, and axis quadrant.
-  const CASES = [
-    {name:'Normal 70', rr:860, pr:160, qrs:90, qt:400, leadI:10, aVF:8, tweak:null},
-    {name:'Brady + 1°AVB', rr:1400, pr:230, qrs:90, qt:420, leadI:8, aVF:6, tweak:null},
-    {name:'Sinus Tach 120', rr:500, pr:150, qrs:85, qt:360, leadI:8, aVF:7, tweak:null},
-    {name:'RBBB wide', rr:1000, pr:160, qrs:150, qt:430, leadI:6, aVF:4, tweak:null},
-    {name:'IKr block (QT↑)', rr:1000, pr:160, qrs:90, qt:490, leadI:7, aVF:5, tweak:'QT+'},
-    {name:'RAD example', rr:900, pr:160, qrs:90, qt:400, leadI:-3, aVF:12, tweak:null},
-    {name:'LAD example', rr:900, pr:200, qrs:100, qt:420, leadI:8, aVF:-8, tweak:null},
-  ];
-  const [idx,setIdx]=useState(0);
-  const [answers,setAnswers]=useState({rate:null, pr:null, qrs:null, qt:null, axis:null});
-  const [show,setShow]=useState(false);
-  const c = CASES[idx];
+  const [q,setQ]=useState(makeQuizItem());
+  const [picked,setPicked]=useState(null);
+  const [score,setScore]=useState(0);
+  const [count,setCount]=useState(0);
 
-  const bpm = round(60000/c.rr);
-  const qtc = qtcBazett(c.qt, c.rr);
-  const data = useMemo(()=>{
-    const base = genECG({rr:c.rr, pr:c.pr, qrs:c.qrs, qt:c.qt, beats:3, fs:800});
-    if(c.tweak==='QT+') return base.map(p=>({...p, v: p.v>0 ? p.v*1.15:p.v}));
-    return base;
-  },[idx]);
-
-  const theta = round(deg(Math.atan2(c.aVF, c.leadI)));
-  const KEY = {
-    rate: rateBucket(bpm),
-    pr: within(c.pr,[120,200])?'Normal':'Abnormal',
-    qrs: within(c.qrs,[70,110])?'Normal':'Wide',
-    qt: within(qtc,[350,470])?'Normal(QTc)':'Abnormal(QTc)',
-    axis: axisBucket(theta)
+  const next=()=>{
+    setQ(makeQuizItem());
+    setPicked(null);
   };
 
-  const opt = (k)=>({
-    rate:['Brady','Normal','Tachy'],
-    pr:['Normal','Abnormal'],
-    qrs:['Normal','Wide'],
-    qt:['Normal(QTc)','Abnormal(QTc)'],
-    axis:['Normal axis','Left axis deviation','Right axis deviation','Extreme LAD']
-  }[k]);
-
-  const pick=(k,v)=> setAnswers({...answers,[k]:v});
-  const reset=()=>{ setAnswers({rate:null,pr:null,qrs:null,qt:null,axis:null}); setShow(false); };
-  const next=()=>{ setIdx((i)=> (i+1)%CASES.length); reset(); };
-
-  const badge=(correct)=> correct? 'badge ok':'badge err';
+  const choose=(opt)=>{
+    if(picked!==null) return;
+    setPicked(opt);
+    setCount(c=>c+1);
+    if(opt===q.correct) setScore(s=>s+1);
+  };
 
   return (
     <div className="wrap">
       <section className="section">
-        <h2>Quiz Settings</h2>
-        <div className="stack">
-          <div className="score-display">
-            <div>Case: {c.name}</div>
-            <div>Truth: HR {bpm} bpm • PR {c.pr} • QRS {c.qrs} • QT {c.qt} (QTc {qtc}) • Axis {theta}°</div>
+        <h2>Quiz</h2>
+        <div className="card">
+          <div style={{fontWeight:600, marginBottom:8}}>Q{count+1}. {q.stem}</div>
+          <div className="stack">
+            {q.options.map(opt=>{
+              const state = picked===null ? '' : (opt===q.correct ? 'background:#f0fdf4;border-color:#bbf7d0' :
+                                                    opt===picked ? 'background:#fef2f2;border-color:#fecaca' : '');
+              return (
+                <button key={opt} onClick={()=>choose(opt)}
+                        style={{border:'2px solid var(--grid)',borderRadius:6,padding:'10px',textAlign:'left', ...(state?{}:{})}}
+                        className={`quiz-option ${picked!==null?'disabled':''}`}>
+                  {opt}
+                </button>
+              );
+            })}
           </div>
-
-          <div className="card">
-            <div style={{fontWeight:600, marginBottom:8}}>Questions</div>
-
-            <div className="stack">
-              {['rate','pr','qrs','qt','axis'].map(key=>(
-                <div key={key}>
-                  <div style={{fontSize:13, color:'var(--muted)', marginBottom:6, textTransform:'uppercase', letterSpacing:'.05em'}}>{key}</div>
-                  <div className="row" style={{flexWrap:'wrap'}}>
-                    {opt(key).map(o=>{
-                      const selected = answers[key]===o;
-                      const correct = show && o===KEY[key];
-                      const wrong   = show && selected && o!==KEY[key];
-                      const cls = `quiz-option ${show ? (correct?'correct': (wrong?'incorrect':'')) : ''} ${show?'disabled':''}`;
-                      return (
-                        <button key={o} className={cls} onClick={()=>!show&&pick(key,o)} disabled={show} style={{marginRight:8, marginBottom:8}}>{o}</button>
-                      );
-                    })}
-                  </div>
-                  {show && (
-                    <div style={{marginTop:6}}>
-                      <span className={badge(answers[key]===KEY[key])}>
-                        {answers[key]===KEY[key] ? '✓ Correct' : '✗ Incorrect'}
-                      </span>
-                      <span style={{marginLeft:8, color:'var(--muted)'}}>Answer: <b>{KEY[key]}</b></span>
-                    </div>
-                  )}
-                </div>
-              ))}
+          {picked!==null && (
+            <div style={{marginTop:12,fontWeight:600}}>
+              {picked===q.correct ? '✓ Correct!' : `✗ Incorrect. Answer: ${q.correct}`}
             </div>
-
-            <div className="row" style={{marginTop:12}}>
-              {!show && <button className="primary" onClick={()=>setShow(true)}>Check answers</button>}
-              {show && <button onClick={next}>Next case</button>}
-              <button onClick={reset}>Reset</button>
-            </div>
+          )}
+          <div className="row" style={{marginTop:12,justifyContent:'space-between'}}>
+            <div><b>Score:</b> {score}/{count}</div>
+            <button className="primary" onClick={next}>Next</button>
           </div>
         </div>
       </section>
 
+      {/* Side panel: quick calculators for explanation */}
       <section className="section">
-        <h2>ECG (Lead II — quiz strip)</h2>
-        <div className="legend"><span className="pill"><span className="line"></span> Use the strip to answer rate/rhythm/interval/axis.</span></div>
-        <div style={{width:'100%'}}>
-          <ResponsiveContainer width="100%" height={260}>
-            <LineChart data={data} margin={{top:8,right:20,bottom:20,left:20}}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
-                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
-              <YAxis domain={[-1.2,1.4]} tickCount={5}
-                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
-              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
-              <ReferenceLine y={0} stroke="#e5e7eb"/>
-            </LineChart>
-          </ResponsiveContainer>
+        <h2>Quick Tools</h2>
+        <div className="card stack">
+          <div className="title">Exact Rate from RR</div>
+          <RRTool/>
+        </div>
+        <div className="card stack">
+          <div className="title">Axis Buckets (I & aVF)</div>
+          <AxisTool/>
         </div>
       </section>
     </div>
   );
 }
 
-/* ---------------- App Shell ---------------- */
+function RRTool(){
+  const [rr,setRR]=useState(1000);
+  return (
+    <>
+      <div className="row">
+        <input type="range" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)} style={{flex:1}}/>
+        <input type="number" min="300" max="2000" step="10" value={rr} onChange={e=>setRR(+e.target.value)} style={{width:100}}/>
+      </div>
+      <div>Heart Rate: <b>{hrFromRR(rr)} bpm</b></div>
+      <div className="grid-hint">Touchstones: 300,150,100,75,60,50 with big boxes.</div>
+    </>
+  );
+}
+
+function AxisTool(){
+  const [leadI_R,setLeadI_R]=useState(7), [leadI_S,setLeadI_S]=useState(2);
+  const [aVF_R,setAVF_R]=useState(4), [aVF_S,setAVF_S]=useState(1);
+  const theta = axisFromHeights({leadI_R,leadI_S,aVF_R,aVF_S});
+  return (
+    <>
+      <div className="row"><span className="label" style={{minWidth:120}}>Lead I R/S</span>
+        <input type="range" min="0" max="20" value={leadI_R} onChange={e=>setLeadI_R(+e.target.value)} style={{flex:1}}/>
+        <input type="range" min="0" max="20" value={leadI_S} onChange={e=>setLeadI_S(+e.target.value)} style={{flex:1}}/>
+      </div>
+      <div className="row"><span className="label" style={{minWidth:120}}>aVF R/S</span>
+        <input type="range" min="0" max="20" value={aVF_R} onChange={e=>setAVF_R(+e.target.value)} style={{flex:1}}/>
+        <input type="range" min="0" max="20" value={aVF_S} onChange={e=>setAVF_S(+e.target.value)} style={{flex:1}}/>
+      </div>
+      <div>MEA: <b>{theta}°</b> — <b>{axisCategory(theta)}</b></div>
+    </>
+  );
+}
+
+/* -------------------- Main App -------------------- */
 function App(){
   const [mode,setMode]=useState('explore');
   return (
@@ -422,11 +401,10 @@ function App(){
         <button className={mode==='explore'?'active':''} onClick={()=>setMode('explore')}>Explore</button>
         <button className={mode==='quiz'?'active':''} onClick={()=>setMode('quiz')}>Quiz</button>
       </div>
-      {mode==='explore'? <Explore/> : <Quiz/>}
+      {mode==='explore' ? <Explore/> : <Quiz/>}
     </>
   );
 }
-
 ReactDOM.createRoot(document.getElementById('l7-app')).render(<App/>);
 </script>
 {% endraw %}
