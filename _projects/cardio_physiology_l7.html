@@ -1,0 +1,432 @@
+---
+layout: default
+title: Cardio Physio — L7 Essentials
+---
+
+<div id="l7-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
+
+<!-- React + ReactDOM (UMD) -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+
+<!-- Recharts (UMD) -->
+<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+
+<!-- Babel (compile JSX in the browser) -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;--amber:#b45309}
+  body{color:var(--ink)}
+  .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
+  @media(min-width:1024px){.wrap{grid-template-columns:minmax(320px, 420px) 1fr;gap:32px}}
+  .section h2{font:600 12px ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .stack{display:flex;flex-direction:column;gap:12px}
+  .row{display:flex;gap:12px;align-items:center}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .label{font-size:12px;color:var(--muted)}
+  input[type="range"]{width:100%}
+  input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
+  button{cursor:pointer;background:#fff}
+  button:hover{background:#f8fafc}
+  button.primary{background:var(--blue);color:white;font-weight:600}
+  button.primary:hover{background:#1d4ed8}
+  .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
+  .pill{display:inline-flex;gap:8px;align-items:center}
+  .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
+  .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .metric .k{color:var(--muted);font-size:12px}
+  .metric .v{font-weight:600}
+  .metric .d{font-size:12px}
+  .divider{height:1px;background:var(--grid);margin:12px 0}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:white}
+  .mode-toggle button.active{background:var(--blue);color:white}
+  .card{border:1px solid var(--grid);border-radius:8px;padding:12px}
+  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
+  .badge.ok{background:#f0fdf4;color:var(--green)}
+  .badge.warn{background:#fffbeb;color:var(--amber)}
+  .badge.err{background:#fef2f2;color:var(--red)}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s}
+  .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
+  .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
+  .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
+  .mini-grid{font:11px;color:#94a3b8}
+</style>
+
+{% raw %}
+<script type="text/babel" data-presets="env,react">
+const {useMemo,useState,useRef} = React;
+const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer,Area,AreaChart} = Recharts;
+
+/* ---------------- Utilities ---------------- */
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const deg=rad=>rad*180/Math.PI;
+const rad=d=>d*Math.PI/180;
+const round=(x,n=0)=>Number(x.toFixed(n));
+
+/* ECG generator: Gaussian P, QRS, T, tiled beats; zero-mean so the isoelectric line is ~0 mV */
+function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
+function genECG({rr, pr, qrs, qt, beats=3, fs=800}){
+  rr=clamp(rr,300,2000); pr=clamp(pr,100,260); qrs=clamp(qrs,70,180); qt=clamp(qt,280,520);
+  const dt=1000/fs, nBeat=Math.round(rr/dt), beat=[];
+  for(let i=0;i<nBeat;i++){
+    const t=i*dt;
+    const qrsC=pr, pC=Math.max(0.11*rr, pr-0.5*qrs), tStart=qrsC+qrs, tC=tStart+0.45*(qt-qrs);
+    const pS=0.05*rr, qS=0.12*qrs, rS=0.10*qrs, sS=0.11*qrs, tS=0.25*(qt-qrs);
+    let v=0;
+    v+=gaussian(t,pC,pS, 0.12);
+    v+=gaussian(t,qrsC-0.22*qrs,qS,-0.25);
+    v+=gaussian(t,qrsC,        rS,  0.95);
+    v+=gaussian(t,qrsC+0.28*qrs,sS,-0.35);
+    v+=gaussian(t,tC,tS,  0.35);
+    beat.push(v);
+  }
+  const mn=beat.reduce((a,b)=>a+b,0)/beat.length;
+  for(let i=0;i<beat.length;i++) beat[i]-=mn;
+  const data=[];
+  for(let b=0;b<beats;b++){
+    for(let i=0;i<beat.length;i++){
+      data.push({t:round((b*rr + i*dt)/1000,3), v:beat[i]});
+    }
+  }
+  return data;
+}
+
+/* Derived labels */
+const rateBucket = (bpm)=> bpm<60?'Brady': bpm<=100?'Normal':'Tachy';
+const axisBucket = (ang)=>{
+  // Using conventional: 0° = Lead I rightwards, +90° = aVF down
+  if(ang>=-30 && ang<=90) return 'Normal axis';
+  if(ang<-30 && ang>=-90) return 'Left axis deviation';
+  if(ang>90 && ang<=180) return 'Right axis deviation';
+  if(ang<-90) return 'Extreme LAD';
+  return 'Indeterminate';
+};
+const qtcBazett = (qt_ms, rr_ms)=> round(qt_ms/Math.sqrt(rr_ms/1000));
+const within = (x,[lo,hi]) => x>=lo && x<=hi;
+
+/* ---------------- Explore Panel ---------------- */
+function Explore(){
+  // Base intervals (ms)
+  const [rr,setRR]=useState(1000); // 60 bpm
+  const [pr,setPR]=useState(160);
+  const [qrs,setQRS]=useState(90);
+  const [qt,setQT]=useState(400);
+
+  // Axis trainer (use net QRS deflection in Lead I & aVF)
+  const [leadI,setLeadI]=useState(8);   // mm (pos up, neg down)
+  const [aVF,setAVF]=useState(6);
+
+  // Presets
+  const PRESETS={
+    'Normal (60 bpm)':   {rr:1000, pr:160, qrs:90,  qt:400},
+    'Sinus Brady (45)':  {rr:1330, pr:170, qrs:90,  qt:420},
+    'Sinus Tach (120)':  {rr:500,  pr:150, qrs:85,  qt:360},
+    '1° AV block':       {rr:1000, pr:220, qrs:90,  qt:400},
+    'RBBB pattern':      {rr:1000, pr:160, qrs:140, qt:420},
+    'IKr block (QT↑)':   {rr:1000, pr:160, qrs:90,  qt:480},
+    'HyperK (t-peaked)': {rr:1000, pr:160, qrs:100, qt:420}, // visual only (we’ll bump T amplitude)
+  };
+
+  const bpm = round(60000/rr);
+  const qtc = qtcBazett(qt, rr);
+
+  // ECG data (with a little T bump for the HyperK preset)
+  const presetName = useRef('Normal (60 bpm)');
+  const ecgData = useMemo(()=>{
+    const base = genECG({rr, pr, qrs, qt, beats:3, fs:800});
+    if(presetName.current==='HyperK (t-peaked)'){
+      // amplify T by 40% to emulate hyperkalemia look
+      return base.map(p => ({...p, v: p.v>0 ? p.v*1.4 : p.v}));
+    }
+    return base;
+  },[rr,pr,qrs,qt]);
+
+  const miniMsg = ()=>{
+    const msgs=[];
+    msgs.push(`Rate: ${bpm} bpm (${rateBucket(bpm)})`);
+    msgs.push(`PR ${pr} ms ${within(pr,[120,200])?'(normal)':'(abnormal)'}`);
+    msgs.push(`QRS ${qrs} ms ${within(qrs,[70,110])?'(normal)':'(wide)'}`);
+    msgs.push(`QT ${qt} ms, QTc ${qtc} ms ${within(qtc,[350,470])?'(≈normal)':'(prolonged/shortened)'}`);
+    return msgs.join(' • ');
+  };
+
+  // Axis calculations from Lead I & aVF
+  const theta = useMemo(()=> round(deg(Math.atan2(aVF, leadI))), [leadI,aVF]);
+
+  const applyPreset = (name)=>{
+    presetName.current=name;
+    const p=PRESETS[name]; setRR(p.rr); setPR(p.pr); setQRS(p.qrs); setQT(p.qt);
+    if(name==='RBBB pattern'){ setLeadI(6); setAVF(4); }
+    else if(name==='1° AV block'){ setLeadI(8); setAVF(6); }
+    else if(name==='IKr block (QT↑)'){ setLeadI(8); setAVF(6); }
+    else { setLeadI(8); setAVF(6); }
+  };
+
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Explore</h2>
+
+        <div className="stack">
+          <div className="field">
+            <label className="label">Preset case</label>
+            <select onChange={(e)=>applyPreset(e.target.value)} defaultValue="Normal (60 bpm)">
+              {Object.keys(PRESETS).map(k=><option key={k}>{k}</option>)}
+            </select>
+          </div>
+
+          <div className="card">
+            <div className="row">
+              <div className="field" style={{flex:1}}>
+                <label className="label">RR (ms) — heart rate via RR: {bpm} bpm</label>
+                <input type="range" min="350" max="1600" step="10" value={rr} onChange={(e)=>setRR(+e.target.value)} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="field" style={{flex:1}}>
+                <label className="label">PR (ms)</label>
+                <input type="range" min="100" max="260" step="5" value={pr} onChange={(e)=>setPR(+e.target.value)} />
+              </div>
+              <div className="field" style={{flex:1}}>
+                <label className="label">QRS (ms)</label>
+                <input type="range" min="70" max="180" step="5" value={qrs} onChange={(e)=>setQRS(+e.target.value)} />
+              </div>
+              <div className="field" style={{flex:1}}>
+                <label className="label">QT (ms) → QTc (Bazett): {qtc} ms</label>
+                <input type="range" min="280" max="520" step="5" value={qt} onChange={(e)=>setQT(+e.target.value)} />
+              </div>
+            </div>
+            <div className="mini-grid">{miniMsg()}</div>
+          </div>
+
+          <div className="divider"></div>
+
+          {/* Axis Trainer */}
+          <div className="card">
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+              <div style={{fontWeight:600}}>Mean Electrical Axis (frontal plane)</div>
+              <div>
+                Angle: <b>{theta}°</b> <span className="badge ok">{axisBucket(theta)}</span>
+              </div>
+            </div>
+            <div className="row" style={{marginTop:8}}>
+              <div className="field" style={{flex:1}}>
+                <label className="label">Lead I net (mm)</label>
+                <input type="range" min="-20" max="20" step="1" value={leadI} onChange={(e)=>setLeadI(+e.target.value)} />
+              </div>
+              <div className="field" style={{flex:1}}>
+                <label className="label">aVF net (mm)</label>
+                <input type="range" min="-20" max="20" step="1" value={aVF} onChange={(e)=>setAVF(+e.target.value)} />
+              </div>
+            </div>
+
+            {/* Compass */}
+            <div style={{display:'grid',gridTemplateColumns:'160px 1fr',gap:16,alignItems:'center',marginTop:8}}>
+              <svg width="160" height="160" viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="70" fill="white" stroke="#cbd5e1"/>
+                <line x1="10" y1="80" x2="150" y2="80" stroke="#94a3b8" strokeDasharray="4 4"/> {/* Lead I */}
+                <line x1="80" y1="10" x2="80" y2="150" stroke="#94a3b8" strokeDasharray="4 4"/> {/* aVF */}
+                {/* axis needle */}
+                <line x1="80" y1="80" x2={80+60*Math.cos(rad(theta))} y2={80+60*Math.sin(rad(theta))} stroke="#0f172a" strokeWidth="3" />
+                <text x="135" y="92" fontSize="10" fill="#64748b">Lead I (0°)</text>
+                <text x="84" y="18" fontSize="10" fill="#64748b">aVF (+90°)</text>
+              </svg>
+              <div className="mini-grid">
+                <div>Quick method tips:</div>
+                <ul>
+                  <li>Largest positive lead ≈ axis roughly parallel.</li>
+                  <li>Most isoelectric lead ≈ axis ⟂ to that lead.</li>
+                  <li>Lead I + aVF signs nail quadrant fast.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>ECG (Lead II — synthetic)</h2>
+        <div className="legend">
+          <span className="pill"><span className="line"></span> Rate from RR, PR via AV node, QRS via ventricular conduction, QT via ventricular APD</span>
+        </div>
+        <div style={{width:'100%'}}>
+          <ResponsiveContainer width="100%" height={260}>
+            <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} tickCount={5}
+                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
+              <ReferenceLine y={0} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="divider"></div>
+
+        {/* Big-box ladder helper */}
+        <h2>Rate Ladder (big box rule)</h2>
+        <div className="mini-grid">Memorize: 300 → 150 → 100 → 75 → 60 → 50</div>
+        <div style={{width:'100%',marginTop:8}}>
+          <ResponsiveContainer width="100%" height={120}>
+            <AreaChart data={[{x:0,y:300},{x:1,y:150},{x:2,y:100},{x:3,y:75},{x:4,y:60},{x:5,y:50}]}
+                       margin={{top:8,right:20,bottom:8,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="x" ticks={[0,1,2,3,4,5]} tickFormatter={(i)=>['1','2','3','4','5','6'][i]}
+                     label={{value:'Big boxes between R peaks', position:'insideBottomRight', offset:-5}}/>
+              <YAxis domain={[0,320]} ticks={[50,60,75,100,150,300]}
+                     label={{value:'bpm', angle:-90, position:'insideLeft'}}/>
+              <Area type="monotone" dataKey="y" stroke="#0f172a" fill="#e5e7eb"/>
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ---------------- Quiz Mode ---------------- */
+function Quiz(){
+  // We’ll quiz on: Rate bucket, PR/QRS/QT normal/abnormal, and axis quadrant.
+  const CASES = [
+    {name:'Normal 70', rr:860, pr:160, qrs:90, qt:400, leadI:10, aVF:8, tweak:null},
+    {name:'Brady + 1°AVB', rr:1400, pr:230, qrs:90, qt:420, leadI:8, aVF:6, tweak:null},
+    {name:'Sinus Tach 120', rr:500, pr:150, qrs:85, qt:360, leadI:8, aVF:7, tweak:null},
+    {name:'RBBB wide', rr:1000, pr:160, qrs:150, qt:430, leadI:6, aVF:4, tweak:null},
+    {name:'IKr block (QT↑)', rr:1000, pr:160, qrs:90, qt:490, leadI:7, aVF:5, tweak:'QT+'},
+    {name:'RAD example', rr:900, pr:160, qrs:90, qt:400, leadI:-3, aVF:12, tweak:null},
+    {name:'LAD example', rr:900, pr:200, qrs:100, qt:420, leadI:8, aVF:-8, tweak:null},
+  ];
+  const [idx,setIdx]=useState(0);
+  const [answers,setAnswers]=useState({rate:null, pr:null, qrs:null, qt:null, axis:null});
+  const [show,setShow]=useState(false);
+  const c = CASES[idx];
+
+  const bpm = round(60000/c.rr);
+  const qtc = qtcBazett(c.qt, c.rr);
+  const data = useMemo(()=>{
+    const base = genECG({rr:c.rr, pr:c.pr, qrs:c.qrs, qt:c.qt, beats:3, fs:800});
+    if(c.tweak==='QT+') return base.map(p=>({...p, v: p.v>0 ? p.v*1.15:p.v}));
+    return base;
+  },[idx]);
+
+  const theta = round(deg(Math.atan2(c.aVF, c.leadI)));
+  const KEY = {
+    rate: rateBucket(bpm),
+    pr: within(c.pr,[120,200])?'Normal':'Abnormal',
+    qrs: within(c.qrs,[70,110])?'Normal':'Wide',
+    qt: within(qtc,[350,470])?'Normal(QTc)':'Abnormal(QTc)',
+    axis: axisBucket(theta)
+  };
+
+  const opt = (k)=>({
+    rate:['Brady','Normal','Tachy'],
+    pr:['Normal','Abnormal'],
+    qrs:['Normal','Wide'],
+    qt:['Normal(QTc)','Abnormal(QTc)'],
+    axis:['Normal axis','Left axis deviation','Right axis deviation','Extreme LAD']
+  }[k]);
+
+  const pick=(k,v)=> setAnswers({...answers,[k]:v});
+  const reset=()=>{ setAnswers({rate:null,pr:null,qrs:null,qt:null,axis:null}); setShow(false); };
+  const next=()=>{ setIdx((i)=> (i+1)%CASES.length); reset(); };
+
+  const badge=(correct)=> correct? 'badge ok':'badge err';
+
+  return (
+    <div className="wrap">
+      <section className="section">
+        <h2>Quiz Settings</h2>
+        <div className="stack">
+          <div className="score-display">
+            <div>Case: {c.name}</div>
+            <div>Truth: HR {bpm} bpm • PR {c.pr} • QRS {c.qrs} • QT {c.qt} (QTc {qtc}) • Axis {theta}°</div>
+          </div>
+
+          <div className="card">
+            <div style={{fontWeight:600, marginBottom:8}}>Questions</div>
+
+            <div className="stack">
+              {['rate','pr','qrs','qt','axis'].map(key=>(
+                <div key={key}>
+                  <div style={{fontSize:13, color:'var(--muted)', marginBottom:6, textTransform:'uppercase', letterSpacing:'.05em'}}>{key}</div>
+                  <div className="row" style={{flexWrap:'wrap'}}>
+                    {opt(key).map(o=>{
+                      const selected = answers[key]===o;
+                      const correct = show && o===KEY[key];
+                      const wrong   = show && selected && o!==KEY[key];
+                      const cls = `quiz-option ${show ? (correct?'correct': (wrong?'incorrect':'')) : ''} ${show?'disabled':''}`;
+                      return (
+                        <button key={o} className={cls} onClick={()=>!show&&pick(key,o)} disabled={show} style={{marginRight:8, marginBottom:8}}>{o}</button>
+                      );
+                    })}
+                  </div>
+                  {show && (
+                    <div style={{marginTop:6}}>
+                      <span className={badge(answers[key]===KEY[key])}>
+                        {answers[key]===KEY[key] ? '✓ Correct' : '✗ Incorrect'}
+                      </span>
+                      <span style={{marginLeft:8, color:'var(--muted)'}}>Answer: <b>{KEY[key]}</b></span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="row" style={{marginTop:12}}>
+              {!show && <button className="primary" onClick={()=>setShow(true)}>Check answers</button>}
+              {show && <button onClick={next}>Next case</button>}
+              <button onClick={reset}>Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>ECG (Lead II — quiz strip)</h2>
+        <div className="legend"><span className="pill"><span className="line"></span> Use the strip to answer rate/rhythm/interval/axis.</span></div>
+        <div style={{width:'100%'}}>
+          <ResponsiveContainer width="100%" height={260}>
+            <LineChart data={data} margin={{top:8,right:20,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                     label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+              <YAxis domain={[-1.2,1.4]} tickCount={5}
+                     label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
+              <ReferenceLine y={0} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ---------------- App Shell ---------------- */
+function App(){
+  const [mode,setMode]=useState('explore');
+  return (
+    <>
+      <div className="mode-toggle">
+        <button className={mode==='explore'?'active':''} onClick={()=>setMode('explore')}>Explore</button>
+        <button className={mode==='quiz'?'active':''} onClick={()=>setMode('quiz')}>Quiz</button>
+      </div>
+      {mode==='explore'? <Explore/> : <Quiz/>}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('l7-app')).render(<App/>);
+</script>
+{% endraw %}
