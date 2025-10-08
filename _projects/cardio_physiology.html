@@ -69,9 +69,7 @@ const CHANNEL_LABELS = {
   IKr:"I_Kr (rapid delayed rectifier K⁺)", IKs:"I_Ks (slow delayed rectifier K⁺)", IK1:"I_K1 (inward rectifier K⁺)",
   If:"I_f (funny)", ICaT:"I_CaT (T-type Ca²⁺)", IK_ACh:"I_K,ACh", NaKATPase:"Na⁺/K⁺-ATPase"
 };
-const SIMILAR_CHANNEL_GROUPS = [
-  ['IKr','IKs'], ['ICaL','ICaT'], ['If','ICaT'],
-];
+const SIMILAR_CHANNEL_GROUPS = [['IKr','IKs'], ['ICaL','ICaT'], ['If','ICaT']];
 const CELL_TYPES = [
   { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
   { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
@@ -96,15 +94,14 @@ function generateAP(cellId, params){
         kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
 
   if(isPacemaker){
-    // SA-node specific physiology
-    t1 = 0; t2 = 0;
+    t1=0; t2=0;
     const kK = 0.6*kIKr + 0.4*kIKs;
-    t0   = 15 / clamp(kICaL,0.2,2);       // Phase 0 by ICaL
-    vmax = 20*kICaL - 5*(kK-1);           // overshoot weakens with more K+
-    t3   = 150 / clamp(kK,0.2,2);         // Phase 3 by IKr/IKs
+    t0 = 15 / clamp(kICaL,0.2,2);
+    vmax = 20*kICaL - 5*(kK-1);
+    t3 = 150 / clamp(kK,0.2,2);
     const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
-    t4   = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
-    const vrestBase = -65;
+    t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
+    const vrestBase=-65;
     vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
   } else {
     t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
@@ -121,7 +118,6 @@ function generateAP(cellId, params){
   const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
   const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
 
-  // Optional cycle clamp only if caller supplies it
   if(params && typeof params.__targetCycle==='number'){
     const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
     t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
@@ -190,59 +186,50 @@ function areSimilarChannels(ch1, ch2){
   return false;
 }
 
+/* ---------------- ECG synthesizer (smooth, zero-mean) ---------------- */
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
 
-function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){ // fs→1000 Hz
-  rr = clamp(rr, 300, 2000);    // 30–200 bpm
-  pr = clamp(pr, 100, 260);
-  qrs = clamp(qrs, 70, 160);
-  qt = clamp(qt, 280, 520);
+function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
+  rr = clamp(rr, 300, 2000);  pr = clamp(pr, 100, 260);
+  qrs = clamp(qrs, 70, 160);  qt = clamp(qt, 280, 520);
 
-  const dt = 1000/fs; // ms per sample
+  const dt = 1000/fs; // ms / sample
+  const oneBeat=[], nBeat=Math.round(rr/dt);
 
-  // Build one clean beat first, then tile it
-  const oneBeat = [];
-  const nBeat = Math.round(rr/dt);
   for(let i=0;i<nBeat;i++){
-    const tb = i*dt;
+    const tb=i*dt;
+    const pC=Math.max(0.11*rr, pr-0.5*qrs);
+    const qrsC=pr;
+    const tStart=qrsC+qrs;
+    const tC=tStart+0.45*(qt-qrs);
 
-    const pC   = Math.max(0.11*rr, pr-0.5*qrs);
-    const qrsC = pr;
-    const tStart = qrsC + qrs;
-    const tC   = tStart + 0.45*(qt-qrs);
+    const pS=0.05*rr;
+    const qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
+    const tS=0.22*(qt-qrs);
 
-    const pS = 0.05*rr;
-    const qS = 0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
-    const tS = 0.22*(qt-qrs);
-
-    let v = 0;
-    v += gaussian(tb, pC,               pS,  0.12);
-    v += gaussian(tb, qrsC-0.20*qrs,    qS, -0.25);
-    v += gaussian(tb, qrsC,             rS,  1.00);
-    v += gaussian(tb, qrsC+0.25*qrs,    sS, -0.35);
-    v += gaussian(tb, tC,               tS,  0.35);
+    let v=0;
+    v+=gaussian(tb,pC,            pS,  0.12);
+    v+=gaussian(tb,qrsC-0.20*qrs, qS, -0.25);
+    v+=gaussian(tb,qrsC,          rS,  1.00);
+    v+=gaussian(tb,qrsC+0.25*qrs, sS, -0.35);
+    v+=gaussian(tb,tC,            tS,  0.35);
 
     oneBeat.push(v);
   }
-
-  // Remove any DC offset so isoelectric segments sit around 0 mV
   const mean = oneBeat.reduce((a,b)=>a+b,0)/oneBeat.length;
-  for(let i=0;i<oneBeat.length;i++) oneBeat[i] -= mean;
+  for(let i=0;i<oneBeat.length;i++) oneBeat[i]-=mean;
 
-  // Tile beats and keep time in SECONDS without coarse rounding (3 decimals shown)
-  const data = [];
+  const data=[];
   for(let b=0;b<beats;b++){
     for(let i=0;i<nBeat;i++){
-      const t_ms = b*rr + i*dt;
-      const t_s  = t_ms/1000;
-      data.push({ t: Number(t_s.toFixed(3)), v: oneBeat[i] });
+      const t_s=(b*rr + i*dt)/1000;
+      data.push({t:Number(t_s.toFixed(3)), v:oneBeat[i]});
     }
   }
   return data;
 }
 
-
-/* ---------------- Quiz Component (unchanged except no cycle clamp) ---------------- */
+/* ---------------- Quiz (unchanged) ---------------- */
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = useState("ventricular");
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -257,61 +244,44 @@ function QuizMode(){
 
   const generateQuestion = ()=>{
     let targetChannel;
-    const eligibleChannels = availableChannels.filter(ch => ch !== lastTargetRef.current);
-    targetChannel = (eligibleChannels.length===0) ? availableChannels[0] : eligibleChannels[Math.floor(Math.random()*eligibleChannels.length)];
+    const eligible = availableChannels.filter(ch=>ch!==lastTargetRef.current);
+    targetChannel = eligible.length? eligible[Math.floor(Math.random()*eligible.length)] : availableChannels[0];
     lastTargetRef.current = targetChannel;
 
-    const isKnockout = Math.random() < 0.5;
-    const modValue = isKnockout ? 0 : 200;
-    const modType = isKnockout ? 'knockout' : 'increase';
+    const isKO = Math.random()<0.5;
+    const modValue = isKO?0:200;
+    const modType = isKO?'knockout':'increase';
 
     const modParams = {...BASELINE_PARAMS, [targetChannel]:modValue};
     const baselineParams = {...BASELINE_PARAMS};
 
-    const wrongAnswers = availableChannels
-      .filter(c => c !== targetChannel && !areSimilarChannels(c, targetChannel))
-      .sort(()=>Math.random()-0.5)
-      .slice(0,3);
-    if(wrongAnswers.length < 3){
-      const remaining = availableChannels
-        .filter(c => c !== targetChannel && !wrongAnswers.includes(c))
-        .sort(()=>Math.random()-0.5);
-      wrongAnswers.push(...remaining.slice(0, 3 - wrongAnswers.length));
+    const wrong = availableChannels
+      .filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel))
+      .sort(()=>Math.random()-0.5).slice(0,3);
+    if(wrong.length<3){
+      const remain = availableChannels.filter(c=>c!==targetChannel && !wrong.includes(c)).sort(()=>Math.random()-0.5);
+      wrong.push(...remain.slice(0,3-wrong.length));
     }
-    const allOptions = [targetChannel, ...wrongAnswers].sort(()=>Math.random()-0.5);
+    const options=[targetChannel,...wrong].sort(()=>Math.random()-0.5);
 
     return {
-      targetChannel, modType, modValue, modParams, baselineParams, options: allOptions,
+      targetChannel, modType, modValue, options,
       baseline: generateAP(cellTypeId, baselineParams),
       modified: generateAP(cellTypeId, modParams)
     };
   };
 
-  useMemo(()=>{
-    if(!currentQuestion) setCurrentQuestion(generateQuestion());
-  },[cellTypeId, currentQuestion, availableChannels]);
+  useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId,currentQuestion,availableChannels]);
 
-  const handleAnswer = (answer)=>{
-    if(showResult) return;
-    setSelectedAnswer(answer);
-    setShowResult(true);
-    setQuestionsAnswered(q=>q+1);
-    if(answer === currentQuestion.targetChannel) setScore(s=>s+1);
+  const handleAnswer=(ans)=>{ if(showResult) return;
+    setSelectedAnswer(ans); setShowResult(true); setQuestionsAnswered(q=>q+1);
+    if(ans===currentQuestion.targetChannel) setScore(s=>s+1);
   };
 
-  const nextQuestion = ()=>{
-    setCurrentQuestion(generateQuestion());
-    setSelectedAnswer(null);
-    setShowResult(false);
-  };
-
-  const resetQuiz = ()=>{
-    setScore(0); setQuestionsAnswered(0); lastTargetRef.current = null;
-    setCurrentQuestion(generateQuestion()); setSelectedAnswer(null); setShowResult(false);
-  };
+  const nextQuestion=()=>{ setCurrentQuestion(generateQuestion()); setSelectedAnswer(null); setShowResult(false); };
+  const resetQuiz=()=>{ setScore(0); setQuestionsAnswered(0); lastTargetRef.current=null; setCurrentQuestion(generateQuestion()); setSelectedAnswer(null); setShowResult(false); };
 
   if(!currentQuestion) return <div>Loading...</div>;
-
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
@@ -348,12 +318,9 @@ function QuizMode(){
             </h3>
             <div className="stack">
               {currentQuestion.options.map(opt=>(
-                <button 
-                  key={opt}
-                  className={`quiz-option ${showResult ? (opt===currentQuestion.targetChannel ? 'correct' : opt===selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`}
-                  onClick={()=>handleAnswer(opt)}
-                  disabled={showResult}
-                >
+                <button key={opt}
+                        className={`quiz-option ${showResult ? (opt===currentQuestion.targetChannel ? 'correct' : opt===selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`}
+                        onClick={()=>handleAnswer(opt)} disabled={showResult}>
                   {CHANNEL_LABELS[opt]}
                 </button>
               ))}
@@ -395,7 +362,7 @@ function QuizMode(){
   );
 }
 
-/* ---------------- Explore Mode Component + ECG ---------------- */
+/* ---------------- Explore Mode + baseline ECG ---------------- */
 function ExploreMode(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
   const [params,setParams]=useState({...BASELINE_PARAMS});
@@ -407,61 +374,57 @@ function ExploreMode(){
 
   const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
 
-  // Helper: apply env/drug + KO + cell mask
-  const buildParamsFor = (id)=>{
-    const apply=(base, map)=>{ const out={...base}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
-    const env=apply(params, ENV_PRESETS[envPreset]||{});
-    const drug=apply(env, DRUG_PRESETS[preset]||{});
-    const out={...drug};
-    Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; });
-    // mask channels not used by this cell
+  // helper: compose params for a given cell with env/drug/KO + pacing clamp where appropriate
+  const buildParamsFor=(id, useCurrent=true)=>{
+    // useCurrent=true for the "modified" state; false -> baseline (100%) state
+    const base = useCurrent ? {...params} : {...BASELINE_PARAMS};
+    const apply=(obj,map)=>{ const out={...obj}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
+    const env = useCurrent ? (ENV_PRESETS[envPreset]||{}) : {};
+    const drug = useCurrent ? (DRUG_PRESETS[preset]||{}) : {};
+    const out = apply(apply(base,env),drug);
+    if(useCurrent){ Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; }); }
     const mask=CELL_TYPES.find(c=>c.id===id)?.uses||{};
     Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
-    // pace clamp only for non-pacemakers
-    if(id!=='sa' && id!=='purkinje'){
-      out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000);
-    }
+    if(id!=='sa' && id!=='purkinje'){ out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000); }
     return out;
   };
 
-  const workingParams = useMemo(()=>buildParamsFor(cell.id),[params,preset,envPreset,ko,cell,bpm]);
-
-  // Baseline & modified for current view
+  // APs for the visible chart (current cell)
   const baseline=useMemo(()=>{
     const base={...BASELINE_PARAMS};
     if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = 60000/bpm; }
     return generateAP(cell.id, base);
   },[cell.id,bpm]);
-  const modified=useMemo(()=>generateAP(cell.id,workingParams),[cell.id,workingParams]);
 
-  // --- ECG inputs: compute SA, atrial, ventricular APs in parallel with same knobs
-  const saAP   = useMemo(()=>generateAP('sa',   buildParamsFor('sa')),[params,preset,envPreset,ko,bpm]);
-  const atrAP  = useMemo(()=>generateAP('atrial',buildParamsFor('atrial')),[params,preset,envPreset,ko,bpm]);
-  const ventAP = useMemo(()=>generateAP('ventricular',buildParamsFor('ventricular')),[params,preset,envPreset,ko,bpm]);
+  const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,envPreset,ko,bpm]);
 
-  const saM   = useMemo(()=>computeMetrics(saAP),[saAP]);
-  const atrM  = useMemo(()=>computeMetrics(atrAP),[atrAP]);
-  const ventM = useMemo(()=>computeMetrics(ventAP),[ventAP]);
-
-  // Map AP metrics → ECG intervals (heuristic, education-only)
-  const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
-  const basePR=160;
-  const kICaL_atrial = pct((buildParamsFor('atrial').ICaL??100));
-  const kIKAch_atrial = pct((buildParamsFor('atrial').IK_ACh??100));
-  const pr_ms = clamp(basePR + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
-
-  const baseQRS=90;
-  const qrs_ms = clamp(baseQRS + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160); // lower dV/dt → wider
-  const qt_ms  = clamp(ventM.apd90 + 40, 280, 520); // APD90 proxy for QT
-
-  const ecgData = useMemo(()=>generateECGSeries({rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms, beats:3, fs:500}),
-    [rr_ms, pr_ms, qrs_ms, qt_ms]);
-
-  // Metrics for current view panel
   const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
-  const curMetrics=useMemo(()=>computeMetrics(modified),[modified]);
+  const curMetrics =useMemo(()=>computeMetrics(modified),[modified]);
 
-  const channelOrder=Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]);
+  // ---- ECG: compute intervals for BOTH baseline & modified states
+  const intervalsFromParams=(useCurrent)=>{
+    const saAP   = generateAP('sa',        buildParamsFor('sa',useCurrent));
+    const atrAP  = generateAP('atrial',    buildParamsFor('atrial',useCurrent));
+    const ventAP = generateAP('ventricular',buildParamsFor('ventricular',useCurrent));
+    const saM=computeMetrics(saAP), atrM=computeMetrics(atrAP), ventM=computeMetrics(ventAP);
+
+    const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
+    const kICaL_atrial = pct((buildParamsFor('atrial',useCurrent).ICaL??100));
+    const kIKAch_atrial= pct((buildParamsFor('atrial',useCurrent).IK_ACh??100));
+    const pr_ms = clamp(160 + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
+    const qrs_ms= clamp(90 + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160);
+    const qt_ms = clamp(ventM.apd90 + 40, 280, 520);
+    return {rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms};
+  };
+
+  const intsMod = useMemo(()=>intervalsFromParams(true), [params,preset,envPreset,ko,bpm]);
+  const intsBase= useMemo(()=>intervalsFromParams(false),[bpm]);
+
+  const ecgData      = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),
+                                [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
+  const ecgBaseline  = useMemo(()=>generateECGSeries({...intsBase, beats:3, fs:1000}),
+                                [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
+
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
@@ -544,24 +507,26 @@ function ExploreMode(){
         </div>
       </section>
 
-      {/* Chart + Metrics */}
+      {/* AP chart + metrics */}
       <section className="section">
         <h2>Action Potential</h2>
         <div className="legend">
           <span className="pill"><span className="line"></span> Modified</span>
           <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
-        <div style={{width: '100%'}}>
+        <div style={{width:'100%'}}>
           <ResponsiveContainer width="100%" height={420}>
             <LineChart data={modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3"/>
               <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
               <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
               {showBaseline && (
-                <Line dot={false} type="monotone" dataKey="v" data={baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+                <Line dot={false} type="monotone" dataKey="v" data={baseline.data}
+                      name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
               )}
-              <Line dot={false} type="monotone" dataKey="v" data={modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <Line dot={false} type="monotone" dataKey="v" data={modified.data}
+                    name="Modified" stroke="#0f172a" strokeWidth={3}/>
               <ReferenceLine y={-85} stroke="#e5e7eb"/>
             </LineChart>
           </ResponsiveContainer>
@@ -593,10 +558,11 @@ function ExploreMode(){
 
         <div className="divider"></div>
 
-        {/* NEW: ECG (Lead II, synthetic) */}
+        {/* ECG with baseline overlay */}
         <h2>ECG (Lead II — synthetic)</h2>
         <div className="legend" style={{marginBottom:0}}>
-          <span className="pill"><span className="line"></span> ECG responds to SA (RR), atrial (PR), and ventricular (QRS/QT) changes</span>
+          <span className="pill"><span className="line"></span> Modified</span>
+          <span className="pill"><span className="dash"></span> Baseline</span>
         </div>
         <div style={{width:'100%', marginTop:8}}>
           <ResponsiveContainer width="100%" height={200}>
@@ -607,7 +573,12 @@ function ExploreMode(){
               <YAxis domain={[-1.2,1.4]} tickCount={5}
                      label={{value:'mV', angle:-90, position:'insideLeft'}}/>
               <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-              <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2}/>
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={ecgBaseline}
+                      name="ECG Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" data={ecgData}
+                    name="ECG Modified" stroke="#0f172a" strokeWidth={2.5}/>
             </LineChart>
           </ResponsiveContainer>
         </div>
