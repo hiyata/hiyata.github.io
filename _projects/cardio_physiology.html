@@ -5,11 +5,9 @@ title: Cardio Physio
 
 <div id="ap-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
-<!-- React + ReactDOM (UMD) -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+<!-- React + ReactDOM (UMD, production) -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
 <!-- Recharts (UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
@@ -19,7 +17,8 @@ title: Cardio Physio
 
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;}
-  body{color:var(--ink)}
+  *{box-sizing:border-box}
+  body{color:var(--ink);background:#fff}
   .wrap{display:grid;grid-template-columns:1fr;gap:24px;max-width:100%;}
   @media(min-width:1024px){.wrap{grid-template-columns:minmax(300px, 400px) 1fr;gap:32px}}
   .section h2{font:600 12px/1.1 ui-sans-serif,system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
@@ -29,41 +28,41 @@ title: Cardio Physio
   .field{display:flex;flex-direction:column;gap:6px}
   .label{font-size:12px;color:var(--muted)}
   input[type="range"]{width:100%}
-  input[type="number"],select,button{border:1px solid var(--grid);border-radius:6px;padding:6px 8px;font-size:14px}
-  button{cursor:pointer;background:#fff}
+  input[type="number"],select,button{border:1px solid var(--grid);border-radius:8px;padding:8px 10px;font-size:14px;background:#fff}
+  button{cursor:pointer;transition:background .15s ease,transform .02s ease}
   button:hover{background:#f8fafc}
+  button:active{transform:translateY(0.5px)}
   button.primary{background:var(--blue);color:white;font-weight:600}
   button.primary:hover{background:#1d4ed8}
   .legend{display:flex;gap:16px;align-items:center;margin:6px 0 10px;font-size:14px}
   .pill{display:inline-flex;gap:8px;align-items:center}
-  .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
+  .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block;border-radius:2px}
   .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
   .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .metric{padding:10px;border:1px solid var(--grid);border-radius:8px;background:#fff}
   .metric .k{color:var(--muted);font-size:12px}
-  .metric .v{font-weight:600}
+  .metric .v{font-weight:700}
   .metric .d{font-size:12px}
   .divider{height:1px;background:var(--grid);margin:12px 0}
-  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
+  .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:8px;overflow:hidden;margin-bottom:16px}
   .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:white}
   .mode-toggle button.active{background:var(--blue);color:white}
-  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;width:100%}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:8px;cursor:pointer;transition:all 0.15s;width:100%;text-align:left}
   .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
   .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
   .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
-  .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
+  .quiz-option.disabled{cursor:not-allowed;opacity:0.7}
   .quiz-options-grid{display:grid;grid-template-columns:1fr;gap:10px}
   @media (min-width: 520px){ .quiz-options-grid{grid-template-columns:1fr 1fr} }
-  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
-  .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
-  .badge.ko{background:#fef2f2;color:var(--red)}
-  .badge.increase{background:#f0fdf4;color:var(--green)}
-  /* Confetti canvas sits on top but doesn't block clicks */
-  #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}
+  .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:8px;font-weight:600;border:1px solid var(--grid)}
+  .badge{display:inline-block;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:700;margin-left:8px;border:1px solid var(--grid)}
+  .badge.ko{background:#fff;color:var(--red);border-color:#fecaca}
+  .badge.increase{background:#fff;color:var(--green);border-color:#bbf7d0}
 </style>
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,useRef,useEffect} = React;
+const {useMemo,useState,useRef} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
 /* ---------------- Model constants ---------------- */
@@ -83,43 +82,33 @@ const CELL_TYPES = [
 
 const DRUG_PRESETS = {
   "None":{},
-  // Sympathomimetics / β-agonists
   "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
   "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
-  // β-blockers (rate/inotropy ↓)
   "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
   "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
   "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
-  // Parasympathetic modifiers / nodal agents
   "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
   "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
   "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
-  // HCN/If
   "Ivabradine (If blocker)":{ If:40 },
-  // Calcium channel blockers (Class IV)
   "Verapamil (L-type CCB)":{ ICaL:50 },
   "Diltiazem (L-type CCB)":{ ICaL:60 },
   "Nifedipine (DHP CCB)":{ ICaL:60 },
   "Amlodipine (DHP CCB)":{ ICaL:60 },
-  // Na⁺ channel blockers (Class I)
   "Lidocaine (Class IB)":{ INa:60 },
   "Mexiletine (Class IB)":{ INa:60 },
   "Procainamide (Class IA)":{ INa:70, IKr:85 },
   "Disopyramide (Class IA)":{ INa:70, IKr:90 },
   "Quinidine (Class IA)":{ INa:70, IKr:85 },
   "Flecainide (Class IC)":{ INa:50 },
-  // Late INa / multichannel
   "Ranolazine (late INa)":{ INa:70 },
   "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
-  // K⁺ channel blockers (Class III)
   "Ibutilide (IKr blocker)":{ IKr:60 },
   "Dofetilide (IKr blocker)":{ IKr:50 },
-  // Inotropes affecting Ca²⁺ handling
   "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
   "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
-  // Peripheral sympatholytics
   "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
   "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
 };
@@ -158,76 +147,27 @@ function describeParamChanges(modParams){
   return diffs.map(({k,delta})=>{
     const dir = delta>0 ? "↑" : "↓";
     const role = CHANNEL_ROLES[k]||k;
-    return `${dir}${k} (${role}) by ${Math.abs(delta)}%`;
+    return `${dir}${k} — ${role}`;
   });
 }
 
 function metricTakeaways(baseM, curM){
   if(!baseM || !curM) return [];
   const out=[];
-  const dAPD = curM.apd90 - baseM.apd90;
+  const dAP = curM.apDuration - baseM.apDuration;
   const dDV  = curM.dvdtMax - baseM.dvdtMax;
   const dCycle = curM.cycle - baseM.cycle;
 
-  if(Math.abs(dAPD)>=10){
-    out.push(`${dAPD>0?'Longer':'Shorter'} APD90 (${dAPD>0?'+':'-'}${Math.abs(dAPD)} ms) → ${dAPD>0?'prolonged QT tendency':'shorter QT tendency'}.`);
+  if(Math.abs(dAP)>=10){
+    out.push(`${dAP>0?'Longer':'Shorter'} AP duration (${dAP>0?'+':'-'}${Math.abs(dAP)} ms) → ${dAP>0?'QT trend up':'QT trend down'}.`);
   }
   if(Math.abs(dDV)>=0.5){
-    out.push(`${dDV>0?'Steeper':'Blunter'} upstroke (dV/dt_max ${dDV>0?'+':'-'}${Math.abs(dDV).toFixed(2)} mV/ms) → ${dDV>0?'stronger Na⁺ influx':'reduced Na⁺ influx'}.`);
+    out.push(`${dDV>0?'Steeper':'Blunter'} upstroke (dV/dt_max ${dDV>0?'+':'-'}${Math.abs(dDV).toFixed(2)} mV/ms) → ${dDV>0?'more Na⁺ influx':'less Na⁺ influx'}.`);
   }
   if(Math.abs(dCycle)>=20){
     out.push(`${dCycle>0?'Longer':'Shorter'} cycle length (${dCycle>0?'+':'-'}${Math.abs(dCycle)} ms) → ${dCycle>0?'slower rate':'faster rate'}.`);
   }
   return out.length? out : ["Minimal change in global metrics."];
-}
-
-/* ---------------- Confetti (tiny, dependency-free) ---------------- */
-function useConfettiOn(trigger){
-  useEffect(()=>{
-    if(!trigger) return;
-    let raf=0, t0=null;
-    const canvas=document.getElementById('confetti-canvas') || (()=> {
-      const c=document.createElement('canvas');
-      c.id='confetti-canvas';
-      document.body.appendChild(c);
-      const onResize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
-      onResize(); window.addEventListener('resize', onResize);
-      c._cleanup=()=>window.removeEventListener('resize', onResize);
-      return c;
-    })();
-    const ctx=canvas.getContext('2d');
-    const N=140;
-    const parts=[...Array(N)].map(()=>({
-      x: Math.random()*canvas.width,
-      y: -20 - Math.random()*canvas.height*0.3,
-      vx: -1 + Math.random()*2,
-      vy: 2 + Math.random()*3.5,
-      s: 4 + Math.random()*4,
-      a: Math.random()*Math.PI*2,
-      spin: (-0.2+Math.random()*0.4)
-    }));
-
-    function step(ts){
-      if(t0==null) t0=ts;
-      const dt=(ts-t0)/1000;
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      parts.forEach(p=>{
-        p.x+=p.vx; p.y+=p.vy; p.a+=p.spin;
-        ctx.save();
-        ctx.translate(p.x,p.y);
-        ctx.rotate(p.a);
-        ctx.globalAlpha=0.9;
-        ctx.fillStyle = `hsl(${(p.x/10 + p.y/5)%360},70%,55%)`;
-        ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);
-        ctx.restore();
-        if(p.y>canvas.height+40) { p.y=-20; p.x=Math.random()*canvas.width; }
-      });
-      if(dt<1.6){ raf=requestAnimationFrame(step); }
-      else { ctx.clearRect(0,0,canvas.width,canvas.height); }
-    }
-    raf=requestAnimationFrame(step);
-    return ()=>{ cancelAnimationFrame(raf); if(canvas._cleanup) canvas._cleanup(); };
-  },[trigger]);
 }
 
 /* ---------------- AP generator ---------------- */
@@ -305,15 +245,16 @@ function generateAP(cellId, params){
   return {data, marks, segs};
 }
 
+/* ---------------- Metrics ---------------- */
 function computeMetrics(curve){
-  const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
+  const pts=curve.data||curve; if(!pts.length) return {apDuration:0,dvdtMax:0,cycle:0};
   const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
   const v90=vrest+0.1*(vmax-vrest); const up=pts.findIndex(p=>p.v>v90);
   let down=pts.length-1; for(let i=pts.length-1;i>=0;i--){ if(pts[i].v>v90){ down=i; break; } }
-  const apd90=(up>=0 && down>up)?(pts[down].t-pts[up].t):0;
+  const apDuration=(up>=0 && down>up)?(pts[down].t-pts[up].t):0; // displayed as "AP duration"
   let dvdtMax=0; for(let i=1;i<pts.length;i++){ const dv=pts[i].v-pts[i-1].v; const dt=pts[i].t-pts[i-1].t||1e-6; dvdtMax=Math.max(dv/dt,dvdtMax); }
   const cycle=pts[pts.length-1].t;
-  return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
+  return {apDuration:Math.round(apDuration), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
 }
 
 const PHASE_GROUPS=[
@@ -331,14 +272,14 @@ function areSimilarChannels(ch1, ch2){
   return false;
 }
 
-/* ---------------- ECG synthesizer (smooth, zero-mean) ---------------- */
+/* ---------------- ECG synthesizer ---------------- */
 function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
 
 function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
   rr = clamp(rr, 300, 2000);  pr = clamp(pr, 100, 260);
   qrs = clamp(qrs, 70, 160);  qt = clamp(qt, 280, 520);
 
-  const dt = 1000/fs; // ms / sample
+  const dt = 1000/fs;
   const oneBeat=[], nBeat=Math.round(rr/dt);
 
   for(let i=0;i<nBeat;i++){
@@ -431,7 +372,7 @@ function QuizMode(){
         targetName,
         targetKind,
         modParamsMap: DRUG_PRESETS[targetKey],
-        options,    // [{key, name}]
+        options,
         baseline: generateAP(cellTypeId, baselineParams),
         modified: generateAP(cellTypeId, modParams)
       };
@@ -480,14 +421,6 @@ function QuizMode(){
     const fullMap = Object.fromEntries(Object.keys(BASELINE_PARAMS).map(k=>[k, Math.round((map[k]??100))]));
     return describeParamChanges(fullMap);
   }, [currentQuestion]);
-
-  // Confetti on correct answer
-  const isCorrect = currentQuestion
-    ? (currentQuestion.type==="drug"
-        ? selectedAnswer===currentQuestion.targetKey
-        : selectedAnswer===currentQuestion.targetChannel)
-    : false;
-  useConfettiOn(showResult && isCorrect);
 
   const handleAnswer=(ans)=>{
     if(showResult || !currentQuestion) return;
@@ -543,7 +476,6 @@ function QuizMode(){
         </div>
       );
     }
-    // channel
     return (
       <div className="quiz-options-grid">
         {currentQuestion.options.map(opt=>(
@@ -583,8 +515,6 @@ function QuizMode(){
 
   return (
     <div className="wrap">
-      <canvas id="confetti-canvas"></canvas>
-
       <section className="section">
         <h2>Quiz Settings</h2>
         <div className="stack">
@@ -650,14 +580,14 @@ function QuizMode(){
 
           <div>
             {currentQuestion.type==="drug" ? (
-              <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
+              <h3 style={{marginBottom:12,fontSize:14,fontWeight:700}}>
                 Which <em>drug</em> was added?
               </h3>
             ) : (
-              <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
+              <h3 style={{marginBottom:12,fontSize:14,fontWeight:700}}>
                 Which ion channel/transporter was 
                 <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
-                  {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
+                  {currentQuestion.modType==='knockout' ? 'KNOCKED OUT' : 'INCREASED'}
                 </span>
                 ?
               </h3>
@@ -668,17 +598,17 @@ function QuizMode(){
 
           {showResult && (
             <>
-              <div style={{padding:12,background:isCorrect?'#f0fdf4':'#fef2f2',borderRadius:6,fontWeight:600, marginTop:8, marginBottom:8}}>
+              <div style={{padding:12,background:isCorrect(selectedAnswer,currentQuestion)?'#f0fdf4':'#fef2f2',borderRadius:8,fontWeight:700, marginTop:8, marginBottom:8}}>
                 {feedbackText()}
               </div>
 
-              {/* Insights panel */}
-              <details open style={{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:6, padding:12, marginBottom:8}}>
-                <summary style={{fontWeight:700, cursor:'pointer'}}>Why does the trace look like this?</summary>
+              {/* Explanations — concise, direction-only for channels; numeric ms permitted for intervals */}
+              <details open style={{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:8, padding:12, marginBottom:8}}>
+                <summary style={{fontWeight:800, cursor:'pointer'}}>Why this trace?</summary>
                 <div style={{marginTop:8, display:'grid', gridTemplateColumns:'1fr', gap:'6px'}}>
                   {baseM && curM && (
                     <div style={{fontSize:14}}>
-                      <div style={{fontWeight:600, marginBottom:4}}>Key metric changes</div>
+                      <div style={{fontWeight:700, marginBottom:4}}>Key changes</div>
                       <ul style={{margin:'6px 0 0 18px'}}>
                         {metricTakeaways(baseM, curM).map((t,i)=><li key={i}>{t}</li>)}
                       </ul>
@@ -686,19 +616,17 @@ function QuizMode(){
                   )}
 
                   {currentQuestion.type==="drug" && (
-                    <>
-                      <div style={{fontSize:14}}>
-                        <div style={{fontWeight:600, margin:'8px 0 4px'}}>Primary channels affected</div>
-                        <ul style={{margin:'6px 0 0 18px'}}>
-                          {changeLines.map((l,i)=><li key={i}>{l}</li>)}
-                        </ul>
-                      </div>
-                    </>
+                    <div style={{fontSize:14}}>
+                      <div style={{fontWeight:700, margin:'8px 0 4px'}}>Primary channels affected</div>
+                      <ul style={{margin:'6px 0 0 18px'}}>
+                        {changeLines.map((l,i)=><li key={i}>{l}</li>)}
+                      </ul>
+                    </div>
                   )}
 
                   {currentQuestion.type==="channel" && (
                     <div style={{fontSize:14}}>
-                      <div style={{fontWeight:600, margin:'8px 0 4px'}}>Targeted mechanism</div>
+                      <div style={{fontWeight:700, margin:'8px 0 4px'}}>Targeted mechanism</div>
                       <div>{CHANNEL_ROLES[currentQuestion.targetChannel] || currentQuestion.targetChannel}</div>
                     </div>
                   )}
@@ -733,6 +661,10 @@ function QuizMode(){
       </section>
     </div>
   );
+
+  function isCorrect(ans, q){
+    return q ? (q.type==="drug" ? ans===q.targetKey : ans===q.targetChannel) : false;
+  }
 }
 
 /* ---------------- Explore Mode  ---------------- */
@@ -782,7 +714,7 @@ function ExploreMode(){
     const kIKAch_atrial= pct((buildParamsFor('atrial',useCurrent).IK_ACh??100));
     const pr_ms = clamp(160 + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
     const qrs_ms= clamp(90 + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160);
-    const qt_ms = clamp(ventM.apd90 + 40, 280, 520);
+    const qt_ms = clamp(ventM.apDuration + 40, 280, 520);
     return {rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms};
   };
 
@@ -791,9 +723,6 @@ function ExploreMode(){
 
   const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
   const ecgBaseline = useMemo(()=>generateECGSeries({...intsBase, beats:3, fs:1000}), [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
-
-  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
-  const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
   function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
 
@@ -853,7 +782,7 @@ function ExploreMode(){
                   {keys.map(key=>(
                     <div key={key} className="stack">
                       <div className="row" style={{justifyContent:'space-between'}}>
-                        <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
+                        <div style={{fontWeight:700,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
                         <label style={{fontSize:12}}>
                           <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
                         </label>
@@ -874,7 +803,7 @@ function ExploreMode(){
             );
           })}
 
-          <label style={{fontSize:12}}>
+          <label className="label" style={{display:'flex',gap:8,alignItems:'center',marginTop:4}}>
             <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline
           </label>
         </div>
@@ -907,10 +836,10 @@ function ExploreMode(){
 
       <div className="metrics" style={{marginTop:12}}>
         <div className="metric">
-          <div className="k">APD90</div>
-          <div className="v">{curMetrics.apd90} ms</div>
-          <div className="d" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
-            {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
+          <div className="k">AP duration</div>
+          <div className="v">{curMetrics.apDuration} ms</div>
+          <div className="d" style={{color:(curMetrics.apDuration-baseMetrics.apDuration)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.apDuration-baseMetrics.apDuration)>=0?'↑':'↓'} {Math.abs(curMetrics.apDuration-baseMetrics.apDuration)} vs baseline
           </div>
         </div>
         <div className="metric">
