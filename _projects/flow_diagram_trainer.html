@@ -63,7 +63,7 @@ title: Flow Diagram Trainer
 
 {% raw %}
 <script type="text/babel" data-presets="env,react">
-const {useMemo,useState,useEffect,useRef} = React;
+const {useMemo,useState,useEffect} = React;
 const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceArea,ReferenceLine,ResponsiveContainer,Legend} = Recharts;
 
 /* ---------------- Utilities ---------------- */
@@ -85,41 +85,32 @@ function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_w
   rr = clamp(rr, 400, 2000);
   pr = clamp(pr, 120, 240);
   qrs = clamp(qrs, 70, 140);
-  ivct = clamp(ivct, 30, 120); // isovolumic contraction time
-  et = clamp(et, 180, 380);    // ejection time
-  ivrt = clamp(ivrt, 50, 140); // isovolumic relaxation time
-  e_amp = clamp(e_amp, 0.3, 1.8);
-  a_amp = clamp(a_amp, 0.2, 1.6);
+  ivct = clamp(ivct, 30, 120);
+  et   = clamp(et, 180, 380);
+  ivrt = clamp(ivrt, 50, 140);
+  e_amp   = clamp(e_amp, 0.3, 1.8);
+  a_amp   = clamp(a_amp, 0.2, 1.6);
   e_width = clamp(e_width, 25, 120);
   a_width = clamp(a_width, 25, 120);
 
-  // Landmark events within a beat (t=0 is P-wave onset-like anchor):
   const dt = 1000/fs;
-  const n = Math.round(rr/dt);
-  const tP = 0;
-  const tQRS = pr; // ventricular depol after PR
-  const tMC = tQRS + 10; // mitral closes ~shortly after QRS (E-C coupling lag)
-  const tAO = tQRS + ivct; // aortic opens after IVCT
-  const tAC = tAO + et;    // aortic closes after ET
-  const tMO = tAC + ivrt;  // mitral opens after IVRT
+  const n  = Math.round(rr/dt);
+  const tQRS = pr;
+  const tAO  = tQRS + ivct;     // aortic opens after IVCT
+  const tAC  = tAO + et;        // aortic closes after ET
+  const tMO  = tAC + ivrt;      // mitral opens after IVRT
 
   // E and A centers
-  const tE = tMO + 60;     // early rapid filling center
-  const tA = rr - 80;      // late atrial filling center (right before next P)
+  const tE = tMO + 60;
+  const tA = rr - 80;
   const data = [];
   for(let i=0;i<n;i++){
-    const t=i*dt; // ms
-    const mitralFlow =
-      g(t, tE, e_width, e_amp) +
-      g(t, tA, a_width, a_amp);
-    const aorticFlow =
-      (t>=tAO && t<=tAC)
-        ? g(t, (tAO+tAC)/2, et*0.22, 1.8)  // bell-shaped ejection
-        : 0;
+    const t=i*dt;
+    const mitralFlow = g(t, tE, e_width, e_amp) + g(t, tA, a_width, a_amp);
+    const aorticFlow = (t>=tAO && t<=tAC) ? g(t, (tAO+tAC)/2, et*0.22, 1.8) : 0;
     data.push({t: ms(t), mitral: mitralFlow, aortic: aorticFlow});
   }
 
-  // Metrics: E/A, ET, IVCT, IVRT, diastasis
   const mitralIdxMaxE = data.reduce((m,p,i)=> p.mitral>data[m].mitral?i:m, 0);
   const mitralIdxMaxA = data.reduce((m,p,i)=> (p.t>tMO+120 && p.mitral>data[m].mitral)?i:m, mitralIdxMaxE);
   const E = data[mitralIdxMaxE]?.mitral ?? 0;
@@ -156,10 +147,8 @@ function flowInsights(base, cur){
   const dRR = cur.rr - base.rr;
   const dDiast = cur.diastasis - base.diastasis;
 
-  if(cur.EA!=null && base.EA!=null){
-    if(Math.abs(dEA)>=0.15){
-      lines.push(`${dEA>0?'Higher':'Lower'} E/A ratio (${dEA>0?'+':'-'}${Math.abs(dEA).toFixed(2)}) → ${dEA>0?'enhanced early filling or reduced atrial kick':'reliance on atrial kick/impeded early filling'}.`);
-    }
+  if(cur.EA!=null && base.EA!=null && Math.abs(dEA)>=0.15){
+    lines.push(`${dEA>0?'Higher':'Lower'} E/A ratio (${dEA>0?'+':'-'}${Math.abs(dEA).toFixed(2)}) → ${dEA>0?'enhanced early filling or reduced atrial kick':'reliance on atrial kick/impeded early filling'}.`);
   }
   if(Math.abs(dIVCT)>=10){
     lines.push(`${dIVCT>0?'Prolonged':'Shortened'} IVCT (${dIVCT>0?'+':'-'}${Math.abs(dIVCT)} ms) → ${dIVCT>0?'slower pressure rise or ↑afterload':'faster pressure rise or ↑inotropy'}.`);
@@ -228,13 +217,13 @@ function useConfettiOn(trigger){
 
 /* ---------------- Explore Mode ---------------- */
 function ExploreMode(){
-  const [hr, setHr] = useState(70);          // bpm
-  const [preload, setPreload] = useState(100);  // % baseline affects E amp
-  const [afterload, setAfterload] = useState(100); // % baseline affects IVCT, ET
-  const [inotropy, setInotropy] = useState(100);  // % baseline affects IVCT (down), ET (up)
+  const [hr, setHr] = useState(70);
+  const [preload, setPreload] = useState(100);
+  const [afterload, setAfterload] = useState(100);
+  const [inotropy, setInotropy] = useState(100);
   const [showBaseline,setShowBaseline]=useState(true);
 
-  const rr = Math.round(60000/Math.max(30, Math.min(180, hr))); // ms
+  const rr = Math.round(60000/Math.max(30, Math.min(180, hr)));
 
   const baseParams = useMemo(()=>({
     rr,
@@ -248,25 +237,24 @@ function ExploreMode(){
   }),[rr]);
 
   const modParams = useMemo(()=>{
-    // Physiologic heuristics, aligned to lecture framing (valve/phase timing).
     const p = {...baseParams};
     const kPre = preload/100, kAft = afterload/100, kIno = inotropy/100;
 
-    // Preload mainly boosts E amplitude/width; A rises if low preload
+    // Preload
     p.e_amp = p.e_amp * (0.8 + 0.6*kPre);
     p.a_amp = p.a_amp * (kPre<0.9 ? 1.1 : 0.95);
     p.e_width = p.e_width * (0.9 + 0.25*kPre);
 
-    // Afterload ↑ → IVCT↑, ET↓, IVRT↑
+    // Afterload
     p.ivct = clamp(p.ivct * (0.8 + 0.5*kAft), 30, 140);
     p.et   = clamp(p.et   * (1.1 - 0.25*(kAft-1)), 180, 360);
     p.ivrt = clamp(p.ivrt * (0.9 + 0.4*kAft), 50, 150);
 
-    // Inotropy ↑ → IVCT↓, ET↑(slightly)
+    // Inotropy
     p.ivct = clamp(p.ivct * (1.1 - 0.2*(kIno-1)), 30, 140);
     p.et   = clamp(p.et   * (1.0 + 0.08*(kIno-1)), 180, 380);
 
-    // Faster HR → less diastasis
+    // HR / diastasis
     const baseDiast = baseParams.diastasis;
     p.diastasis = clamp(baseDiast * (rr/900), 0, 250);
     if(rr<650){ p.a_width = p.a_width*0.9; }
@@ -394,9 +382,9 @@ function QuizMode(){
   }),[rr]);
 
   const hemoScenarios = [
-    { key:'HR↑',   mutate:(p)=>({...p, rr: Math.round(p.rr*0.75)}) },
-    { key:'Preload↑', mutate:(p)=>({...p, e_amp:p.e_amp*1.4, e_width:p.e_width*1.2}) },
-    { key:'Afterload↑', mutate:(p)=>({...p, ivct:clamp(p.ivct*1.3,30,140), et:clamp(p.et*0.9,180,360), ivrt:clamp(p.ivrt*1.25,50,150)}) },
+    { key:'HR↑',       mutate:(p)=>({...p, rr: Math.round(p.rr*0.75)}) },
+    { key:'Preload↑',  mutate:(p)=>({...p, e_amp:p.e_amp*1.4, e_width:p.e_width*1.2}) },
+    { key:'Afterload↑',mutate:(p)=>({...p, ivct:clamp(p.ivct*1.3,30,140), et:clamp(p.et*0.9,180,360), ivrt:clamp(p.ivrt*1.25,50,150)}) },
     { key:'Inotropy↓', mutate:(p)=>({...p, ivct:clamp(p.ivct*1.25,30,140), et:clamp(p.et*0.9,180,360)}) }
   ];
 
@@ -423,7 +411,8 @@ function QuizMode(){
 
       const tgt = segs[Math.floor(Math.random()*segs.length)];
       const choicesAll = ['IVCT','Ejection','IVRT','E','Diastasis','A'];
-      const options = [tgt.kind, ...choicesAll.filter(c=>c!==tgt.kind).sort(()=>Math.random()-0.5)].slice(0,nOptions).sort(()=>Math.random()-0.5);
+      const options = [tgt.kind, ...choicesAll.filter(c=>c!==tgt.kind).sort(()=>Math.random()-0.5)]
+        .slice(0,nOptions).sort(()=>Math.random()-0.5);
       return { type:'phase', baseBeat, modBeat, segment:tgt, answer:tgt.kind, options };
     }
   }
@@ -454,9 +443,6 @@ function QuizMode(){
   if(!current) return <div>Loading…</div>;
 
   const mod2 = useMemo(()=>tileBeats(current.modBeat,2),[current]);
-
-  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
-  const yAxisLabel={ value:'flow (m/s)', angle:-90, position:'insideLeft' };
 
   return (
     <div className="wrap">
@@ -532,7 +518,6 @@ function QuizMode(){
                 {isCorrect ? '✓ Correct!' : `✗ Incorrect. The answer was: ${current.answer}`}
               </div>
 
-              {/* Insights for quiz: plain language mapping */}
               <div className="insights">
                 <div style={{fontWeight:700, marginBottom:6}}>Why this answer?</div>
                 <ul style={{margin:'6px 0 0 18px',fontSize:14}}>
