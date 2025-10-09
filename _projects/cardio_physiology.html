@@ -8,6 +8,7 @@ title: Cardio Physio
 <!-- React + ReactDOM (UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
 <script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
 
 <!-- Recharts (UMD) -->
@@ -15,9 +16,6 @@ title: Cardio Physio
 
 <!-- Babel (compile JSX in the browser) -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;}
@@ -123,59 +121,16 @@ const DRUG_PRESETS = {
   "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
   "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
 };
-
 const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperkalemia":{IK1:60,INa:80}, "Ischemia":{NaKATPase:50,IK1:70,IKr:120} };
 
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const pct=(x)=>clamp(x/100,0,2);
 
-/* ---------------- Learning helpers ---------------- */
-// Plain-English roles for channels
-const CHANNEL_ROLES = {
-  INa: "fast Na⁺ upstroke (Phase 0)",
-  ICaL: "L-type Ca²⁺; plateau & nodal upstroke",
-  Ito: "transient outward K⁺; phase-1 notch",
-  IKr: "rapid delayed rectifier K⁺; repolarization",
-  IKs: "slow delayed rectifier K⁺; repolarization",
-  IK1: "inward rectifier K⁺; resting potential",
-  If: "funny current; pacemaker slope",
-  ICaT: "T-type Ca²⁺; pacemaker slope",
-  IK_ACh: "ACh-gated K⁺; vagal tone",
-  NaKATPase: "Na⁺/K⁺ pump; resting stability"
-};
-
+/* ---------------- Helpers for drug display ---------------- */
 function parseDrugKey(key){
+  // "Name (kind)" -> { name: "Name", kind: "kind" }
   const m = key.match(/^(.*?)(?:\s*\((.*)\))?$/);
   return { name: (m?.[1]||key).trim(), kind: (m?.[2]||"").trim() };
-}
-
-// Turn a drug’s preset map into human lines (± vs 100)
-function describeParamChanges(modMap){
-  const diffs = Object.entries(BASELINE_PARAMS)
-    .map(([k])=>({k, delta: (modMap[k] ?? 100) - 100}))
-    .filter(x=>Math.abs(x.delta)>=15)
-    .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta))
-    .slice(0,5);
-  if(!diffs.length) return ["No major channel changes detected."];
-  return diffs.map(({k,delta})=>{
-    const dir = delta>0 ? "↑" : "↓";
-    const role = CHANNEL_ROLES[k]||k;
-    return `${dir}${k} (${role}) by ${Math.abs(delta)}%`;
-  });
-}
-
-// Translate metric deltas into quick takeaways
-function metricTakeaways(baseM, curM){
-  const out=[];
-  const dAPD = curM.apd90 - baseM.apd90;
-  const dDV  = curM.dvdtMax - baseM.dvdtMax;
-  if(Math.abs(dAPD)>=10){
-    out.push(`${dAPD>0?'Longer':'Shorter'} APD90 (${dAPD>0?'+':'-'}${Math.abs(dAPD)} ms) → ${dAPD>0?'prolonged QT tendency':'shorter QT tendency'}.`);
-  }
-  if(Math.abs(dDV)>=0.5){
-    out.push(`${dDV>0?'Steeper':'Blunter'} upstroke (dV/dt_max ${dDV>0?'+':'-'}${Math.abs(dDV).toFixed(2)} mV/ms) → ${dDV>0?'stronger Na⁺ influx':'reduced Na⁺ influx'}.`);
-  }
-  return out.length? out : ["Minimal change in global metrics."];
 }
 
 /* ---------------- AP generator ---------------- */
@@ -326,7 +281,6 @@ function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = React.useState("ventricular");
   const [quizKind, setQuizKind] = React.useState("channel"); // 'channel' | 'drug'
-  const [difficulty, setDifficulty] = React.useState("standard"); // 'easy'|'standard'|'hard'
   const [currentQuestion, setCurrentQuestion] = React.useState(null);
   const [selectedAnswer, setSelectedAnswer] = React.useState(null);
   const [showResult, setShowResult] = React.useState(false);
@@ -337,12 +291,6 @@ function QuizMode(){
   const cell = React.useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
   const availableChannels = React.useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
   const drugKeys = React.useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
-
-  const numOptions = React.useMemo(()=>{
-    if(difficulty==='easy') return 2;
-    if(difficulty==='hard') return 6;
-    return 4;
-  },[difficulty]);
 
   const maskParamsByCell = (id, params)=>{
     const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
@@ -359,11 +307,6 @@ function QuizMode(){
     return out;
   };
 
-  const pickWrong = (arr, correct, n, filterFn=(x)=>x)=>{
-    const pool = arr.filter(x=>filterFn(x) && x!==correct);
-    return pool.sort(()=>Math.random()-0.5).slice(0,Math.max(0,n));
-  };
-
   const generateQuestion = ()=>{
     if(quizKind === "drug"){
       // --- DRUG QUIZ ---
@@ -374,17 +317,21 @@ function QuizMode(){
       const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
       const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
 
-      const wrongObjs = pickWrong(
-        drugKeys, targetKey, numOptions-1, (k)=>true
-      ).map(k=>({ key:k, name: parseDrugKey(k).name }));
+      // Build wrong answers (distinct keys), but show only names to the user
+      const wrong = drugKeys
+        .filter(k=>k!==targetKey)
+        .sort(()=>Math.random()-0.5)
+        .slice(0,3)
+        .map(k=>({ key:k, name: parseDrugKey(k).name }));
 
-      const options = [{ key: targetKey, name: targetName }, ...wrongObjs].sort(()=>Math.random()-0.5);
+      const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
 
       return {
         type: "drug",
-        targetKey, targetName, targetKind,
-        options, // [{key,name}]
-        modMap: DRUG_PRESETS[targetKey] || {},
+        targetKey,
+        targetName,
+        targetKind, // for explanation
+        options,    // [{key, name}]
         baseline: generateAP(cellTypeId, baselineParams),
         modified: generateAP(cellTypeId, modParams)
       };
@@ -403,12 +350,15 @@ function QuizMode(){
       const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
       const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
 
-      let wrongPool = availableChannels.filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel));
-      if(wrongPool.length < (numOptions-1)){
-        // allow similar if not enough unique
-        wrongPool = availableChannels.filter(c=>c!==targetChannel);
+      const wrong = availableChannels
+        .filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel))
+        .sort(()=>Math.random()-0.5).slice(0,3);
+      if(wrong.length<3){
+        const remain = availableChannels
+          .filter(c=>c!==targetChannel && !wrong.includes(c))
+          .sort(()=>Math.random()-0.5);
+        wrong.push(...remain.slice(0,3-wrong.length));
       }
-      const wrong = wrongPool.sort(()=>Math.random()-0.5).slice(0,numOptions-1);
       const options=[targetChannel,...wrong].sort(()=>Math.random()-0.5);
 
       return {
@@ -420,7 +370,7 @@ function QuizMode(){
     }
   };
 
-  React.useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId, quizKind, difficulty, currentQuestion, availableChannels]);
+  React.useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId, quizKind, currentQuestion, availableChannels]);
 
   const handleAnswer=(ans)=>{
     if(showResult || !currentQuestion) return;
@@ -430,22 +380,13 @@ function QuizMode(){
 
     let correct=false;
     if(currentQuestion.type==="drug"){
+      // ans is the option.key (we pass key on click)
       correct = (ans===currentQuestion.targetKey);
     } else {
+      // ans is the channel key
       correct = (ans===currentQuestion.targetChannel);
     }
-    if(correct){
-      setScore(s=>s+1);
-      try{
-        // Fire confetti 🎉
-        if(window.confetti){
-          const count=120, defaults={ spread: 72, ticks: 60, gravity: 1.1, scalar: 0.9 };
-          const origin = { y: 0.25, x: 0.75 };
-          window.confetti(Object.assign({ particleCount: Math.floor(count/2), angle: 60, origin }, defaults));
-          window.confetti(Object.assign({ particleCount: Math.floor(count/2), angle: 120, origin: { y: 0.25, x: 0.25 } }, defaults));
-        }
-      }catch(e){}
-    }
+    if(correct) setScore(s=>s+1);
   };
 
   const nextQuestion=()=>{ setCurrentQuestion(generateQuestion()); setSelectedAnswer(null); setShowResult(false); };
@@ -455,16 +396,7 @@ function QuizMode(){
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
 
-  // Metrics (for insights)
-  const baseM = React.useMemo(()=> computeMetrics(currentQuestion.baseline), [currentQuestion]);
-  const curM  = React.useMemo(()=> computeMetrics(currentQuestion.modified), [currentQuestion]);
-
-  // For drug mode, precompute the primary channel effects lines
-  const changeLines = React.useMemo(()=>{
-    if(!currentQuestion || currentQuestion.type!=="drug") return [];
-    return describeParamChanges(currentQuestion.modMap);
-  }, [currentQuestion]);
-
+  // For rendering options consistently as a responsive grid
   const renderOptions = ()=>{
     if(currentQuestion.type==="drug"){
       return (
@@ -488,6 +420,7 @@ function QuizMode(){
         </div>
       );
     }
+    // channel
     return (
       <div className="quiz-options-grid">
         {currentQuestion.options.map(opt=>(
@@ -510,14 +443,15 @@ function QuizMode(){
     );
   };
 
+  // Feedback line content (adds drug class for drug quiz)
   const feedbackText = ()=>{
     if(currentQuestion.type==="drug"){
       const correct = selectedAnswer===currentQuestion.targetKey;
       const {targetName, targetKind} = currentQuestion;
-      const classText = targetKind ? ` — ${targetKind}` : '';
+      const suffix = targetKind ? ` — ${targetKind}` : '';
       return correct
-        ? `✓ Correct! ${targetName}${classText}`
-        : `✗ Incorrect. The answer was: ${targetName}${classText}`;
+        ? `✓ Correct! ${targetName}${suffix}`
+        : `✗ Incorrect. The answer was: ${targetName}${suffix}`;
     } else {
       const correct = selectedAnswer===currentQuestion.targetChannel;
       return correct
@@ -531,50 +465,32 @@ function QuizMode(){
       <section className="section">
         <h2>Quiz Settings</h2>
         <div className="stack">
-          <div className="row">
-            <div className="field flex1">
-              <label className="label">Cell type</label>
-              <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
-                {CELL_TYPES.map(c=>
-                  <option key={c.id} value={c.id}>{c.name}</option>
-                )}
-              </select>
-            </div>
-            <div className="field flex1">
-              <label className="label">Quiz type</label>
-              <div className="mode-toggle" style={{margin:0}}>
-                <button
-                  className={quizKind==='channel'?'active':''}
-                  onClick={()=>{setQuizKind('channel'); setCurrentQuestion(null);}}
-                  disabled={showResult}
-                >Channel</button>
-                <button
-                  className={quizKind==='drug'?'active':''}
-                  onClick={()=>{setQuizKind('drug'); setCurrentQuestion(null);}}
-                  disabled={showResult}
-                >Drug</button>
-              </div>
-            </div>
+          <div className="field">
+            <label className="label">Cell type</label>
+            <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
+              {CELL_TYPES.map(c=>
+                <option key={c.id} value={c.id}>{c.name}</option>
+              )}
+            </select>
           </div>
 
           <div className="field">
-            <label className="label">Difficulty</label>
+            <label className="label">Quiz type</label>
             <div className="mode-toggle" style={{margin:0}}>
               <button
-                className={difficulty==='easy'?'active':''}
-                onClick={()=>{setDifficulty('easy'); setCurrentQuestion(null);}}
+                className={quizKind==='channel'?'active':''}
+                onClick={()=>{setQuizKind('channel'); setCurrentQuestion(null);}}
                 disabled={showResult}
-              >Easy (2)</button>
+              >
+                Channel
+              </button>
               <button
-                className={difficulty==='standard'?'active':''}
-                onClick={()=>{setDifficulty('standard'); setCurrentQuestion(null);}}
+                className={quizKind==='drug'?'active':''}
+                onClick={()=>{setQuizKind('drug'); setCurrentQuestion(null);}}
                 disabled={showResult}
-              >Standard (4)</button>
-              <button
-                className={difficulty==='hard'?'active':''}
-                onClick={()=>{setDifficulty('hard'); setCurrentQuestion(null);}}
-                disabled={showResult}
-              >Hard (6)</button>
+              >
+                Drug
+              </button>
             </div>
           </div>
 
@@ -596,66 +512,26 @@ function QuizMode(){
               </h3>
             ) : (
               <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
-                Which ion channel/transporter was 
+                Which ion channel/transporter was
                 <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
                   {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
                 </span>
                 ?
               </h3>
             )}
+
             {renderOptions()}
           </div>
 
           {showResult && (
             <>
-              <div style={{
-                padding:12,
-                background:
-                  ((currentQuestion.type==="drug" ? selectedAnswer===currentQuestion.targetKey
-                                                  : selectedAnswer===currentQuestion.targetChannel)
-                    ? '#f0fdf4' : '#fef2f2'),
-                borderRadius:6,fontWeight:600, marginBottom:8
-              }}>
+              <div style={{padding:12,background:
+                ((currentQuestion.type==="drug" ? selectedAnswer===currentQuestion.targetKey
+                                                : selectedAnswer===currentQuestion.targetChannel)
+                  ? '#f0fdf4' : '#fef2f2'),
+                borderRadius:6,fontWeight:600}}>
                 {feedbackText()}
               </div>
-
-              {/* Insights */}
-              <details open style={{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:6, padding:12, marginBottom:8}}>
-                <summary style={{fontWeight:700, cursor:'pointer'}}>Why does the trace look like this?</summary>
-                <div style={{marginTop:8, display:'grid', gridTemplateColumns:'1fr', gap:'6px'}}>
-                  {baseM && curM && (
-                    <div style={{fontSize:14}}>
-                      <div style={{fontWeight:600, marginBottom:4}}>Key metric changes</div>
-                      <ul style={{margin:'6px 0 0 18px'}}>
-                        {metricTakeaways(baseM, curM).map((t,i)=><li key={i}>{t}</li>)}
-                      </ul>
-                    </div>
-                  )}
-
-                  {currentQuestion.type==="drug" && (
-                    <>
-                      <div style={{fontSize:14}}>
-                        <div style={{fontWeight:600, margin:'8px 0 4px'}}>Drug class</div>
-                        <div>{currentQuestion.targetKind || '—'}</div>
-                      </div>
-                      <div style={{fontSize:14}}>
-                        <div style={{fontWeight:600, margin:'8px 0 4px'}}>Primary channel effects</div>
-                        <ul style={{margin:'6px 0 0 18px'}}>
-                          {changeLines.map((l,i)=><li key={i}>{l}</li>)}
-                        </ul>
-                      </div>
-                    </>
-                  )}
-
-                  {currentQuestion.type==="channel" && (
-                    <div style={{fontSize:14}}>
-                      <div style={{fontWeight:600, margin:'8px 0 4px'}}>Targeted mechanism</div>
-                      <div>{CHANNEL_ROLES[currentQuestion.targetChannel] || currentQuestion.targetChannel}</div>
-                    </div>
-                  )}
-                </div>
-              </details>
-
               <button className="primary" onClick={nextQuestion}>Next Question</button>
             </>
           )}
@@ -686,7 +562,7 @@ function QuizMode(){
   );
 }
 
-/* ---------------- Explore Mode (unchanged) ---------------- */
+/* ---------------- Explore Mode (no sensitivity panel) ---------------- */
 function ExploreMode(){
   const [cellTypeId,setCellTypeId]=useState("ventricular");
   const [params,setParams]=useState({...BASELINE_PARAMS});
