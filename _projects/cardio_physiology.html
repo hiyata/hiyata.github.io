@@ -268,20 +268,20 @@ function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
   return data;
 }
 
-/* ---------------- Quiz (updated with Drug mode) ---------------- */
+/* ---------------- Quiz ---------------- */
 function QuizMode(){
-  const [cellTypeId, setCellTypeId] = useState("ventricular");
-  const [quizKind, setQuizKind] = useState("channel"); // 'channel' | 'drug'
-  const [currentQuestion, setCurrentQuestion] = useState(null);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [showResult, setShowResult] = useState(false);
-  const [score, setScore] = useState(0);
-  const [questionsAnswered, setQuestionsAnswered] = useState(0);
-  const lastTargetRef = useRef(null);
+  const [cellTypeId, setCellTypeId] = React.useState("ventricular");
+  const [quizKind, setQuizKind] = React.useState("channel"); // 'channel' | 'drug'
+  const [currentQuestion, setCurrentQuestion] = React.useState(null);
+  const [selectedAnswer, setSelectedAnswer] = React.useState(null);
+  const [showResult, setShowResult] = React.useState(false);
+  const [score, setScore] = React.useState(0);
+  const [questionsAnswered, setQuestionsAnswered] = React.useState(0);
+  const lastTargetRef = React.useRef(null);
 
-  const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
-  const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
-  const availableDrugs = useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
+  const cell = React.useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
+  const availableChannels = React.useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
+  const availableDrugs = React.useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
 
   const maskParamsByCell = (id, params)=>{
     const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
@@ -354,15 +354,17 @@ function QuizMode(){
     }
   };
 
-  useMemo(()=>{
-    if(!currentQuestion) setCurrentQuestion(generateQuestion());
-  },[cellTypeId, quizKind, currentQuestion, availableChannels]);
+  React.useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId, quizKind, currentQuestion, availableChannels]);
 
-  const handleAnswer=(ans)=>{ if(showResult || !currentQuestion) return;
-    setSelectedAnswer(ans); setShowResult(true); setQuestionsAnswered(q=>q+1);
-    const correct = currentQuestion.type==="drug"
-      ? (ans===currentQuestion.targetDrug)
-      : (ans===currentQuestion.targetChannel);
+  const handleAnswer=(ans)=>{
+    if(showResult || !currentQuestion) return;
+    setSelectedAnswer(ans);
+    setShowResult(true);
+    setQuestionsAnswered(q=>q+1);
+    const correct =
+      currentQuestion.type==="drug"
+        ? (ans===currentQuestion.targetDrug)
+        : (ans===currentQuestion.targetChannel);
     if(correct) setScore(s=>s+1);
   };
 
@@ -394,12 +396,16 @@ function QuizMode(){
                 className={quizKind==='channel'?'active':''}
                 onClick={()=>{setQuizKind('channel'); setCurrentQuestion(null);}}
                 disabled={showResult}
-              >Channel</button>
+              >
+                Channel
+              </button>
               <button
                 className={quizKind==='drug'?'active':''}
                 onClick={()=>{setQuizKind('drug'); setCurrentQuestion(null);}}
                 disabled={showResult}
-              >Drug</button>
+              >
+                Drug
+              </button>
             </div>
           </div>
 
@@ -421,7 +427,7 @@ function QuizMode(){
               </h3>
             ) : (
               <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
-                Which ion channel/transporter was
+                Which ion channel/transporter was 
                 <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
                   {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
                 </span>
@@ -445,13 +451,11 @@ function QuizMode(){
 
           {showResult && (
             <>
-              <div style={{
-                padding:12,
-                background:(currentQuestion.type==="drug"
-                             ? selectedAnswer===currentQuestion.targetDrug
-                             : selectedAnswer===currentQuestion.targetChannel)
-                           ?'#f0fdf4':'#fef2f2',
-                borderRadius:6,fontWeight:600}}>
+              <div style={{padding:12,background:
+                (currentQuestion.type==="drug"
+                  ? selectedAnswer===currentQuestion.targetDrug
+                  : selectedAnswer===currentQuestion.targetChannel)
+                  ? '#f0fdf4' : '#fef2f2',borderRadius:6,fontWeight:600}}>
                 {(currentQuestion.type==="drug"
                   ? selectedAnswer===currentQuestion.targetDrug
                   : selectedAnswer===currentQuestion.targetChannel)
