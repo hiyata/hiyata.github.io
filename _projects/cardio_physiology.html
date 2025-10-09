@@ -57,6 +57,21 @@ title: Cardio Physio
   .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
   .badge.ko{background:#fef2f2;color:var(--red)}
   .badge.increase{background:#f0fdf4;color:var(--green)}
+  .row{display:flex;gap:12px;align-items:center;min-width:0}
+.row > .field{min-width:0}
+.flex1{min-width:0}
+
+.field select,
+.field input[type="number"]{
+  width:100%;
+  max-width:100%;
+}
+
+.field select{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
 </style>
 
 {% raw %}
