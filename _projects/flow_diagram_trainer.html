@@ -81,7 +81,7 @@ const ms=(x)=>Number(x.toFixed(1));
 function g(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
 
 function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_width, a_width, fs=500}){
-  // constraints from physiology (Wiggers timing & phases) :contentReference[oaicite:1]{index=1}
+  // constraints from physiology (Wiggers timing & phases)
   rr = clamp(rr, 400, 2000);
   pr = clamp(pr, 120, 240);
   qrs = clamp(qrs, 70, 140);
@@ -94,7 +94,6 @@ function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_w
   a_width = clamp(a_width, 25, 120);
 
   // Landmark events within a beat (t=0 is P-wave onset-like anchor):
-  // P near 120 ms before QRS; Mitral closes after QRS + IVCT; Aortic opens then ET; Aortic closes then IVRT; Mitral opens; E wave; diastasis; A wave.
   const dt = 1000/fs;
   const n = Math.round(rr/dt);
   const tP = 0;
@@ -249,30 +248,28 @@ function ExploreMode(){
   }),[rr]);
 
   const modParams = useMemo(()=>{
-    // Physiologic heuristics, aligned to lecture framing (valve/phase timing). :contentReference[oaicite:2]{index=2}
+    // Physiologic heuristics, aligned to lecture framing (valve/phase timing).
     const p = {...baseParams};
     const kPre = preload/100, kAft = afterload/100, kIno = inotropy/100;
 
-    // HR already baked into rr via slider
-
-    // Preload mainly boosts E (early filling) amplitude and width a bit; A rises if very low preload reduces E
-    p.e_amp = p.e_amp * (0.8 + 0.6*kPre);             // ↑preload → ↑E
-    p.a_amp = p.a_amp * (kPre<0.9 ? 1.1 : 0.95);       // low preload → rely on A
+    // Preload mainly boosts E amplitude/width; A rises if low preload
+    p.e_amp = p.e_amp * (0.8 + 0.6*kPre);
+    p.a_amp = p.a_amp * (kPre<0.9 ? 1.1 : 0.95);
     p.e_width = p.e_width * (0.9 + 0.25*kPre);
 
-    // Afterload ↑ → IVCT↑, ET↓ (earlier aortic valve close), IVRT↑
+    // Afterload ↑ → IVCT↑, ET↓, IVRT↑
     p.ivct = clamp(p.ivct * (0.8 + 0.5*kAft), 30, 140);
     p.et   = clamp(p.et   * (1.1 - 0.25*(kAft-1)), 180, 360);
     p.ivrt = clamp(p.ivrt * (0.9 + 0.4*kAft), 50, 150);
 
-    // Inotropy ↑ → IVCT↓ (faster pressure rise), ET↔/slightly↑; ↓inotropy opp.
+    // Inotropy ↑ → IVCT↓, ET↑(slightly)
     p.ivct = clamp(p.ivct * (1.1 - 0.2*(kIno-1)), 30, 140);
     p.et   = clamp(p.et   * (1.0 + 0.08*(kIno-1)), 180, 380);
 
-    // Faster HR → less diastasis and E/A fusion tendency
+    // Faster HR → less diastasis
     const baseDiast = baseParams.diastasis;
     p.diastasis = clamp(baseDiast * (rr/900), 0, 250);
-    if(rr<650){ p.a_width = p.a_width*0.9; } // subtle narrowing with tachy
+    if(rr<650){ p.a_width = p.a_width*0.9; }
 
     return p;
   },[baseParams, preload, afterload, inotropy, rr]);
@@ -369,7 +366,7 @@ function ExploreMode(){
           </ResponsiveContainer>
         </div>
         <div style={{fontSize:12, color:'var(--muted)', marginTop:6}}>
-          Guides: vertical lines ≈ Aortic open/close & Mitral open (schematic). Phases and valve timing per Wiggers framework. :contentReference[oaicite:3]{index=3}
+          Guides: vertical lines ≈ Aortic open/close &amp; Mitral open (schematic). Phases and valve timing follow Wiggers framework.
         </div>
       </section>
     </div>
@@ -403,10 +400,8 @@ function QuizMode(){
     { key:'Inotropy↓', mutate:(p)=>({...p, ivct:clamp(p.ivct*1.25,30,140), et:clamp(p.et*0.9,180,360)}) }
   ];
 
-  // Build one question
   function genQuestion(){
     const baseBeat = makeFlowBeat(baseParams);
-    // Pick a window (first beat); then create either "phase" or "hemo" question
     if(quizType==='hemo'){
       const tgt = hemoScenarios[Math.floor(Math.random()*hemoScenarios.length)];
       const modBeat = makeFlowBeat(tgt.mutate({...baseParams}));
@@ -415,9 +410,7 @@ function QuizMode(){
         .slice(0, nOptions);
       return { type:'hemo', baseBeat, modBeat, answer:tgt.key, options };
     } else {
-      // phase/valve: produce segments & labels
-      const modBeat = makeFlowBeat(baseParams); // unmodified, we ask "what phase?"
-      // Build labeled segments from timing: E-wave, Diastasis, A-wave, IVCT, Ejection, IVRT
+      const modBeat = makeFlowBeat(baseParams);
       const T = baseParams.rr;
       const segs = [
         {label:'IVCT (all valves closed)', start: baseBeat.metrics.tMO- (baseBeat.metrics.ivrt+120), end: baseBeat.metrics.tAO, kind:'IVCT'},
@@ -545,16 +538,16 @@ function QuizMode(){
                 <ul style={{margin:'6px 0 0 18px',fontSize:14}}>
                   {quizType==='phase' && current.segment && (
                     <>
-                      <li><b>{current.segment.label}</b> sits between valve transitions (e.g., IVCT: MC closed → AO opens; IVRT: AC → MO). :contentReference[oaicite:4]{index=4}</li>
-                      <li>Transmitral <b>E</b> is early filling; <b>A</b> is atrial contraction; <b>Diastasis</b> is low-flow rest at slower HR. :contentReference[oaicite:5]{index=5}</li>
+                      <li><b>{current.segment.label}</b> sits between valve transitions (e.g., IVCT: MC closed → AO opens; IVRT: AC → MO).</li>
+                      <li>Transmitral <b>E</b> is early filling; <b>A</b> is atrial contraction; <b>Diastasis</b> is low-flow rest at slower HR.</li>
                     </>
                   )}
                   {quizType==='hemo' && (
                     <>
-                      <li><b>HR↑</b> → shorter RR, reduced diastasis, possible E/A fusion. :contentReference[oaicite:6]{index=6}</li>
-                      <li><b>Preload↑</b> → ↑E amplitude/width (greater early filling). :contentReference[oaicite:7]{index=7}</li>
-                      <li><b>Afterload↑</b> → ↑IVCT, ↓ET, ↑IVRT (harder to open/close against pressure). :contentReference[oaicite:8]{index=8}</li>
-                      <li><b>Inotropy↓</b> → ↑IVCT, ↓ET (weaker contraction). :contentReference[oaicite:9]{index=9}</li>
+                      <li><b>HR↑</b> → shorter RR, reduced diastasis, possible E/A fusion.</li>
+                      <li><b>Preload↑</b> → ↑E amplitude/width (greater early filling).</li>
+                      <li><b>Afterload↑</b> → ↑IVCT, ↓ET, ↑IVRT (harder to open/close against pressure).</li>
+                      <li><b>Inotropy↓</b> → ↑IVCT, ↓ET (weaker contraction).</li>
                     </>
                   )}
                 </ul>
@@ -587,7 +580,7 @@ function QuizMode(){
           </LineChart>
         </ResponsiveContainer>
         <div style={{fontSize:12, color:'var(--muted)', marginTop:6}}>
-          Phase boundaries and valve states follow the Wiggers diagram convention. :contentReference[oaicite:10]{index=10}
+          Phase boundaries and valve states follow the Wiggers diagram convention.
         </div>
       </section>
     </div>
