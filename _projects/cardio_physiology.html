@@ -1,19 +1,21 @@
 ---
 layout: default
 title: Cardio Physio
-excerpt: Interactive cardiac action-potential explorer and quiz—tweak channels, drugs, and pacing to see how the trace and ECG change in plain English.
-category: electrophysiology
-permalink: /cardio-physio/
 ---
 
 <div id="ap-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
-<!-- React + ReactDOM  -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<!-- React + ReactDOM (UMD) -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-<!-- Recharts -->
-<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+
+<!-- Recharts (UMD) -->
+<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+
+<!-- Babel (compile JSX in the browser) -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--green:#059669;--red:#dc2626;--blue:#2563eb;}
@@ -37,7 +39,6 @@ permalink: /cardio-physio/
   .pill .line{width:32px;height:2px;background:var(--ink);display:inline-block}
   .pill .dash{width:32px;height:0;border-top:2px dashed #94a3b8;display:inline-block}
   .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .metric{padding:10px;border:1px solid var(--grid);border-radius:6px}
   .metric .k{color:var(--muted);font-size:12px}
   .metric .v{font-weight:600}
   .metric .d{font-size:12px}
@@ -56,775 +57,923 @@ permalink: /cardio-physio/
   .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
   .badge.ko{background:#fef2f2;color:var(--red)}
   .badge.increase{background:#f0fdf4;color:var(--green)}
+  /* Confetti canvas sits on top but doesn't block clicks */
+  #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}
 </style>
 
 {% raw %}
-<script>
-(function(){
-  const {useMemo,useState,useRef,useEffect} = React;
-  const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
+<script type="text/babel" data-presets="env,react">
+const {useMemo,useState,useRef,useEffect} = React;
+const {LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ReferenceLine,ResponsiveContainer} = Recharts;
 
-  /* ---------------- Model constants ---------------- */
-  const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
-  const CHANNEL_LABELS = {
-    INa:"I_Na (fast Na⁺)", ICaL:"I_CaL (L-type Ca²⁺)", Ito:"I_to (transient outward K⁺)",
-    IKr:"I_Kr (rapid delayed rectifier K⁺)", IKs:"I_Ks (slow delayed rectifier K⁺)", IK1:"I_K1 (inward rectifier K⁺)",
-    If:"I_f (funny)", ICaT:"I_CaT (T-type Ca²⁺)", IK_ACh:"I_K,ACh", NaKATPase:"Na⁺/K⁺-ATPase"
-  };
-  const SIMILAR_CHANNEL_GROUPS = [['IKr','IKs'], ['ICaL','ICaT'], ['If','ICaT']];
-  const CELL_TYPES = [
-    { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
-    { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
-    { id:"sa", name:"SA Node (Pacemaker)", uses:{INa:0,ICaL:1,Ito:0,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:1,NaKATPase:1}},
-    { id:"purkinje", name:"Purkinje Cell", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:0,NaKATPase:1}},
-  ];
+/* ---------------- Model constants ---------------- */
+const BASELINE_PARAMS = { INa:100, ICaL:100, Ito:100, IKr:100, IKs:100, IK1:100, If:100, ICaT:100, IK_ACh:100, NaKATPase:100 };
+const CHANNEL_LABELS = {
+  INa:"I_Na (fast Na⁺)", ICaL:"I_CaL (L-type Ca²⁺)", Ito:"I_to (transient outward K⁺)",
+  IKr:"I_Kr (rapid delayed rectifier K⁺)", IKs:"I_Ks (slow delayed rectifier K⁺)", IK1:"I_K1 (inward rectifier K⁺)",
+  If:"I_f (funny)", ICaT:"I_CaT (T-type Ca²⁺)", IK_ACh:"I_K,ACh", NaKATPase:"Na⁺/K⁺-ATPase"
+};
+const SIMILAR_CHANNEL_GROUPS = [['IKr','IKs'], ['ICaL','ICaT'], ['If','ICaT']];
+const CELL_TYPES = [
+  { id:"ventricular", name:"Ventricular Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:0,NaKATPase:1}},
+  { id:"atrial", name:"Atrial Myocyte", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:0,ICaT:0,IK_ACh:1,NaKATPase:1}},
+  { id:"sa", name:"SA Node (Pacemaker)", uses:{INa:0,ICaL:1,Ito:0,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:1,NaKATPase:1}},
+  { id:"purkinje", name:"Purkinje Cell", uses:{INa:1,ICaL:1,Ito:1,IKr:1,IKs:1,IK1:1,If:1,ICaT:1,IK_ACh:0,NaKATPase:1}},
+];
 
-  const DRUG_PRESETS = {
-    "None":{},
-    "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
-    "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
-    "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
-    "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
-    "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
-    "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
-    "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
-    "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
-    "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
-    "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
-    "Ivabradine (If blocker)":{ If:40 },
-    "Verapamil (L-type CCB)":{ ICaL:50 },
-    "Diltiazem (L-type CCB)":{ ICaL:60 },
-    "Nifedipine (DHP CCB)":{ ICaL:60 },
-    "Amlodipine (DHP CCB)":{ ICaL:60 },
-    "Lidocaine (Class IB)":{ INa:60 },
-    "Mexiletine (Class IB)":{ INa:60 },
-    "Procainamide (Class IA)":{ INa:70, IKr:85 },
-    "Disopyramide (Class IA)":{ INa:70, IKr:90 },
-    "Quinidine (Class IA)":{ INa:70, IKr:85 },
-    "Flecainide (Class IC)":{ INa:50 },
-    "Ranolazine (late INa)":{ INa:70 },
-    "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
-    "Ibutilide (IKr blocker)":{ IKr:60 },
-    "Dofetilide (IKr blocker)":{ IKr:50 },
-    "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
-    "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
-    "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
-    "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
-  };
-  const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperkalemia":{IK1:60,INa:80}, "Ischemia":{NaKATPase:50,IK1:70,IKr:120} };
+const DRUG_PRESETS = {
+  "None":{},
+  // Sympathomimetics / β-agonists
+  "Isoproterenol (β agonist)":{ ICaL:130, IKs:120, If:125 },
+  "Dobutamine (β₁ agonist)":{ ICaL:125, IKs:115, If:115 },
+  // β-blockers (rate/inotropy ↓)
+  "Propranolol (β blocker)":{ ICaL:80, IKs:90, If:90 },
+  "Atenolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
+  "Metoprolol (β₁ blocker)":{ ICaL:85, IKs:90, If:90 },
+  "Esmolol (β₁ blocker, short)":{ ICaL:85, IKs:90, If:90 },
+  // Parasympathetic modifiers / nodal agents
+  "Adenosine (A₁ agonist)":{ IK_ACh:150, If:85, ICaL:90 },
+  "Atropine (M₂ antagonist)":{ IK_ACh:70, If:110 },
+  "Scopolamine (M₂ antagonist)":{ IK_ACh:70, If:110 },
+  "Physostigmine (AChE inhibitor)":{ IK_ACh:130, If:90 },
+  // HCN/If
+  "Ivabradine (If blocker)":{ If:40 },
+  // Calcium channel blockers (Class IV)
+  "Verapamil (L-type CCB)":{ ICaL:50 },
+  "Diltiazem (L-type CCB)":{ ICaL:60 },
+  "Nifedipine (DHP CCB)":{ ICaL:60 },
+  "Amlodipine (DHP CCB)":{ ICaL:60 },
+  // Na⁺ channel blockers (Class I)
+  "Lidocaine (Class IB)":{ INa:60 },
+  "Mexiletine (Class IB)":{ INa:60 },
+  "Procainamide (Class IA)":{ INa:70, IKr:85 },
+  "Disopyramide (Class IA)":{ INa:70, IKr:90 },
+  "Quinidine (Class IA)":{ INa:70, IKr:85 },
+  "Flecainide (Class IC)":{ INa:50 },
+  // Late INa / multichannel
+  "Ranolazine (late INa)":{ INa:70 },
+  "Amiodarone (multi-channel)":{ INa:70, ICaL:70, IKr:70, IKs:85 },
+  // K⁺ channel blockers (Class III)
+  "Ibutilide (IKr blocker)":{ IKr:60 },
+  "Dofetilide (IKr blocker)":{ IKr:50 },
+  // Inotropes affecting Ca²⁺ handling
+  "Milrinone (PDE3 inhibitor)":{ ICaL:120, IKs:110, If:110 },
+  "Digoxin (cardiac glycoside)":{ NaKATPase:40 },
+  // Peripheral sympatholytics
+  "Reserpine (VMAT inhibitor)":{ ICaL:95, IKs:95, If:95 },
+  "Guanethidine (adrenergic depletor)":{ ICaL:95, IKs:95, If:95 },
+};
+const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperkalemia":{IK1:60,INa:80}, "Ischemia":{NaKATPase:50,IK1:70,IKr:120} };
 
-  const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
-  const pct=(x)=>clamp(x/100,0,2);
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const pct=(x)=>clamp(x/100,0,2);
 
-  /* ---------------- Plain-language helpers (no APD90 text, no %s) ---------------- */
-  const CHANNEL_ROLES = {
-    INa: "fast Na⁺ upstroke (Phase 0)",
-    ICaL: "L-type Ca²⁺; plateau & nodal upstroke",
-    Ito: "transient outward K⁺; phase-1 notch",
-    IKr: "rapid delayed rectifier K⁺; repolarization",
-    IKs: "slow delayed rectifier K⁺; repolarization",
-    IK1: "inward rectifier K⁺; resting potential",
-    If: "funny current; pacemaker slope",
-    ICaT: "T-type Ca²⁺; pacemaker slope",
-    IK_ACh: "ACh-gated K⁺; vagal tone",
-    NaKATPase: "Na⁺/K⁺ pump; resting stability"
-  };
+/* ---------------- Learning helpers ---------------- */
+const CHANNEL_ROLES = {
+  INa: "fast Na⁺ upstroke (Phase 0)",
+  ICaL: "L-type Ca²⁺; plateau & nodal upstroke",
+  Ito: "transient outward K⁺; phase-1 notch",
+  IKr: "rapid delayed rectifier K⁺; repolarization",
+  IKs: "slow delayed rectifier K⁺; repolarization",
+  IK1: "inward rectifier K⁺; resting potential",
+  If: "funny current; pacemaker slope",
+  ICaT: "T-type Ca²⁺; pacemaker slope",
+  IK_ACh: "ACh-gated K⁺; vagal tone",
+  NaKATPase: "Na⁺/K⁺ pump; resting stability"
+};
 
-  function parseDrugKey(key){
-    const m = key.match(/^(.*?)(?:\s*\((.*)\))?$/);
-    return { name: (m?.[1]||key).trim(), kind: (m?.[2]||"").trim() };
+function parseDrugKey(key){
+  const m = key.match(/^(.*?)(?:\s*\((.*)\))?$/);
+  return { name: (m?.[1]||key).trim(), kind: (m?.[2]||"").trim() };
+}
+
+function describeParamChanges(modParams){
+  const diffs = Object.entries(modParams)
+    .filter(([k])=>k in BASELINE_PARAMS)
+    .map(([k,v])=>({k, delta:v-100}))
+    .filter(x=>Math.abs(x.delta)>=15)
+    .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta))
+    .slice(0,6);
+  if(!diffs.length) return ["No major channel changes detected."];
+  return diffs.map(({k,delta})=>{
+    const dir = delta>0 ? "↑" : "↓";
+    const role = CHANNEL_ROLES[k]||k;
+    return `${dir}${k} (${role}) by ${Math.abs(delta)}%`;
+  });
+}
+
+function metricTakeaways(baseM, curM){
+  if(!baseM || !curM) return [];
+  const out=[];
+  const dAPD = curM.apd90 - baseM.apd90;
+  const dDV  = curM.dvdtMax - baseM.dvdtMax;
+  const dCycle = curM.cycle - baseM.cycle;
+
+  if(Math.abs(dAPD)>=10){
+    out.push(`${dAPD>0?'Longer':'Shorter'} APD90 (${dAPD>0?'+':'-'}${Math.abs(dAPD)} ms) → ${dAPD>0?'prolonged QT tendency':'shorter QT tendency'}.`);
   }
-
-  function describeParamChangesPlain(modParams){
-    const diffs = Object.entries(modParams)
-      .filter(([k])=>k in BASELINE_PARAMS)
-      .map(([k,v])=>({k, delta:v-100}))
-      .filter(x=>Math.abs(x.delta)>=15)
-      .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta))
-      .slice(0,6);
-
-    if(!diffs.length) return ["No big channel shifts."];
-
-    return diffs.map(({k,delta})=>{
-      const dir = delta>0 ? "↑" : "↓";
-      const role = CHANNEL_ROLES[k]||k;
-      return `${dir} ${k} — ${role}`;
-    });
+  if(Math.abs(dDV)>=0.5){
+    out.push(`${dDV>0?'Steeper':'Blunter'} upstroke (dV/dt_max ${dDV>0?'+':'-'}${Math.abs(dDV).toFixed(2)} mV/ms) → ${dDV>0?'stronger Na⁺ influx':'reduced Na⁺ influx'}.`);
   }
-
-  function metricTakeawaysPlain(baseM, curM){
-    if(!baseM || !curM) return [];
-    const out=[];
-    const dRepol = curM.apd90 - baseM.apd90;   // internal only; surfaced as "repolarization"
-    const dDV    = curM.dvdtMax - baseM.dvdtMax;
-    const dCycle = curM.cycle   - baseM.cycle;
-
-    if(Math.abs(dRepol)>=10) out.push(dRepol>0 ? "Repolarization: slower" : "Repolarization: faster");
-    if(Math.abs(dDV)>=0.5)   out.push(dDV>0    ? "Upstroke: steeper"      : "Upstroke: blunter");
-    if(Math.abs(dCycle)>=20) out.push(dCycle>0 ? "Rate: slower"           : "Rate: faster");
-
-    return out.length ? out : ["Overall: minimal change"];
+  if(Math.abs(dCycle)>=20){
+    out.push(`${dCycle>0?'Longer':'Shorter'} cycle length (${dCycle>0?'+':'-'}${Math.abs(dCycle)} ms) → ${dCycle>0?'slower rate':'faster rate'}.`);
   }
+  return out.length? out : ["Minimal change in global metrics."];
+}
 
-  /* ---------------- AP generator ---------------- */
-  function generateAP(cellId, params){
-    const isPacemaker = cellId==="sa";
-    let t0=2,t1=8,t2=180,t3=120,t4=100, vmax=30, vrest=-85;
-    const kINa=pct(params.INa), kICaL=pct(params.ICaL), kIto=pct(params.Ito),
-          kIKr=pct(params.IKr), kIKs=pct(params.IKs), kIK1=pct(params.IK1),
-          kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
+/* ---------------- Confetti (tiny, dependency-free) ---------------- */
+function useConfettiOn(trigger){
+  useEffect(()=>{
+    if(!trigger) return;
+    let raf=0, t0=null;
+    const canvas=document.getElementById('confetti-canvas') || (()=> {
+      const c=document.createElement('canvas');
+      c.id='confetti-canvas';
+      document.body.appendChild(c);
+      const onResize=()=>{ c.width=window.innerWidth; c.height=window.innerHeight; };
+      onResize(); window.addEventListener('resize', onResize);
+      c._cleanup=()=>window.removeEventListener('resize', onResize);
+      return c;
+    })();
+    const ctx=canvas.getContext('2d');
+    const N=140;
+    const parts=[...Array(N)].map(()=>({
+      x: Math.random()*canvas.width,
+      y: -20 - Math.random()*canvas.height*0.3,
+      vx: -1 + Math.random()*2,
+      vy: 2 + Math.random()*3.5,
+      s: 4 + Math.random()*4,
+      a: Math.random()*Math.PI*2,
+      spin: (-0.2+Math.random()*0.4)
+    }));
 
-    if(isPacemaker){
-      t1=0; t2=0;
-      const kK = 0.6*kIKr + 0.4*kIKs;
-      t0 = 15 / clamp(kICaL,0.2,2);
-      vmax = 20*kICaL - 5*(kK-1);
-      t3 = 150 / clamp(kK,0.2,2);
-      const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
-      t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
-      const vrestBase=-65;
-      vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
-    } else {
-      t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
-      t1=clamp(8*(0.6+0.4*kIto),2,18);
-      const kK=0.6*kIKr+0.4*kIKs; t2=clamp(180*(kICaL/clamp(kK,0.3,2)),40,400);
-      t3=clamp(120/clamp(kK,0.3,2),30,300);
-      vrest=-85-4*(kPump-1)+5*(1-kIK1);
-      if(cellId==="purkinje"){
-        const s=0.1*(kIf-1)+0.05*(kICaT-1);
-        t4=clamp(100/clamp(1+s,0.3,2),40,300);
-      }
-    }
-
-    const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
-    const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
-
-    if(params && typeof params.__targetCycle==='number'){
-      const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
-      t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
-    }
-
-    // phase 4
-    const n4=Math.max(5,Math.round(t4/2));
-    for(let i=0;i<=n4;i++){ const f=i/n4; push(tA+f*t4, vrest+(vTh-vrest)*f); }
-    segs.push({phase:4,tStart:tA,tEnd:tA+t4}); tA+=t4;
-
-    // phase 0
-    const n0=Math.max(5,Math.round(t0/0.5));
-    for(let i=0;i<=n0;i++){ const f=i/n0; push(tA+f*t0, vTh+(vmax-vTh)*(1-Math.pow(1-f,3))); }
-    segs.push({phase:0,tStart:tA,tEnd:tA+t0}); tA+=t0;
-
-    if(!isPacemaker){
-      // phase 1
-      const notch=vmax-20*kIto, n1=Math.max(3,Math.round(t1/0.5));
-      for(let i=0;i<=n1;i++){ const f=i/n1; push(tA+f*t1, vmax+(notch-vmax)*f); }
-      segs.push({phase:1,tStart:tA,tEnd:tA+t1}); tA+=t1;
-
-      // phase 2
-      const plateau=-5+10*(kICaL-(0.6*kIKr+0.4*kIKs)), n2=Math.max(10,Math.round(t2/2));
-      for(let i=0;i<=n2;i++){ const f=i/n2; push(tA+f*t2, notch+(plateau-notch)*(1-Math.cos(Math.PI*f))/2); }
-      segs.push({phase:2,tStart:tA,tEnd:tA+t2}); tA+=t2;
-    }
-
-    // phase 3
-    const vEnd=vrest, vStart=isPacemaker? vmax : (data[data.length-1]?.v ?? vmax);
-    const n3=Math.max(10,Math.round(t3/2));
-    for(let i=0;i<=n3;i++){ const f=i/n3; push(tA+f*t3, vStart+(vEnd-vStart)*(1-Math.cos(Math.PI*f))/2); }
-    segs.push({phase:3,tStart:tA,tEnd:tA+t3}); tA+=t3;
-
-    const marks = segs.map(s=>{
-      const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
-      for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
-      return {label:`Phase ${s.phase}`, t:nearest.t, v:nearest.v};
-    }).filter(m=>!(cellId==="sa" && (m.label==="Phase 1"||m.label==="Phase 2")));
-
-    return {data, marks, segs};
-  }
-
-  function computeMetrics(curve){
-    const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0,vrest:-85};
-    const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
-    const v90=vrest+0.1*(vmax-vrest); const up=pts.findIndex(p=>p.v>v90);
-    let down=pts.length-1; for(let i=pts.length-1;i>=0;i--){ if(pts[i].v>v90){ down=i; break; } }
-    const apd90=(up>=0 && down>up)?(pts[down].t-pts[up].t):0;
-    let dvdtMax=0; for(let i=1;i<pts.length;i++){ const dv=pts[i].v-pts[i-1].v; const dt=pts[i].t-pts[i-1].t||1e-6; dvdtMax=Math.max(dv/dt,dvdtMax); }
-    const cycle=pts[pts.length-1].t;
-    return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle), vrest};
-  }
-
-  const PHASE_GROUPS=[
-    {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
-    {label:'Phase 1 (Notch)', keys:['Ito']},
-    {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
-    {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
-    {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
-  ];
-
-  function areSimilarChannels(ch1, ch2){
-    for(const group of SIMILAR_CHANNEL_GROUPS){
-      if(group.includes(ch1) && group.includes(ch2)) return true;
-    }
-    return false;
-  }
-
-  /* ---------------- ECG synthesizer ---------------- */
-  function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
-
-  function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
-    rr = clamp(rr, 300, 2000);  pr = clamp(pr, 100, 260);
-    qrs = clamp(qrs, 70, 160);  qt = clamp(qt, 280, 520);
-
-    const dt = 1000/fs;
-    const oneBeat=[], nBeat=Math.round(rr/dt);
-
-    for(let i=0;i<nBeat;i++){
-      const tb=i*dt;
-      const pC=Math.max(0.11*rr, pr-0.5*qrs);
-      const qrsC=pr;
-      const tStart=qrsC+qrs;
-      const tC=tStart+0.45*(qt-qrs);
-
-      const pS=0.05*rr;
-      const qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
-      const tS=0.22*(qt-qrs);
-
-      let v=0;
-      v+=gaussian(tb,pC,            pS,  0.12);
-      v+=gaussian(tb,qrsC-0.20*qrs, qS, -0.25);
-      v+=gaussian(tb,qrsC,          rS,  1.00);
-      v+=gaussian(tb,qrsC+0.25*qrs, sS, -0.35);
-      v+=gaussian(tb,tC,            tS,  0.35);
-
-      oneBeat.push(v);
-    }
-    const mean = oneBeat.reduce((a,b)=>a+b,0)/oneBeat.length;
-    for(let i=0;i<oneBeat.length;i++) oneBeat[i]-=mean;
-
-    const data=[];
-    for(let b=0;b<beats;b++){
-      for(let i=0;i<nBeat;i++){
-        const t_s=(b*rr + i*dt)/1000;
-        data.push({t:Number(t_s.toFixed(3)), v:oneBeat[i]});
-      }
-    }
-    return data;
-  }
-
-  /* ---------------- Quiz ---------------- */
-  function QuizMode(){
-    const [cellTypeId, setCellTypeId] = useState("ventricular");
-    const [quizKind, setQuizKind] = useState("channel");
-    const [difficulty, setDifficulty] = useState("standard");
-    const [currentQuestion, setCurrentQuestion] = useState(null);
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [showResult, setShowResult] = useState(false);
-    const [score, setScore] = useState(0);
-    const [questionsAnswered, setQuestionsAnswered] = useState(0);
-    const lastTargetRef = useRef(null);
-
-    const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
-    const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
-    const drugKeys = useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
-
-    const nOptions = difficulty==='easy' ? 2 : 4;
-
-    const maskParamsByCell = (id, params)=>{
-      const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
-      const out = {...params};
-      Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
-      return out;
-    };
-
-    const applyMap = (base, mapObj)=>{
-      const out = {...base};
-      Object.entries(mapObj||{}).forEach(([k,v])=>{
-        if(k in out) out[k] = Math.round(out[k]*(v/100));
+    function step(ts){
+      if(t0==null) t0=ts;
+      const dt=(ts-t0)/1000;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      parts.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy; p.a+=p.spin;
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.a);
+        ctx.globalAlpha=0.9;
+        ctx.fillStyle = `hsl(${(p.x/10 + p.y/5)%360},70%,55%)`;
+        ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);
+        ctx.restore();
+        if(p.y>canvas.height+40) { p.y=-20; p.x=Math.random()*canvas.width; }
       });
-      return out;
-    };
+      if(dt<1.6){ raf=requestAnimationFrame(step); }
+      else { ctx.clearRect(0,0,canvas.width,canvas.height); }
+    }
+    raf=requestAnimationFrame(step);
+    return ()=>{ cancelAnimationFrame(raf); if(canvas._cleanup) canvas._cleanup(); };
+  },[trigger]);
+}
 
-    const generateQuestion = ()=>{
-      if(quizKind === "drug"){
-        const targetKey = drugKeys[Math.floor(Math.random()*drugKeys.length)];
-        const {name: targetName, kind: targetKind} = parseDrugKey(targetKey);
+/* ---------------- AP generator ---------------- */
+function generateAP(cellId, params){
+  const isPacemaker = cellId==="sa";
+  let t0=2,t1=8,t2=180,t3=120,t4=100, vmax=30, vrest=-85;
+  const kINa=pct(params.INa), kICaL=pct(params.ICaL), kIto=pct(params.Ito),
+        kIKr=pct(params.IKr), kIKs=pct(params.IKs), kIK1=pct(params.IK1),
+        kIf=pct(params.If), kICaT=pct(params.ICaT), kIK_ACh=pct(params.IK_ACh), kPump=pct(params.NaKATPase);
 
-        const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
-        const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
-        const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
-
-        const wrong = drugKeys
-          .filter(k=>k!==targetKey)
-          .sort(()=>Math.random()-0.5)
-          .slice(0, Math.max(1, nOptions-1))
-          .map(k=>({ key:k, name: parseDrugKey(k).name }));
-
-        const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
-
-        return {
-          type: "drug",
-          targetKey,
-          targetName,
-          targetKind,
-          modParamsMap: DRUG_PRESETS[targetKey],
-          options,
-          baseline: generateAP(cellTypeId, baselineParams),
-          modified: generateAP(cellTypeId, modParams)
-        };
-      } else {
-        let targetChannel;
-        const eligible = availableChannels.filter(ch=>ch!==lastTargetRef.current);
-        targetChannel = eligible.length? eligible[Math.floor(Math.random()*eligible.length)] : availableChannels[0];
-        lastTargetRef.current = targetChannel;
-
-        const isKO = Math.random()<0.5;
-        const modValue = isKO?0:200;
-        const modType = isKO?'knockout':'increase';
-
-        const modParamsRaw = {...BASELINE_PARAMS, [targetChannel]:modValue};
-        const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
-        const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
-
-        let wrong = availableChannels
-          .filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel))
-          .sort(()=>Math.random()-0.5);
-        if(wrong.length < (nOptions-1)){
-          const remain = availableChannels.filter(c=>c!==targetChannel && !wrong.includes(c)).sort(()=>Math.random()-0.5);
-          wrong = [...wrong, ...remain];
-        }
-        wrong = wrong.slice(0, Math.max(1, nOptions-1));
-        const options=[targetChannel,...wrong].sort(()=>Math.random()-0.5);
-
-        return {
-          type: "channel",
-          targetChannel, modType, modValue, options,
-          baseline: generateAP(cellTypeId, baselineParams),
-          modified: generateAP(cellTypeId, modParams)
-        };
-      }
-    };
-
-    useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId, quizKind, difficulty, currentQuestion, availableChannels]);
-
-    const baseM = useMemo(()=> currentQuestion ? computeMetrics(currentQuestion.baseline) : null, [currentQuestion]);
-    const curM  = useMemo(()=> currentQuestion ? computeMetrics(currentQuestion.modified) : null, [currentQuestion]);
-
-    const changeLines = useMemo(()=>{
-      if(!currentQuestion || currentQuestion.type!=="drug") return [];
-      const map = currentQuestion.modParamsMap || {};
-      const fullMap = Object.fromEntries(Object.keys(BASELINE_PARAMS).map(k=>[k, Math.round((map[k]??100))]));
-      return describeParamChangesPlain(fullMap);
-    }, [currentQuestion]);
-
-    const handleAnswer=(ans)=>{
-      if(showResult || !currentQuestion) return;
-      setSelectedAnswer(ans);
-      setShowResult(true);
-      setQuestionsAnswered(q=>q+1);
-
-      const correct =
-        currentQuestion.type==="drug"
-          ? (ans===currentQuestion.targetKey)
-          : (ans===currentQuestion.targetChannel);
-      if(correct) setScore(s=>s+1);
-    };
-
-    const nextQuestion=()=>{
-      setCurrentQuestion(generateQuestion());
-      setSelectedAnswer(null);
-      setShowResult(false);
-    };
-    const resetQuiz=()=>{
-      setScore(0);
-      setQuestionsAnswered(0);
-      lastTargetRef.current=null;
-      setCurrentQuestion(generateQuestion());
-      setSelectedAnswer(null);
-      setShowResult(false);
-    };
-
-    if(!currentQuestion) return React.createElement('div',null,'Loading...');
-    const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
-    const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
-
-    const renderOptions = ()=>{
-      if(currentQuestion.type==="drug"){
-        return React.createElement('div',{className:'quiz-options-grid'},
-          currentQuestion.options.map(opt=>
-            React.createElement('button',{
-              key:opt.key,
-              className:`quiz-option ${ showResult ? (opt.key===currentQuestion.targetKey ? 'correct' : opt.key===selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`,
-              onClick:()=>handleAnswer(opt.key),
-              disabled:showResult,
-              title:opt.name
-            }, opt.name)
-          )
-        );
-      }
-      return React.createElement('div',{className:'quiz-options-grid'},
-        currentQuestion.options.map(opt=>
-          React.createElement('button',{
-            key:opt,
-            className:`quiz-option ${ showResult ? (opt===currentQuestion.targetChannel ? 'correct' : opt===selectedAnswer ? 'incorrect' : '') : ''} ${showResult ? 'disabled' : ''}`,
-            onClick:()=>handleAnswer(opt),
-            disabled:showResult,
-            title:CHANNEL_LABELS[opt]
-          }, CHANNEL_LABELS[opt])
-        )
-      );
-    };
-
-    const feedbackText = ()=>{
-      if(currentQuestion.type==="drug"){
-        const correct = selectedAnswer===currentQuestion.targetKey;
-        const suffix = currentQuestion.targetKind ? ` — ${currentQuestion.targetKind}` : '';
-        return correct
-          ? `✓ Correct! ${currentQuestion.targetName}${suffix}`
-          : `✗ Incorrect. The answer was: ${currentQuestion.targetName}${suffix}`;
-      } else {
-        const correct = selectedAnswer===currentQuestion.targetChannel;
-        return correct
-          ? '✓ Correct!'
-          : `✗ Incorrect. The answer was: ${CHANNEL_LABELS[currentQuestion.targetChannel]}`;
-      }
-    };
-
-    return React.createElement('div',{className:'wrap'},
-      // Left: Settings & Q/A
-      React.createElement('section',{className:'section'},
-        React.createElement('h2',null,'Quiz Settings'),
-        React.createElement('div',{className:'stack'},
-          // Cell type
-          React.createElement('div',{className:'field'},
-            React.createElement('label',{className:'label'},'Cell type'),
-            React.createElement('select',{
-              value:cellTypeId,
-              onChange:(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);},
-              disabled:showResult
-            }, CELL_TYPES.map(c=>React.createElement('option',{key:c.id,value:c.id},c.name)))
-          ),
-          // Quiz type
-          React.createElement('div',{className:'field'},
-            React.createElement('label',{className:'label'},'Quiz type'),
-            React.createElement('div',{className:'mode-toggle',style:{margin:0}},
-              React.createElement('button',{
-                className:quizKind==='channel'?'active':'',
-                onClick:()=>{setQuizKind('channel'); setCurrentQuestion(null);},
-                disabled:showResult
-              },'Channel'),
-              React.createElement('button',{
-                className:quizKind==='drug'?'active':'',
-                onClick:()=>{setQuizKind('drug'); setCurrentQuestion(null);},
-                disabled:showResult
-              },'Drug')
-            )
-          ),
-          // Difficulty
-          React.createElement('div',{className:'field'},
-            React.createElement('label',{className:'label'},'Difficulty'),
-            React.createElement('div',{className:'mode-toggle',style:{margin:0}},
-              React.createElement('button',{
-                className:difficulty==='easy'?'active':'',
-                onClick:()=>{setDifficulty('easy'); setCurrentQuestion(null);},
-                disabled:showResult
-              },'Easy (2 options)'),
-              React.createElement('button',{
-                className:difficulty==='standard'?'active':'',
-                onClick:()=>{setDifficulty('standard'); setCurrentQuestion(null);},
-                disabled:showResult
-              },'Standard (4 options)')
-            )
-          ),
-          React.createElement('div',{className:'divider'}),
-          React.createElement('div',{className:'score-display'},
-            React.createElement('div',null,`Score: ${score}/${questionsAnswered}`),
-            React.createElement('div',null, questionsAnswered>0 ? `${Math.round(score/questionsAnswered*100)}%` : '—')
-          ),
-          React.createElement('button',{onClick:resetQuiz},'Reset Quiz'),
-          React.createElement('div',{className:'divider'}),
-          // Question
-          React.createElement('div',null,
-            currentQuestion.type==="drug"
-              ? React.createElement('h3',{style:{marginBottom:12,fontSize:14,fontWeight:600}},'Which drug was added?')
-              : React.createElement('h3',{style:{marginBottom:12,fontSize:14,fontWeight:600}},
-                  'Which ion channel/transporter was ',
-                  React.createElement('span',{className:`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`},
-                    currentQuestion.modType==='knockout' ? 'KNOCKED OUT' : 'INCREASED'
-                  ),
-                  '?'
-                ),
-            renderOptions()
-          ),
-          showResult && React.createElement(React.Fragment,null,
-            React.createElement('div',{style:{padding:12,background:(selectedAnswer=== (currentQuestion.type==='drug'? currentQuestion.targetKey: currentQuestion.targetChannel))?'#f0fdf4':'#fef2f2',borderRadius:6,fontWeight:600, marginTop:8, marginBottom:8}}, feedbackText()),
-            // Insights (plain English only)
-            React.createElement('details',{open:true,style:{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:6, padding:12, marginBottom:8}},
-              React.createElement('summary',{style:{fontWeight:700, cursor:'pointer'}},'Why does the trace look like this?'),
-              React.createElement('div',{style:{marginTop:8, display:'grid', gridTemplateColumns:'1fr', gap:'6px'}},
-                (()=>{
-                  const baseM = computeMetrics(currentQuestion.baseline);
-                  const curM  = computeMetrics(currentQuestion.modified);
-                  const list = metricTakeawaysPlain(baseM, curM);
-                  return React.createElement('div',{style:{fontSize:14}},
-                    React.createElement('div',{style:{fontWeight:600, marginBottom:4}},'Key changes'),
-                    React.createElement('ul',{style:{margin:'6px 0 0 18px'}},
-                      list.map((t,i)=>React.createElement('li',{key:i},t))
-                    )
-                  );
-                })(),
-                currentQuestion.type==="drug" &&
-                  React.createElement('div',{style:{fontSize:14}},
-                    React.createElement('div',{style:{fontWeight:600, margin:'8px 0 4px'}},'Primary channels affected'),
-                    React.createElement('ul',{style:{margin:'6px 0 0 18px'}},
-                      changeLines.map((l,i)=>React.createElement('li',{key:i},l))
-                    )
-                  ),
-                currentQuestion.type==="channel" &&
-                  React.createElement('div',{style:{fontSize:14}},
-                    React.createElement('div',{style:{fontWeight:600, margin:'8px 0 4px'}},'Targeted mechanism'),
-                    React.createElement('div',null, CHANNEL_ROLES[currentQuestion.targetChannel] || currentQuestion.targetChannel)
-                  )
-              )
-            ),
-            React.createElement('button',{className:'primary',onClick:nextQuestion},'Next Question')
-          )
-        )
-      ),
-      // Right: Chart
-      React.createElement('section',{className:'section'},
-        React.createElement('h2',null,'Action Potential'),
-        React.createElement('div',{className:'legend'},
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'line'}), ' Modified'),
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'dash'}), ' Baseline')
-        ),
-        React.createElement('div',{style:{width:'100%'}},
-          React.createElement(ResponsiveContainer,{width:'100%',height:420},
-            React.createElement(LineChart,{data:currentQuestion.modified.data,margin:{top:8,right:40,bottom:20,left:20}},
-              React.createElement(CartesianGrid,{strokeDasharray:"3 3"}),
-              React.createElement(XAxis,{type:"number",dataKey:"t",domain:[0,'dataMax'],tickCount:10,label:{ value:'time (ms)', position:'insideBottomRight', offset:-10 }}),
-              React.createElement(YAxis,{domain:[-100,50],tickCount:8,label:{ value:'membrane potential (mV)', angle:-90, position:'insideLeft' }}),
-              React.createElement(Tooltip,{formatter:(v)=>`${Number(v).toFixed(1)} mV`,labelFormatter:(l)=>`${Number(l).toFixed(1)} ms`}),
-              React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:currentQuestion.baseline.data,name:"Baseline",stroke:"#94a3b8",strokeWidth:2,strokeDasharray:"6 4"}),
-              React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:currentQuestion.modified.data,name:"Modified",stroke:"#0f172a",strokeWidth:3}),
-              React.createElement(ReferenceLine,{y:-85,stroke:"#e5e7eb"})
-            )
-          )
-        )
-      )
-    );
+  if(isPacemaker){
+    t1=0; t2=0;
+    const kK = 0.6*kIKr + 0.4*kIKs;
+    t0 = 15 / clamp(kICaL,0.2,2);
+    vmax = 20*kICaL - 5*(kK-1);
+    t3 = 150 / clamp(kK,0.2,2);
+    const slope = 0.45*kIf + 0.25*kICaT - 0.35*(kIK_ACh-1) - 0.15*(kK-1);
+    t4 = clamp(220 / clamp(1+slope,0.2,3), 60, 600);
+    const vrestBase=-65;
+    vrest = vrestBase - 2*(kPump-1) + 2*(1-kIK1) + 6*(1-kK);
+  } else {
+    t0=clamp(2/clamp(kINa,0.2,2),0.5,6); vmax=30*clamp(kINa,0.4,1.6);
+    t1=clamp(8*(0.6+0.4*kIto),2,18);
+    const kK=0.6*kIKr+0.4*kIKs; t2=clamp(180*(kICaL/clamp(kK,0.3,2)),40,400);
+    t3=clamp(120/clamp(kK,0.3,2),30,300);
+    vrest=-85-4*(kPump-1)+5*(1-kIK1);
+    if(cellId==="purkinje"){
+      const s=0.1*(kIf-1)+0.05*(kICaT-1);
+      t4=clamp(100/clamp(1+s,0.3,2),40,300);
+    }
   }
 
-  /* ---------------- Explore Mode  ---------------- */
-  function ExploreMode(){
-    const [cellTypeId,setCellTypeId]=useState("ventricular");
-    const [params,setParams]=useState({...BASELINE_PARAMS});
-    const [ko,setKo]=useState({});
-    const [preset,setPreset]=useState("None");
-    const [envPreset,setEnvPreset]=useState("None");
-    const [showBaseline,setShowBaseline]=useState(true);
-    const [bpm,setBpm]=useState(60);
+  const data=[]; const push=(t,v)=>data.push({t:Math.round(t*10)/10,v});
+  const segs=[]; let tA=0; const vTh=isPacemaker?-40:-60;
 
-    const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
+  if(params && typeof params.__targetCycle==='number'){
+    const baseCycle=t4+t0+(isPacemaker?0:(t1+t2))+t3;
+    t4=clamp(t4+(params.__targetCycle-baseCycle),20,1200);
+  }
 
-    const buildParamsFor=(id, useCurrent=true)=>{
-      const base = useCurrent ? {...params} : {...BASELINE_PARAMS};
-      const apply=(obj,map)=>{ const out={...obj}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
-      const env = useCurrent ? (ENV_PRESETS[envPreset]||{}) : {};
-      const drug = useCurrent ? (DRUG_PRESETS[preset]||{}) : {};
-      const out = apply(apply(base,env),drug);
-      if(useCurrent){ Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; }); }
-      const mask=CELL_TYPES.find(c=>c.id===id)?.uses||{};
-      Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
-      if(id!=='sa' && id!=='purkinje'){ out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000); }
-      return out;
-    };
+  // phase 4
+  const n4=Math.max(5,Math.round(t4/2));
+  for(let i=0;i<=n4;i++){ const f=i/n4; push(tA+f*t4, vrest+(vTh-vrest)*f); }
+  segs.push({phase:4,tStart:tA,tEnd:tA+t4}); tA+=t4;
 
-    const baseline=useMemo(()=>{
-      const base={...BASELINE_PARAMS};
-      if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = 60000/bpm; }
-      return generateAP(cell.id, base);
-    },[cell.id,bpm]);
+  // phase 0
+  const n0=Math.max(5,Math.round(t0/0.5));
+  for(let i=0;i<=n0;i++){ const f=i/n0; push(tA+f*t0, vTh+(vmax-vTh)*(1-Math.pow(1-f,3))); }
+  segs.push({phase:0,tStart:tA,tEnd:tA+t0}); tA+=t0;
 
-    const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,envPreset,ko,bpm]);
+  if(!isPacemaker){
+    // phase 1
+    const notch=vmax-20*kIto, n1=Math.max(3,Math.round(t1/0.5));
+    for(let i=0;i<=n1;i++){ const f=i/n1; push(tA+f*t1, vmax+(notch-vmax)*f); }
+    segs.push({phase:1,tStart:tA,tEnd:tA+t1}); tA+=t1;
 
-    const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
-    const curMetrics =useMemo(()=>computeMetrics(modified),[modified]);
+    // phase 2
+    const plateau=-5+10*(kICaL-(0.6*kIKr+0.4*kIKs)), n2=Math.max(10,Math.round(t2/2));
+    for(let i=0;i<=n2;i++){ const f=i/n2; push(tA+f*t2, notch+(plateau-notch)*(1-Math.cos(Math.PI*f))/2); }
+    segs.push({phase:2,tStart:tA,tEnd:tA+t2}); tA+=t2;
+  }
 
-    const intervalsFromParams=(useCurrent)=>{
-      const saAP   = generateAP('sa',        buildParamsFor('sa',useCurrent));
-      const atrAP  = generateAP('atrial',    buildParamsFor('atrial',useCurrent));
-      const ventAP = generateAP('ventricular',buildParamsFor('ventricular',useCurrent));
-      const saM=computeMetrics(saAP), atrM=computeMetrics(atrAP), ventM=computeMetrics(ventAP);
+  // phase 3
+  const vEnd=vrest, vStart=isPacemaker? vmax : (data[data.length-1]?.v ?? vmax);
+  const n3=Math.max(10,Math.round(t3/2));
+  for(let i=0;i<=n3;i++){ const f=i/n3; push(tA+f*t3, vStart+(vEnd-vStart)*(1-Math.cos(Math.PI*f))/2); }
+  segs.push({phase:3,tStart:tA,tEnd:tA+t3}); tA+=t3;
 
-      const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
-      const kICaL_atrial = pct((buildParamsFor('atrial',useCurrent).ICaL??100));
-      const kIKAch_atrial= pct((buildParamsFor('atrial',useCurrent).IK_ACh??100));
-      const pr_ms = clamp(160 + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
-      const qrs_ms= clamp(90 + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160);
-      const qt_ms = clamp(ventM.apd90 + 40, 280, 520);
-      return {rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms};
-    };
+  const marks = segs.map(s=>{
+    const mid=(s.tStart+s.tEnd)/2; let nearest=data[0];
+    for(let i=1;i<data.length;i++){ if(Math.abs(data[i].t-mid)<Math.abs(nearest.t-mid)) nearest=data[i]; }
+    return {label:`Phase ${s.phase}`, t:nearest.t, v:nearest.v};
+  }).filter(m=>!(cellId==="sa" && (m.label==="Phase 1"||m.label==="Phase 2")));
 
-    const intsMod  = useMemo(()=>intervalsFromParams(true), [params,preset,envPreset,ko,bpm]);
-    const intsBase = useMemo(()=>intervalsFromParams(false),[bpm]);
+  return {data, marks, segs};
+}
 
-    const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
-    const ecgBaseline = useMemo(()=>generateECGSeries({...intsBase, beats:3, fs:1000}), [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
+function computeMetrics(curve){
+  const pts=curve.data||curve; if(!pts.length) return {apd90:0,dvdtMax:0,cycle:0};
+  const vrest=pts[0].v; const vmax=pts.reduce((m,p)=>Math.max(m,p.v),-Infinity);
+  const v90=vrest+0.1*(vmax-vrest); const up=pts.findIndex(p=>p.v>v90);
+  let down=pts.length-1; for(let i=pts.length-1;i>=0;i--){ if(pts[i].v>v90){ down=i; break; } }
+  const apd90=(up>=0 && down>up)?(pts[down].t-pts[up].t):0;
+  let dvdtMax=0; for(let i=1;i<pts.length;i++){ const dv=pts[i].v-pts[i-1].v; const dt=pts[i].t-pts[i-1].t||1e-6; dvdtMax=Math.max(dv/dt,dvdtMax); }
+  const cycle=pts[pts.length-1].t;
+  return {apd90:Math.round(apd90), dvdtMax:Math.round(dvdtMax*100)/100, cycle:Math.round(cycle)};
+}
 
-    function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
+const PHASE_GROUPS=[
+  {label:'Phase 0 (Upstroke)', keys:['INa','ICaL']},
+  {label:'Phase 1 (Notch)', keys:['Ito']},
+  {label:'Phase 2 (Plateau)', keys:['ICaL','IKr','IKs']},
+  {label:'Phase 3 (Repolarization)', keys:['IKr','IKs']},
+  {label:'Phase 4 (Rest/Diastolic)', keys:['IK1','If','ICaT','IK_ACh','NaKATPase']},
+];
 
-    // Direction strings for tiles:
-    const upstrokeText = (curMetrics.dvdtMax - baseMetrics.dvdtMax) > 0 ? 'steeper' : (curMetrics.dvdtMax - baseMetrics.dvdtMax) < 0 ? 'blunter' : 'no change';
-    const rateText     = (curMetrics.cycle   - baseMetrics.cycle)   > 0 ? 'slower'  : (curMetrics.cycle   - baseMetrics.cycle)   < 0 ? 'faster'  : 'no change';
-    const repolText    = (curMetrics.apd90   - baseMetrics.apd90)   > 0 ? 'slower'  : (curMetrics.apd90   - baseMetrics.apd90)   < 0 ? 'faster'  : 'no change';
+function areSimilarChannels(ch1, ch2){
+  for(const group of SIMILAR_CHANNEL_GROUPS){
+    if(group.includes(ch1) && group.includes(ch2)) return true;
+  }
+  return false;
+}
 
-    return React.createElement('div',{className:'wrap'},
-      // Controls
-      React.createElement('section',{className:'section'},
-        React.createElement('h2',null,'Controls'),
-        React.createElement('div',{className:'stack'},
-          React.createElement('div',{className:'row'},
-            React.createElement('div',{className:'field flex1'},
-              React.createElement('label',{className:'label'},'Cell type'),
-              React.createElement('select',{value:cellTypeId,onChange:(e)=>setCellTypeId(e.target.value)},
-                CELL_TYPES.map(c=>React.createElement('option',{key:c.id,value:c.id},c.name))
-              )
-            ),
-            React.createElement('div',{className:'field flex1'},
-              React.createElement('label',{className:'label'},'Drug preset'),
-              React.createElement('select',{value:preset,onChange:(e)=>setPreset(e.target.value)},
-                Object.keys(DRUG_PRESETS).map(p=>React.createElement('option',{key:p,value:p},p))
-              )
-            )
-          ),
-          React.createElement('div',{className:'row'},
-            React.createElement('div',{className:'field flex1'},
-              React.createElement('label',{className:'label'},'Environment'),
-              React.createElement('select',{value:envPreset,onChange:(e)=>setEnvPreset(e.target.value)},
-                Object.keys(ENV_PRESETS).map(p=>React.createElement('option',{key:p,value:p},p))
-              )
-            ),
-            React.createElement('div',{className:'field flex1'},
-              React.createElement('label',{className:'label'},`Pacing (BPM): ${bpm}`),
-              React.createElement('input',{type:'range',min:20,max:220,step:1,value:bpm,onChange:(e)=>setBpm(+e.target.value)})
-            )
-          ),
+/* ---------------- ECG synthesizer (smooth, zero-mean) ---------------- */
+function gaussian(x, mu, sigma, amp){ const z=(x-mu)/sigma; return amp*Math.exp(-0.5*z*z); }
 
-          React.createElement('button',{onClick:resetAll},'Reset'),
+function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
+  rr = clamp(rr, 300, 2000);  pr = clamp(pr, 100, 260);
+  qrs = clamp(qrs, 70, 160);  qt = clamp(qt, 280, 520);
 
-          React.createElement('div',{className:'divider'}),
+  const dt = 1000/fs; // ms / sample
+  const oneBeat=[], nBeat=Math.round(rr/dt);
 
-          PHASE_GROUPS.map(g=>{
+  for(let i=0;i<nBeat;i++){
+    const tb=i*dt;
+    const pC=Math.max(0.11*rr, pr-0.5*qrs);
+    const qrsC=pr;
+    const tStart=qrsC+qrs;
+    const tC=tStart+0.45*(qt-qrs);
+
+    const pS=0.05*rr;
+    const qS=0.12*qrs, rS=0.09*qrs, sS=0.10*qrs;
+    const tS=0.22*(qt-qrs);
+
+    let v=0;
+    v+=gaussian(tb,pC,            pS,  0.12);
+    v+=gaussian(tb,qrsC-0.20*qrs, qS, -0.25);
+    v+=gaussian(tb,qrsC,          rS,  1.00);
+    v+=gaussian(tb,qrsC+0.25*qrs, sS, -0.35);
+    v+=gaussian(tb,tC,            tS,  0.35);
+
+    oneBeat.push(v);
+  }
+  const mean = oneBeat.reduce((a,b)=>a+b,0)/oneBeat.length;
+  for(let i=0;i<oneBeat.length;i++) oneBeat[i]-=mean;
+
+  const data=[];
+  for(let b=0;b<beats;b++){
+    for(let i=0;i<nBeat;i++){
+      const t_s=(b*rr + i*dt)/1000;
+      data.push({t:Number(t_s.toFixed(3)), v:oneBeat[i]});
+    }
+  }
+  return data;
+}
+
+/* ---------------- Quiz ---------------- */
+function QuizMode(){
+  const [cellTypeId, setCellTypeId] = useState("ventricular");
+  const [quizKind, setQuizKind] = useState("channel"); // 'channel' | 'drug'
+  const [difficulty, setDifficulty] = useState("standard"); // 'easy'(2) | 'standard'(4)
+  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showResult, setShowResult] = useState(false);
+  const [score, setScore] = useState(0);
+  const [questionsAnswered, setQuestionsAnswered] = useState(0);
+  const lastTargetRef = useRef(null);
+
+  const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
+  const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
+  const drugKeys = useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
+
+  const nOptions = difficulty==='easy' ? 2 : 4;
+
+  const maskParamsByCell = (id, params)=>{
+    const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
+    const out = {...params};
+    Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
+    return out;
+  };
+
+  const applyMap = (base, mapObj)=>{
+    const out = {...base};
+    Object.entries(mapObj||{}).forEach(([k,v])=>{
+      if(k in out) out[k] = Math.round(out[k]*(v/100));
+    });
+    return out;
+  };
+
+  const generateQuestion = ()=>{
+    if(quizKind === "drug"){
+      // --- DRUG QUIZ ---
+      const targetKey = drugKeys[Math.floor(Math.random()*drugKeys.length)];
+      const {name: targetName, kind: targetKind} = parseDrugKey(targetKey);
+
+      const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
+      const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
+      const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
+
+      const wrong = drugKeys
+        .filter(k=>k!==targetKey)
+        .sort(()=>Math.random()-0.5)
+        .slice(0, Math.max(1, nOptions-1))
+        .map(k=>({ key:k, name: parseDrugKey(k).name }));
+
+      const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
+
+      return {
+        type: "drug",
+        targetKey,
+        targetName,
+        targetKind,
+        modParamsMap: DRUG_PRESETS[targetKey],
+        options,    // [{key, name}]
+        baseline: generateAP(cellTypeId, baselineParams),
+        modified: generateAP(cellTypeId, modParams)
+      };
+    } else {
+      // --- CHANNEL QUIZ ---
+      let targetChannel;
+      const eligible = availableChannels.filter(ch=>ch!==lastTargetRef.current);
+      targetChannel = eligible.length? eligible[Math.floor(Math.random()*eligible.length)] : availableChannels[0];
+      lastTargetRef.current = targetChannel;
+
+      const isKO = Math.random()<0.5;
+      const modValue = isKO?0:200;
+      const modType = isKO?'knockout':'increase';
+
+      const modParamsRaw = {...BASELINE_PARAMS, [targetChannel]:modValue};
+      const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
+      const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
+
+      let wrong = availableChannels
+        .filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel))
+        .sort(()=>Math.random()-0.5);
+      if(wrong.length < (nOptions-1)){
+        const remain = availableChannels.filter(c=>c!==targetChannel && !wrong.includes(c)).sort(()=>Math.random()-0.5);
+        wrong = [...wrong, ...remain];
+      }
+      wrong = wrong.slice(0, Math.max(1, nOptions-1));
+      const options=[targetChannel,...wrong].sort(()=>Math.random()-0.5);
+
+      return {
+        type: "channel",
+        targetChannel, modType, modValue, options,
+        baseline: generateAP(cellTypeId, baselineParams),
+        modified: generateAP(cellTypeId, modParams)
+      };
+    }
+  };
+
+  useMemo(()=>{ if(!currentQuestion) setCurrentQuestion(generateQuestion()); },[cellTypeId, quizKind, difficulty, currentQuestion, availableChannels]);
+
+  const baseM = useMemo(()=> currentQuestion ? computeMetrics(currentQuestion.baseline) : null, [currentQuestion]);
+  const curM  = useMemo(()=> currentQuestion ? computeMetrics(currentQuestion.modified) : null, [currentQuestion]);
+
+  const changeLines = useMemo(()=>{
+    if(!currentQuestion || currentQuestion.type!=="drug") return [];
+    const map = currentQuestion.modParamsMap || {};
+    const fullMap = Object.fromEntries(Object.keys(BASELINE_PARAMS).map(k=>[k, Math.round((map[k]??100))]));
+    return describeParamChanges(fullMap);
+  }, [currentQuestion]);
+
+  // Confetti on correct answer
+  const isCorrect = currentQuestion
+    ? (currentQuestion.type==="drug"
+        ? selectedAnswer===currentQuestion.targetKey
+        : selectedAnswer===currentQuestion.targetChannel)
+    : false;
+  useConfettiOn(showResult && isCorrect);
+
+  const handleAnswer=(ans)=>{
+    if(showResult || !currentQuestion) return;
+    setSelectedAnswer(ans);
+    setShowResult(true);
+    setQuestionsAnswered(q=>q+1);
+
+    const correct =
+      currentQuestion.type==="drug"
+        ? (ans===currentQuestion.targetKey)
+        : (ans===currentQuestion.targetChannel);
+    if(correct) setScore(s=>s+1);
+  };
+
+  const nextQuestion=()=>{
+    setCurrentQuestion(generateQuestion());
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+  const resetQuiz=()=>{
+    setScore(0);
+    setQuestionsAnswered(0);
+    lastTargetRef.current=null;
+    setCurrentQuestion(generateQuestion());
+    setSelectedAnswer(null);
+    setShowResult(false);
+  };
+
+  if(!currentQuestion) return <div>Loading...</div>;
+  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
+  const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
+
+  const renderOptions = ()=>{
+    if(currentQuestion.type==="drug"){
+      return (
+        <div className="quiz-options-grid">
+          {currentQuestion.options.map(opt=>(
+            <button
+              key={opt.key}
+              className={`quiz-option ${
+                showResult
+                  ? (opt.key===currentQuestion.targetKey ? 'correct'
+                     : opt.key===selectedAnswer ? 'incorrect' : '')
+                  : ''
+              } ${showResult ? 'disabled' : ''}`}
+              onClick={()=>handleAnswer(opt.key)}
+              disabled={showResult}
+              title={opt.name}
+            >
+              {opt.name}
+            </button>
+          ))}
+        </div>
+      );
+    }
+    // channel
+    return (
+      <div className="quiz-options-grid">
+        {currentQuestion.options.map(opt=>(
+          <button
+            key={opt}
+            className={`quiz-option ${
+              showResult
+                ? (opt===currentQuestion.targetChannel ? 'correct'
+                   : opt===selectedAnswer ? 'incorrect' : '')
+                : ''
+            } ${showResult ? 'disabled' : ''}`}
+            onClick={()=>handleAnswer(opt)}
+            disabled={showResult}
+            title={CHANNEL_LABELS[opt]}
+          >
+            {CHANNEL_LABELS[opt]}
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  const feedbackText = ()=>{
+    if(currentQuestion.type==="drug"){
+      const correct = selectedAnswer===currentQuestion.targetKey;
+      const suffix = currentQuestion.targetKind ? ` — ${currentQuestion.targetKind}` : '';
+      return correct
+        ? `✓ Correct! ${currentQuestion.targetName}${suffix}`
+        : `✗ Incorrect. The answer was: ${currentQuestion.targetName}${suffix}`;
+    } else {
+      const correct = selectedAnswer===currentQuestion.targetChannel;
+      return correct
+        ? '✓ Correct!'
+        : `✗ Incorrect. The answer was: ${CHANNEL_LABELS[currentQuestion.targetChannel]}`;
+    }
+  };
+
+  return (
+    <div className="wrap">
+      <canvas id="confetti-canvas"></canvas>
+
+      <section className="section">
+        <h2>Quiz Settings</h2>
+        <div className="stack">
+          <div className="field">
+            <label className="label">Cell type</label>
+            <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
+              {CELL_TYPES.map(c=>
+                <option key={c.id} value={c.id}>{c.name}</option>
+              )}
+            </select>
+          </div>
+
+          <div className="field">
+            <label className="label">Quiz type</label>
+            <div className="mode-toggle" style={{margin:0}}>
+              <button
+                className={quizKind==='channel'?'active':''}
+                onClick={()=>{setQuizKind('channel'); setCurrentQuestion(null);}}
+                disabled={showResult}
+              >
+                Channel
+              </button>
+              <button
+                className={quizKind==='drug'?'active':''}
+                onClick={()=>{setQuizKind('drug'); setCurrentQuestion(null);}}
+                disabled={showResult}
+              >
+                Drug
+              </button>
+            </div>
+          </div>
+
+          <div className="field">
+            <label className="label">Difficulty</label>
+            <div className="mode-toggle" style={{margin:0}}>
+              <button
+                className={difficulty==='easy'?'active':''}
+                onClick={()=>{setDifficulty('easy'); setCurrentQuestion(null);}}
+                disabled={showResult}
+              >
+                Easy (2 options)
+              </button>
+              <button
+                className={difficulty==='standard'?'active':''}
+                onClick={()=>{setDifficulty('standard'); setCurrentQuestion(null);}}
+                disabled={showResult}
+              >
+                Standard (4 options)
+              </button>
+            </div>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="score-display">
+            <div>Score: {score}/{questionsAnswered}</div>
+            <div>{questionsAnswered>0 ? `${Math.round(score/questionsAnswered*100)}%` : '—'}</div>
+          </div>
+
+          <button onClick={resetQuiz}>Reset Quiz</button>
+
+          <div className="divider"></div>
+
+          <div>
+            {currentQuestion.type==="drug" ? (
+              <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
+                Which <em>drug</em> was added?
+              </h3>
+            ) : (
+              <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
+                Which ion channel/transporter was 
+                <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
+                  {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
+                </span>
+                ?
+              </h3>
+            )}
+
+            {renderOptions()}
+          </div>
+
+          {showResult && (
+            <>
+              <div style={{padding:12,background:isCorrect?'#f0fdf4':'#fef2f2',borderRadius:6,fontWeight:600, marginTop:8, marginBottom:8}}>
+                {feedbackText()}
+              </div>
+
+              {/* Insights panel */}
+              <details open style={{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:6, padding:12, marginBottom:8}}>
+                <summary style={{fontWeight:700, cursor:'pointer'}}>Why does the trace look like this?</summary>
+                <div style={{marginTop:8, display:'grid', gridTemplateColumns:'1fr', gap:'6px'}}>
+                  {baseM && curM && (
+                    <div style={{fontSize:14}}>
+                      <div style={{fontWeight:600, marginBottom:4}}>Key metric changes</div>
+                      <ul style={{margin:'6px 0 0 18px'}}>
+                        {metricTakeaways(baseM, curM).map((t,i)=><li key={i}>{t}</li>)}
+                      </ul>
+                    </div>
+                  )}
+
+                  {currentQuestion.type==="drug" && (
+                    <>
+                      <div style={{fontSize:14}}>
+                        <div style={{fontWeight:600, margin:'8px 0 4px'}}>Primary channels affected</div>
+                        <ul style={{margin:'6px 0 0 18px'}}>
+                          {changeLines.map((l,i)=><li key={i}>{l}</li>)}
+                        </ul>
+                      </div>
+                    </>
+                  )}
+
+                  {currentQuestion.type==="channel" && (
+                    <div style={{fontSize:14}}>
+                      <div style={{fontWeight:600, margin:'8px 0 4px'}}>Targeted mechanism</div>
+                      <div>{CHANNEL_ROLES[currentQuestion.targetChannel] || currentQuestion.targetChannel}</div>
+                    </div>
+                  )}
+                </div>
+              </details>
+
+              <button className="primary" onClick={nextQuestion}>Next Question</button>
+            </>
+          )}
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>Action Potential</h2>
+        <div className="legend">
+          <span className="pill"><span className="line"></span> Modified ({currentQuestion.type==="drug" ? 'drug effect' : 'channel mod'})</span>
+          <span className="pill"><span className="dash"></span> Baseline</span>
+        </div>
+        <div style={{width: '100%'}}>
+          <ResponsiveContainer width="100%" height={420}>
+            <LineChart data={currentQuestion.modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={xAxisLabel}/>
+              <YAxis domain={[-100,50]} tickCount={8} label={yAxisLabel}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
+              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.baseline.data} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              <Line dot={false} type="monotone" dataKey="v" data={currentQuestion.modified.data} name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <ReferenceLine y={-85} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ---------------- Explore Mode  ---------------- */
+function ExploreMode(){
+  const [cellTypeId,setCellTypeId]=useState("ventricular");
+  const [params,setParams]=useState({...BASELINE_PARAMS});
+  const [ko,setKo]=useState({});
+  const [preset,setPreset]=useState("None");
+  const [envPreset,setEnvPreset]=useState("None");
+  const [showBaseline,setShowBaseline]=useState(true);
+  const [bpm,setBpm]=useState(60);
+
+  const cell=useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
+
+  const buildParamsFor=(id, useCurrent=true)=>{
+    const base = useCurrent ? {...params} : {...BASELINE_PARAMS};
+    const apply=(obj,map)=>{ const out={...obj}; Object.entries(map).forEach(([k,v])=>{ if(k in out) out[k]=Math.round(out[k]*(v/100));}); return out; };
+    const env = useCurrent ? (ENV_PRESETS[envPreset]||{}) : {};
+    const drug = useCurrent ? (DRUG_PRESETS[preset]||{}) : {};
+    const out = apply(apply(base,env),drug);
+    if(useCurrent){ Object.keys(ko).forEach(k=>{ if(ko[k]) out[k]=0; }); }
+    const mask=CELL_TYPES.find(c=>c.id===id)?.uses||{};
+    Object.keys(out).forEach(k=>{ if(!mask[k]) out[k]=0; });
+    if(id!=='sa' && id!=='purkinje'){ out.__targetCycle = clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000); }
+    return out;
+  };
+
+  const baseline=useMemo(()=>{
+    const base={...BASELINE_PARAMS};
+    if(cell.id!=='sa' && cell.id!=='purkinje'){ base.__targetCycle = 60000/bpm; }
+    return generateAP(cell.id, base);
+  },[cell.id,bpm]);
+
+  const modified=useMemo(()=>generateAP(cell.id,buildParamsFor(cell.id,true)),[cell.id,params,preset,envPreset,ko,bpm]);
+
+  const baseMetrics=useMemo(()=>computeMetrics(baseline),[baseline]);
+  const curMetrics =useMemo(()=>computeMetrics(modified),[modified]);
+
+  const intervalsFromParams=(useCurrent)=>{
+    const saAP   = generateAP('sa',        buildParamsFor('sa',useCurrent));
+    const atrAP  = generateAP('atrial',    buildParamsFor('atrial',useCurrent));
+    const ventAP = generateAP('ventricular',buildParamsFor('ventricular',useCurrent));
+    const saM=computeMetrics(saAP), atrM=computeMetrics(atrAP), ventM=computeMetrics(ventAP);
+
+    const rr_ms = (saM.cycle>0? saM.cycle : clamp(60000/Math.max(20,Math.min(220,bpm)),250,3000));
+    const kICaL_atrial = pct((buildParamsFor('atrial',useCurrent).ICaL??100));
+    const kIKAch_atrial= pct((buildParamsFor('atrial',useCurrent).IK_ACh??100));
+    const pr_ms = clamp(160 + 40*(1-kICaL_atrial) + 30*(kIKAch_atrial-1), 100, 260);
+    const qrs_ms= clamp(90 + 6*(12 - clamp(ventM.dvdtMax,2,20)), 70, 160);
+    const qt_ms = clamp(ventM.apd90 + 40, 280, 520);
+    return {rr:rr_ms, pr:pr_ms, qrs:qrs_ms, qt:qt_ms};
+  };
+
+  const intsMod  = useMemo(()=>intervalsFromParams(true), [params,preset,envPreset,ko,bpm]);
+  const intsBase = useMemo(()=>intervalsFromParams(false),[bpm]);
+
+  const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
+  const ecgBaseline = useMemo(()=>generateECGSeries({...intsBase, beats:3, fs:1000}), [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
+
+  const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
+  const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
+
+  function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
+
+  return (
+    <div className="wrap">
+      {/* Controls */}
+      <section className="section">
+        <h2>Controls</h2>
+        <div className="stack">
+          <div className="row">
+            <div className="field flex1">
+              <label className="label">Cell type</label>
+              <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
+                {CELL_TYPES.map(c=>
+                  <option key={c.id} value={c.id}>{c.name}</option>
+                )}
+              </select>
+            </div>
+            <div className="field flex1">
+              <label className="label">Drug preset</label>
+              <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
+                {Object.keys(DRUG_PRESETS).map(p=>
+                  <option key={p} value={p}>{p}</option>
+                )}
+              </select>
+            </div>
+          </div>
+          <div className="row">
+            <div className="field flex1">
+              <label className="label">Environment</label>
+              <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
+                {Object.keys(ENV_PRESETS).map(p=>
+                  <option key={p} value={p}>{p}</option>
+                )}
+              </select>
+            </div>
+            <div className="field flex1">
+              <label className="label">Pacing (BPM): {bpm}</label>
+              <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
+            </div>
+          </div>
+
+          <button onClick={resetAll}>Reset</button>
+
+          <div className="divider"></div>
+
+          {PHASE_GROUPS.map(g=>{
             const keys=g.keys.filter(k=>cell.uses[k]);
             if(!keys.length) return null;
-            return React.createElement('details',{key:g.label,open:true},
-              React.createElement('summary',{className:'label',style:{ fontSize:14, color:'var(--ink)'}},g.label),
-              React.createElement('div',{className:'stack',style:{paddingTop:8}},
-                keys.map(key=>
-                  React.createElement('div',{key:key,className:'stack'},
-                    React.createElement('div',{className:'row',style:{justifyContent:'space-between'}},
-                      React.createElement('div',{style:{fontWeight:600,fontSize:14}},CHANNEL_LABELS[key]),
-                      React.createElement('label',{style:{fontSize:12}},
-                        React.createElement('input',{type:'checkbox',checked:!!ko[key],onChange:(e)=>setKo({...ko,[key]:e.target.checked})}),' KO'
-                      )
-                    ),
-                    React.createElement('div',{className:'row'},
-                      React.createElement('input',{type:'range',min:0,max:200,step:5,disabled:!!ko[key],
-                        value:ko[key]?0:(params[key]??100),
-                        onChange:(e)=>setParams({...params,[key]:+e.target.value})}),
-                      React.createElement('input',{type:'number',min:0,max:200,step:5,disabled:!!ko[key],
-                        value:ko[key]?0:(params[key]??100),
-                        onChange:(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})})
-                      // no trailing "% value" text shown
-                    )
-                  )
-                )
-              )
+            return (
+              <details key={g.label} open>
+                <summary className="label" style={{ fontSize: 14, color: 'var(--ink)' }}>
+                  {g.label}
+                </summary>
+
+                <div className="stack" style={{ paddingTop: 8 }}>
+                  {keys.map(key=>(
+                    <div key={key} className="stack">
+                      <div className="row" style={{justifyContent:'space-between'}}>
+                        <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
+                        <label style={{fontSize:12}}>
+                          <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
+                        </label>
+                      </div>
+                      <div className="row">
+                        <input type="range" min="0" max="200" step="5" disabled={!!ko[key]}
+                          value={ko[key]?0:(params[key]??100)}
+                          onChange={(e)=>setParams({...params,[key]:+e.target.value})}/>
+                        <input type="number" min="0" max="200" step="5" disabled={!!ko[key]}
+                          value={ko[key]?0:(params[key]??100)}
+                          onChange={(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}/>
+                        <span style={{color:'#64748b'}}>{ko[key]?0:(params[key]??100)}%</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </details>
             );
-          }),
+          })}
 
-          React.createElement('label',{style:{fontSize:12}},
-            React.createElement('input',{type:'checkbox',checked:showBaseline,onChange:(e)=>setShowBaseline(e.target.checked)}),' Show baseline'
-          )
-        )
-      ),
+          <label style={{fontSize:12}}>
+            <input type="checkbox" checked={showBaseline} onChange={(e)=>setShowBaseline(e.target.checked)} /> Show baseline
+          </label>
+        </div>
+      </section>
 
-      // AP chart + plain-language tiles
-      React.createElement('section',{className:'section'},
-        React.createElement('h2',null,'Action Potential'),
-        React.createElement('div',{className:'legend'},
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'line'}), ' Modified'),
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'dash'}), ' Baseline')
-        ),
-        React.createElement('div',{style:{width:'100%'}},
-          React.createElement(ResponsiveContainer,{width:'100%',height:420},
-            React.createElement(LineChart,{data:modified.data,margin:{top:8,right:40,bottom:20,left:20}},
-              React.createElement(CartesianGrid,{strokeDasharray:"3 3"}),
-              React.createElement(XAxis,{type:"number",dataKey:"t",domain:[0,'dataMax'],tickCount:10,label:{ value:'time (ms)', position:'insideBottomRight', offset:-10 }}),
-              React.createElement(YAxis,{domain:[-100,50],tickCount:8,label:{ value:'membrane potential (mV)', angle:-90, position:'insideLeft' }}),
-              React.createElement(Tooltip,{formatter:(v)=>`${Number(v).toFixed(1)} mV`,labelFormatter:(l)=>`${Number(l).toFixed(1)} ms`}),
-              showBaseline && React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:baseline.data,name:"Baseline",stroke:"#94a3b8",strokeWidth:2,strokeDasharray:"6 4"}),
-              React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:modified.data,name:"Modified",stroke:"#0f172a",strokeWidth:3}),
-              React.createElement(ReferenceLine,{y:-85,stroke:"#e5e7eb"})
-            )
-          )
-        ),
+      {/* AP chart + metrics */}
+      <section className="section">
+        <h2>Action Potential</h2>
+        <div className="legend">
+          <span className="pill"><span className="line"></span> Modified</span>
+          <span className="pill"><span className="dash"></span> Baseline</span>
+        </div>
+        <div style={{width:'100%'}}>
+          <ResponsiveContainer width="100%" height={420}>
+            <LineChart data={modified.data} margin={{top:8,right:40,bottom:20,left:20}}>
+              <CartesianGrid strokeDasharray="3 3"/>
+              <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={10} label={{ value:'time (ms)', position:'insideBottomRight', offset:-10 }}/>
+              <YAxis domain={[-100,50]} tickCount={8} label={{ value:'membrane potential (mV)', angle:-90, position:'insideLeft' }}/>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(1)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(1)} ms`} />
+              {showBaseline && (
+                <Line dot={false} type="monotone" dataKey="v" data={baseline.data}
+                      name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+              )}
+              <Line dot={false} type="monotone" dataKey="v" data={modified.data}
+                    name="Modified" stroke="#0f172a" strokeWidth={3}/>
+              <ReferenceLine y={-85} stroke="#e5e7eb"/>
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
 
-        // Direction-only tiles (no APD90 label or numeric deltas)
-        React.createElement('div',{className:'metrics',style:{marginTop:12}},
-          React.createElement('div',{className:'metric'},
-            React.createElement('div',{className:'k'},'Upstroke'),
-            React.createElement('div',{className:'v'}, upstrokeText),
-            React.createElement('div',{className:'d'},'Na⁺-driven Phase 0')
-          ),
-          React.createElement('div',{className:'metric'},
-            React.createElement('div',{className:'k'},'Repolarization'),
-            React.createElement('div',{className:'v'}, repolText),
-            React.createElement('div',{className:'d'},'K⁺-mediated Phase 3')
-          ),
-          React.createElement('div',{className:'metric'},
-            React.createElement('div',{className:'k'},'Rate'),
-            React.createElement('div',{className:'v'}, rateText),
-            React.createElement('div',{className:'d'},'Cycle length / pacing')
-          )
-        ),
+      <div className="metrics" style={{marginTop:12}}>
+        <div className="metric">
+          <div className="k">APD90</div>
+          <div className="v">{curMetrics.apd90} ms</div>
+          <div className="d" style={{color:(curMetrics.apd90-baseMetrics.apd90)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.apd90-baseMetrics.apd90)>=0?'↑':'↓'} {Math.abs(curMetrics.apd90-baseMetrics.apd90)} vs baseline
+          </div>
+        </div>
+        <div className="metric">
+          <div className="k">dV/dt_max</div>
+          <div className="v">{curMetrics.dvdtMax} mV/ms</div>
+          <div className="d" style={{color:(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.dvdtMax-baseMetrics.dvdtMax)>=0?'↑':'↓'} {Math.abs((curMetrics.dvdtMax-baseMetrics.dvdtMax).toFixed(2))} vs baseline
+          </div>
+        </div>
+        <div className="metric">
+          <div className="k">Cycle</div>
+          <div className="v">{curMetrics.cycle} ms</div>
+          <div className="d" style={{color:(curMetrics.cycle-baseMetrics.cycle)>=0?'var(--green)':'var(--red)'}}>
+            {(curMetrics.cycle-baseMetrics.cycle)>=0?'↑':'↓'} {Math.abs(curMetrics.cycle-baseMetrics.cycle)} vs baseline
+          </div>
+        </div>
+      </div>
 
-        React.createElement('div',{className:'divider'}),
+      <div className="divider"></div>
 
-        // ECG
-        React.createElement('h2',null,'ECG (Lead II — synthetic)'),
-        React.createElement('div',{className:'legend',style:{marginBottom:0}},
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'line'}), ' Modified'),
-          React.createElement('span',{className:'pill'}, React.createElement('span',{className:'dash'}), ' Baseline')
-        ),
-        React.createElement('div',{style:{width:'100%', marginTop:8}},
-          React.createElement(ResponsiveContainer,{width:'100%',height:200},
-            React.createElement(LineChart,{data:ecgData,margin:{top:8,right:20,bottom:20,left:20}},
-              React.createElement(CartesianGrid,{strokeDasharray:"3 3"}),
-              React.createElement(XAxis,{type:"number",dataKey:"t",domain:[0,'dataMax'],tickCount:8,label:{value:'time (s)', position:'insideBottomRight', offset:-10}}),
-              React.createElement(YAxis,{domain:[-1.2,1.4],tickCount:5,label:{value:'mV', angle:-90, position:'insideLeft'}}),
-              React.createElement(Tooltip,{formatter:(v)=>`${Number(v).toFixed(2)} mV`,labelFormatter:(l)=>`${Number(l).toFixed(2)} s`}),
-              showBaseline && React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:ecgBaseline,name:"ECG Baseline",stroke:"#94a3b8",strokeWidth:2,strokeDasharray:"6 4"}),
-              React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:ecgData,name:"ECG Modified",stroke:"#0f172a",strokeWidth:2.5})
-            )
-          )
-        )
-      )
-    );
-  }
+      {/* ECG with baseline overlay */}
+      <h2>ECG (Lead II — synthetic)</h2>
+      <div className="legend" style={{marginBottom:0}}>
+        <span className="pill"><span className="line"></span> Modified</span>
+        <span className="pill"><span className="dash"></span> Baseline</span>
+      </div>
+      <div style={{width:'100%', marginTop:8}}>
+        <ResponsiveContainer width="100%" height={200}>
+          <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+                   label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
+            <YAxis domain={[-1.2,1.4]} tickCount={5}
+                   label={{value:'mV', angle:-90, position:'insideLeft'}}/>
+            <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
+            {showBaseline && (
+              <Line dot={false} type="monotone" dataKey="v" data={ecgBaseline}
+                    name="ECG Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
+            )}
+            <Line dot={false} type="monotone" dataKey="v" data={ecgData}
+                  name="ECG Modified" stroke="#0f172a" strokeWidth={2.5}/>
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
 
-  /* ---------------- Main App ---------------- */
-  function App(){
-    const [mode, setMode] = React.useState('explore');
-    return React.createElement(React.Fragment,null,
-      React.createElement('div',{className:'mode-toggle'},
-        React.createElement('button',{className:mode==='explore'?'active':'',onClick:()=>setMode('explore')},'Explore Mode'),
-        React.createElement('button',{className:mode==='quiz'?'active':'',onClick:()=>setMode('quiz')},'Quiz Mode')
-      ),
-      mode==='explore' ? React.createElement(ExploreMode) : React.createElement(QuizMode)
-    );
-  }
+      </section>
+    </div>
+  );
+}
 
-  ReactDOM.createRoot(document.getElementById('ap-app')).render(React.createElement(App));
-})();
+/* ---------------- Main App ---------------- */
+function App(){
+  const [mode, setMode] = useState('explore');
+  return (
+    <>
+      <div className="mode-toggle">
+        <button className={mode==='explore'?'active':''} onClick={()=>setMode('explore')}>Explore Mode</button>
+        <button className={mode==='quiz'?'active':''} onClick={()=>setMode('quiz')}>Quiz Mode</button>
+      </div>
+      {mode==='explore' ? <ExploreMode/> : <QuizMode/>}
+    </>
+  );
+}
+ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
 </script>
 {% endraw %}
