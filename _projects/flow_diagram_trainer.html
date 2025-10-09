@@ -94,7 +94,7 @@ function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_w
   a_width = clamp(a_width, 25, 120);
 
   // Landmark events within a beat (t=0 is P-wave onset-like anchor):
-  // We'll align: P near 120 ms before QRS; Mitral closes after QRS + IVCT; Aortic opens then ET; Aortic closes then IVRT; Mitral opens; E wave; diastasis; A wave.
+  // P near 120 ms before QRS; Mitral closes after QRS + IVCT; Aortic opens then ET; Aortic closes then IVRT; Mitral opens; E wave; diastasis; A wave.
   const dt = 1000/fs;
   const n = Math.round(rr/dt);
   const tP = 0;
@@ -106,7 +106,7 @@ function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_w
 
   // E and A centers
   const tE = tMO + 60;     // early rapid filling center
-  const tA = rr - 80;      // late atrial filling center (just before next P)
+  const tA = rr - 80;      // late atrial filling center (right before next P)
   const data = [];
   for(let i=0;i<n;i++){
     const t=i*dt; // ms
@@ -128,7 +128,7 @@ function makeFlowBeat({rr, pr, qrs, ivct, et, ivrt, diastasis, e_amp, a_amp, e_w
   const ea = E>0 && A>0 ? E/A : null;
   const metrics = {
     rr, pr, qrs, ivct, et, ivrt,
-    diastasis: Math.max(0, (tA - (tE + e_width*2))), // crude separation
+    diastasis: Math.max(0, (tA - (tE + e_width*2))), 
     E, A, EA: ea ? Number(ea.toFixed(2)) : null,
     tAO, tAC, tMO, tE, tA
   };
@@ -146,7 +146,7 @@ function tileBeats(beat, beats=2){
   return out;
 }
 
-/* ---------------- Plain-language insights ---------------- */
+/* ---------------- Insights ---------------- */
 function flowInsights(base, cur){
   const lines=[];
   if(!base || !cur) return lines;
@@ -368,7 +368,7 @@ function ExploreMode(){
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div style="font-size:12px;color:var(--muted);margin-top:6px">
+        <div style={{fontSize:12, color:'var(--muted)', marginTop:6}}>
           Guides: vertical lines ≈ Aortic open/close & Mitral open (schematic). Phases and valve timing per Wiggers framework. :contentReference[oaicite:3]{index=3}
         </div>
       </section>
@@ -586,7 +586,7 @@ function QuizMode(){
             )}
           </LineChart>
         </ResponsiveContainer>
-        <div style="font-size:12px;color:var(--muted);margin-top:6px">
+        <div style={{fontSize:12, color:'var(--muted)', marginTop:6}}>
           Phase boundaries and valve states follow the Wiggers diagram convention. :contentReference[oaicite:10]{index=10}
         </div>
       </section>
