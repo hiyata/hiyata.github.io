@@ -5,11 +5,11 @@ title: Cardio Physio
 
 <div id="ap-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
-<!-- React + ReactDOM (UMD, production) -->
+<!-- React + ReactDOM (production UMD) -->
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
-<!-- Recharts (UMD, production) -->
+<!-- Recharts (production UMD) -->
 <script crossorigin src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
 
 <style>
@@ -113,7 +113,7 @@ title: Cardio Physio
   const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
   const pct=(x)=>clamp(x/100,0,2);
 
-  /* ---------------- Learning helpers (plain-language, no %s) ---------------- */
+  /* ---------------- Plain-language helpers (no APD90 text, no %s) ---------------- */
   const CHANNEL_ROLES = {
     INa: "fast Na⁺ upstroke (Phase 0)",
     ICaL: "L-type Ca²⁺; plateau & nodal upstroke",
@@ -145,7 +145,6 @@ title: Cardio Physio
     return diffs.map(({k,delta})=>{
       const dir = delta>0 ? "↑" : "↓";
       const role = CHANNEL_ROLES[k]||k;
-      // Direction only, no numbers:
       return `${dir} ${k} — ${role}`;
     });
   }
@@ -153,20 +152,15 @@ title: Cardio Physio
   function metricTakeawaysPlain(baseM, curM){
     if(!baseM || !curM) return [];
     const out=[];
-    const dDV  = curM.dvdtMax - baseM.dvdtMax;
-    const dCycle = curM.cycle - baseM.cycle;
-    const dRepol = curM.apd90 - baseM.apd90; // internal only; surface as “repolarization”
+    const dRepol = curM.apd90 - baseM.apd90;   // internal only; surfaced as "repolarization"
+    const dDV    = curM.dvdtMax - baseM.dvdtMax;
+    const dCycle = curM.cycle   - baseM.cycle;
 
-    if(Math.abs(dRepol)>=10){
-      out.push(dRepol>0 ? "Repolarization: slower" : "Repolarization: faster");
-    }
-    if(Math.abs(dDV)>=0.5){
-      out.push(dDV>0 ? "Upstroke: steeper" : "Upstroke: blunter");
-    }
-    if(Math.abs(dCycle)>=20){
-      out.push(dCycle>0 ? "Rate: slower" : "Rate: faster");
-    }
-    return out.length? out : ["Overall: minimal visible change"];
+    if(Math.abs(dRepol)>=10) out.push(dRepol>0 ? "Repolarization: slower" : "Repolarization: faster");
+    if(Math.abs(dDV)>=0.5)   out.push(dDV>0    ? "Upstroke: steeper"      : "Upstroke: blunter");
+    if(Math.abs(dCycle)>=20) out.push(dCycle>0 ? "Rate: slower"           : "Rate: faster");
+
+    return out.length ? out : ["Overall: minimal change"];
   }
 
   /* ---------------- AP generator ---------------- */
@@ -559,7 +553,7 @@ title: Cardio Physio
           ),
           showResult && React.createElement(React.Fragment,null,
             React.createElement('div',{style:{padding:12,background:(selectedAnswer=== (currentQuestion.type==='drug'? currentQuestion.targetKey: currentQuestion.targetChannel))?'#f0fdf4':'#fef2f2',borderRadius:6,fontWeight:600, marginTop:8, marginBottom:8}}, feedbackText()),
-            // Insights
+            // Insights (plain English only)
             React.createElement('details',{open:true,style:{background:'#f8fafc', border:'1px solid var(--grid)', borderRadius:6, padding:12, marginBottom:8}},
               React.createElement('summary',{style:{fontWeight:700, cursor:'pointer'}},'Why does the trace look like this?'),
               React.createElement('div',{style:{marginTop:8, display:'grid', gridTemplateColumns:'1fr', gap:'6px'}},
@@ -603,8 +597,8 @@ title: Cardio Physio
           React.createElement(ResponsiveContainer,{width:'100%',height:420},
             React.createElement(LineChart,{data:currentQuestion.modified.data,margin:{top:8,right:40,bottom:20,left:20}},
               React.createElement(CartesianGrid,{strokeDasharray:"3 3"}),
-              React.createElement(XAxis,{type:"number",dataKey:"t",domain:[0,'dataMax'],tickCount:10,label:xAxisLabel}),
-              React.createElement(YAxis,{domain:[-100,50],tickCount:8,label:yAxisLabel}),
+              React.createElement(XAxis,{type:"number",dataKey:"t",domain:[0,'dataMax'],tickCount:10,label:{ value:'time (ms)', position:'insideBottomRight', offset:-10 }}),
+              React.createElement(YAxis,{domain:[-100,50],tickCount:8,label:{ value:'membrane potential (mV)', angle:-90, position:'insideLeft' }}),
               React.createElement(Tooltip,{formatter:(v)=>`${Number(v).toFixed(1)} mV`,labelFormatter:(l)=>`${Number(l).toFixed(1)} ms`}),
               React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:currentQuestion.baseline.data,name:"Baseline",stroke:"#94a3b8",strokeWidth:2,strokeDasharray:"6 4"}),
               React.createElement(Line,{dot:false,type:"monotone",dataKey:"v",data:currentQuestion.modified.data,name:"Modified",stroke:"#0f172a",strokeWidth:3}),
@@ -675,10 +669,10 @@ title: Cardio Physio
 
     function resetAll(){ setParams({...BASELINE_PARAMS}); setKo({}); setPreset("None"); setEnvPreset("None"); setBpm(60); }
 
-    // Helper text (direction only)
+    // Direction strings for tiles:
     const upstrokeText = (curMetrics.dvdtMax - baseMetrics.dvdtMax) > 0 ? 'steeper' : (curMetrics.dvdtMax - baseMetrics.dvdtMax) < 0 ? 'blunter' : 'no change';
-    const rateText = (curMetrics.cycle - baseMetrics.cycle) > 0 ? 'slower' : (curMetrics.cycle - baseMetrics.cycle) < 0 ? 'faster' : 'no change';
-    const repolText = (curMetrics.apd90 - baseMetrics.apd90) > 0 ? 'slower' : (curMetrics.apd90 - baseMetrics.apd90) < 0 ? 'faster' : 'no change';
+    const rateText     = (curMetrics.cycle   - baseMetrics.cycle)   > 0 ? 'slower'  : (curMetrics.cycle   - baseMetrics.cycle)   < 0 ? 'faster'  : 'no change';
+    const repolText    = (curMetrics.apd90   - baseMetrics.apd90)   > 0 ? 'slower'  : (curMetrics.apd90   - baseMetrics.apd90)   < 0 ? 'faster'  : 'no change';
 
     return React.createElement('div',{className:'wrap'},
       // Controls
@@ -736,8 +730,8 @@ title: Cardio Physio
                         onChange:(e)=>setParams({...params,[key]:+e.target.value})}),
                       React.createElement('input',{type:'number',min:0,max:200,step:5,disabled:!!ko[key],
                         value:ko[key]?0:(params[key]??100),
-                        onChange:(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}),
-                      React.createElement('span',{style:{color:'#64748b'}}, ko[key]?0:(params[key]??100), '%')
+                        onChange:(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})})
+                      // no trailing "% value" text shown
                     )
                   )
                 )
@@ -751,7 +745,7 @@ title: Cardio Physio
         )
       ),
 
-      // AP chart + plain-language “metrics”
+      // AP chart + plain-language tiles
       React.createElement('section',{className:'section'},
         React.createElement('h2',null,'Action Potential'),
         React.createElement('div',{className:'legend'},
@@ -772,7 +766,7 @@ title: Cardio Physio
           )
         ),
 
-        // Plain-language tiles (no APD90 shown; direction only)
+        // Direction-only tiles (no APD90 label or numeric deltas)
         React.createElement('div',{className:'metrics',style:{marginTop:12}},
           React.createElement('div',{className:'metric'},
             React.createElement('div',{className:'k'},'Upstroke'),
