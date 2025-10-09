@@ -1,7 +1,7 @@
 ---
 layout: page
 title: COVID-19 Case Prediction Model Comparison
-excerpt: An advanced COVID-19 case prediction model comparing LSTM/GRU, ARIMA, Random Forest, and XGBoost algorithms.
+excerpt: A COVID-19 case prediction model comparing LSTM/GRU, ARIMA, Random Forest, and XGBoost algorithms.
 category: virology
 permalink: /covid-prediction/
 ---
