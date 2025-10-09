@@ -97,10 +97,10 @@ const DRUG_PRESETS = {
   // HCN/If
   "Ivabradine (If blocker)":{ If:40 },
   // Calcium channel blockers (Class IV)
-  "Verapamil (L-type CCB)":{ ICaL:50 },
-  "Diltiazem (L-type CCB)":{ ICaL:60 },
-  "Nifedipine (DHP CCB)":{ ICaL:60 },
-  "Amlodipine (DHP CCB)":{ ICaL:60 },
+  "Verapamil (L-type calcium channel blocker, CCB)":{ ICaL:50 },
+  "Diltiazem (L-type calcium channel blocker, CCB)":{ ICaL:60 },
+  "Nifedipine (dihydropyridine calcium channel blocker, DHP CCB)":{ ICaL:60 },
+  "Amlodipine (dihydropyridine calcium channel blocker, DHP CCB)":{ ICaL:60 },
   // Na⁺ channel blockers (Class I)
   "Lidocaine (Class IB)":{ INa:60 },
   "Mexiletine (Class IB)":{ INa:60 },
@@ -152,7 +152,7 @@ function describeParamDirections(modParams){
     .filter(x=>Math.abs(x.delta)>=15)
     .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta))
     .slice(0,6);
-  if(!diffs.length) return ["No major channel changes detected."];
+  if(!diffs.length) return ["No major changes."];
   return diffs.map(({k,delta})=>{
     const dir = delta>0 ? "↑" : "↓";
     const role = CHANNEL_ROLES[k]||k;
@@ -331,10 +331,8 @@ function QuizMode(){
 
   const cell = useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
   const availableChannels = useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
-  const drugKeys = useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
 
-  const nOptions = difficulty==='easy' ? 2 : 4;
-
+  // Declare helpers
   const maskParamsByCell = (id, params)=>{
     const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
     const out = {...params};
@@ -342,7 +340,7 @@ function QuizMode(){
     return out;
   };
 
-  const applyMap = (base, mapObj)=>{
+  const applyMap = (base, mapObj)=>{ 
     const out = {...base};
     Object.entries(mapObj||{}).forEach(([k,v])=>{
       if(k in out) out[k] = Math.round(out[k]*(v/100));
@@ -350,34 +348,89 @@ function QuizMode(){
     return out;
   };
 
+  // Exclude drugs without changes
+  const effDrugKeys = useMemo(()=>{
+    const all = Object.keys(DRUG_PRESETS).filter(d=>d!=="None");
+    const hasEffect = (drugKey)=>{
+      const baseParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
+      const modParams  = maskParamsByCell(cellTypeId, applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[drugKey]));
+      const sameParams = JSON.stringify(baseParams)===JSON.stringify(modParams);
+      if(sameParams) return false;
+      const baseAP = generateAP(cellTypeId, baseParams);
+      const modAP  = generateAP(cellTypeId, modParams);
+      const baseM = computeMetrics(baseAP); const curM = computeMetrics(modAP);
+      const take = plainTakeaways(baseM, curM);
+      const changeLines = describeParamDirections(modParams);
+      const noShapeChange = take.length===1 && take[0]==='Overall shape: about the same';
+      const noParamChange = changeLines.length===1 && changeLines[0]==='No major changes.';
+      return !(noShapeChange && noParamChange);
+    };
+    return all.filter(hasEffect);
+  }, [cellTypeId]);
+
+  const nOptions = difficulty==='easy' ? 2 : 4;
+
   const generateQuestion = ()=>{
     if(quizKind === "drug"){
-      // --- DRUG QUIZ ---
-      const targetKey = drugKeys[Math.floor(Math.random()*drugKeys.length)];
-      const {name: targetName, kind: targetKind} = parseDrugKey(targetKey);
+      // Choose only from drugs that have an effect for this cell type
+      if(!effDrugKeys.length){
+        // Fallback to a channel-based question instead of showing no-effect drugs
+        let targetChannel;
+        const eligible = availableChannels.filter(ch=>ch!==lastTargetRef.current);
+        targetChannel = eligible.length? eligible[Math.floor(Math.random()*eligible.length)] : availableChannels[0];
+        lastTargetRef.current = targetChannel;
 
-      const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
-      const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
-      const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
+        const isKO = Math.random()<0.5;
+        const modValue = isKO?0:200;
+        const modType = isKO?'knockout':'increase';
 
-      const wrong = drugKeys
-        .filter(k=>k!==targetKey)
-        .sort(()=>Math.random()-0.5)
-        .slice(0, Math.max(1, nOptions-1))
-        .map(k=>({ key:k, name: parseDrugKey(k).name }));
+        const modParamsRaw = {...BASELINE_PARAMS, [targetChannel]:modValue};
+        const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
+        const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
 
-      const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
+        let wrong = availableChannels
+          .filter(c=>c!==targetChannel && !areSimilarChannels(c,targetChannel))
+          .sort(()=>Math.random()-0.5);
+        if(wrong.length < (nOptions-1)){
+          const remain = availableChannels.filter(c=>c!==targetChannel && !wrong.includes(c)).sort(()=>Math.random()-0.5);
+          wrong = [...wrong, ...remain];
+        }
+        wrong = wrong.slice(0, Math.max(1, nOptions-1));
+        const options=[targetChannel,...wrong].sort(()=>Math.random()-0.5);
 
-      return {
-        type: "drug",
-        targetKey,
-        targetName,
-        targetKind,
-        modParamsMap: DRUG_PRESETS[targetKey],
-        options,    // [{key, name}]
-        baseline: generateAP(cellTypeId, baselineParams),
-        modified: generateAP(cellTypeId, modParams)
-      };
+        return {
+          type: "channel",
+          targetChannel, modType, modValue, options,
+          baseline: generateAP(cellTypeId, baselineParams),
+          modified: generateAP(cellTypeId, modParams)
+        };
+      } else {
+        const targetKey = effDrugKeys[Math.floor(Math.random()*effDrugKeys.length)];
+        const {name: targetName, kind: targetKind} = parseDrugKey(targetKey);
+
+        const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
+        const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
+        const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
+
+        const wrong = effDrugKeys
+          .filter(k=>k!==targetKey)
+          .sort(()=>Math.random()-0.5)
+          .slice(0, Math.max(1, nOptions-1))
+          .map(k=>({ key:k, name: parseDrugKey(k).name }));
+
+        const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
+
+        return {
+          type: "drug",
+          targetKey,
+          targetName,
+          targetKind,
+          modParamsMap: DRUG_PRESETS[targetKey],
+          options,
+          baseline: generateAP(cellTypeId, baselineParams),
+          modified: generateAP(cellTypeId, modParams)
+        };
+      }
     } else {
       // --- CHANNEL QUIZ ---
       let targetChannel;
@@ -903,5 +956,26 @@ function App(){
   );
 }
 ReactDOM.createRoot(document.getElementById('ap-app')).render(<App/>);
+
+/* ---------------- Test ---------------- */
+(function selfTest(){
+  try {
+    const base = {...BASELINE_PARAMS};
+    const apV = generateAP('ventricular', base); const mvV = computeMetrics(apV);
+    console.assert(Array.isArray(apV.data) && apV.data.length>0, 'AP generation failed for ventricular');
+    console.assert(typeof mvV.cycle==='number', 'Metrics missing for ventricular');
+
+    const apSA = generateAP('sa', base); const mvSA = computeMetrics(apSA);
+    console.assert(Array.isArray(apSA.data) && apSA.data.length>0, 'AP generation failed for SA');
+    console.assert(typeof mvSA.cycle==='number', 'Metrics missing for SA');
+
+    const noChange = describeParamDirections(BASELINE_PARAMS);
+    console.assert(noChange.length===1 && noChange[0]==='No major changes.', 'No-change description mismatch');
+
+    console.assert(plainTakeaways(mvV, mvV)[0]==='Overall shape: about the same', 'Plain takeaways baseline compare failed');
+  } catch(e){
+    console.error('Self tests error:', e);
+  }
+})();
 </script>
 {% endraw %}
