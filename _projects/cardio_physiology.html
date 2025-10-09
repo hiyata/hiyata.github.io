@@ -46,13 +46,11 @@ title: Cardio Physio
   .mode-toggle{display:flex;gap:0;border:1px solid var(--grid);border-radius:6px;overflow:hidden;margin-bottom:16px}
   .mode-toggle button{border:none;border-radius:0;padding:8px 16px;background:white}
   .mode-toggle button.active{background:var(--blue);color:white}
-  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s;width:100%}
+  .quiz-option{padding:12px;border:2px solid var(--grid);border-radius:6px;cursor:pointer;transition:all 0.2s}
   .quiz-option:hover{border-color:var(--blue);background:#f8fafc}
   .quiz-option.correct{border-color:var(--green);background:#f0fdf4}
   .quiz-option.incorrect{border-color:var(--red);background:#fef2f2}
   .quiz-option.disabled{cursor:not-allowed;opacity:0.6}
-  .quiz-options-grid{display:grid;grid-template-columns:1fr;gap:10px}
-  @media (min-width: 520px){ .quiz-options-grid{grid-template-columns:1fr 1fr} }
   .score-display{display:flex;gap:16px;padding:12px;background:#f8fafc;border-radius:6px;font-weight:600}
   .badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600;margin-left:8px}
   .badge.ko{background:#fef2f2;color:var(--red)}
@@ -125,13 +123,6 @@ const ENV_PRESETS = { "None":{}, "Hypokalemia":{IK1:120,IKr:90,IKs:95}, "Hyperka
 
 const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
 const pct=(x)=>clamp(x/100,0,2);
-
-/* ---------------- Helpers for drug display ---------------- */
-function parseDrugKey(key){
-  // "Name (kind)" -> { name: "Name", kind: "kind" }
-  const m = key.match(/^(.*?)(?:\s*\((.*)\))?$/);
-  return { name: (m?.[1]||key).trim(), kind: (m?.[2]||"").trim() };
-}
 
 /* ---------------- AP generator ---------------- */
 function generateAP(cellId, params){
@@ -290,7 +281,7 @@ function QuizMode(){
 
   const cell = React.useMemo(()=>CELL_TYPES.find(c=>c.id===cellTypeId)||CELL_TYPES[0],[cellTypeId]);
   const availableChannels = React.useMemo(()=>Object.keys(CHANNEL_LABELS).filter(k=>cell.uses[k]),[cell]);
-  const drugKeys = React.useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
+  const availableDrugs = React.useMemo(()=>Object.keys(DRUG_PRESETS).filter(d=>d!=="None"),[]);
 
   const maskParamsByCell = (id, params)=>{
     const mask = CELL_TYPES.find(c=>c.id===id)?.uses || {};
@@ -310,33 +301,26 @@ function QuizMode(){
   const generateQuestion = ()=>{
     if(quizKind === "drug"){
       // --- DRUG QUIZ ---
-      const targetKey = drugKeys[Math.floor(Math.random()*drugKeys.length)];
-      const {name: targetName, kind: targetKind} = parseDrugKey(targetKey);
-
+      const targetDrug = availableDrugs[Math.floor(Math.random()*availableDrugs.length)];
       const baselineParams = maskParamsByCell(cellTypeId, {...BASELINE_PARAMS});
-      const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetKey]);
+      const modParamsRaw   = applyMap({...BASELINE_PARAMS}, DRUG_PRESETS[targetDrug]);
       const modParams      = maskParamsByCell(cellTypeId, modParamsRaw);
 
-      // Build wrong answers (distinct keys), but show only names to the user
-      const wrong = drugKeys
-        .filter(k=>k!==targetKey)
+      const wrong = availableDrugs
+        .filter(d=>d!==targetDrug)
         .sort(()=>Math.random()-0.5)
-        .slice(0,3)
-        .map(k=>({ key:k, name: parseDrugKey(k).name }));
-
-      const options = [{ key: targetKey, name: targetName }, ...wrong].sort(()=>Math.random()-0.5);
+        .slice(0,3);
+      const options = [targetDrug, ...wrong].sort(()=>Math.random()-0.5);
 
       return {
         type: "drug",
-        targetKey,
-        targetName,
-        targetKind, // for explanation
-        options,    // [{key, name}]
+        targetDrug,
+        options,
         baseline: generateAP(cellTypeId, baselineParams),
         modified: generateAP(cellTypeId, modParams)
       };
     } else {
-      // --- CHANNEL QUIZ ---
+      // --- CHANNEL QUIZ (original behavior) ---
       let targetChannel;
       const eligible = availableChannels.filter(ch=>ch!==lastTargetRef.current);
       targetChannel = eligible.length? eligible[Math.floor(Math.random()*eligible.length)] : availableChannels[0];
@@ -377,15 +361,10 @@ function QuizMode(){
     setSelectedAnswer(ans);
     setShowResult(true);
     setQuestionsAnswered(q=>q+1);
-
-    let correct=false;
-    if(currentQuestion.type==="drug"){
-      // ans is the option.key (we pass key on click)
-      correct = (ans===currentQuestion.targetKey);
-    } else {
-      // ans is the channel key
-      correct = (ans===currentQuestion.targetChannel);
-    }
+    const correct =
+      currentQuestion.type==="drug"
+        ? (ans===currentQuestion.targetDrug)
+        : (ans===currentQuestion.targetChannel);
     if(correct) setScore(s=>s+1);
   };
 
@@ -395,70 +374,6 @@ function QuizMode(){
   if(!currentQuestion) return <div>Loading...</div>;
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
-
-  // For rendering options consistently as a responsive grid
-  const renderOptions = ()=>{
-    if(currentQuestion.type==="drug"){
-      return (
-        <div className="quiz-options-grid">
-          {currentQuestion.options.map(opt=>(
-            <button
-              key={opt.key}
-              className={`quiz-option ${
-                showResult
-                  ? (opt.key===currentQuestion.targetKey ? 'correct'
-                     : opt.key===selectedAnswer ? 'incorrect' : '')
-                  : ''
-              } ${showResult ? 'disabled' : ''}`}
-              onClick={()=>handleAnswer(opt.key)}
-              disabled={showResult}
-              title={opt.name}
-            >
-              {opt.name}
-            </button>
-          ))}
-        </div>
-      );
-    }
-    // channel
-    return (
-      <div className="quiz-options-grid">
-        {currentQuestion.options.map(opt=>(
-          <button
-            key={opt}
-            className={`quiz-option ${
-              showResult
-                ? (opt===currentQuestion.targetChannel ? 'correct'
-                   : opt===selectedAnswer ? 'incorrect' : '')
-                : ''
-            } ${showResult ? 'disabled' : ''}`}
-            onClick={()=>handleAnswer(opt)}
-            disabled={showResult}
-            title={CHANNEL_LABELS[opt]}
-          >
-            {CHANNEL_LABELS[opt]}
-          </button>
-        ))}
-      </div>
-    );
-  };
-
-  // Feedback line content (adds drug class for drug quiz)
-  const feedbackText = ()=>{
-    if(currentQuestion.type==="drug"){
-      const correct = selectedAnswer===currentQuestion.targetKey;
-      const {targetName, targetKind} = currentQuestion;
-      const suffix = targetKind ? ` — ${targetKind}` : '';
-      return correct
-        ? `✓ Correct! ${targetName}${suffix}`
-        : `✗ Incorrect. The answer was: ${targetName}${suffix}`;
-    } else {
-      const correct = selectedAnswer===currentQuestion.targetChannel;
-      return correct
-        ? '✓ Correct!'
-        : `✗ Incorrect. The answer was: ${CHANNEL_LABELS[currentQuestion.targetChannel]}`;
-    }
-  };
 
   return (
     <div className="wrap">
@@ -512,25 +427,44 @@ function QuizMode(){
               </h3>
             ) : (
               <h3 style={{marginBottom:12,fontSize:14,fontWeight:600}}>
-                Which ion channel/transporter was
+                Which ion channel/transporter was 
                 <span className={`badge ${currentQuestion.modType==='knockout'?'ko':'increase'}`}>
                   {currentQuestion.modType==='knockout' ? 'KNOCKED OUT (0%)' : 'INCREASED (200%)'}
                 </span>
                 ?
               </h3>
             )}
-
-            {renderOptions()}
+            <div className="stack">
+              {currentQuestion.options.map(opt=>(
+                <button key={opt}
+                        className={`quiz-option ${showResult ? (
+                          currentQuestion.type==="drug"
+                            ? (opt===currentQuestion.targetDrug ? 'correct' : opt===selectedAnswer ? 'incorrect' : '')
+                            : (opt===currentQuestion.targetChannel ? 'correct' : opt===selectedAnswer ? 'incorrect' : '')
+                        ) : ''} ${showResult ? 'disabled' : ''}`}
+                        onClick={()=>handleAnswer(opt)} disabled={showResult}>
+                  {currentQuestion.type==="drug" ? opt : CHANNEL_LABELS[opt]}
+                </button>
+              ))}
+            </div>
           </div>
 
           {showResult && (
             <>
               <div style={{padding:12,background:
-                ((currentQuestion.type==="drug" ? selectedAnswer===currentQuestion.targetKey
-                                                : selectedAnswer===currentQuestion.targetChannel)
-                  ? '#f0fdf4' : '#fef2f2'),
-                borderRadius:6,fontWeight:600}}>
-                {feedbackText()}
+                (currentQuestion.type==="drug"
+                  ? selectedAnswer===currentQuestion.targetDrug
+                  : selectedAnswer===currentQuestion.targetChannel)
+                  ? '#f0fdf4' : '#fef2f2',borderRadius:6,fontWeight:600}}>
+                {(currentQuestion.type==="drug"
+                  ? selectedAnswer===currentQuestion.targetDrug
+                  : selectedAnswer===currentQuestion.targetChannel)
+                  ? '✓ Correct!'
+                  : `✗ Incorrect. The answer was: ${
+                      currentQuestion.type==="drug"
+                        ? currentQuestion.targetDrug
+                        : CHANNEL_LABELS[currentQuestion.targetChannel]
+                    }`}
               </div>
               <button className="primary" onClick={nextQuestion}>Next Question</button>
             </>
