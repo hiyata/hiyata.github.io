@@ -1,0 +1,140 @@
+---
+layout: default
+title: Histology Slide Viewer
+excerpt: Interactive viewer for Wayne State University histology slides with zoom, pan, and annotations.
+---
+
+<div class="histology-viewer-container">
+    <div class="viewer-header">
+        <h1>🔬 Histology Slide Viewer</h1>
+        <p>Interactive exploration of histology slides from Wayne State University School of Medicine</p>
+    </div>
+
+    <div class="viewer-wrapper">
+        <!-- Sidebar -->
+        <div class="viewer-sidebar">
+            <div class="sidebar-section">
+                <h3>Lab 10: Oral Cavity</h3>
+                <div class="slide-list">
+                    <div class="slide-item" data-slide="WS_017" onclick="selectSlide(this)">
+                        <span class="slide-name">Lip</span>
+                        <span class="slide-id">WS_017</span>
+                    </div>
+                    <div class="slide-item" data-slide="WS_036" onclick="selectSlide(this)">
+                        <span class="slide-name">Tongue</span>
+                        <span class="slide-id">WS_036</span>
+                    </div>
+                    <div class="slide-item" data-slide="WS_028" onclick="selectSlide(this)">
+                        <span class="slide-name">Tooth</span>
+                        <span class="slide-id">WS_028</span>
+                    </div>
+                    <div class="slide-item" data-slide="SL008" onclick="selectSlide(this)">
+                        <span class="slide-name">Parotid Gland</span>
+                        <span class="slide-id">SL008</span>
+                    </div>
+                    <div class="slide-item" data-slide="MCO0081" onclick="selectSlide(this)">
+                        <span class="slide-name">Submandibular Gland</span>
+                        <span class="slide-id">MCO0081</span>
+                    </div>
+                    <div class="slide-item" data-slide="GWU046" onclick="selectSlide(this)">
+                        <span class="slide-name">Sublingual Gland</span>
+                        <span class="slide-id">GWU046</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Display Options</h3>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="showAnnotations" checked onchange="viewer.toggleAnnotations()">
+                    Show Annotations
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="showGrid" onchange="viewer.toggleGrid()">
+                    Show Tile Grid
+                </label>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Info</h3>
+                <div class="info-box">
+                    <p><strong>Current Slide:</strong><br><span id="currentSlideInfo">WS_017 (Lip)</span></p>
+                    <p><strong>Zoom:</strong><br><span id="zoomInfo">1x</span></p>
+                    <p><strong>Position:</strong><br><span id="positionInfo">0, 0</span></p>
+                    <p><strong>Annotations:</strong><br><span id="annotationCount">0</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Viewer -->
+        <div class="viewer-main">
+            <!-- Controls -->
+            <div class="viewer-controls">
+                <div class="control-group">
+                    <button class="control-btn" onclick="viewer.zoomIn()" title="Zoom In (+ or Scroll)">
+                        🔍+ 
+                    </button>
+                    <input type="range" id="zoomSlider" min="1" max="8" value="1" 
+                           onchange="viewer.setZoom(parseInt(this.value))" 
+                           title="Adjust zoom level"
+                           class="zoom-slider">
+                    <button class="control-btn" onclick="viewer.zoomOut()" title="Zoom Out (- or Scroll)">
+                        🔍−
+                    </button>
+                    <span class="control-label" id="zoomLabel">1x</span>
+                </div>
+
+                <div class="control-group">
+                    <button class="control-btn" onclick="viewer.panLeft()" title="Pan Left (← Arrow)">
+                        ←
+                    </button>
+                    <button class="control-btn" onclick="viewer.panUp()" title="Pan Up (↑ Arrow)">
+                        ↑
+                    </button>
+                    <button class="control-btn" onclick="viewer.panDown()" title="Pan Down (↓ Arrow)">
+                        ↓
+                    </button>
+                    <button class="control-btn" onclick="viewer.panRight()" title="Pan Right (→ Arrow)">
+                        →
+                    </button>
+                    <button class="control-btn" onclick="viewer.fitToView()" title="Fit Slide (Home)">
+                        ⌂
+                    </button>
+                </div>
+
+                <div class="control-group">
+                    <button class="control-btn" onclick="viewer.addAnnotation()" title="Add Annotation">
+                        📍 Add Pin
+                    </button>
+                    <button class="control-btn" onclick="viewer.clearAnnotations()" title="Clear All Annotations">
+                        🗑️ Clear
+                    </button>
+                </div>
+
+                <div class="control-group">
+                    <button class="control-btn" onclick="viewer.downloadScreenshot()" title="Download Screenshot">
+                        💾 Save
+                    </button>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div class="canvas-container" id="canvasContainer">
+                <canvas id="slideCanvas"></canvas>
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading slide...</p>
+                </div>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="viewer-status">
+                <span id="statusText">Ready</span>
+                <span id="memoryUsage" class="memory-indicator"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ '/assets/css/histology-viewer.css' | relative_url }}">
+<script src="{{ '/assets/js/histology-viewer.js' | relative_url }}"></script>
