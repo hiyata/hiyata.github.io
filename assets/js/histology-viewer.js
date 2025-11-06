@@ -1,12 +1,6 @@
 const TILE_SIZE = 256;
-const isLocalhost = window.location.hostname === 'localhost' || 
-                    window.location.hostname === '127.0.0.1' ||
-                    window.location.hostname.includes('localhost');
 
-const BASE_URL = isLocalhost 
-    ? 'https://api.allorigins.win/raw?url=https://vmslide.med.wayne.edu/slides'
-    : 'https://vmslide.med.wayne.edu/slides';
-
+const BASE_URL = 'https://corsproxy.io/?url=https://vmslide.med.wayne.edu/slides';
 
 const SLIDES = {
     'WS_017': 'Lip',
@@ -550,7 +544,6 @@ function updateStatus(message) {
     document.getElementById('statusText').textContent = message;
 }
 
-// ==================== Initialization ====================
 
 let viewer;
 
