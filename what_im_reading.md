@@ -6,49 +6,50 @@ title: What I'm Reading
 <div class="reading-list-page">
     <style>
         .reading-list-page {
-            max-width: 1200px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 3rem 1.5rem 5rem;
-            color: var(--text-primary, #0f172a);
+            color: var(--ink);
         }
         .reading-list-page h1 {
-            font-size: 2.5em;
-            text-align: center;
-            color: var(--text-primary, #0f172a);
-            margin-bottom: 10px;
-            letter-spacing: 0.02em;
+            font-size: 2.25em;
+            font-style: italic;
+            font-weight: 600;
+            text-align: left;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
         .subheader {
-            font-size: 1.15em;
-            text-align: center;
-            color: var(--text-secondary, #475569);
+            font-family: var(--mono);
+            font-size: 0.85em;
+            text-align: left;
+            color: var(--ink-faint);
             margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--rule);
         }
         .container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         .feed, .recommendations {
             flex: 1 1 45%;
-            background-color: #ffffff;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-        .feed:hover, .recommendations:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 280px;
         }
         .reading-list-page h2 {
-            font-size: 1.8em;
-            color: var(--text-primary, #0f172a);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--border-light, #e2e8f0);
-            padding-bottom: 5px;
-            text-align: center;
+            font-size: 1.1em;
+            font-family: var(--mono);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 0.75rem;
+            text-align: left;
         }
         .reading-list-page ul {
             list-style-type: none;
@@ -58,58 +59,66 @@ title: What I'm Reading
             margin-bottom: 15px;
         }
         .reading-list-page a {
-            color: var(--brand-primary, #2563eb);
+            color: var(--ink);
             text-decoration: none;
             font-weight: 600;
+            border-bottom: 1px solid var(--rule-strong);
         }
         .reading-list-page a:hover {
-            text-decoration: underline;
+            color: var(--accent);
+            border-color: var(--accent);
         }
         .recommendations .book, .recommendations .paper {
             display: flex;
             margin-bottom: 20px;
-            border-bottom: 1px solid #bdc3c7;
+            border-bottom: 1px solid var(--rule);
             padding-bottom: 15px;
         }
         .recommendations .book img, .recommendations .paper img {
-            width: 100px;
-            height: 150px;
+            width: 80px;
+            height: 120px;
             object-fit: contain;
-            border-radius: 5px;
             margin-right: 15px;
-            object-position: center;
-            background-color: #f3f4f6;
+            object-position: center top;
+            background-color: var(--surface);
+            border: 1px solid var(--rule);
         }
         .recommendations .book h3, .recommendations .paper h3 {
             margin-top: 0;
-            font-size: 1.4em;
-            color: #2c3e50;
+            font-size: 1.1em;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--ink);
         }
         .recommendations .book p, .recommendations .paper p {
             margin: 0;
-            font-size: 0.95em;
-            color: #7f8c8d;
+            font-size: 0.92em;
+            color: var(--ink-soft);
         }
         .recommendations .book .details, .recommendations .paper .details {
             flex: 1;
         }
         .recommendations .book .author, .recommendations .paper .author {
-            font-weight: bold;
+            font-family: var(--mono);
+            font-size: 0.8em;
+            color: var(--ink-faint);
             margin-bottom: 5px;
         }
         #arxiv-feed li, #pubmed-feed li {
             list-style: none;
             margin-bottom: 20px;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid var(--rule);
             padding-bottom: 10px;
         }
         #arxiv-loading, #pubmed-loading {
-            text-align: center;
-            color: #7f8c8d;
+            text-align: left;
+            color: var(--ink-faint);
+            font-family: var(--mono);
+            font-size: 0.85em;
         }
         #arxiv-error, #pubmed-error {
-            color: #e74c3c;
-            text-align: center;
+            color: var(--accent);
+            text-align: left;
             display: none;
         }
     </style>
