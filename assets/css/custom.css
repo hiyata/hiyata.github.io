@@ -1,6 +1,6 @@
 :root {
-  --brand-primary: #2456ff;
-  --brand-secondary: #7a5cff;
+  --brand-primary: #2563eb;
+  --brand-secondary: #7c3aed;
   --brand-accent: #f36b7f;
   --surface: #ffffff;
   --surface-muted: #f4f6fb;
@@ -293,14 +293,14 @@ body.page-transitioning #page-transition-overlay {
 }
 
 .btn-secondary {
-  background-color: rgba(36, 86, 255, 0.12);
+  background-color: rgba(37, 99, 235, 0.12);
   color: var(--brand-primary);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
   transform: translateY(-2px);
-  background-color: rgba(36, 86, 255, 0.18);
+  background-color: rgba(37, 99, 235, 0.18);
 }
 
 @media (max-width: 1100px) {

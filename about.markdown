@@ -12,9 +12,9 @@ title: About
       <h1 class="name">Alan Carbajo</h1>
       <p class="title">Machine Learning Researcher in Virology</p>
       <div class="social-links">
-        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/alan-luis-carbajo-jr-9929b7138" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/hiyata" class="social-icon" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://huggingface.co/hiyata" class="social-icon" target="_blank" rel="noopener" aria-label="Hugging Face"><i class="fas fa-robot"></i></a>
       </div>
     </div>
   </header>
@@ -138,7 +138,7 @@ title: About
                   <h4>Immunology</h4>
                   <div class="skill-details">
                     <span>Mammalian Cell Culture</span>
-                    <span>Flourescence Imaging</span>
+                    <span>Fluorescence Imaging</span>
                     <span>Antibody Staining</span>
                   </div>
                 </div>
@@ -241,19 +241,31 @@ title: About
     </section>
     <section class="publications">
       <div class="section-content">
-        <h2>Recent Publications</h2>
+        <h2>Publications</h2>
         <div class="publication-grid">
           <div class="publication-item">
-            <h3>"Machine Learning Approaches in Viral Genomics"</h3>
-            <p>Future Journal I want to publish in please</p>
+            <h3><a href="https://academic.oup.com/ve/article/12/1/veag009/8492935" target="_blank" rel="noopener">Sequence based virus host prediction: a curated dataset and generalizable framework for training artificial intelligence to identify viruses of humans</a></h3>
+            <p>Alan L. Carbajo Jr., Taylor A. Vensko, Philip E. Pellett &mdash; <em>Virus Evolution</em>, Vol. 12, Issue 1, veag009. Published February 20, 2026.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="presentations">
+      <div class="section-content">
+        <h2>Presentations</h2>
+        <div class="publication-grid">
+          <div class="publication-item">
+            <h3><a href="{{ '/projects/sombra/' | relative_url }}">SOMBRA: A System for Operational Modeling of Biological Replication and Adaptation</a></h3>
+            <p>International Herpes Workshop, 2024</p>
           </div>
           <div class="publication-item">
-            <h3>"Predicting Viral Mutations Using Deep Learning Models"</h3>
-            <p>test test</p>
+            <h3><a href="{{ '/projects/modeling-novel-proteins/' | relative_url }}">Modeling Novel Proteins of Mutant Human Cytomegalovirus</a></h3>
+            <p>International Herpes Workshop, 2023</p>
           </div>
           <div class="publication-item">
-            <h3>"AI-Driven Strategies for Antiviral Drug Discovery"</h3>
-            <p>test test</p>
+            <h3><a href="{{ '/projects/mambavirus/' | relative_url }}">MambaVirus</a></h3>
+            <p>Wayne State University School of Medicine, Graduate Student Research Presentation Day</p>
           </div>
         </div>
       </div>
@@ -268,12 +280,9 @@ title: About
 </div>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
-
 :root {
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
+  --primary-color: var(--brand-primary, #2563eb);
+  --secondary-color: var(--brand-secondary, #7c3aed);
   --text-color: #333;
   --background-color: #f8f9fa;
   --card-background: #ffffff;
@@ -624,7 +633,6 @@ h2::after {
 }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
   // DNA Animation
@@ -644,14 +652,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     circle1.setAttribute('cx', x);
     circle1.setAttribute('cy', y1);
     circle1.setAttribute('r', '5');
-    circle1.setAttribute('fill', '#667eea');
+    circle1.setAttribute('fill', '#2563eb');
     svg.appendChild(circle1);
 
     const circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle2.setAttribute('cx', x);
     circle2.setAttribute('cy', y2);
     circle2.setAttribute('r', '5');
-    circle2.setAttribute('fill', '#764ba2');
+    circle2.setAttribute('fill', '#7c3aed');
     svg.appendChild(circle2);
   }
 

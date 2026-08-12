@@ -5,8 +5,8 @@ permalink: /blog/
 ---
 
 <div class="blog-container">
-  <h1 class="blog-title">Insights & Innovations</h1>
-  <p class="blog-subtitle">Exploring the frontiers of science and technology</p>
+  <h1 class="blog-title">Writing</h1>
+  <p class="blog-subtitle">Notes and reflections on AI-driven virology research</p>
   
   <div class="featured-post">
     {% for post in site.posts limit:1 %}
@@ -49,21 +49,20 @@ permalink: /blog/
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
-    font-family: 'Roboto', sans-serif;
   }
 
   .blog-title {
     text-align: center;
-    font-size: 3.5rem;
-    color: #2c3e50;
+    font-size: 3rem;
+    color: var(--text-primary, #0f172a);
     margin-bottom: 0.5rem;
     font-weight: 700;
   }
 
   .blog-subtitle {
     text-align: center;
-    font-size: 1.2rem;
-    color: #7f8c8d;
+    font-size: 1.15rem;
+    color: var(--text-secondary, #475569);
     margin-bottom: 3rem;
   }
 
@@ -72,7 +71,7 @@ permalink: /blog/
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
     margin-bottom: 4rem;
   }
 
@@ -82,7 +81,7 @@ permalink: /blog/
   }
 
   .featured-label {
-    background-color: #e74c3c;
+    background: linear-gradient(135deg, var(--brand-primary, #2563eb), var(--brand-secondary, #7c3aed));
     color: #fff;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -98,17 +97,17 @@ permalink: /blog/
   }
 
   .featured-title a {
-    color: #2c3e50;
+    color: var(--text-primary, #0f172a);
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .featured-title a:hover {
-    color: #e74c3c;
+    color: var(--brand-primary, #2563eb);
   }
 
   .featured-excerpt {
-    color: #34495e;
+    color: var(--text-secondary, #475569);
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
@@ -123,16 +122,17 @@ permalink: /blog/
   .read-more-btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background-color: #3498db;
+    background: linear-gradient(135deg, var(--brand-primary, #2563eb), var(--brand-secondary, #7c3aed));
     color: #fff;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .read-more-btn:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
   }
 
   .blog-posts {
@@ -145,13 +145,13 @@ permalink: /blog/
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .blog-post:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
   }
 
   .post-image {
@@ -170,11 +170,11 @@ permalink: /blog/
     align-items: center;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    color: #7f8c8d;
+    color: var(--text-secondary, #475569);
   }
 
   .post-category {
-    background-color: #2ecc71;
+    background-color: var(--brand-secondary, #7c3aed);
     color: #fff;
     padding: 0.2rem 0.6rem;
     border-radius: 15px;
@@ -188,17 +188,17 @@ permalink: /blog/
   }
 
   .post-title a {
-    color: #2c3e50;
+    color: var(--text-primary, #0f172a);
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .post-title a:hover {
-    color: #3498db;
+    color: var(--brand-primary, #2563eb);
   }
 
   .post-excerpt {
-    color: #34495e;
+    color: var(--text-secondary, #475569);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -207,16 +207,17 @@ permalink: /blog/
   .read-more {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #3498db;
-    color: #fff;
+    background-color: rgba(37, 99, 235, 0.12);
+    color: var(--brand-primary, #2563eb);
     text-decoration: none;
     border-radius: 20px;
     font-size: 0.9rem;
+    font-weight: 600;
     transition: background-color 0.3s ease;
   }
 
   .read-more:hover {
-    background-color: #2980b9;
+    background-color: rgba(37, 99, 235, 0.2);
   }
 
   .pagination {
@@ -228,25 +229,26 @@ permalink: /blog/
 
   .pagination-btn {
     padding: 0.8rem 1.5rem;
-    background-color: #3498db;
+    background: linear-gradient(135deg, var(--brand-primary, #2563eb), var(--brand-secondary, #7c3aed));
     color: #fff;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .pagination-btn:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
   }
 
   #page-number {
     margin: 0 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-primary, #0f172a);
   }
 
   @media (max-width: 768px) {
@@ -264,7 +266,6 @@ permalink: /blog/
   }
 </style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const postsPerPage = 6;

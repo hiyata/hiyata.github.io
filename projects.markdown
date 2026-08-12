@@ -9,7 +9,7 @@ custom_js: projects
 <header class="projects-header">
   <div class="header-content">
     <h1 class="header-title">Research Projects</h1>
-    <p class="header-subtitle">Showcasing the projects myself and our lab has worked on.</p>
+    <p class="header-subtitle">Showcasing projects I've worked on, both independently and with our lab.</p>
   </div>
 </header>
 
@@ -47,6 +47,6 @@ custom_js: projects
   <div class="cta-content">
     <h2 class="cta-title">Interested in Collaboration?</h2>
     <p class="cta-text">I'm always open to new research opportunities and partnerships.</p>
-    <a href="/contact" class="cta-button">Get in Touch</a>
+    <a href="{{ '/' | relative_url }}#contact" class="cta-button">Get in Touch</a>
   </div>
 </section>

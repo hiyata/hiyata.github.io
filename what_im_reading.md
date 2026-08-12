@@ -1,34 +1,28 @@
 ---
 layout: default
-title: My Reading List
+title: What I'm Reading
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Reading List</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="reading-list-page">
     <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
+        .reading-list-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+            color: var(--text-primary, #0f172a);
         }
-        h1 {
+        .reading-list-page h1 {
             font-size: 2.5em;
             text-align: center;
-            color: #2c3e50;
+            color: var(--text-primary, #0f172a);
             margin-bottom: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 0.02em;
         }
         .subheader {
-            font-size: 1.2em;
+            font-size: 1.15em;
             text-align: center;
-            color: #7f8c8d;
-            margin-bottom: 30px;
+            color: var(--text-secondary, #475569);
+            margin-bottom: 3rem;
         }
         .container {
             display: flex;
@@ -48,27 +42,27 @@ title: My Reading List
             transform: translateY(-5px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-        h2 {
+        .reading-list-page h2 {
             font-size: 1.8em;
-            color: #34495e;
+            color: var(--text-primary, #0f172a);
             margin-bottom: 15px;
-            border-bottom: 2px solid #bdc3c7;
+            border-bottom: 2px solid var(--border-light, #e2e8f0);
             padding-bottom: 5px;
             text-align: center;
         }
-        ul {
+        .reading-list-page ul {
             list-style-type: none;
             padding: 0;
         }
-        li {
+        .reading-list-page li {
             margin-bottom: 15px;
         }
-        a {
-            color: #2980b9;
+        .reading-list-page a {
+            color: var(--brand-primary, #2563eb);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
         }
-        a:hover {
+        .reading-list-page a:hover {
             text-decoration: underline;
         }
         .recommendations .book, .recommendations .paper {
@@ -204,9 +198,8 @@ title: My Reading List
             fetchArxivPapers();
         });
     </script>
-</head>
-<body>
-    <h1>My Reading List</h1>
+
+    <h1>What I'm Reading</h1>
     <div class="subheader" id="current-date"></div>
 
     <div class="container">
@@ -229,7 +222,7 @@ title: My Reading List
             <h2>Recommended Books</h2>
 
             <div class="book">
-                <img src="assets/images/prob_ml_intro_cover.jpg" alt="Book Cover">
+                <img src="{{ '/assets/images/prob_ml_intro_cover.jpg' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>
                         <a href="https://www.amazon.com/Probabilistic-Machine-Learning-Introduction-Computation/dp/0262046822" target="_blank">
@@ -243,7 +236,7 @@ title: My Reading List
 
 
             <div class="book">
-                <img src="assets/images/hundred-page-machine_learning_book_cover.jpg" alt="Book Cover">
+                <img src="{{ '/assets/images/hundred-page-machine_learning_book_cover.jpg' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>                        
                         <a href="https://themlbook.com" target="_blank">
@@ -262,17 +255,17 @@ title: My Reading List
             <h2>Recommended Papers</h2>
 
         <div class="paper">
-            <img src="assets/images/DNABERT.png" alt="DNABERT">
+            <img src="{{ '/assets/images/DNABERT.png' | relative_url }}" alt="DNABERT">
             <div class="details">
                 <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank">DNABERT</a></h3>
                 <div class="author">Yanrong Ji, Zhihan Zhou, Han Liu, Ramana V Davuluri.</div>
-                <p>Published in 2021, this is the first foundational model train on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
+                <p>Published in 2021, this is the first foundational model trained on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
             </div>
         </div>
 
 
             <div class="paper">
-                <img src="assets/images/Toward_a_theory_of_evolution_as_multilevel_learning.png" alt="Multi-level_learning">
+                <img src="{{ '/assets/images/Toward_a_theory_of_evolution_as_multilevel_learning.png' | relative_url }}" alt="Multi-level_learning">
                 <div class="details">
                     <h3>Toward a Theory of Evolution as Multilevel Learning</h3>
                     <div class="author">Vanchurin V, Wolf YI, Katsnelson MI, Koonin EV.</div>
@@ -283,5 +276,4 @@ title: My Reading List
             <!-- Add more papers as needed -->
         </div>
     </div>
-</body>
-</html>
+</div>
