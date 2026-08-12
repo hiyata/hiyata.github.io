@@ -48,33 +48,32 @@ permalink: /blog/
   .blog-container {
     max-width: 1080px;
     margin: 0 auto;
-    padding: 3rem 1.5rem 5rem;
+    padding: 2.5rem 1.5rem 4rem;
   }
 
   .blog-title {
     text-align: left;
-    font-size: 2.5rem;
-    font-style: italic;
+    font-size: 2.25rem;
     color: var(--ink);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-weight: 800;
   }
 
   .blog-subtitle {
     text-align: left;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--ink-soft);
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2.5rem;
   }
 
   .featured-post {
     display: flex;
-    gap: 2.5rem;
-    margin-bottom: 3.5rem;
-    padding-bottom: 3.5rem;
-    border-bottom: 1px solid var(--rule);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 14px;
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
   }
 
   .featured-post-content {
@@ -83,18 +82,16 @@ permalink: /blog/
 
   .featured-label {
     color: var(--accent);
-    font-family: var(--mono);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
   }
 
   .featured-title {
-    font-size: 1.9rem;
-    font-style: italic;
-    font-weight: 600;
-    margin: 0.75rem 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin: 0.6rem 0;
   }
 
   .featured-title a {
@@ -109,58 +106,65 @@ permalink: /blog/
 
   .featured-excerpt {
     color: var(--ink-soft);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
   }
 
   .featured-post-image {
-    flex: 0 0 280px;
+    flex: 0 0 260px;
     aspect-ratio: 4 / 3;
     background-size: cover;
     background-position: center;
-    border: 1px solid var(--rule);
+    border-radius: 10px;
+    border: 1px solid var(--border);
   }
 
   .read-more-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    color: var(--ink);
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    background: var(--ink);
+    color: #fff;
     text-decoration: none;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid var(--rule-strong);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
   }
 
   .read-more-btn:hover {
-    color: var(--accent);
-    border-color: var(--accent);
+    background: var(--accent);
   }
 
   .blog-posts {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0;
-    border-top: 1px solid var(--rule);
+    gap: 1rem;
   }
 
   .blog-post {
     display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--rule);
+    gap: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+  }
+
+  .blog-post:hover {
+    border-color: var(--border-strong);
   }
 
   .post-image {
-    flex: 0 0 160px;
+    flex: 0 0 150px;
     aspect-ratio: 4 / 3;
     background-size: cover;
     background-position: center;
-    border: 1px solid var(--rule);
+    border-radius: 8px;
+    border: 1px solid var(--border);
   }
 
   .post-content {
@@ -170,25 +174,27 @@ permalink: /blog/
 
   .post-meta {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     align-items: center;
-    margin-bottom: 0.75rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
     color: var(--ink-faint);
   }
 
   .post-category {
     text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.72rem;
     color: var(--accent);
+    background: rgba(194, 65, 12, 0.08);
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
   }
 
   .post-title {
-    margin: 0 0 0.6rem;
-    font-size: 1.3rem;
-    font-style: italic;
-    font-weight: 600;
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     line-height: 1.3;
   }
 
@@ -204,58 +210,51 @@ permalink: /blog/
 
   .post-excerpt {
     color: var(--ink-soft);
-    font-size: 0.98rem;
-    line-height: 1.65;
-    margin-bottom: 0.85rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
   }
 
   .read-more {
     display: inline-flex;
     color: var(--ink);
     text-decoration: none;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid var(--rule-strong);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 
   .read-more:hover {
     color: var(--accent);
-    border-color: var(--accent);
   }
 
   .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
   }
 
   .pagination-btn {
-    padding: 0.6rem 1.25rem;
+    padding: 0.55rem 1.1rem;
     background: transparent;
     color: var(--ink);
-    border: 1px solid var(--ink);
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
     cursor: pointer;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .pagination-btn:hover {
     background: var(--ink);
-    color: var(--paper);
+    color: #fff;
+    border-color: var(--ink);
   }
 
   #page-number {
-    margin: 0 1.5rem;
-    font-family: var(--mono);
-    font-size: 0.85rem;
+    margin: 0 1.25rem;
+    font-size: 0.88rem;
     color: var(--ink-soft);
   }
 
@@ -266,7 +265,7 @@ permalink: /blog/
 
     .featured-post-image {
       flex-basis: auto;
-      height: 220px;
+      height: 200px;
     }
 
     .blog-post {
@@ -275,7 +274,7 @@ permalink: /blog/
 
     .post-image {
       flex-basis: auto;
-      height: 180px;
+      height: 160px;
       width: 100%;
     }
   }

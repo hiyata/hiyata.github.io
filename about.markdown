@@ -283,29 +283,31 @@ title: About
 .portfolio-container {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 5rem;
+  padding: 2.5rem 1.5rem 4rem;
 }
 
 .hero-section {
   text-align: left;
-  margin-bottom: 3.5rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+  padding: 1.75rem;
+  border-radius: 14px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .profile-image-container {
-  width: 128px;
-  height: 128px;
+  width: 112px;
+  height: 112px;
   flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--border);
 }
 
 .profile-image {
@@ -317,30 +319,28 @@ title: About
 }
 
 .name {
-  font-size: 2.25em;
-  font-style: italic;
-  font-weight: 600;
-  margin: 0 0 0.35rem;
+  font-size: 1.9em;
+  font-weight: 800;
+  margin: 0 0 0.3rem;
   color: var(--ink);
 }
 
 .title {
-  font-family: var(--mono);
-  font-size: 0.85em;
-  letter-spacing: 0.04em;
-  margin: 0 0 1rem;
-  font-weight: 400;
+  font-size: 1em;
+  letter-spacing: 0;
+  margin: 0 0 0.85rem;
+  font-weight: 500;
   color: var(--ink-soft);
 }
 
 .social-links {
   margin-top: 0;
   display: flex;
-  gap: 1.25rem;
+  gap: 1.1rem;
 }
 
 .social-icon {
-  font-size: 1.15em;
+  font-size: 1.1em;
   color: var(--ink-soft);
   transition: color 0.2s ease;
 }
@@ -350,59 +350,60 @@ title: About
 }
 
 section {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.75rem;
 }
 
 .section-content h2 {
   color: var(--ink);
-  font-size: 1.6em;
-  font-style: italic;
-  font-weight: 600;
-  margin: 0 0 1.75rem;
+  font-size: 1.4em;
+  font-weight: 800;
+  margin: 0 0 1.25rem;
   text-align: left;
 }
 
 .intro-text {
-  font-size: 1.05em;
+  font-size: 1em;
 }
 
 .highlight {
   color: var(--accent);
   font-weight: 600;
-  font-style: normal;
 }
 
 .intro-vision {
-  border-top: 1px solid var(--rule);
-  padding-top: 1.75rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
 }
 
 .intro-vision h3 {
   color: var(--ink);
-  margin-bottom: 1.25rem;
-  font-size: 1.1em;
-  font-family: var(--mono);
+  margin-bottom: 1rem;
+  font-size: 1em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-weight: 700;
   text-align: left;
 }
 
 .vision-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 0.75rem 2rem;
+  gap: 0.6rem 2rem;
 }
 
 .vision-item {
   display: flex;
   align-items: baseline;
-  gap: 0.6rem;
-  padding: 0.4rem 0;
+  gap: 0.55rem;
+  padding: 0.25rem 0;
 }
 
 .vision-item span {
   color: var(--ink-soft);
+  font-size: 0.95em;
 }
 
 .vision-item i {
@@ -410,26 +411,28 @@ section {
 }
 
 .vision-item::before {
-  content: '—';
+  content: '•';
   color: var(--accent);
+  font-weight: 700;
 }
 
 .skills-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  border-top: 1px solid var(--rule);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
 }
 
 .skill-category {
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 
 .skill-header {
   display: flex;
   align-items: baseline;
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .skill-header i {
@@ -437,19 +440,18 @@ section {
 }
 
 .skill-header h3 {
-  font-size: 1.1em;
-  font-family: var(--mono);
+  font-size: 1em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--ink);
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .skill-item {
@@ -462,48 +464,45 @@ section {
 }
 
 .skill-info h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 0.95em;
-  font-style: italic;
-  font-weight: 600;
+  margin: 0 0 0.4rem 0;
+  font-size: 0.9em;
+  font-weight: 700;
   color: var(--ink);
 }
 
 .skill-details {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem 0.6rem;
+  gap: 0.35rem;
 }
 
 .skill-details span {
   color: var(--ink-soft);
-  font-size: 0.85em;
-}
-
-.skill-details span:not(:last-child)::after {
-  content: '·';
-  margin-left: 0.6rem;
-  color: var(--ink-faint);
+  font-size: 0.8em;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
 }
 
 .publication-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
-  border-top: 1px solid var(--rule);
+  gap: 0.85rem;
 }
 
 .publication-item {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 
 .publication-item h3 {
   color: var(--ink);
-  font-size: 1.05em;
-  font-weight: 600;
-  font-style: italic;
-  margin: 0 0 0.5rem;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
 }
 
 .publication-item h3 a {
@@ -518,13 +517,13 @@ section {
 .publication-item p {
   color: var(--ink-soft);
   font-style: normal;
-  font-size: 0.95em;
+  font-size: 0.92em;
   margin: 0;
 }
 
 .dna-animation {
-  margin-top: 3rem;
-  opacity: 0.5;
+  margin-top: 2.5rem;
+  opacity: 0.4;
 }
 
 @media (max-width: 640px) {
@@ -554,14 +553,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     circle1.setAttribute('cx', x);
     circle1.setAttribute('cy', y1);
     circle1.setAttribute('r', '5');
-    circle1.setAttribute('fill', '#1c1a17');
+    circle1.setAttribute('fill', '#1a1a1a');
     svg.appendChild(circle1);
 
     const circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
     circle2.setAttribute('cx', x);
     circle2.setAttribute('cy', y2);
     circle2.setAttribute('r', '5');
-    circle2.setAttribute('fill', '#7a2331');
+    circle2.setAttribute('fill', '#c2410c');
     svg.appendChild(circle2);
   }
 
