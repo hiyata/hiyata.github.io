@@ -3,54 +3,50 @@ layout: default
 title: What I'm Reading
 ---
 
+<header class="page-header">
+  <div class="page-header-inner">
+    <span class="kicker">Log</span>
+    <h1>What I'm Reading</h1>
+    <p id="current-date"></p>
+  </div>
+</header>
+
 <div class="reading-list-page">
     <style>
         .reading-list-page {
-            max-width: 1080px;
+            max-width: var(--content-width);
             margin: 0 auto;
-            padding: 2.5rem 1.5rem 4rem;
+            padding: clamp(2rem, 4vh, 2.75rem) max(1.5rem, 4vw) 4rem;
             color: var(--ink);
         }
-        .reading-list-page h1 {
-            font-size: 2em;
-            font-weight: 800;
+        .reading-list-page h2 {
+            font-family: var(--mono);
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            color: var(--ink-faint);
+            margin: 0 0 1.1rem;
             text-align: left;
-            color: var(--ink);
-            margin-bottom: 0.4rem;
-        }
-        .subheader {
-            font-size: 0.95em;
-            text-align: left;
-            color: var(--ink-soft);
-            margin-bottom: 2.5rem;
         }
         .container {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
         .feed, .recommendations {
             flex: 1 1 45%;
             min-width: 280px;
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.25rem 1.4rem;
+            border-radius: var(--radius-md);
             background: var(--surface);
             border: 1px solid var(--border);
-        }
-        .reading-list-page h2 {
-            font-size: 1.05em;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 1rem;
-            padding-bottom: 0;
-            text-align: left;
         }
         .reading-list-page ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
         .reading-list-page li {
             margin-bottom: 15px;
@@ -76,31 +72,33 @@ title: What I'm Reading
             padding-bottom: 0;
         }
         .recommendations .book img, .recommendations .paper img {
-            width: 70px;
-            height: 105px;
+            width: 64px;
+            height: 96px;
             object-fit: contain;
             margin-right: 15px;
             object-position: center top;
             background-color: var(--surface-muted);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
         }
         .recommendations .book h3, .recommendations .paper h3 {
             margin-top: 0;
-            font-size: 1.02em;
+            font-size: 0.98em;
             font-weight: 700;
             color: var(--ink);
         }
         .recommendations .book p, .recommendations .paper p {
             margin: 0;
-            font-size: 0.9em;
+            font-size: 0.88em;
             color: var(--ink-soft);
+            line-height: 1.55;
         }
         .recommendations .book .details, .recommendations .paper .details {
             flex: 1;
         }
         .recommendations .book .author, .recommendations .paper .author {
-            font-size: 0.82em;
+            font-family: var(--mono);
+            font-size: 0.76em;
             color: var(--ink-faint);
             margin-bottom: 5px;
         }
@@ -109,6 +107,8 @@ title: What I'm Reading
             margin-bottom: 15px;
             border-bottom: 1px solid var(--border);
             padding-bottom: 10px;
+            font-size: 0.9em;
+            line-height: 1.55;
         }
         #arxiv-loading, #pubmed-loading {
             text-align: left;
@@ -206,9 +206,6 @@ title: What I'm Reading
             fetchArxivPapers();
         });
     </script>
-
-    <h1>What I'm Reading</h1>
-    <div class="subheader" id="current-date"></div>
 
     <div class="container">
         <div class="feed">

@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="post-page">
+  <div class="post-page-wrapper">
+    <header class="post-page-header">
+      <a class="post-page-back" href="{{ '/blog/' | relative_url }}">&larr; Writing</a>
+      <p class="post-page-kicker">{% if page.category %}{{ page.category }}{% else %}Field notes{% endif %}</p>
+      <h1 class="post-page-title">{{ page.title | escape }}</h1>
+      <p class="post-page-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.author %}<span class="post-page-meta-sep">&middot;</span> {{ page.author }}{% endif %}
+      </p>
+    </header>
+    <div class="post-page-content">
+      {{ content }}
+    </div>
+  </div>
+</article>

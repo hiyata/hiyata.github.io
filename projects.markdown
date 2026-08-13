@@ -8,6 +8,7 @@ custom_js: projects
 
 <header class="projects-header">
   <div class="header-content">
+    <span class="kicker">Archive</span>
     <h1 class="header-title">Research Projects</h1>
     <p class="header-subtitle">Projects I've worked on, on my own and with the lab.</p>
   </div>
@@ -27,15 +28,13 @@ custom_js: projects
       <div class="project-card" data-category="{{ project.category }}">
         <div class="project-header">
           <span class="project-category">{{ project.category | capitalize }}</span>
-          {% if project.presented_at %}
-            <span class="presented-at" title="{{ project.presented_at }}">{{ project.presented_at }}</span>
-          {% endif %}
+          <span class="project-index">No. {{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
         </div>
         <div class="project-body">
           <h2 class="project-title">{{ project.title }}</h2>
           <p class="project-excerpt">{{ project.excerpt | strip_html | truncate: 120 }}</p>
           <div class="project-meta">
-            <span class="project-date">{{ project.date | date: "%B %Y" }}</span>
+            <span class="project-date">{{ project.date | date: "%B %Y" }}{% if project.presented_at %} &middot; {{ project.presented_at }}{% endif %}</span>
             <a href="{{ project.url | relative_url }}" class="read-more">View Details</a>
           </div>
         </div>

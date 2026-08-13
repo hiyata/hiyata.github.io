@@ -1,12 +1,10 @@
 ---
-layout: default
+layout: post
 title:  "Migration Patterns Behind HCMV Diversity"
 date:   2024-08-01 13:00:00 -0400
 categories: jekyll update
 excerpt: "Can ancient migration patterns explain the geographic diversity of HCMV and help us better understand varying tolerances to herpesvirus infection?"
 ---
-
-<h2>Migration Patterns Behind HCMV Diversity</h2>
 
 <p>Human betaherpesvirus 5 (HHV-5), also known as human cytomegalovirus (HCMV), is one of the most prevelant and specific viruses we know. Herpesviruses are thought to have co-evolved with their respective hosts across hundreds of millions of years (<a href="https://pubmed.ncbi.nlm.nih.gov/11888691/">1</a>). As a result, herpesviruses are usually well adapted to their specific host and seldom infect organisms outside of their normal host species. HCMV is also one of the most common viruses, with an estimated seroprevelance of up to 80% in adults across the world (<a href="https://doi.org/10.1002/rmv.2034">2</a>). Most seroprevelant adults will never display symptoms of an HCMV infection and remain unaware that the virus has established life-long residency within their cells.</p> 
 

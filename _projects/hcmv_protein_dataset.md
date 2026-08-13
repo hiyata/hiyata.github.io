@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: HCMV Multi-Omic Analysis
 category: virology
 excerpt: An interactive dashboard exploring HCMV multi-omic data across transcriptomics, proteomics, interactomics, and phenomics.

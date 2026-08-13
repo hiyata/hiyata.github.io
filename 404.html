@@ -1,25 +1,15 @@
 ---
 permalink: /404.html
 layout: default
+title: Page not found
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>)
-  <p>The requested page could not be found.</p>
+<div class="error-page">
+  <span class="error-page-code">Error 404</span>
+  <h1>Nothing logged here.</h1>
+  <p>The page you're looking for doesn't exist, or moved. Might be worth checking the projects list or heading back home.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{{ '/' | relative_url }}">Back home</a>
+    <a class="btn btn-secondary" href="{{ '/projects' | relative_url }}">See projects</a>
+  </div>
 </div>
