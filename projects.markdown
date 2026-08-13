@@ -46,7 +46,7 @@ custom_js: projects
 <section class="cta-section">
   <div class="cta-content">
     <h2 class="cta-title">Want to talk about any of this?</h2>
-    <p class="cta-text">Feel free to reach out — I'm always happy to chat about research or new ideas.</p>
+    <p class="cta-text">Feel free to reach out. I'm always happy to chat about research or new ideas.</p>
     <a href="{{ '/' | relative_url }}#contact" class="cta-button">Get in touch</a>
   </div>
 </section>

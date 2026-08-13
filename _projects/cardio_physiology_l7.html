@@ -130,6 +130,13 @@ function makeIntervals({bpm=60, pr=160, qrs=90, qt=400}){
   return { rr, pr, qrs, qt };
 }
 
+/** Fixed strip width in seconds, like a real monitor — faster rates just pack in more beats
+ *  instead of the strip running short of the baseline overlay's length. */
+const STRIP_WINDOW_S = 3;
+function beatsForWindow(rr_ms, windowS=STRIP_WINDOW_S){
+  return Math.max(2, Math.ceil((windowS*1000)/rr_ms) + 1);
+}
+
 /** HR by big-box rule (300-150-100-75-60-50 …) given RR in ms */
 function hrFromRRBigBox(rr_ms){
   const hr = 60000/rr_ms;
@@ -159,8 +166,8 @@ function Explore(){
   const base = useMemo(()=>makeIntervals({bpm:60, pr:160, qrs:90, qt:400}),[]);
   const cur  = useMemo(()=>makeIntervals({bpm, pr, qrs, qt}),[bpm,pr,qrs,qt]);
 
-  const baseECG = useMemo(()=>generateECG({...base, beats:3, fs:500}),[base]);
-  const curECG  = useMemo(()=>generateECG({...cur,  beats:3, fs:500}),[cur]);
+  const baseECG = useMemo(()=>generateECG({...base, beats:beatsForWindow(base.rr), fs:500}),[base]);
+  const curECG  = useMemo(()=>generateECG({...cur,  beats:beatsForWindow(cur.rr),  fs:500}),[cur]);
 
   const hr = useMemo(()=>hrFromRRBigBox(cur.rr),[cur.rr]);
 
@@ -220,15 +227,13 @@ function Explore(){
         <PaperWrap showPaper={showPaper} height={240}>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={curECG} margin={{top:12,right:20,bottom:20,left:20}}>
+              {showAxes && <CartesianGrid strokeDasharray="3 3" />}
+              <XAxis type="number" dataKey="t" domain={[0,STRIP_WINDOW_S]} tickCount={8} hide={!showAxes}
+                     label={showAxes ? {value:'time (s)', position:'insideBottomRight', offset:-10} : undefined}/>
+              <YAxis domain={[-1.2,1.4]} tickCount={5} hide={!showAxes}
+                     label={showAxes ? {value:'mV', angle:-90, position:'insideLeft'} : undefined}/>
               {showAxes && (
-                <>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
-                         label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
-                  <YAxis domain={[-1.2,1.4]} tickCount={5}
-                         label={{value:'mV', angle:-90, position:'insideLeft'}}/>
-                  <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-                </>
+                <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
               )}
               {showBaseline && (
                 <Line dot={false} type="monotone" dataKey="v" data={baseECG} name="Baseline" stroke="#94a3b8" strokeWidth={2} strokeDasharray="6 4"/>
@@ -301,15 +306,13 @@ function HRQuiz(){
       <PaperWrap showPaper={showPaper} height={200}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={question.data} margin={{top:12,right:20,bottom:20,left:20}}>
+            {showAxes && <CartesianGrid strokeDasharray="3 3" />}
+            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8} hide={!showAxes}
+                   label={showAxes ? {value:'time (s)', position:'insideBottomRight', offset:-10} : undefined}/>
+            <YAxis domain={[-1.2,1.4]} tickCount={5} hide={!showAxes}
+                   label={showAxes ? {value:'mV', angle:-90, position:'insideLeft'} : undefined}/>
             {showAxes && (
-              <>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
-                       label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
-                <YAxis domain={[-1.2,1.4]} tickCount={5}
-                       label={{value:'mV', angle:-90, position:'insideLeft'}}/>
-                <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
-              </>
+              <Tooltip formatter={(v)=>`${Number(v).toFixed(2)} mV`} labelFormatter={(l)=>`${Number(l).toFixed(2)} s`} />
             )}
             <Line dot={false} type="monotone" dataKey="v" stroke="#0f172a" strokeWidth={2.5}/>
             <ReferenceLine y={0} stroke="rgba(0,0,0,0.15)"/>
@@ -343,7 +346,7 @@ function HRQuiz(){
 
       {checked && (
         <div className="muted">
-          Tip: Use the big-box rule (each big box = 0.20 s): 300, 150, 100, 75, 60, 50… :contentReference[oaicite:0]{index=0}
+          Tip: Use the big-box rule (each big box = 0.20 s): 300, 150, 100, 75, 60, 50…
         </div>
       )}
     </div>
@@ -360,7 +363,7 @@ function Quiz(){
           <div className="divider"></div>
           <div className="muted" style={{fontSize:13}}>
             You’ll learn axis separately (quick method: biggest QRS ≈ parallel to MEA; most isoelectric ≈ perpendicular). 
-            Normal axis −30° to +90°. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+            Normal axis −30° to +90°.
           </div>
         </div>
       </section>

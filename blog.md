@@ -37,7 +37,7 @@ permalink: /blog/
   </div>
   {% endif %}
   {% else %}
-  <p class="blog-empty">Nothing posted yet — check back soon.</p>
+  <p class="blog-empty">Nothing posted yet. Check back soon.</p>
   {% endif %}
 </div>
 

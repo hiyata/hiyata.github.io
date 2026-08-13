@@ -14,7 +14,7 @@ title: About
         I'm a researcher working at the intersection of <span class="hl">artificial intelligence</span> and
         <span class="hl">virology</span>. My main project so far: a curated, 58,046-genome dataset spanning 15
         virus families, and neural networks trained on raw k-mer frequency that predict whether a virus can
-        infect humans — then get interrogated to find out which sequence motifs actually drove that call.
+        infect humans, then get interrogated to find out which sequence motifs actually drove that call.
         I currently work with <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne
         State University School of Medicine in Detroit.
       </p>
@@ -37,7 +37,7 @@ title: About
         <p class="section-lede">
           Most of my work centers on one question: can you tell whether a virus infects humans just by looking at
           its genome? I built a dataset and a set of models to test that, and then spent most of my time trying to
-          figure out <em>why</em> the models say what they say — which is where the interesting biology shows up.
+          figure out <em>why</em> the models say what they say, which is where the interesting biology shows up.
         </p>
         <div class="pull-quote">
           <p>My model kept flagging HHV-6 as non-human. It turns out it was picking up something real: HHV-6 integrates into host telomeres, a trick almost no other human herpesvirus uses.</p>

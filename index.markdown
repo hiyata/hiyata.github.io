@@ -13,13 +13,13 @@ custom_js: home
   <section class="masthead" id="home">
     <div class="masthead-grid">
       <div class="masthead-copy" data-animate="fade-up">
-        <span class="kicker">Entry 001 — Welcome</span>
-        <h1>Hi, I'm Alan — I predict which viruses can infect humans, from genome sequence alone</h1>
+        <span class="kicker">Entry 001 &middot; Welcome</span>
+        <h1>Hi, I'm Alan. I'm interested in searching for host-specific patterns imprinted in viral genomes.</h1>
         <p>
           I'm a researcher at Wayne State University School of Medicine, working with
           <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>.
           Most recently, that meant building a 58,046-genome dataset across 15 virus families and training neural
-          networks on raw k-mer frequency — no alignment, no annotation — to tell human-infecting viruses from
+          networks on raw k-mer frequency (no alignment, no annotation) to tell human-infecting viruses from
           everything else. This site is where I keep track of what I'm building and learning along the way.
         </p>
         <div class="hero-actions">
@@ -31,7 +31,7 @@ custom_js: home
         <div class="pdb-frame" aria-hidden="true">
           <div id="pdb-container" class="pdb-viewer"></div>
         </div>
-        <p class="field-card-caption">Fig. 1 — an artificially generated Hepatitis B ORF1 structure</p>
+        <p class="field-card-caption">Fig. 1: an artificially generated Hepatitis B ORF1 structure</p>
         <dl class="field-notes">
           <div class="field-row">
             <dt>Institution</dt>
@@ -71,7 +71,7 @@ custom_js: home
             <span class="about-card-num">A</span>
             <h3>Building datasets worth training on</h3>
             <p>
-              GenBank's metadata is a mess — inconsistent host labels, missing fields, free-text notes. I built a
+              GenBank's metadata is a mess: inconsistent host labels, missing fields, free-text notes. I built a
               three-tier pipeline (string matching, pattern lookup, then an LLM for the ambiguous cases) to turn
               82,513 raw genomes into a clean, host-labeled set of 58,046.
             </p>

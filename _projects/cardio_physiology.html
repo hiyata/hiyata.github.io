@@ -335,6 +335,13 @@ function generateECGSeries({rr, pr, qrs, qt, beats=3, fs=1000}){
   return data;
 }
 
+/* Fixed strip width in seconds, like a real monitor — faster rates just pack in more
+ * beats instead of the modified line running short of the baseline overlay's length. */
+const ECG_WINDOW_S = 3;
+function beatsForWindow(rr_ms, windowS=ECG_WINDOW_S){
+  return Math.max(2, Math.ceil((windowS*1000)/rr_ms) + 1);
+}
+
 /* ---------------- Quiz ---------------- */
 function QuizMode(){
   const [cellTypeId, setCellTypeId] = useState("ventricular");
@@ -792,8 +799,8 @@ function ExploreMode(){
   const intsMod  = useMemo(()=>intervalsFromParams(true), [params,preset,envPreset,ko,bpm]);
   const intsBase = useMemo(()=>intervalsFromParams(false),[bpm]);
 
-  const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:3, fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
-  const ecgBaseline = useMemo(()=>generateECGSeries({...intsBase, beats:3, fs:1000}), [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
+  const ecgData     = useMemo(()=>generateECGSeries({...intsMod, beats:beatsForWindow(intsMod.rr), fs:1000}),   [intsMod.rr,intsMod.pr,intsMod.qrs,intsMod.qt]);
+  const ecgBaseline = useMemo(()=>generateECGSeries({...intsBase, beats:beatsForWindow(intsBase.rr), fs:1000}), [intsBase.rr,intsBase.pr,intsBase.qrs,intsBase.qt]);
 
   const xAxisLabel={ value:'time (ms)', position:'insideBottomRight', offset:-10 };
   const yAxisLabel={ value:'membrane potential (mV)', angle:-90, position:'insideLeft' };
@@ -940,7 +947,7 @@ function ExploreMode(){
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={ecgData} margin={{top:8,right:20,bottom:20,left:20}}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" dataKey="t" domain={[0,'dataMax']} tickCount={8}
+            <XAxis type="number" dataKey="t" domain={[0,ECG_WINDOW_S]} tickCount={8}
                    label={{value:'time (s)', position:'insideBottomRight', offset:-10}}/>
             <YAxis domain={[-1.2,1.4]} tickCount={5}
                    label={{value:'mV', angle:-90, position:'insideLeft'}}/>
