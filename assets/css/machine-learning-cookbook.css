@@ -1,107 +1,453 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0f0f0;
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
 }
 
-h1, h2, h3, h4, h5 {
-    color: #2c3e50;
+.cookbook {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vh, 3rem) 0 5rem;
 }
 
-h1 {
-    font-size: 2.8em;
-    text-align: center;
-    margin-bottom: 30px;
+/* ============================================
+   READING PROGRESS BAR
+   ============================================ */
+
+.cookbook-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 1002;
+  transition: width 0.1s linear;
 }
 
-h2 {
-    font-size: 2em;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-top: 40px;
+/* ============================================
+   MASTHEAD
+   ============================================ */
+
+.cookbook-header {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
 }
 
-h3 {
-    font-size: 1.6em;
-    margin-top: 30px;
+.cookbook-header .kicker {
+  margin-bottom: 0.85rem;
 }
 
-h4 {
-    font-size: 1.4em;
-    margin-top: 20px;
+.cookbook-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.1rem;
+  color: var(--ink);
 }
 
-h5 {
-    font-size: 1.2em;
-    margin-top: 15px;
+.cookbook-dek {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 1.4rem;
+  max-width: 68ch;
 }
 
-p {
-    margin-bottom: 20px;
+.cookbook-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
 }
 
-ul, ol {
-    margin-bottom: 20px;
-    padding-left: 20px;
+.cookbook-meta i {
+  color: var(--accent);
+  margin-right: 0.4rem;
 }
 
-.container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* ============================================
+   CHAPTER OVERVIEW CARDS
+   ============================================ */
+
+.chapter-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  max-width: 1100px;
+  margin: 0 auto 3.5rem;
 }
 
-.highlight {
-    background-color: #f1c40f;
-    padding: 2px 5px;
-    border-radius: 3px;
+.chapter-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.code-block {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 20px;
-    overflow-x: auto;
+.chapter-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  color: inherit;
 }
 
-.interactive-element {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 30px;
+.chapter-card-num {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
 }
 
-.button {
-    display: inline-block;
-    background-color: #3498db;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+.chapter-card-title {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
 }
 
-.button:hover {
-    background-color: #2980b9;
+.chapter-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
 }
 
-#dna-animation {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 30px;
+/* ============================================
+   BODY GRID — sidebar TOC + article
+   ============================================ */
+
+.cookbook-body {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
 }
 
-.plot {
-    width: 100%;
-    height: 400px;
-    margin-bottom: 30px;
+.cookbook-toc {
+  position: sticky;
+  top: 5.5rem;
+  align-self: start;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
+}
+
+.cookbook-toc-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+}
+
+#toc-list a {
+  display: block;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.2rem 0 0.2rem 0.65rem;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+#toc-list a.toc-h2 {
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 0.7rem;
+}
+
+#toc-list a.toc-h2:first-child {
+  margin-top: 0;
+}
+
+#toc-list a.toc-h3 {
+  padding-left: 1.15rem;
+  font-size: 0.8rem;
+}
+
+#toc-list a:hover {
+  color: var(--accent);
+}
+
+#toc-list a.active {
+  border-left-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============================================
+   ARTICLE TYPOGRAPHY
+   ============================================ */
+
+.cookbook-content {
+  max-width: 720px;
+  counter-reset: chapter;
+}
+
+.cookbook-content h2,
+.cookbook-content h3,
+.cookbook-content h4 {
+  scroll-margin-top: 6rem;
+}
+
+.cookbook-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 4rem 0 1.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.cookbook-content > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.cookbook-content h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 2.5rem 0 1rem;
+}
+
+.cookbook-content h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
+  margin: 2rem 0 0.85rem;
+}
+
+.cookbook-content p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+.cookbook-content strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.cookbook-content ul,
+.cookbook-content ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.4rem;
+}
+
+.cookbook-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.cookbook-content li > ul,
+.cookbook-content li > ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cookbook-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 2px;
+}
+
+.cookbook-content a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* ============================================
+   CALLOUTS ("Importance of This Stage")
+   ============================================ */
+
+.cookbook-content .callout-title,
+.cookbook-content .callout-lede,
+.cookbook-content .callout-list {
+  background: var(--accent-2-soft);
+  border-left: 3px solid var(--accent-2);
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.cookbook-content .callout-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--ink);
+  padding-top: 1.1rem;
+  padding-bottom: 0.15rem;
+  margin-bottom: 0;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.cookbook-content .callout-lede {
+  padding-top: 0;
+  padding-bottom: 0.15rem;
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cookbook-content .callout-list {
+  padding-top: 0.25rem;
+  padding-bottom: 1.1rem;
+  margin-top: 0;
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+/* ============================================
+   PULL QUOTE
+   ============================================ */
+
+.cookbook-content .pull-quote-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.cookbook-content table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.cookbook-content th {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  text-align: left;
+  padding: 0.65rem 0.9rem;
+  background: var(--surface-muted);
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+.cookbook-content td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+
+.cookbook-content tr:last-child td {
+  border-bottom: none;
+}
+
+.cookbook-content tr:hover td {
+  background: var(--surface-muted);
+}
+
+.cookbook-content td.table-empty {
+  text-align: center;
+  color: var(--ink-faint);
+  font-style: italic;
+  padding: 2rem;
+}
+
+/* ============================================
+   TABLE SEARCH
+   ============================================ */
+
+.table-search {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0 -0.5rem;
+}
+
+.table-search input[type="search"] {
+  flex: 1;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.table-search input[type="search"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.table-search-count {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 980px) {
+  .cookbook-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cookbook-toc {
+    display: none;
+  }
+
+  .cookbook-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .chapter-nav {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,25 +1,74 @@
 ---
 layout: default
 title: Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
+excerpt: A working reference on applying machine learning to epidemiology and viral genomics, from research design through deep learning architectures to responsible AI.
 category: ai
 custom_css: machine-learning-cookbook
 custom_js: machine-learning-cookbook
 ---
-# Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics
+<div class="cookbook" markdown="1">
+<header class="cookbook-header">
+  <span class="kicker">Field Reference</span>
+  <h1>Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics</h1>
+  <p class="cookbook-dek">
+    Welcome to my working notes on machine learning applied to epidemiology and viral genomics.
+    This is a living document: an on-ramp for people new to modeling in these fields, and a reference
+    for the techniques I keep coming back to. I update it as I learn.
+  </p>
+  <div class="cookbook-meta">
+    <span><i class="fas fa-book-open"></i> 7 chapters</span>
+    <span><i class="fas fa-clock"></i> ~45 min read</span>
+    <span><i class="fas fa-dna"></i> Applied to virology &amp; epidemiology</span>
+  </div>
+</header>
 
-## Introduction
+<nav class="chapter-nav" aria-label="Chapters">
+  <a class="chapter-card" href="#design-stages-in-machine-learning-projects">
+    <span class="chapter-card-num">01</span>
+    <span class="chapter-card-title">Design Stages</span>
+    <span class="chapter-card-desc">Research questions, data assessment, and picking an architecture before you write any code.</span>
+  </a>
+  <a class="chapter-card" href="#traditional-machine-learning-models">
+    <span class="chapter-card-num">02</span>
+    <span class="chapter-card-title">Traditional ML Models</span>
+    <span class="chapter-card-desc">Linear/logistic regression, decision trees, and ensemble methods.</span>
+  </a>
+  <a class="chapter-card" href="#deep-learning-models">
+    <span class="chapter-card-num">03</span>
+    <span class="chapter-card-title">Deep Learning Models</span>
+    <span class="chapter-card-desc">Dense networks, CNNs, RNNs, Transformers, autoencoders, and GANs.</span>
+  </a>
+  <a class="chapter-card" href="#advanced-techniques">
+    <span class="chapter-card-num">04</span>
+    <span class="chapter-card-title">Advanced Techniques</span>
+    <span class="chapter-card-desc">Transfer learning, hyperparameter search, augmentation, NAS, and explainability.</span>
+  </a>
+  <a class="chapter-card" href="#feature-engineering-and-selection">
+    <span class="chapter-card-num">05</span>
+    <span class="chapter-card-title">Feature Engineering</span>
+    <span class="chapter-card-desc">Selection, categorical handling, imbalance, scaling, and dimensionality reduction.</span>
+  </a>
+  <a class="chapter-card" href="#model-evaluation-and-interpretation">
+    <span class="chapter-card-num">06</span>
+    <span class="chapter-card-title">Evaluation &amp; Interpretation</span>
+    <span class="chapter-card-desc">Metrics, cross-validation, interpretability, and over/underfitting.</span>
+  </a>
+  <a class="chapter-card" href="#ethical-considerations-and-responsible-ai">
+    <span class="chapter-card-num">07</span>
+    <span class="chapter-card-title">Ethics &amp; Responsible AI</span>
+    <span class="chapter-card-desc">Fairness, transparency, privacy, accountability, and sustainability.</span>
+  </a>
+</nav>
 
-Welcome to my journal on machine learning techniques applied to epidemiology and viral genomics. This living document aims to provide an introduction for those new to modeling in these fields and to describe advanced techniques that can be useful in virology. As I continue to learn and explore, I'll update this document with new insights, challenges, and solutions.
-
-## Table of Contents
-
-1. [Design Stages](#1-design-stages)
-2. [Traditional Machine Learning Models](#2-traditional-machine-learning-models)
-3. [Deep Learning Models](#3-deep-learning-models)
-4. [Advanced Techniques](#4-advanced-techniques)
-5. [Feature Engineering and Selection](#5-feature-engineering-and-selection)
-6. [Model Evaluation and Interpretation](#6-model-evaluation-and-interpretation)
-7. [Ethical Considerations and Responsible AI](#7-ethical-considerations-and-responsible-ai)
+<div class="cookbook-body">
+<aside class="cookbook-toc" id="cookbook-toc" aria-label="Table of contents">
+  <div class="cookbook-toc-inner">
+    <span class="cookbook-toc-label">On this page</span>
+    <div id="toc-list"></div>
+  </div>
+</aside>
+<div class="cookbook-progress" id="cookbook-progress"></div>
+<article class="cookbook-content" markdown="1">
 
 ## 1. Design Stages in Machine Learning Projects
 
@@ -31,7 +80,7 @@ The field of machine learning has grown exponentially in recent years, driven by
 
 As we embark on this journey into the world of machine learning, it's crucial to understand that the success of any ML project heavily depends on its initial design stages. This section will introduce you to the fundamental steps in designing a machine learning project, setting the stage for the more advanced topics we'll cover later in this course.
 
-## 1.1 Research Question and Hypothesis Formation
+### 1.1 Research Question and Hypothesis Formation
 
 The first and perhaps most critical stage in any machine learning project is defining the research question and forming a hypothesis. This stage sets the direction for your entire project and helps ensure that your efforts are focused and purposeful.
 
@@ -75,17 +124,21 @@ Once you have a clear research question, the next step is to form a hypothesis. 
 For example, given the research question about disease spread, a hypothesis might be:
 
 "Spikes in new infections can be predicted by increases in wastewater pathogens and holiday travel seasons."
+{: .pull-quote-text}
 
 ### Importance of This Stage
+{: .callout-title}
 
 The research question and hypothesis stage is crucial because it:
+{: .callout-lede}
 
 1. **Provides direction**: It guides your data collection, feature selection, and model choice.
 2. **Sets expectations**: It helps stakeholders understand what the project aims to achieve.
 3. **Facilitates evaluation**: It provides a clear benchmark against which to measure your results.
 4. **Ensures relevance**: It keeps your project aligned with business or scientific goals.
+{: .callout-list}
 
-## 1.2 Assessing the Data
+### 1.2 Assessing the Data
 
 Once you have a clear research question and hypothesis, the next crucial step is to assess the data available for your project. The quality, quantity, and relevance of your data will significantly impact the success of your machine learning model.
 
@@ -207,13 +260,16 @@ Always consider the ethical and legal implications of your data:
 4. **Licensing**: Verify that you have the necessary permissions to use and share the data.
 
 #### Importance of This Stage
+{: .callout-title}
 
 The data assessment stage is critical because:
+{: .callout-lede}
 
 1. **It informs feasibility**: It helps you understand if you have the right data to answer your research question.
 2. **It guides preprocessing**: Understanding your data helps you plan necessary cleaning and preprocessing steps.
 3. **It influences model selection**: The nature of your data will impact which models are most appropriate.
 4. **It highlights limitations**: It helps you understand potential weaknesses or biases in your approach.
+{: .callout-list}
 
 ### 1.3 Selecting the Appropriate Model Architecture
 
@@ -256,7 +312,12 @@ Consider these factors when choosing a model:
 
 #### Common Model Architectures
 
-Here's a comprehensive table of common model architectures, their categories, typical use cases, advantages, and limitations:
+Here's a comprehensive table of common model architectures, their categories, typical use cases, advantages, and limitations. It's searchable, since this is the one table in here worth skimming rather than reading top to bottom:
+
+<div class="table-search">
+  <input type="search" id="model-arch-search" placeholder="Search by name, category, or use case (e.g. &quot;image&quot;, &quot;unsupervised&quot;)&hellip;" aria-label="Search model architectures">
+  <span class="table-search-count" id="model-arch-count"></span>
+</div>
 
 | Model Architecture | Category | Typical Use Cases | Advantages | Limitations |
 |--------------------|----------|-------------------|------------|-------------|
@@ -280,15 +341,19 @@ Here's a comprehensive table of common model architectures, their categories, ty
 | Transformer Models | Supervised (Usually) | Advanced NLP tasks, sequence-to-sequence modeling | Highly effective for NLP, can capture long-range dependencies | Require large amounts of data and computational resources |
 | Generative Adversarial Networks (GANs) | Unsupervised | Image generation, style transfer | Can generate highly realistic data | Difficult to train, mode collapse issues |
 | Reinforcement Learning Algorithms (e.g., Q-Learning, Policy Gradients) | Reinforcement Learning | Game playing, robotics, resource management | Can learn complex behaviors, adapt to changing environments | Often require many iterations to train, can be unstable |
+{: #model-arch-table}
 
 #### Importance of This Stage
+{: .callout-title}
 
 Selecting the appropriate model architecture is crucial because:
+{: .callout-lede}
 
 1. **It impacts performance**: Different models have different strengths and weaknesses for various types of problems and data.
 2. **It affects interpretability**: Some models provide clear insights into their decision-making process, while others are more opaque.
 3. **It determines resource requirements**: Your choice of model will impact the computational resources needed for training and deployment.
 4. **It influences scalability**: Some models are more suitable for handling large-scale data and real-time predictions than others.
+{: .callout-list}
 
 Remember, the "best" model often depends on your specific problem, data, and constraints. It's common to try multiple models and compare their performance before making a final decision.
 
@@ -1557,6 +1622,10 @@ Ethical considerations should not be seen as a barrier to innovation but as a fo
 - **Ethical AI Communities**:
   - **Building Communities**: Encourage the development of ethical AI communities within organizations and across industries. These communities can share best practices, discuss ethical challenges, and collaborate on developing solutions to common ethical issues.
   - **Public Engagement**: Engage with the public on AI ethics to build awareness and understanding of the ethical implications of AI technologies. Public engagement can also provide valuable feedback that helps shape the development of ethical AI systems.
+
+</article>
+</div>
+</div>
 
 In conclusion, ethical considerations and responsible AI practices are essential for the development of AI systems that are not only technically advanced but also socially beneficial. By addressing issues such as fairness, transparency, privacy, and accountability, and by fostering a culture of ethical innovation, organizations can ensure that their AI technologies contribute positively to society and uphold the values that are important to all stakeholders.
 

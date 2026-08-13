@@ -1,164 +1,85 @@
-// DNA Animation
-function createDNAAnimation() {
-    const dnaAnimation = anime({
-        targets: '#dna-animation',
-        backgroundColor: ['#ff0000', '#00ff00', '#0000ff', '#ff0000'],
-        easing: 'linear',
-        duration: 5000,
-        loop: true
-    });
-}
+document.addEventListener('DOMContentLoaded', function () {
+  const article = document.querySelector('.cookbook-content');
+  if (!article) return;
 
-// Interactive Data Assessment Tool
-function assessData() {
-    const checkboxes = document.querySelectorAll('#data-assessment input[type="checkbox"]');
-    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-    const result = document.getElementById('assessment-result');
-    
-    if (checkedCount >= 4) {
-        result.textContent = "Your dataset appears to be sufficient for epidemiological modeling.";
-        result.style.color = "green";
-    } else {
-        result.textContent = "Your dataset may not be sufficient. Consider gathering more data.";
-        result.style.color = "red";
-    }
-}
-
-// CNN Architecture Visualization
-function createCNNArchitectureVisualization() {
-    const cnnArchitecture = {
-        x: ['Input', 'Conv1', 'Pool1', 'Conv2', 'Pool2', 'FC', 'Output'],
-        y: [64, 32, 32, 16, 16, 8, 4],
-        type: 'bar',
-        marker: {color: ['#3498db', '#e74c3c', '#2ecc71', '#e74c3c', '#2ecc71', '#f39c12', '#3498db']}
+  /* ---------------- Reading progress bar ---------------- */
+  const progressBar = document.getElementById('cookbook-progress');
+  if (progressBar) {
+    const updateProgress = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
     };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+  }
 
-    Plotly.newPlot('cnn-architecture', [cnnArchitecture], {
-        title: 'CNN Architecture for Viral Image Analysis',
-        xaxis: {title: 'Layers'},
-        yaxis: {title: 'Number of Neurons/Filters'}
+  /* ---------------- Auto-generated TOC + scroll spy ---------------- */
+  const tocList = document.getElementById('toc-list');
+  const headings = article.querySelectorAll('h2, h3');
+
+  if (tocList && headings.length) {
+    const links = [];
+    headings.forEach((heading, i) => {
+      if (!heading.id) heading.id = 'section-' + i;
+      const link = document.createElement('a');
+      link.href = '#' + heading.id;
+      link.textContent = heading.textContent;
+      link.className = heading.tagName === 'H2' ? 'toc-h2' : 'toc-h3';
+      tocList.appendChild(link);
+      links.push({ heading, link });
     });
-}
 
-// LSTM Outbreak Predictor
-function updateLSTMPrediction() {
-    const layers = document.getElementById('lstm-layers').value;
-    const neurons = document.getElementById('neurons-per-layer').value;
-    const dropout = document.getElementById('dropout-rate').value;
-    const learningRate = document.getElementById('learning-rate').value;
-
-    // Simulated prediction (replace with actual model prediction in a real application)
-    const predictionAccuracy = (Math.random() * 0.2 + 0.7).toFixed(2);
-    
-    document.getElementById('lstm-prediction-result').innerHTML = `
-        <p>Model Configuration:</p>
-        <ul>
-            <li>LSTM Layers: ${layers}</li>
-            <li>Neurons per Layer: ${neurons}</li>
-            <li>Dropout Rate: ${dropout}</li>
-            <li>Learning Rate: ${learningRate}</li>
-        </ul>
-        <p>Predicted Outbreak Accuracy: ${predictionAccuracy}</p>
-    `;
-}
-
-// GAN Generated Genomes Visualization
-function createGANGenomesVisualization() {
-    const ganGenomes = {
-        z: [
-            [1, 2, 3, 4, 5],
-            [2, 3, 4, 5, 6],
-            [3, 4, 5, 6, 7],
-            [4, 5, 6, 7, 8],
-            [5, 6, 7, 8, 9]
-        ],
-        type: 'heatmap',
-        colorscale: 'Viridis'
-    };
-
-    Plotly.newPlot('gan-generated-genomes', [ganGenomes], {
-        title: 'GAN Generated Viral Genomes',
-        xaxis: {title: 'Genome Position'},
-        yaxis: {title: 'Generated Sample'}
-    });
-}
-
-// RL Vaccination Strategy Simulator
-function runRLSimulation() {
-    const population = document.getElementById('population-size').value;
-    const infectionRate = document.getElementById('infection-rate').value;
-    const vaccineEffectiveness = document.getElementById('vaccine-effectiveness').value;
-    const vaccinationCapacity = document.getElementById('vaccination-capacity').value;
-    // Simulated RL results (replace with actual RL simulation in a real application)
-    const daysToContainment = Math.floor(Math.random() * 50) + 30;
-    const finalInfectionRate = (Math.random() * 0.05).toFixed(3);
-    
-    document.getElementById('rl-simulation-result').innerHTML = `
-        <p>Simulation Results:</p>
-        <ul>
-            <li>Days to Containment: ${daysToContainment}</li>
-            <li>Final Infection Rate: ${finalInfectionRate}</li>
-            <li>Total Vaccinations: ${(daysToContainment * vaccinationCapacity).toLocaleString()}</li>
-        </ul>
-    `;
-}
-
-// Model Performance Comparison
-function createModelPerformanceComparison() {
-    const modelPerformance = {
-        x: ['Linear Regression', 'Random Forest', 'SVM', 'Neural Network', 'LSTM'],
-        y: [0.65, 0.78, 0.72, 0.85, 0.89],
-        type: 'bar',
-        marker: {color: ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6']}
-    };
-
-    Plotly.newPlot('model-performance-comparison', [modelPerformance], {
-        title: 'Model Performance Comparison',
-        xaxis: {title: 'Model'},
-        yaxis: {title: 'Accuracy'}
-    });
-}
-
-// Ethical AI Checklist
-function checkEthicalCompliance() {
-    const checkboxes = document.querySelectorAll('#ethical-ai-checklist input[type="checkbox"]');
-    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-    const result = document.getElementById('ethical-compliance-result');
-    
-    if (checkedCount === checkboxes.length) {
-        result.textContent = "Your project complies with ethical AI principles!";
-        result.style.color = "green";
-    } else {
-        result.textContent = `Your project meets ${checkedCount} out of ${checkboxes.length} ethical AI criteria. Please review the unchecked items.`;
-        result.style.color = "orange";
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const match = links.find((l) => l.heading === entry.target);
+            if (!match) return;
+            if (entry.isIntersecting) {
+              links.forEach((l) => l.link.classList.remove('active'));
+              match.link.classList.add('active');
+            }
+          });
+        },
+        { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
+      );
+      headings.forEach((h) => observer.observe(h));
     }
-}
+  }
 
-// Newsletter Subscription
-function subscribeNewsletter() {
-    const email = document.getElementById('email-subscription').value;
-    const result = document.getElementById('subscription-result');
+  /* ---------------- Wrap tables for horizontal scroll on small screens ---------------- */
+  article.querySelectorAll('table').forEach((table) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-scroll';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
 
-    if (email && email.includes('@')) {
-        result.textContent = "Thank you for subscribing to our newsletter!";
-        result.style.color = "green";
-    } else {
-        result.textContent = "Please enter a valid email address.";
-        result.style.color = "red";
-    }
-}
+  /* ---------------- Model architecture table search ---------------- */
+  const searchInput = document.getElementById('model-arch-search');
+  const searchCount = document.getElementById('model-arch-count');
+  const archTable = document.getElementById('model-arch-table');
 
-// Initialize all visualizations and interactive elements
-document.addEventListener('DOMContentLoaded', function() {
-    createDNAAnimation();
-    createCNNArchitectureVisualization();
-    createGANGenomesVisualization();
-    createModelPerformanceComparison();
+  if (searchInput && archTable) {
+    const rows = Array.from(archTable.querySelectorAll('tbody tr'));
+    const total = rows.length;
 
-    // Add event listeners for interactive elements
-    document.getElementById('assess-data-btn').addEventListener('click', assessData);
-    document.getElementById('update-lstm-btn').addEventListener('click', updateLSTMPrediction);
-    document.getElementById('run-rl-simulation-btn').addEventListener('click', runRLSimulation);
-    document.getElementById('check-ethical-compliance-btn').addEventListener('click', checkEthicalCompliance);
-    document.getElementById('subscribe-newsletter-btn').addEventListener('click', subscribeNewsletter);
+    const updateCount = (shown) => {
+      if (searchCount) searchCount.textContent = shown + ' of ' + total + ' shown';
+    };
+    updateCount(total);
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let shown = 0;
+      rows.forEach((row) => {
+        const matches = !query || row.textContent.toLowerCase().includes(query);
+        row.style.display = matches ? '' : 'none';
+        if (matches) shown += 1;
+      });
+      updateCount(shown);
+    });
+  }
 });
