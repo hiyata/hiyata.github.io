@@ -14,12 +14,13 @@ custom_js: home
     <div class="masthead-grid">
       <div class="masthead-copy" data-animate="fade-up">
         <span class="kicker">Entry 001 — Welcome</span>
-        <h1>Hi, I'm Alan — I use machine learning to study viruses</h1>
+        <h1>Hi, I'm Alan — I predict which viruses can infect humans, from genome sequence alone</h1>
         <p>
           I'm a researcher at Wayne State University School of Medicine, working with
-          <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>
-          on ways to apply machine learning to virology and genomics. This site is where I keep track of what
-          I'm building and learning along the way.
+          <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>.
+          Most recently, that meant building a 58,046-genome dataset across 15 virus families and training neural
+          networks on raw k-mer frequency — no alignment, no annotation — to tell human-infecting viruses from
+          everything else. This site is where I keep track of what I'm building and learning along the way.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{{ '/projects' | relative_url }}">See what I've been working on</a>
@@ -29,9 +30,8 @@ custom_js: home
       <aside class="field-card" data-animate="fade-up" data-animate-delay="120">
         <div class="pdb-frame" aria-hidden="true">
           <div id="pdb-container" class="pdb-viewer"></div>
-          <span class="marginalia field-card-note">it actually spins →</span>
         </div>
-        <p class="field-card-caption">Fig. 1 — an artificially generated Hepatitis B ORF1 structure, not stock art</p>
+        <p class="field-card-caption">Fig. 1 — an artificially generated Hepatitis B ORF1 structure</p>
         <dl class="field-notes">
           <div class="field-row">
             <dt>Institution</dt>
@@ -43,7 +43,7 @@ custom_js: home
           </div>
           <div class="field-row">
             <dt>Focus</dt>
-            <dd>ML &times; viral genomics</dd>
+            <dd>Host-range prediction from sequence</dd>
           </div>
           <div class="field-row">
             <dt>Exploring</dt>
@@ -69,36 +69,38 @@ custom_js: home
         <div class="about-grid">
           <article class="about-card" data-animate="fade-up">
             <span class="about-card-num">A</span>
-            <h3>Making data make sense</h3>
+            <h3>Building datasets worth training on</h3>
             <p>
-              I like turning messy datasets into visuals and tools that are actually pleasant to explore — for myself
-              as much as for anyone else who's curious.
+              GenBank's metadata is a mess — inconsistent host labels, missing fields, free-text notes. I built a
+              three-tier pipeline (string matching, pattern lookup, then an LLM for the ambiguous cases) to turn
+              82,513 raw genomes into a clean, host-labeled set of 58,046.
             </p>
           </article>
           <article class="about-card" data-animate="fade-up" data-animate-delay="80">
             <span class="about-card-num">B</span>
-            <h3>Connecting the dots</h3>
+            <h3>Reading the model's reasoning</h3>
             <p>
-              I try to pull together genomics, epidemiology, and machine learning to go from raw sequencing data
-              to something I can actually learn from.
+              Predicting host compatibility is only half the point. I ablate individual k-mers to see which ones
+              actually move the needle, then map those back onto genes to find out what the model is really
+              picking up on.
             </p>
           </article>
         </div>
         <div class="focus-grid">
           <article class="focus-card" data-animate="fade-up">
             <span class="focus-card-tag">ML</span>
-            <h3>Machine learning</h3>
-            <p>Building models that pick up on viral patterns and try to predict how a virus behaves.</p>
+            <h3>Host-range prediction</h3>
+            <p>Neural nets on k-mer frequency vectors (k = 3 to 8) beat logistic regression and random forest baselines at telling human-infecting viruses from the rest.</p>
           </article>
           <article class="focus-card" data-animate="fade-up" data-animate-delay="80">
             <span class="focus-card-tag">DNA</span>
-            <h3>Viral genomics</h3>
-            <p>Generating and analyzing viral genomes with neural networks, mostly out of curiosity about what's possible.</p>
+            <h3>Genome generation</h3>
+            <p>Projects like MambaVirus and SOMBRA that generate and simulate viral genomes, rather than just classify existing ones.</p>
           </article>
           <article class="focus-card" data-animate="fade-up" data-animate-delay="160">
             <span class="focus-card-tag">EPI</span>
-            <h3>Epidemiology</h3>
-            <p>Modeling how outbreaks spread, and what that might tell us before the next one.</p>
+            <h3>Adaptation over time</h3>
+            <p>Tracked SARS-CoV-2's predicted human-adaptation signal drifting upward across 8,683 genomes from 2019 to 2024.</p>
           </article>
         </div>
       </div>

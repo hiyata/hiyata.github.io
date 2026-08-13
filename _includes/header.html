@@ -1,15 +1,7 @@
 <header class="site-header" id="site-header" role="banner">
   <div class="header-inner">
     <div class="brand-block">
-      <a class="brand" href="{{ '/' | relative_url }}">
-        <svg class="brand-mark" viewBox="0 0 32 32" width="20" height="20" fill="none" aria-hidden="true">
-          <path d="M9 3c7 5 7 9 0 13s-7 9 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M23 3c-7 5-7 9 0 13s7 9 0 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="9" cy="10.5" r="1.6" fill="currentColor"/>
-          <circle cx="23" cy="21.5" r="1.6" fill="currentColor"/>
-        </svg>
-        <span>{{ site.title }}</span>
-      </a>
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <span class="brand-kicker">AI &times; Virology — Field Notes</span>
     </div>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">

@@ -12,10 +12,11 @@ title: About
       <p class="about-hero-title">Machine Learning Researcher in Virology</p>
       <p class="about-hero-lede">
         I'm a researcher working at the intersection of <span class="hl">artificial intelligence</span> and
-        <span class="hl">virology</span> — building computational tools to model how viruses behave, how their
-        genomes are put together, and how they interact at a molecular level. I currently work with
-        <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School
-        of Medicine in Detroit.
+        <span class="hl">virology</span>. My main project so far: a curated, 58,046-genome dataset spanning 15
+        virus families, and neural networks trained on raw k-mer frequency that predict whether a virus can
+        infect humans — then get interrogated to find out which sequence motifs actually drove that call.
+        I currently work with <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne
+        State University School of Medicine in Detroit.
       </p>
       <div class="about-hero-social">
         <a href="https://www.linkedin.com/in/alan-luis-carbajo-jr-9929b7138" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -34,19 +35,18 @@ title: About
       <div class="section-body">
         <h2>What I'm chasing</h2>
         <p class="section-lede">
-          I design and train neural networks to build artificial genomes and predict epidemiological behavior. I
-          think there are patterns in how viruses behave that we could learn to exploit — to respond better to
-          new pathogens, and maybe even to turn viruses into tools that help cure disease, extend healthy
-          lifespan, or address other big problems.
+          Most of my work centers on one question: can you tell whether a virus infects humans just by looking at
+          its genome? I built a dataset and a set of models to test that, and then spent most of my time trying to
+          figure out <em>why</em> the models say what they say — which is where the interesting biology shows up.
         </p>
         <div class="pull-quote">
-          <p>What if the thing we've spent a century fighting turns out to be one of our better tools?</p>
+          <p>My model kept flagging HHV-6 as non-human. It turns out it was picking up something real: HHV-6 integrates into host telomeres, a trick almost no other human herpesvirus uses.</p>
         </div>
         <ul class="research-list">
-          <li><span class="research-tag">01</span> Designing artificial viral genomes for next-gen vaccines</li>
-          <li><span class="research-tag">02</span> Simulating virus evolution</li>
-          <li><span class="research-tag">03</span> Modeling global epidemiological trends</li>
-          <li><span class="research-tag">04</span> Characterizing virus-host DNA patterns</li>
+          <li><span class="research-tag">01</span> Predicting human host-compatibility straight from raw genome sequence</li>
+          <li><span class="research-tag">02</span> Curating a 58,046-genome, 15-family dataset labeled for host range</li>
+          <li><span class="research-tag">03</span> Ablating k-mers to map which motifs actually drive a prediction</li>
+          <li><span class="research-tag">04</span> Tracking SARS-CoV-2's genomic drift toward human adaptation since 2019</li>
         </ul>
       </div>
     </div>

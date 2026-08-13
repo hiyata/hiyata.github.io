@@ -8,15 +8,16 @@ category: physiology
 <div id="ecg-app" style="max-width:1400px;margin:0 auto;padding:1.25rem"></div>
 
 <!-- React + ReactDOM (UMD) -->
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-is@18/umd/react-is.development.js"></script>
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-is@18.3.1/umd/react-is.development.js"></script>
+<script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
 
-<!-- Recharts (UMD) -->
-<script crossorigin src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+<!-- Recharts (UMD) — pinned to 2.x; 3.x's UMD bundle uses dynamic import() and breaks classic <script> loading -->
+<script crossorigin src="https://unpkg.com/recharts@2.15.4/umd/Recharts.js"></script>
 
 <!-- Babel (compile JSX in the browser) -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.8/babel.min.js"></script>
 
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--grid:#e5e7eb;--strong:#cbd5e1;--green:#059669;--red:#dc2626;--blue:#2563eb;}

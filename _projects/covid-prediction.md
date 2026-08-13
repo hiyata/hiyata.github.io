@@ -8,7 +8,7 @@ permalink: /covid-prediction/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.4.0/plotly.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" defer></script>
 <style>
-        body {
+        .covid-page {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
@@ -17,17 +17,17 @@ permalink: /covid-prediction/
             padding: 20px;
             background-color: #f4f4f4;
         }
-        h1, h2, h3 {
+        .covid-page h1, .covid-page h2, .covid-page h3 {
             color: #2c3e50;
         }
-        .container {
+        .covid-page .covid-container {
             background-color: #fff;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .alert {
+        .covid-page .alert {
             background-color: #f8d7da;
             border-color: #f5c6cb;
             color: #721c24;
@@ -35,66 +35,66 @@ permalink: /covid-prediction/
             border-radius: 4px;
             margin-bottom: 20px;
         }
-        .performance-grid {
+        .covid-page .performance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
-        .performance-card {
+        .covid-page .performance-card {
             background-color: #f8f9fa;
             border-radius: 8px;
             padding: 20px;
             text-align: center;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .performance-card:hover {
+        .covid-page .performance-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .performance-card h3 {
+        .covid-page .performance-card h3 {
             margin-top: 0;
             color: #34495e;
             font-size: 1.2em;
         }
-        .performance-value {
+        .covid-page .performance-value {
             font-size: 2em;
             font-weight: bold;
             color: #2980b9;
             margin: 10px 0;
         }
-        .performance-label {
+        .covid-page .performance-label {
             font-size: 0.9em;
             color: #7f8c8d;
         }
-        .last-updated {
+        .covid-page .last-updated {
             text-align: center;
             margin-top: 20px;
             font-style: italic;
             color: #7f8c8d;
         }
-        .chart-container {
+        .covid-page .chart-container {
             height: 500px;
             margin-top: 20px;
         }
-        .model-key {
+        .covid-page .model-key {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 20px;
         }
-        .model-key-item {
+        .covid-page .model-key-item {
             margin: 5px 10px;
             display: flex;
             align-items: center;
         }
-        .model-key-color {
+        .covid-page .model-key-color {
             width: 20px;
             height: 20px;
             margin-right: 5px;
             border-radius: 50%;
         }
-        .error-message {
+        .covid-page .error-message {
             color: #e74c3c;
             font-weight: bold;
             text-align: center;
@@ -104,7 +104,8 @@ permalink: /covid-prediction/
             margin-top: 20px;
         }
     </style>
-<div class="container">
+<div class="covid-page">
+<div class="covid-container">
     <h1>COVID-19 Case Prediction Model Comparison</h1>
     <div class="alert">
         <strong>Important Notice:</strong> Due to the discontinuation of daily COVID-19 case reporting to the WHO, our daily predictions have been discontinued. The information below represents our last available data and predictions.
@@ -119,7 +120,7 @@ permalink: /covid-prediction/
 
 <div id="error-container"></div>
 
-<div class="container">
+<div class="covid-container">
     <h2>Model Performance</h2>
     <p>The performance of each model is measured using the Mean Absolute Percentage Error (MAPE). Lower values indicate better performance.</p>
     <div class="performance-grid">
@@ -149,7 +150,7 @@ permalink: /covid-prediction/
     </div>
 </div>
 
-<div class="container">
+<div class="covid-container">
     <h2>7-Day Model Comparison</h2>
     <p>
         This chart displays the actual cases and predicted number of COVID-19 cases for the last 7 days,
@@ -180,7 +181,7 @@ permalink: /covid-prediction/
     </div>
 </div>
 
-<div class="container">
+<div class="covid-container">
     <h2>Methodology</h2>
     <p>
         We used four different models for time series forecasting:
@@ -206,6 +207,7 @@ permalink: /covid-prediction/
     <p>
         For more details on our methodology, please visit our <a href="https://github.com/hiyata/covid-19-predictor">GitHub repository</a>.
     </p>
+</div>
 </div>
 
 <script>

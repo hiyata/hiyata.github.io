@@ -114,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const typingElement = document.querySelector('[data-typing]');
   const typingPhrases = [
-    'diffusion models for genome generation',
-    'latent viral phenotype prediction',
-    'interactive tools for scientific storytelling',
+    'why HHV-6 fools my model into calling it non-human',
+    'which k-mers actually drive a host-prediction call',
+    'how SARS-CoV-2 keeps drifting toward human adaptation',
   ];
 
   if (typingElement && prefersReducedMotion) {

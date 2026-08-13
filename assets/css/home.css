@@ -135,14 +135,6 @@
   inset: 0;
 }
 
-.field-card-note {
-  position: absolute;
-  top: 0.65rem;
-  right: 0.9rem;
-  color: #e8c9a0;
-  z-index: 1;
-}
-
 .field-card-caption {
   margin: 0;
   padding: 0.7rem 1.1rem;
