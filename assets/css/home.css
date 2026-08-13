@@ -93,12 +93,16 @@
 
 .masthead-copy > p a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
   font-weight: 600;
+  transition: text-decoration-color 0.2s ease;
 }
 
 .masthead-copy > p a:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--accent);
 }
 
 .hero-actions {
@@ -129,6 +133,14 @@
 .pdb-viewer {
   position: absolute;
   inset: 0;
+}
+
+.field-card-note {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.9rem;
+  color: #e8c9a0;
+  z-index: 1;
 }
 
 .field-card-caption {
@@ -208,6 +220,10 @@
   border-left: 2px solid var(--accent);
 }
 
+.about-card:nth-child(2) {
+  border-left-color: var(--accent-2);
+}
+
 .about-card-num {
   display: block;
   font-family: var(--mono);
@@ -215,6 +231,10 @@
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 0.5rem;
+}
+
+.about-card:nth-child(2) .about-card-num {
+  color: var(--accent-2);
 }
 
 .about-card h3 {

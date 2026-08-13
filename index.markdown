@@ -29,8 +29,9 @@ custom_js: home
       <aside class="field-card" data-animate="fade-up" data-animate-delay="120">
         <div class="pdb-frame" aria-hidden="true">
           <div id="pdb-container" class="pdb-viewer"></div>
+          <span class="marginalia field-card-note">it actually spins →</span>
         </div>
-        <p class="field-card-caption">Fig. 1 — an artificially generated Hepatitis B ORF1 structure</p>
+        <p class="field-card-caption">Fig. 1 — an artificially generated Hepatitis B ORF1 structure, not stock art</p>
         <dl class="field-notes">
           <div class="field-row">
             <dt>Institution</dt>

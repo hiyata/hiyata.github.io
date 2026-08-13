@@ -39,6 +39,9 @@ title: About
           new pathogens, and maybe even to turn viruses into tools that help cure disease, extend healthy
           lifespan, or address other big problems.
         </p>
+        <div class="pull-quote">
+          <p>What if the thing we've spent a century fighting turns out to be one of our better tools?</p>
+        </div>
         <ul class="research-list">
           <li><span class="research-tag">01</span> Designing artificial viral genomes for next-gen vaccines</li>
           <li><span class="research-tag">02</span> Simulating virus evolution</li>
@@ -272,14 +275,28 @@ title: About
   max-width: 68ch;
 }
 
+.about-hero-lede::first-letter {
+  font-family: var(--serif);
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 0.75;
+  float: left;
+  margin: 0.1rem 0.4rem 0 0;
+  color: var(--accent);
+}
+
 .about-hero-lede a {
   color: var(--accent);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
 }
 
 .about-hero-lede a:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--accent);
 }
 
 .hl {
@@ -320,6 +337,10 @@ title: About
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+}
+
+.research-list li:nth-child(even) .research-tag {
+  color: var(--accent-2);
 }
 
 .research-tag {
