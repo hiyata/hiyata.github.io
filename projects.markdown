@@ -9,7 +9,7 @@ custom_js: projects
 <header class="projects-header">
   <div class="header-content">
     <h1 class="header-title">Research Projects</h1>
-    <p class="header-subtitle">Showcasing projects I've worked on, both independently and with our lab.</p>
+    <p class="header-subtitle">Projects I've worked on, on my own and with the lab.</p>
   </div>
 </header>
 
@@ -19,6 +19,7 @@ custom_js: projects
     <button class="filter-btn" data-filter="ai">AI & Machine Learning</button>
     <button class="filter-btn" data-filter="virology">Virology</button>
     <button class="filter-btn" data-filter="genomics">Genomics</button>
+    <button class="filter-btn" data-filter="physiology">Physiology</button>
   </div>
 
   <div class="projects-grid">
@@ -45,8 +46,8 @@ custom_js: projects
 
 <section class="cta-section">
   <div class="cta-content">
-    <h2 class="cta-title">Interested in Collaboration?</h2>
-    <p class="cta-text">I'm always open to new research opportunities and partnerships.</p>
-    <a href="{{ '/' | relative_url }}#contact" class="cta-button">Get in Touch</a>
+    <h2 class="cta-title">Want to talk about any of this?</h2>
+    <p class="cta-text">Feel free to reach out — I'm always happy to chat about research or new ideas.</p>
+    <a href="{{ '/' | relative_url }}#contact" class="cta-button">Get in touch</a>
   </div>
 </section>

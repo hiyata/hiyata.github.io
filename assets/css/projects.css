@@ -2,6 +2,7 @@
   --ai-color: #2563eb;
   --virology-color: #dc2626;
   --genomics-color: #059669;
+  --physiology-color: #d97706;
 }
 
 body {
@@ -153,6 +154,11 @@ body {
 .project-card[data-category="genomics"] .project-category {
   background: rgba(5, 150, 105, 0.1);
   color: var(--genomics-color);
+}
+
+.project-card[data-category="physiology"] .project-category {
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--physiology-color);
 }
 
 .presented-at {

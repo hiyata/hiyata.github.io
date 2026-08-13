@@ -1,6 +1,8 @@
 ---
 layout: page
 title: HCMV Multi-Omic Analysis
+category: virology
+excerpt: An interactive dashboard exploring HCMV multi-omic data across transcriptomics, proteomics, interactomics, and phenomics.
 permalink: /hcmv-analysis/
 ---
 
@@ -243,6 +245,7 @@ permalink: /hcmv-analysis/
     display: flex;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .view-toggle {
@@ -283,36 +286,9 @@ permalink: /hcmv-analysis/
 
 .main-content {
     display: grid;
-    grid-template-columns: 250px 1fr 300px;
+    grid-template-columns: 1fr 300px;
     gap: 1.5rem;
     margin-top: 1.5rem;
-}
-
-.filters-panel {
-    background: var(--card-background);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px var(--shadow-color);
-}
-
-.filter-section h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.1rem;
-    color: var(--primary-color);
-}
-
-.filter-group {
-    margin-bottom: 1.5rem;
-}
-
-.filter-group h4 {
-    margin: 0 0 0.8rem 0;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.range-slider {
-    margin-top: 1rem;
 }
 
 .visualization-area {
@@ -424,12 +400,6 @@ permalink: /hcmv-analysis/
     .main-content {
         grid-template-columns: 1fr;
     }
-
-    .filters-panel {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -451,10 +421,9 @@ permalink: /hcmv-analysis/
 }
 </style>
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.4.0/plotly.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet"/>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 <script>
   const colorPalettes = {

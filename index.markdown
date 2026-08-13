@@ -13,24 +13,24 @@ custom_js: home
   <section class="hero-section" id="home">
     <div class="hero-grid">
       <div class="hero-copy" data-animate="fade-up">
-        <span class="eyebrow">AI-driven virology insights</span>
-        <h1>Designing intelligent systems for viral discovery</h1>
+        <span class="eyebrow">AI &amp; virology</span>
+        <h1>Hi, I'm Alan — I use machine learning to study viruses</h1>
         <p>
-          I'm Alan Carbajo, a researcher at Wayne State University School of Medicine
-          working with <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a> to
-          explore how machine learning can accelerate breakthroughs in virology and genomic design.
+          I'm a researcher at Wayne State University School of Medicine, working with
+          <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>
+          on ways to apply machine learning to virology and genomics. This site is where I keep track of what I'm building and learning along the way.
         </p>
         <div class="typing-wrapper">
           <span class="typing-label">Currently exploring</span>
           <span class="typing-line" data-typing></span>
         </div>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="{{ '/projects' | relative_url }}">View recent work</a>
+          <a class="btn btn-primary" href="{{ '/projects' | relative_url }}">See what I've been working on</a>
         </div>
         <ul class="hero-highlights">
-          <li>Generative DNA design workflows guided by deep learning</li>
-          <li>Predictive models that capture viral behavior and tropism</li>
-          <li>Interactive data visualizations that tell scientific stories</li>
+          <li>Generating artificial viral genomes with deep learning</li>
+          <li>Building models that predict how viruses behave</li>
+          <li>Making the data easier to look at and explore</li>
         </ul>
       </div>
       <div class="hero-visual" data-animate="fade-up" data-animate-delay="120">
@@ -40,8 +40,8 @@ custom_js: home
         </div>
         <div class="hero-badges">
           <div class="badge" data-animate="fade-up" data-animate-delay="220">
-            <span class="badge-label">Latest focus</span>
-            <p>Mapping latent genomic representations for antiviral discovery.</p>
+            <span class="badge-label">Right now I'm</span>
+            <p>Trying to map how viral genomes relate to each other so I can spot patterns worth digging into.</p>
           </div>
         </div>
       </div>
@@ -50,27 +50,26 @@ custom_js: home
 
   <section class="section about-section" id="about">
     <div class="section-header" data-animate="fade-up">
-      <span class="eyebrow">About the journal</span>
-      <h2>Exploring the intersection of artificial intelligence and virology</h2>
+      <span class="eyebrow">About this site</span>
+      <h2>A place to keep track of what I'm working on</h2>
       <p>
-        This journal documents experiments, prototypes, and reflections from my work designing computational tools for
-        virology. I share lessons from the lab, notes from current projects, and ideas that push the boundaries of how
-        we model and design biological systems.
+        This is basically my lab notebook, public. I write up experiments and side projects as I go, mostly around
+        AI and virology, partly to keep myself honest and partly because I like sharing this stuff.
       </p>
     </div>
     <div class="about-grid">
       <article class="about-card" data-animate="fade-up" data-animate-delay="120">
-        <h3>Scientific storytelling</h3>
+        <h3>Making data make sense</h3>
         <p>
-          I translate complex datasets into intuitive visual narratives—bridging researchers, clinicians, and broader
-          audiences with interactive dashboards and exploratory tools.
+          I like turning messy datasets into visuals and tools that are actually pleasant to explore — for myself
+          as much as for anyone else who's curious.
         </p>
       </article>
       <article class="about-card" data-animate="fade-up" data-animate-delay="200">
-        <h3>Systems thinking</h3>
+        <h3>Connecting the dots</h3>
         <p>
-          By combining genomics, epidemiology, and machine learning, I develop end-to-end workflows that move from raw
-          sequencing data to actionable hypotheses and design insights.
+          I try to pull together genomics, epidemiology, and machine learning to go from raw sequencing data
+          to something I can actually learn from.
         </p>
       </article>
     </div>
@@ -78,17 +77,17 @@ custom_js: home
       <article class="focus-card" data-animate="fade-up">
         <i class="fas fa-brain"></i>
         <h3>Machine learning</h3>
-        <p>Designing advanced models that learn latent viral patterns and predict phenotypic behavior.</p>
+        <p>Building models that pick up on viral patterns and try to predict how a virus behaves.</p>
       </article>
       <article class="focus-card" data-animate="fade-up" data-animate-delay="120">
         <i class="fas fa-dna"></i>
         <h3>Viral genomics</h3>
-        <p>Generating and analyzing viral genomes with neural networks for design and discovery.</p>
+        <p>Generating and analyzing viral genomes with neural networks, mostly out of curiosity about what's possible.</p>
       </article>
       <article class="focus-card" data-animate="fade-up" data-animate-delay="200">
         <i class="fas fa-chart-line"></i>
         <h3>Epidemiology</h3>
-        <p>Modeling population-level spread to inform responses during outbreaks and emerging threats.</p>
+        <p>Modeling how outbreaks spread, and what that might tell us before the next one.</p>
       </article>
     </div>
   </section>
@@ -96,8 +95,8 @@ custom_js: home
   <section class="section projects-section" id="projects">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Recent projects</span>
-      <h2>Putting intelligent pipelines into practice</h2>
-      <p>Selected work that blends computational research, design, and scientific communication.</p>
+      <h2>A few things I've been building</h2>
+      <p>Some of the projects I've worked on, mixing research with a bit of design and storytelling.</p>
     </div>
     <div class="cards-grid">
       {% for project in site.projects limit:3 %}
@@ -126,8 +125,8 @@ custom_js: home
   <section class="section blog-section" id="blog">
     <div class="section-header" data-animate="fade-up">
       <span class="eyebrow">Latest writing</span>
-      <h2>Notes, experiments, and observations from the lab</h2>
-      <p>Insights on AI-driven biology, research tooling, and the craft of storytelling.</p>
+      <h2>Notes from the lab</h2>
+      <p>Things I've learned or thought about while working on AI and biology.</p>
     </div>
     <div class="cards-grid">
       {% for post in site.posts limit:2 %}

@@ -22,11 +22,11 @@ title: About
   <main>
     <section class="intro-section">
       <div class="section-content">
-        <h2>Integrating Artificial Intelligence with Virus Research</h2>
+        <h2>Where AI meets virology</h2>
         <div class="intro-text">
-          <p>I am a researcher specializing in the applications of <span class="highlight">artificial intelligence</span> in the field of <span class="highlight">virology</span>. My work primarily focuses on developing computational techniques to model virus behavior, genomes, and their molecular interactions. I currently work under <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School of Medicine in Detroit.</p>
+          <p>I'm a researcher who spends most of my time at the intersection of <span class="highlight">artificial intelligence</span> and <span class="highlight">virology</span> — building computational tools to model how viruses behave, how their genomes are put together, and how they interact at a molecular level. I currently work with <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne State University School of Medicine in Detroit.</p>
 
-          <p>I design and train neural networks to build artificial genomes and predict epidemiological behavior. I believe that through this, we can uncover patterns in virus behavior that can be exploited to improve our response to novel pathogens. I hope that one day we view viruses as useful tools to help cure disease, enhance human lifespan and immunity, and combat climate change.</p>
+          <p>I design and train neural networks to build artificial genomes and predict epidemiological behavior. I think there are patterns in how viruses behave that we could learn to exploit — to respond better to new pathogens, and maybe even to turn viruses into tools that help cure disease, extend healthy lifespan, or address other big problems.</p>
         </div>
         <div class="intro-vision">
           <h3>Research Interests</h3>
