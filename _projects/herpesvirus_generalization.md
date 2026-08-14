@@ -71,7 +71,7 @@ permalink: /herpesvirus-generalization/
       </p>
 
       <figure class="figure-wide">
-        <img src="{{ '/assets/images/Design_HCMV_neural_network.png' | relative_url }}" alt="Deep neural network architecture: Betaherpesvirus genomes for training, Alpha- and Gammaherpesvirus genomes for testing, three 1024-unit dense layers plus a 256-unit layer with normalization and dropout, output as human or non-human">
+        <img src="{{ '/assets/images/Design_HCMV_neural_network.webp' | relative_url }}" alt="Deep neural network architecture: Betaherpesvirus genomes for training, Alpha- and Gammaherpesvirus genomes for testing, three 1024-unit dense layers plus a 256-unit layer with normalization and dropout, output as human or non-human">
         <figcaption>Train/test split and architecture. Training data (blue) is Betaherpesvirus only; the test set (gray) is every Alpha- and Gammaherpesvirus genome in the dataset, none of which the network has seen.</figcaption>
       </figure>
 
@@ -92,7 +92,7 @@ permalink: /herpesvirus-generalization/
       </p>
 
       <figure class="figure-wide">
-        <video src="{{ '/assets/videos/pca_embeddings_video_combined_hcmv_training_pca.mp4' | relative_url }}" controls preload="metadata" playsinline></video>
+        <video src="{{ '/assets/videos/pca_embeddings_video_combined_hcmv_training_pca.webm' | relative_url }}" controls preload="metadata" playsinline></video>
         <figcaption>PCA of the model's learned embeddings across training epochs, colored by true and predicted host. Structure that starts as noise resolves into clusters that hold up even for genera the model never trained on.</figcaption>
       </figure>
 
@@ -104,7 +104,7 @@ permalink: /herpesvirus-generalization/
       </p>
 
       <figure class="figure-wide">
-        <img src="{{ '/assets/images/Human-nonhuman_HCMV_prediction.png' | relative_url }}" alt="Comparison table: logistic regression 42% accuracy with 0.00 precision/recall/F1 on the human class, XGBoost 66% accuracy with 1.00 recall but only 0.32 recall on non-human, deep neural network 79% accuracy with balanced 0.78-0.79 F1 on both classes">
+        <img src="{{ '/assets/images/Human-nonhuman_HCMV_prediction.webp' | relative_url }}" alt="Comparison table: logistic regression 42% accuracy with 0.00 precision/recall/F1 on the human class, XGBoost 66% accuracy with 1.00 recall but only 0.32 recall on non-human, deep neural network 79% accuracy with balanced 0.78-0.79 F1 on both classes">
         <figcaption>Held-out performance on 1,220 Alpha- and Gammaherpesvirus genomes. Logistic regression collapses entirely on the human class (F1 = 0.00); XGBoost swings hard toward non-human; the deep network is the only one that generalizes to both classes.</figcaption>
       </figure>
 
@@ -131,7 +131,7 @@ permalink: /herpesvirus-generalization/
       </p>
 
       <figure class="figure-wide">
-        <video src="{{ '/assets/videos/neuron_activation_video.mp4' | relative_url }}" controls preload="metadata" playsinline></video>
+        <video src="{{ '/assets/videos/neuron_activation_video.webm' | relative_url }}" controls preload="metadata" playsinline></video>
         <figcaption>Neuron activations across all four dense layers for Cervid alphaherpesvirus 2 (NC_075563.1), true label non-human, predicted human. Tracing individual misclassifications like this is how we plan to identify the specific sequence motifs the network is generalizing on.</figcaption>
       </figure>
 

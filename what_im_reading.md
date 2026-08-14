@@ -235,7 +235,7 @@ title: What I'm Reading
             <h2>Recommended Books</h2>
 
             <div class="book">
-                <img src="{{ '/assets/images/prob_ml_intro_cover.jpg' | relative_url }}" alt="Book Cover">
+                <img src="{{ '/assets/images/prob_ml_intro_cover.webp' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>
                         <a href="https://www.amazon.com/Probabilistic-Machine-Learning-Introduction-Computation/dp/0262046822" target="_blank">
@@ -249,7 +249,7 @@ title: What I'm Reading
 
 
             <div class="book">
-                <img src="{{ '/assets/images/hundred-page-machine_learning_book_cover.jpg' | relative_url }}" alt="Book Cover">
+                <img src="{{ '/assets/images/hundred-page-machine_learning_book_cover.webp' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>                        
                         <a href="https://themlbook.com" target="_blank">
@@ -268,7 +268,7 @@ title: What I'm Reading
             <h2>Recommended Papers</h2>
 
         <div class="paper">
-            <img src="{{ '/assets/images/DNABERT.png' | relative_url }}" alt="DNABERT">
+            <img src="{{ '/assets/images/DNABERT.webp' | relative_url }}" alt="DNABERT">
             <div class="details">
                 <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank">DNABERT</a></h3>
                 <div class="author">Yanrong Ji, Zhihan Zhou, Han Liu, Ramana V Davuluri.</div>
@@ -278,7 +278,7 @@ title: What I'm Reading
 
 
             <div class="paper">
-                <img src="{{ '/assets/images/Toward_a_theory_of_evolution_as_multilevel_learning.png' | relative_url }}" alt="Multi-level_learning">
+                <img src="{{ '/assets/images/Toward_a_theory_of_evolution_as_multilevel_learning.webp' | relative_url }}" alt="Multi-level_learning">
                 <div class="details">
                     <h3>Toward a Theory of Evolution as Multilevel Learning</h3>
                     <div class="author">Vanchurin V, Wolf YI, Katsnelson MI, Koonin EV.</div>

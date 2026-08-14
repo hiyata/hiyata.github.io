@@ -3,85 +3,144 @@ layout: post
 title:  "Migration Patterns Behind HCMV Diversity"
 date:   2024-08-01 13:00:00 -0400
 categories: jekyll update
-excerpt: "Can ancient migration patterns explain the geographic diversity of HCMV and help us better understand varying tolerances to herpesvirus infection?"
+excerpt: "Can ancient human migration explain the geographic diversity of HCMV, and does that shared history help explain why some people get sick from infection while most never notice it at all?"
 ---
 
-<p>Human betaherpesvirus 5 (HHV-5), also known as human cytomegalovirus (HCMV), is one of the most prevelant and specific viruses we know. Herpesviruses are thought to have co-evolved with their respective hosts across hundreds of millions of years (<a href="https://pubmed.ncbi.nlm.nih.gov/11888691/">1</a>). As a result, herpesviruses are usually well adapted to their specific host and seldom infect organisms outside of their normal host species. HCMV is also one of the most common viruses, with an estimated seroprevelance of up to 80% in adults across the world (<a href="https://doi.org/10.1002/rmv.2034">2</a>). Most seroprevelant adults will never display symptoms of an HCMV infection and remain unaware that the virus has established life-long residency within their cells.</p> 
+<p>
+Human betaherpesvirus 5 (HHV-5), better known as human cytomegalovirus (HCMV), is one of the
+most widespread and host-specific viruses we know. Herpesviruses are thought to have co-evolved
+with their hosts across hundreds of millions of years<sup><a href="#ref-1">1</a></sup>, and as a
+result they tend to be tightly adapted to a single host species, rarely infecting anything
+outside their normal range. HCMV is also extremely common: seroprevalence in adults runs as high
+as 80% worldwide<sup><a href="#ref-2">2</a></sup>. Most infected adults never notice, the virus
+simply establishes life-long residency in their cells and stays quiet.
+</p>
 
-<p>Some viruses have evolved adjacently with their hosts for millions of years, such as human cytomegalovirus. The result of this coexistence is highly specialized viruses tailored to thrive in human hosts without causing pathogenesis in most people. Many disease-causing pathogens we think of are of zoonotic origin, rather than human originating. Spillover events from viruses tend to be the cause deadly diseases and epidemics. For example, </p>
+<p>
+That long, quiet coexistence is the interesting part. Most of the pathogens that make headlines,
+SARS-CoV-2, Ebola, HIV, are zoonotic in origin: they jumped into humans relatively recently, and
+spillover events like that tend to be the source of the deadliest outbreaks, the host hasn't had
+time to adapt. HCMV is the opposite case. It has been shaped by, and shaping, human hosts for a
+very long time, and that history shows up directly in its genome. Recent work on HCMV strain
+collections has found that strains cluster geographically, sequences sampled from southeast
+Africa, for instance, sit apart from the rest of the dataset as one of its most distinct groups.
+That's the pattern this post digs into.
+</p>
 
-<p>Recent findings have shown that HCMV strains have distinct geographical features and be clustered by such features. Strains collected from southeast africa form one of the most distinct clusters, clustering around the outer edges of our European strains.</p>
+<h2>What 330 HCMV genomes look like in strain-space</h2>
+<p>
+Below is a multidimensional scaling (MDS) projection of 330 publicly available HCMV genomes,
+built from pairwise genomic distance and reduced to two components so the overall structure is
+visible at a glance. Each point is one strain, colored by the continent it was sampled from, and
+you can hover any point for its strain name and country of origin.
+</p>
 
-<p>Primary infection of HCMV is often asymptomatic in healthy adults. However, in some individuals disease manifests in the form of mononucleosis (<a href="https://www.mayoclinic.org/diseases-conditions/cmv/symptoms-causes/syc-20355358">3</a>). We currently do not understand why some healthy individuals manifest disease while others remain asymptomatic. 
+<div class="mds-figure">
+  <div id="scatterPlot" style="height: 600px; width: 100%;"></div>
+</div>
+<p class="mds-figure-note">
+  n = 330 strains &middot; Europe (266) and Africa (36, mostly Zambia and Kenya) make up the bulk
+  of publicly available sequence, which is itself a sampling bias worth keeping in mind, but the
+  African cluster's separation from the European core holds up regardless.
+</p>
 
+<p>
+The African strains, Zambian sequences especially, sit toward the outer edge of the projection
+rather than blending into the larger Eurasian cluster. That's consistent with deeper genomic
+divergence, which is exactly what you'd expect if HCMV has been differentiating alongside human
+populations since long before recent global travel started mixing everything back together.
+</p>
 
-HCMV strains that have co-evolved with humans may be less damaging than HCMV strains that co-evolved with other hominid species before being re-introduced to humans. 
+<h2>A viral map that mirrors a human one</h2>
+<p>
+If HCMV diversified as it traveled with us, its genomic map should echo our own migration map,
+at least roughly. Human genetic diversity carries a well-documented signature of the
+out-of-Africa expansion: populations that migrated furthest from the origin generally show
+reduced diversity relative to those that stayed closer to it, a serial founder-effect pattern
+repeated at every step of the journey. Immune-related genes are no exception, historic
+migration and the pathogens encountered along the way have measurably shaped how human immune
+variation is distributed across populations today<sup><a href="#ref-4">4</a></sup>.
+</p>
 
+<figure>
+  <img src="{{ '/assets/images/migration_patterns_PMID_31786023.webp' | relative_url }}" alt="Map of early human migration out of Africa, showing approximate routes and timing in thousands of years ago, including introgression events with Neanderthals and Denisovans">
+  <figcaption>Approximate routes and timing of early human migration out of Africa, with Neanderthal and Denisovan introgression events marked. From Domínguez-Andrés &amp; Netea, 2019<sup><a href="#ref-4">4</a></sup>.</figcaption>
+</figure>
 
-<div id="scatterPlot" class="animate" style="height: 600px; width: 100%; margin-bottom: 20px;"></div>
+<figure>
+  <img src="{{ '/assets/images/world_map_of_y-dna_haplogroups.webp' | relative_url }}" alt="World map of Y-DNA haplogroups showing dominant paternal lineages in native populations and their proposed migration routes">
+  <figcaption>Y-DNA haplogroup distribution and proposed migration routes, a complementary view of the same population movements a host-adapted virus would have traveled alongside.</figcaption>
+</figure>
 
+<p>
+Line the two maps up against the HCMV projection above and the parallel is hard to miss: the
+same broad strokes, an African origin, a long Eurasian spread, more isolated founder populations
+at the far ends of the migration routes, show up in both the human genetic record and, more
+faintly so far, in HCMV's.
+</p>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+<h2>An open question worth testing</h2>
+<p>
+Primary HCMV infection is usually silent in healthy adults, but not always, some people develop
+mononucleosis<sup><a href="#ref-3">3</a></sup>, and we still don't have a good explanation for why.
+One hypothesis this pattern suggests: HCMV strains that co-evolved with a given human population
+over a long stretch of shared history may simply be better tolerated by descendants of that
+population than a strain introduced more recently from elsewhere, the same logic that makes a
+pathogen most dangerous right after it jumps into a new host applies, in a milder form, to
+mismatches between a well-adapted virus and an unfamiliar host population. That's a hypothesis,
+not a finding, the strain-clustering pattern above is suggestive, not proof, but it's a concrete,
+testable direction: pairing strain phylogeography with host ancestry and clinical outcome data
+is the natural next step.
+</p>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+<h2>References</h2>
+<ol>
+  <li id="ref-1">Davison AJ. Evolution of the herpesviruses. <em>Vet Microbiol.</em> 2002 Apr 22;86(1-2):69-88. doi: <a href="https://doi.org/10.1016/s0378-1135(01)00492-8" target="_blank" rel="noopener">10.1016/s0378-1135(01)00492-8</a>. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/11888691/" target="_blank" rel="noopener">11888691</a>.</li>
+  <li id="ref-2">Zuhair M, Smit GSA, Wallis G, et al. Estimation of the worldwide seroprevalence of cytomegalovirus: A systematic review and meta-analysis. <em>Rev Med Virol.</em> 2019;29:e2034. doi: <a href="https://doi.org/10.1002/rmv.2034" target="_blank" rel="noopener">10.1002/rmv.2034</a>.</li>
+  <li id="ref-3">Mayo Clinic Staff. Mononucleosis: Symptoms and causes. <em>Mayo Clinic.</em> <a href="https://www.mayoclinic.org/diseases-conditions/cmv/symptoms-causes/syc-20355358" target="_blank" rel="noopener">mayoclinic.org</a>.</li>
+  <li id="ref-4">Domínguez-Andrés J, Netea MG. Impact of Historic Migrations and Evolutionary Processes on Human Immunity. <em>Trends Immunol.</em> 2019 Dec;40(12):1105-1119. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/31786023/" target="_blank" rel="noopener">31786023</a>.</li>
+</ol>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
+
+<style>
+  .mds-figure {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    padding: 1rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .mds-figure-note {
+    font-family: var(--mono);
+    font-size: 0.78em;
+    color: var(--ink-faint);
+    margin: 0 0 1.5rem;
+  }
+  #scatterPlot .domain,
+  #scatterPlot .tick line {
+    stroke: var(--border-strong);
+  }
+  #scatterPlot .tick text,
+  #scatterPlot .axis-label,
+  #scatterPlot text {
+    fill: var(--ink-soft);
+  }
+  #scatterPlot .chart-title {
+    fill: var(--ink);
+  }
+</style>
 
 <script>
 
 // Function to process CSV data
 function processData(results) {
     const data = results.data.filter(row => row.Continent && row.Country && row.Strain && row.ID && row.Component1 && row.Component2);
-    const continents = {};
-    const countries = {};
-    const states = {};
-
-    data.forEach(row => {
-        if (!continents[row.Continent]) {
-            continents[row.Continent] = { count: 0, countries: {}, strains: new Set() };
-        }
-        if (!continents[row.Continent].countries[row.Country]) {
-            continents[row.Continent].countries[row.Country] = { count: 0, strains: new Set(), states: {} };
-        }
-        if (!countries[row.Country]) {
-            countries[row.Country] = { continent: row.Continent, count: 0, strains: new Set(), states: {} };
-        }
-        if (row.State && row.Country === 'USA') {
-            if (!continents[row.Continent].countries[row.Country].states[row.State]) {
-                continents[row.Continent].countries[row.Country].states[row.State] = { count: 0, strains: new Set() };
-            }
-            if (!countries[row.Country].states[row.State]) {
-                countries[row.Country].states[row.State] = { count: 0, strains: new Set() };
-            }
-            if (!states[row.State]) {
-                states[row.State] = { count: 0, strains: new Set() };
-            }
-            continents[row.Continent].countries[row.Country].states[row.State].count++;
-            continents[row.Continent].countries[row.Country].states[row.State].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-            countries[row.Country].states[row.State].count++;
-            countries[row.Country].states[row.State].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-            states[row.State].count++;
-            states[row.State].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-        }
-
-        continents[row.Continent].count++;
-        continents[row.Continent].countries[row.Country].count++;
-        continents[row.Continent].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-        continents[row.Continent].countries[row.Country].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-        countries[row.Country].count++;
-        countries[row.Country].strains.add(JSON.stringify({Strain: row.Strain, ID: row.ID}));
-    });
-
-    return { continents, countries, states, data };
+    return { data };
 }
-// Function to create state markers (for USA)
+
+// Function to create the MDS scatter plot
 function createScatterPlot(data) {
     const scatterPlot = document.getElementById('scatterPlot');
     const width = scatterPlot.clientWidth;
@@ -90,6 +149,10 @@ function createScatterPlot(data) {
     const plotWidth = width - margin.left - margin.right;
     const plotHeight = height - margin.top - margin.bottom;
 
+    const rootStyles = getComputedStyle(document.documentElement);
+    const surfaceColor = rootStyles.getPropertyValue('--surface').trim() || '#ffffff';
+    const borderColor = rootStyles.getPropertyValue('--border').trim() || '#e2dbca';
+
     const svg = d3.select('#scatterPlot')
         .append('svg')
         .attr('width', width)
@@ -97,6 +160,7 @@ function createScatterPlot(data) {
 
     // Add title to the scatterplot
     svg.append("text")
+        .attr("class", "chart-title")
         .attr("x", width / 2)
         .attr("y", margin.top / 2)
         .attr("text-anchor", "middle")
@@ -115,7 +179,7 @@ function createScatterPlot(data) {
     const q3y = d3.quantile(data.map(d => parseFloat(d.Component2)).sort(d3.ascending), 0.75);
     const iqry = q3y - q1y;
 
-    const filteredData = data.filter(d => 
+    const filteredData = data.filter(d =>
         parseFloat(d.Component1) >= q1x - 1.5 * iqrx &&
         parseFloat(d.Component1) <= q3x + 1.5 * iqrx &&
         parseFloat(d.Component2) >= q1y - 1.5 * iqry &&
@@ -156,7 +220,6 @@ function createScatterPlot(data) {
         .attr('class', 'axis-label')
         .attr('x', plotWidth / 2)
         .attr('y', plotHeight + 60)
-        .attr('fill', '#000')
         .attr('text-anchor', 'middle')
         .attr('font-size', '16px')
         .text('Component 1');
@@ -167,7 +230,6 @@ function createScatterPlot(data) {
         .attr('y', -60)
         .attr('x', -plotHeight / 2)
         .attr('dy', '1em')
-        .attr('fill', '#000')
         .attr('text-anchor', 'middle')
         .attr('font-size', '16px')
         .text('Component 2');
@@ -188,17 +250,7 @@ function createScatterPlot(data) {
             .attr('fill', 'none')
             .attr('stroke', color(continent))
             .attr('stroke-width', 2)
-            .attr('opacity', 0);
-
-        // Animate ellipses appearing
-        anime({
-            targets: ellipse.node(),
-            opacity: 0.3,
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            duration: 2000,
-            delay: 1000
-        });
+            .attr('opacity', 0.3);
     });
 
     const points = g.selectAll('.point')
@@ -209,28 +261,18 @@ function createScatterPlot(data) {
         .attr('cx', d => x(parseFloat(d.Component1)))
         .attr('cy', d => y(parseFloat(d.Component2)))
         .attr('fill', d => color(d.Continent))
-        .attr('stroke', '#fff')
+        .attr('stroke', surfaceColor)
         .attr('stroke-width', 1)
-        .attr('opacity', 0);
-
-    // Animate points appearing
-    anime({
-        targets: points.nodes(),
-        opacity: 0.8,
-        scale: [0, 1],
-        delay: anime.stagger(10),
-        easing: 'easeOutElastic(1, .5)',
-        duration: 1500
-    });
+        .attr('opacity', 0.8);
 
     // Add legend
-    const legendBackground = svg.append('rect')
+    svg.append('rect')
         .attr('x', width - margin.right + 10)
         .attr('y', margin.top)
         .attr('width', margin.right - 20)
         .attr('height', 110)
-        .attr('fill', 'white')
-        .attr('stroke', 'black');
+        .attr('fill', surfaceColor)
+        .attr('stroke', borderColor);
 
     const legend = svg.append('g')
         .attr('class', 'legend')
@@ -264,7 +306,6 @@ function createScatterPlot(data) {
         .attr('y', plotHeight - 10)
         .attr('text-anchor', 'end')
         .attr('font-size', '12px')
-        .attr('fill', 'black')
         .style('opacity', 0);
 
     // Add interactivity
@@ -290,7 +331,7 @@ function createScatterPlot(data) {
 
 // Main function to load and process data
 function loadData() {
-    Papa.parse('/assets/csv_files/hcmv_strains.csv', {
+    Papa.parse('{{ "/assets/csv_files/hcmv_strains.csv" | relative_url }}', {
         download: true,
         header: true,
         complete: function(results) {
@@ -303,16 +344,3 @@ function loadData() {
 // Call loadData when the page is loaded
 document.addEventListener('DOMContentLoaded', loadData);
 </script>
-
-<img src="/assets/images/migration_patterns_PMID_31786023.jpg" alt="Migration Patterns">
-
-<p>test test test</p>
-
-<img src="/assets/images/world_map_of_y-dna_haplogroups.jpg" alt="World Map of Y-DNA Haplogroups">
-
-## References 
-
-1. Davison AJ. Evolution of the herpesviruses. Vet Microbiol. 2002 Apr 22;86(1-2):69-88. doi: 10.1016/s0378-1135(01)00492-8. PMID: 11888691.
-
-2. Zuhair M, Smit GSA, Wallis G, et al. Estimation of the worldwide seroprevalence of cytomegalovirus: A systematic review and meta-analysis. Rev Med Virol. 2019; 29:e2034. https://doi.org/10.1002/rmv.2034
-

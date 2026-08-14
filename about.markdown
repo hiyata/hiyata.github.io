@@ -243,7 +243,7 @@ title: About
   flex-shrink: 0;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background-image: url('{{ "/assets/images/Alan_3.jpg" | relative_url }}');
+  background-image: url('{{ "/assets/images/Alan_3.webp" | relative_url }}');
   background-size: cover;
   background-position: center;
 }
