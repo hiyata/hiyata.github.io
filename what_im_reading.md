@@ -120,9 +120,13 @@ title: What I'm Reading
             text-align: left;
             display: none;
         }
+        .feed-updated {
+            margin: 0.75rem 0 0;
+            font-family: var(--mono);
+            font-size: 0.72em;
+            color: var(--ink-faint);
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-rss/3.3.0/jquery.rss.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const currentDate = new Date().toLocaleDateString('en-US', {
@@ -132,78 +136,82 @@ title: What I'm Reading
             });
             document.getElementById('current-date').textContent = currentDate;
 
-            // PubMed feed
-            $("#pubmed-feed").rss("https://pubmed.ncbi.nlm.nih.gov/rss/search/1xCFUMSbAMYitB6LKyB5opiesUFp1inW-kMm4Ly8hr-nJYagWd/?limit=15&utm_campaign=pubmed-2&fc=20240820105625", {
-                limit: 5,
-                effect: 'slideFastSynced',
-                layoutTemplate: "<ul>{entries}</ul>",
-                entryTemplate: '<li><a href="{url}">{title}</a><br/><small>{date}</small><br/>{shortBodyPlain}</li>',
-                error: function() {
-                    document.getElementById('pubmed-loading').style.display = 'none';
-                    document.getElementById('pubmed-error').style.display = 'block';
-                    document.getElementById('pubmed-error').textContent = 'Error loading PubMed feed. Please try again later.';
-                },
-                success: function() {
-                    document.getElementById('pubmed-loading').style.display = 'none';
+            // Both feeds are fetched server-side by a scheduled GitHub Action
+            // (.github/workflows/update-feeds.yml) and committed as static
+            // JSON, since neither pubmed.ncbi.nlm.nih.gov nor export.arxiv.org
+            // send CORS headers, so a direct browser fetch from this site
+            // gets blocked. Reading a same-origin JSON file sidesteps that
+            // entirely, with no third-party proxy and no API key involved.
+            loadFeed({
+                url: '{{ "/assets/data/pubmed-feed.json" | relative_url }}',
+                loadingEl: document.getElementById('pubmed-loading'),
+                errorEl: document.getElementById('pubmed-error'),
+                listEl: document.getElementById('pubmed-feed'),
+                errorText: 'Could not load the PubMed feed right now. Please try again later.',
+                renderItem: function(item) {
+                    return `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a><br>` +
+                        `<small>${item.date || ''}</small><br>` +
+                        `<small>${item.summary || ''}</small>`;
                 }
             });
 
-            // Function to fetch and display most recent arXiv papers related to genomic LLM
-            async function fetchArxivPapers() {
-                const loadingElement = document.getElementById('arxiv-loading');
-                const errorElement = document.getElementById('arxiv-error');
-                const arxivFeed = document.getElementById('arxiv-feed');
+            loadFeed({
+                url: '{{ "/assets/data/arxiv-feed.json" | relative_url }}',
+                loadingEl: document.getElementById('arxiv-loading'),
+                errorEl: document.getElementById('arxiv-error'),
+                listEl: document.getElementById('arxiv-feed'),
+                errorText: 'Could not load the arXiv feed right now. Please try again later.',
+                emptyText: 'No recent papers found related to genomic language models. This is a very specific and fairly new field, so results may be limited.',
+                renderItem: function(item) {
+                    const published = item.date ? new Date(item.date).toLocaleDateString() : '';
+                    const authors = (item.authors || []).join(', ');
+                    return `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a><br>` +
+                        `<small>Authors: ${authors}</small><br>` +
+                        `<small>Published: ${published}</small><br>` +
+                        `<small>${item.summary || ''}</small>`;
+                }
+            });
 
-                loadingElement.style.display = 'block';
-                errorElement.style.display = 'none';
-                arxivFeed.innerHTML = '';
-
-                // Updated query to focus on genomic LLM
-                const query = encodeURIComponent('all:("genomic language model" OR "genomic LLM" OR "genomics LLM" OR "genomics language model" OR (genomic AND "large language model"))');
-                const url = `https://export.arxiv.org/api/query?search_query=${query}&sortBy=lastUpdatedDate&sortOrder=descending&start=0&max_results=5`;
+            async function loadFeed(config) {
+                config.loadingEl.style.display = 'block';
+                config.errorEl.style.display = 'none';
+                config.listEl.innerHTML = '';
 
                 try {
-                    const response = await fetch(url);
-                    const xmlText = await response.text();
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+                    const response = await fetch(config.url, { cache: 'no-store' });
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    const data = await response.json();
+                    const items = data.items || [];
 
-                    const entries = xmlDoc.getElementsByTagName('entry');
-
-                    console.log(`Found ${entries.length} entries related to genomic LLM`);
-
-                    if (entries.length === 0) {
-                        arxivFeed.innerHTML = '<li>No recent papers found related to genomic language models. This is a very specific and potentially new field, so results may be limited.</li>';
+                    if (items.length === 0) {
+                        config.listEl.innerHTML = `<li>${config.emptyText || 'No items found.'}</li>`;
                     } else {
-                        for (let i = 0; i < Math.min(entries.length, 5); i++) { // Limit to top 5 results
-                            const entry = entries[i];
-                            const title = entry.getElementsByTagName('title')[0].textContent;
-                            const authors = Array.from(entry.getElementsByTagName('author')).map(author => author.getElementsByTagName('name')[0].textContent).join(', ');
-                            const link = entry.getElementsByTagName('id')[0].textContent;
-                            const published = new Date(entry.getElementsByTagName('published')[0].textContent);
-                            const summary = entry.getElementsByTagName('summary')[0].textContent.slice(0, 200) + '...';
+                        const list = document.createElement('ul');
+                        items.slice(0, 5).forEach(function(item) {
+                            const li = document.createElement('li');
+                            li.innerHTML = config.renderItem(item);
+                            list.appendChild(li);
+                        });
+                        config.listEl.appendChild(list);
+                    }
 
-                            const listItem = document.createElement('li');
-                            listItem.innerHTML = `
-                                <a href="${link}" target="_blank">${title}</a><br>
-                                <small>Authors: ${authors}</small><br>
-                                <small>Published: ${published.toLocaleDateString()}</small><br>
-                                <small>${summary}</small>
-                            `;
-                            arxivFeed.appendChild(listItem);
-                        }
+                    if (data.generated_at) {
+                        const updated = document.createElement('p');
+                        updated.className = 'feed-updated';
+                        updated.textContent = 'Updated ' + new Date(data.generated_at).toLocaleString('en-US', {
+                            dateStyle: 'medium',
+                            timeStyle: 'short'
+                        });
+                        config.listEl.appendChild(updated);
                     }
                 } catch (error) {
-                    console.error('Error fetching arXiv papers:', error);
-                    errorElement.textContent = 'Error fetching arXiv papers. Please try again later.';
-                    errorElement.style.display = 'block';
+                    console.error('Error loading feed:', config.url, error);
+                    config.errorEl.textContent = config.errorText;
+                    config.errorEl.style.display = 'block';
                 } finally {
-                    loadingElement.style.display = 'none';
+                    config.loadingEl.style.display = 'none';
                 }
             }
-
-            // Call the function to fetch arXiv papers
-            fetchArxivPapers();
         });
     </script>
 

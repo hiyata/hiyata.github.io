@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-08-14T02:26:39+00:00",
+  "items": [
+    {
+      "title": "Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroimaging",
+      "link": "http://arxiv.org/abs/2608.08926v1",
+      "date": "2026-08-09T21:40:17Z",
+      "authors": [
+        "Tianli Tao",
+        "Ziyang Wang",
+        "Emma Robinson",
+        "Rachel Sparks",
+        "Le Zhang"
+      ],
+      "summary": "Neuroimaging and genetic testing are two important clinical references for nervous system diseases, offering complementary diagnostic information. However, integrating genomic and neuroimaging data for precise disease..."
+    },
+    {
+      "title": "Frozen but Not Always Accessible: A Representation Analysis of Genomic Language Models",
+      "link": "http://arxiv.org/abs/2608.05329v1",
+      "date": "2026-08-05T18:37:06Z",
+      "authors": [
+        "Nirjhor Datta",
+        "Swakkhar Shatabda",
+        "M. Sohel Rahman"
+      ],
+      "summary": "Genomic foundation models are increasingly reused as frozen feature extractors for downstream sequence prediction, offering a compute-efficient alternative to full fine-tuning. However, it remains unclear when..."
+    },
+    {
+      "title": "LDARNet: DNA Adaptive Representation Network with Learnable Tokenization for Genomic Modeling",
+      "link": "http://arxiv.org/abs/2606.04552v2",
+      "date": "2026-06-03T07:38:17Z",
+      "authors": [
+        "Daria Ledneva",
+        "Denis Kuznetsov"
+      ],
+      "summary": "Genomic foundation models increasingly adopt large language model architectures, yet almost universally rely on fixed tokenization schemes such as $k$-mers, BPE, or single nucleotides, which impose arbitrary sequence..."
+    },
+    {
+      "title": "Unifying biomedical knowledge in a modern multimodal graph",
+      "link": "http://arxiv.org/abs/2604.27269v2",
+      "date": "2026-04-29T23:49:34Z",
+      "authors": [
+        "Lucas Vittor",
+        "Ayush Noori",
+        "I\u00f1aki Arango",
+        "Joaqu\u00edn Polonuer",
+        "Sam Rodriques",
+        "Andrew White",
+        "David A. Clifton",
+        "Marinka Zitnik"
+      ],
+      "summary": "Biomedical knowledge graphs (KGs) are widely used in the life sciences, yet many are derived from unstructured documents and therefore lack schema-level constraints, whereas graphs assembled from structured resources..."
+    },
+    {
+      "title": "LLMBDC: Language Model for Biological Domains Oriented Clustering of Gene Ontology",
+      "link": "http://arxiv.org/abs/2608.00099v1",
+      "date": "2026-07-30T19:29:22Z",
+      "authors": [
+        "Ximing Ran",
+        "Jie Xu",
+        "Peng Jin",
+        "Zhaohui Qin",
+        "Zhexing Wen",
+        "Jiaying Lu"
+      ],
+      "summary": "Gene Ontology (GO) enrichment analysis is a foundational tool for translating large-scale genomic data into biological insights, but typically yields hundreds of redundant terms that obscure overarching themes. Existing..."
+    },
+    {
+      "title": "Evaluating Agentic Bioinformatics through Function, Evidence, and Validation",
+      "link": "http://arxiv.org/abs/2607.27556v1",
+      "date": "2026-07-30T01:00:36Z",
+      "authors": [
+        "Phuc Pham",
+        "Truong-Son Hy"
+      ],
+      "summary": "Large language model agents increasingly plan, execute, and interpret biological analyses, yet fluent responses, successful tool calls, and benchmark performance alone do not establish scientific credibility. Existing..."
+    },
+    {
+      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
+      "link": "http://arxiv.org/abs/2503.15846v2",
+      "date": "2025-03-20T04:58:53Z",
+      "authors": [
+        "Xuanming Cui",
+        "Jaiminkumar Ashokbhai Bhoi",
+        "Chionh Wei Peng",
+        "Adriel Kuek",
+        "Ser Nam Lim"
+      ],
+      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
+    },
+    {
+      "title": "A scaling law of contextual persistence in human language",
+      "link": "http://arxiv.org/abs/2607.25184v1",
+      "date": "2026-07-28T01:28:19Z",
+      "authors": [
+        "Elan Barenholtz"
+      ],
+      "summary": "Human language exhibits lawful structure at the level of words (frequency, vocabulary growth) and word pairs (co-occurrence across distance). Here we show that the arrangement of words in sequence -- a central..."
+    }
+  ]
+}

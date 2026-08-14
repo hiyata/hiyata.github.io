@@ -1,0 +1,43 @@
+name: Update reading feeds
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-feeds
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Fetch PubMed and arXiv feeds
+        # A single feed failing (upstream hiccup, rate limit) shouldn't block
+        # committing the other feed's fresh data, so this step is allowed to
+        # fail without stopping the job; the script itself only ever writes
+        # a feed's JSON file once that fetch has actually succeeded.
+        continue-on-error: true
+        run: python3 .github/scripts/update_feeds.py
+
+      - name: Commit updated feed data
+        run: |
+          if git diff --quiet -- assets/data/pubmed-feed.json assets/data/arxiv-feed.json; then
+            echo "No feed changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/pubmed-feed.json assets/data/arxiv-feed.json
+          git commit -m "Update reading feeds [skip ci]"
+          git push
