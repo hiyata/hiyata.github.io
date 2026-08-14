@@ -1,4 +1,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  (function () {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  })();
+</script>
+<link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icon-192.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/icon-512.png' | relative_url }}">
+<meta name="theme-color" content="#18140e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,500,0;9..144,600,0;9..144,700,0;9..144,900,0;9..144,600,1;9..144,700,1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
