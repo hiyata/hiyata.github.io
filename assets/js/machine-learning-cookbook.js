@@ -49,6 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  /* ---------------- Syntax highlighting for pseudocode blocks ---------------- */
+  if (window.hljs) {
+    article.querySelectorAll('pre code').forEach((block) => {
+      window.hljs.highlightElement(block);
+    });
+  }
+
   /* ---------------- Wrap tables for horizontal scroll on small screens ---------------- */
   article.querySelectorAll('table').forEach((table) => {
     const wrapper = document.createElement('div');

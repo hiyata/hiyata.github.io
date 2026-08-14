@@ -6,7 +6,10 @@ category: ai
 custom_css: machine-learning-cookbook
 custom_js: machine-learning-cookbook
 ---
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
 <div class="cookbook" markdown="1">
+<span id="cookbook-top"></span>
 <header class="cookbook-header">
   <span class="kicker">Field Reference</span>
   <h1>Machine Learning Cookbook for Epidemiological Modeling and Viral Genomics</h1>
@@ -492,7 +495,7 @@ Neural networks are the foundational models in deep learning, consisting of laye
   - The network learns by adjusting the weights of the connections between neurons based on the error between the predicted and actual outputs. This is done using an optimization algorithm like stochastic gradient descent and a loss function that quantifies the error.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (weights and biases)
     for each epoch do:
         for each batch of training data do:
@@ -530,7 +533,7 @@ Convolutional Neural Networks (CNNs) are a specialized type of neural network de
   - The final layers of a CNN are typically fully connected layers that integrate the learned features to make predictions.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (filters and weights)
     for each epoch do:
         for each batch of training data do:
@@ -571,7 +574,7 @@ Recurrent Neural Networks (RNNs) are designed for sequential data, where the ord
   - There are several variants of RNNs, including Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs), which are designed to handle the vanishing gradient problem and capture long-term dependencies more effectively.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (weights and biases)
     for each epoch do:
         for each batch of training data do:
@@ -610,7 +613,7 @@ Transformers are a powerful class of deep learning models that have revolutioniz
   - Transformers are composed of an encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence. In tasks like machine translation or text generation, this allows the model to effectively map one sequence to another.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (weights and biases)
     for each epoch do:
         for each batch of training data do:
@@ -648,7 +651,7 @@ Autoencoders are a type of unsupervised learning model used primarily for dimens
   - Variants like variational autoencoders (VAEs) introduce probabilistic elements, allowing for more flexible and powerful models that can generate new data points similar to the original dataset.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (encoder and decoder weights and biases)
     for each epoch do:
         for each batch of training data do:
@@ -686,7 +689,7 @@ Generative Adversarial Networks (GANs) are a class of deep learning models used 
   - GANs have been used to generate realistic images, texts, and even genomic data. They are particularly valuable in scenarios where obtaining large amounts of real data is difficult, as they can augment existing datasets.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize network parameters (generator and discriminator weights and biases)
     for each epoch do:
         for each batch of training data do:
@@ -736,7 +739,7 @@ Transfer learning is a technique where a pre-trained model on one task is adapte
   - Transfer learning involves using the weights and structures of a pre-trained model (typically trained on a large dataset) and fine-tuning it on a smaller dataset for a new task. The idea is that the pre-trained model has already learned features that are generally useful, which can be adapted to the specific nuances of the new task with minimal additional training.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Load pre-trained model (e.g., VGG16, ResNet)
     Replace the final layers of the pre-trained model with new layers specific to the target task
     Freeze the weights of the early layers (optional)
@@ -770,7 +773,7 @@ Ensemble learning involves combining the predictions of multiple models to impro
   - Ensemble methods can be divided into two main types: bagging and boosting. Bagging (e.g., Random Forests) builds multiple independent models and averages their predictions, while boosting (e.g., Gradient Boosting Machines) builds models sequentially, where each model tries to correct the errors of the previous ones.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize multiple base models (e.g., decision trees, neural networks)
     for each model do:
         Train the model on a bootstrapped sample of the training data (for bagging)
@@ -797,7 +800,7 @@ Hyperparameter optimization involves systematically searching for the best set o
   - Hyperparameter optimization can be done using grid search, random search, or more advanced techniques like Bayesian optimization. The goal is to find the combination of hyperparameters that yields the best performance on a validation set, thus improving the model’s generalization to unseen data.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Define a search space for each hyperparameter (e.g., learning rate, batch size)
     Initialize best_score to a very large number (or a very small number, depending on the optimization objective)
     for each combination of hyperparameters (in grid search) or random sample (in random search) do:
@@ -826,7 +829,7 @@ Data augmentation involves artificially increasing the size of a training datase
   - Data augmentation techniques include transformations such as rotations, translations, flips, and scaling for image data, and techniques like noise injection, sequence shuffling, or synonym replacement for text data. These transformations create new data points that help the model become more robust to variations in the input.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Define augmentation techniques (e.g., rotation, flip, noise injection)
     for each original data point do:
         Apply each augmentation technique to generate new data points
@@ -851,7 +854,7 @@ Neural Architecture Search (NAS) is an advanced technique used to automate the d
   - NAS involves defining a search space (possible architectures) and using search strategies (like reinforcement learning or evolutionary algorithms) to explore this space. The objective is to find an architecture that maximizes performance on a validation set, balancing accuracy and computational efficiency.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Define a search space of possible neural network architectures
     Initialize the search strategy (e.g., reinforcement learning, evolutionary algorithm)
     for each iteration do:
@@ -879,7 +882,7 @@ Explainable AI (XAI) refers to techniques and methods used to make the predictio
   - XAI techniques include model-agnostic methods like SHAP (SHapley Additive exPlanations) and LIME (Local Interpretable Model-agnostic Explanations), which explain the predictions of any black-box model. There are also model-specific techniques, like attention mechanisms in neural networks, that highlight which parts of the input data are most influential in the model’s decision.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Train the black-box model on training data
     for each prediction do:
         Apply XAI technique (e.g., SHAP, LIME) to interpret the prediction:
@@ -916,7 +919,7 @@ Feature engineering is the process of creating new input features from raw data 
   - **Aggregation**: Combine data points over time or across groups to create new features. For example, in time-series data, creating rolling averages or cumulative sums can help capture trends over time.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Load raw data
     for each feature in raw data do:
         Apply transformations (e.g., scaling, normalization, logarithms)
@@ -948,7 +951,7 @@ Feature selection involves choosing a subset of the most important features for 
   - **Embedded Methods**: These methods perform feature selection during the model training process. For example, LASSO (Least Absolute Shrinkage and Selection Operator) adds a penalty to the model that encourages sparsity, effectively selecting features by driving the coefficients of less important features to zero.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Initialize feature set with all features
     Define a criterion for feature selection (e.g., correlation threshold, model accuracy)
     while stopping criterion not met do:
@@ -979,7 +982,7 @@ Handling categorical variables is a crucial aspect of feature engineering, espec
   - **Target Encoding**: Replaces each category with the mean target value for that category, which can be useful in cases where the categorical variable has a large number of levels.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     for each categorical feature do:
         if one-hot encoding then:
             Create binary columns for each category
@@ -1012,7 +1015,7 @@ Imbalanced data occurs when the classes in a classification problem are not repr
   - **Alternative Metrics**: Evaluate models using metrics that are more informative in the context of imbalanced data, such as the F1 score, precision, recall, and the area under the precision-recall curve, rather than relying solely on accuracy.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     if resampling then:
         if oversampling then:
             Duplicate or synthesize new instances of the minority class
@@ -1046,7 +1049,7 @@ Feature scaling and normalization are techniques used to standardize the range o
   - **Normalization**: Rescales each data point so that it has a unit norm (e.g., a length of 1). This is particularly useful in contexts where the direction of the data point is more important than its magnitude, such as in text classification using cosine similarity.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     for each feature in dataset do:
         if min-max scaling then:
             Scale feature values to range [0, 1] using (value - min) / (max - min)
@@ -1077,7 +1080,7 @@ Dimensionality reduction involves reducing the number of input variables or feat
   - **Linear Discriminant Analysis (LDA)**: LDA is a technique that projects the data into a lower-dimensional space while maximizing the separation between different classes. This is particularly useful in classification tasks where you want to highlight the differences between classes.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     Choose a dimensionality reduction technique (e.g., PCA, t-SNE)
     for each data point in dataset do:
         Apply the dimensionality reduction technique to transform the data into lower-dimensional space
@@ -1113,7 +1116,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use accuracy when the classes are balanced and when the costs of false positives and false negatives are similar.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     accuracy = (true_positives + true_negatives) / (total_instances)
     ```
 
@@ -1122,7 +1125,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use precision when the primary concern is the accuracy of positive predictions, especially in cases where false positives are more detrimental than false negatives.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     precision = true_positives / (true_positives + false_positives)
     ```
 
@@ -1131,7 +1134,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use recall when it is more important to identify all positive cases, even at the expense of increasing false positives.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     recall = true_positives / (true_positives + false_negatives)
     ```
 
@@ -1140,7 +1143,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use the F1 score in situations where both precision and recall are important, and you need a single measure that considers both false positives and false negatives.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     f1_score = 2 * (precision * recall) / (precision + recall)
     ```
 
@@ -1149,7 +1152,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use AUC-ROC when you need to evaluate the model’s performance across different threshold levels and when the balance between sensitivity and specificity is important.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     Compute true_positive_rate and false_positive_rate at various thresholds
     auc_roc = Area under the ROC curve
     ```
@@ -1159,7 +1162,7 @@ In classification tasks, where the objective is to assign data points to predefi
   - **When to Use**: Use a confusion matrix when you need a comprehensive view of model performance, particularly when you need to calculate multiple metrics or understand the distribution of errors.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     confusion_matrix = [[true_positives, false_positives],
                         [false_negatives, true_negatives]]
     ```
@@ -1173,7 +1176,7 @@ For regression tasks, where the goal is to predict continuous values, different 
   - **When to Use**: Use MSE when you want to heavily penalize larger errors and when the model’s primary goal is to achieve high accuracy in predictions.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     mse = sum((predicted_value - actual_value)^2) / total_instances
     ```
 
@@ -1182,7 +1185,7 @@ For regression tasks, where the goal is to predict continuous values, different 
   - **When to Use**: Use RMSE when you want an interpretable error metric in the same units as the predicted variable, and when you are concerned about large errors.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     rmse = sqrt(mse)
     ```
 
@@ -1191,7 +1194,7 @@ For regression tasks, where the goal is to predict continuous values, different 
   - **When to Use**: Use MAE when you need a robust metric that provides a clear interpretation of the average error, especially in the presence of outliers.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     mae = sum(abs(predicted_value - actual_value)) / total_instances
     ```
 
@@ -1200,7 +1203,7 @@ For regression tasks, where the goal is to predict continuous values, different 
   - **When to Use**: Use R² when you need to understand how well the model explains the variance in the data and when comparing different models.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     ss_total = sum((actual_value - mean_actual_value)^2)
     ss_residual = sum((actual_value - predicted_value)^2)
     r_squared = 1 - (ss_residual / ss_total)
@@ -1216,7 +1219,7 @@ Cross-validation is a robust technique used to evaluate a model’s ability to g
   - **Stratified Cross-Validation**: When dealing with imbalanced datasets, stratified cross-validation ensures that each fold maintains the same class distribution as the entire dataset. This is particularly important in classification tasks where certain classes may be underrepresented.
 
 - **Pseudocode**:
-    ```plaintext
+    ```python
     split data into k folds
     for each fold i in k do:
         use fold i as the test set and the remaining k-1 folds as the training set
@@ -1248,7 +1251,7 @@ Global interpretation techniques provide insights into the overall behavior of t
   - **When to Use**: Use feature importance to identify which features are most influential in the model’s predictions. This can help in feature selection and in understanding the key drivers behind the model’s decisions.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     for each feature in the model do:
         compute importance based on the total reduction in impurity
     end for
@@ -1260,7 +1263,7 @@ Global interpretation techniques provide insights into the overall behavior of t
   - **When to Use**: Use PDPs when you need to understand the effect of a specific feature on the model’s predictions, particularly in non-linear models where interactions between features are complex.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     for each feature do:
         for each value of the feature do:
             fix the value of the feature
@@ -1278,7 +1281,7 @@ Local interpretation techniques explain individual predictions, helping to under
   - **When to Use**: Use LIME when you need to explain individual predictions, particularly for complex models like deep neural networks where the decision-making process is not inherently interpretable.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     select the instance to explain
     generate perturbed samples around the instance
     train a simple interpretable model (e.g., linear regression) on the perturbed samples
@@ -1290,7 +1293,7 @@ Local interpretation techniques explain individual predictions, helping to under
   - **When to Use**: Use SHAP when you need a consistent and theoretically grounded method for explaining individual predictions. SHAP is particularly useful for models with complex interactions between features.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     compute the average prediction across all instances
     for each feature in the instance do:
         compute the SHAP value by considering all possible subsets of features
@@ -1317,7 +1320,7 @@ Overfitting occurs when a model is too complex, capturing noise and fluctuations
   - **Early Stopping**: In neural networks, early stopping involves monitoring the model’s performance on a validation set during training. Training is stopped when performance on the validation set stops improving, preventing the model from overfitting to the training data.
 
   - **Pseudocode**:
-    ```plaintext
+    ```python
     initialize model with regularization parameters (if applicable)
     for each epoch do:
         train model on training data
@@ -1341,7 +1344,7 @@ Underfitting occurs when a model is too simple to capture the underlying pattern
   - **Reduce Regularization**: If regularization is too strong, it can lead to underfitting. Reducing the regularization parameter can allow the model to fit the training data better by giving it more flexibility.
 
   - **Pseudocode**:
-    ```plaintext
+    ```python
     initialize model with reduced regularization parameters
     for each epoch do:
         train model on training data
@@ -1376,7 +1379,7 @@ For more complex models like neural networks or ensembles, model-agnostic method
   - **When to Use**: Use permutation feature importance to assess the importance of features in complex models where direct interpretation is not feasible, such as in deep learning models.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     evaluate model on the original dataset to get baseline performance
     for each feature do:
         shuffle the values of the feature in the dataset
@@ -1391,7 +1394,7 @@ For more complex models like neural networks or ensembles, model-agnostic method
   - **When to Use**: Use integrated gradients when you need a detailed explanation of how features contribute to a prediction in complex models like deep neural networks.
   
   - **Pseudocode**:
-    ```plaintext
+    ```python
     choose a baseline input (e.g., all zeros)
     for each feature in the input do:
         compute the gradient of the model’s output with respect to the feature
@@ -1411,7 +1414,7 @@ Calibration refers to the process of adjusting the outputs of a probabilistic mo
   - **Isotonic Regression**: A non-parametric approach that fits a piecewise constant function to the predicted probabilities, isotonic regression is more flexible than Platt scaling and can produce better-calibrated probabilities, especially when the model's outputs are not well-suited to logistic regression.
 
   - **Pseudocode**:
-    ```plaintext
+    ```python
     train the original model and obtain predicted probabilities
     use these probabilities as input to the calibration method (e.g., Platt Scaling, Isotonic Regression)
     fit the calibration model to the probabilities and the actual outcomes
@@ -1623,9 +1626,14 @@ Ethical considerations should not be seen as a barrier to innovation but as a fo
   - **Building Communities**: Encourage the development of ethical AI communities within organizations and across industries. These communities can share best practices, discuss ethical challenges, and collaborate on developing solutions to common ethical issues.
   - **Public Engagement**: Engage with the public on AI ethics to build awareness and understanding of the ethical implications of AI technologies. Public engagement can also provide valuable feedback that helps shape the development of ethical AI systems.
 
+In conclusion, ethical considerations and responsible AI practices are essential for the development of AI systems that are not only technically advanced but also socially beneficial. By addressing issues such as fairness, transparency, privacy, and accountability, and by fostering a culture of ethical innovation, organizations can ensure that their AI technologies contribute positively to society and uphold the values that are important to all stakeholders.
+{: .closing-note}
+
 </article>
 </div>
+
+<footer class="cookbook-end">
+  <p>That's the whole cookbook, for now. I keep adding to it as I learn more, so check back later for updates.</p>
+  <a href="#cookbook-top" class="cookbook-back-to-top">&uarr; Back to top</a>
+</footer>
 </div>
-
-In conclusion, ethical considerations and responsible AI practices are essential for the development of AI systems that are not only technically advanced but also socially beneficial. By addressing issues such as fairness, transparency, privacy, and accountability, and by fostering a culture of ethical innovation, organizations can ensure that their AI technologies contribute positively to society and uphold the values that are important to all stakeholders.
-

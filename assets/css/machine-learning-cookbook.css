@@ -283,6 +283,61 @@ body {
 }
 
 /* ============================================
+   PSEUDOCODE / SYNTAX HIGHLIGHTING
+   ============================================ */
+
+.cookbook-content pre {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.cookbook-content pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cookbook-content pre .hljs-keyword {
+  color: #f0a875;
+  font-weight: 600;
+}
+
+.cookbook-content pre .hljs-built_in,
+.cookbook-content pre .hljs-title.function_ {
+  color: #7fc4b6;
+}
+
+.cookbook-content pre .hljs-title,
+.cookbook-content pre .hljs-title.class_ {
+  color: #f0a875;
+  font-weight: 600;
+}
+
+.cookbook-content pre .hljs-string,
+.cookbook-content pre .hljs-doctag {
+  color: #d4c17b;
+}
+
+.cookbook-content pre .hljs-number,
+.cookbook-content pre .hljs-literal {
+  color: #9fb88a;
+}
+
+.cookbook-content pre .hljs-comment {
+  color: #8f8a7c;
+  font-style: italic;
+}
+
+.cookbook-content pre .hljs-params,
+.cookbook-content pre .hljs-attr {
+  color: #cbb98f;
+}
+
+.cookbook-content pre .hljs-variable,
+.cookbook-content pre .hljs-property {
+  color: #f1ece0;
+}
+
+/* ============================================
    CALLOUTS ("Importance of This Stage")
    ============================================ */
 
@@ -340,6 +395,53 @@ body {
 }
 
 /* ============================================
+   CLOSING NOTE
+   ============================================ */
+
+.cookbook-content .closing-note {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 2.5rem 0 0;
+}
+
+.cookbook-end {
+  max-width: 720px;
+  margin: 3rem auto 0;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.cookbook-end p {
+  font-size: 0.95rem;
+  color: var(--ink-faint);
+  margin: 0 0 1rem;
+}
+
+.cookbook-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cookbook-back-to-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ============================================
    TABLES
    ============================================ */
 
@@ -352,10 +454,14 @@ body {
 
 .cookbook-content table {
   width: 100%;
-  min-width: 560px;
+  table-layout: auto;
   border-collapse: collapse;
   font-size: 0.88rem;
   margin: 0;
+}
+
+.cookbook-content table#model-arch-table {
+  min-width: 640px;
 }
 
 .cookbook-content th {
@@ -369,7 +475,7 @@ body {
   padding: 0.65rem 0.9rem;
   background: var(--surface-muted);
   border-bottom: 1px solid var(--border-strong);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .cookbook-content td {
