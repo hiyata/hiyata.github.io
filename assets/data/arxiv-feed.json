@@ -1,6 +1,31 @@
 {
-  "generated_at": "2026-08-17T18:58:24+00:00",
+  "generated_at": "2026-08-18T07:05:49+00:00",
   "items": [
+    {
+      "title": "CACSurv: Concordance-Aligned Comparative Learning with Large Language Models for Cancer Survival Prediction",
+      "link": "http://arxiv.org/abs/2608.16594v1",
+      "date": "2026-08-17T13:51:29Z",
+      "authors": [
+        "Tianqi Xiang",
+        "Qixiang Zhang",
+        "Xinpeng Ding",
+        "Yi Li",
+        "Xiaomeng Li"
+      ],
+      "summary": "Cancer survival prediction supports treatment planning, risk stratification, and follow-up management. Existing methods use structured clinical variables, whole-slide images, genomic profiles, or multimodal inputs,..."
+    },
+    {
+      "title": "OvDSGG: End-to-End Open-Vocabulary Dynamic Scene Graph Generation",
+      "link": "http://arxiv.org/abs/2608.14835v1",
+      "date": "2026-08-14T19:12:40Z",
+      "authors": [
+        "John Helsby",
+        "Yi Yang",
+        "Bodo Rosenhahn",
+        "Michael Ying Yang"
+      ],
+      "summary": "Dynamic scene graphs (DSGs) capture spatio-temporal interactions across videos as $\\langle$subject, predicate, object$\\rangle$ triplets, and underpin downstream tasks such as video captioning, video question answering,..."
+    },
     {
       "title": "Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroimaging",
       "link": "http://arxiv.org/abs/2608.08926v1",
@@ -74,28 +99,6 @@
         "Truong-Son Hy"
       ],
       "summary": "Large language model agents increasingly plan, execute, and interpret biological analyses, yet fluent responses, successful tool calls, and benchmark performance alone do not establish scientific credibility. Existing..."
-    },
-    {
-      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
-      "link": "http://arxiv.org/abs/2503.15846v2",
-      "date": "2025-03-20T04:58:53Z",
-      "authors": [
-        "Xuanming Cui",
-        "Jaiminkumar Ashokbhai Bhoi",
-        "Chionh Wei Peng",
-        "Adriel Kuek",
-        "Ser Nam Lim"
-      ],
-      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
-    },
-    {
-      "title": "A scaling law of contextual persistence in human language",
-      "link": "http://arxiv.org/abs/2607.25184v1",
-      "date": "2026-07-28T01:28:19Z",
-      "authors": [
-        "Elan Barenholtz"
-      ],
-      "summary": "Human language exhibits lawful structure at the level of words (frequency, vocabulary growth) and word pairs (co-occurrence across distance). Here we show that the arrangement of words in sequence -- a central..."
     }
   ]
 }
