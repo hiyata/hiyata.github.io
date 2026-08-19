@@ -1,6 +1,19 @@
 {
-  "generated_at": "2026-08-18T18:57:46+00:00",
+  "generated_at": "2026-08-19T07:06:52+00:00",
   "items": [
+    {
+      "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
+      "link": "http://arxiv.org/abs/2603.08913v2",
+      "date": "2026-03-09T20:30:37Z",
+      "authors": [
+        "Alexander Nemecek",
+        "Wenbiao Li",
+        "Xiaoqian Jiang",
+        "Jaideep Vaidya",
+        "Erman Ayday"
+      ],
+      "summary": "Genomic language models (GLMs) have emerged as powerful tools for learning representations of DNA sequences, enabling advances in variant prediction, regulatory element identification, and cross-task transfer learning...."
+    },
     {
       "title": "CACSurv: Concordance-Aligned Comparative Learning with Large Language Models for Cancer Survival Prediction",
       "link": "http://arxiv.org/abs/2608.16594v1",
@@ -89,16 +102,6 @@
         "Jiaying Lu"
       ],
       "summary": "Gene Ontology (GO) enrichment analysis is a foundational tool for translating large-scale genomic data into biological insights, but typically yields hundreds of redundant terms that obscure overarching themes. Existing..."
-    },
-    {
-      "title": "Evaluating Agentic Bioinformatics through Function, Evidence, and Validation",
-      "link": "http://arxiv.org/abs/2607.27556v1",
-      "date": "2026-07-30T01:00:36Z",
-      "authors": [
-        "Phuc Pham",
-        "Truong-Son Hy"
-      ],
-      "summary": "Large language model agents increasingly plan, execute, and interpret biological analyses, yet fluent responses, successful tool calls, and benchmark performance alone do not establish scientific credibility. Existing..."
     }
   ]
 }
