@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-08-20T19:00:59+00:00",
+  "generated_at": "2026-08-21T07:09:05+00:00",
   "items": [
+    {
+      "title": "What You Can't See Is What You Learn: Restricted Evidence Visibility Favors Compositional Generalization in Shared-Genome Language-Model Societies",
+      "link": "http://arxiv.org/abs/2608.20054v1",
+      "date": "2026-08-20T13:51:45Z",
+      "authors": [
+        "Narcis Marincat"
+      ],
+      "summary": "Multi-module systems often expose every module to the full input. We test whether restricting evidence visibility changes which solutions gradient-based training discovers. Four-cell societies share one frozen..."
+    },
     {
       "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
       "link": "http://arxiv.org/abs/2603.08913v2",
@@ -88,20 +97,6 @@
         "Marinka Zitnik"
       ],
       "summary": "Biomedical knowledge graphs (KGs) are widely used in the life sciences, yet many are derived from unstructured documents and therefore lack schema-level constraints, whereas graphs assembled from structured resources..."
-    },
-    {
-      "title": "LLMBDC: Language Model for Biological Domains Oriented Clustering of Gene Ontology",
-      "link": "http://arxiv.org/abs/2608.00099v1",
-      "date": "2026-07-30T19:29:22Z",
-      "authors": [
-        "Ximing Ran",
-        "Jie Xu",
-        "Peng Jin",
-        "Zhaohui Qin",
-        "Zhexing Wen",
-        "Jiaying Lu"
-      ],
-      "summary": "Gene Ontology (GO) enrichment analysis is a foundational tool for translating large-scale genomic data into biological insights, but typically yields hundreds of redundant terms that obscure overarching themes. Existing..."
     }
   ]
 }
