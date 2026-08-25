@@ -1,14 +1,39 @@
 {
-  "generated_at": "2026-08-24T19:01:29+00:00",
+  "generated_at": "2026-08-25T07:09:43+00:00",
   "items": [
     {
       "title": "What You Can't See Is What You Learn: Restricted Evidence Visibility Favors Compositional Generalization in Shared-Genome Language-Model Societies",
-      "link": "http://arxiv.org/abs/2608.20054v1",
+      "link": "http://arxiv.org/abs/2608.20054v2",
       "date": "2026-08-20T13:51:45Z",
       "authors": [
         "Narcis Marincat"
       ],
       "summary": "Multi-module systems often expose every module to the full input. We test whether restricting evidence visibility changes which solutions gradient-based training discovers. Four-cell societies share one frozen..."
+    },
+    {
+      "title": "OvDSGG: End-to-End Open-Vocabulary Dynamic Scene Graph Generation",
+      "link": "http://arxiv.org/abs/2608.14835v2",
+      "date": "2026-08-14T19:12:40Z",
+      "authors": [
+        "John Helsby",
+        "Yi Yang",
+        "Bodo Rosenhahn",
+        "Michael Ying Yang"
+      ],
+      "summary": "Dynamic scene graphs (DSGs) capture spatio-temporal interactions across videos as $\\langle$subject, predicate, object$\\rangle$ triplets, and underpin downstream tasks such as video captioning, video question answering,..."
+    },
+    {
+      "title": "GenomeHarness: Harnessing Al Agents for Reliable Adaptation of Genome Language Models",
+      "link": "http://arxiv.org/abs/2608.21916v1",
+      "date": "2026-08-22T11:01:32Z",
+      "authors": [
+        "Weicai Long",
+        "Yusen Hou",
+        "Houcheng Su",
+        "Junning Feng",
+        "Yanlin Zhang"
+      ],
+      "summary": "Pretrained genome language models provide reusable representations for DNA sequence analysis, but turning them into reliable downstream predictors remains non-trivial. Their practical performance depends strongly on..."
     },
     {
       "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
@@ -35,18 +60,6 @@
         "Xiaomeng Li"
       ],
       "summary": "Cancer survival prediction supports treatment planning, risk stratification, and follow-up management. Existing methods use structured clinical variables, whole-slide images, genomic profiles, or multimodal inputs,..."
-    },
-    {
-      "title": "OvDSGG: End-to-End Open-Vocabulary Dynamic Scene Graph Generation",
-      "link": "http://arxiv.org/abs/2608.14835v1",
-      "date": "2026-08-14T19:12:40Z",
-      "authors": [
-        "John Helsby",
-        "Yi Yang",
-        "Bodo Rosenhahn",
-        "Michael Ying Yang"
-      ],
-      "summary": "Dynamic scene graphs (DSGs) capture spatio-temporal interactions across videos as $\\langle$subject, predicate, object$\\rangle$ triplets, and underpin downstream tasks such as video captioning, video question answering,..."
     },
     {
       "title": "Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroimaging",
@@ -81,22 +94,6 @@
         "Denis Kuznetsov"
       ],
       "summary": "Genomic foundation models increasingly adopt large language model architectures, yet almost universally rely on fixed tokenization schemes such as $k$-mers, BPE, or single nucleotides, which impose arbitrary sequence..."
-    },
-    {
-      "title": "Unifying biomedical knowledge in a modern multimodal graph",
-      "link": "http://arxiv.org/abs/2604.27269v2",
-      "date": "2026-04-29T23:49:34Z",
-      "authors": [
-        "Lucas Vittor",
-        "Ayush Noori",
-        "I\u00f1aki Arango",
-        "Joaqu\u00edn Polonuer",
-        "Sam Rodriques",
-        "Andrew White",
-        "David A. Clifton",
-        "Marinka Zitnik"
-      ],
-      "summary": "Biomedical knowledge graphs (KGs) are widely used in the life sciences, yet many are derived from unstructured documents and therefore lack schema-level constraints, whereas graphs assembled from structured resources..."
     }
   ]
 }
