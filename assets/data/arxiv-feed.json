@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-25T18:58:38+00:00",
+  "generated_at": "2026-08-26T13:18:00+00:00",
   "items": [
     {
-      "title": "What You Can't See Is What You Learn: Restricted Evidence Visibility Favors Compositional Generalization in Shared-Genome Language-Model Societies",
-      "link": "http://arxiv.org/abs/2608.20054v2",
+      "title": "What You Can't See Is What You Learn: Slot-Selective Evidence Masking Favors Compositional Generalization in Shared-Genome Language-Model Societies",
+      "link": "http://arxiv.org/abs/2608.20054v3",
       "date": "2026-08-20T13:51:45Z",
       "authors": [
         "Narcis Marincat"
       ],
-      "summary": "Multi-module systems often expose every module to the full input. We test whether restricting evidence visibility changes which solutions gradient-based training discovers. Four-cell societies share one frozen..."
+      "summary": "Multi-module neural systems often expose every module to the full input. We test whether a slot-selective evidence-masking regime -- restricting each module to its own evidence span -- changes which solutions..."
     },
     {
       "title": "OvDSGG: End-to-End Open-Vocabulary Dynamic Scene Graph Generation",
