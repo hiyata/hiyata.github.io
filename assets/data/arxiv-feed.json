@@ -1,6 +1,22 @@
 {
-  "generated_at": "2026-09-02T21:05:13+00:00",
+  "generated_at": "2026-09-03T04:35:55+00:00",
   "items": [
+    {
+      "title": "Unifying biomedical knowledge in a modern multimodal graph",
+      "link": "http://arxiv.org/abs/2604.27269v3",
+      "date": "2026-04-29T23:49:34Z",
+      "authors": [
+        "Lucas Vittor",
+        "Ayush Noori",
+        "I\u00f1aki Arango",
+        "Joaqu\u00edn Polonuer",
+        "Sam Rodriques",
+        "Andrew White",
+        "David A. Clifton",
+        "Marinka Zitnik"
+      ],
+      "summary": "Biomedical knowledge graphs (KGs) are widely used in the life sciences, yet many are derived from unstructured documents and therefore lack schema-level constraints, whereas graphs assembled from structured resources..."
+    },
     {
       "title": "What You Can't See Is What You Learn: Slot-Selective Evidence Masking Favors Compositional Generalization in Shared-Genome Language-Model Societies",
       "link": "http://arxiv.org/abs/2608.20054v3",
@@ -84,16 +100,6 @@
         "M. Sohel Rahman"
       ],
       "summary": "Genomic foundation models are increasingly reused as frozen feature extractors for downstream sequence prediction, offering a compute-efficient alternative to full fine-tuning. However, it remains unclear when..."
-    },
-    {
-      "title": "LDARNet: DNA Adaptive Representation Network with Learnable Tokenization for Genomic Modeling",
-      "link": "http://arxiv.org/abs/2606.04552v2",
-      "date": "2026-06-03T07:38:17Z",
-      "authors": [
-        "Daria Ledneva",
-        "Denis Kuznetsov"
-      ],
-      "summary": "Genomic foundation models increasingly adopt large language model architectures, yet almost universally rely on fixed tokenization schemes such as $k$-mers, BPE, or single nucleotides, which impose arbitrary sequence..."
     }
   ]
 }
