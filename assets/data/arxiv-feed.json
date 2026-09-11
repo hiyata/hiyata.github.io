@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-09-10T20:53:49+00:00",
+  "generated_at": "2026-09-11T04:44:09+00:00",
   "items": [
+    {
+      "title": "Portable Semantics, Private Dialects: Reuse and Negative Transfer in Latent Communication Between Language-Model Cells",
+      "link": "http://arxiv.org/abs/2609.11365v1",
+      "date": "2026-09-10T10:53:47Z",
+      "authors": [
+        "Narcis Marincat"
+      ],
+      "summary": "In shared-genome language-model societies, restricted evidence visibility favors reusable, value-indexed latent packet interfaces, whereas the sole high-performing globally visible model in the parent study learned an..."
+    },
     {
       "title": "Unifying biomedical knowledge in a modern multimodal graph",
       "link": "http://arxiv.org/abs/2604.27269v3",
@@ -89,17 +98,6 @@
         "Le Zhang"
       ],
       "summary": "Neuroimaging and genetic testing are two important clinical references for nervous system diseases, offering complementary diagnostic information. However, integrating genomic and neuroimaging data for precise disease..."
-    },
-    {
-      "title": "Frozen but Not Always Accessible: A Representation Analysis of Genomic Language Models",
-      "link": "http://arxiv.org/abs/2608.05329v1",
-      "date": "2026-08-05T18:37:06Z",
-      "authors": [
-        "Nirjhor Datta",
-        "Swakkhar Shatabda",
-        "M. Sohel Rahman"
-      ],
-      "summary": "Genomic foundation models are increasingly reused as frozen feature extractors for downstream sequence prediction, offering a compute-efficient alternative to full fine-tuning. However, it remains unclear when..."
     }
   ]
 }
