@@ -1,6 +1,41 @@
 {
-  "generated_at": "2026-09-12T20:34:47+00:00",
+  "generated_at": "2026-09-15T21:23:28+00:00",
   "items": [
+    {
+      "title": "Multi-Modal Tumor Survival Prediction via Graph-Guided Mixture of Experts",
+      "link": "http://arxiv.org/abs/2609.14072v1",
+      "date": "2026-09-12T17:43:01Z",
+      "authors": [
+        "H Mathavan",
+        "H Liu"
+      ],
+      "summary": "Large Language Models (LLMs) have displayed impressive capabilities in handling tasks that require few demonstration examples, making them effective few-shot learners. Despite their potential, LLMs face challenges when..."
+    },
+    {
+      "title": "Convergent Emergence of In-Context Learning Across Modalities",
+      "link": "http://arxiv.org/abs/2609.14011v1",
+      "date": "2026-09-12T15:55:30Z",
+      "authors": [
+        "Nathan Breslow",
+        "Seungwook Han",
+        "Daniel Hyunsoo Lee",
+        "Aayush Mishra",
+        "Anqi Liu",
+        "Daniel Khashabi"
+      ],
+      "summary": "Few-shot in-context learning (ICL), the capacity of a model to infer abstract patterns from input-output examples provided in its prompt and apply them to new inputs, has been extensively studied in large language..."
+    },
+    {
+      "title": "HypoKG: Evidence-Disciplined Biomedical Hypothesis Generation Beyond Endpoint Knowledge",
+      "link": "http://arxiv.org/abs/2609.12260v1",
+      "date": "2026-09-10T22:36:02Z",
+      "authors": [
+        "Dominic Okonkwo",
+        "Adetayo Okunoye",
+        "Ismailcem Budak Arpinar"
+      ],
+      "summary": "Large language models (LLMs) can generate biomedical hypotheses, but it remains unclear whether they truly reason from scientific evidence or simply produce convincing-sounding ideas. To study this, we combine three..."
+    },
     {
       "title": "Portable Semantics, Private Dialects: Reuse and Negative Transfer in Latent Communication Between Language-Model Cells",
       "link": "http://arxiv.org/abs/2609.11365v1",
@@ -59,45 +94,6 @@
         "Yanlin Zhang"
       ],
       "summary": "Pretrained genome language models provide reusable representations for DNA sequence analysis, but turning them into reliable downstream predictors remains non-trivial. Their practical performance depends strongly on..."
-    },
-    {
-      "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
-      "link": "http://arxiv.org/abs/2603.08913v2",
-      "date": "2026-03-09T20:30:37Z",
-      "authors": [
-        "Alexander Nemecek",
-        "Wenbiao Li",
-        "Xiaoqian Jiang",
-        "Jaideep Vaidya",
-        "Erman Ayday"
-      ],
-      "summary": "Genomic language models (GLMs) have emerged as powerful tools for learning representations of DNA sequences, enabling advances in variant prediction, regulatory element identification, and cross-task transfer learning...."
-    },
-    {
-      "title": "CACSurv: Concordance-Aligned Comparative Learning with Large Language Models for Cancer Survival Prediction",
-      "link": "http://arxiv.org/abs/2608.16594v1",
-      "date": "2026-08-17T13:51:29Z",
-      "authors": [
-        "Tianqi Xiang",
-        "Qixiang Zhang",
-        "Xinpeng Ding",
-        "Yi Li",
-        "Xiaomeng Li"
-      ],
-      "summary": "Cancer survival prediction supports treatment planning, risk stratification, and follow-up management. Existing methods use structured clinical variables, whole-slide images, genomic profiles, or multimodal inputs,..."
-    },
-    {
-      "title": "Decoding Phenotypes: A Framework for Fusing Genomic Language Models and Neuroimaging",
-      "link": "http://arxiv.org/abs/2608.08926v1",
-      "date": "2026-08-09T21:40:17Z",
-      "authors": [
-        "Tianli Tao",
-        "Ziyang Wang",
-        "Emma Robinson",
-        "Rachel Sparks",
-        "Le Zhang"
-      ],
-      "summary": "Neuroimaging and genetic testing are two important clinical references for nervous system diseases, offering complementary diagnostic information. However, integrating genomic and neuroimaging data for precise disease..."
     }
   ]
 }
