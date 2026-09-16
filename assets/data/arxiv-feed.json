@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-09-15T21:23:28+00:00",
+  "generated_at": "2026-09-16T04:52:02+00:00",
   "items": [
+    {
+      "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
+      "link": "http://arxiv.org/abs/2609.16213v1",
+      "date": "2026-09-14T18:44:00Z",
+      "authors": [
+        "Candace S. Y. Chan",
+        "Aris Karatzikos",
+        "Ilias Georgakopoulos-Soares"
+      ],
+      "summary": "Artificial intelligence is reshaping biological research across an increasingly connected digital-to-physical workflow. General-purpose large language models can retrieve and integrate scientific information, support..."
+    },
     {
       "title": "Multi-Modal Tumor Survival Prediction via Graph-Guided Mixture of Experts",
       "link": "http://arxiv.org/abs/2609.14072v1",
@@ -81,19 +92,6 @@
         "Michael Ying Yang"
       ],
       "summary": "Dynamic scene graphs (DSGs) capture spatio-temporal interactions across videos as $\\langle$subject, predicate, object$\\rangle$ triplets, and underpin downstream tasks such as video captioning, video question answering,..."
-    },
-    {
-      "title": "GenomeHarness: Harnessing Al Agents for Reliable Adaptation of Genome Language Models",
-      "link": "http://arxiv.org/abs/2608.21916v1",
-      "date": "2026-08-22T11:01:32Z",
-      "authors": [
-        "Weicai Long",
-        "Yusen Hou",
-        "Houcheng Su",
-        "Junning Feng",
-        "Yanlin Zhang"
-      ],
-      "summary": "Pretrained genome language models provide reusable representations for DNA sequence analysis, but turning them into reliable downstream predictors remains non-trivial. Their practical performance depends strongly on..."
     }
   ]
 }
