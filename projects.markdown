@@ -21,6 +21,7 @@ custom_js: projects
     <button class="filter-btn" data-filter="virology">Virology</button>
     <button class="filter-btn" data-filter="genomics">Genomics</button>
     <button class="filter-btn" data-filter="physiology">Physiology</button>
+    <button class="filter-btn" data-filter="usmle">USMLE Prep</button>
   </div>
 
   <div class="projects-grid">

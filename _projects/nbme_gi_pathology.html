@@ -1,0 +1,831 @@
+---
+layout: default
+title: GI Pathology — NBME-Style Practice Exam
+excerpt: A self-scoring, NBME/USMLE-style practice block for GI pathology — pick your topics, answer in tutor mode with instant explanations, and get a topic-by-topic performance breakdown.
+category: usmle
+date: 2026-09-23
+---
+
+<div id="nbme-app" class="nbme-app" data-image-base="{{ '/assets/images/nbme/gi-path/' | relative_url }}"></div>
+
+<script src="{{ '/assets/js/nbme/gi-path-data.js' | relative_url }}"></script>
+
+<style>
+  #nbme-app, #nbme-app * { box-sizing: border-box; }
+
+  .nbme-app{
+    --nbme-navy:#13294b;
+    --nbme-navy-light:#1e3a63;
+    --nbme-accent:#2f6fed;
+    --nbme-green:#0f8a4b;
+    --nbme-green-bg:#e7f6ee;
+    --nbme-red:#c62828;
+    --nbme-red-bg:#fdecec;
+    --nbme-amber:#b7791f;
+    --nbme-bg:#f4f2ec;
+    --nbme-card:#fffdf8;
+    --nbme-border:#d8d3c4;
+    --nbme-ink:#1f2430;
+    --nbme-muted:#6b7280;
+    --nbme-serif: Georgia, "Times New Roman", Times, serif;
+    --nbme-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 0 2rem;
+    color: var(--nbme-ink);
+    font-family: var(--nbme-sans);
+  }
+
+  :root[data-theme="dark"] .nbme-app{
+    --nbme-navy:#0c1a30;
+    --nbme-navy-light:#152a4a;
+    --nbme-accent:#5b9dff;
+    --nbme-green:#3ddc84;
+    --nbme-green-bg:rgba(61,220,132,0.12);
+    --nbme-red:#ff6b6b;
+    --nbme-red-bg:rgba(255,107,107,0.12);
+    --nbme-amber:#e0ac4c;
+    --nbme-bg:#12161f;
+    --nbme-card:#1a1f2b;
+    --nbme-border:#2c3242;
+    --nbme-ink:#e9ebf1;
+    --nbme-muted:#9aa2b1;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .nbme-app{
+      --nbme-navy:#0c1a30;
+      --nbme-navy-light:#152a4a;
+      --nbme-accent:#5b9dff;
+      --nbme-green:#3ddc84;
+      --nbme-green-bg:rgba(61,220,132,0.12);
+      --nbme-red:#ff6b6b;
+      --nbme-red-bg:rgba(255,107,107,0.12);
+      --nbme-amber:#e0ac4c;
+      --nbme-bg:#12161f;
+      --nbme-card:#1a1f2b;
+      --nbme-border:#2c3242;
+      --nbme-ink:#e9ebf1;
+      --nbme-muted:#9aa2b1;
+    }
+  }
+
+  .nbme-shell{
+    background: var(--nbme-bg);
+    border: 1px solid var(--nbme-border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1.25rem;
+  }
+
+  /* ---------- Top bar (exam chrome) ---------- */
+  .nbme-topbar{
+    background: var(--nbme-navy);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .nbme-topbar .nbme-brand{
+    display:flex; align-items:center; gap:0.5rem;
+    font-family: var(--nbme-serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .nbme-topbar .nbme-brand .dot{ flex:none; width:8px;height:8px;border-radius:50%;background:var(--nbme-accent); }
+  .nbme-topbar .nbme-meta{ flex:none; display:flex; align-items:center; gap:1rem; opacity:0.92; white-space:nowrap; }
+  .nbme-topbar button.nbme-exit{
+    flex:none;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color:#fff; padding: 0.3rem 0.7rem; border-radius:5px; font-size:0.78rem; cursor:pointer;
+    white-space:nowrap;
+  }
+  .nbme-topbar button.nbme-exit:hover{ background: rgba(255,255,255,0.2); }
+  @media (max-width: 480px){
+    .nbme-topbar{ font-size:0.72rem; padding:0.5rem 0.7rem; gap:0.5rem; }
+    .nbme-topbar .nbme-brand{ font-size:0.8rem; }
+    .nbme-topbar .nbme-meta{ gap:0.5rem; }
+    .nbme-topbar button.nbme-exit{ padding:0.28rem 0.5rem; font-size:0.68rem; }
+  }
+
+  .nbme-progress-track{
+    height:4px; background: rgba(255,255,255,0.08);
+  }
+  .nbme-progress-fill{
+    height:100%; background: var(--nbme-accent); transition: width 0.25s ease;
+  }
+
+  .nbme-body{ padding: 1.25rem 1.5rem 1.5rem; }
+
+  /* ---------- Setup screen ---------- */
+  .nbme-setup-head h1{
+    font-family: var(--nbme-serif);
+    font-size: 1.5rem;
+    color: var(--nbme-ink);
+    margin: 0 0 0.25rem;
+  }
+  .nbme-setup-head p{ color: var(--nbme-muted); margin: 0 0 1.25rem; font-size:0.92rem; }
+
+  .nbme-stats-panel{
+    background: var(--nbme-card);
+    border: 1px solid var(--nbme-border);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.25rem;
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1rem;
+  }
+  @media (max-width: 640px){ .nbme-stats-panel{ grid-template-columns: 1fr 1fr; } }
+  .nbme-stat{ display:flex; flex-direction:column; gap:0.15rem; }
+  .nbme-stat .n{ font-size:1.35rem; font-weight:700; }
+  .nbme-stat .l{ font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color: var(--nbme-muted); }
+  .nbme-stat.weak .n{ color: var(--nbme-red); font-size:1rem; }
+  .nbme-stats-empty{ font-size:0.85rem; color: var(--nbme-muted); }
+  .nbme-reset-stats{
+    grid-column: 1 / -1; justify-self:end; background:none; border:none; color: var(--nbme-muted);
+    text-decoration: underline; cursor:pointer; font-size:0.75rem; padding:0;
+  }
+
+  .nbme-section-label{
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color: var(--nbme-muted);
+    font-weight:700; margin: 1.1rem 0 0.55rem;
+  }
+
+  .nbme-tag-toolbar{ display:flex; gap:0.6rem; margin-bottom:0.6rem; }
+  .nbme-tag-toolbar button{
+    background: var(--nbme-card); border:1px solid var(--nbme-border); color: var(--nbme-ink);
+    border-radius: 5px; padding: 0.25rem 0.6rem; font-size:0.78rem; cursor:pointer;
+  }
+  .nbme-tag-toolbar button:hover{ border-color: var(--nbme-accent); }
+
+  .nbme-tag-grid{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;
+  }
+  @media (max-width: 640px){ .nbme-tag-grid{ grid-template-columns: 1fr; } }
+
+  .nbme-tag-item{
+    display:flex; align-items:center; justify-content:space-between; gap:0.5rem;
+    background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius:7px;
+    padding: 0.5rem 0.7rem; cursor:pointer; user-select:none; font-size:0.86rem;
+    min-width:0;
+  }
+  .nbme-tag-item:hover{ border-color: var(--nbme-accent); }
+  .nbme-tag-item.checked{ border-color: var(--nbme-accent); background: color-mix(in srgb, var(--nbme-accent) 8%, var(--nbme-card)); }
+  .nbme-tag-item .left{ display:flex; align-items:center; gap:0.55rem; min-width:0; flex:1 1 auto; }
+  .nbme-tag-item input{ accent-color: var(--nbme-accent); width:16px; height:16px; flex:none; }
+  .nbme-tag-item .name{ flex:1 1 auto; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nbme-tag-item .count{
+    flex:none; font-size:0.72rem; color: var(--nbme-muted); background: var(--nbme-bg);
+    border:1px solid var(--nbme-border); border-radius:999px; padding:0.05rem 0.5rem;
+  }
+
+  .nbme-options-row{ display:flex; flex-wrap:wrap; gap:1.1rem; margin: 0.9rem 0 0.2rem; font-size:0.86rem; }
+  .nbme-options-row label{ display:flex; align-items:center; gap:0.4rem; }
+  .nbme-options-row select{
+    background: var(--nbme-card); color: var(--nbme-ink); border:1px solid var(--nbme-border);
+    border-radius:5px; padding:0.25rem 0.4rem; font-size:0.85rem;
+  }
+  .nbme-options-row input[type=checkbox]{ accent-color: var(--nbme-accent); width:15px; height:15px; }
+
+  .nbme-start-row{ display:flex; align-items:center; gap:1rem; margin-top:1.4rem; }
+  .nbme-btn{
+    font-family: var(--nbme-sans); font-weight:600; font-size:0.9rem; cursor:pointer;
+    border-radius:7px; padding:0.65rem 1.3rem; border:1px solid transparent;
+  }
+  .nbme-btn-primary{ background: var(--nbme-navy); color:#fff; }
+  .nbme-btn-primary:hover{ background: var(--nbme-navy-light); }
+  .nbme-btn-primary:disabled{ opacity:0.45; cursor:not-allowed; }
+  .nbme-btn-secondary{ background: var(--nbme-card); color: var(--nbme-ink); border-color: var(--nbme-border); }
+  .nbme-btn-secondary:hover{ border-color: var(--nbme-accent); }
+  .nbme-start-hint{ font-size:0.82rem; color: var(--nbme-muted); }
+
+  /* ---------- Question screen ---------- */
+  .nbme-qmeta{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; }
+  .nbme-qmeta .tagpill{
+    font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; color: var(--nbme-accent);
+    border:1px solid var(--nbme-border); background: var(--nbme-card); border-radius:999px; padding:0.15rem 0.6rem;
+  }
+  .nbme-score-live{ font-size:0.8rem; color: var(--nbme-muted); }
+
+  .nbme-stem{
+    font-family: var(--nbme-serif);
+    font-size: 1.08rem;
+    line-height: 1.6;
+    background: var(--nbme-card);
+    border: 1px solid var(--nbme-border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nbme-images{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem; }
+  .nbme-images figure{ margin:0; flex: 1 1 260px; max-width: 420px; }
+  .nbme-images img{
+    width:100%; display:block; border-radius:7px; border:1px solid var(--nbme-border);
+    background:#000; cursor: zoom-in;
+  }
+  .nbme-images figcaption{ font-size:0.72rem; color: var(--nbme-muted); text-align:center; margin-top:0.3rem; }
+
+  .nbme-choices{ display:flex; flex-direction:column; gap:0.55rem; }
+  .nbme-choice{
+    display:flex; align-items:flex-start; gap:0.75rem;
+    background: var(--nbme-card); border: 1.5px solid var(--nbme-border); border-radius:8px;
+    padding: 0.7rem 0.9rem; cursor:pointer; font-size:0.95rem; line-height:1.45;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .nbme-choice:hover:not(.locked){ border-color: var(--nbme-accent); }
+  .nbme-choice .letter{
+    flex:none; width:26px; height:26px; border-radius:50%; border:1.5px solid var(--nbme-border);
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;
+    background: var(--nbme-bg);
+  }
+  .nbme-choice.selected:not(.locked){ border-color: var(--nbme-accent); background: color-mix(in srgb, var(--nbme-accent) 7%, var(--nbme-card)); }
+  .nbme-choice.selected:not(.locked) .letter{ border-color: var(--nbme-accent); color: var(--nbme-accent); }
+  .nbme-choice.locked{ cursor:default; }
+  .nbme-choice .mark{ margin-left:auto; flex:none; font-weight:700; font-size:1.05rem; padding-left:0.5rem; }
+
+  .nbme-choice.correct-answer{ border-color: var(--nbme-green); background: var(--nbme-green-bg); }
+  .nbme-choice.correct-answer .letter{ border-color: var(--nbme-green); color: var(--nbme-green); }
+  .nbme-choice.correct-answer .mark{ color: var(--nbme-green); }
+  .nbme-choice.wrong-answer{ border-color: var(--nbme-red); background: var(--nbme-red-bg); }
+  .nbme-choice.wrong-answer .letter{ border-color: var(--nbme-red); color: var(--nbme-red); }
+  .nbme-choice.wrong-answer .mark{ color: var(--nbme-red); }
+
+  .nbme-actions{ display:flex; justify-content:space-between; align-items:center; margin-top:1.1rem; }
+
+  .nbme-feedback{
+    margin-top:1.1rem; border-radius:8px; padding:1rem 1.1rem; border:1px solid var(--nbme-border);
+  }
+  .nbme-feedback.is-correct{ background: var(--nbme-green-bg); border-color: var(--nbme-green); }
+  .nbme-feedback.is-wrong{ background: var(--nbme-red-bg); border-color: var(--nbme-red); }
+  .nbme-feedback .headline{
+    font-weight:700; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem; font-size:0.98rem;
+  }
+  .nbme-feedback.is-correct .headline{ color: var(--nbme-green); }
+  .nbme-feedback.is-wrong .headline{ color: var(--nbme-red); }
+  .nbme-feedback .topic{ font-size:0.78rem; color: var(--nbme-muted); margin-bottom:0.5rem; }
+  .nbme-feedback .explanation{ font-family: var(--nbme-serif); font-size:0.98rem; line-height:1.6; }
+
+  /* ---------- Results screen ---------- */
+  .nbme-results-head{ text-align:center; padding: 0.5rem 0 1.4rem; }
+  .nbme-results-head h1{ font-family: var(--nbme-serif); font-size:1.4rem; color: var(--nbme-ink); margin:0 0 0.3rem; }
+  .nbme-score-big{ font-size: 3rem; font-weight:800; line-height:1; margin: 0.6rem 0 0.2rem; }
+  .nbme-score-big.good{ color: var(--nbme-green); }
+  .nbme-score-big.mid{ color: var(--nbme-amber); }
+  .nbme-score-big.bad{ color: var(--nbme-red); }
+  .nbme-results-head .sub{ color: var(--nbme-muted); font-size:0.9rem; }
+
+  .nbme-breakdown{ display:flex; flex-direction:column; gap:0.5rem; margin: 1rem 0 1.4rem; }
+  .nbme-break-row{ display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; }
+  .nbme-break-row .label{ flex: 0 0 210px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .nbme-break-row .bar-track{ flex:1; height:9px; background: var(--nbme-border); border-radius:999px; overflow:hidden; }
+  .nbme-break-row .bar-fill{ height:100%; border-radius:999px; }
+  .nbme-break-row .bar-fill.good{ background: var(--nbme-green); }
+  .nbme-break-row .bar-fill.mid{ background: var(--nbme-amber); }
+  .nbme-break-row .bar-fill.bad{ background: var(--nbme-red); }
+  .nbme-break-row .pct{ flex: 0 0 68px; text-align:right; color: var(--nbme-muted); }
+
+  .nbme-callout{
+    border: 1px solid var(--nbme-border); background: var(--nbme-card); border-radius:8px;
+    padding: 0.85rem 1rem; font-size:0.88rem; margin-bottom:1.2rem;
+  }
+  .nbme-callout b{ color: var(--nbme-red); }
+
+  .nbme-review-item{
+    border: 1px solid var(--nbme-border); border-radius:8px; margin-bottom:0.6rem; overflow:hidden; background: var(--nbme-card);
+  }
+  .nbme-review-summary{
+    display:flex; align-items:center; gap:0.6rem; padding:0.65rem 0.85rem; cursor:pointer; font-size:0.85rem;
+  }
+  .nbme-review-summary .idx{ font-weight:700; flex:none; }
+  .nbme-review-summary .stemline{ flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .nbme-review-summary .status{ flex:none; font-weight:700; }
+  .nbme-review-summary .status.wrong{ color: var(--nbme-red); }
+  .nbme-review-detail{ display:none; padding: 0 0.9rem 0.9rem; }
+  .nbme-review-item.open .nbme-review-detail{ display:block; }
+  .nbme-review-detail .your-ans{ color: var(--nbme-red); }
+  .nbme-review-detail .correct-ans{ color: var(--nbme-green); }
+  .nbme-review-detail .explanation{ font-family: var(--nbme-serif); line-height:1.55; margin-top:0.4rem; font-size:0.92rem; }
+
+  .nbme-results-actions{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:1rem; }
+
+  /* ---------- Lightbox ---------- */
+  .nbme-lightbox{
+    position: fixed; inset:0; background: rgba(0,0,0,0.85); display:none;
+    align-items:center; justify-content:center; z-index:9999; padding:2rem; cursor:zoom-out;
+  }
+  .nbme-lightbox.open{ display:flex; }
+  .nbme-lightbox img{ max-width:100%; max-height:100%; border-radius:6px; }
+
+  .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+</style>
+
+<script>
+(function(){
+  var DATA = window.NBME_GI_PATH_DATA;
+  var root = document.getElementById('nbme-app');
+  if (!DATA || !root) return;
+
+  var IMAGE_BASE = root.getAttribute('data-image-base') || DATA.imageBase || '/assets/images/nbme/gi-path/';
+  var STORAGE_KEY = 'nbmeGiPathStatsV1';
+  var ALL_QUESTIONS = DATA.questions || [];
+  var TAGS = [];
+  (function(){
+    var seen = {};
+    ALL_QUESTIONS.forEach(function(q){
+      if(!seen[q.tag]){ seen[q.tag] = 0; TAGS.push(q.tag); }
+      seen[q.tag]++;
+    });
+    TAGS.sort();
+    window.__nbmeTagCounts = seen;
+  })();
+
+  // ---------------- persistent stats ----------------
+  function loadStats(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return { perTag:{}, history:[] };
+      var parsed = JSON.parse(raw);
+      if(!parsed.perTag) parsed.perTag = {};
+      if(!parsed.history) parsed.history = [];
+      return parsed;
+    }catch(e){ return { perTag:{}, history:[] }; }
+  }
+  function saveStats(stats){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(stats)); }catch(e){}
+  }
+  function recordAnswer(stats, tag, correct){
+    if(!stats.perTag[tag]) stats.perTag[tag] = { correct:0, total:0 };
+    stats.perTag[tag].total++;
+    if(correct) stats.perTag[tag].correct++;
+  }
+  function recordAttempt(stats, correctCount, total){
+    stats.history.unshift({ date: new Date().toISOString(), correct: correctCount, total: total });
+    stats.history = stats.history.slice(0, 20);
+  }
+
+  var stats = loadStats();
+
+  // ---------------- state ----------------
+  var state = {
+    screen: 'setup', // setup | quiz | results
+    selectedTags: {},
+    shuffleQuestions: true,
+    shuffleChoices: true,
+    countMode: 'all',
+    block: [],       // array of question objects for this run, each with shuffledOptions
+    index: 0,
+    selectedChoice: null,
+    submitted: false,
+    results: []      // {id, tag, topic, correct, yourAnswer, correctAnswer, stem, explanation, options}
+  };
+  TAGS.forEach(function(t){ state.selectedTags[t] = true; });
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i=a.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var tmp=a[i]; a[i]=a[j]; a[j]=tmp;
+    }
+    return a;
+  }
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function pctClass(pct){
+    if(pct >= 80) return 'good';
+    if(pct >= 60) return 'mid';
+    return 'bad';
+  }
+
+  // ---------------- render dispatch ----------------
+  function render(){
+    if(state.screen === 'setup') renderSetup();
+    else if(state.screen === 'quiz') renderQuiz();
+    else renderResults();
+  }
+
+  // ================= SETUP SCREEN =================
+  function renderSetup(){
+    var selectedCount = ALL_QUESTIONS.filter(function(q){ return state.selectedTags[q.tag]; }).length;
+
+    var statsHtml = '';
+    var tagEntries = Object.keys(stats.perTag);
+    if(tagEntries.length === 0){
+      statsHtml = '<div class="nbme-stats-empty">No attempts yet — finish a block to start tracking your accuracy by topic.</div>';
+    } else {
+      var totalCorrect = 0, totalSeen = 0;
+      tagEntries.forEach(function(t){ totalCorrect += stats.perTag[t].correct; totalSeen += stats.perTag[t].total; });
+      var overallPct = totalSeen ? Math.round((totalCorrect/totalSeen)*100) : 0;
+
+      var weakest = tagEntries
+        .map(function(t){ return { tag:t, pct: stats.perTag[t].total ? (stats.perTag[t].correct/stats.perTag[t].total*100) : 0, total: stats.perTag[t].total }; })
+        .filter(function(x){ return x.total >= 2; })
+        .sort(function(a,b){ return a.pct - b.pct; })[0];
+
+      var lastAttempt = stats.history[0];
+
+      statsHtml =
+        '<div class="nbme-stat"><div class="n">' + overallPct + '%</div><div class="l">Lifetime accuracy</div></div>' +
+        '<div class="nbme-stat"><div class="n">' + totalSeen + '</div><div class="l">Questions answered</div></div>' +
+        '<div class="nbme-stat"><div class="n">' + (lastAttempt ? lastAttempt.correct + '/' + lastAttempt.total : '—') + '</div><div class="l">Last block score</div></div>' +
+        (weakest ? '<div class="nbme-stat weak"><div class="n">' + esc(weakest.tag) + '</div><div class="l">Weakest topic (' + Math.round(weakest.pct) + '%)</div></div>' : '<div class="nbme-stat"><div class="n">—</div><div class="l">Weakest topic</div></div>') +
+        '<button class="nbme-reset-stats" id="nbme-reset-stats-btn" type="button">Reset all stats</button>';
+    }
+
+    var tagsHtml = TAGS.map(function(t){
+      var count = window.__nbmeTagCounts[t] || 0;
+      var checked = !!state.selectedTags[t];
+      return (
+        '<label class="nbme-tag-item' + (checked ? ' checked' : '') + '" data-tag="' + esc(t) + '">' +
+          '<span class="left">' +
+            '<input type="checkbox" ' + (checked ? 'checked' : '') + ' data-tag-checkbox="' + esc(t) + '" />' +
+            '<span class="name">' + esc(t) + '</span>' +
+          '</span>' +
+          '<span class="count">' + count + '</span>' +
+        '</label>'
+      );
+    }).join('');
+
+    var maxAvailable = selectedCount;
+    var countOptions = [10, 20, 30, 40].filter(function(n){ return n < maxAvailable; });
+    var countSelectHtml = '<option value="all"' + (state.countMode === 'all' ? ' selected' : '') + '>All selected (' + maxAvailable + ')</option>' +
+      countOptions.map(function(n){
+        return '<option value="' + n + '"' + (String(state.countMode) === String(n) ? ' selected' : '') + '>' + n + ' questions</option>';
+      }).join('');
+
+    root.innerHTML =
+      '<div class="nbme-shell">' +
+        '<div class="nbme-topbar">' +
+          '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'NBME-Style Practice') + '</div>' +
+          '<div class="nbme-meta">Tutor Mode</div>' +
+        '</div>' +
+        '<div class="nbme-body">' +
+          '<div class="nbme-setup-head">' +
+            '<h1>' + esc(DATA.setTitle || 'Practice Exam') + '</h1>' +
+            '<p>' + esc(DATA.setSubtitle || '') + '</p>' +
+          '</div>' +
+
+          '<div class="nbme-section-label">Your performance</div>' +
+          '<div class="nbme-stats-panel">' + statsHtml + '</div>' +
+
+          '<div class="nbme-section-label">Choose topics</div>' +
+          '<div class="nbme-tag-toolbar">' +
+            '<button type="button" id="nbme-tag-all">Select all</button>' +
+            '<button type="button" id="nbme-tag-none">Clear all</button>' +
+          '</div>' +
+          '<div class="nbme-tag-grid">' + tagsHtml + '</div>' +
+
+          '<div class="nbme-section-label">Block options</div>' +
+          '<div class="nbme-options-row">' +
+            '<label>Question count ' +
+              '<select id="nbme-count-select">' + countSelectHtml + '</select>' +
+            '</label>' +
+            '<label><input type="checkbox" id="nbme-shuffle-q" ' + (state.shuffleQuestions ? 'checked' : '') + ' /> Shuffle question order</label>' +
+            '<label><input type="checkbox" id="nbme-shuffle-c" ' + (state.shuffleChoices ? 'checked' : '') + ' /> Shuffle answer choices</label>' +
+          '</div>' +
+
+          '<div class="nbme-start-row">' +
+            '<button class="nbme-btn nbme-btn-primary" id="nbme-start-btn" ' + (selectedCount === 0 ? 'disabled' : '') + '>Start Block (' + Math.min(maxAvailable, (state.countMode === 'all' ? maxAvailable : parseInt(state.countMode,10))) + ' items)</button>' +
+            '<span class="nbme-start-hint">' + selectedCount + ' question' + (selectedCount === 1 ? '' : 's') + ' available in selected topics</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    document.getElementById('nbme-tag-all').addEventListener('click', function(){
+      TAGS.forEach(function(t){ state.selectedTags[t] = true; });
+      render();
+    });
+    document.getElementById('nbme-tag-none').addEventListener('click', function(){
+      TAGS.forEach(function(t){ state.selectedTags[t] = false; });
+      render();
+    });
+    root.querySelectorAll('[data-tag-checkbox]').forEach(function(cb){
+      cb.addEventListener('change', function(){
+        var tag = cb.getAttribute('data-tag-checkbox');
+        state.selectedTags[tag] = cb.checked;
+        render();
+      });
+    });
+    document.getElementById('nbme-count-select').addEventListener('change', function(e){
+      state.countMode = e.target.value;
+      render();
+    });
+    document.getElementById('nbme-shuffle-q').addEventListener('change', function(e){ state.shuffleQuestions = e.target.checked; });
+    document.getElementById('nbme-shuffle-c').addEventListener('change', function(e){ state.shuffleChoices = e.target.checked; });
+
+    var resetBtn = document.getElementById('nbme-reset-stats-btn');
+    if(resetBtn){
+      resetBtn.addEventListener('click', function(){
+        if(confirm('Reset all saved stats for this quiz? This cannot be undone.')){
+          stats = { perTag:{}, history:[] };
+          saveStats(stats);
+          render();
+        }
+      });
+    }
+
+    var startBtn = document.getElementById('nbme-start-btn');
+    if(startBtn){
+      startBtn.addEventListener('click', function(){ startBlock(); });
+    }
+  }
+
+  function startBlock(fromIds){
+    var pool;
+    if(fromIds){
+      pool = ALL_QUESTIONS.filter(function(q){ return fromIds.indexOf(q.id) !== -1; });
+    } else {
+      pool = ALL_QUESTIONS.filter(function(q){ return state.selectedTags[q.tag]; });
+      if(state.shuffleQuestions) pool = shuffle(pool);
+      if(state.countMode !== 'all'){
+        pool = pool.slice(0, parseInt(state.countMode, 10));
+      }
+    }
+
+    state.block = pool.map(function(q){
+      var letters = Object.keys(q.options);
+      var order = state.shuffleChoices ? shuffle(letters) : letters;
+      return {
+        source: q,
+        displayOrder: order // array of original letters in display order
+      };
+    });
+    state.index = 0;
+    state.selectedChoice = null;
+    state.submitted = false;
+    state.results = [];
+    state.screen = 'quiz';
+    render();
+  }
+
+  // ================= QUIZ SCREEN =================
+  function renderQuiz(){
+    var total = state.block.length;
+    if(total === 0){ state.screen = 'setup'; render(); return; }
+    var item = state.block[state.index];
+    var q = item.source;
+    var pct = Math.round((state.index) / total * 100);
+
+    var imagesHtml = '';
+    if(q.images && q.images.length){
+      imagesHtml = '<div class="nbme-images">' + q.images.map(function(fn, i){
+        var label = q.images.length > 1 ? (i === 0 ? 'Image (left)' : 'Image (right)') : 'Image';
+        return '<figure><img src="' + IMAGE_BASE + fn + '" alt="Exhibit for question ' + q.id + '" data-lightbox-src="' + IMAGE_BASE + fn + '" />' +
+          '<figcaption>' + label + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
+
+    var choicesHtml = item.displayOrder.map(function(letter){
+      var locked = state.submitted;
+      var cls = 'nbme-choice';
+      if(locked) cls += ' locked';
+      if(!locked && state.selectedChoice === letter) cls += ' selected';
+      var mark = '';
+      if(locked){
+        if(letter === q.answer){ cls += ' correct-answer'; mark = '&#10003;'; }
+        else if(letter === state.selectedChoice){ cls += ' wrong-answer'; mark = '&#10007;'; }
+      }
+      return (
+        '<div class="' + cls + '" data-choice="' + letter + '">' +
+          '<span class="letter">' + letter + '</span>' +
+          '<span class="choicetext">' + esc(q.options[letter]) + '</span>' +
+          (mark ? '<span class="mark">' + mark + '</span>' : '') +
+        '</div>'
+      );
+    }).join('');
+
+    var feedbackHtml = '';
+    if(state.submitted){
+      var correct = state.selectedChoice === q.answer;
+      feedbackHtml =
+        '<div class="nbme-feedback ' + (correct ? 'is-correct' : 'is-wrong') + '">' +
+          '<div class="headline">' + (correct ? '&#10003; Correct' : '&#10007; Incorrect — correct answer is ' + q.answer) + '</div>' +
+          '<div class="topic">Topic: ' + esc(q.topic || q.tag) + '</div>' +
+          '<div class="explanation">' + esc(q.explanation) + '</div>' +
+        '</div>';
+    }
+
+    var isLast = state.index === total - 1;
+    var actionsHtml = state.submitted
+      ? '<button class="nbme-btn nbme-btn-primary" id="nbme-next-btn">' + (isLast ? 'Finish Block' : 'Next Question') + '</button>'
+      : '<button class="nbme-btn nbme-btn-primary" id="nbme-submit-btn" ' + (state.selectedChoice ? '' : 'disabled') + '>Submit Answer</button>';
+
+    var correctSoFar = state.results.filter(function(r){ return r.correct; }).length;
+
+    root.innerHTML =
+      '<div class="nbme-shell">' +
+        '<div class="nbme-topbar">' +
+          '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'Practice') + '</div>' +
+          '<div class="nbme-meta">Item ' + (state.index + 1) + ' of ' + total + '</div>' +
+          '<button class="nbme-exit" id="nbme-exit-btn" type="button">End block</button>' +
+        '</div>' +
+        '<div class="nbme-progress-track"><div class="nbme-progress-fill" style="width:' + pct + '%"></div></div>' +
+        '<div class="nbme-body">' +
+          '<div class="nbme-qmeta">' +
+            '<span class="tagpill">' + esc(q.tag) + '</span>' +
+            '<span class="nbme-score-live">Score so far: ' + correctSoFar + ' / ' + state.results.length + '</span>' +
+          '</div>' +
+          '<div class="nbme-stem">' + esc(q.stem) + '</div>' +
+          imagesHtml +
+          '<div class="nbme-choices">' + choicesHtml + '</div>' +
+          feedbackHtml +
+          '<div class="nbme-actions">' + actionsHtml + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="nbme-lightbox" id="nbme-lightbox"><img id="nbme-lightbox-img" src="" alt="" /></div>';
+
+    if(!state.submitted){
+      root.querySelectorAll('.nbme-choice').forEach(function(el){
+        el.addEventListener('click', function(){
+          state.selectedChoice = el.getAttribute('data-choice');
+          render();
+        });
+      });
+      var submitBtn = document.getElementById('nbme-submit-btn');
+      if(submitBtn) submitBtn.addEventListener('click', submitAnswer);
+    } else {
+      var nextBtn = document.getElementById('nbme-next-btn');
+      if(nextBtn) nextBtn.addEventListener('click', goNext);
+    }
+
+    document.getElementById('nbme-exit-btn').addEventListener('click', function(){
+      if(confirm('End this block early? Your progress on remaining questions will not be scored.')){
+        if(state.results.length > 0){
+          finishBlock();
+        } else {
+          state.screen = 'setup';
+          render();
+        }
+      }
+    });
+
+    root.querySelectorAll('[data-lightbox-src]').forEach(function(img){
+      img.addEventListener('click', function(){
+        var lb = document.getElementById('nbme-lightbox');
+        var lbImg = document.getElementById('nbme-lightbox-img');
+        lbImg.src = img.getAttribute('data-lightbox-src');
+        lb.classList.add('open');
+      });
+    });
+    var lightbox = document.getElementById('nbme-lightbox');
+    if(lightbox){
+      lightbox.addEventListener('click', function(){ lightbox.classList.remove('open'); });
+    }
+  }
+
+  function submitAnswer(){
+    if(!state.selectedChoice) return;
+    var item = state.block[state.index];
+    var q = item.source;
+    var correct = state.selectedChoice === q.answer;
+    state.submitted = true;
+
+    state.results.push({
+      id: q.id,
+      tag: q.tag,
+      topic: q.topic,
+      stem: q.stem,
+      options: q.options,
+      correct: correct,
+      yourAnswer: state.selectedChoice,
+      correctAnswer: q.answer,
+      explanation: q.explanation
+    });
+
+    recordAnswer(stats, q.tag, correct);
+    saveStats(stats);
+
+    render();
+  }
+
+  function goNext(){
+    if(state.index < state.block.length - 1){
+      state.index++;
+      state.selectedChoice = null;
+      state.submitted = false;
+      render();
+    } else {
+      finishBlock();
+    }
+  }
+
+  function finishBlock(){
+    var correctCount = state.results.filter(function(r){ return r.correct; }).length;
+    recordAttempt(stats, correctCount, state.results.length);
+    saveStats(stats);
+    state.screen = 'results';
+    render();
+  }
+
+  // ================= RESULTS SCREEN =================
+  function renderResults(){
+    var total = state.results.length;
+    var correct = state.results.filter(function(r){ return r.correct; }).length;
+    var pct = total ? Math.round((correct/total)*100) : 0;
+    var pctCls = pctClass(pct);
+
+    var byTag = {};
+    state.results.forEach(function(r){
+      if(!byTag[r.tag]) byTag[r.tag] = { correct:0, total:0 };
+      byTag[r.tag].total++;
+      if(r.correct) byTag[r.tag].correct++;
+    });
+    var tagRows = Object.keys(byTag).map(function(t){
+      var d = byTag[t];
+      var p = Math.round((d.correct/d.total)*100);
+      return { tag:t, pct:p, correct:d.correct, total:d.total };
+    }).sort(function(a,b){ return a.pct - b.pct; });
+
+    var weakest = tagRows[0];
+
+    var breakdownHtml = tagRows.map(function(r){
+      return (
+        '<div class="nbme-break-row">' +
+          '<span class="label">' + esc(r.tag) + '</span>' +
+          '<span class="bar-track"><span class="bar-fill ' + pctClass(r.pct) + '" style="width:' + r.pct + '%"></span></span>' +
+          '<span class="pct">' + r.correct + '/' + r.total + ' &middot; ' + r.pct + '%</span>' +
+        '</div>'
+      );
+    }).join('');
+
+    var missed = state.results.filter(function(r){ return !r.correct; });
+    var reviewHtml = state.results.map(function(r, i){
+      var stemLine = r.stem.length > 90 ? r.stem.slice(0, 90) + '…' : r.stem;
+      return (
+        '<div class="nbme-review-item" data-review-idx="' + i + '">' +
+          '<div class="nbme-review-summary" data-review-toggle="' + i + '">' +
+            '<span class="idx">' + (i+1) + '.</span>' +
+            '<span class="stemline">' + esc(stemLine) + '</span>' +
+            '<span class="status ' + (r.correct ? '' : 'wrong') + '">' + (r.correct ? '✓ Correct' : '✗ Missed') + '</span>' +
+          '</div>' +
+          '<div class="nbme-review-detail">' +
+            '<div>Your answer: <b class="' + (r.correct ? 'correct-ans' : 'your-ans') + '">' + r.yourAnswer + '. ' + esc(r.options[r.yourAnswer]) + '</b></div>' +
+            (r.correct ? '' : '<div>Correct answer: <b class="correct-ans">' + r.correctAnswer + '. ' + esc(r.options[r.correctAnswer]) + '</b></div>') +
+            '<div class="explanation">' + esc(r.explanation) + '</div>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+
+    root.innerHTML =
+      '<div class="nbme-shell">' +
+        '<div class="nbme-topbar">' +
+          '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'Practice') + '</div>' +
+          '<div class="nbme-meta">Block Complete</div>' +
+        '</div>' +
+        '<div class="nbme-body">' +
+          '<div class="nbme-results-head">' +
+            '<h1>Block Results</h1>' +
+            '<div class="nbme-score-big ' + pctCls + '">' + pct + '%</div>' +
+            '<div class="sub">' + correct + ' of ' + total + ' correct</div>' +
+          '</div>' +
+
+          (weakest ? '<div class="nbme-callout">Weakest area this block: <b>' + esc(weakest.tag) + '</b> (' + weakest.correct + '/' + weakest.total + ', ' + weakest.pct + '%). Consider a focused review block on this topic.</div>' : '') +
+
+          '<div class="nbme-section-label">Breakdown by topic</div>' +
+          '<div class="nbme-breakdown">' + breakdownHtml + '</div>' +
+
+          '<div class="nbme-section-label">Review (' + total + ' items)</div>' +
+          '<div id="nbme-review-list">' + reviewHtml + '</div>' +
+
+          '<div class="nbme-results-actions">' +
+            (missed.length ? '<button class="nbme-btn nbme-btn-primary" id="nbme-retake-missed">Retake ' + missed.length + ' Missed Question' + (missed.length===1?'':'s') + '</button>' : '') +
+            '<button class="nbme-btn nbme-btn-secondary" id="nbme-new-block">New Block</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    root.querySelectorAll('[data-review-toggle]').forEach(function(el){
+      el.addEventListener('click', function(){
+        el.closest('.nbme-review-item').classList.toggle('open');
+      });
+    });
+
+    var retakeBtn = document.getElementById('nbme-retake-missed');
+    if(retakeBtn){
+      retakeBtn.addEventListener('click', function(){
+        var ids = missed.map(function(r){ return r.id; });
+        startBlock(ids);
+      });
+    }
+    document.getElementById('nbme-new-block').addEventListener('click', function(){
+      state.screen = 'setup';
+      render();
+    });
+  }
+
+  render();
+})();
+</script>
