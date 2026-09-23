@@ -1,10 +1,12 @@
 ---
-layout: default
+layout: bare
 title: GI Pathology — NBME-Style Practice Exam
 excerpt: A self-scoring, NBME/USMLE-style practice block for GI pathology — pick your topics, answer in tutor mode with instant explanations, and get a topic-by-topic performance breakdown.
 category: usmle
 date: 2026-09-23
 ---
+
+<a href="{{ '/' | relative_url }}" class="nbme-back-link">&larr; Back to Hiyata's Journal</a>
 
 <div id="nbme-app" class="nbme-app" data-image-base="{{ '/assets/images/nbme/gi-path/' | relative_url }}"></div>
 
@@ -13,85 +15,109 @@ date: 2026-09-23
 <style>
   /*
     This page is intentionally NOT themed by the site's light/dark toggle —
-    it fixes its own neutral palette and typography to match real
-    NBME/USMLE (FRED) testing software: gray chrome, white content, black
-    text, Times New Roman for question content, Arial for UI chrome.
+    it fixes its own neutral palette and typography to match real USMLE
+    QBank software: navy chrome, white content, a two-column item + explanation
+    layout, and radio-button answer choices.
   */
   #nbme-app, #nbme-app * { box-sizing: border-box; }
 
-  .nbme-app{
-    --nbme-bar:#e7e6e2;          /* toolbar chrome (top/bottom bars) */
-    --nbme-bar-hover:#d8d7d2;
-    --nbme-workspace:#c9c7c1;     /* gray "desk" behind white content */
-    --nbme-card:#ffffff;          /* content panels, choice rows */
-    --nbme-border:#a9a69d;
-    --nbme-border-soft:#d3d1c9;
-    --nbme-ink:#141414;
-    --nbme-muted:#55524a;
-    --nbme-accent:#1d5ba6;        /* selection blue */
-    --nbme-accent-tint:#d7e7f7;
-    --nbme-green:#1a7431;
-    --nbme-green-bg:#e4f2e6;
-    --nbme-red:#b3261e;
-    --nbme-red-bg:#fbeae8;
-    --nbme-amber:#8a6d00;
-    --nbme-amber-bg:#fff6d8;
-    --nbme-primary:#33322d;       /* charcoal action buttons */
-    --nbme-primary-hover:#47453d;
-    --nbme-serif: "Times New Roman", Times, Georgia, serif;
-    --nbme-sans: Arial, Helvetica, "Helvetica Neue", sans-serif;
+  body.bare-page{
+    margin:0; background:#f4f5f7; background-image:none;
+  }
 
-    max-width: 960px;
+  a.nbme-back-link{
+    position:fixed; top:10px; left:10px; z-index:9990;
+    background:#1c3f6e; color:#fff; text-decoration:none;
+    font: 700 12px/1 Arial, Helvetica, sans-serif; letter-spacing:0.02em;
+    padding:8px 12px; border-radius:3px; box-shadow:0 1px 4px rgba(0,0,0,0.3);
+  }
+  a.nbme-back-link:hover{ background:#142f55; }
+
+  .nbme-app{
+    --nbme-navy:#1c3f6e;          /* top/bottom toolbar chrome */
+    --nbme-navy-dark:#142f55;
+    --nbme-bar-ink:#ffffff;       /* text sitting directly on navy chrome */
+    --nbme-card:#ffffff;          /* all content panels */
+    --nbme-page:#f4f5f7;          /* page backdrop around the white shell */
+    --nbme-border:#d3d7dc;
+    --nbme-border-soft:#e6e8eb;
+    --nbme-ink:#1a1a1a;
+    --nbme-muted:#65707d;
+    --nbme-accent:#2f6fed;        /* radio / selection blue */
+    --nbme-accent-tint:#eaf1fd;
+    --nbme-green:#1e7d34;
+    --nbme-green-bg:#e9f7ec;
+    --nbme-red:#c62828;
+    --nbme-red-bg:#fdecea;
+    --nbme-amber:#b8860b;
+    --nbme-amber-bg:#fff6df;
+    --nbme-primary:#2f6fed;
+    --nbme-primary-hover:#2358c4;
+    --nbme-serif: Georgia, "Times New Roman", serif;
+    --nbme-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 0 0 2rem;
+    padding: 3rem 0.75rem 2rem;
     color: var(--nbme-ink);
     font-family: var(--nbme-sans);
   }
 
   .nbme-shell{
-    background: var(--nbme-workspace);
+    background: var(--nbme-card);
     border: 1px solid var(--nbme-border);
     border-radius: 3px;
     overflow: hidden;
-    margin-top: 1.25rem;
+    margin-top: 0.5rem;
   }
 
   /* ---------- Top bar (exam chrome) ---------- */
   .nbme-topbar{
-    background: var(--nbme-bar);
-    border-bottom: 1px solid var(--nbme-border);
-    color: var(--nbme-ink);
+    background: var(--nbme-navy);
+    color: var(--nbme-bar-ink);
     padding: 0.55rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    gap: 0.85rem;
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.01em;
   }
   .nbme-topbar .nbme-brand{
     display:flex; align-items:center; gap:0.5rem;
-    font-family: var(--nbme-serif);
-    font-size: 0.95rem;
+    font-family: var(--nbme-sans);
+    font-size: 0.88rem;
     letter-spacing: 0.02em;
     min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
-  .nbme-topbar .nbme-brand .dot{ flex:none; width:7px;height:7px;border-radius:50%;background:var(--nbme-accent); }
+  .nbme-topbar .nbme-brand .dot{ flex:none; width:7px;height:7px;border-radius:50%;background:#8fb8ff; }
   .nbme-topbar .nbme-meta{ flex:none; display:flex; align-items:center; gap:0.9rem; white-space:nowrap; }
+  .nbme-topbar .nbme-spacer{ flex:1 1 auto; }
+  .nbme-icon-btn{
+    flex:none; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28);
+    color: var(--nbme-bar-ink); width:2rem; height:2rem; border-radius:3px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; line-height:1;
+    font-family: var(--nbme-sans);
+  }
+  .nbme-icon-btn:hover{ background: rgba(255,255,255,0.22); }
+  .nbme-icon-btn:disabled{ opacity:0.35; cursor:not-allowed; }
+  .nbme-icon-btn.flag.marked{ background:#c99a1a; border-color:#c99a1a; color:#fff; }
+  .nbme-item-info{ display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+  .nbme-item-info .l1{ font-size:0.86rem; font-weight:700; white-space:nowrap; }
+  .nbme-item-info .l2{ font-size:0.68rem; font-weight:400; opacity:0.8; text-transform:uppercase; letter-spacing:0.04em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:220px; }
   .nbme-topbar button.nbme-exit{
     flex:none;
     background: var(--nbme-card);
-    border: 1px solid var(--nbme-border);
-    color: var(--nbme-ink); padding: 0.32rem 0.7rem; border-radius:2px; font-size:0.76rem; cursor:pointer;
+    border: 1px solid var(--nbme-card);
+    color: var(--nbme-navy); padding: 0.4rem 0.85rem; border-radius:3px; font-size:0.76rem; cursor:pointer;
     white-space:nowrap; font-family: var(--nbme-sans); font-weight:700;
   }
-  .nbme-topbar button.nbme-exit:hover{ background: var(--nbme-bar-hover); }
-  @media (max-width: 480px){
-    .nbme-topbar{ font-size:0.7rem; padding:0.5rem 0.7rem; gap:0.5rem; }
-    .nbme-topbar .nbme-brand{ font-size:0.8rem; }
-    .nbme-topbar .nbme-meta{ gap:0.5rem; }
-    .nbme-topbar button.nbme-exit{ padding:0.28rem 0.5rem; font-size:0.66rem; }
+  .nbme-topbar button.nbme-exit:hover{ background:#e7edf9; }
+  @media (max-width: 640px){
+    .nbme-topbar{ font-size:0.7rem; padding:0.5rem 0.6rem; gap:0.5rem; }
+    .nbme-item-info .l2{ display:none; }
+    .nbme-icon-btn{ width:1.8rem; height:1.8rem; font-size:0.9rem; }
+    .nbme-topbar button.nbme-exit{ padding:0.32rem 0.55rem; font-size:0.66rem; }
   }
 
   .nbme-progress-track{
@@ -101,11 +127,11 @@ date: 2026-09-23
     height:100%; background: var(--nbme-accent); transition: width 0.25s ease;
   }
 
-  .nbme-body{ padding: 1.25rem 1.5rem 1.5rem; }
+  .nbme-body{ padding: 1.25rem 1.5rem 1.5rem; background: var(--nbme-page); }
 
   /* ---------- Setup screen ---------- */
   .nbme-setup-head h1{
-    font-family: var(--nbme-serif);
+    font-family: var(--nbme-sans);
     font-size: 1.5rem;
     color: var(--nbme-ink);
     margin: 0 0 0.25rem;
@@ -115,7 +141,7 @@ date: 2026-09-23
   .nbme-stats-panel{
     background: var(--nbme-card);
     border: 1px solid var(--nbme-border);
-    border-radius: 2px;
+    border-radius: 3px;
     padding: 0.9rem 1rem;
     margin-bottom: 1.25rem;
     display:grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1rem;
@@ -139,7 +165,7 @@ date: 2026-09-23
   .nbme-tag-toolbar{ display:flex; gap:0.6rem; margin-bottom:0.6rem; }
   .nbme-tag-toolbar button{
     background: var(--nbme-card); border:1px solid var(--nbme-border); color: var(--nbme-ink);
-    border-radius: 2px; padding: 0.25rem 0.6rem; font-size:0.78rem; cursor:pointer;
+    border-radius: 3px; padding: 0.25rem 0.6rem; font-size:0.78rem; cursor:pointer;
   }
   .nbme-tag-toolbar button:hover{ border-color: var(--nbme-accent); }
 
@@ -150,17 +176,17 @@ date: 2026-09-23
 
   .nbme-tag-item{
     display:flex; align-items:center; justify-content:space-between; gap:0.5rem;
-    background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius: 2px;
+    background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius: 3px;
     padding: 0.5rem 0.7rem; cursor:pointer; user-select:none; font-size:0.86rem;
     min-width:0;
   }
   .nbme-tag-item:hover{ border-color: var(--nbme-accent); }
-  .nbme-tag-item.checked{ border-color: var(--nbme-accent); background: color-mix(in srgb, var(--nbme-accent) 8%, var(--nbme-card)); }
+  .nbme-tag-item.checked{ border-color: var(--nbme-accent); background: var(--nbme-accent-tint); }
   .nbme-tag-item .left{ display:flex; align-items:center; gap:0.55rem; min-width:0; flex:1 1 auto; }
   .nbme-tag-item input{ accent-color: var(--nbme-accent); width:16px; height:16px; flex:none; }
   .nbme-tag-item .name{ flex:1 1 auto; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .nbme-tag-item .count{
-    flex:none; font-size:0.72rem; color: var(--nbme-muted); background: var(--nbme-workspace);
+    flex:none; font-size:0.72rem; color: var(--nbme-muted); background: var(--nbme-page);
     border:1px solid var(--nbme-border); border-radius:999px; padding:0.05rem 0.5rem;
   }
 
@@ -168,7 +194,7 @@ date: 2026-09-23
   .nbme-options-row label{ display:flex; align-items:center; gap:0.4rem; }
   .nbme-options-row select{
     background: var(--nbme-card); color: var(--nbme-ink); border:1px solid var(--nbme-border);
-    border-radius: 2px; padding:0.25rem 0.4rem; font-size:0.85rem;
+    border-radius: 3px; padding:0.25rem 0.4rem; font-size:0.85rem;
   }
   .nbme-options-row input[type=checkbox]{ accent-color: var(--nbme-accent); width:15px; height:15px; }
 
@@ -176,35 +202,41 @@ date: 2026-09-23
   .nbme-btn{
     font-family: var(--nbme-sans); font-weight:700; font-size:0.8rem; cursor:pointer;
     text-transform:uppercase; letter-spacing:0.03em;
-    border-radius:2px; padding:0.62rem 1.3rem; border:1px solid var(--nbme-border);
+    border-radius:3px; padding:0.62rem 1.3rem; border:1px solid var(--nbme-border);
   }
   .nbme-btn-primary{ background: var(--nbme-primary); color:#fff; border-color: var(--nbme-primary); }
   .nbme-btn-primary:hover{ background: var(--nbme-primary-hover); }
   .nbme-btn-primary:disabled{ opacity:0.45; cursor:not-allowed; }
   .nbme-btn-secondary{ background: var(--nbme-card); color: var(--nbme-ink); border-color: var(--nbme-border); }
-  .nbme-btn-secondary:hover{ background: var(--nbme-bar-hover); }
+  .nbme-btn-secondary:hover{ background: var(--nbme-page); }
   .nbme-start-hint{ font-size:0.82rem; color: var(--nbme-muted); }
 
-  /* ---------- Question screen ---------- */
+  /* ---------- Question screen: two-column item + explanation layout ---------- */
+  .nbme-body.is-quiz{ background: var(--nbme-card); padding: 0; }
+  .nbme-quiz-grid{ display:grid; grid-template-columns: 1.5fr 1fr; align-items:start; }
+  @media (max-width: 900px){ .nbme-quiz-grid{ grid-template-columns: 1fr; } }
+
+  .nbme-quiz-left{ padding: 1.25rem 1.4rem 1.5rem; border-right: 1px solid var(--nbme-border); }
+  @media (max-width: 900px){ .nbme-quiz-left{ border-right:none; border-bottom:1px solid var(--nbme-border); } }
+
+  .nbme-quiz-right{ padding: 1.25rem 1.4rem 1.5rem; min-height: 200px; }
+
   .nbme-qmeta{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.9rem; }
   .nbme-qmeta .tagpill{
     font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; color: var(--nbme-accent);
-    border:1px solid var(--nbme-border); background: var(--nbme-card); border-radius:999px; padding:0.15rem 0.6rem;
+    border:1px solid var(--nbme-border); background: var(--nbme-page); border-radius:999px; padding:0.15rem 0.6rem;
   }
   .nbme-score-live{ font-size:0.8rem; color: var(--nbme-muted); }
 
   .nbme-stem{
-    font-family: var(--nbme-serif);
-    font-size: 1.08rem;
-    line-height: 1.6;
-    background: var(--nbme-card);
-    border: 1px solid var(--nbme-border);
-    border-radius: 2px;
-    padding: 1rem 1.1rem;
-    margin-bottom: 1rem;
+    font-family: var(--nbme-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--nbme-ink);
+    margin-bottom: 1.1rem;
   }
 
-  .nbme-images{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem; }
+  .nbme-images{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.1rem; }
   .nbme-images figure{ margin:0; flex: 1 1 260px; max-width: 420px; }
   .nbme-images img{
     width:100%; display:block; border-radius:2px; border:1px solid var(--nbme-border);
@@ -214,51 +246,82 @@ date: 2026-09-23
 
   .nbme-choices{
     display:flex; flex-direction:column;
-    background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius:2px;
+    background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius:4px;
+    padding: 0.4rem 0;
   }
   .nbme-choice{
-    display:flex; align-items:flex-start; gap:0.7rem;
-    border-bottom: 1px solid var(--nbme-border-soft);
-    border-left: 3px solid transparent;
-    padding: 0.65rem 0.9rem; cursor:pointer; font-size:1rem; line-height:1.45;
-    font-family: var(--nbme-serif);
+    display:flex; align-items:center; gap:0.65rem;
+    padding: 0.55rem 1rem; cursor:pointer; font-size:0.98rem; line-height:1.4;
+    font-family: var(--nbme-sans);
     transition: background 0.1s ease;
   }
-  .nbme-choices .nbme-choice:last-child{ border-bottom:none; }
-  .nbme-choice:hover:not(.locked){ background: var(--nbme-bar-hover); }
+  .nbme-choice:hover:not(.locked){ background: var(--nbme-page); }
+  .nbme-choice .check-slot{ flex:none; width:1.1rem; text-align:center; font-weight:700; }
+  .nbme-choice .nbme-radio{
+    flex:none; width:16px; height:16px; border-radius:50%; border:2px solid var(--nbme-border);
+    position:relative; background: var(--nbme-card);
+  }
+  .nbme-choice.selected .nbme-radio{ border-color: var(--nbme-accent); }
+  .nbme-choice.selected .nbme-radio::after{
+    content:''; position:absolute; inset:2px; border-radius:50%; background: var(--nbme-accent);
+  }
   .nbme-choice .letter{
-    flex:none; width:1.5rem; text-align:right; font-weight:700; color: var(--nbme-ink);
+    flex:none; font-weight:700; color: var(--nbme-ink);
   }
-  .nbme-choice.selected:not(.locked){ background: var(--nbme-accent-tint); border-left-color: var(--nbme-accent); }
-  .nbme-choice.selected:not(.locked) .letter{ color: var(--nbme-accent); }
+  .nbme-choice.selected:not(.locked){ background: var(--nbme-accent-tint); }
   .nbme-choice.locked{ cursor:default; }
-  .nbme-choice .mark{ margin-left:auto; flex:none; font-weight:700; font-size:1.05rem; padding-left:0.5rem; font-family: var(--nbme-sans); }
 
-  .nbme-choice.correct-answer{ background: var(--nbme-green-bg); border-left-color: var(--nbme-green); }
-  .nbme-choice.correct-answer .letter{ color: var(--nbme-green); }
-  .nbme-choice.correct-answer .mark{ color: var(--nbme-green); }
-  .nbme-choice.wrong-answer{ background: var(--nbme-red-bg); border-left-color: var(--nbme-red); }
-  .nbme-choice.wrong-answer .letter{ color: var(--nbme-red); }
-  .nbme-choice.wrong-answer .mark{ color: var(--nbme-red); }
+  .nbme-choice.correct-answer .check-slot{ color: var(--nbme-green); }
+  .nbme-choice.correct-answer{ background: var(--nbme-green-bg); }
+  .nbme-choice.wrong-answer .check-slot{ color: var(--nbme-red); }
+  .nbme-choice.wrong-answer{ background: var(--nbme-red-bg); }
+  .nbme-choice.wrong-answer .nbme-radio{ border-color: var(--nbme-red); }
+  .nbme-choice.wrong-answer .nbme-radio::after{ background: var(--nbme-red); }
 
-  .nbme-actions{ display:flex; justify-content:space-between; align-items:center; margin-top:1.1rem; }
-
-  .nbme-feedback{
-    margin-top:1.1rem; border-radius:2px; padding:1rem 1.1rem; border:1px solid var(--nbme-border);
+  .nbme-choice .nbme-strike-btn{
+    margin-left:auto; flex:none; width:1.6rem; height:1.6rem; padding:0;
+    border:1px solid var(--nbme-border); border-radius:3px; background: var(--nbme-card);
+    color: var(--nbme-muted); font-size:0.95rem; line-height:1; cursor:pointer;
+    font-family: var(--nbme-sans);
   }
-  .nbme-feedback.is-correct{ background: var(--nbme-green-bg); border-color: var(--nbme-green); }
-  .nbme-feedback.is-wrong{ background: var(--nbme-red-bg); border-color: var(--nbme-red); }
-  .nbme-feedback .headline{
-    font-weight:700; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.5rem; font-size:0.98rem;
+  .nbme-choice .nbme-strike-btn:hover{ background: var(--nbme-page); color: var(--nbme-ink); }
+  .nbme-choice .nbme-strike-btn.active{ background: var(--nbme-ink); border-color: var(--nbme-ink); color:#fff; }
+  .nbme-choice.struck:not(.locked){ cursor:default; }
+  .nbme-choice.struck:not(.locked):hover{ background: transparent; }
+  .nbme-choice.struck .choicetext{ text-decoration: line-through; color: var(--nbme-muted); }
+  .nbme-choice.struck:not(.locked) .letter,
+  .nbme-choice.struck:not(.locked) .nbme-radio{ opacity:0.5; }
+
+  .nbme-actions{ display:flex; justify-content:flex-start; align-items:center; margin-top:1.1rem; }
+
+  /* colored result strip + stat chips, shown under the choices once submitted */
+  .nbme-stat-strip{
+    margin-top:1.2rem; border-left: 4px solid var(--nbme-border); padding: 0.7rem 0 0.7rem 0.9rem;
+    display:flex; flex-wrap:wrap; align-items:center; gap:1.6rem;
   }
-  .nbme-feedback.is-correct .headline{ color: var(--nbme-green); }
-  .nbme-feedback.is-wrong .headline{ color: var(--nbme-red); }
-  .nbme-feedback .topic{ font-size:0.78rem; color: var(--nbme-muted); margin-bottom:0.5rem; }
-  .nbme-feedback .explanation{ font-family: var(--nbme-serif); font-size:0.98rem; line-height:1.6; }
+  .nbme-stat-strip.is-correct{ border-left-color: var(--nbme-green); }
+  .nbme-stat-strip.is-wrong{ border-left-color: var(--nbme-red); }
+  .nbme-stat-strip .status-label{ font-weight:700; font-size:0.95rem; }
+  .nbme-stat-strip.is-correct .status-label{ color: var(--nbme-green); }
+  .nbme-stat-strip.is-wrong .status-label{ color: var(--nbme-red); }
+  .nbme-stat-chip{ display:flex; flex-direction:column; }
+  .nbme-stat-chip b{ font-size:0.92rem; }
+  .nbme-stat-chip span{ font-size:0.68rem; color: var(--nbme-muted); text-transform:uppercase; letter-spacing:0.03em; }
+
+  .nbme-explanation-tab{
+    font-weight:700; font-size:0.95rem; color: var(--nbme-ink);
+    padding-bottom:0.6rem; margin-bottom:1rem; border-bottom: 2px solid var(--nbme-accent);
+    display:inline-block;
+  }
+  .nbme-explanation-placeholder{ color: var(--nbme-muted); font-size:0.9rem; }
+  .nbme-explanation-topic{ font-size:0.78rem; color: var(--nbme-muted); margin-bottom:0.6rem; }
+  .nbme-explanation-text{
+    font-family: var(--nbme-sans); font-size:0.96rem; line-height:1.65; color: var(--nbme-ink); margin:0;
+  }
 
   /* ---------- Results screen ---------- */
   .nbme-results-head{ text-align:center; padding: 0.5rem 0 1.4rem; }
-  .nbme-results-head h1{ font-family: var(--nbme-serif); font-size:1.4rem; color: var(--nbme-ink); margin:0 0 0.3rem; }
+  .nbme-results-head h1{ font-family: var(--nbme-sans); font-size:1.4rem; color: var(--nbme-ink); margin:0 0 0.3rem; }
   .nbme-score-big{ font-size: 3rem; font-weight:800; line-height:1; margin: 0.6rem 0 0.2rem; }
   .nbme-score-big.good{ color: var(--nbme-green); }
   .nbme-score-big.mid{ color: var(--nbme-amber); }
@@ -276,13 +339,13 @@ date: 2026-09-23
   .nbme-break-row .pct{ flex: 0 0 68px; text-align:right; color: var(--nbme-muted); }
 
   .nbme-callout{
-    border: 1px solid var(--nbme-border); background: var(--nbme-card); border-radius: 2px;
+    border: 1px solid var(--nbme-border); background: var(--nbme-card); border-radius: 3px;
     padding: 0.85rem 1rem; font-size:0.88rem; margin-bottom:1.2rem;
   }
   .nbme-callout b{ color: var(--nbme-red); }
 
   .nbme-review-item{
-    border: 1px solid var(--nbme-border); border-radius: 2px; margin-bottom:0.6rem; overflow:hidden; background: var(--nbme-card);
+    border: 1px solid var(--nbme-border); border-radius: 3px; margin-bottom:0.6rem; overflow:hidden; background: var(--nbme-card);
   }
   .nbme-review-summary{
     display:flex; align-items:center; gap:0.6rem; padding:0.65rem 0.85rem; cursor:pointer; font-size:0.85rem;
@@ -295,46 +358,31 @@ date: 2026-09-23
   .nbme-review-item.open .nbme-review-detail{ display:block; }
   .nbme-review-detail .your-ans{ color: var(--nbme-red); }
   .nbme-review-detail .correct-ans{ color: var(--nbme-green); }
-  .nbme-review-detail .explanation{ font-family: var(--nbme-serif); line-height:1.55; margin-top:0.4rem; font-size:0.92rem; }
+  .nbme-review-detail .explanation{ font-family: var(--nbme-sans); line-height:1.55; margin-top:0.4rem; font-size:0.92rem; }
 
   .nbme-results-actions{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:1rem; }
 
-  /* ---------- Timer / mark controls (top bar) ---------- */
-  .nbme-timer{
-    font-variant-numeric: tabular-nums; font-weight:700; padding:0.2rem 0.55rem;
-    border-radius:2px; background: var(--nbme-card); border:1px solid var(--nbme-border);
-  }
-  .nbme-timer.low{ color:var(--nbme-red); border-color: var(--nbme-red); background: var(--nbme-red-bg); }
-  .nbme-timer-toggle{
-    background:none; border:none; color: var(--nbme-muted); text-decoration:underline;
-    cursor:pointer; font-size:0.72rem; padding:0; font-family: var(--nbme-sans); font-weight:400;
-  }
-  .nbme-timer-toggle:hover{ color: var(--nbme-ink); }
-
   /* ---------- Bottom exam toolbar ---------- */
   .nbme-bottombar{
-    display:flex; align-items:center; justify-content:space-between; gap:0.6rem;
-    padding: 0.6rem 1.25rem; border-top:1px solid var(--nbme-border); background: var(--nbme-bar);
+    display:flex; align-items:center; justify-content:space-between; gap:0.75rem;
+    padding: 0.6rem 1.25rem; background: var(--nbme-navy); color: var(--nbme-bar-ink);
     flex-wrap:wrap;
   }
-  .nbme-bb-center{ display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; }
-  .nbme-bb-btn{
-    font-family: var(--nbme-sans); font-weight:700; font-size:0.76rem; cursor:pointer;
-    text-transform:uppercase; letter-spacing:0.02em;
-    border-radius:2px; padding:0.5rem 0.85rem; border:1px solid var(--nbme-border);
-    background: var(--nbme-card); color: var(--nbme-ink); white-space:nowrap;
+  .nbme-bb-left{ display:flex; flex-direction:column; line-height:1.2; }
+  .nbme-bb-timer-label{ font-size:0.65rem; text-transform:uppercase; letter-spacing:0.04em; opacity:0.75; }
+  .nbme-bb-timer-row{ display:flex; align-items:center; gap:0.6rem; }
+  .nbme-timer{
+    font-variant-numeric: tabular-nums; font-weight:700; font-size:0.95rem;
   }
-  .nbme-bb-btn:hover{ background: var(--nbme-bar-hover); }
-  .nbme-bb-btn:disabled{ opacity:0.4; cursor:not-allowed; }
-  .nbme-bb-btn.nbme-bb-next{ background: var(--nbme-primary); color:#fff; border-color: var(--nbme-primary); }
-  .nbme-bb-btn.nbme-bb-next:hover{ background: var(--nbme-primary-hover); }
-  .nbme-mark-btn.marked{
-    border-color: var(--nbme-amber); color: var(--nbme-amber);
-    background: var(--nbme-amber-bg);
+  .nbme-timer.low{ color:#ffb0a8; }
+  .nbme-timer-toggle{
+    background:none; border:none; color: rgba(255,255,255,0.75); text-decoration:underline;
+    cursor:pointer; font-size:0.72rem; padding:0; font-family: var(--nbme-sans); font-weight:400;
   }
+  .nbme-timer-toggle:hover{ color:#fff; }
+  .nbme-bb-right{ display:flex; align-items:center; gap:0.5rem; }
   @media (max-width:640px){
-    .nbme-bottombar{ justify-content:center; }
-    .nbme-bb-btn{ font-size:0.72rem; padding:0.45rem 0.65rem; }
+    .nbme-bottombar{ justify-content:center; text-align:center; }
   }
 
   /* ---------- Question navigator overlay ---------- */
@@ -343,30 +391,30 @@ date: 2026-09-23
     align-items:center; justify-content:center; z-index:9998; padding:1.25rem;
   }
   .nbme-navigator-panel{
-    background: var(--nbme-card); border:1px solid var(--nbme-border); border-radius:3px;
+    background: var(--nbme-card); border:1px solid var(--nbme-border); border-radius:4px;
     padding:1.25rem; max-width:520px; width:100%; max-height:85vh; overflow-y:auto;
   }
   .nbme-navigator-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem; }
-  .nbme-navigator-head h2{ font-family: var(--nbme-serif); font-size:1.1rem; margin:0; color: var(--nbme-ink); }
+  .nbme-navigator-head h2{ font-family: var(--nbme-sans); font-size:1.1rem; margin:0; color: var(--nbme-ink); }
   .nbme-nav-close{ background:none; border:none; font-size:1.5rem; line-height:1; cursor:pointer; color: var(--nbme-muted); }
   .nbme-nav-close:hover{ color: var(--nbme-ink); }
   .nbme-nav-legend{ display:flex; gap:1rem; flex-wrap:wrap; font-size:0.72rem; color: var(--nbme-muted); margin-bottom:0.9rem; }
   .nbme-nav-legend span{ display:flex; align-items:center; gap:0.35rem; }
   .nbme-legend-dot{ width:10px; height:10px; border-radius:3px; display:inline-block; }
   .nbme-legend-dot.answered{ background: var(--nbme-accent); }
-  .nbme-legend-dot.unanswered{ background: var(--nbme-workspace); border:1px solid var(--nbme-border); }
+  .nbme-legend-dot.unanswered{ background: var(--nbme-page); border:1px solid var(--nbme-border); }
   .nbme-legend-dot.marked{ background: var(--nbme-amber); }
 
   .nbme-nav-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:0.5rem; margin-bottom:1rem; }
   @media (max-width:480px){ .nbme-nav-grid{ grid-template-columns: repeat(5,1fr); } }
   .nbme-nav-cell{
-    position:relative; aspect-ratio:1; border-radius:2px; border:1px solid var(--nbme-border);
+    position:relative; aspect-ratio:1; border-radius:3px; border:1px solid var(--nbme-border);
     background: var(--nbme-card); color: var(--nbme-ink); font-weight:700; font-size:0.85rem;
     font-family: var(--nbme-sans); cursor:pointer; display:flex; align-items:center; justify-content:center;
   }
   .nbme-nav-cell:hover{ border-color: var(--nbme-accent); }
   .nbme-nav-cell.answered{ background: var(--nbme-accent); border-color: var(--nbme-accent); color:#fff; }
-  .nbme-nav-cell.current{ outline: 2px solid var(--nbme-primary); outline-offset:2px; }
+  .nbme-nav-cell.current{ outline: 2px solid var(--nbme-navy); outline-offset:2px; }
   .nbme-nav-cell .flagdot{
     position:absolute; top:-4px; right:-4px; width:10px; height:10px; border-radius:50%;
     background: var(--nbme-amber); border:1.5px solid var(--nbme-card);
@@ -385,6 +433,32 @@ date: 2026-09-23
   .nbme-lightbox img{ max-width:100%; max-height:100%; border-radius: 2px; }
 
   .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+  /* ---------- Text highlighting (select-to-highlight in the stem) ---------- */
+  .nbme-stem{ user-select:text; }
+  .nbme-app mark.nbme-hl{
+    background:#ffe066; color:#141414; padding:0 1px; border-radius:1px;
+    cursor:pointer; text-decoration:none;
+  }
+</style>
+
+<!--
+  The highlight "apply" toolbar is appended to document.body (not #nbme-app),
+  so it can float above the page while a text selection is active — it needs
+  its own fixed, theme-independent styling to match the rest of this page.
+-->
+<style>
+  #nbme-hl-toolbar{
+    position: fixed; display:none; z-index:10000;
+    background:#1c3f6e; border:1px solid #1c3f6e; border-radius:3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  }
+  #nbme-hl-toolbar button{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:700; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.03em;
+    background: transparent; color:#fff; border:none; padding:0.45rem 0.8rem; cursor:pointer;
+  }
+  #nbme-hl-toolbar button:hover{ background: rgba(255,255,255,0.15); }
 </style>
 
 <script>
@@ -444,15 +518,19 @@ date: 2026-09-23
     index: 0,
     navigatorOpen: false,
     timerSeconds: 0,
-    timerHidden: false
+    timerHidden: false,
+    timerPaused: false
   };
   TAGS.forEach(function(t){ state.selectedTags[t] = true; });
 
   var timerIntervalId = null;
   function formatTime(sec){
     sec = Math.max(0, sec|0);
-    var m = Math.floor(sec / 60), s = sec % 60;
-    return m + ':' + (s < 10 ? '0' : '') + s;
+    var h = Math.floor(sec / 3600);
+    var m = Math.floor((sec % 3600) / 60);
+    var s = sec % 60;
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+    return pad(h) + ':' + pad(m) + ':' + pad(s);
   }
   function stopTimer(){
     if(timerIntervalId){ clearInterval(timerIntervalId); timerIntervalId = null; }
@@ -460,7 +538,9 @@ date: 2026-09-23
   function startTimer(totalSeconds){
     stopTimer();
     state.timerSeconds = totalSeconds;
+    state.timerPaused = false;
     timerIntervalId = setInterval(function(){
+      if(state.timerPaused) return;
       state.timerSeconds = Math.max(0, state.timerSeconds - 1);
       updateTimerDisplay();
     }, 1000);
@@ -495,6 +575,108 @@ date: 2026-09-23
     if(pct >= 80) return 'good';
     if(pct >= 60) return 'mid';
     return 'bad';
+  }
+
+  // ---------------- text highlighting (select-to-highlight in the stem) ----------------
+  function normalizeRanges(ranges){
+    var sorted = ranges.slice().sort(function(a,b){ return a.start - b.start; });
+    var merged = [];
+    sorted.forEach(function(r){
+      if(merged.length && r.start <= merged[merged.length - 1].end){
+        merged[merged.length - 1].end = Math.max(merged[merged.length - 1].end, r.end);
+      } else {
+        merged.push({ start: r.start, end: r.end });
+      }
+    });
+    return merged;
+  }
+  function renderHighlightedHtml(text, ranges){
+    if(!ranges || !ranges.length) return esc(text);
+    var sorted = ranges.slice().sort(function(a,b){ return a.start - b.start; });
+    var out = '', pos = 0;
+    sorted.forEach(function(r, i){
+      var start = Math.max(pos, Math.min(r.start, text.length));
+      var end = Math.max(start, Math.min(r.end, text.length));
+      if(start > pos) out += esc(text.slice(pos, start));
+      if(end > start){
+        out += '<mark class="nbme-hl" data-hl-idx="' + i + '">' + esc(text.slice(start, end)) + '</mark>';
+      }
+      pos = Math.max(pos, end);
+    });
+    if(pos < text.length) out += esc(text.slice(pos));
+    return out;
+  }
+  function textOffsetIn(container, node, offset){
+    var range = document.createRange();
+    range.selectNodeContents(container);
+    range.setEnd(node, offset);
+    return range.toString().length;
+  }
+
+  var hlToolbar = null, pendingHighlight = null;
+  function ensureHighlightToolbar(){
+    if(hlToolbar) return hlToolbar;
+    hlToolbar = document.createElement('div');
+    hlToolbar.id = 'nbme-hl-toolbar';
+    hlToolbar.innerHTML = '<button type="button" id="nbme-hl-apply">Highlight</button>';
+    document.body.appendChild(hlToolbar);
+    document.getElementById('nbme-hl-apply').addEventListener('click', function(){
+      if(!pendingHighlight) return;
+      var item = state.block[pendingHighlight.itemIndex];
+      if(item){
+        item.highlights = normalizeRanges((item.highlights || []).concat([{ start: pendingHighlight.start, end: pendingHighlight.end }]));
+      }
+      pendingHighlight = null;
+      hideHighlightToolbar();
+      var sel = window.getSelection();
+      if(sel) sel.removeAllRanges();
+      render();
+    });
+    document.addEventListener('mousedown', function(e){
+      if(hlToolbar && !hlToolbar.contains(e.target)) hideHighlightToolbar();
+    }, true);
+    return hlToolbar;
+  }
+  function hideHighlightToolbar(){
+    if(hlToolbar) hlToolbar.style.display = 'none';
+    pendingHighlight = null;
+  }
+  function showHighlightToolbarFor(rect){
+    var tb = ensureHighlightToolbar();
+    tb.style.display = 'block';
+    var left = rect.left + rect.width / 2;
+    var top = rect.top - 40;
+    tb.style.left = Math.max(8, Math.min(left, window.innerWidth - 100)) + 'px';
+    tb.style.top = Math.max(8, top) + 'px';
+  }
+  function wireHighlightableStem(stemEl, itemIndex){
+    stemEl.addEventListener('mouseup', function(){
+      setTimeout(function(){
+        var sel = window.getSelection();
+        if(!sel || sel.isCollapsed || sel.rangeCount === 0){ return; }
+        var range = sel.getRangeAt(0);
+        if(!stemEl.contains(range.commonAncestorContainer)) return;
+        var start = textOffsetIn(stemEl, range.startContainer, range.startOffset);
+        var end = textOffsetIn(stemEl, range.endContainer, range.endOffset);
+        if(start > end){ var t = start; start = end; end = t; }
+        if(end <= start) return;
+        pendingHighlight = { itemIndex: itemIndex, start: start, end: end };
+        showHighlightToolbarFor(range.getBoundingClientRect());
+      }, 0);
+    });
+    stemEl.querySelectorAll('.nbme-hl').forEach(function(m){
+      m.addEventListener('click', function(e){
+        e.stopPropagation();
+        var idx = parseInt(m.getAttribute('data-hl-idx'), 10);
+        var item = state.block[itemIndex];
+        if(item && item.highlights){
+          item.highlights.sort(function(a,b){ return a.start - b.start; });
+          item.highlights.splice(idx, 1);
+        }
+        hideHighlightToolbar();
+        render();
+      });
+    });
   }
 
   // ---------------- render dispatch ----------------
@@ -650,7 +832,11 @@ date: 2026-09-23
         displayOrder: order, // original letters, in the order they're displayed (A..E map to these positions)
         userChoice: null,    // original letter the user picked
         submitted: false,
-        marked: false
+        marked: false,
+        struck: {},          // origLetter -> true, choices the user crossed out
+        highlights: [],       // [{start,end}] character ranges highlighted in the stem
+        startedAt: null,      // Date.now() when this item was first shown, for time-spent tracking
+        timeSpentMs: 0
       };
     });
     state.index = 0;
@@ -668,6 +854,7 @@ date: 2026-09-23
     var item = state.block[state.index];
     var q = item.source;
     var pct = Math.round((state.index) / total * 100);
+    if(!item.submitted && !item.startedAt) item.startedAt = Date.now();
 
     var imagesHtml = '';
     if(q.images && q.images.length){
@@ -681,33 +868,52 @@ date: 2026-09-23
     var choicesHtml = item.displayOrder.map(function(origLetter, idx){
       var displayLetter = String.fromCharCode(65 + idx); // always A, B, C, D, E in on-screen order
       var locked = item.submitted;
+      var struck = !!item.struck[origLetter];
       var cls = 'nbme-choice';
       if(locked) cls += ' locked';
+      if(struck) cls += ' struck';
       if(!locked && item.userChoice === origLetter) cls += ' selected';
-      var mark = '';
+      var check = '';
       if(locked){
-        if(origLetter === q.answer){ cls += ' correct-answer'; mark = '&#10003;'; }
-        else if(origLetter === item.userChoice){ cls += ' wrong-answer'; mark = '&#10007;'; }
+        if(origLetter === q.answer){ cls += ' correct-answer'; check = '&#10003;'; }
+        else if(origLetter === item.userChoice){ cls += ' wrong-answer'; check = '&#10007;'; }
       }
+      var selectedNow = !locked && item.userChoice === origLetter;
+      var strikeBtn = !locked
+        ? '<button type="button" class="nbme-strike-btn' + (struck ? ' active' : '') + '" data-strike="' + origLetter + '" title="Cross out this choice">&#8856;</button>'
+        : '';
       return (
         '<div class="' + cls + '" data-choice="' + origLetter + '">' +
+          '<span class="check-slot">' + check + '</span>' +
+          '<span class="nbme-radio' + (selectedNow ? ' filled' : '') + '"></span>' +
           '<span class="letter">' + displayLetter + '.</span>' +
           '<span class="choicetext">' + esc(q.options[origLetter]) + '</span>' +
-          (mark ? '<span class="mark">' + mark + '</span>' : '') +
+          strikeBtn +
         '</div>'
       );
     }).join('');
 
-    var feedbackHtml = '';
+    var statStripHtml = '';
+    var explanationHtml;
     if(item.submitted){
       var correct = item.userChoice === q.answer;
-      var correctDisplayLetter = displayLetterOf(item, q.answer);
-      feedbackHtml =
-        '<div class="nbme-feedback ' + (correct ? 'is-correct' : 'is-wrong') + '">' +
-          '<div class="headline">' + (correct ? '&#10003; Correct' : '&#10007; Incorrect — correct answer is ' + correctDisplayLetter) + '</div>' +
-          '<div class="topic">Topic: ' + esc(q.topic || q.tag) + '</div>' +
-          '<div class="explanation">' + esc(q.explanation) + '</div>' +
+      var tagStats = stats.perTag[q.tag];
+      var tagPct = tagStats && tagStats.total ? Math.round((tagStats.correct / tagStats.total) * 100) : 0;
+      var timeStr = formatTime(Math.round((item.timeSpentMs || 0) / 1000));
+
+      statStripHtml =
+        '<div class="nbme-stat-strip ' + (correct ? 'is-correct' : 'is-wrong') + '">' +
+          '<span class="status-label">' + (correct ? '&#10003; Correct' : '&#10007; Incorrect') + '</span>' +
+          '<div class="nbme-stat-chip"><b>' + tagPct + '%</b><span>Correct on this topic</span></div>' +
+          '<div class="nbme-stat-chip"><b>' + timeStr.replace(/^00:/, '') + '</b><span>Time spent</span></div>' +
+          '<div class="nbme-stat-chip"><b>' + esc(q.topic || q.tag) + '</b><span>Topic</span></div>' +
         '</div>';
+
+      explanationHtml =
+        '<div class="nbme-explanation-topic">Topic: ' + esc(q.topic || q.tag) + '</div>' +
+        '<p class="nbme-explanation-text">' + esc(q.explanation) + '</p>';
+    } else {
+      explanationHtml = '<div class="nbme-explanation-placeholder">Submit an answer to see the explanation.</div>';
     }
 
     var submitRowHtml = !item.submitted
@@ -721,35 +927,48 @@ date: 2026-09-23
     root.innerHTML =
       '<div class="nbme-shell">' +
         '<div class="nbme-topbar">' +
-          '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'Practice') + '</div>' +
-          '<div class="nbme-meta">' +
-            '<span id="nbme-item-counter">Item ' + (state.index + 1) + ' of ' + total + '</span>' +
-            (state.timerHidden
-              ? '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Show Timer</button>'
-              : ('<span class="nbme-timer' + (state.timerSeconds <= 300 ? ' low' : '') + '" id="nbme-timer-value">' + formatTime(state.timerSeconds) + '</span>' +
-                 '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Hide</button>')) +
+          '<button class="nbme-icon-btn" id="nbme-navigator-btn" title="Question Navigator">&#9776;</button>' +
+          '<div class="nbme-item-info">' +
+            '<span class="l1">Item ' + (state.index + 1) + ' of ' + total + '</span>' +
+            '<span class="l2">' + esc(q.tag) + '</span>' +
           '</div>' +
+          '<button class="nbme-icon-btn flag' + (item.marked ? ' marked' : '') + '" id="nbme-mark-btn" title="Mark for Review">&#9873;</button>' +
+          '<button class="nbme-icon-btn" id="nbme-prev-btn" title="Previous" ' + (state.index === 0 ? 'disabled' : '') + '>&#9664;</button>' +
+          '<button class="nbme-icon-btn" id="nbme-bottom-next-btn" title="Next">&#9654;</button>' +
+          '<div class="nbme-spacer"></div>' +
+          '<span class="nbme-score-live">Score: ' + correctSoFar + ' / ' + answeredCount + '</span>' +
           '<button class="nbme-exit" id="nbme-exit-btn" type="button">End Block</button>' +
         '</div>' +
         '<div class="nbme-progress-track"><div class="nbme-progress-fill" style="width:' + pct + '%"></div></div>' +
-        '<div class="nbme-body">' +
-          '<div class="nbme-qmeta">' +
-            '<span class="tagpill">' + esc(q.tag) + '</span>' +
-            '<span class="nbme-score-live">Score so far: ' + correctSoFar + ' / ' + answeredCount + '</span>' +
+        '<div class="nbme-body is-quiz">' +
+          '<div class="nbme-quiz-grid">' +
+            '<div class="nbme-quiz-left">' +
+              '<div class="nbme-stem" id="nbme-stem-el">' + renderHighlightedHtml(q.stem, item.highlights) + '</div>' +
+              imagesHtml +
+              '<div class="nbme-choices">' + choicesHtml + '</div>' +
+              submitRowHtml +
+              statStripHtml +
+            '</div>' +
+            '<div class="nbme-quiz-right">' +
+              '<div class="nbme-explanation-tab">Explanation</div>' +
+              explanationHtml +
+            '</div>' +
           '</div>' +
-          '<div class="nbme-stem">' + esc(q.stem) + '</div>' +
-          imagesHtml +
-          '<div class="nbme-choices">' + choicesHtml + '</div>' +
-          feedbackHtml +
-          submitRowHtml +
         '</div>' +
         '<div class="nbme-bottombar">' +
-          '<button class="nbme-bb-btn" id="nbme-prev-btn" ' + (state.index === 0 ? 'disabled' : '') + '>&larr; Previous</button>' +
-          '<div class="nbme-bb-center">' +
-            '<button class="nbme-bb-btn nbme-mark-btn' + (item.marked ? ' marked' : '') + '" id="nbme-mark-btn" type="button">' + (item.marked ? '&#9873; Marked for Review' : '&#9872; Mark for Review') + '</button>' +
-            '<button class="nbme-bb-btn" id="nbme-navigator-btn" type="button">Question Navigator</button>' +
+          '<div class="nbme-bb-left">' +
+            '<span class="nbme-bb-timer-label">Block Time Remaining</span>' +
+            '<div class="nbme-bb-timer-row">' +
+              (state.timerHidden
+                ? '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Show Timer</button>'
+                : ('<span class="nbme-timer' + (state.timerSeconds <= 300 ? ' low' : '') + '" id="nbme-timer-value">' + formatTime(state.timerSeconds) + '</span>' +
+                   '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Hide</button>')) +
+            '</div>' +
           '</div>' +
-          '<button class="nbme-bb-btn nbme-bb-next" id="nbme-bottom-next-btn">' + (isLast ? 'Finish Block' : 'Next &rarr;') + '</button>' +
+          '<div class="nbme-bb-right">' +
+            '<button class="nbme-icon-btn' + (item.marked ? ' flag marked' : ' flag') + '" id="nbme-bb-mark-btn" title="Mark for Review">&#9873;</button>' +
+            '<button class="nbme-icon-btn" id="nbme-pause-btn" title="' + (state.timerPaused ? 'Resume timer' : 'Pause timer') + '">' + (state.timerPaused ? '&#9654;' : '&#10073;&#10073;') + '</button>' +
+          '</div>' +
         '</div>' +
       '</div>' +
       '<div class="nbme-lightbox" id="nbme-lightbox"><img id="nbme-lightbox-img" src="" alt="" /></div>' +
@@ -758,7 +977,18 @@ date: 2026-09-23
     if(!item.submitted){
       root.querySelectorAll('.nbme-choice').forEach(function(el){
         el.addEventListener('click', function(){
-          item.userChoice = el.getAttribute('data-choice');
+          var letter = el.getAttribute('data-choice');
+          if(item.struck[letter]) return; // crossed out — must un-strike first
+          item.userChoice = letter;
+          render();
+        });
+      });
+      root.querySelectorAll('.nbme-strike-btn').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.stopPropagation();
+          var letter = btn.getAttribute('data-strike');
+          item.struck[letter] = !item.struck[letter];
+          if(item.struck[letter] && item.userChoice === letter){ item.userChoice = null; }
           render();
         });
       });
@@ -769,7 +999,12 @@ date: 2026-09-23
     document.getElementById('nbme-prev-btn').addEventListener('click', goPrev);
     document.getElementById('nbme-bottom-next-btn').addEventListener('click', goNextItem);
     document.getElementById('nbme-mark-btn').addEventListener('click', toggleMark);
+    document.getElementById('nbme-bb-mark-btn').addEventListener('click', toggleMark);
     document.getElementById('nbme-navigator-btn').addEventListener('click', toggleNavigator);
+    document.getElementById('nbme-pause-btn').addEventListener('click', function(){
+      state.timerPaused = !state.timerPaused;
+      render();
+    });
 
     var timerToggle = document.getElementById('nbme-timer-toggle');
     if(timerToggle) timerToggle.addEventListener('click', function(){ state.timerHidden = !state.timerHidden; render(); });
@@ -800,6 +1035,9 @@ date: 2026-09-23
 
     if(state.navigatorOpen) wireNavigatorEvents();
     updateTimerDisplay();
+    hideHighlightToolbar();
+    var stemEl = document.getElementById('nbme-stem-el');
+    if(stemEl) wireHighlightableStem(stemEl, state.index);
   }
 
   // ---- question navigator (jump to / review any item in the block) ----
@@ -862,6 +1100,7 @@ date: 2026-09-23
     var item = state.block[state.index];
     if(!item.userChoice || item.submitted) return;
     item.submitted = true;
+    item.timeSpentMs = Date.now() - (item.startedAt || Date.now());
     var correct = item.userChoice === item.source.answer;
 
     recordAnswer(stats, item.source.tag, correct);
