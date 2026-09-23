@@ -522,6 +522,7 @@ date: 2026-09-23
   var state = {
     screen: 'setup', // setup | quiz | results
     selectedTags: {},
+    difficultyFilter: { normal: true, hard: true },
     shuffleQuestions: true,
     shuffleChoices: true,
     countMode: 'all',
@@ -697,9 +698,13 @@ date: 2026-09-23
     else renderResults();
   }
 
+  function matchesFilters(q){
+    return !!state.selectedTags[q.tag] && !!state.difficultyFilter[q.difficulty || 'normal'];
+  }
+
   // ================= SETUP SCREEN =================
   function renderSetup(){
-    var selectedCount = ALL_QUESTIONS.filter(function(q){ return state.selectedTags[q.tag]; }).length;
+    var selectedCount = ALL_QUESTIONS.filter(matchesFilters).length;
 
     var statsHtml = '';
     var tagEntries = Object.keys(stats.perTag);
@@ -726,7 +731,7 @@ date: 2026-09-23
     }
 
     var tagsHtml = TAGS.map(function(t){
-      var count = window.__nbmeTagCounts[t] || 0;
+      var count = ALL_QUESTIONS.filter(function(q){ return q.tag === t && state.difficultyFilter[q.difficulty || 'normal']; }).length;
       var checked = !!state.selectedTags[t];
       return (
         '<label class="nbme-tag-item' + (checked ? ' checked' : '') + '" data-tag="' + esc(t) + '">' +
@@ -770,6 +775,12 @@ date: 2026-09-23
           '</div>' +
           '<div class="nbme-tag-grid">' + tagsHtml + '</div>' +
 
+          '<div class="nbme-section-label">Difficulty</div>' +
+          '<div class="nbme-options-row">' +
+            '<label><input type="checkbox" id="nbme-diff-normal" ' + (state.difficultyFilter.normal ? 'checked' : '') + ' /> Normal</label>' +
+            '<label><input type="checkbox" id="nbme-diff-hard" ' + (state.difficultyFilter.hard ? 'checked' : '') + ' /> Difficult</label>' +
+          '</div>' +
+
           '<div class="nbme-section-label">Block options</div>' +
           '<div class="nbme-options-row">' +
             '<label>Question count ' +
@@ -805,6 +816,14 @@ date: 2026-09-23
       state.countMode = e.target.value;
       render();
     });
+    document.getElementById('nbme-diff-normal').addEventListener('change', function(e){
+      state.difficultyFilter.normal = e.target.checked;
+      render();
+    });
+    document.getElementById('nbme-diff-hard').addEventListener('change', function(e){
+      state.difficultyFilter.hard = e.target.checked;
+      render();
+    });
     document.getElementById('nbme-shuffle-q').addEventListener('change', function(e){ state.shuffleQuestions = e.target.checked; });
     document.getElementById('nbme-shuffle-c').addEventListener('change', function(e){ state.shuffleChoices = e.target.checked; });
 
@@ -830,7 +849,7 @@ date: 2026-09-23
     if(fromIds){
       pool = ALL_QUESTIONS.filter(function(q){ return fromIds.indexOf(q.id) !== -1; });
     } else {
-      pool = ALL_QUESTIONS.filter(function(q){ return state.selectedTags[q.tag]; });
+      pool = ALL_QUESTIONS.filter(matchesFilters);
       if(state.shuffleQuestions) pool = shuffle(pool);
       if(state.countMode !== 'all'){
         pool = pool.slice(0, parseInt(state.countMode, 10));
@@ -943,7 +962,7 @@ date: 2026-09-23
           '<button class="nbme-icon-btn" id="nbme-navigator-btn" title="Question Navigator">&#9776;</button>' +
           '<div class="nbme-item-info">' +
             '<span class="l1">Item ' + (state.index + 1) + ' of ' + total + '</span>' +
-            '<span class="l2">' + esc(q.tag) + '</span>' +
+            '<span class="l2">' + esc(q.tag) + (q.difficulty === 'hard' ? ' &middot; Difficult' : '') + '</span>' +
           '</div>' +
           '<button class="nbme-icon-btn flag' + (item.marked ? ' marked' : '') + '" id="nbme-mark-btn" title="Mark for Review">&#9873;</button>' +
           '<button class="nbme-icon-btn" id="nbme-prev-btn" title="Previous" ' + (state.index === 0 ? 'disabled' : '') + '>&#9664;</button>' +
