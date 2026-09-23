@@ -6,8 +6,6 @@ category: usmle
 date: 2026-09-23
 ---
 
-<a href="{{ '/' | relative_url }}" class="nbme-back-link">&larr; Back to Hiyata's Journal</a>
-
 <div id="nbme-app" class="nbme-app" data-image-base="{{ '/assets/images/nbme/gi-path/' | relative_url }}"></div>
 
 <script src="{{ '/assets/js/nbme/gi-path-data.js' | relative_url }}"></script>
@@ -26,12 +24,16 @@ date: 2026-09-23
   }
 
   a.nbme-back-link{
-    position:fixed; top:10px; left:10px; z-index:9990;
-    background:#1c3f6e; color:#fff; text-decoration:none;
-    font: 700 12px/1 Arial, Helvetica, sans-serif; letter-spacing:0.02em;
-    padding:8px 12px; border-radius:3px; box-shadow:0 1px 4px rgba(0,0,0,0.3);
+    display:inline-flex; align-items:center; flex:none;
+    background: rgba(255,255,255,0.12); color:#fff; text-decoration:none;
+    font: 700 0.72rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing:0.02em;
+    padding:0.4rem 0.7rem; border-radius:3px; border:1px solid rgba(255,255,255,0.32);
+    white-space:nowrap;
   }
-  a.nbme-back-link:hover{ background:#142f55; }
+  a.nbme-back-link:hover{ background: rgba(255,255,255,0.24); }
+  @media (max-width: 640px){
+    a.nbme-back-link{ padding:0.32rem 0.5rem; font-size:0.64rem; }
+  }
 
   .nbme-app{
     --nbme-navy:#1c3f6e;          /* top/bottom toolbar chrome */
@@ -56,19 +58,19 @@ date: 2026-09-23
     --nbme-serif: Georgia, "Times New Roman", serif;
     --nbme-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-    max-width: 1360px;
-    margin: 0 auto;
-    padding: 3rem 0.75rem 2rem;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     color: var(--nbme-ink);
     font-family: var(--nbme-sans);
   }
 
   .nbme-shell{
     background: var(--nbme-card);
-    border: 1px solid var(--nbme-border);
-    border-radius: 3px;
     overflow: hidden;
-    margin-top: 0.5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   /* ---------- Top bar (exam chrome) ---------- */
@@ -127,7 +129,14 @@ date: 2026-09-23
     height:100%; background: var(--nbme-accent); transition: width 0.25s ease;
   }
 
-  .nbme-body{ padding: 1.25rem 1.5rem 1.5rem; background: var(--nbme-page); }
+  .nbme-body{
+    flex: 1 1 auto;
+    padding: 1.25rem 1.5rem 1.5rem;
+    background: var(--nbme-page);
+    max-width: 1360px;
+    width: 100%;
+    margin: 0 auto;
+  }
 
   /* ---------- Setup screen ---------- */
   .nbme-setup-head h1{
@@ -463,6 +472,8 @@ date: 2026-09-23
 
 <script>
 (function(){
+  var SITE_ROOT = '{{ "/" | relative_url }}';
+  var BACK_LINK_HTML = '<a href="' + SITE_ROOT + '" class="nbme-back-link">&larr; Back to Site</a>';
   var DATA = window.NBME_GI_PATH_DATA;
   var root = document.getElementById('nbme-app');
   if (!DATA || !root) return;
@@ -740,6 +751,8 @@ date: 2026-09-23
         '<div class="nbme-topbar">' +
           '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'NBME-Style Practice') + '</div>' +
           '<div class="nbme-meta">Tutor Mode</div>' +
+          '<div class="nbme-spacer"></div>' +
+          BACK_LINK_HTML +
         '</div>' +
         '<div class="nbme-body">' +
           '<div class="nbme-setup-head">' +
@@ -937,6 +950,7 @@ date: 2026-09-23
           '<button class="nbme-icon-btn" id="nbme-bottom-next-btn" title="Next">&#9654;</button>' +
           '<div class="nbme-spacer"></div>' +
           '<span class="nbme-score-live">Score: ' + correctSoFar + ' / ' + answeredCount + '</span>' +
+          BACK_LINK_HTML +
           '<button class="nbme-exit" id="nbme-exit-btn" type="button">End Block</button>' +
         '</div>' +
         '<div class="nbme-progress-track"><div class="nbme-progress-fill" style="width:' + pct + '%"></div></div>' +
@@ -1198,6 +1212,8 @@ date: 2026-09-23
         '<div class="nbme-topbar">' +
           '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'Practice') + '</div>' +
           '<div class="nbme-meta">Block Complete</div>' +
+          '<div class="nbme-spacer"></div>' +
+          BACK_LINK_HTML +
         '</div>' +
         '<div class="nbme-body">' +
           '<div class="nbme-results-head">' +
