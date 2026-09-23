@@ -316,6 +316,82 @@ date: 2026-09-23
 
   .nbme-results-actions{ display:flex; flex-wrap:wrap; gap:0.75rem; margin-top:1rem; }
 
+  /* ---------- Timer / mark controls (top bar) ---------- */
+  .nbme-timer{
+    font-variant-numeric: tabular-nums; font-weight:700; padding:0.15rem 0.55rem;
+    border-radius:4px; background: rgba(255,255,255,0.1);
+  }
+  .nbme-timer.low{ color:#ffc9c9; background: rgba(255,107,107,0.22); }
+  .nbme-timer-toggle{
+    background:none; border:none; color:rgba(255,255,255,0.75); text-decoration:underline;
+    cursor:pointer; font-size:0.72rem; padding:0;
+  }
+  .nbme-timer-toggle:hover{ color:#fff; }
+
+  /* ---------- Bottom exam toolbar ---------- */
+  .nbme-bottombar{
+    display:flex; align-items:center; justify-content:space-between; gap:0.6rem;
+    padding: 0.7rem 1.25rem; border-top:1px solid var(--nbme-border); background: var(--nbme-card);
+    flex-wrap:wrap;
+  }
+  .nbme-bb-center{ display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; }
+  .nbme-bb-btn{
+    font-family: var(--nbme-sans); font-weight:600; font-size:0.8rem; cursor:pointer;
+    border-radius:6px; padding:0.5rem 0.85rem; border:1px solid var(--nbme-border);
+    background: var(--nbme-bg); color: var(--nbme-ink); white-space:nowrap;
+  }
+  .nbme-bb-btn:hover{ border-color: var(--nbme-accent); }
+  .nbme-bb-btn:disabled{ opacity:0.4; cursor:not-allowed; }
+  .nbme-bb-btn.nbme-bb-next{ background: var(--nbme-navy); color:#fff; border-color: var(--nbme-navy); }
+  .nbme-bb-btn.nbme-bb-next:hover{ background: var(--nbme-navy-light); }
+  .nbme-mark-btn.marked{
+    border-color: var(--nbme-amber); color: var(--nbme-amber);
+    background: color-mix(in srgb, var(--nbme-amber) 12%, var(--nbme-card));
+  }
+  @media (max-width:640px){
+    .nbme-bottombar{ justify-content:center; }
+    .nbme-bb-btn{ font-size:0.76rem; padding:0.45rem 0.65rem; }
+  }
+
+  /* ---------- Question navigator overlay ---------- */
+  .nbme-navigator-overlay{
+    position: fixed; inset:0; background: rgba(0,0,0,0.55); display:flex;
+    align-items:center; justify-content:center; z-index:9998; padding:1.25rem;
+  }
+  .nbme-navigator-panel{
+    background: var(--nbme-card); border:1px solid var(--nbme-border); border-radius:12px;
+    padding:1.25rem; max-width:520px; width:100%; max-height:85vh; overflow-y:auto;
+  }
+  .nbme-navigator-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem; }
+  .nbme-navigator-head h2{ font-family: var(--nbme-serif); font-size:1.1rem; margin:0; color: var(--nbme-ink); }
+  .nbme-nav-close{ background:none; border:none; font-size:1.5rem; line-height:1; cursor:pointer; color: var(--nbme-muted); }
+  .nbme-nav-close:hover{ color: var(--nbme-ink); }
+  .nbme-nav-legend{ display:flex; gap:1rem; flex-wrap:wrap; font-size:0.72rem; color: var(--nbme-muted); margin-bottom:0.9rem; }
+  .nbme-nav-legend span{ display:flex; align-items:center; gap:0.35rem; }
+  .nbme-legend-dot{ width:10px; height:10px; border-radius:3px; display:inline-block; }
+  .nbme-legend-dot.answered{ background: var(--nbme-accent); }
+  .nbme-legend-dot.unanswered{ background: var(--nbme-bg); border:1px solid var(--nbme-border); }
+  .nbme-legend-dot.marked{ background: var(--nbme-amber); }
+
+  .nbme-nav-grid{ display:grid; grid-template-columns: repeat(6, 1fr); gap:0.5rem; margin-bottom:1rem; }
+  @media (max-width:480px){ .nbme-nav-grid{ grid-template-columns: repeat(5,1fr); } }
+  .nbme-nav-cell{
+    position:relative; aspect-ratio:1; border-radius:6px; border:1.5px solid var(--nbme-border);
+    background: var(--nbme-bg); color: var(--nbme-ink); font-weight:600; font-size:0.85rem;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .nbme-nav-cell:hover{ border-color: var(--nbme-accent); }
+  .nbme-nav-cell.answered{ background: var(--nbme-accent); border-color: var(--nbme-accent); color:#fff; }
+  .nbme-nav-cell.current{ outline: 2px solid var(--nbme-amber); outline-offset:2px; }
+  .nbme-nav-cell .flagdot{
+    position:absolute; top:-4px; right:-4px; width:10px; height:10px; border-radius:50%;
+    background: var(--nbme-amber); border:1.5px solid var(--nbme-card);
+  }
+  .nbme-nav-footer{
+    display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap;
+    font-size:0.8rem; color: var(--nbme-muted); border-top:1px solid var(--nbme-border); padding-top:0.85rem;
+  }
+
   /* ---------- Lightbox ---------- */
   .nbme-lightbox{
     position: fixed; inset:0; background: rgba(0,0,0,0.85); display:none;
@@ -380,13 +456,41 @@ date: 2026-09-23
     shuffleQuestions: true,
     shuffleChoices: true,
     countMode: 'all',
-    block: [],       // array of question objects for this run, each with shuffledOptions
+    block: [],       // array of { source, displayOrder, userChoice, submitted, marked } for this run
     index: 0,
-    selectedChoice: null,
-    submitted: false,
-    results: []      // {id, tag, topic, correct, yourAnswer, correctAnswer, stem, explanation, options}
+    navigatorOpen: false,
+    timerSeconds: 0,
+    timerHidden: false
   };
   TAGS.forEach(function(t){ state.selectedTags[t] = true; });
+
+  var timerIntervalId = null;
+  function formatTime(sec){
+    sec = Math.max(0, sec|0);
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function stopTimer(){
+    if(timerIntervalId){ clearInterval(timerIntervalId); timerIntervalId = null; }
+  }
+  function startTimer(totalSeconds){
+    stopTimer();
+    state.timerSeconds = totalSeconds;
+    timerIntervalId = setInterval(function(){
+      state.timerSeconds = Math.max(0, state.timerSeconds - 1);
+      updateTimerDisplay();
+    }, 1000);
+  }
+  function updateTimerDisplay(){
+    var el = document.getElementById('nbme-timer-value');
+    if(!el) return;
+    el.textContent = formatTime(state.timerSeconds);
+    el.classList.toggle('low', state.timerSeconds <= 300);
+  }
+  function displayLetterOf(item, originalLetter){
+    var idx = item.displayOrder.indexOf(originalLetter);
+    return String.fromCharCode(65 + (idx < 0 ? 0 : idx));
+  }
 
   function shuffle(arr){
     var a = arr.slice();
@@ -559,14 +663,17 @@ date: 2026-09-23
       var order = state.shuffleChoices ? shuffle(letters) : letters;
       return {
         source: q,
-        displayOrder: order // array of original letters in display order
+        displayOrder: order, // original letters, in the order they're displayed (A..E map to these positions)
+        userChoice: null,    // original letter the user picked
+        submitted: false,
+        marked: false
       };
     });
     state.index = 0;
-    state.selectedChoice = null;
-    state.submitted = false;
-    state.results = [];
+    state.navigatorOpen = false;
+    state.timerHidden = false;
     state.screen = 'quiz';
+    startTimer(state.block.length * 90); // ~1.5 min/item, like a real block
     render();
   }
 
@@ -587,87 +694,110 @@ date: 2026-09-23
       }).join('') + '</div>';
     }
 
-    var choicesHtml = item.displayOrder.map(function(letter){
-      var locked = state.submitted;
+    var choicesHtml = item.displayOrder.map(function(origLetter, idx){
+      var displayLetter = String.fromCharCode(65 + idx); // always A, B, C, D, E in on-screen order
+      var locked = item.submitted;
       var cls = 'nbme-choice';
       if(locked) cls += ' locked';
-      if(!locked && state.selectedChoice === letter) cls += ' selected';
+      if(!locked && item.userChoice === origLetter) cls += ' selected';
       var mark = '';
       if(locked){
-        if(letter === q.answer){ cls += ' correct-answer'; mark = '&#10003;'; }
-        else if(letter === state.selectedChoice){ cls += ' wrong-answer'; mark = '&#10007;'; }
+        if(origLetter === q.answer){ cls += ' correct-answer'; mark = '&#10003;'; }
+        else if(origLetter === item.userChoice){ cls += ' wrong-answer'; mark = '&#10007;'; }
       }
       return (
-        '<div class="' + cls + '" data-choice="' + letter + '">' +
-          '<span class="letter">' + letter + '</span>' +
-          '<span class="choicetext">' + esc(q.options[letter]) + '</span>' +
+        '<div class="' + cls + '" data-choice="' + origLetter + '">' +
+          '<span class="letter">' + displayLetter + '</span>' +
+          '<span class="choicetext">' + esc(q.options[origLetter]) + '</span>' +
           (mark ? '<span class="mark">' + mark + '</span>' : '') +
         '</div>'
       );
     }).join('');
 
     var feedbackHtml = '';
-    if(state.submitted){
-      var correct = state.selectedChoice === q.answer;
+    if(item.submitted){
+      var correct = item.userChoice === q.answer;
+      var correctDisplayLetter = displayLetterOf(item, q.answer);
       feedbackHtml =
         '<div class="nbme-feedback ' + (correct ? 'is-correct' : 'is-wrong') + '">' +
-          '<div class="headline">' + (correct ? '&#10003; Correct' : '&#10007; Incorrect — correct answer is ' + q.answer) + '</div>' +
+          '<div class="headline">' + (correct ? '&#10003; Correct' : '&#10007; Incorrect — correct answer is ' + correctDisplayLetter) + '</div>' +
           '<div class="topic">Topic: ' + esc(q.topic || q.tag) + '</div>' +
           '<div class="explanation">' + esc(q.explanation) + '</div>' +
         '</div>';
     }
 
-    var isLast = state.index === total - 1;
-    var actionsHtml = state.submitted
-      ? '<button class="nbme-btn nbme-btn-primary" id="nbme-next-btn">' + (isLast ? 'Finish Block' : 'Next Question') + '</button>'
-      : '<button class="nbme-btn nbme-btn-primary" id="nbme-submit-btn" ' + (state.selectedChoice ? '' : 'disabled') + '>Submit Answer</button>';
+    var submitRowHtml = !item.submitted
+      ? '<div class="nbme-actions"><button class="nbme-btn nbme-btn-primary" id="nbme-submit-btn" ' + (item.userChoice ? '' : 'disabled') + '>Submit Answer</button></div>'
+      : '';
 
-    var correctSoFar = state.results.filter(function(r){ return r.correct; }).length;
+    var answeredCount = state.block.filter(function(it){ return it.submitted; }).length;
+    var correctSoFar = state.block.filter(function(it){ return it.submitted && it.userChoice === it.source.answer; }).length;
+    var isLast = state.index === total - 1;
 
     root.innerHTML =
       '<div class="nbme-shell">' +
         '<div class="nbme-topbar">' +
           '<div class="nbme-brand"><span class="dot"></span> ' + esc(DATA.setTitle || 'Practice') + '</div>' +
-          '<div class="nbme-meta">Item ' + (state.index + 1) + ' of ' + total + '</div>' +
-          '<button class="nbme-exit" id="nbme-exit-btn" type="button">End block</button>' +
+          '<div class="nbme-meta">' +
+            '<span id="nbme-item-counter">Item ' + (state.index + 1) + ' of ' + total + '</span>' +
+            (state.timerHidden
+              ? '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Show Timer</button>'
+              : ('<span class="nbme-timer' + (state.timerSeconds <= 300 ? ' low' : '') + '" id="nbme-timer-value">' + formatTime(state.timerSeconds) + '</span>' +
+                 '<button class="nbme-timer-toggle" id="nbme-timer-toggle" type="button">Hide</button>')) +
+          '</div>' +
+          '<button class="nbme-exit" id="nbme-exit-btn" type="button">End Block</button>' +
         '</div>' +
         '<div class="nbme-progress-track"><div class="nbme-progress-fill" style="width:' + pct + '%"></div></div>' +
         '<div class="nbme-body">' +
           '<div class="nbme-qmeta">' +
             '<span class="tagpill">' + esc(q.tag) + '</span>' +
-            '<span class="nbme-score-live">Score so far: ' + correctSoFar + ' / ' + state.results.length + '</span>' +
+            '<span class="nbme-score-live">Score so far: ' + correctSoFar + ' / ' + answeredCount + '</span>' +
           '</div>' +
           '<div class="nbme-stem">' + esc(q.stem) + '</div>' +
           imagesHtml +
           '<div class="nbme-choices">' + choicesHtml + '</div>' +
           feedbackHtml +
-          '<div class="nbme-actions">' + actionsHtml + '</div>' +
+          submitRowHtml +
+        '</div>' +
+        '<div class="nbme-bottombar">' +
+          '<button class="nbme-bb-btn" id="nbme-prev-btn" ' + (state.index === 0 ? 'disabled' : '') + '>&larr; Previous</button>' +
+          '<div class="nbme-bb-center">' +
+            '<button class="nbme-bb-btn nbme-mark-btn' + (item.marked ? ' marked' : '') + '" id="nbme-mark-btn" type="button">' + (item.marked ? '&#9873; Marked for Review' : '&#9872; Mark for Review') + '</button>' +
+            '<button class="nbme-bb-btn" id="nbme-navigator-btn" type="button">Question Navigator</button>' +
+          '</div>' +
+          '<button class="nbme-bb-btn nbme-bb-next" id="nbme-bottom-next-btn">' + (isLast ? 'Finish Block' : 'Next &rarr;') + '</button>' +
         '</div>' +
       '</div>' +
-      '<div class="nbme-lightbox" id="nbme-lightbox"><img id="nbme-lightbox-img" src="" alt="" /></div>';
+      '<div class="nbme-lightbox" id="nbme-lightbox"><img id="nbme-lightbox-img" src="" alt="" /></div>' +
+      (state.navigatorOpen ? renderNavigatorOverlay() : '');
 
-    if(!state.submitted){
+    if(!item.submitted){
       root.querySelectorAll('.nbme-choice').forEach(function(el){
         el.addEventListener('click', function(){
-          state.selectedChoice = el.getAttribute('data-choice');
+          item.userChoice = el.getAttribute('data-choice');
           render();
         });
       });
       var submitBtn = document.getElementById('nbme-submit-btn');
       if(submitBtn) submitBtn.addEventListener('click', submitAnswer);
-    } else {
-      var nextBtn = document.getElementById('nbme-next-btn');
-      if(nextBtn) nextBtn.addEventListener('click', goNext);
     }
 
+    document.getElementById('nbme-prev-btn').addEventListener('click', goPrev);
+    document.getElementById('nbme-bottom-next-btn').addEventListener('click', goNextItem);
+    document.getElementById('nbme-mark-btn').addEventListener('click', toggleMark);
+    document.getElementById('nbme-navigator-btn').addEventListener('click', toggleNavigator);
+
+    var timerToggle = document.getElementById('nbme-timer-toggle');
+    if(timerToggle) timerToggle.addEventListener('click', function(){ state.timerHidden = !state.timerHidden; render(); });
+
     document.getElementById('nbme-exit-btn').addEventListener('click', function(){
-      if(confirm('End this block early? Your progress on remaining questions will not be scored.')){
-        if(state.results.length > 0){
-          finishBlock();
-        } else {
-          state.screen = 'setup';
-          render();
-        }
+      var answered = state.block.some(function(it){ return it.submitted; });
+      if(answered){
+        if(confirm('End this block now? Unanswered questions will not be scored.')) finishBlock();
+      } else if(confirm('Exit without answering any questions?')){
+        stopTimer();
+        state.screen = 'setup';
+        render();
       }
     });
 
@@ -683,64 +813,105 @@ date: 2026-09-23
     if(lightbox){
       lightbox.addEventListener('click', function(){ lightbox.classList.remove('open'); });
     }
+
+    if(state.navigatorOpen) wireNavigatorEvents();
+    updateTimerDisplay();
+  }
+
+  // ---- question navigator (jump to / review any item in the block) ----
+  function renderNavigatorOverlay(){
+    var answered = 0, marked = 0;
+    var cells = state.block.map(function(it, i){
+      if(it.submitted) answered++;
+      if(it.marked) marked++;
+      var cls = 'nbme-nav-cell';
+      if(i === state.index) cls += ' current';
+      if(it.submitted) cls += ' answered';
+      return '<button type="button" class="' + cls + '" data-nav-jump="' + i + '">' + (i + 1) + (it.marked ? '<span class="flagdot"></span>' : '') + '</button>';
+    }).join('');
+    var unanswered = state.block.length - answered;
+    return (
+      '<div class="nbme-navigator-overlay" id="nbme-navigator-overlay">' +
+        '<div class="nbme-navigator-panel">' +
+          '<div class="nbme-navigator-head"><h2>Question Navigator</h2><button class="nbme-nav-close" id="nbme-nav-close" type="button">&times;</button></div>' +
+          '<div class="nbme-nav-legend">' +
+            '<span><span class="nbme-legend-dot answered"></span> Answered</span>' +
+            '<span><span class="nbme-legend-dot unanswered"></span> Unanswered</span>' +
+            '<span><span class="nbme-legend-dot marked"></span> Marked for review</span>' +
+          '</div>' +
+          '<div class="nbme-nav-grid">' + cells + '</div>' +
+          '<div class="nbme-nav-footer">' +
+            '<span>' + answered + ' answered &middot; ' + marked + ' marked &middot; ' + unanswered + ' unanswered</span>' +
+            '<button class="nbme-btn nbme-btn-primary" id="nbme-nav-end-block" type="button">End Block Now</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+  function wireNavigatorEvents(){
+    var overlay = document.getElementById('nbme-navigator-overlay');
+    if(!overlay) return;
+    overlay.addEventListener('click', function(e){
+      if(e.target === overlay){ state.navigatorOpen = false; render(); }
+    });
+    document.getElementById('nbme-nav-close').addEventListener('click', function(){ state.navigatorOpen = false; render(); });
+    root.querySelectorAll('[data-nav-jump]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        state.index = parseInt(btn.getAttribute('data-nav-jump'), 10);
+        state.navigatorOpen = false;
+        render();
+      });
+    });
+    document.getElementById('nbme-nav-end-block').addEventListener('click', function(){
+      if(confirm('End this block now? Unanswered questions will not be scored.')) finishBlock();
+    });
+  }
+  function toggleNavigator(){ state.navigatorOpen = !state.navigatorOpen; render(); }
+  function toggleMark(){ state.block[state.index].marked = !state.block[state.index].marked; render(); }
+  function goPrev(){ if(state.index > 0){ state.index--; render(); } }
+  function goNextItem(){
+    if(state.index < state.block.length - 1){ state.index++; render(); }
+    else { finishBlock(); }
   }
 
   function submitAnswer(){
-    if(!state.selectedChoice) return;
     var item = state.block[state.index];
-    var q = item.source;
-    var correct = state.selectedChoice === q.answer;
-    state.submitted = true;
+    if(!item.userChoice || item.submitted) return;
+    item.submitted = true;
+    var correct = item.userChoice === item.source.answer;
 
-    state.results.push({
-      id: q.id,
-      tag: q.tag,
-      topic: q.topic,
-      stem: q.stem,
-      options: q.options,
-      correct: correct,
-      yourAnswer: state.selectedChoice,
-      correctAnswer: q.answer,
-      explanation: q.explanation
-    });
-
-    recordAnswer(stats, q.tag, correct);
+    recordAnswer(stats, item.source.tag, correct);
     saveStats(stats);
 
     render();
   }
 
-  function goNext(){
-    if(state.index < state.block.length - 1){
-      state.index++;
-      state.selectedChoice = null;
-      state.submitted = false;
-      render();
-    } else {
-      finishBlock();
-    }
-  }
-
   function finishBlock(){
-    var correctCount = state.results.filter(function(r){ return r.correct; }).length;
-    recordAttempt(stats, correctCount, state.results.length);
+    stopTimer();
+    var submittedItems = state.block.filter(function(it){ return it.submitted; });
+    var correctCount = submittedItems.filter(function(it){ return it.userChoice === it.source.answer; }).length;
+    recordAttempt(stats, correctCount, submittedItems.length);
     saveStats(stats);
     state.screen = 'results';
+    state.navigatorOpen = false;
     render();
   }
 
   // ================= RESULTS SCREEN =================
   function renderResults(){
-    var total = state.results.length;
-    var correct = state.results.filter(function(r){ return r.correct; }).length;
+    var submittedItems = state.block.filter(function(it){ return it.submitted; });
+    var total = submittedItems.length;
+    var correct = submittedItems.filter(function(it){ return it.userChoice === it.source.answer; }).length;
     var pct = total ? Math.round((correct/total)*100) : 0;
     var pctCls = pctClass(pct);
+    var skipped = state.block.length - total;
 
     var byTag = {};
-    state.results.forEach(function(r){
-      if(!byTag[r.tag]) byTag[r.tag] = { correct:0, total:0 };
-      byTag[r.tag].total++;
-      if(r.correct) byTag[r.tag].correct++;
+    submittedItems.forEach(function(it){
+      var t = it.source.tag;
+      if(!byTag[t]) byTag[t] = { correct:0, total:0 };
+      byTag[t].total++;
+      if(it.userChoice === it.source.answer) byTag[t].correct++;
     });
     var tagRows = Object.keys(byTag).map(function(t){
       var d = byTag[t];
@@ -760,21 +931,41 @@ date: 2026-09-23
       );
     }).join('');
 
-    var missed = state.results.filter(function(r){ return !r.correct; });
-    var reviewHtml = state.results.map(function(r, i){
-      var stemLine = r.stem.length > 90 ? r.stem.slice(0, 90) + '…' : r.stem;
+    var missedItems = submittedItems.filter(function(it){ return it.userChoice !== it.source.answer; });
+
+    var reviewHtml = state.block.map(function(it, i){
+      var q = it.source;
+      var stemLine = q.stem.length > 90 ? q.stem.slice(0, 90) + '…' : q.stem;
+      var statusLabel, statusCls;
+      if(!it.submitted){ statusLabel = 'Skipped'; statusCls = 'wrong'; }
+      else if(it.userChoice === q.answer){ statusLabel = '✓ Correct'; statusCls = ''; }
+      else { statusLabel = '✗ Missed'; statusCls = 'wrong'; }
+
+      var detailHtml;
+      if(it.submitted){
+        var yourDisplay = displayLetterOf(it, it.userChoice);
+        var correctDisplay = displayLetterOf(it, q.answer);
+        var isCorrect = it.userChoice === q.answer;
+        detailHtml =
+          '<div>Your answer: <b class="' + (isCorrect ? 'correct-ans' : 'your-ans') + '">' + yourDisplay + '. ' + esc(q.options[it.userChoice]) + '</b></div>' +
+          (isCorrect ? '' : '<div>Correct answer: <b class="correct-ans">' + correctDisplay + '. ' + esc(q.options[q.answer]) + '</b></div>') +
+          '<div class="explanation">' + esc(q.explanation) + '</div>';
+      } else {
+        detailHtml =
+          '<div>This question was not answered.</div>' +
+          '<div>Correct answer: <b class="correct-ans">' + displayLetterOf(it, q.answer) + '. ' + esc(q.options[q.answer]) + '</b></div>' +
+          '<div class="explanation">' + esc(q.explanation) + '</div>';
+      }
+
       return (
         '<div class="nbme-review-item" data-review-idx="' + i + '">' +
           '<div class="nbme-review-summary" data-review-toggle="' + i + '">' +
             '<span class="idx">' + (i+1) + '.</span>' +
             '<span class="stemline">' + esc(stemLine) + '</span>' +
-            '<span class="status ' + (r.correct ? '' : 'wrong') + '">' + (r.correct ? '✓ Correct' : '✗ Missed') + '</span>' +
+            (it.marked ? '<span class="status" style="color:var(--nbme-amber)" title="Marked for review">&#9873;</span>' : '') +
+            '<span class="status ' + statusCls + '">' + statusLabel + '</span>' +
           '</div>' +
-          '<div class="nbme-review-detail">' +
-            '<div>Your answer: <b class="' + (r.correct ? 'correct-ans' : 'your-ans') + '">' + r.yourAnswer + '. ' + esc(r.options[r.yourAnswer]) + '</b></div>' +
-            (r.correct ? '' : '<div>Correct answer: <b class="correct-ans">' + r.correctAnswer + '. ' + esc(r.options[r.correctAnswer]) + '</b></div>') +
-            '<div class="explanation">' + esc(r.explanation) + '</div>' +
-          '</div>' +
+          '<div class="nbme-review-detail">' + detailHtml + '</div>' +
         '</div>'
       );
     }).join('');
@@ -789,7 +980,7 @@ date: 2026-09-23
           '<div class="nbme-results-head">' +
             '<h1>Block Results</h1>' +
             '<div class="nbme-score-big ' + pctCls + '">' + pct + '%</div>' +
-            '<div class="sub">' + correct + ' of ' + total + ' correct</div>' +
+            '<div class="sub">' + correct + ' of ' + total + ' correct' + (skipped ? ' &middot; ' + skipped + ' skipped' : '') + '</div>' +
           '</div>' +
 
           (weakest ? '<div class="nbme-callout">Weakest area this block: <b>' + esc(weakest.tag) + '</b> (' + weakest.correct + '/' + weakest.total + ', ' + weakest.pct + '%). Consider a focused review block on this topic.</div>' : '') +
@@ -797,11 +988,11 @@ date: 2026-09-23
           '<div class="nbme-section-label">Breakdown by topic</div>' +
           '<div class="nbme-breakdown">' + breakdownHtml + '</div>' +
 
-          '<div class="nbme-section-label">Review (' + total + ' items)</div>' +
+          '<div class="nbme-section-label">Review (' + state.block.length + ' items)</div>' +
           '<div id="nbme-review-list">' + reviewHtml + '</div>' +
 
           '<div class="nbme-results-actions">' +
-            (missed.length ? '<button class="nbme-btn nbme-btn-primary" id="nbme-retake-missed">Retake ' + missed.length + ' Missed Question' + (missed.length===1?'':'s') + '</button>' : '') +
+            (missedItems.length ? '<button class="nbme-btn nbme-btn-primary" id="nbme-retake-missed">Retake ' + missedItems.length + ' Missed Question' + (missedItems.length===1?'':'s') + '</button>' : '') +
             '<button class="nbme-btn nbme-btn-secondary" id="nbme-new-block">New Block</button>' +
           '</div>' +
         '</div>' +
@@ -816,7 +1007,7 @@ date: 2026-09-23
     var retakeBtn = document.getElementById('nbme-retake-missed');
     if(retakeBtn){
       retakeBtn.addEventListener('click', function(){
-        var ids = missed.map(function(r){ return r.id; });
+        var ids = missedItems.map(function(it){ return it.source.id; });
         startBlock(ids);
       });
     }
