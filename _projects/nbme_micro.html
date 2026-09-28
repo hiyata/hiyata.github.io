@@ -441,6 +441,18 @@ date: 2026-09-28
   .nbme-lightbox.open{ display:flex; }
   .nbme-lightbox img{ max-width:100%; max-height:100%; border-radius: 2px; }
 
+  .nbme-steps{ margin:1.1rem 0 0; }
+  .nbme-steps h4{ font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color: var(--nbme-muted); margin:0 0 0.45rem; }
+  .nbme-steps ol{ margin:0; padding-left:1.3rem; display:flex; flex-direction:column; gap:0.35rem; }
+  .nbme-steps li{ font-size:0.9rem; line-height:1.55; }
+  .nbme-figure{ margin:1.2rem 0 0; }
+  .nbme-figure img{
+    width:100%; display:block; border:1px solid var(--nbme-border); border-radius:3px;
+    background:#fff; cursor: zoom-in;
+  }
+  .nbme-figure figcaption{ font-size:0.82rem; line-height:1.5; color: var(--nbme-ink); margin-top:0.45rem; }
+  .nbme-figure .src{ display:block; font-size:0.72rem; color: var(--nbme-muted); margin-top:0.25rem; }
+  .nbme-figure .src a{ color: var(--nbme-muted); }
   .nbme-why{ margin:1rem 0 0; }
   .nbme-why h4, .nbme-xtable-wrap h4{ font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color: var(--nbme-muted); margin:0 0 0.45rem; }
   .nbme-why ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.45rem; }
@@ -746,6 +758,22 @@ date: 2026-09-28
       }).join('');
       if(rows) html += '<div class="nbme-why"><h4>Why the other choices are wrong</h4><ul>' + rows + '</ul></div>';
     }
+    if(q.steps && q.steps.length){
+      html += '<div class="nbme-steps"><h4>Step by step</h4><ol>' +
+        q.steps.map(function(st){ return '<li>' + esc(st) + '</li>'; }).join('') + '</ol></div>';
+    }
+    (q.figures || []).forEach(function(f){
+      var src = '';
+      if(f.credit){
+        var name = (f.credit.title || '').replace(/^File:/, '').replace(/\.[a-z0-9]+$/i, '');
+        src = '<span class="src">Source: <a href="' + esc(f.credit.page) + '" target="_blank" rel="noopener">' +
+          esc(name) + '</a>' + (f.credit.artist ? ', ' + esc(f.credit.artist) : '') +
+          ' (' + esc(f.credit.lic || 'see source') + ')</span>';
+      }
+      html += '<figure class="nbme-figure">' +
+        '<img src="' + IMAGE_BASE + f.file + '" alt="' + esc(f.caption) + '" data-lightbox-src="' + IMAGE_BASE + f.file + '" />' +
+        '<figcaption>' + esc(f.caption) + src + '</figcaption></figure>';
+    });
     (q.tables || []).forEach(function(t){
       html += '<div class="nbme-xtable-wrap">' + (t.title ? '<h4>' + esc(t.title) + '</h4>' : '') +
         '<table class="nbme-xtable"><thead><tr>' + t.cols.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +

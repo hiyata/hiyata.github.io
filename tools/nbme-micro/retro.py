@@ -4,11 +4,12 @@ Keys: d=difficulty, c=new correct text, o={distractor prefix: new text}, why={pr
 import importlib, os
 RETRO = {}
 _here = os.path.dirname(os.path.abspath(__file__))
-for f in sorted(os.listdir(_here)):
-    if not (f.startswith("retro_") and f.endswith(".py")):
-        continue
+_files = [f for f in os.listdir(_here) if f.startswith("retro_") and f.endswith(".py")]
+# base files (retro_s*) load first; later passes (retro_z*, retro_f*) merge on top
+_files.sort(key=lambda f: (not f.startswith("retro_s"), f))
+for f in _files:
     m = importlib.import_module(f[:-3])
-    second_pass = f.startswith("retro_z")
+    second_pass = not f.startswith("retro_s")
     for k, v in m.R.items():
         if k in RETRO:
             if not second_pass:

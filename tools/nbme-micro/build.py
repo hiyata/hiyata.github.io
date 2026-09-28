@@ -48,6 +48,9 @@ def main():
                 if "e" in r: q["expl"] = r["e"]
                 if "d" in r: q["difficulty"] = r["d"]
                 if "why" in r and not q.get("why"): q["why"] = r["why"]
+                if "fig" in r:
+                    f = r["fig"]; q["figs"] = q["figs"] + ([f] if isinstance(f, dict) else list(f))
+                if "steps" in r: q["steps"] = list(r["steps"])
                 if "table" in r:
                     t = r["table"]; q["tables"] = q["tables"] + ([t] if isinstance(t, dict) else list(t))
                 r["_used"] = True
@@ -55,6 +58,8 @@ def main():
     for k, r in RETRO.items():
         if not r.get("_used"): print("  retro topic not matched:", k)
 
+    credits_path = os.path.join(HERE, "credits.json")
+    credits = json.load(open(credits_path)) if os.path.exists(credits_path) else {}
     errors, out, length_cues = [], [], []
     seen_stems = set()
     for i, q in enumerate(questions):
@@ -101,6 +106,19 @@ def main():
                 errors.append(f"{qid} {q['topic']}: bad table value {str(t)[:40]!r} (name collision with a tag constant?)")
             elif any(len(r) != len(t["cols"]) for r in t["rows"]):
                 errors.append(f"{qid}: table {t['title']!r} row width mismatch")
+        figures = []
+        for f in q.get("figs") or []:
+            if not isinstance(f, dict) or "file" not in f:
+                errors.append(f"{qid} {q['topic']}: bad figure value"); continue
+            if not os.path.exists(os.path.join(IMG_DIR, f["file"])):
+                errors.append(f"{qid} {q['topic']}: missing figure {f['file']}"); continue
+            entry = {"file": f["file"], "caption": f["caption"]}
+            cr = credits.get(f["file"])
+            if cr: entry["credit"] = cr
+            else: errors.append(f"{qid} {q['topic']}: no credit recorded for {f['file']}")
+            figures.append(entry)
+        if figures: item["figures"] = figures
+        if q.get("steps"): item["steps"] = q["steps"]
         if q.get("tables"): item["tables"] = [{k: v for k, v in t.items() if v or k != "highlight"} for t in q["tables"]]
         out.append(item)
 
@@ -112,9 +130,8 @@ def main():
     if errors:
         print("ERRORS:"); [print(" ", e) for e in errors]; sys.exit(1)
 
-    credits_path = os.path.join(HERE, "..", "credits.json")
-    credits = json.load(open(credits_path)) if os.path.exists(credits_path) else {}
-    used = sorted({im for q in out for im in q.get("images", [])})
+    used = sorted({im for q in out for im in q.get("images", [])} |
+                  {f["file"] for q in out for f in q.get("figures", [])})
     image_credits = [dict(file=f, **credits[f]) for f in used if f in credits]
 
     data = {
@@ -128,7 +145,8 @@ def main():
         f.write("window.NBME_MICRO_DATA = " + json.dumps(data, indent=2, ensure_ascii=False) + ";\n")
 
     tags = collections.Counter(q["tag"] for q in out)
-    print(f"{len(out)} questions, {sum(1 for q in out if q.get('images'))} with images, {len(used)} images")
+    print(f"{len(out)} questions, {sum(1 for q in out if q.get('images'))} with images, {len(used)} images, "
+          f"{sum(1 for q in out if q.get('figures'))} with explanation figures, {sum(1 for q in out if q.get('steps'))} with step walkthroughs")
     for t, n in sorted(tags.items()): print(f"  {n:4d}  {t}")
     print("difficulty:", dict(collections.Counter(q["difficulty"] for q in out)))
     print("with why:", sum(1 for q in out if q.get("wrong")), " full why:", sum(1 for q in out if len(q.get("wrong", {})) == 4), " with tables:", sum(1 for q in out if q.get("tables")))

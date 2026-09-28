@@ -2,7 +2,904 @@ window.NBME_MICRO_DATA = {
   "setTitle": "Step 1 Microbiology: Bacteria, Viruses, Fungi & Parasites",
   "setSubtitle": "NBME-style review of every high-yield organism — clinical presentation, virulence and molecular mechanisms, diagnosis, treatment and drug mechanisms, and epidemiology — with gross, micro and culture images.",
   "imageBase": "/assets/images/nbme/micro/",
-  "imageCredits": [],
+  "imageCredits": [
+    {
+      "file": "actinomyces.jpg",
+      "title": "File:Actinomyces - high mag.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Nephron",
+      "page": "https://commons.wikimedia.org/wiki/File:Actinomyces_-_high_mag.jpg"
+    },
+    {
+      "file": "anthrax-eschar.jpg",
+      "title": "File:Cutaneous anthrax lesion on the neck. PHIL 1934 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Cutaneous_anthrax_lesion_on_the_neck._PHIL_1934_lores.jpg"
+    },
+    {
+      "file": "anthrax-gram.jpg",
+      "title": "File:Bacillus anthracis Gram.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Bacillus_anthracis_Gram.jpg"
+    },
+    {
+      "file": "ascaris.jpg",
+      "title": "File:Fertilized egg of Ascaris lumbricoides PHIL 410 lores.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ Dr. Mae Melvin",
+      "page": "https://commons.wikimedia.org/wiki/File:Fertilized_egg_of_Ascaris_lumbricoides_PHIL_410_lores.jpg"
+    },
+    {
+      "file": "aspergillus.jpg",
+      "title": "File:Histopathology of pulmonary aspergillosis.jpg",
+      "lic": "CC0",
+      "artist": "Wellcome Collection",
+      "page": "https://commons.wikimedia.org/wiki/File:Histopathology_of_pulmonary_aspergillosis.jpg"
+    },
+    {
+      "file": "babesia.jpg",
+      "title": "File:Babiesa spp.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn; Laboratory &amp; Consulta",
+      "page": "https://commons.wikimedia.org/wiki/File:Babiesa_spp.jpg"
+    },
+    {
+      "file": "beta-hemolysis.jpg",
+      "title": "File:Beta hemolysis on blood agar.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "HansN.",
+      "page": "https://commons.wikimedia.org/wiki/File:Beta_hemolysis_on_blood_agar.jpg"
+    },
+    {
+      "file": "blasto.jpg",
+      "title": "File:Blastomyces dermatitidis GMS.jpeg",
+      "lic": "CC0",
+      "artist": "Medmyco (talk) (Uploads)",
+      "page": "https://commons.wikimedia.org/wiki/File:Blastomyces_dermatitidis_GMS.jpeg"
+    },
+    {
+      "file": "blueberry.jpg",
+      "title": "File:Infant with skin lesions from congenital rubella.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Infant_with_skin_lesions_from_congenital_rubella.jpg"
+    },
+    {
+      "file": "borrelia-smear.jpg",
+      "title": "File:PMC3016790 03-0280-F1.png",
+      "lic": "CC0",
+      "artist": "Schwan TG, Policastro PF, Miller Z, Thompson RL, Damrow T, Keirans JE",
+      "page": "https://commons.wikimedia.org/wiki/File:PMC3016790_03-0280-F1.png"
+    },
+    {
+      "file": "bubo.jpg",
+      "title": "File:Plague -buboes.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Plague_-buboes.jpg"
+    },
+    {
+      "file": "bullous-impetigo.jpg",
+      "title": "File:Bullous impetigo.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Littlekidsdoc",
+      "page": "https://commons.wikimedia.org/wiki/File:Bullous_impetigo.jpg"
+    },
+    {
+      "file": "campy-sem.jpg",
+      "title": "File:Campylobacter jejuni 5778 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Campylobacter_jejuni_5778_lores.jpg"
+    },
+    {
+      "file": "candida-gram.jpg",
+      "title": "File:Candida with pseudohyphae.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Microrao",
+      "page": "https://commons.wikimedia.org/wiki/File:Candida_with_pseudohyphae.jpg"
+    },
+    {
+      "file": "catscratch.jpg",
+      "title": "File:Cat-scratch disease lesion.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ Dr. Thomas F. Sellers; Emory University",
+      "page": "https://commons.wikimedia.org/wiki/File:Cat-scratch_disease_lesion.jpg"
+    },
+    {
+      "file": "cdiphtheriae-gram.jpg",
+      "title": "File:Corynebacterium diphtheriae Gram stain.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s):",
+      "page": "https://commons.wikimedia.org/wiki/File:Corynebacterium_diphtheriae_Gram_stain.jpg"
+    },
+    {
+      "file": "chancre.jpg",
+      "title": "File:Extragenital syphilitic chancre of the left index finger PHIL 4147 lores.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Extragenital_syphilitic_chancre_of_the_left_index_finger_PHIL_4147_lores.jpg"
+    },
+    {
+      "file": "chlamydia-incl.jpg",
+      "title": "File:ChlamydiaTrachomatisEinschlusskörperchen.jpg",
+      "lic": "Public domain",
+      "artist": "User Marcus007 on de.wikipedia",
+      "page": "https://commons.wikimedia.org/wiki/File:ChlamydiaTrachomatisEinschlussk%C3%B6rperchen.jpg"
+    },
+    {
+      "file": "clue-cells.jpg",
+      "title": "File:Clue cells - CDC PHIL 3720.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ M. Rein",
+      "page": "https://commons.wikimedia.org/wiki/File:Clue_cells_-_CDC_PHIL_3720.jpg"
+    },
+    {
+      "file": "cmv-owl.jpg",
+      "title": "File:CMV encephalitis owl eye inclusions HE stain.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Jensflorian",
+      "page": "https://commons.wikimedia.org/wiki/File:CMV_encephalitis_owl_eye_inclusions_HE_stain.jpg"
+    },
+    {
+      "file": "cocci-spherule.jpg",
+      "title": "File:Spherule and endospore forms of Coccidioides immitis 01ee057 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Spherule_and_endospore_forms_of_Coccidioides_immitis_01ee057_lores.jpg"
+    },
+    {
+      "file": "cperf-gram.jpg",
+      "title": "File:Clostridium perfringens.jpg",
+      "lic": "Public domain",
+      "artist": "Content Providers(s):\tCDC/Don Stalons",
+      "page": "https://commons.wikimedia.org/wiki/File:Clostridium_perfringens.jpg"
+    },
+    {
+      "file": "crypto-af.jpg",
+      "title": "File:Oocists de Cryptosporidium parvum 2.jpg",
+      "lic": "Public domain",
+      "artist": "CDC - DPDx - Laboratory Identification of Parasites of Public Health Concern",
+      "page": "https://commons.wikimedia.org/wiki/File:Oocists_de_Cryptosporidium_parvum_2.jpg"
+    },
+    {
+      "file": "crypto-ink.jpg",
+      "title": "File:Cryptococcus neoformans using a light India ink staining preparation PHIL 3771 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Leanor Haley",
+      "page": "https://commons.wikimedia.org/wiki/File:Cryptococcus_neoformans_using_a_light_India_ink_staining_preparation_PHIL_3771_lores.jpg"
+    },
+    {
+      "file": "diphtheria-membrane.jpg",
+      "title": "File:Dirty white pseudomembrane classically seen in diphtheria 2013-07-06 11-07.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "User:Dileepunnikri",
+      "page": "https://commons.wikimedia.org/wiki/File:Dirty_white_pseudomembrane_classically_seen_in_diphtheria_2013-07-06_11-07.jpg"
+    },
+    {
+      "file": "dlatum.jpg",
+      "title": "File:Diphyllobothrium latum egg.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Stefan Walkowski",
+      "page": "https://commons.wikimedia.org/wiki/File:Diphyllobothrium_latum_egg.jpg"
+    },
+    {
+      "file": "ecoli-emb.jpg",
+      "title": "File:E coli on EMB plate.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Eunice Laurent",
+      "page": "https://commons.wikimedia.org/wiki/File:E_coli_on_EMB_plate.jpg"
+    },
+    {
+      "file": "ehrlichia.jpg",
+      "title": "File:Echaff.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Echaff.jpg"
+    },
+    {
+      "file": "elephantiasis.jpg",
+      "title": "File:Elephantiasis.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers: CDC/",
+      "page": "https://commons.wikimedia.org/wiki/File:Elephantiasis.jpg"
+    },
+    {
+      "file": "em-rash.jpg",
+      "title": "File:Erythema migrans - erythematous rash in Lyme disease - PHIL 9875.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit: James Gathany\nContent Providers(s): CDC/ James Gathany",
+      "page": "https://commons.wikimedia.org/wiki/File:Erythema_migrans_-_erythematous_rash_in_Lyme_disease_-_PHIL_9875.jpg"
+    },
+    {
+      "file": "entamoeba.jpg",
+      "title": "File:Trophozoites of Entamoeba histolytica with ingested erythrocytes.JPG",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Trophozoites_of_Entamoeba_histolytica_with_ingested_erythrocytes.JPG"
+    },
+    {
+      "file": "enterobius.jpg",
+      "title": "File:Enterobius vermicularis art2t.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "J3D3",
+      "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_art2t.jpg"
+    },
+    {
+      "file": "epiglottitis.jpg",
+      "title": "File:Epiglottitis.jpg",
+      "lic": "CC0",
+      "artist": "Med Chaos",
+      "page": "https://commons.wikimedia.org/wiki/File:Epiglottitis.jpg"
+    },
+    {
+      "file": "erysipelas.jpg",
+      "title": "File:Facial erysipelas.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/Dr. Thomas F. Sellers/Emory University",
+      "page": "https://commons.wikimedia.org/wiki/File:Facial_erysipelas.jpg"
+    },
+    {
+      "file": "fifth.jpg",
+      "title": "File:Fifth disease cropped.jpg",
+      "lic": "Public domain",
+      "artist": "Fifth_disease.jpg: Andrew Kerr\nderivative work: Berita",
+      "page": "https://commons.wikimedia.org/wiki/File:Fifth_disease_cropped.jpg"
+    },
+    {
+      "file": "fig-abx-targets.jpg",
+      "title": "File:How do different antibiotics work?.png",
+      "lic": "CC BY 4.0",
+      "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
+      "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png"
+    },
+    {
+      "file": "fig-ascaris-cycle.jpg",
+      "title": "File:Ascaris lumbricoides life cycle.png",
+      "lic": "Public domain",
+      "artist": "Centers for Disease Control and Prevention",
+      "page": "https://commons.wikimedia.org/wiki/File:Ascaris_lumbricoides_life_cycle.png"
+    },
+    {
+      "file": "fig-babesia-cycle.jpg",
+      "title": "File:Babesia microti life cycle en.svg",
+      "lic": "Public domain",
+      "artist": "LadyofHats Mariana Ruiz Villarreal",
+      "page": "https://commons.wikimedia.org/wiki/File:Babesia_microti_life_cycle_en.svg"
+    },
+    {
+      "file": "fig-conjugation.jpg",
+      "title": "File:Conjugation.svg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Adenosine",
+      "page": "https://commons.wikimedia.org/wiki/File:Conjugation.svg"
+    },
+    {
+      "file": "fig-echino-cycle.jpg",
+      "title": "File:Echinococcus Life Cycle.svg",
+      "lic": "Public domain",
+      "artist": "Original:  CDC Vector:  Pixelsquid🎱",
+      "page": "https://commons.wikimedia.org/wiki/File:Echinococcus_Life_Cycle.svg"
+    },
+    {
+      "file": "fig-entamoeba-cycle.jpg",
+      "title": "File:Entamoeba histolytica life cycle-en.svg",
+      "lic": "Public domain",
+      "artist": "Mariana Ruiz Villarreal LadyofHats",
+      "page": "https://commons.wikimedia.org/wiki/File:Entamoeba_histolytica_life_cycle-en.svg"
+    },
+    {
+      "file": "fig-flu-shift.jpg",
+      "title": "File:Influenza geneticshift.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Dhorspool at en.wikipedia",
+      "page": "https://commons.wikimedia.org/wiki/File:Influenza_geneticshift.jpg"
+    },
+    {
+      "file": "fig-giardia-cycle.jpg",
+      "title": "File:Giardia life cycle en.svg",
+      "lic": "Public domain",
+      "artist": "LadyofHats",
+      "page": "https://commons.wikimedia.org/wiki/File:Giardia_life_cycle_en.svg"
+    },
+    {
+      "file": "fig-gram-wall.jpg",
+      "title": "File:Bacteria cell wall.svg",
+      "lic": "CC BY 3.0",
+      "artist": "Franciscosp2",
+      "page": "https://commons.wikimedia.org/wiki/File:Bacteria_cell_wall.svg"
+    },
+    {
+      "file": "fig-hiv-cycle.jpg",
+      "title": "File:HIV-replication-cycle-en.svg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Jmarchn",
+      "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg"
+    },
+    {
+      "file": "fig-hookworm-cycle.jpg",
+      "title": "File:Hookworm LifeCycle.gif",
+      "lic": "Public domain",
+      "artist": "The original uploader was Sonett72 at English Wikipedia.",
+      "page": "https://commons.wikimedia.org/wiki/File:Hookworm_LifeCycle.gif"
+    },
+    {
+      "file": "fig-hsv-latency.jpg",
+      "title": "File:12035 2012 8320 Fig2 HTML.webp",
+      "lic": "CC BY 2.5",
+      "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
+      "page": "https://commons.wikimedia.org/wiki/File:12035_2012_8320_Fig2_HTML.webp"
+    },
+    {
+      "file": "fig-leish-cycle.jpg",
+      "title": "File:Leishmaniasis life cycle diagram en.svg",
+      "lic": "Public domain",
+      "artist": "LadyofHats Mariana Ruiz Villarreal",
+      "page": "https://commons.wikimedia.org/wiki/File:Leishmaniasis_life_cycle_diagram_en.svg"
+    },
+    {
+      "file": "fig-lps.jpg",
+      "title": "File:LPS.svg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Mike Jones",
+      "page": "https://commons.wikimedia.org/wiki/File:LPS.svg"
+    },
+    {
+      "file": "fig-malaria-cycle.jpg",
+      "title": "File:Malaria parasite life cycle-NIAID.jpg",
+      "lic": "Public domain",
+      "artist": "national Institute of Allergy and Infectious Diseases",
+      "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg"
+    },
+    {
+      "file": "fig-pinworm-cycle.jpg",
+      "title": "File:Enterobius vermicularis LifeCycle B.svg",
+      "lic": "Public domain",
+      "artist": "Derivative work by André Koehne",
+      "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_LifeCycle_B.svg"
+    },
+    {
+      "file": "fig-schisto-cycle.jpg",
+      "title": "File:Schistosoma life cycle.svg",
+      "lic": "CC0",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_life_cycle.svg"
+    },
+    {
+      "file": "fig-strongy-cycle.jpg",
+      "title": "File:Strongyloides Storcoralis Lifecycle Diagram.jpg",
+      "lic": "Public domain",
+      "artist": "CDC DPDx courtesy of CDC's Division of Parasitic Diseases and Malaria (DPDM)",
+      "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_Storcoralis_Lifecycle_Diagram.jpg"
+    },
+    {
+      "file": "fig-taenia-cycle.jpg",
+      "title": "File:Taenia solium Life cycle (01).jpg",
+      "lic": "Public domain",
+      "artist": "DPDx is an educational resource designed for health professionals and laboratory",
+      "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_Life_cycle_(01).jpg"
+    },
+    {
+      "file": "fig-tb-latency.jpg",
+      "title": "File:Fmicb-12-745592-g001 (1).jpg",
+      "lic": "CC BY 4.0",
+      "artist": "Wenping Gong and Xueqiong Wu",
+      "page": "https://commons.wikimedia.org/wiki/File:Fmicb-12-745592-g001_(1).jpg"
+    },
+    {
+      "file": "fig-tcruzi-cycle.jpg",
+      "title": "File:Trypanosoma cruzi LifeCycle.gif",
+      "lic": "Public domain",
+      "artist": "DPD CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Trypanosoma_cruzi_LifeCycle.gif"
+    },
+    {
+      "file": "fig-tick-cycle.jpg",
+      "title": "File:Deer Tick life cycle.svg",
+      "lic": "Public domain",
+      "artist": "User:Philg88",
+      "page": "https://commons.wikimedia.org/wiki/File:Deer_Tick_life_cycle.svg"
+    },
+    {
+      "file": "fig-toxo-cycle.jpg",
+      "title": "File:Toxoplasmosis life cycle en.svg",
+      "lic": "Public domain",
+      "artist": "LadyofHats",
+      "page": "https://commons.wikimedia.org/wiki/File:Toxoplasmosis_life_cycle_en.svg"
+    },
+    {
+      "file": "gas-gangrene.jpg",
+      "title": "File:Gas gangrene.jpg",
+      "lic": "CC BY 2.0",
+      "artist": "Engelbert Schröpfer, Stephan Rauthe and Thomas Meyer.",
+      "page": "https://commons.wikimedia.org/wiki/File:Gas_gangrene.jpg"
+    },
+    {
+      "file": "gc-gram.jpg",
+      "title": "File:Neisseria gonorrhoeae PHIL 3693 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Norman Jacobs",
+      "page": "https://commons.wikimedia.org/wiki/File:Neisseria_gonorrhoeae_PHIL_3693_lores.jpg"
+    },
+    {
+      "file": "giardia.jpg",
+      "title": "File:Giardia intestinalis trophozoite.png",
+      "lic": "CC BY 2.0",
+      "artist": "Servier Medical Art",
+      "page": "https://commons.wikimedia.org/wiki/File:Giardia_intestinalis_trophozoite.png"
+    },
+    {
+      "file": "ground-glass.jpg",
+      "title": "File:Ground glass hepatocytes high mag cropped.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Nephron",
+      "page": "https://commons.wikimedia.org/wiki/File:Ground_glass_hepatocytes_high_mag_cropped.jpg"
+    },
+    {
+      "file": "he-agar.jpg",
+      "title": "File:Hektoen enteric agar stool culture.jpg",
+      "lic": "CC0",
+      "artist": "Mediocreclementine",
+      "page": "https://commons.wikimedia.org/wiki/File:Hektoen_enteric_agar_stool_culture.jpg"
+    },
+    {
+      "file": "herpes-labialis.jpg",
+      "title": "File:Herpes labialis.jpg",
+      "lic": "Public domain",
+      "artist": "Metju12",
+      "page": "https://commons.wikimedia.org/wiki/File:Herpes_labialis.jpg"
+    },
+    {
+      "file": "hflu-gram.jpg",
+      "title": "File:Haemophilus influenzae sputum 1000x edited.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Microman12345",
+      "page": "https://commons.wikimedia.org/wiki/File:Haemophilus_influenzae_sputum_1000x_edited.jpg"
+    },
+    {
+      "file": "hfmd.jpg",
+      "title": "File:Hand Foot Mouth Disease.png",
+      "lic": "CC BY-SA 3.0",
+      "artist": "MidgleyDJ (talk) at en.wikipedia",
+      "page": "https://commons.wikimedia.org/wiki/File:Hand_Foot_Mouth_Disease.png"
+    },
+    {
+      "file": "histo-mac.jpg",
+      "title": "File:Histoplasmosis (5414173501).jpg",
+      "lic": "CC BY-SA 2.0",
+      "artist": "Yale Rosen from USA",
+      "page": "https://commons.wikimedia.org/wiki/File:Histoplasmosis_(5414173501).jpg"
+    },
+    {
+      "file": "hpylori.jpg",
+      "title": "File:Helicobacter pylori, Gastric Biopsy, Giemsa Stain (5517582111).jpg",
+      "lic": "CC BY 2.0",
+      "artist": "Ed Uthman from Houston, TX, USA",
+      "page": "https://commons.wikimedia.org/wiki/File:Helicobacter_pylori,_Gastric_Biopsy,_Giemsa_Stain_(5517582111).jpg"
+    },
+    {
+      "file": "hutchinson.jpg",
+      "title": "File:Hutchinson teeth congenital syphilis PHIL 2385.rsh.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/Susan Lindsley",
+      "page": "https://commons.wikimedia.org/wiki/File:Hutchinson_teeth_congenital_syphilis_PHIL_2385.rsh.jpg"
+    },
+    {
+      "file": "hydatid.jpg",
+      "title": "File:Hydatid cyst.JPG",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Department of Pathology, Calicut Medical College",
+      "page": "https://commons.wikimedia.org/wiki/File:Hydatid_cyst.JPG"
+    },
+    {
+      "file": "ixodes.jpg",
+      "title": "File:Deer tick Ixodes scapularis b.jpg",
+      "lic": "Public domain",
+      "artist": "US federal government Center for Disease Control (CDC)",
+      "page": "https://commons.wikimedia.org/wiki/File:Deer_tick_Ixodes_scapularis_b.jpg"
+    },
+    {
+      "file": "janeway.jpg",
+      "title": "File:Janeway lesion.JPG",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Warfieldian",
+      "page": "https://commons.wikimedia.org/wiki/File:Janeway_lesion.JPG"
+    },
+    {
+      "file": "kaposi.jpg",
+      "title": "File:Kaposi's Sarcoma.jpg",
+      "lic": "Public domain",
+      "artist": "Unknown authorUnknown author",
+      "page": "https://commons.wikimedia.org/wiki/File:Kaposi%27s_Sarcoma.jpg"
+    },
+    {
+      "file": "kleb-mucoid.jpg",
+      "title": "File:Klebsiella pneumoniae mucoid lactose fermenter (MLF) colonies on MacConkey agar.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Ajay Kumar Chaurasiya",
+      "page": "https://commons.wikimedia.org/wiki/File:Klebsiella_pneumoniae_mucoid_lactose_fermenter_(MLF)_colonies_on_MacConkey_agar.jpg"
+    },
+    {
+      "file": "koplik.jpg",
+      "title": "File:Koplik spots, measles 6111 lores.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Koplik_spots,_measles_6111_lores.jpg"
+    },
+    {
+      "file": "leish-amast.jpg",
+      "title": "File:Amastigotes of Leishmania donovani.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Ajay Kumar Chaurasiya",
+      "page": "https://commons.wikimedia.org/wiki/File:Amastigotes_of_Leishmania_donovani.jpg"
+    },
+    {
+      "file": "leish-ulcer.jpg",
+      "title": "File:Leishmaniasis ulcer.jpg",
+      "lic": "Public domain",
+      "artist": "Layne Harris",
+      "page": "https://commons.wikimedia.org/wiki/File:Leishmaniasis_ulcer.jpg"
+    },
+    {
+      "file": "leprosy-ll.jpg",
+      "title": "File:Leprosy - Lepromatous leprosy (LL) 40x.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Department of Pathology, Calicut Medical College",
+      "page": "https://commons.wikimedia.org/wiki/File:Leprosy_-_Lepromatous_leprosy_(LL)_40x.jpg"
+    },
+    {
+      "file": "lepto-sem.jpg",
+      "title": "File:Leptospira scanning micrograph.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ Rob Weyant",
+      "page": "https://commons.wikimedia.org/wiki/File:Leptospira_scanning_micrograph.jpg"
+    },
+    {
+      "file": "loa.jpg",
+      "title": "File:L loa whole HBa.jpg",
+      "lic": "Public domain",
+      "artist": "CDC - DPDx",
+      "page": "https://commons.wikimedia.org/wiki/File:L_loa_whole_HBa.jpg"
+    },
+    {
+      "file": "lobar-pneumonia.jpg",
+      "title": "File:X-ray of lobar pneumonia.jpg",
+      "lic": "CC0",
+      "artist": "Mikael Häggström, M.D. Author info - Reusing images- Conflicts of interest:  Non",
+      "page": "https://commons.wikimedia.org/wiki/File:X-ray_of_lobar_pneumonia.jpg"
+    },
+    {
+      "file": "malassezia.jpg",
+      "title": "File:Malassezia furfur in skin scale from a patient with tinea versicolor PHIL 3938 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Malassezia_furfur_in_skin_scale_from_a_patient_with_tinea_versicolor_PHIL_3938_lores.jpg"
+    },
+    {
+      "file": "mantoux.jpg",
+      "title": "File:Mantoux Test 48h.jpeg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Mantoux_Test_48h.jpeg"
+    },
+    {
+      "file": "measles-rash.jpg",
+      "title": "File:Measles rash PHIL 4497 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Measles_rash_PHIL_4497_lores.jpg"
+    },
+    {
+      "file": "miliary-tb.jpg",
+      "title": "File:Chest radiograph of miliary tuberculosis 1.jpg",
+      "lic": "CC BY 4.0",
+      "artist": "Benjamín Herreros, Isabel Plaza, Rebeca García, Marta Chichón, Carmen Guerrero a",
+      "page": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_miliary_tuberculosis_1.jpg"
+    },
+    {
+      "file": "molluscum.jpg",
+      "title": "File:Molluscum contagiosum, high mag.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "CoRus13",
+      "page": "https://commons.wikimedia.org/wiki/File:Molluscum_contagiosum,_high_mag.jpg"
+    },
+    {
+      "file": "mucor.jpg",
+      "title": "File:Zygomycosis.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Nephron",
+      "page": "https://commons.wikimedia.org/wiki/File:Zygomycosis.jpg"
+    },
+    {
+      "file": "mumps.jpg",
+      "title": "File:Mumps.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Heinrich Weingaertner",
+      "page": "https://commons.wikimedia.org/wiki/File:Mumps.jpg"
+    },
+    {
+      "file": "naegleria.jpg",
+      "title": "File:Naegleria trophA.JPG",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Naegleria_trophA.JPG"
+    },
+    {
+      "file": "ncc-ct.jpg",
+      "title": "File:Neurocysticercosis brain CT.jpg",
+      "lic": "CC BY 4.0",
+      "artist": "Innocent Lule Segamwenge",
+      "page": "https://commons.wikimedia.org/wiki/File:Neurocysticercosis_brain_CT.jpg"
+    },
+    {
+      "file": "negri.jpg",
+      "title": "File:Rabies negri bodies brain.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/Dr. Makonnen Fekadu",
+      "page": "https://commons.wikimedia.org/wiki/File:Rabies_negri_bodies_brain.jpg"
+    },
+    {
+      "file": "nmen-csf.jpg",
+      "title": "File:Neisseria meningitidis CSF Gram 1000.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Microman12345",
+      "page": "https://commons.wikimedia.org/wiki/File:Neisseria_meningitidis_CSF_Gram_1000.jpg"
+    },
+    {
+      "file": "nocardia.jpg",
+      "title": "File:Nocardia in modified Ziehl-Neelsen staining.jpg",
+      "lic": "CC BY 4.0",
+      "artist": "Ajay Kumar Chaurasiya",
+      "page": "https://commons.wikimedia.org/wiki/File:Nocardia_in_modified_Ziehl-Neelsen_staining.jpg"
+    },
+    {
+      "file": "ophthalmia.jpg",
+      "title": "File:Gonococcal ophthalmia neonatorum.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ J. Pledger",
+      "page": "https://commons.wikimedia.org/wiki/File:Gonococcal_ophthalmia_neonatorum.jpg"
+    },
+    {
+      "file": "opisthotonus.jpg",
+      "title": "File:Opisthotonus in a patient suffering from tetanus - Painting by Sir Charles Bell - 1809.jpg",
+      "lic": "Public domain",
+      "artist": "Sir Charles Bell",
+      "page": "https://commons.wikimedia.org/wiki/File:Opisthotonus_in_a_patient_suffering_from_tetanus_-_Painting_by_Sir_Charles_Bell_-_1809.jpg"
+    },
+    {
+      "file": "paracocci.jpg",
+      "title": "File:Paracoccidioides brasiliensis 01.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Lucille K. Georg",
+      "page": "https://commons.wikimedia.org/wiki/File:Paracoccidioides_brasiliensis_01.jpg"
+    },
+    {
+      "file": "pf-gametocyte.jpg",
+      "title": "File:Plasmodium falciparum 01.png",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Mae Melvin\nTranswiki approved by: w:",
+      "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_01.png"
+    },
+    {
+      "file": "pf-rings.jpg",
+      "title": "File:Plasmodium falciparum rings form parasites4885 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_rings_form_parasites4885_lores.jpg"
+    },
+    {
+      "file": "pmc.jpg",
+      "title": "File:Clostridioides (pseudomembranous) colitis.jpg",
+      "lic": "CC0",
+      "artist": "Narraburra",
+      "page": "https://commons.wikimedia.org/wiki/File:Clostridioides_(pseudomembranous)_colitis.jpg"
+    },
+    {
+      "file": "proteus-swarm.jpg",
+      "title": "File:Proteus swarming on blood agar.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Microrao",
+      "page": "https://commons.wikimedia.org/wiki/File:Proteus_swarming_on_blood_agar.jpg"
+    },
+    {
+      "file": "pseudomonas-pigment.jpg",
+      "title": "File:Pseudomonas aeruginosa pyocyanin.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Y tambe",
+      "page": "https://commons.wikimedia.org/wiki/File:Pseudomonas_aeruginosa_pyocyanin.jpg"
+    },
+    {
+      "file": "pvivax.jpg",
+      "title": "File:Plasmodium vivax 01.png",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn, Laboratory &amp; Consulta",
+      "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_vivax_01.png"
+    },
+    {
+      "file": "rmsf.jpg",
+      "title": "File:Rocky Mountain spotted fever PHIL 1962 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Rocky_Mountain_spotted_fever_PHIL_1962_lores.jpg"
+    },
+    {
+      "file": "romana.jpg",
+      "title": "File:Romanas sign.jpg",
+      "lic": "CC0",
+      "artist": "Centers for Disease Control and Prevention (CDC)",
+      "page": "https://commons.wikimedia.org/wiki/File:Romanas_sign.jpg"
+    },
+    {
+      "file": "rose-spots.jpg",
+      "title": "File:Salmonella typhi typhoid fever PHIL 2215 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC/Armed Forces Institute of Pathology, Cha",
+      "page": "https://commons.wikimedia.org/wiki/File:Salmonella_typhi_typhoid_fever_PHIL_2215_lores.jpg"
+    },
+    {
+      "file": "saureus-gram.jpg",
+      "title": "File:Staphylococcus aureus Gram.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "Y Tambe",
+      "page": "https://commons.wikimedia.org/wiki/File:Staphylococcus_aureus_Gram.jpg"
+    },
+    {
+      "file": "schisto-haem.jpg",
+      "title": "File:Schistosoma haematobium egg 4843 lores.jpg",
+      "lic": "Public domain",
+      "artist": "CDC, Public Health Image Library (PHIL)",
+      "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_haematobium_egg_4843_lores.jpg"
+    },
+    {
+      "file": "schisto-mansoni.jpg",
+      "title": "File:Schistosoma mansoni egg 4841 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_mansoni_egg_4841_lores.jpg"
+    },
+    {
+      "file": "smallpox.jpg",
+      "title": "File:Smallpox lesions on face (AFIP 551882), National Museum of Health and Medicine.jpg",
+      "lic": "CC BY 2.0",
+      "artist": "medicalmuseum",
+      "page": "https://commons.wikimedia.org/wiki/File:Smallpox_lesions_on_face_(AFIP_551882),_National_Museum_of_Health_and_Medicine.jpg"
+    },
+    {
+      "file": "sporotrichosis.jpg",
+      "title": "File:Sporotrichosis by the fungus Sporothrix schenckii PHIL 3940 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Content Providers(s):\tCDC/Dr. Lucille K. Georg",
+      "page": "https://commons.wikimedia.org/wiki/File:Sporotrichosis_by_the_fungus_Sporothrix_schenckii_PHIL_3940_lores.jpg"
+    },
+    {
+      "file": "strep-tongue.jpg",
+      "title": "File:Strep throat with white strawberry tongue.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Whispyhistory",
+      "page": "https://commons.wikimedia.org/wiki/File:Strep_throat_with_white_strawberry_tongue.jpg"
+    },
+    {
+      "file": "strongy.jpg",
+      "title": "File:Strongyloides stercoralis larva.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_stercoralis_larva.jpg"
+    },
+    {
+      "file": "syph-palms.jpg",
+      "title": "File:Secondary Syphilis on palms CDC 6809 lores.rsh.jpg",
+      "lic": "Public domain",
+      "artist": "CDC/ Robert Sumpter",
+      "page": "https://commons.wikimedia.org/wiki/File:Secondary_Syphilis_on_palms_CDC_6809_lores.rsh.jpg"
+    },
+    {
+      "file": "tb-granuloma.jpg",
+      "title": "File:Tuberculous lymph node with caseating granuloma 40X.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Department of Pathology, Calicut Medical College",
+      "page": "https://commons.wikimedia.org/wiki/File:Tuberculous_lymph_node_with_caseating_granuloma_40X.jpg"
+    },
+    {
+      "file": "tb-zn.jpg",
+      "title": "File:M tuberculosis sputum.jpg",
+      "lic": "Public domain",
+      "artist": "Microrao",
+      "page": "https://commons.wikimedia.org/wiki/File:M_tuberculosis_sputum.jpg"
+    },
+    {
+      "file": "tcbs.jpg",
+      "title": "File:TCBS agar plate of Vibrio Cholerae and vibrio parahaemolyticus.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Chainwit.",
+      "page": "https://commons.wikimedia.org/wiki/File:TCBS_agar_plate_of_Vibrio_Cholerae_and_vibrio_parahaemolyticus.jpg"
+    },
+    {
+      "file": "tcruzi.jpg",
+      "title": "File:T. cruzi trypomastigotes in peripheral blood smear.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:T._cruzi_trypomastigotes_in_peripheral_blood_smear.jpg"
+    },
+    {
+      "file": "thrush.jpg",
+      "title": "File:Oral thrush Aphthae Candida albicans. PHIL 1217 lores.jpg",
+      "lic": "Public domain",
+      "artist": "Photo Credit:\nContent Providers(s): CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Oral_thrush_Aphthae_Candida_albicans._PHIL_1217_lores.jpg"
+    },
+    {
+      "file": "trich.jpg",
+      "title": "File:Trichomonas Giemsa DPDx.JPG",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Trichomonas_Giemsa_DPDx.JPG"
+    },
+    {
+      "file": "tsolium-scolex.jpg",
+      "title": "File:Taenia solium tapeworm scolex with its four suckers and two rows of hooks 5262 lores.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_tapeworm_scolex_with_its_four_suckers_and_two_rows_of_hooks_5262_lores.jpg"
+    },
+    {
+      "file": "tularemia.jpg",
+      "title": "File:Tularemia lesion.jpg",
+      "lic": "Public domain",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Tularemia_lesion.jpg"
+    },
+    {
+      "file": "tzanck.jpg",
+      "title": "File:Tzanck test.png",
+      "lic": "Public domain",
+      "artist": "National Institute of Allergy and Infectious Diseases (NIAID)",
+      "page": "https://commons.wikimedia.org/wiki/File:Tzanck_test.png"
+    },
+    {
+      "file": "varicella.jpg",
+      "title": "File:Child with chickenpox.jpg",
+      "lic": "CC BY-SA 3.0",
+      "artist": "",
+      "page": "https://commons.wikimedia.org/wiki/File:Child_with_chickenpox.jpg"
+    },
+    {
+      "file": "vibrio-gram.jpg",
+      "title": "File:Vibrio cholerae gram stain CDC.jpg",
+      "lic": "Public domain",
+      "artist": "CDC",
+      "page": "https://commons.wikimedia.org/wiki/File:Vibrio_cholerae_gram_stain_CDC.jpg"
+    },
+    {
+      "file": "wfs-adrenal.jpg",
+      "title": "File:Waterhouse-Friderichsen. IMG 2912.jpg",
+      "lic": "CC BY-SA 4.0",
+      "artist": "Amadalvarez",
+      "page": "https://commons.wikimedia.org/wiki/File:Waterhouse-Friderichsen._IMG_2912.jpg"
+    },
+    {
+      "file": "whipple.jpg",
+      "title": "File:Whipples Disease, PAS (6881958605).jpg",
+      "lic": "CC BY 2.0",
+      "artist": "Ed Uthman from Houston, TX, USA",
+      "page": "https://commons.wikimedia.org/wiki/File:Whipples_Disease,_PAS_(6881958605).jpg"
+    },
+    {
+      "file": "ypestis-wayson.jpg",
+      "title": "File:Yersinia pestis wayson.jpg",
+      "lic": "Public domain",
+      "artist": "U.S. Center for Disease Control",
+      "page": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg"
+    },
+    {
+      "file": "zoster.jpg",
+      "title": "File:Herpes zoster neck.png",
+      "lic": "CC BY-SA 3.0",
+      "artist": "No machine-readable author provided. Gentgeen assumed (based on copyright claims",
+      "page": "https://commons.wikimedia.org/wiki/File:Herpes_zoster_neck.png"
+    }
+  ],
   "questions": [
     {
       "id": 3001,
@@ -267,6 +1164,15 @@ window.NBME_MICRO_DATA = {
         "B": "Staphylococci are Gram-positive and have no outer membrane.",
         "E": "23S methylation causes macrolide and clindamycin resistance."
       },
+      "steps": [
+        "Normal staphylococci build their cell wall using penicillin-binding proteins, which beta-lactams inhibit.",
+        "MRSA carries the mecA gene on a mobile element called SCCmec, acquired from another staphylococcal species.",
+        "mecA encodes PBP2a, an alternative transpeptidase.",
+        "PBP2a has very low affinity for almost all beta-lactams, so it keeps cross-linking the wall while the drug is present.",
+        "Because the target has changed rather than the drug being destroyed, beta-lactamase inhibitors such as sulbactam do not help.",
+        "This makes the organism resistant to every penicillin and cephalosporin at once - except ceftaroline, which binds PBP2a.",
+        "Treatment for serious infection is vancomycin, daptomycin, or linezolid."
+      ],
       "tables": [
         {
           "title": "Resistance mechanisms",
@@ -731,6 +1637,15 @@ window.NBME_MICRO_DATA = {
         "B": "The capsule resembles host tissue and is poorly immunogenic, so it does not drive antibody-mediated damage.",
         "E": "LTA contributes to adherence and sepsis physiology, not to molecular mimicry."
       },
+      "steps": [
+        "Group A strep pharyngitis exposes the immune system to M protein on the bacterial surface.",
+        "Antibodies and T cells generated against M protein also recognize structurally similar human proteins - molecular mimicry.",
+        "Cross-reactive antibodies bind cardiac myosin and valve glycoproteins, activating complement and recruiting inflammation.",
+        "This produces pancarditis with Aschoff bodies, most damaging at the mitral valve.",
+        "The same cross-reactivity affects joints (migratory polyarthritis), skin (nodules, erythema marginatum), and basal ganglia (Sydenham chorea).",
+        "Symptoms begin 2-4 weeks after pharyngitis, once the antibody response has developed.",
+        "Only pharyngitis triggers it, and treating strep throat within about 9 days prevents it - unlike post-streptococcal glomerulonephritis, which antibiotics do not prevent."
+      ],
       "tables": [
         {
           "title": "Post-streptococcal sequelae",
@@ -1627,6 +2542,14 @@ window.NBME_MICRO_DATA = {
         "B": "Efflux is not the mechanism of vanA resistance, and tetracyclines are not used for this bacteremia.",
         "E": "That confers macrolide resistance and is unrelated to cell wall targets."
       },
+      "steps": [
+        "Vancomycin works by binding the terminal D-Ala-D-Ala of peptidoglycan precursors, physically blocking cross-linking.",
+        "The vanA gene cluster, carried on a transposon, encodes enzymes that build a different precursor.",
+        "The terminal D-alanine is replaced with D-lactate, giving D-Ala-D-Lac.",
+        "Losing one hydrogen bond drops vancomycin binding roughly a thousandfold, so the drug no longer blocks wall synthesis.",
+        "Because the change is enzymatic and transposon-borne, it can spread to other organisms, including S. aureus (VRSA).",
+        "Treatment shifts to drugs with different targets: linezolid (50S ribosome) or daptomycin (membrane depolarization)."
+      ],
       "tables": [
         {
           "title": "Resistance mechanisms",
@@ -1844,6 +2767,15 @@ window.NBME_MICRO_DATA = {
         "E": "SNARE cleavage describes tetanus and botulinum toxins, which cause paralysis.",
         "D": "Streptolysin O and listeriolysin O form pores; they do not stop translation."
       },
+      "steps": [
+        "Only strains lysogenized by the beta-phage carry the tox gene, so toxin production depends on the phage.",
+        "The B subunit binds the heparin-binding EGF-like growth factor receptor on host cells.",
+        "The toxin is endocytosed and the A subunit escapes into the cytoplasm.",
+        "The A subunit transfers ADP-ribose from NAD+ onto elongation factor 2.",
+        "Inactivated EF-2 can no longer translocate the ribosome along mRNA, so protein synthesis halts and the cell dies.",
+        "Locally this necrosis builds the gray pseudomembrane; systemically absorbed toxin damages heart (myocarditis) and nerves (palatal and cranial palsies).",
+        "Antitoxin neutralizes only toxin that has not yet entered cells, which is why it is given immediately on suspicion."
+      ],
       "tables": [
         {
           "title": "Bacterial exotoxins by mechanism",
@@ -2416,6 +3348,15 @@ window.NBME_MICRO_DATA = {
         "B": "Glutamate is excitatory; blocking it would reduce, not increase, muscle tone.",
         "D": "Autonomic instability occurs in tetanus but is not the primary toxin target."
       },
+      "steps": [
+        "Spores in soil germinate in a deep, poorly oxygenated wound and the vegetative bacteria release tetanospasmin.",
+        "The toxin binds peripheral motor nerve endings and is carried backwards along the axon by dynein.",
+        "It reaches the spinal cord and crosses into inhibitory interneurons, including Renshaw cells.",
+        "Its light chain is a zinc protease that cleaves synaptobrevin (VAMP), a SNARE protein.",
+        "Without intact SNAREs, vesicles of glycine and GABA cannot fuse and release their contents.",
+        "Motor neurons lose their inhibitory brake, producing sustained contraction: trismus, risus sardonicus, and opisthotonus.",
+        "Botulinum toxin cleaves the same family of SNAREs but acts at the neuromuscular junction, blocking acetylcholine and causing flaccid paralysis instead."
+      ],
       "tables": [
         {
           "title": "Clostridia compared (anaerobic, spore-forming Gram-positive rods)",
@@ -2734,6 +3675,15 @@ window.NBME_MICRO_DATA = {
         "C": "Panton-Valentine leukocidin does this in staphylococcal disease.",
         "B": "ETEC heat-stable toxin raises cGMP and causes traveler's diarrhea."
       },
+      "steps": [
+        "Antibiotics wipe out the protective colonic flora, removing colonization resistance.",
+        "Ingested C. difficile spores survive gastric acid and germinate in the colon.",
+        "Vegetative organisms release toxin A (an enterotoxin) and toxin B (a cytotoxin).",
+        "Both toxins glucosylate Rho, Rac, and Cdc42, the GTPases that maintain the actin cytoskeleton.",
+        "Colonocytes round up, tight junctions fail, and cells die, causing fluid secretion and intense neutrophil recruitment.",
+        "Fibrin, mucus, and dead cells form the yellow-white plaques of pseudomembranous colitis.",
+        "Spores resist alcohol, so soap-and-water handwashing and bleach cleaning are required, and treatment is oral fidaxomicin or vancomycin - drugs that stay in the lumen."
+      ],
       "tables": [
         {
           "title": "Clostridia compared (anaerobic, spore-forming Gram-positive rods)",
@@ -3912,6 +4862,15 @@ window.NBME_MICRO_DATA = {
         "C": "SNARE cleavage causes tetanus or botulism.",
         "B": "ETEC heat-stable toxin raises cGMP in the gut."
       },
+      "steps": [
+        "B. pertussis attaches to ciliated respiratory epithelium using filamentous hemagglutinin and pertactin.",
+        "Tracheal cytotoxin kills ciliated cells, so mucus can no longer be cleared - this produces the violent paroxysmal cough.",
+        "Pertussis toxin ADP-ribosylates the alpha subunit of Gi.",
+        "Because Gi normally inhibits adenylyl cyclase, disabling it leaves cAMP elevated.",
+        "Raised cAMP impairs phagocyte killing, and blocked chemokine signaling prevents lymphocytes from leaving the blood for lymph nodes.",
+        "Lymphocytes therefore pile up in the circulation, giving the striking lymphocytosis that predicts severe disease in infants.",
+        "Since damage is toxin-driven, macrolides given late reduce transmission but do not shorten the cough."
+      ],
       "tables": [
         {
           "title": "Bacterial exotoxins by mechanism",
@@ -4550,6 +5509,16 @@ window.NBME_MICRO_DATA = {
         "B": "ETEC heat-stable toxin raises cGMP without bloody stools.",
         "D": "Direct hemolysis would not injure glomerular endothelium or lower platelets."
       },
+      "steps": [
+        "Undercooked beef or contaminated produce delivers E. coli O157:H7, which needs only a tiny inoculum.",
+        "The organism attaches to colonic epithelium and forms attaching-and-effacing lesions, but it does not invade, so fever is often absent.",
+        "It releases Shiga-like toxin, an AB5 toxin acquired from a bacteriophage.",
+        "The B subunits bind globotriaosylceramide (Gb3), which is densely expressed on glomerular endothelium.",
+        "The A subunit removes an adenine from 28S rRNA of the 60S subunit, shutting down protein synthesis and killing the cell.",
+        "Endothelial injury exposes von Willebrand factor and triggers platelet microthrombi.",
+        "Red cells are sheared as they pass (schistocytes), platelets are consumed, and glomerular perfusion falls - the anemia, thrombocytopenia, and kidney injury of HUS.",
+        "Antibiotics may increase toxin release, so treatment is supportive."
+      ],
       "tables": [
         {
           "title": "E. coli pathotypes",
@@ -5375,6 +6344,14 @@ window.NBME_MICRO_DATA = {
         "E": "Rho is the C. difficile toxin target and causes colitis.",
         "A": "EF-2 is the diphtheria toxin target."
       },
+      "steps": [
+        "Cholera toxin is an AB5 toxin: five B subunits bind GM1 ganglioside on the enterocyte surface.",
+        "The A subunit is taken into the cell and ADP-ribosylates the alpha subunit of Gs.",
+        "Modified Gs can no longer hydrolyze GTP, so it stays locked in its active form.",
+        "Adenylyl cyclase runs continuously and intracellular cAMP rises sharply.",
+        "Protein kinase A phosphorylates CFTR, which pumps chloride into the lumen, with sodium and water following.",
+        "The result is massive watery diarrhea with no invasion, so there is no fever, blood, or inflammatory infiltrate."
+      ],
       "tables": [
         {
           "title": "Bacterial exotoxins by mechanism",
@@ -6690,6 +7667,27 @@ window.NBME_MICRO_DATA = {
         "C": "Body lice transmit epidemic typhus, trench fever, and relapsing fever.",
         "B": "Amblyomma transmits ehrlichiosis, and Lyme disease requires treatment."
       },
+      "figures": [
+        {
+          "file": "fig-tick-cycle.jpg",
+          "caption": "The Ixodes life cycle. Nymphs feed in late spring and summer and cause most human Lyme disease; they are tiny and their bite is usually unnoticed.",
+          "credit": {
+            "title": "File:Deer Tick life cycle.svg",
+            "lic": "Public domain",
+            "artist": "User:Philg88",
+            "page": "https://commons.wikimedia.org/wiki/File:Deer_Tick_life_cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "A nymphal Ixodes tick attaches, typically in late spring or summer, and feeds unnoticed.",
+        "Borrelia burgdorferi lives in the tick midgut and must migrate to the salivary glands before it can be injected.",
+        "That migration takes roughly 36-48 hours, which is why prompt tick removal prevents infection.",
+        "Once inoculated, spirochetes spread outward through the skin.",
+        "The host immune response to that advancing edge creates the expanding annular rash, often with central clearing - erythema migrans.",
+        "The rash appears days to a month after the bite and is diagnostic on its own; serology is frequently still negative at this point.",
+        "Untreated infection disseminates to nerves (facial palsy), heart (AV block), and later joints. Oral doxycycline treats early disease."
+      ],
       "tables": [
         {
           "title": "Tick-borne infections in the US",
@@ -6779,6 +7777,27 @@ window.NBME_MICRO_DATA = {
         "E": "Both are louse-borne.",
         "C": "These come from reduviid bugs and sandflies in other regions."
       },
+      "figures": [
+        {
+          "file": "fig-tick-cycle.jpg",
+          "caption": "The two-year Ixodes scapularis cycle: larvae feed on mice (acquiring Borrelia), moult to nymphs that feed the following spring and summer, and adults feed on deer in the fall. Nymphs transmit most human infections.",
+          "credit": {
+            "title": "File:Deer Tick life cycle.svg",
+            "lic": "Public domain",
+            "artist": "User:Philg88",
+            "page": "https://commons.wikimedia.org/wiki/File:Deer_Tick_life_cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Adult ticks feed and mate on deer in the fall; deer maintain the tick population but do not carry Borrelia.",
+        "Eggs are laid in spring and hatch into larvae, which take a single blood meal from small mammals.",
+        "White-footed mice are the reservoir, so the larva acquires Borrelia burgdorferi here.",
+        "The larva moults into a nymph, which feeds the following spring and summer - and nymphs cause most human Lyme disease.",
+        "Nymphs are poppy-seed sized and easily missed, so the bite often goes unnoticed.",
+        "Spirochetes must move from the tick midgut to the salivary glands, which takes roughly 36-48 hours of attachment - the reason prompt removal prevents infection.",
+        "The same tick can also carry Babesia microti and Anaplasma phagocytophilum, so co-infection should be considered."
+      ],
       "tables": [
         {
           "title": "Tick-borne infections in the US",
@@ -8086,6 +9105,27 @@ window.NBME_MICRO_DATA = {
         "A": "Regulatory cytokines suppress the response that builds granulomas.",
         "B": "That is immediate hypersensitivity, not granuloma formation."
       },
+      "figures": [
+        {
+          "file": "fig-tb-latency.jpg",
+          "caption": "Tuberculosis after inhalation: bacilli reach the alveoli, dendritic cells carry antigen to lymph nodes and activate T cells, and the granuloma that forms either clears the organism, contains it as latent infection, or breaks down into active, transmissible disease.",
+          "credit": {
+            "title": "File:Fmicb-12-745592-g001 (1).jpg",
+            "lic": "CC BY 4.0",
+            "artist": "Wenping Gong and Xueqiong Wu",
+            "page": "https://commons.wikimedia.org/wiki/File:Fmicb-12-745592-g001_(1).jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Droplet nuclei are inhaled and reach the alveoli, where macrophages take up the bacilli.",
+        "M. tuberculosis blocks phagolysosome fusion and survives inside the macrophage.",
+        "Dendritic cells carry antigen to draining lymph nodes and prime CD4+ T cells.",
+        "Infected macrophages secrete IL-12, which drives those T cells down the Th1 pathway.",
+        "Th1 cells release IFN-gamma, which activates macrophages into epithelioid cells and Langhans giant cells.",
+        "TNF-alpha holds the granuloma together; the center becomes caseous necrosis, and the organism is contained but not always killed.",
+        "Blocking TNF with infliximab or adalimumab dismantles that structure, which is why latent TB is screened for and treated before these drugs are started."
+      ],
       "tables": [
         {
           "title": "Immune defects and typical infections",
@@ -8145,7 +9185,27 @@ window.NBME_MICRO_DATA = {
         "B": "Middle lobe syndrome relates to bronchial compression, not TB reactivation.",
         "D": "Pleural TB occurs but is not the typical reactivation site.",
         "A": "Hilar adenopathy characterizes primary infection."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-tb-latency.jpg",
+          "caption": "The three outcomes after infection: elimination with recovery, a stable granuloma holding latent infection, or breakdown of the granuloma into active tuberculosis that can be transmitted again.",
+          "credit": {
+            "title": "File:Fmicb-12-745592-g001 (1).jpg",
+            "lic": "CC BY 4.0",
+            "artist": "Wenping Gong and Xueqiong Wu",
+            "page": "https://commons.wikimedia.org/wiki/File:Fmicb-12-745592-g001_(1).jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Inhaled bacilli land in the well-ventilated lower and middle lung zones, forming the Ghon focus.",
+        "Bacilli drain to hilar nodes; focus plus node make the Ghon complex, which usually calcifies.",
+        "Most people contain the infection inside granulomas, which is latent infection with no symptoms and no transmission.",
+        "If cell-mediated immunity later weakens, from HIV, TNF inhibitors, steroids, diabetes, or age, the granuloma breaks down.",
+        "Reactivation favors the upper lobe apices because M. tuberculosis is an obligate aerobe and oxygen tension is highest there.",
+        "Cavities form, connect to airways, and release large numbers of organisms, making the patient infectious again."
+      ]
     },
     {
       "id": 3145,
@@ -8171,7 +9231,28 @@ window.NBME_MICRO_DATA = {
         "E": "M. tuberculosis is the usual cause, though NTM can disseminate in AIDS.",
         "B": "It is most common at the extremes of age and with immunosuppression.",
         "C": "By definition the infection is disseminated."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-tb-latency.jpg",
+          "caption": "When containment fails, bacilli escape the granuloma. If they enter the bloodstream they seed innumerable tiny foci throughout the body, producing miliary disease.",
+          "credit": {
+            "title": "File:Fmicb-12-745592-g001 (1).jpg",
+            "lic": "CC BY 4.0",
+            "artist": "Wenping Gong and Xueqiong Wu",
+            "page": "https://commons.wikimedia.org/wiki/File:Fmicb-12-745592-g001_(1).jpg"
+          }
+        }
+      ],
+      "steps": [
+        "A granuloma normally walls off the organism, and containment depends on Th1 cells, IFN-gamma, and TNF.",
+        "When cell-mediated immunity is weak - infancy, old age, HIV, steroids, TNF inhibitors - that structure fails.",
+        "Bacilli erode into a blood vessel or lymphatic and disseminate.",
+        "They seed innumerable small foci in lungs, liver, spleen, marrow, meninges, and adrenals; the millet-seed nodules give the disease its name.",
+        "Because organisms are spread thinly through tissue rather than pouring into airways, sputum smears are often negative.",
+        "Tuberculin skin testing may be falsely negative too, since anergy accompanies overwhelming disease.",
+        "Extrapulmonary sites explain the classic complications: basilar meningitis, Pott disease of the spine, and adrenal insufficiency."
+      ]
     },
     {
       "id": 3146,
@@ -8900,6 +9981,26 @@ window.NBME_MICRO_DATA = {
         "D": "That describes aminoglycosides.",
         "E": "That is the sulfonamide mechanism."
       },
+      "figures": [
+        {
+          "file": "fig-abx-targets.jpg",
+          "caption": "Antibiotic targets in a bacterial cell. Beta-lactams sit in the 'cell wall synthesis inhibitors' group at the top left, alongside glycopeptides such as vancomycin.",
+          "credit": {
+            "title": "File:How do different antibiotics work?.png",
+            "lic": "CC BY 4.0",
+            "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
+            "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png"
+          }
+        }
+      ],
+      "steps": [
+        "Peptidoglycan is built from repeating sugar chains cross-linked through short peptide stems ending in D-Ala-D-Ala.",
+        "Transpeptidases, also called penicillin-binding proteins, form those cross-links and give the wall its strength.",
+        "The beta-lactam ring is a structural mimic of D-Ala-D-Ala, so the enzyme binds the drug instead of its true substrate.",
+        "The drug acylates the active site permanently, so cross-linking stops while wall breakdown by autolysins continues.",
+        "The weakened wall cannot resist osmotic pressure and the cell lyses, which is why beta-lactams work best on dividing bacteria.",
+        "Resistance follows from destroying the drug (beta-lactamase), changing the target (PBP2a in MRSA), or keeping it out (porin loss)."
+      ],
       "tables": [
         {
           "title": "Cell wall and membrane agents",
@@ -9191,7 +10292,16 @@ window.NBME_MICRO_DATA = {
         "D": "Clavulanate has little antibacterial activity of its own and does not cover MRSA.",
         "A": "It is a beta-lactamase inhibitor, not a ribosomal agent.",
         "B": "Clavulanate actually increases diarrhea."
-      }
+      },
+      "steps": [
+        "Beta-lactamases are bacterial enzymes that hydrolyze the beta-lactam ring before it can reach its target.",
+        "Clavulanate, sulbactam, and tazobactam resemble beta-lactams closely enough to be attacked by the enzyme.",
+        "The enzyme binds the inhibitor and is irreversibly inactivated - a suicide substrate.",
+        "The partner antibiotic is then free to reach the penicillin-binding proteins and block cell wall cross-linking.",
+        "This restores activity against beta-lactamase producers: MSSA, H. influenzae, Moraxella, and Bacteroides.",
+        "It does not overcome resistance from an altered target (MRSA) or from loss of entry (porin mutations).",
+        "Newer inhibitors such as avibactam also cover serine carbapenemases like KPC, but not metallo-enzymes such as NDM."
+      ]
     },
     {
       "id": 3167,
@@ -9690,6 +10800,25 @@ window.NBME_MICRO_DATA = {
         "B": "Chloramphenicol is a 50S agent.",
         "A": "Aminoglycosides and tetracyclines bind the 30S subunit."
       },
+      "figures": [
+        {
+          "file": "fig-abx-targets.jpg",
+          "caption": "Antibiotic classes grouped by the bacterial structure each one attacks: cell wall synthesis, cell membrane, DNA gyrase, RNA synthesis, folate synthesis, and the ribosome.",
+          "credit": {
+            "title": "File:How do different antibiotics work?.png",
+            "lic": "CC BY 4.0",
+            "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
+            "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png"
+          }
+        }
+      ],
+      "steps": [
+        "Locate the ribosome in the diagram: protein synthesis inhibitors act here, and they split by subunit.",
+        "The 30S subunit is the target of aminoglycosides (misreading, blocked initiation) and tetracyclines (blocked aminoacyl-tRNA entry).",
+        "The 50S subunit is the target of chloramphenicol, clindamycin, linezolid, macrolides, and streptogramins.",
+        "Mnemonic: 'Buy AT 30, CCEL at 50' - Aminoglycosides and Tetracyclines at 30S; Chloramphenicol, Clindamycin, Erythromycin (macrolides), and Linezolid at 50S.",
+        "Every other arrow in the figure marks a different target class, which is why combination regimens can attack several pathways at once."
+      ],
       "tables": [
         {
           "title": "Protein synthesis inhibitors",
@@ -10379,6 +11508,25 @@ window.NBME_MICRO_DATA = {
         "D": "Bacitracin acts after fosfomycin, at the carrier step.",
         "B": "Beta-lactams act after vancomycin, not before bacitracin."
       },
+      "figures": [
+        {
+          "file": "fig-abx-targets.jpg",
+          "caption": "Antibiotic classes by target. The cell wall synthesis inhibitors at the top left act at different points along the same assembly line, from cytoplasmic precursor synthesis to final cross-linking.",
+          "credit": {
+            "title": "File:How do different antibiotics work?.png",
+            "lic": "CC BY 4.0",
+            "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
+            "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png"
+          }
+        }
+      ],
+      "steps": [
+        "Step 1, in the cytoplasm: UDP-GlcNAc is converted to UDP-MurNAc by MurA. Fosfomycin blocks this first committed step.",
+        "Step 2, at the membrane: the bactoprenol lipid carrier ferries precursors across. Bacitracin blocks its recycling, so it is topical only because of nephrotoxicity.",
+        "Step 3, outside the membrane: vancomycin binds the D-Ala-D-Ala end of the precursor itself, preventing it from being added to the chain.",
+        "Step 4, the final cross-link: transpeptidases (penicillin-binding proteins) join the peptide stems, and beta-lactams inhibit these enzymes.",
+        "Remembering the order clarifies resistance too: changing the precursor (D-Ala-D-Lac) defeats vancomycin, while changing the enzyme (PBP2a) defeats beta-lactams."
+      ],
       "tables": [
         {
           "title": "Cell wall and membrane agents",
@@ -10444,6 +11592,26 @@ window.NBME_MICRO_DATA = {
         "E": "LPS is unique to Gram-negative outer membranes.",
         "D": "Superantigens are protein exotoxins of staphylococci and streptococci."
       },
+      "figures": [
+        {
+          "file": "fig-lps.jpg",
+          "caption": "Lipopolysaccharide, drawn from the membrane outward: lipid A anchored in the outer leaflet, then inner and outer core sugars, then the long repeating O antigen.",
+          "credit": {
+            "title": "File:LPS.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Mike Jones",
+            "page": "https://commons.wikimedia.org/wiki/File:LPS.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Lipid A is the innermost part, embedded in the outer membrane, and it is the toxic portion of the molecule.",
+        "When bacteria are lysed or divide, LPS is shed and lipid A is delivered to host cells by LPS-binding protein.",
+        "Lipid A engages CD14 and the TLR4/MD-2 complex on macrophages.",
+        "Macrophages release IL-1, IL-6, and TNF-alpha, producing fever, vasodilation, and hypotension.",
+        "Complement activation (C3a, C5a) and tissue factor expression follow, which is how endotoxin drives DIC.",
+        "The outer O antigen is highly variable and is what serotyping detects; it is not the toxic part."
+      ],
       "tables": [
         {
           "title": "Endotoxin vs exotoxin",
@@ -10508,7 +11676,26 @@ window.NBME_MICRO_DATA = {
         "D": "The periplasm lies between the two Gram-negative membranes.",
         "A": "Porins are Gram-negative channels.",
         "C": "The O antigen is the outer polysaccharide of Gram-negative LPS."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-gram-wall.jpg",
+          "caption": "Envelope layers. Top, Gram-negative: (1) inner membrane, (2) thin peptidoglycan, (3) outer membrane, with lipoprotein (6), porin (7), lipoteichoic-type anchor (8), and a transport channel (9). Bottom, Gram-positive: (1) a single membrane under a thick multilayer peptidoglycan wall (2) threaded by teichoic acids (green, 5) and lipoteichoic acid (4).",
+          "credit": {
+            "title": "File:Bacteria cell wall.svg",
+            "lic": "CC BY 3.0",
+            "artist": "Franciscosp2",
+            "page": "https://commons.wikimedia.org/wiki/File:Bacteria_cell_wall.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Gram-positive cells have one membrane and a thick peptidoglycan wall, so the crystal violet-iodine complex is trapped when alcohol is applied, and the cell stays purple.",
+        "Teichoic and lipoteichoic acids run through that thick wall; they are the molecules that signal through TLR2 and drive cytokine release.",
+        "Gram-negative cells have only a thin peptidoglycan layer, sitting in the periplasmic space between two membranes.",
+        "Alcohol dissolves the lipid-rich outer membrane, the dye complex washes out, and the cell takes up the pink safranin counterstain.",
+        "The same outer membrane carries LPS and porins, which explains endotoxin and several antibiotic-resistance mechanisms."
+      ]
     },
     {
       "id": 3190,
@@ -10532,6 +11719,14 @@ window.NBME_MICRO_DATA = {
         "D": "C. perfringens is a large Gram-positive rod on smear.",
         "C": "Pneumococci stain as lancet-shaped Gram-positive diplococci."
       },
+      "steps": [
+        "Gram staining needs a peptidoglycan wall of a certain thickness and an organism large enough to see.",
+        "Mycoplasma has no cell wall at all, so there is nothing to retain either dye.",
+        "Treponema and Leptospira have walls but are too thin to resolve, so dark-field or silver stains are used instead.",
+        "Mycobacteria have waxy mycolic acids that repel aqueous dyes, so acid-fast staining is required.",
+        "Legionella, Rickettsia, Chlamydia, and Coxiella live mostly inside host cells and stain faintly, so silver stains, Giemsa, antigen tests, or PCR are used.",
+        "Mnemonic: These Microbes May Lack Real Color - Treponema, Mycobacteria, Mycoplasma, Legionella, Rickettsia, Chlamydia."
+      ],
       "tables": [
         {
           "title": "Special stains",
@@ -10794,6 +11989,26 @@ window.NBME_MICRO_DATA = {
         "B": "That also involves a phage rather than direct contact.",
         "E": "Gene conversion rearranges existing DNA within one organism."
       },
+      "figures": [
+        {
+          "file": "fig-conjugation.jpg",
+          "caption": "Bacterial conjugation. (1) The F-plasmid-bearing donor extends a pilus; (2) the pilus contacts the recipient and retracts, pulling the cells together; (3) the relaxosome nicks the plasmid and one strand is transferred while DNA polymerase copies it; (4) both cells now carry the plasmid and can act as donors.",
+          "credit": {
+            "title": "File:Conjugation.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Adenosine",
+            "page": "https://commons.wikimedia.org/wiki/File:Conjugation.svg"
+          }
+        }
+      ],
+      "steps": [
+        "The donor cell carries the F (fertility) plasmid and uses it to build a sex pilus.",
+        "The pilus attaches to a recipient and retracts, bringing the two cells into direct contact.",
+        "A relaxase nicks one plasmid strand, and that single strand is passed through the mating bridge.",
+        "Each cell synthesizes the complementary strand, so both end up with a complete plasmid.",
+        "The recipient is now itself a donor, which is why resistance plasmids sweep through a population so quickly.",
+        "Because DNA never enters the surrounding medium, DNase does not block conjugation, unlike transformation."
+      ],
       "tables": [
         {
           "title": "Bacterial gene transfer",
@@ -10866,6 +12081,15 @@ window.NBME_MICRO_DATA = {
         "A": "It can move any segment of host DNA by packaging error.",
         "C": "They differ in phage cycle and in which genes can move."
       },
+      "steps": [
+        "Both forms of transduction move bacterial DNA inside a bacteriophage coat, so neither is blocked by DNase.",
+        "In generalized transduction the phage enters the lytic cycle and chops up the host chromosome.",
+        "During packaging it occasionally stuffs a random piece of bacterial DNA into a capsid instead of its own genome.",
+        "That particle injects the fragment into a new cell, so any host gene can be moved.",
+        "In specialized transduction the phage first integrates as a prophage at a specific chromosomal site.",
+        "When it later excises imprecisely, it carries the adjacent bacterial genes with it, so only genes flanking that site are transferred.",
+        "Lysogenic conversion is related but different: the prophage stays put and the cell simply expresses phage genes, which is how diphtheria, cholera, botulinum, Shiga, and erythrogenic toxins are encoded."
+      ],
       "tables": [
         {
           "title": "Bacterial gene transfer",
@@ -11489,6 +12713,28 @@ window.NBME_MICRO_DATA = {
         "E": "Salivary glands shed virus but are not the latency site.",
         "A": "CMV is latent in the monocyte lineage."
       },
+      "figures": [
+        {
+          "file": "fig-hsv-latency.jpg",
+          "caption": "Productive HSV-1 replication in an epithelial cell, with ordered immediate-early, early, and late gene expression. In sensory neurons this cascade is suppressed instead, leaving the genome quiet until reactivation.",
+          "credit": {
+            "title": "File:12035 2012 8320 Fig2 HTML.webp",
+            "lic": "CC BY 2.5",
+            "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
+            "page": "https://commons.wikimedia.org/wiki/File:12035_2012_8320_Fig2_HTML.webp"
+          }
+        }
+      ],
+      "steps": [
+        "Primary infection occurs in mucosal or skin epithelium, where the full lytic cascade runs and vesicles form.",
+        "Virions enter sensory nerve endings in that territory.",
+        "The nucleocapsid is carried backwards along the axon to the trigeminal ganglion (HSV-1) or sacral ganglia (HSV-2).",
+        "In the neuron the viral genome circularizes as an episome and lytic genes are silenced; only latency-associated transcripts are made.",
+        "Because no viral proteins are displayed, the immune system cannot find and clear the infected neuron - latency is lifelong.",
+        "Stress, fever, ultraviolet light, or immunosuppression reactivate transcription.",
+        "New virions travel forward down the same axon to the skin, so recurrences appear in the same dermatome each time.",
+        "Acyclovir needs viral thymidine kinase, expressed only during active replication, so it treats outbreaks but cannot clear latent virus."
+      ],
       "tables": [
         {
           "title": "Human herpesviruses",
@@ -11708,6 +12954,15 @@ window.NBME_MICRO_DATA = {
         "B": "Acting on a host enzyme would not give selectivity.",
         "D": "That describes foscarnet, used for resistant virus."
       },
+      "steps": [
+        "Acyclovir is a guanosine analog and is inert as given.",
+        "In an infected cell, viral thymidine kinase adds the first phosphate - uninfected cells cannot do this efficiently, which is the basis of its selectivity.",
+        "Host kinases add the second and third phosphates, producing acyclovir triphosphate.",
+        "That molecule competes with dGTP for viral DNA polymerase, which has far higher affinity for it than the host enzyme does.",
+        "Once incorporated it terminates the chain, because it lacks the 3'-hydroxyl needed for the next nucleotide.",
+        "Resistance usually arises from loss of viral thymidine kinase, so valacyclovir and famciclovir fail too.",
+        "Foscarnet and cidofovir inhibit the viral polymerase directly and need no viral kinase, so they still work."
+      ],
       "tables": [
         {
           "title": "Anti-herpesvirus drugs",
@@ -12389,6 +13644,27 @@ window.NBME_MICRO_DATA = {
         "B": "That describes hepatitis B.",
         "A": "Herpesviruses are enveloped and are destroyed by detergents."
       },
+      "figures": [
+        {
+          "file": "fig-hsv-latency.jpg",
+          "caption": "HSV-1 replication: the virion binds and enters, the nucleocapsid travels to the nucleus and injects its DNA, and genes are transcribed in ordered waves - immediate-early (alpha), early (beta), then late (gamma) - before assembly and nuclear budding.",
+          "credit": {
+            "title": "File:12035 2012 8320 Fig2 HTML.webp",
+            "lic": "CC BY 2.5",
+            "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
+            "page": "https://commons.wikimedia.org/wiki/File:12035_2012_8320_Fig2_HTML.webp"
+          }
+        }
+      ],
+      "steps": [
+        "The enveloped virion attaches to the cell surface and fuses, releasing the nucleocapsid into the cytoplasm.",
+        "The capsid is carried to a nuclear pore and injects its linear double-stranded DNA into the nucleus.",
+        "Immediate-early (alpha) genes are transcribed first and make regulatory proteins.",
+        "Early (beta) genes follow and make the replication machinery, including viral thymidine kinase - the enzyme acyclovir needs.",
+        "Late (gamma) genes make the structural proteins after DNA replication begins.",
+        "New capsids assemble in the nucleus and bud through the nuclear membrane, which is where herpesviruses get their envelope.",
+        "In sensory neurons the cycle can stall instead, leaving the genome as a quiet episome - latency, from which reactivation occurs."
+      ],
       "tables": [
         {
           "title": "DNA virus families",
@@ -12539,7 +13815,17 @@ window.NBME_MICRO_DATA = {
         "B": "That describes the Burkitt lymphoma translocation, not HPV.",
         "A": "That is an HHV-8 strategy.",
         "E": "LANA is the HHV-8 latency protein."
-      }
+      },
+      "steps": [
+        "High-risk HPV types (16, 18, 31, 33) infect basal keratinocytes through a mucosal break.",
+        "In persistent infection the viral genome integrates into host DNA, which disrupts the E2 gene.",
+        "E2 normally restrains E6 and E7, so losing it causes both oncoproteins to be overexpressed.",
+        "E6 recruits the E6AP ubiquitin ligase to tag p53 for degradation, removing the checkpoint that halts damaged cells.",
+        "E7 binds Rb and releases E2F, pushing the cell into S phase without the usual controls.",
+        "With both brakes gone, mutations accumulate and dysplasia progresses to invasive carcinoma over years.",
+        "Koilocytes - squamous cells with wrinkled nuclei and perinuclear halos - are the cytologic footprint of this process.",
+        "The vaccine uses L1 capsid virus-like particles, which prevent infection but cannot reverse integration that has already happened."
+      ]
     },
     {
       "id": 3224,
@@ -13785,7 +15071,27 @@ window.NBME_MICRO_DATA = {
         "E": "Influenza is an RNA virus.",
         "C": "Phenotypic mixing is not heritable and cannot create a new strain.",
         "B": "Influenza carries no oncogene."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-flu-shift.jpg",
+          "caption": "Antigenic shift by reassortment: a cell co-infected with an avian strain and a human strain packages a mixture of the eight genome segments, producing a new strain with avian surface proteins and human-adapted internal genes.",
+          "credit": {
+            "title": "File:Influenza geneticshift.jpg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Dhorspool at en.wikipedia",
+            "page": "https://commons.wikimedia.org/wiki/File:Influenza_geneticshift.jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Influenza A has a segmented genome of eight separate RNA pieces.",
+        "If two different strains infect the same cell, usually in pigs or birds, the segments mix freely during packaging.",
+        "A new virus can emerge carrying a hemagglutinin the human population has never seen.",
+        "Because there is no pre-existing immunity, the new subtype can spread worldwide as a pandemic.",
+        "Antigenic drift is the slower alternative: point mutations accumulate in HA and NA, causing seasonal epidemics and requiring yearly vaccine updates.",
+        "Only segmented viruses can reassort, which is why shift happens with influenza but not with measles or rabies."
+      ]
     },
     {
       "id": 3244,
@@ -14710,7 +16016,16 @@ window.NBME_MICRO_DATA = {
         "E": "Huntington disease progresses over years with chorea and family history.",
         "C": "Anti-NMDA encephalitis causes psychiatric symptoms and seizures and often responds to immunotherapy.",
         "A": "Tau accumulates in Alzheimer disease, which progresses over years without myoclonus."
-      }
+      },
+      "steps": [
+        "PrPc is a normal cellular protein, rich in alpha-helix, present on neurons.",
+        "In disease it refolds into PrPsc, which is rich in beta-pleated sheet.",
+        "PrPsc acts as a template, forcing normal PrPc molecules to adopt the misfolded shape - an autocatalytic chain reaction.",
+        "The beta-sheet form resists proteases and accumulates as aggregates and amyloid plaques.",
+        "Neurons die and the cortex takes on the vacuolated, spongiform appearance, with no inflammatory infiltrate because no foreign antigen is present.",
+        "Clinically this gives rapidly progressive dementia with startle myoclonus, periodic sharp waves on EEG, and cortical ribboning on MRI.",
+        "Prions contain no nucleic acid and resist standard autoclaving and disinfection, which is why contaminated neurosurgical instruments have transmitted disease."
+      ]
     },
     {
       "id": 3258,
@@ -14734,6 +16049,27 @@ window.NBME_MICRO_DATA = {
         "C": "That step is blocked by integrase inhibitors.",
         "B": "That step is blocked by protease inhibitors."
       },
+      "figures": [
+        {
+          "file": "fig-hiv-cycle.jpg",
+          "caption": "HIV replication cycle: gp120 attaches to CD4 and a co-receptor, gp41 drives fusion, reverse transcriptase copies RNA into DNA, integrase inserts it into host DNA, and protease cleaves the polyprotein during assembly and release.",
+          "credit": {
+            "title": "File:HIV-replication-cycle-en.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Jmarchn",
+            "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "gp120 binds CD4 on the target cell, which changes its shape and exposes the co-receptor binding site.",
+        "gp120 then binds a chemokine co-receptor: CCR5 on macrophages and memory T cells early in infection, or CXCR4 later.",
+        "gp41 inserts into the host membrane and pulls the two membranes together so the core enters the cell.",
+        "Reverse transcriptase copies the RNA genome into DNA, with no proofreading, which is the source of rapid mutation.",
+        "Integrase splices the provirus into host DNA, creating the latent reservoir that prevents cure.",
+        "Protease cleaves the Gag-Pol polyprotein during budding; without this step the released virions stay immature and non-infectious.",
+        "Each step is a drug target, which is why a CCR5-Delta32 deletion blocks entry of R5 strains entirely."
+      ],
       "tables": [
         {
           "title": "Antiretroviral classes",
@@ -14800,6 +16136,25 @@ window.NBME_MICRO_DATA = {
         "A": "tat is a regulatory transactivator, not an enzyme gene.",
         "B": "nef downregulates MHC I and CD4."
       },
+      "figures": [
+        {
+          "file": "fig-hiv-cycle.jpg",
+          "caption": "The labelled virion at the upper left shows the products of the three structural genes: env makes gp120 and gp41, gag makes the capsid and matrix, and pol makes reverse transcriptase, integrase, and protease.",
+          "credit": {
+            "title": "File:HIV-replication-cycle-en.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Jmarchn",
+            "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "env encodes gp160, which host protease cuts into gp120 (attachment) and gp41 (fusion).",
+        "gag encodes the structural core: p24 capsid, p17 matrix, and nucleocapsid proteins.",
+        "pol encodes the three enzymes packaged inside the virion: reverse transcriptase, integrase, and protease.",
+        "Regulatory genes add control: tat boosts transcription, rev exports unspliced RNA, and nef lowers MHC I and CD4 on the cell surface.",
+        "p24 is the antigen detected by 4th-generation screening assays before antibodies appear."
+      ],
       "tables": [
         {
           "title": "Antiretroviral classes",
@@ -15021,6 +16376,26 @@ window.NBME_MICRO_DATA = {
         "C": "That is maraviroc.",
         "B": "That describes NRTIs."
       },
+      "figures": [
+        {
+          "file": "fig-hiv-cycle.jpg",
+          "caption": "Each antiretroviral class blocks one labelled step: entry inhibitors at attachment and fusion, NRTIs and NNRTIs at reverse transcription, integrase inhibitors at integration, and protease inhibitors at the final maturation step.",
+          "credit": {
+            "title": "File:HIV-replication-cycle-en.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Jmarchn",
+            "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "After reverse transcription, integrase inserts the viral DNA into the host chromosome; -tegravir drugs block that strand transfer step.",
+        "The provirus is transcribed and translated as long Gag and Gag-Pol polyproteins.",
+        "HIV protease must cut those polyproteins into functional capsid, matrix, and enzyme units as the virion buds.",
+        "Protease inhibitors (-navir) block that cleavage, so released particles are immature and non-infectious.",
+        "Protease inhibitors are cleared by CYP3A4, so low-dose ritonavir or cobicistat is added purely to inhibit that enzyme and keep drug levels up.",
+        "The same CYP3A4 inhibition causes many interactions, and the class is associated with hyperglycemia, dyslipidemia, and fat redistribution."
+      ],
       "tables": [
         {
           "title": "Antiretroviral classes",
@@ -15358,6 +16733,15 @@ window.NBME_MICRO_DATA = {
         "A": "Resolved infection shows anti-HBs plus IgG anti-HBc.",
         "B": "IgM anti-HBc is specific for recent infection."
       },
+      "steps": [
+        "HBsAg appears first, usually weeks before symptoms, and marks active infection.",
+        "Anti-HBc IgM appears next, as the immune response targets the core antigen.",
+        "As infection resolves, HBsAg is cleared from the blood.",
+        "Anti-HBs takes time to become detectable, so for a period both HBsAg and anti-HBs are negative - the window period.",
+        "During that gap, IgM anti-HBc is the only positive marker, which is why the core antibody is essential to the panel.",
+        "Later, anti-HBs and IgG anti-HBc are both positive: resolved infection with immunity.",
+        "The vaccine contains only surface antigen, so vaccinated people have anti-HBs but never anti-HBc - that single marker separates vaccination from past infection."
+      ],
       "tables": [
         {
           "title": "Hepatitis B serology",
@@ -15516,6 +16900,15 @@ window.NBME_MICRO_DATA = {
         "B": "HBV lacks integrase; integration is incidental and not required.",
         "A": "The dependence runs the other way: HDV needs HBsAg."
       },
+      "steps": [
+        "HBV enters hepatocytes and delivers its partially double-stranded circular DNA to the nucleus.",
+        "Host enzymes repair the gap, producing covalently closed circular DNA (cccDNA), a stable mini-chromosome.",
+        "cccDNA is transcribed by host RNA polymerase into several RNAs, including a pregenomic RNA.",
+        "Pregenomic RNA is packaged into a capsid together with the viral polymerase.",
+        "Inside that capsid, the polymerase reverse-transcribes the RNA back into DNA - the step nucleoside analogs such as tenofovir and entecavir block.",
+        "Some capsids recycle their DNA back to the nucleus, replenishing the cccDNA pool.",
+        "Because cccDNA persists even when serum HBV DNA is undetectable, therapy suppresses rather than cures, and immunosuppression such as rituximab can reactivate infection."
+      ],
       "tables": [
         {
           "title": "Hepatitis viruses",
@@ -17309,6 +18702,27 @@ window.NBME_MICRO_DATA = {
         "E": "CGD causes catalase-positive bacterial and fungal infections.",
         "A": "Sickle cell disease predisposes to Salmonella and encapsulated organisms."
       },
+      "figures": [
+        {
+          "file": "fig-giardia-cycle.jpg",
+          "caption": "Giardia: chlorine-resistant cysts are swallowed in contaminated water, excyst in the small intestine into trophozoites that attach to the duodenal wall, and new cysts are passed in stool.",
+          "credit": {
+            "title": "File:Giardia life cycle en.svg",
+            "lic": "Public domain",
+            "artist": "LadyofHats",
+            "page": "https://commons.wikimedia.org/wiki/File:Giardia_life_cycle_en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Cysts are swallowed in untreated stream water, or passed person to person in daycare settings.",
+        "The cyst wall resists chlorination, which is why filtration or boiling is required.",
+        "Stomach acid triggers excystation in the duodenum, releasing trophozoites.",
+        "Trophozoites attach to the mucosa with a ventral sucking disk but do not invade, so there is no blood or fever.",
+        "Coating the absorptive surface blocks fat absorption, producing greasy, foul-smelling, floating stools and bloating.",
+        "Some trophozoites encyst again and pass in stool, continuing the cycle.",
+        "Secretory IgA normally limits attachment, so IgA deficiency and hypogammaglobulinemia cause chronic infection."
+      ],
       "tables": [
         {
           "title": "Intestinal protozoa",
@@ -17372,6 +18786,27 @@ window.NBME_MICRO_DATA = {
         "C": "Praziquantel treats flukes and tapeworms.",
         "E": "Ivermectin treats Strongyloides and filariae."
       },
+      "figures": [
+        {
+          "file": "fig-entamoeba-cycle.jpg",
+          "caption": "Entamoeba histolytica: cysts are swallowed, excyst in the intestine, and trophozoites either live in the lumen or invade the colonic wall, from which they can travel by the portal vein to the liver.",
+          "credit": {
+            "title": "File:Entamoeba histolytica life cycle-en.svg",
+            "lic": "Public domain",
+            "artist": "Mariana Ruiz Villarreal LadyofHats",
+            "page": "https://commons.wikimedia.org/wiki/File:Entamoeba_histolytica_life_cycle-en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Cysts are ingested from fecally contaminated food or water.",
+        "Excystation in the small intestine releases trophozoites that colonize the colon.",
+        "Most remain luminal commensals, but pathogenic strains invade the mucosa.",
+        "Invasion produces flask-shaped ulcers, causing bloody diarrhea with cramps.",
+        "Trophozoites that eat red blood cells are the finding specific for E. histolytica rather than harmless E. dispar.",
+        "Organisms entering portal venules travel to the liver and form an abscess with 'anchovy paste' contents, often weeks later and often with negative stool studies.",
+        "Treatment needs two drugs: metronidazole for invasive tissue forms, then paromomycin to clear luminal cysts."
+      ],
       "tables": [
         {
           "title": "Intestinal protozoa",
@@ -17495,6 +18930,27 @@ window.NBME_MICRO_DATA = {
         "E": "That treats neurocysticercosis, which shows cysts with a scolex.",
         "A": "Radiation treats CNS lymphoma, the main alternative diagnosis."
       },
+      "figures": [
+        {
+          "file": "fig-toxo-cycle.jpg",
+          "caption": "Tissue cysts full of slow-growing bradyzoites persist for life after primary infection. When cell-mediated immunity fails, they convert back to fast-dividing tachyzoites.",
+          "credit": {
+            "title": "File:Toxoplasmosis life cycle en.svg",
+            "lic": "Public domain",
+            "artist": "LadyofHats",
+            "page": "https://commons.wikimedia.org/wiki/File:Toxoplasmosis_life_cycle_en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Primary infection is usually mild and leaves tissue cysts in brain and muscle, held in check by CD4+ T cells.",
+        "As the CD4 count falls below about 100, that surveillance fails.",
+        "Bradyzoites inside cysts convert back into rapidly dividing tachyzoites.",
+        "Tachyzoites destroy surrounding brain tissue, producing multiple abscesses with surrounding edema.",
+        "On MRI these appear as multiple ring-enhancing lesions, typically at the gray-white junction and basal ganglia.",
+        "Positive Toxoplasma IgG confirms prior exposure and therefore the potential for reactivation; a negative IgG makes the diagnosis unlikely.",
+        "Treatment is pyrimethamine plus sulfadiazine with leucovorin, and clinical response within two weeks supports the diagnosis over CNS lymphoma."
+      ],
       "tables": [
         {
           "title": "Blood and tissue protozoa",
@@ -17567,6 +19023,27 @@ window.NBME_MICRO_DATA = {
         "B": "That would reduce Zika risk, which causes microcephaly with different calcifications.",
         "A": "That reduces neonatal herpes in women with genital HSV."
       },
+      "figures": [
+        {
+          "file": "fig-toxo-cycle.jpg",
+          "caption": "Toxoplasma gondii: cats shed oocysts in feces, and humans are infected by swallowing oocysts or by eating tissue cysts in undercooked meat. Tachyzoites spread through tissues, then convert to slow bradyzoite cysts in brain and muscle.",
+          "credit": {
+            "title": "File:Toxoplasmosis life cycle en.svg",
+            "lic": "Public domain",
+            "artist": "LadyofHats",
+            "page": "https://commons.wikimedia.org/wiki/File:Toxoplasmosis_life_cycle_en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Cats are the definitive host, the only animal in which the sexual cycle completes, and they shed oocysts in feces.",
+        "Humans are infected two ways: swallowing oocysts from cat litter, soil, or unwashed produce, or eating tissue cysts in undercooked meat.",
+        "In the gut the parasite is released and converts to rapidly dividing tachyzoites.",
+        "Tachyzoites spread through the bloodstream and can cross the placenta if the mother is infected for the first time during pregnancy.",
+        "In the fetus they damage brain and retina, producing the triad of chorioretinitis, hydrocephalus, and diffuse intracranial calcifications.",
+        "In immunocompetent hosts tachyzoites convert to bradyzoites inside tissue cysts, which persist for life.",
+        "If cell-mediated immunity later fails, as at CD4 counts under 100, those cysts reactivate and cause ring-enhancing brain lesions."
+      ],
       "tables": [
         {
           "title": "Congenital (TORCH) infections",
@@ -17636,6 +19113,27 @@ window.NBME_MICRO_DATA = {
         "B": "Kernicterus is a neonatal problem from unconjugated bilirubin.",
         "A": "Cerebral malaria is obstructive sequestration, not vasculitis."
       },
+      "figures": [
+        {
+          "file": "fig-malaria-cycle.jpg",
+          "caption": "The blood stage of the cycle. In P. falciparum this stage is dangerous because the parasite invades red cells of every age and makes infected cells stick to blood vessel walls.",
+          "credit": {
+            "title": "File:Malaria parasite life cycle-NIAID.jpg",
+            "lic": "Public domain",
+            "artist": "national Institute of Allergy and Infectious Diseases",
+            "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Merozoites released from the liver invade red blood cells; P. falciparum invades cells of any age, so parasitemia climbs steeply.",
+        "The parasite exports PfEMP1 onto knobs on the red cell surface.",
+        "PfEMP1 binds endothelial receptors such as ICAM-1, CD36, and EPCR, so infected cells adhere to capillary walls.",
+        "Sequestration keeps mature forms out of the circulating blood, which is why smears usually show only rings and gametocytes.",
+        "Adherent cells obstruct cerebral microvessels, causing confusion, seizures, and coma.",
+        "The same process damages kidney (hemoglobinuria), lung (ARDS), and placenta, and massive hemolysis causes severe anemia and hypoglycemia.",
+        "Severe disease is treated with IV artesunate; delayed hemolysis can appear 1-3 weeks later and needs follow-up blood counts."
+      ],
       "tables": [
         {
           "title": "Plasmodium species",
@@ -17774,6 +19272,27 @@ window.NBME_MICRO_DATA = {
         "B": "Mefloquine is a blood-stage drug used for prophylaxis.",
         "C": "Doxycycline is a prophylactic partner drug and does not kill hypnozoites."
       },
+      "figures": [
+        {
+          "file": "fig-malaria-cycle.jpg",
+          "caption": "The liver stage of the malaria cycle. In P. vivax and P. ovale, some sporozoites become dormant hypnozoites here rather than replicating immediately, and they reactivate weeks to months later.",
+          "credit": {
+            "title": "File:Malaria parasite life cycle-NIAID.jpg",
+            "lic": "Public domain",
+            "artist": "national Institute of Allergy and Infectious Diseases",
+            "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Sporozoites injected by the mosquito travel to the liver and enter hepatocytes.",
+        "In P. falciparum and P. malariae they all replicate and move on to the blood, so once the blood stage is cured, the infection is over.",
+        "In P. vivax and P. ovale a fraction stay dormant as hypnozoites.",
+        "Blood-stage drugs such as chloroquine and artemisinin combinations never reach these dormant forms.",
+        "Weeks to months later hypnozoites activate, release merozoites, and the illness relapses with no new mosquito exposure.",
+        "Primaquine or tafenoquine kills liver hypnozoites - so-called radical cure.",
+        "Both cause oxidative hemolysis in G6PD deficiency, so G6PD testing comes before the prescription."
+      ],
       "tables": [
         {
           "title": "Plasmodium species",
@@ -17840,6 +19359,27 @@ window.NBME_MICRO_DATA = {
         "B": "Trophozoites are an intraerythrocytic stage.",
         "E": "Oocysts form on the mosquito midgut wall."
       },
+      "figures": [
+        {
+          "file": "fig-malaria-cycle.jpg",
+          "caption": "Plasmodium life cycle: the mosquito injects sporozoites that infect liver cells, merozoites are released into the blood and cycle through red cells, and gametocytes taken up in a blood meal complete sexual development in the mosquito.",
+          "credit": {
+            "title": "File:Malaria parasite life cycle-NIAID.jpg",
+            "lic": "Public domain",
+            "artist": "national Institute of Allergy and Infectious Diseases",
+            "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg"
+          }
+        }
+      ],
+      "steps": [
+        "A female Anopheles mosquito bites and injects sporozoites from its salivary glands.",
+        "Sporozoites travel in the blood to the liver and infect hepatocytes, multiplying silently for 1-2 weeks.",
+        "In P. vivax and P. ovale some parasites stay dormant here as hypnozoites, the cause of later relapse.",
+        "The liver cells rupture and release merozoites, which invade red blood cells.",
+        "Inside red cells the parasite cycles through ring, trophozoite, and schizont stages, then bursts the cell - synchronized lysis is what produces the fever pattern.",
+        "Some parasites become gametocytes; a feeding mosquito takes them up, and sexual reproduction completes the cycle in the insect gut.",
+        "This is why blood-stage drugs clear symptoms but only primaquine or tafenoquine kills hypnozoites and prevents relapse."
+      ],
       "tables": [
         {
           "title": "Plasmodium species",
@@ -18041,6 +19581,27 @@ window.NBME_MICRO_DATA = {
         "D": "Primaquine eradicates malarial liver stages, which Babesia does not have.",
         "B": "Albendazole treats helminths."
       },
+      "figures": [
+        {
+          "file": "fig-babesia-cycle.jpg",
+          "caption": "Babesia microti: the Ixodes tick injects sporozoites that invade red blood cells directly, where they divide and sometimes form the tetrad 'Maltese cross'. There is no liver stage.",
+          "credit": {
+            "title": "File:Babesia microti life cycle en.svg",
+            "lic": "Public domain",
+            "artist": "LadyofHats Mariana Ruiz Villarreal",
+            "page": "https://commons.wikimedia.org/wiki/File:Babesia_microti_life_cycle_en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "An Ixodes tick, usually a nymph, injects sporozoites while feeding.",
+        "Unlike malaria, the parasite goes straight into red blood cells with no liver phase.",
+        "Inside red cells it divides, producing rings that closely resemble Plasmodium falciparum.",
+        "Four daughter cells arranged as a tetrad give the 'Maltese cross' that is diagnostic when seen.",
+        "Red cell rupture causes hemolytic anemia, jaundice, and dark urine, which is severe in asplenic or elderly patients.",
+        "Babesia makes no hemozoin pigment, and there is no travel history - two ways to separate it from malaria.",
+        "The same tick carries Borrelia burgdorferi and Anaplasma, so co-infection is common."
+      ],
       "tables": [
         {
           "title": "Tick-borne infections in the US",
@@ -18131,6 +19692,27 @@ window.NBME_MICRO_DATA = {
         "B": "Anopheles transmits malaria.",
         "D": "Pork transmits Taenia solium and Trichinella."
       },
+      "figures": [
+        {
+          "file": "fig-tcruzi-cycle.jpg",
+          "caption": "Trypanosoma cruzi: the reduviid bug deposits infected feces while feeding, trypomastigotes enter through the wound or conjunctiva, become intracellular amastigotes that multiply and burst the cell, and circulating trypomastigotes are taken up at the next blood meal.",
+          "credit": {
+            "title": "File:Trypanosoma cruzi LifeCycle.gif",
+            "lic": "Public domain",
+            "artist": "DPD CDC",
+            "page": "https://commons.wikimedia.org/wiki/File:Trypanosoma_cruzi_LifeCycle.gif"
+          }
+        }
+      ],
+      "steps": [
+        "A triatomine ('kissing') bug feeds at night, typically near the face, and defecates on the skin.",
+        "Scratching rubs infected feces into the bite wound or the conjunctiva - not the bite itself.",
+        "Unilateral periorbital swelling at the entry site is the Romana sign of acute infection.",
+        "Trypomastigotes enter host cells and transform into amastigotes, which multiply and rupture the cell.",
+        "Over decades the parasite destroys autonomic ganglia in heart and gut.",
+        "That denervation produces dilated cardiomyopathy with apical aneurysm and arrhythmias, megaesophagus, and megacolon.",
+        "Benznidazole or nifurtimox helps in acute and early infection but cannot reverse established organ damage."
+      ],
       "tables": [
         {
           "title": "Blood and tissue protozoa",
@@ -18278,6 +19860,27 @@ window.NBME_MICRO_DATA = {
         "E": "Anopheles transmits malaria, which does not fill macrophages with amastigotes.",
         "A": "Ixodes transmits babesiosis, which infects red cells."
       },
+      "figures": [
+        {
+          "file": "fig-leish-cycle.jpg",
+          "caption": "Leishmania: a sandfly injects promastigotes, macrophages take them up, and inside the macrophage they become amastigotes that multiply until the cell ruptures. Another sandfly bite returns the parasite to the insect.",
+          "credit": {
+            "title": "File:Leishmaniasis life cycle diagram en.svg",
+            "lic": "Public domain",
+            "artist": "LadyofHats Mariana Ruiz Villarreal",
+            "page": "https://commons.wikimedia.org/wiki/File:Leishmaniasis_life_cycle_diagram_en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "A female sandfly bites and injects promastigotes into the skin.",
+        "Macrophages phagocytose them, but the parasite survives inside the phagolysosome.",
+        "Inside the cell the promastigote becomes an amastigote - a small oval form with a nucleus and a rod-shaped kinetoplast.",
+        "Amastigotes multiply until the macrophage bursts, and neighboring macrophages are infected.",
+        "In visceral disease the parasite spreads to spleen, liver, and bone marrow, causing massive splenomegaly and pancytopenia.",
+        "In cutaneous disease it stays at the bite site and produces a slow, painless ulcer with raised edges.",
+        "The kinetoplast is the feature that distinguishes amastigotes from Histoplasma yeasts, which also sit inside macrophages."
+      ],
       "tables": [
         {
           "title": "Blood and tissue protozoa",
@@ -18644,6 +20247,27 @@ window.NBME_MICRO_DATA = {
         "A": "Pinworm eggs are rarely found in stool; the tape test is used.",
         "B": "Autoinfection keeps it going, and household members are often infected."
       },
+      "figures": [
+        {
+          "file": "fig-pinworm-cycle.jpg",
+          "caption": "Enterobius vermicularis: (1) eggs on perianal skin are swallowed, (2) larvae hatch in the small intestine, (3-5) adults mature in the colon, and gravid females migrate at night to lay eggs on the perianal skin. 'i' marks the infective stage and 'd' the diagnostic stage.",
+          "credit": {
+            "title": "File:Enterobius vermicularis LifeCycle B.svg",
+            "lic": "Public domain",
+            "artist": "Derivative work by André Koehne",
+            "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_LifeCycle_B.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Eggs are swallowed from contaminated fingers, bedding, or clothing.",
+        "Larvae hatch in the small intestine and mature into adults in the colon.",
+        "At night the gravid female migrates out to the perianal skin and deposits eggs.",
+        "The eggs cause intense itching; scratching loads the fingers and leads to autoinfection and household spread.",
+        "Eggs become infective within hours and survive on surfaces for days.",
+        "They are collected with the morning tape test, not by stool examination, because they are laid outside the gut.",
+        "Treatment is albendazole, mebendazole, or pyrantel for the whole household, repeated at two weeks to kill worms that hatched after the first dose."
+      ],
       "tables": [
         {
           "title": "Nematodes (roundworms)",
@@ -18737,6 +20361,27 @@ window.NBME_MICRO_DATA = {
         "E": "Lung cysts suggest echinococcosis or paragonimiasis.",
         "A": "Autoinfection is a Strongyloides feature."
       },
+      "figures": [
+        {
+          "file": "fig-ascaris-cycle.jpg",
+          "caption": "Ascaris lumbricoides: swallowed eggs hatch in the intestine, larvae cross into the bloodstream and travel through the lungs, are coughed up and swallowed, then mature into adults in the small intestine.",
+          "credit": {
+            "title": "File:Ascaris lumbricoides life cycle.png",
+            "lic": "Public domain",
+            "artist": "Centers for Disease Control and Prevention",
+            "page": "https://commons.wikimedia.org/wiki/File:Ascaris_lumbricoides_life_cycle.png"
+          }
+        }
+      ],
+      "steps": [
+        "Eggs are swallowed from soil or produce contaminated with human feces.",
+        "Larvae hatch in the small intestine and penetrate the gut wall into the portal circulation.",
+        "They reach the lungs and break into the alveoli, causing cough, wheeze, eosinophilia, and fleeting infiltrates - Loffler syndrome.",
+        "Larvae climb the bronchial tree to the throat and are swallowed a second time.",
+        "Back in the small intestine they mature into large adult worms and lay eggs that pass in stool.",
+        "Heavy worm burdens cause intestinal obstruction, and migrating adults can block the bile duct.",
+        "Treat with albendazole or mebendazole; the lung phase explains why symptoms can precede any stool findings."
+      ],
       "tables": [
         {
           "title": "Nematodes (roundworms)",
@@ -18830,6 +20475,27 @@ window.NBME_MICRO_DATA = {
         "A": "Hydatid disease is caused by Echinococcus.",
         "B": "Pork transmits Taenia solium and Trichinella."
       },
+      "figures": [
+        {
+          "file": "fig-strongy-cycle.jpg",
+          "caption": "Strongyloides stercoralis: skin-penetrating larvae migrate through lungs to the gut, and unlike other nematodes, larvae can mature inside the host and reinvade through the bowel wall or perianal skin - autoinfection.",
+          "credit": {
+            "title": "File:Strongyloides Storcoralis Lifecycle Diagram.jpg",
+            "lic": "Public domain",
+            "artist": "CDC DPDx courtesy of CDC's Division of Parasitic Diseases and Malaria (DPDM)",
+            "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_Storcoralis_Lifecycle_Diagram.jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Filariform larvae penetrate skin, travel through the lungs, and mature in the duodenum.",
+        "Females lay eggs that hatch in the gut into rhabditiform larvae, which normally pass in stool.",
+        "Crucially, some larvae mature into the infective filariform stage while still inside the host.",
+        "These reinvade through the colonic wall or perianal skin, so the infection sustains itself for decades without re-exposure.",
+        "Corticosteroids and HTLV-1 infection remove the immune brake on this cycle, and larval numbers explode.",
+        "Larvae disseminate to lungs, brain, and other organs, carrying gut bacteria with them and causing Gram-negative sepsis or meningitis.",
+        "This is why patients from endemic areas are screened with serology and treated with ivermectin before starting steroids."
+      ],
       "tables": [
         {
           "title": "Nematodes (roundworms)",
@@ -18920,6 +20586,27 @@ window.NBME_MICRO_DATA = {
         "D": "Biliary obstruction occurs with Ascaris or liver flukes.",
         "B": "Lung migration causes transient pneumonitis, not hemolysis."
       },
+      "figures": [
+        {
+          "file": "fig-hookworm-cycle.jpg",
+          "caption": "Hookworm: filariform larvae in soil penetrate skin, travel through the bloodstream to the lungs, are coughed up and swallowed, and attach to the small intestinal mucosa where they feed on blood.",
+          "credit": {
+            "title": "File:Hookworm LifeCycle.gif",
+            "lic": "Public domain",
+            "artist": "The original uploader was Sonett72 at English Wikipedia.",
+            "page": "https://commons.wikimedia.org/wiki/File:Hookworm_LifeCycle.gif"
+          }
+        }
+      ],
+      "steps": [
+        "Filariform larvae in warm, moist soil penetrate bare skin, typically on the feet, causing local itching known as ground itch.",
+        "Larvae enter the bloodstream and are carried to the lungs.",
+        "They break into the alveoli, are coughed up, and are swallowed.",
+        "In the small intestine they mature and attach to the mucosa with cutting plates or teeth.",
+        "Each worm sucks blood continuously and causes ongoing occult blood loss.",
+        "Chronic loss depletes iron stores, producing microcytic hypochromic anemia with eosinophilia.",
+        "Treatment is albendazole or mebendazole plus iron replacement; dog and cat hookworms instead cause creeping cutaneous larva migrans."
+      ],
       "tables": [
         {
           "title": "Nematodes (roundworms)",
@@ -19469,6 +21156,27 @@ window.NBME_MICRO_DATA = {
         "E": "That is how hookworm, Strongyloides, and schistosomes enter.",
         "A": "No mosquito transmits this tapeworm."
       },
+      "figures": [
+        {
+          "file": "fig-taenia-cycle.jpg",
+          "caption": "Taenia solium has two routes. Eating undercooked pork containing cysticerci gives an intestinal tapeworm; swallowing eggs shed in human feces gives cysticercosis, with larvae encysting in tissue including brain.",
+          "credit": {
+            "title": "File:Taenia solium Life cycle (01).jpg",
+            "lic": "Public domain",
+            "artist": "DPDx is an educational resource designed for health professionals and laboratory",
+            "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_Life_cycle_(01).jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Pigs eat eggs from human feces, and larvae encyst in pig muscle as cysticerci.",
+        "A person who eats undercooked pork swallows those cysticerci; each becomes an adult tapeworm in the intestine (taeniasis), which is usually mild.",
+        "That tapeworm carrier then sheds eggs in their own feces.",
+        "A second person - or the carrier themselves - swallows those eggs by the fecal-oral route.",
+        "The eggs hatch and larvae cross the gut wall, spreading to muscle, eye, and brain, where they encyst: this is cysticercosis.",
+        "Brain cysts cause seizures, which makes neurocysticercosis the leading cause of acquired epilepsy worldwide.",
+        "This is why a strict vegetarian can develop neurocysticercosis from a household tapeworm carrier, while pork itself only causes the intestinal worm."
+      ],
       "tables": [
         {
           "title": "Cestodes (tapeworms) and trematodes (flukes)",
@@ -19550,6 +21258,27 @@ window.NBME_MICRO_DATA = {
         "A": "That treats invasive fungal infection.",
         "D": "Ivermectin treats nematodes, not cestode cysts."
       },
+      "figures": [
+        {
+          "file": "fig-taenia-cycle.jpg",
+          "caption": "Swallowing Taenia solium eggs - not pork - puts humans in the intermediate-host position, so larvae encyst in tissue. Brain cysts are what cause seizures.",
+          "credit": {
+            "title": "File:Taenia solium Life cycle (01).jpg",
+            "lic": "Public domain",
+            "artist": "DPDx is an educational resource designed for health professionals and laboratory",
+            "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_Life_cycle_(01).jpg"
+          }
+        }
+      ],
+      "steps": [
+        "Eggs are swallowed from food, water, or hands contaminated by a human tapeworm carrier's feces.",
+        "Larvae hatch, cross the intestinal wall, and travel in the blood to muscle, eye, and brain.",
+        "Each larva forms a cyst that stays quiet while it is alive, because it actively suppresses local inflammation.",
+        "When the larva dies, that suppression stops and the host mounts an inflammatory response.",
+        "Surrounding edema and gliosis irritate the cortex and provoke seizures - the commonest presentation.",
+        "Imaging shows cysts, sometimes with a visible scolex inside, plus calcified remnants of older dead cysts.",
+        "Viable cysts are treated with albendazole plus corticosteroids, since killing them transiently worsens inflammation; calcified lesions need only seizure control."
+      ],
       "tables": [
         {
           "title": "Cestodes (tapeworms) and trematodes (flukes)",
@@ -19631,6 +21360,27 @@ window.NBME_MICRO_DATA = {
         "D": "Bleeding is not the main hazard here.",
         "B": "The fluid is antigenic rather than neurotoxic."
       },
+      "figures": [
+        {
+          "file": "fig-echino-cycle.jpg",
+          "caption": "Echinococcus granulosus: dogs are the definitive host and shed eggs, sheep are the usual intermediate host, and a human who swallows eggs becomes an accidental intermediate host in whom hydatid cysts grow in liver and lung.",
+          "credit": {
+            "title": "File:Echinococcus Life Cycle.svg",
+            "lic": "Public domain",
+            "artist": "Original:  CDC Vector:  Pixelsquid🎱",
+            "page": "https://commons.wikimedia.org/wiki/File:Echinococcus_Life_Cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Adult worms live in the intestine of dogs and other canids, which shed eggs in feces.",
+        "Sheep and other livestock swallow the eggs and develop cysts; dogs are infected by eating that offal, completing the natural cycle.",
+        "Humans swallow eggs from dog feces on hands, produce, or fur, and become accidental intermediate hosts.",
+        "Larvae cross the gut wall and lodge mainly in the liver, next most often the lung.",
+        "A slow-growing fluid-filled hydatid cyst forms, with daughter cysts inside and an eggshell-calcified wall.",
+        "The fluid is highly antigenic, so rupture or careless aspiration can cause anaphylaxis and seed new cysts.",
+        "Treatment is albendazole with careful surgery or the PAIR technique: puncture, aspirate, inject a scolicidal agent, then re-aspirate."
+      ],
       "tables": [
         {
           "title": "Cestodes (tapeworms) and trematodes (flukes)",
@@ -19793,6 +21543,27 @@ window.NBME_MICRO_DATA = {
         "B": "Mosquitoes transmit filariae and arboviruses.",
         "A": "That is how Ascaris and Trichuris spread."
       },
+      "figures": [
+        {
+          "file": "fig-schisto-cycle.jpg",
+          "caption": "Schistosoma: eggs passed in stool or urine hatch in fresh water, infect snails, and release cercariae that penetrate human skin. Adults pair in the venous plexus, and it is the trapped eggs that cause disease.",
+          "credit": {
+            "title": "File:Schistosoma life cycle.svg",
+            "lic": "CC0",
+            "artist": "CDC",
+            "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_life_cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Eggs leave the body in stool (S. mansoni, S. japonicum) or urine (S. haematobium) and hatch in fresh water.",
+        "Miracidia infect freshwater snails, the intermediate host, and multiply.",
+        "Snails release cercariae, which penetrate the intact skin of someone wading or swimming, causing 'swimmer's itch'.",
+        "Larvae migrate through the blood and lungs, then mature into paired adult worms in the venous plexus - mesenteric for mansoni and japonicum, vesical for haematobium.",
+        "Adults themselves cause little harm; the disease comes from eggs lodging in tissue.",
+        "Eggs in portal venules trigger Th2 granulomas and periportal 'pipestem' fibrosis, giving portal hypertension with preserved liver function.",
+        "S. haematobium eggs in the bladder wall cause hematuria and chronic irritation leading to squamous cell carcinoma. Praziquantel treats all species."
+      ],
       "tables": [
         {
           "title": "Cestodes (tapeworms) and trematodes (flukes)",
@@ -19874,6 +21645,27 @@ window.NBME_MICRO_DATA = {
         "C": "Small cell bladder carcinoma is rare and not parasite-related.",
         "A": "Bladder rhabdomyosarcoma occurs in young children."
       },
+      "figures": [
+        {
+          "file": "fig-schisto-cycle.jpg",
+          "caption": "The schistosome cycle. S. haematobium adults live in the vesical venous plexus, so eggs are shed in urine and lodge in the bladder wall rather than the gut.",
+          "credit": {
+            "title": "File:Schistosoma life cycle.svg",
+            "lic": "CC0",
+            "artist": "CDC",
+            "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_life_cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Cercariae from freshwater snails penetrate skin during wading or swimming.",
+        "Adults mature and pair in the venous plexus around the bladder.",
+        "The female lays eggs with a terminal spine that work their way through the bladder wall into urine.",
+        "Many eggs stay trapped in the wall, where they trigger granulomas and fibrosis.",
+        "Chronic irritation causes painless hematuria and, over years, squamous metaplasia of the urothelium.",
+        "Metaplastic epithelium can progress to squamous cell carcinoma of the bladder - a different pathway from the urothelial carcinoma caused by smoking.",
+        "Praziquantel increases calcium permeability in the worm tegument, paralyzing adults and allowing immune clearance."
+      ],
       "tables": [
         {
           "title": "Cestodes (tapeworms) and trematodes (flukes)",
@@ -23276,6 +25068,26 @@ window.NBME_MICRO_DATA = {
         "A": "Ornithodoros carries tick-borne relapsing fever.",
         "D": "That tick carries RMSF in parts of the southwest."
       },
+      "figures": [
+        {
+          "file": "fig-tick-cycle.jpg",
+          "caption": "Anaplasma shares the Ixodes vector with Lyme disease and babesiosis, so a single tick bite can transmit more than one pathogen.",
+          "credit": {
+            "title": "File:Deer Tick life cycle.svg",
+            "lic": "Public domain",
+            "artist": "User:Philg88",
+            "page": "https://commons.wikimedia.org/wiki/File:Deer_Tick_life_cycle.svg"
+          }
+        }
+      ],
+      "steps": [
+        "The same Ixodes nymph that transmits Borrelia can also carry Anaplasma phagocytophilum and Babesia microti.",
+        "Anaplasma infects granulocytes, where it grows in vacuoles that appear as mulberry-like morulae in neutrophils.",
+        "Infection of white cells and marrow suppression cause leukopenia, thrombocytopenia, and raised transaminases.",
+        "There is usually no rash, which distinguishes it from Rocky Mountain spotted fever.",
+        "Ehrlichia chaffeensis is the close mimic but comes from the lone star tick and forms morulae in monocytes.",
+        "Doxycycline treats Anaplasma, Ehrlichia, and Lyme disease, but not Babesia - so a patient failing to improve should be checked for babesiosis."
+      ],
       "tables": [
         {
           "title": "Tick-borne infections in the US",
@@ -23720,7 +25532,27 @@ window.NBME_MICRO_DATA = {
         "C": "Marrow is affected late and indirectly.",
         "D": "HIV targets CD4 T cells, not B cells.",
         "B": "The red pulp filters red cells rather than housing CCR5+ memory T cells."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-hiv-cycle.jpg",
+          "caption": "Integration of the provirus into host DNA is the step that makes HIV incurable: infected resting memory CD4 cells become a silent reservoir that antiretrovirals cannot reach.",
+          "credit": {
+            "title": "File:HIV-replication-cycle-en.svg",
+            "lic": "CC BY-SA 3.0",
+            "artist": "Jmarchn",
+            "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg"
+          }
+        }
+      ],
+      "steps": [
+        "HIV enters CCR5-expressing memory CD4+ T cells, which are densely concentrated in gut lymphoid tissue.",
+        "Within weeks of infection the gut CD4 population is massively depleted, long before blood counts fall much.",
+        "Loss of that mucosal barrier lets bacterial products translocate into the circulation, driving chronic immune activation.",
+        "Ongoing activation accelerates CD4 loss, including bystander cells dying by pyroptosis.",
+        "Meanwhile the integrated provirus persists silently in resting memory cells, which do not express viral proteins and so escape immune clearance.",
+        "Antiretrovirals block new infection of cells but cannot touch that integrated reservoir, which is why therapy is lifelong and stopping causes rebound."
+      ]
     },
     {
       "id": 3392,
@@ -23798,7 +25630,26 @@ window.NBME_MICRO_DATA = {
         "E": "The outer membrane is a Gram-negative feature and is dissolved by alcohol.",
         "C": "Mycolic acids cause acid-fastness in mycobacteria, a different stain.",
         "D": "Organisms without a wall, such as Mycoplasma, do not stain at all."
-      }
+      },
+      "figures": [
+        {
+          "file": "fig-gram-wall.jpg",
+          "caption": "Top: the Gram-negative envelope, with a thin peptidoglycan layer (2) sandwiched between inner (1) and outer (3) membranes. Bottom: the Gram-positive envelope, a single membrane (1) under a thick peptidoglycan wall (2) crossed by teichoic acids.",
+          "credit": {
+            "title": "File:Bacteria cell wall.svg",
+            "lic": "CC BY 3.0",
+            "artist": "Franciscosp2",
+            "page": "https://commons.wikimedia.org/wiki/File:Bacteria_cell_wall.svg"
+          }
+        }
+      ],
+      "steps": [
+        "Crystal violet enters every cell, and iodine fixes it as a large crystal violet-iodine complex.",
+        "Alcohol is then applied. In Gram-positive cells the thick, highly cross-linked peptidoglycan dehydrates and traps the complex.",
+        "In Gram-negative cells the alcohol dissolves the lipid-rich outer membrane, and the thin peptidoglycan cannot hold the complex, so it washes out.",
+        "Safranin is applied last. It stains the now-colorless Gram-negative cells pink; Gram-positive cells are already too dark to change.",
+        "So the color reports wall thickness, not the organism's identity - which is why old or antibiotic-treated Gram-positive cells can appear falsely Gram-negative."
+      ]
     },
     {
       "id": 3394,
