@@ -1,6 +1,60 @@
 {
-  "generated_at": "2026-09-16T16:59:56+00:00",
+  "generated_at": "2026-09-28T23:18:14+00:00",
   "items": [
+    {
+      "title": "Motif-Vocab: StatisticallyCalibrated Transcription-Factor-Identity Tokenization forGenomic Language Models",
+      "link": "http://arxiv.org/abs/2609.28386v1",
+      "date": "2026-09-23T16:58:41Z",
+      "authors": [
+        "Liangyu Li",
+        "Michael White"
+      ],
+      "summary": "Tokenization is a central design choice in genomic language models, yet most deoxyribonucleic acid (DNA) tokenizers use characters, fixed-length k-mers, or frequency-derived subwords without explicitly using prior..."
+    },
+    {
+      "title": "Incorporating LLM Embeddings for Variation Across the Human Genome",
+      "link": "http://arxiv.org/abs/2509.20702v3",
+      "date": "2025-09-25T03:09:16Z",
+      "authors": [
+        "Hongqian Niu",
+        "Jordan Bryan",
+        "Jacob Williams",
+        "Hufeng Zhou",
+        "Zhun Deng",
+        "Haoyu Zhang",
+        "Xihao Li",
+        "Didong Li"
+      ],
+      "summary": "Recent advances in large language model (LLM) embeddings have enabled powerful representations for biological data, but most applications to date focus on gene-level information. We present one of the first systematic..."
+    },
+    {
+      "title": "Large Language Model Agents for Evidence Based Genetic Disease Severity Classification",
+      "link": "http://arxiv.org/abs/2609.19569v2",
+      "date": "2026-09-17T01:56:38Z",
+      "authors": [
+        "Tohid Ghasemnejad",
+        "Ahmadreza Argha",
+        "Mark Grosser",
+        "John Wang",
+        "Min Yang",
+        "Thantrira Porntaveetus",
+        "Tony Roscioli",
+        "Nigel H. Lovell",
+        "Mahmoud Aarabi",
+        "Hamid Alinejad-Rokny"
+      ],
+      "summary": "Disease severity classification for genetic conditions is subjective and labor-intensive, creating bottlenecks in genomic screening, where commercial panels vary widely in size and overlap. We developed an autonomous AI..."
+    },
+    {
+      "title": "Democratizing Clinical Tumor Whole Genome Sequencing: 18-hour End-to-end Analysis via Trillion-parameter Large Language Models Locally Deployed on Consumer-grade Hardware",
+      "link": "http://arxiv.org/abs/2609.17620v1",
+      "date": "2026-09-14T20:38:24Z",
+      "authors": [
+        "Rui Xiao",
+        "Yili Xu"
+      ],
+      "summary": "Whole genome sequencing (WGS) is essential for precision oncology, yet its clinical adoption remains limited by prohibitive computational costs and multi-day turnaround times. This work presents a fully localized..."
+    },
     {
       "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
       "link": "http://arxiv.org/abs/2609.16213v1",
@@ -46,52 +100,6 @@
         "Ismailcem Budak Arpinar"
       ],
       "summary": "Large language models (LLMs) can generate biomedical hypotheses, but it remains unclear whether they truly reason from scientific evidence or simply produce convincing-sounding ideas. To study this, we combine three..."
-    },
-    {
-      "title": "Portable Semantics, Private Dialects: Reuse and Negative Transfer in Latent Communication Between Language-Model Cells",
-      "link": "http://arxiv.org/abs/2609.11365v1",
-      "date": "2026-09-10T10:53:47Z",
-      "authors": [
-        "Narcis Marincat"
-      ],
-      "summary": "In shared-genome language-model societies, restricted evidence visibility favors reusable, value-indexed latent packet interfaces, whereas the sole high-performing globally visible model in the parent study learned an..."
-    },
-    {
-      "title": "Unifying biomedical knowledge in a modern multimodal graph",
-      "link": "http://arxiv.org/abs/2604.27269v3",
-      "date": "2026-04-29T23:49:34Z",
-      "authors": [
-        "Lucas Vittor",
-        "Ayush Noori",
-        "I\u00f1aki Arango",
-        "Joaqu\u00edn Polonuer",
-        "Sam Rodriques",
-        "Andrew White",
-        "David A. Clifton",
-        "Marinka Zitnik"
-      ],
-      "summary": "Biomedical knowledge graphs (KGs) are widely used in the life sciences, yet many are derived from unstructured documents and therefore lack schema-level constraints, whereas graphs assembled from structured resources..."
-    },
-    {
-      "title": "What You Can't See Is What You Learn: Slot-Selective Evidence Masking Favors Compositional Generalization in Shared-Genome Language-Model Societies",
-      "link": "http://arxiv.org/abs/2608.20054v3",
-      "date": "2026-08-20T13:51:45Z",
-      "authors": [
-        "Narcis Marincat"
-      ],
-      "summary": "Multi-module neural systems often expose every module to the full input. We test whether a slot-selective evidence-masking regime -- restricting each module to its own evidence span -- changes which solutions..."
-    },
-    {
-      "title": "OvDSGG: End-to-End Open-Vocabulary Dynamic Scene Graph Generation",
-      "link": "http://arxiv.org/abs/2608.14835v2",
-      "date": "2026-08-14T19:12:40Z",
-      "authors": [
-        "John Helsby",
-        "Yi Yang",
-        "Bodo Rosenhahn",
-        "Michael Ying Yang"
-      ],
-      "summary": "Dynamic scene graphs (DSGs) capture spatio-temporal interactions across videos as $\\langle$subject, predicate, object$\\rangle$ triplets, and underpin downstream tasks such as video captioning, video question answering,..."
     }
   ]
 }
