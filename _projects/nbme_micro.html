@@ -9,6 +9,7 @@ date: 2026-09-28
 <div id="nbme-app" class="nbme-app" data-image-base="{{ '/assets/images/nbme/micro/' | relative_url }}"></div>
 
 <script src="{{ '/assets/js/nbme/micro-data.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/nbme/micro-encyclopedia.js' | relative_url }}"></script>
 
 <style>
   /*
@@ -435,6 +436,168 @@ date: 2026-09-28
     font-size:0.8rem; color: var(--nbme-muted); border-top:1px solid var(--nbme-border); padding-top:0.85rem;
   }
 
+  /* ---------- Encyclopedia overlay ---------- */
+  .nbme-enc-overlay{
+    /* The overlay is appended to <body>, outside .nbme-app, so it cannot inherit
+       the app's custom properties — it carries its own copy of the palette. */
+    --nbme-navy:#1c3f6e; --nbme-bar-ink:#ffffff; --nbme-card:#ffffff;
+    --nbme-page:#f4f5f7; --nbme-border:#d3d7dc; --nbme-border-soft:#e6e8eb;
+    --nbme-ink:#1a1a1a; --nbme-muted:#65707d;
+    --nbme-accent:#2f6fed; --nbme-accent-tint:#eaf1fd;
+    --nbme-green:#1e7d34; --nbme-green-bg:#e9f7ec;
+    --nbme-amber:#b8860b; --nbme-amber-bg:#fff6df;
+    --nbme-primary:#2f6fed;
+    --nbme-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    position: fixed; inset:0; background: rgba(8,16,30,0.62); z-index:10000;
+    display:none; align-items:center; justify-content:center; padding:1.2rem;
+    font-family: var(--nbme-sans); color: var(--nbme-ink);
+  }
+  .nbme-enc-overlay.open{ display:flex; }
+  .nbme-enc-panel{
+    background: var(--nbme-card); border-radius:5px; width:100%; max-width:1180px;
+    height: min(88vh, 900px); display:flex; flex-direction:column; overflow:hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  }
+  .nbme-enc-head{
+    background: var(--nbme-navy); color: var(--nbme-bar-ink);
+    padding:0.7rem 1rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;
+  }
+  .nbme-enc-head h2{ margin:0; font-size:1rem; font-weight:700; letter-spacing:0.01em; }
+  .nbme-enc-head .sub{ font-size:0.72rem; opacity:0.75; }
+  .nbme-enc-head .nbme-spacer{ flex:1 1 auto; }
+  .nbme-enc-close{
+    background: rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.3);
+    color:#fff; font-size:1.05rem; line-height:1; cursor:pointer; border-radius:3px;
+    width:30px; height:30px; flex:none;
+  }
+  .nbme-enc-close:hover{ background: rgba(255,255,255,0.28); }
+
+  .nbme-enc-toolbar{
+    display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;
+    padding:0.6rem 1rem; border-bottom:1px solid var(--nbme-border);
+    background:#fafbfc;
+  }
+  .nbme-enc-search{
+    flex:1 1 260px; min-width:180px; padding:0.45rem 0.6rem; font-size:0.88rem;
+    border:1px solid var(--nbme-border); border-radius:3px; font-family: var(--nbme-sans);
+  }
+  .nbme-enc-search:focus{ outline:none; border-color: var(--nbme-accent); box-shadow:0 0 0 2px var(--nbme-accent-tint); }
+  .nbme-hy-toggle{
+    display:flex; align-items:center; gap:0.45rem; font-size:0.8rem; color: var(--nbme-ink);
+    background: var(--nbme-amber-bg); border:1px solid #e8d69a; border-radius:3px;
+    padding:0.35rem 0.6rem; cursor:pointer; user-select:none; font-weight:600;
+  }
+  .nbme-hy-toggle input{ accent-color: var(--nbme-amber); width:15px; height:15px; }
+  .nbme-enc-mode{
+    font-size:0.78rem; padding:0.35rem 0.5rem; border:1px solid var(--nbme-border);
+    border-radius:3px; font-family: var(--nbme-sans); background:#fff;
+  }
+  .nbme-enc-count{ font-size:0.74rem; color: var(--nbme-muted); }
+
+  .nbme-enc-body{ display:flex; flex:1 1 auto; min-height:0; }
+  .nbme-enc-list{
+    width:290px; flex:none; border-right:1px solid var(--nbme-border);
+    overflow-y:auto; background:#fbfcfd; padding-bottom:1rem;
+  }
+  .nbme-enc-group{
+    font-size:0.67rem; text-transform:uppercase; letter-spacing:0.07em; font-weight:700;
+    color: var(--nbme-muted); padding:0.7rem 0.85rem 0.3rem; position:sticky; top:0;
+    background:#fbfcfd;
+  }
+  .nbme-enc-item{
+    display:block; width:100%; text-align:left; background:none; border:none;
+    padding:0.42rem 0.85rem; font-size:0.84rem; cursor:pointer; color: var(--nbme-ink);
+    font-family: var(--nbme-sans); line-height:1.3; border-left:3px solid transparent;
+  }
+  .nbme-enc-item:hover{ background: var(--nbme-accent-tint); }
+  .nbme-enc-item.active{ background: var(--nbme-accent-tint); border-left-color: var(--nbme-accent); font-weight:700; }
+  .nbme-enc-item .hit{ display:block; font-size:0.71rem; color: var(--nbme-muted); font-weight:400; }
+  .nbme-enc-empty{ padding:1.2rem 0.9rem; font-size:0.82rem; color: var(--nbme-muted); }
+
+  .nbme-enc-detail{ flex:1 1 auto; overflow-y:auto; padding:1.2rem 1.5rem 2.5rem; min-width:0; }
+  @media (max-width: 820px){
+    .nbme-enc-body{ flex-direction:column; }
+    .nbme-enc-list{ width:auto; max-height:min(38vh, 240px); border-right:none; border-bottom:1px solid var(--nbme-border); }
+    .nbme-enc-group{ padding-top:0.5rem; }
+    .nbme-enc-figs{ grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    .nbme-enc-figs img{ height:120px; }
+    .nbme-enc-detail{ padding:1rem; }
+    .nbme-enc-panel{ height:92vh; }
+  }
+
+  .nbme-enc-title{ font-size:1.35rem; font-weight:700; margin:0 0 0.15rem; color: var(--nbme-ink); }
+  .nbme-enc-group-tag{
+    display:inline-block; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;
+    background: var(--nbme-page); border:1px solid var(--nbme-border); color: var(--nbme-muted);
+    padding:0.12rem 0.45rem; border-radius:2px; margin-bottom:0.5rem;
+  }
+  .nbme-enc-summary{ font-size:0.95rem; line-height:1.6; color: var(--nbme-ink); margin:0.35rem 0 0.9rem; }
+  .nbme-enc-tx{
+    background: var(--nbme-green-bg); border-left:3px solid var(--nbme-green);
+    padding:0.55rem 0.8rem; font-size:0.86rem; line-height:1.55; border-radius:0 3px 3px 0;
+    margin-bottom:1rem;
+  }
+  .nbme-enc-tx b{ color: var(--nbme-green); }
+
+  .nbme-enc-quick{ width:100%; border-collapse:collapse; margin:0 0 1.2rem; font-size:0.85rem; }
+  .nbme-enc-quick td{ border:1px solid var(--nbme-border-soft); padding:0.4rem 0.6rem; vertical-align:top; }
+  .nbme-enc-quick td:first-child{ width:34%; background: var(--nbme-page); font-weight:700; color: var(--nbme-muted); }
+
+  .nbme-enc-section{ margin-bottom:1.5rem; }
+  .nbme-enc-section h3{
+    font-size:0.95rem; margin:0 0 0.5rem; color: var(--nbme-navy);
+    border-bottom:1px solid var(--nbme-border); padding-bottom:0.28rem;
+  }
+  .nbme-enc-p{ font-size:0.9rem; line-height:1.65; margin:0 0 0.7rem; color: var(--nbme-ink); }
+  .nbme-enc-p.hy{ position:relative; }
+  /* Highlight mode: high-yield paragraphs get a marker bar and tinted background */
+  .nbme-enc-detail.hy-on .nbme-enc-p.hy{
+    background: var(--nbme-amber-bg); border-left:3px solid var(--nbme-amber);
+    padding:0.5rem 0.7rem 0.5rem 0.75rem; border-radius:0 3px 3px 0;
+  }
+  .nbme-enc-detail.hy-on .nbme-enc-p.hy::after{
+    content:'HY'; position:absolute; top:0.35rem; right:0.5rem;
+    font-size:0.58rem; font-weight:800; letter-spacing:0.08em; color: var(--nbme-amber);
+    opacity:0.75;
+  }
+  /* Only mode: non-high-yield paragraphs are hidden entirely */
+  .nbme-enc-detail.hy-only .nbme-enc-p:not(.hy){ display:none; }
+  .nbme-enc-detail.hy-only .nbme-enc-p.hy{
+    background: var(--nbme-amber-bg); border-left:3px solid var(--nbme-amber);
+    padding:0.5rem 0.7rem; border-radius:0 3px 3px 0;
+  }
+  .nbme-enc-detail.hy-only .nbme-enc-section:not(:has(.nbme-enc-p.hy)){ display:none; }
+
+  .nbme-enc-figs{ display:grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap:0.8rem; margin:0.4rem 0 1.2rem; }
+  .nbme-enc-figs figure{ margin:0; border:1px solid var(--nbme-border); border-radius:3px; overflow:hidden; background:#fff; }
+  .nbme-enc-figs img{
+    width:100%; height:150px; object-fit:cover; display:block; cursor:zoom-in; background:#f0f1f3;
+  }
+  .nbme-enc-figs figcaption{ font-size:0.72rem; line-height:1.4; color: var(--nbme-muted); padding:0.4rem 0.5rem; }
+
+  .nbme-enc-related{
+    background: var(--nbme-accent-tint); border:1px solid #cddffb; border-radius:3px;
+    padding:0.5rem 0.75rem; margin-bottom:0.9rem; font-size:0.8rem; color: var(--nbme-ink);
+  }
+  .nbme-enc-related b{ color: var(--nbme-primary); }
+  .nbme-enc-related button{
+    background:#fff; border:1px solid var(--nbme-accent); color: var(--nbme-primary);
+    border-radius:12px; padding:0.15rem 0.6rem; font-size:0.75rem; cursor:pointer;
+    margin:0.25rem 0.3rem 0 0; font-family: var(--nbme-sans);
+  }
+  .nbme-enc-related button:hover{ background: var(--nbme-accent); color:#fff; }
+
+  /* Encyclopedia entry point on the setup screen */
+  .nbme-enc-promo{
+    display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+    background: linear-gradient(180deg,#fff, #f7f9fc);
+    border:1px solid var(--nbme-border); border-radius:4px; padding:0.9rem 1.1rem; margin-bottom:0.4rem;
+  }
+  .nbme-enc-promo .txt{ flex:1 1 320px; min-width:0; }
+  .nbme-enc-promo h3{ margin:0 0 0.2rem; font-size:0.95rem; color: var(--nbme-ink); }
+  .nbme-enc-promo p{ margin:0; font-size:0.82rem; color: var(--nbme-muted); line-height:1.5; }
+
   /* ---------- Lightbox ---------- */
   .nbme-lightbox{
     position: fixed; inset:0; background: rgba(0,0,0,0.85); display:none;
@@ -853,6 +1016,17 @@ date: 2026-09-28
           '<div class="nbme-section-label">Your performance</div>' +
           '<div class="nbme-stats-panel">' + statsHtml + '</div>' +
 
+          (window.NBME_MICRO_ENCYCLOPEDIA ? (
+            '<div class="nbme-section-label">Learn</div>' +
+            '<div class="nbme-enc-promo">' +
+              '<div class="txt">' +
+                '<h3>Microbiology Encyclopedia</h3>' +
+                '<p>' + window.NBME_MICRO_ENCYCLOPEDIA.entries.length + ' organisms and topics, each with the underlying science and a Step 1 high-yield layer you can highlight or read on its own. Searchable by organism, disease, toxin, or buzzword &mdash; and available inside a block without losing your place.</p>' +
+              '</div>' +
+              '<button class="nbme-btn" data-enc-open="1">Open Encyclopedia</button>' +
+            '</div>'
+          ) : '') +
+
           '<div class="nbme-section-label">Choose topics</div>' +
           '<div class="nbme-tag-toolbar">' +
             '<button type="button" id="nbme-tag-all">Select all</button>' +
@@ -1085,6 +1259,7 @@ date: 2026-09-28
             '</div>' +
           '</div>' +
           '<div class="nbme-bb-right">' +
+            (window.NBME_MICRO_ENCYCLOPEDIA ? '<button class="nbme-icon-btn" data-enc-open="1" title="Encyclopedia (Ctrl+K)" aria-label="Open encyclopedia">&#128214;</button>' : '') +
             '<button class="nbme-icon-btn' + (item.marked ? ' flag marked' : ' flag') + '" id="nbme-bb-mark-btn" title="Mark for Review">&#9873;</button>' +
             '<button class="nbme-icon-btn" id="nbme-pause-btn" title="' + (state.timerPaused ? 'Resume timer' : 'Pause timer') + '">' + (state.timerPaused ? '&#9654;' : '&#10073;&#10073;') + '</button>' +
           '</div>' +
@@ -1360,6 +1535,356 @@ date: 2026-09-28
       render();
     });
   }
+
+  // ---------------- Encyclopedia ----------------
+  // A self-contained overlay appended to <body>, so the exam's own render()
+  // (which rewrites root.innerHTML) never disturbs it. Opening it does not
+  // change exam state: the block, the timer and the current answer are untouched.
+  var ENC = window.NBME_MICRO_ENCYCLOPEDIA || null;
+  var encState = { open:false, query:'', entryId:null, hy:'off', related:[] };
+  var encEl = null;
+
+  function encEntries(){ return (ENC && ENC.entries) || []; }
+
+  function encMatch(e, q){
+    if(!q) return 0;
+    var hay = [e.name, e.summary, e.group, (e.aka||[]).join(' '), (e.keywords||[]).join(' ')].join(' ').toLowerCase();
+    var name = e.name.toLowerCase();
+    var aka = (e.aka||[]).join(' ').toLowerCase();
+    if(name.indexOf(q) === 0) return 100;
+    if(name.indexOf(q) !== -1) return 80;
+    if(aka.indexOf(q) !== -1) return 60;
+    if((e.keywords||[]).join(' ').toLowerCase().indexOf(q) !== -1) return 40;
+    if(hay.indexOf(q) !== -1) return 20;
+    return 0;
+  }
+
+  function encFiltered(){
+    var q = encState.query.trim().toLowerCase();
+    if(!q) return encEntries();
+    return encEntries()
+      .map(function(e){ return { e:e, s:encMatch(e,q) }; })
+      .filter(function(x){ return x.s > 0; })
+      .sort(function(a,b){ return b.s - a.s || a.e.name.localeCompare(b.e.name); })
+      .map(function(x){ return x.e; });
+  }
+
+  // Which entries relate to the question currently on screen — offered as chips
+  // at the top of the entry so the reader can jump straight to the relevant bug.
+  function encRelatedTo(q){
+    if(!q || !ENC) return [];
+    var text = (q.stem + ' ' + q.topic + ' ' + q.explanation + ' ' +
+                Object.keys(q.options||{}).map(function(k){ return q.options[k]; }).join(' ')).toLowerCase();
+    var scored = [];
+    encEntries().forEach(function(e){
+      var score = 0;
+      var terms = [e.name].concat(e.aka || []);
+      terms.forEach(function(t){
+        t = String(t).toLowerCase();
+        if(t.length < 4) return;
+        if(text.indexOf(t) !== -1) score += (t.length > 10 ? 3 : 2);
+      });
+      (e.keywords || []).forEach(function(k){
+        k = String(k).toLowerCase();
+        if(k.length >= 5 && text.indexOf(k) !== -1) score += 1;
+      });
+      if(e.group && q.tag && e.group.toLowerCase().indexOf(q.tag.toLowerCase().slice(0,6)) !== -1) score += 1;
+      if(score > 0) scored.push({ e:e, s:score });
+    });
+    return scored.sort(function(a,b){ return b.s - a.s; }).slice(0, 4).map(function(x){ return x.e; });
+  }
+
+  function encEnsure(){
+    if(encEl) return encEl;
+    encEl = document.createElement('div');
+    encEl.className = 'nbme-enc-overlay';
+    encEl.id = 'nbme-enc-overlay';
+    encEl.innerHTML =
+      '<div class="nbme-enc-panel" role="dialog" aria-modal="true" aria-label="Microbiology encyclopedia">' +
+        '<div class="nbme-enc-head">' +
+          '<h2>Microbiology Encyclopedia</h2>' +
+          '<span class="sub" id="nbme-enc-sub"></span>' +
+          '<div class="nbme-spacer"></div>' +
+          '<button class="nbme-enc-close" id="nbme-enc-close" title="Close (Esc)" aria-label="Close">&times;</button>' +
+        '</div>' +
+        '<div class="nbme-enc-toolbar">' +
+          '<input type="search" class="nbme-enc-search" id="nbme-enc-search" ' +
+                 'placeholder="Search organisms, diseases, toxins, buzzwords…" autocomplete="off" />' +
+          '<label class="nbme-hy-toggle" title="Mark the Step 1 high-yield layer">' +
+            '<input type="checkbox" id="nbme-enc-hy" /> Step 1 high-yield' +
+          '</label>' +
+          '<select class="nbme-enc-mode" id="nbme-enc-mode" title="How to show high-yield content">' +
+            '<option value="highlight">Highlight</option>' +
+            '<option value="only">Show only high-yield</option>' +
+          '</select>' +
+          '<span class="nbme-enc-count" id="nbme-enc-count"></span>' +
+        '</div>' +
+        '<div class="nbme-enc-body">' +
+          '<div class="nbme-enc-list" id="nbme-enc-list"></div>' +
+          '<div class="nbme-enc-detail" id="nbme-enc-detail"></div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(encEl);
+
+    encEl.addEventListener('click', function(ev){
+      if(ev.target === encEl) encClose();
+    });
+    encEl.querySelector('#nbme-enc-close').addEventListener('click', encClose);
+
+    var search = encEl.querySelector('#nbme-enc-search');
+    search.addEventListener('input', function(){
+      encState.query = search.value;
+      var list = encFiltered();
+      // typing always jumps to the best match; clicking an entry overrides it until
+      // the query changes again, which is what a search box is expected to do
+      if(list.length) encState.entryId = list[0].id;
+      encRenderList();
+      encRenderDetail();
+      encEl.querySelector('#nbme-enc-detail').scrollTop = 0;
+    });
+    search.addEventListener('keydown', function(ev){
+      if(ev.key === 'Escape'){ ev.stopPropagation(); encClose(); }
+    });
+
+    var hy = encEl.querySelector('#nbme-enc-hy');
+    var mode = encEl.querySelector('#nbme-enc-mode');
+    function syncHy(){
+      encState.hy = hy.checked ? mode.value : 'off';
+      try{ localStorage.setItem('nbmeMicroEncHY', encState.hy); }catch(e){}
+      encApplyHy();
+    }
+    hy.addEventListener('change', syncHy);
+    mode.addEventListener('change', function(){ if(hy.checked) syncHy(); });
+
+    encEl.querySelector('#nbme-enc-list').addEventListener('click', function(ev){
+      var btn = ev.target.closest('[data-enc-id]');
+      if(!btn) return;
+      encState.entryId = btn.getAttribute('data-enc-id');
+      encRenderList();
+      encRenderDetail();
+      var detail = encEl.querySelector('#nbme-enc-detail');
+      detail.scrollTop = 0;
+      // stacked layout: the detail pane sits below the list, so bring it into view
+      if(window.matchMedia('(max-width: 820px)').matches) detail.scrollIntoView({block:'start'});
+    });
+
+    encEl.querySelector('#nbme-enc-detail').addEventListener('click', function(ev){
+      var jump = ev.target.closest('[data-enc-jump]');
+      if(jump){
+        encState.entryId = jump.getAttribute('data-enc-jump');
+        encState.query = '';
+        encEl.querySelector('#nbme-enc-search').value = '';
+        encRenderList();
+        encRenderDetail();
+        encEl.querySelector('#nbme-enc-detail').scrollTop = 0;
+        return;
+      }
+      var img = ev.target.closest('[data-lightbox-src]');
+      if(img) encLightbox(img.getAttribute('data-lightbox-src'));
+    });
+
+    return encEl;
+  }
+
+  var ENC_CREDIT = {};
+  if(ENC && ENC.imageCredits){ ENC.imageCredits.forEach(function(c){ ENC_CREDIT[c.file] = c; }); }
+
+  // Every figure is openly licensed; the licence and author travel with it.
+  function encCreditsHtml(e){
+    var files = (e.images || []).map(function(im){ return im[0]; })
+                 .filter(function(f){ return ENC_CREDIT[f]; });
+    if(!files.length) return '';
+    return '<details class="nbme-credits"><summary>Image credits (' + files.length + ')</summary><ul>' +
+      files.map(function(f){
+        var c = ENC_CREDIT[f];
+        return '<li><b>' + esc(f) + '</b> \u2014 <a href="' + esc(c.page) + '" target="_blank" rel="noopener">' +
+               esc(String(c.title).replace(/^File:/, '')) + '</a>' +
+               (c.artist ? ', ' + esc(c.artist) : '') + ' (' + esc(c.lic || 'see source') + ')</li>';
+      }).join('') + '</ul></details>';
+  }
+
+  function encById(id){
+    var found = null;
+    encEntries().forEach(function(e){ if(e.id === id) found = e; });
+    return found;
+  }
+
+  // The encyclopedia sits above the exam, so it needs its own lightbox.
+  function encLightbox(src){
+    var lb = document.getElementById('nbme-enc-lightbox');
+    if(!lb){
+      lb = document.createElement('div');
+      lb.id = 'nbme-enc-lightbox';
+      lb.className = 'nbme-lightbox';
+      lb.style.zIndex = '10001';
+      lb.innerHTML = '<img alt="" />';
+      lb.addEventListener('click', function(){ lb.classList.remove('open'); });
+      document.body.appendChild(lb);
+    }
+    lb.querySelector('img').src = src;
+    lb.classList.add('open');
+  }
+
+  function encRenderList(){
+    var host = encEl.querySelector('#nbme-enc-list');
+    var list = encFiltered();
+    encEl.querySelector('#nbme-enc-count').textContent =
+      list.length + (encState.query ? ' match' + (list.length === 1 ? '' : 'es') : ' entries');
+    if(!list.length){
+      host.innerHTML = '<div class="nbme-enc-empty">No entry matches &ldquo;' + esc(encState.query) + '&rdquo;.<br />' +
+        'Try an organism, a disease, a toxin, or a buzzword.</div>';
+      return;
+    }
+    var html = '';
+    var lastGroup = null;
+    list.forEach(function(e){
+      if(e.group !== lastGroup){
+        html += '<div class="nbme-enc-group">' + esc(e.group) + '</div>';
+        lastGroup = e.group;
+      }
+      var why = '';
+      if(encState.query){
+        var q = encState.query.trim().toLowerCase();
+        if(e.name.toLowerCase().indexOf(q) === -1){
+          var alt = (e.aka || []).concat(e.keywords || []).filter(function(t){
+            return String(t).toLowerCase().indexOf(q) !== -1;
+          })[0];
+          if(alt) why = '<span class="hit">' + esc(alt) + '</span>';
+        }
+      }
+      html += '<button type="button" class="nbme-enc-item' + (e.id === encState.entryId ? ' active' : '') +
+              '" data-enc-id="' + esc(e.id) + '">' + esc(e.name) + why + '</button>';
+    });
+    host.innerHTML = html;
+  }
+
+  function encRenderDetail(){
+    var host = encEl.querySelector('#nbme-enc-detail');
+    var e = encById(encState.entryId) || encFiltered()[0] || encEntries()[0];
+    if(!e){ host.innerHTML = '<div class="nbme-enc-empty">Encyclopedia unavailable.</div>'; return; }
+    encState.entryId = e.id;
+
+    var relatedHtml = '';
+    if(encState.related && encState.related.length){
+      relatedHtml = '<div class="nbme-enc-related"><b>Related to the question on screen:</b><br />' +
+        encState.related.map(function(r){
+          return '<button type="button" data-enc-jump="' + esc(r.id) + '">' + esc(r.name) + '</button>';
+        }).join('') + '</div>';
+    }
+
+    var quickHtml = '';
+    if(e.quick && e.quick.length){
+      quickHtml = '<table class="nbme-enc-quick"><tbody>' + e.quick.map(function(row){
+        return '<tr><td>' + esc(row[0]) + '</td><td>' + esc(row[1]) + '</td></tr>';
+      }).join('') + '</tbody></table>';
+    }
+
+    var figsHtml = '';
+    if(e.images && e.images.length){
+      figsHtml = '<div class="nbme-enc-figs">' + e.images.map(function(im){
+        var src = IMAGE_BASE + im[0];
+        return '<figure><img src="' + src + '" alt="' + esc(im[1]) + '" loading="lazy" data-lightbox-src="' + src + '" />' +
+               '<figcaption>' + esc(im[1]) + '</figcaption></figure>';
+      }).join('') + '</div>';
+    }
+
+    var sectionsHtml = (e.sections || []).map(function(sec){
+      var hasHy = (sec.p || []).some(function(p){ return p.hy; });
+      var paras = (sec.p || []).map(function(p){
+        return '<p class="nbme-enc-p' + (p.hy ? ' hy' : '') + '">' + esc(p.t) + '</p>';
+      }).join('');
+      // marked so "show only high-yield" can hide whole sections without :has()
+      return '<div class="nbme-enc-section' + (hasHy ? '' : ' no-hy') + '">' +
+             '<h3>' + esc(sec.h) + '</h3>' + paras + '</div>';
+    }).join('');
+
+    host.innerHTML =
+      relatedHtml +
+      '<div class="nbme-enc-group-tag">' + esc(e.group) + '</div>' +
+      '<h2 class="nbme-enc-title">' + esc(e.name) + '</h2>' +
+      '<p class="nbme-enc-summary">' + esc(e.summary) + '</p>' +
+      (e.treatment ? '<div class="nbme-enc-tx"><b>Treatment.</b> ' + esc(e.treatment) + '</div>' : '') +
+      quickHtml + figsHtml + sectionsHtml + encCreditsHtml(e);
+
+    encApplyHy();
+  }
+
+  function encApplyHy(){
+    if(!encEl) return;
+    var detail = encEl.querySelector('#nbme-enc-detail');
+    detail.classList.toggle('hy-on', encState.hy === 'highlight');
+    detail.classList.toggle('hy-only', encState.hy === 'only');
+    detail.querySelectorAll('.nbme-enc-section.no-hy').forEach(function(el){
+      el.style.display = (encState.hy === 'only') ? 'none' : '';
+    });
+    var sub = encEl.querySelector('#nbme-enc-sub');
+    if(sub){
+      sub.textContent = encState.hy === 'only'
+        ? 'Showing the Step 1 high-yield layer only'
+        : (encState.hy === 'highlight' ? 'Step 1 high-yield marked' : (ENC ? ENC.entries.length + ' organisms and topics' : ''));
+    }
+  }
+
+  function encOpen(opts){
+    if(!ENC){ return; }
+    encEnsure();
+    opts = opts || {};
+    encState.related = opts.related || [];
+    if(opts.entryId) encState.entryId = opts.entryId;
+    if(!encState.entryId) encState.entryId = (encState.related[0] && encState.related[0].id) || encEntries()[0].id;
+
+    try{
+      var saved = localStorage.getItem('nbmeMicroEncHY');
+      if(saved && encState.hy === 'off') encState.hy = saved;
+    }catch(err){}
+    encEl.querySelector('#nbme-enc-hy').checked = encState.hy !== 'off';
+    encEl.querySelector('#nbme-enc-mode').value = encState.hy === 'only' ? 'only' : 'highlight';
+    encEl.querySelector('#nbme-enc-search').value = encState.query;
+
+    encState.open = true;
+    encEl.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    encRenderList();
+    encRenderDetail();
+    encEl.querySelector('#nbme-enc-detail').scrollTop = 0;
+    var s = encEl.querySelector('#nbme-enc-search');
+    setTimeout(function(){ s.focus(); s.select(); }, 30);
+  }
+
+  function encClose(){
+    if(!encEl) return;
+    encState.open = false;
+    encEl.classList.remove('open');
+    document.body.style.overflow = '';
+    var lb = document.getElementById('nbme-enc-lightbox');
+    if(lb) lb.classList.remove('open');
+  }
+
+  document.addEventListener('keydown', function(ev){
+    if(ev.key === 'Escape' && encState.open){ encClose(); return; }
+    // Ctrl/Cmd+K opens the encyclopedia from anywhere, as in most reference tools
+    if((ev.ctrlKey || ev.metaKey) && (ev.key === 'k' || ev.key === 'K')){
+      ev.preventDefault();
+      if(encState.open) encClose();
+      else encOpen(encCurrentContext());
+    }
+  });
+
+  function encCurrentContext(){
+    if(state.screen === 'quiz' && state.block && state.block[state.index]){
+      return { related: encRelatedTo(state.block[state.index].source) };
+    }
+    return {};
+  }
+
+  // Delegated so the button works on every screen, however often render() runs.
+  document.addEventListener('click', function(ev){
+    var btn = ev.target.closest('[data-enc-open]');
+    if(!btn) return;
+    ev.preventDefault();
+    encOpen(encCurrentContext());
+  });
+
 
   render();
 })();

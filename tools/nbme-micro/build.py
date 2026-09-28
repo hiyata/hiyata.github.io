@@ -68,6 +68,9 @@ def main():
                 if "e" in r: q["expl"] = r["e"]
                 if "d" in r: q["difficulty"] = r["d"]
                 if "why" in r and not q.get("why"): q["why"] = r["why"]
+                if "img" in r:
+                    im = r["img"]
+                    q["images"] = list(q.get("images") or []) + ([im] if isinstance(im, str) else list(im))
                 if "fig" in r:
                     f = r["fig"]; q["figs"] = q["figs"] + ([f] if isinstance(f, dict) else list(f))
                 if "steps" in r: q["steps"] = list(r["steps"])

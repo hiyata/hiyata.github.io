@@ -1,7 +1,8 @@
-# Micro question-bank source
+# Micro question-bank and encyclopedia source
 
-The published bank is `assets/js/nbme/micro-data.js`, generated from these files.
-Do not edit the generated file by hand.
+Two generated files, neither of which should be edited by hand:
+- `assets/js/nbme/micro-data.js` — the question bank (`build.py`)
+- `assets/js/nbme/micro-encyclopedia.js` — the encyclopedia (`build_encyclopedia.py`)
 
 ## Layout
 - `qcore.py` — the `Q()` helper. **The correct answer is always `opts[0]`**; the builder
@@ -14,9 +15,10 @@ Do not edit the generated file by hand.
   fungi and parasites), testing the same organism from several angles: lab identification,
   virulence mechanism, clinical syndrome, treatment, and epidemiology.
 - `retro_s*.py` — per-question overlay for the original questions (difficulty, reworded
-  options, distractor explanations, tables). `retro_z*.py` (length-cue fixes) and
-  `retro_f*.py` (figures and step walkthroughs) are later passes that merge into and
-  override the `retro_s*` entries. All are keyed by the question's `topic` string.
+  options, distractor explanations, tables). `retro_z*.py` (cue fixes) and
+  `retro_f*.py` (images, figures and step walkthroughs) are later passes that merge into
+  and override the `retro_s*` entries. All are keyed by the question's `topic` string.
+  An overlay may set `img` (a picture shown with the stem) as well as `fig` and `steps`.
 - `credits.json` — source, author, and licence for every image and figure, keyed by
   filename. The build refuses to attach a figure that has no entry here.
 
@@ -27,9 +29,35 @@ Do not edit the generated file by hand.
 (public domain, CC0, CC BY, or CC BY-SA); the page prints its title, author, and licence
 with a link to the source under the image, so attribution travels with the figure.
 
+## Encyclopedia
+`ecore.py` defines the entry helpers and `e##_*.py` files hold the entries, which
+`build_encyclopedia.py` assembles. Each entry has a summary, an at-a-glance `quick`
+table, figures, and sections of paragraphs. `P(...)` is an ordinary paragraph —
+the mechanism and structure that explain why something is true — and `H(...)` marks
+a Step 1 high-yield paragraph. The page highlights the `H` layer, or shows it alone,
+when the reader ticks "Step 1 high-yield". The build fails if an entry has no
+high-yield paragraph, uses an unknown group, or references an uncredited image.
+
+The encyclopedia opens from the setup screen and from the book button in the exam's
+bottom toolbar. It is an overlay appended to `<body>`, so the exam's `render()` never
+disturbs it and opening it mid-block leaves the timer, answers and flags untouched.
+Opened during a block it also offers "Related to the question on screen" chips, matched
+against the current item's stem, options and explanation. Ctrl/Cmd+K opens it anywhere.
+
+## Images
+`fetch_images.py` downloads figures from Wikimedia Commons and records attribution:
+
+    python3 tools/nbme-micro/fetch_images.py wanted.tsv   # localname.jpg <TAB> File:Commons Title.jpg
+    python3 tools/nbme-micro/fetch_images.py --check      # credits.json vs files on disk
+
+It refuses any licence that is not public domain, CC0, CC BY, or CC BY-SA, and writes
+the title, author, licence, and source page into `credits.json`. Both builds refuse to
+attach an image with no credit, so attribution always reaches the page.
+
 ## Build
-    python3 tools/nbme-micro/build.py      # rewrites assets/js/nbme/micro-data.js
-    python3 tools/nbme-micro/build.py --strict   # also fail the build on length cues
+    python3 tools/nbme-micro/build.py             # rewrites micro-data.js
+    python3 tools/nbme-micro/build.py --strict    # also fail on legacy length cues
+    python3 tools/nbme-micro/build_encyclopedia.py  # rewrites micro-encyclopedia.js
 
 ## Checks the build runs
 - every item has 5 options, no duplicate option text, no duplicate stems
