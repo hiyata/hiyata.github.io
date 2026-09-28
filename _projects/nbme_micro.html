@@ -441,6 +441,21 @@ date: 2026-09-28
   .nbme-lightbox.open{ display:flex; }
   .nbme-lightbox img{ max-width:100%; max-height:100%; border-radius: 2px; }
 
+  .nbme-why{ margin:1rem 0 0; }
+  .nbme-why h4, .nbme-xtable-wrap h4{ font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color: var(--nbme-muted); margin:0 0 0.45rem; }
+  .nbme-why ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.45rem; }
+  .nbme-why li{ font-size:0.9rem; line-height:1.55; padding-left:1.9rem; position:relative; }
+  .nbme-why li .wl{ position:absolute; left:0; top:0; font-weight:700; color: var(--nbme-red); }
+  .nbme-why li .wopt{ font-weight:700; }
+  .nbme-xtable-wrap{ margin-top:1.1rem; overflow-x:auto; }
+  .nbme-xtable{ border-collapse:collapse; width:100%; font-size:0.82rem; line-height:1.4; }
+  .nbme-xtable th, .nbme-xtable td{ border:1px solid var(--nbme-border); padding:0.35rem 0.5rem; text-align:left; vertical-align:top; }
+  .nbme-xtable th{ background: var(--nbme-page); font-weight:700; }
+  .nbme-xtable tr.hl td{ background: var(--nbme-green-bg); }
+  .nbme-diff{ display:inline-block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:0.1rem 0.45rem; border-radius:999px; margin-left:0.4rem; border:1px solid currentColor; }
+  .nbme-diff.easy{ color: var(--nbme-green); }
+  .nbme-diff.medium{ color: var(--nbme-amber); }
+  .nbme-diff.hard{ color: var(--nbme-red); }
   .nbme-credits{ margin-top:1.6rem; font-size:0.78rem; color: var(--nbme-muted); }
   .nbme-credits summary{ cursor:pointer; font-weight:700; }
   .nbme-credits ul{ margin:0.5rem 0 0; padding-left:1.1rem; max-height:320px; overflow-y:auto; line-height:1.5; }
@@ -538,6 +553,8 @@ date: 2026-09-28
     timerPaused: false
   };
   TAGS.forEach(function(t){ state.selectedTags[t] = true; });
+  var DIFFS = ['easy', 'medium', 'hard'];
+  state.selectedDiffs = { easy:true, medium:true, hard:true };
 
   var timerIntervalId = null;
   function formatTime(sec){
@@ -702,8 +719,9 @@ date: 2026-09-28
     else renderResults();
   }
 
+  function diffOf(q){ return DIFFS.indexOf(q.difficulty) === -1 ? 'medium' : q.difficulty; }
   function matchesFilters(q){
-    return !!state.selectedTags[q.tag];
+    return !!state.selectedTags[q.tag] && !!state.selectedDiffs[diffOf(q)];
   }
 
   function creditsHtml(){
@@ -714,6 +732,29 @@ date: 2026-09-28
         return '<li><b>' + esc(c.file) + '</b> — <a href="' + esc(c.page) + '" target="_blank" rel="noopener">' + esc(c.title.replace(/^File:/, '')) + '</a>' +
           (c.artist ? ', ' + esc(c.artist) : '') + ' (' + esc(c.lic || 'see source') + ')</li>';
       }).join('') + '</ul></details>';
+  }
+
+  // Explanation body: main text, then why each distractor is wrong (in on-screen letter order), then comparison tables.
+  function richExplanationHtml(item){
+    var q = item.source;
+    var html = '<p class="nbme-explanation-text">' + esc(q.explanation) + '</p>';
+    if(q.wrong){
+      var rows = item.displayOrder.map(function(orig, idx){
+        if(orig === q.answer || !q.wrong[orig]) return '';
+        var L = String.fromCharCode(65 + idx);
+        return '<li><span class="wl">' + L + '.</span><span class="wopt">' + esc(q.options[orig]) + ':</span> ' + esc(q.wrong[orig]) + '</li>';
+      }).join('');
+      if(rows) html += '<div class="nbme-why"><h4>Why the other choices are wrong</h4><ul>' + rows + '</ul></div>';
+    }
+    (q.tables || []).forEach(function(t){
+      html += '<div class="nbme-xtable-wrap">' + (t.title ? '<h4>' + esc(t.title) + '</h4>' : '') +
+        '<table class="nbme-xtable"><thead><tr>' + t.cols.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+        t.rows.map(function(r, ri){
+          var hl = (t.highlight || []).indexOf(ri) !== -1;
+          return '<tr' + (hl ? ' class="hl"' : '') + '>' + r.map(function(c){ return '<td>' + esc(c) + '</td>'; }).join('') + '</tr>';
+        }).join('') + '</tbody></table></div>';
+    });
+    return html;
   }
 
   // ================= SETUP SCREEN =================
@@ -789,6 +830,14 @@ date: 2026-09-28
           '</div>' +
           '<div class="nbme-tag-grid">' + tagsHtml + '</div>' +
 
+          '<div class="nbme-section-label">Difficulty</div>' +
+          '<div class="nbme-options-row">' +
+            DIFFS.map(function(d){
+              var n = ALL_QUESTIONS.filter(function(q){ return diffOf(q) === d && state.selectedTags[q.tag]; }).length;
+              return '<label><input type="checkbox" data-diff-checkbox="' + d + '" ' + (state.selectedDiffs[d] ? 'checked' : '') + ' /> <span class="nbme-diff ' + d + '" style="margin-left:0">' + d + '</span> (' + n + ')</label>';
+            }).join('') +
+          '</div>' +
+
           '<div class="nbme-section-label">Block options</div>' +
           '<div class="nbme-options-row">' +
             '<label>Question count ' +
@@ -818,6 +867,12 @@ date: 2026-09-28
       cb.addEventListener('change', function(){
         var tag = cb.getAttribute('data-tag-checkbox');
         state.selectedTags[tag] = cb.checked;
+        render();
+      });
+    });
+    root.querySelectorAll('[data-diff-checkbox]').forEach(function(cb){
+      cb.addEventListener('change', function(){
+        state.selectedDiffs[cb.getAttribute('data-diff-checkbox')] = cb.checked;
         render();
       });
     });
@@ -943,8 +998,8 @@ date: 2026-09-28
         '</div>';
 
       explanationHtml =
-        '<div class="nbme-explanation-topic">Topic: ' + esc(q.topic || q.tag) + '</div>' +
-        '<p class="nbme-explanation-text">' + esc(q.explanation) + '</p>';
+        '<div class="nbme-explanation-topic">Topic: ' + esc(q.topic || q.tag) + '<span class="nbme-diff ' + diffOf(q) + '">' + diffOf(q) + '</span></div>' +
+        richExplanationHtml(item);
     } else {
       explanationHtml = '<div class="nbme-explanation-placeholder">Submit an answer to see the explanation.</div>';
     }
@@ -1206,12 +1261,12 @@ date: 2026-09-28
         detailHtml =
           '<div>Your answer: <b class="' + (isCorrect ? 'correct-ans' : 'your-ans') + '">' + yourDisplay + '. ' + esc(q.options[it.userChoice]) + '</b></div>' +
           (isCorrect ? '' : '<div>Correct answer: <b class="correct-ans">' + correctDisplay + '. ' + esc(q.options[q.answer]) + '</b></div>') +
-          '<div class="explanation">' + esc(q.explanation) + '</div>';
+          '<div class="explanation">' + richExplanationHtml(it) + '</div>';
       } else {
         detailHtml =
           '<div>This question was not answered.</div>' +
           '<div>Correct answer: <b class="correct-ans">' + displayLetterOf(it, q.answer) + '. ' + esc(q.options[q.answer]) + '</b></div>' +
-          '<div class="explanation">' + esc(q.explanation) + '</div>';
+          '<div class="explanation">' + richExplanationHtml(it) + '</div>';
       }
 
       return (
