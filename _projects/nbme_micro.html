@@ -271,7 +271,7 @@ date: 2026-09-28
     position:relative; background: var(--nbme-card);
   }
   .nbme-choice.selected .nbme-radio{ border-color: var(--nbme-accent); }
-  .nbme-choice.selected .nbme-radio::after{
+  .nbme-choice .nbme-radio.filled::after{
     content:''; position:absolute; inset:2px; border-radius:50%; background: var(--nbme-accent);
   }
   .nbme-choice .letter{
@@ -282,10 +282,12 @@ date: 2026-09-28
 
   .nbme-choice.correct-answer .check-slot{ color: var(--nbme-green); }
   .nbme-choice.correct-answer{ background: var(--nbme-green-bg); }
+  .nbme-choice.correct-answer .nbme-radio.filled{ border-color: var(--nbme-green); }
+  .nbme-choice.correct-answer .nbme-radio.filled::after{ background: var(--nbme-green); }
   .nbme-choice.wrong-answer .check-slot{ color: var(--nbme-red); }
   .nbme-choice.wrong-answer{ background: var(--nbme-red-bg); }
   .nbme-choice.wrong-answer .nbme-radio{ border-color: var(--nbme-red); }
-  .nbme-choice.wrong-answer .nbme-radio::after{ background: var(--nbme-red); }
+  .nbme-choice.wrong-answer .nbme-radio.filled::after{ background: var(--nbme-red); }
 
   .nbme-choice .nbme-strike-btn{
     margin-left:auto; flex:none; width:1.6rem; height:1.6rem; padding:0;
@@ -994,14 +996,14 @@ date: 2026-09-28
         if(origLetter === q.answer){ cls += ' correct-answer'; check = '&#10003;'; }
         else if(origLetter === item.userChoice){ cls += ' wrong-answer'; check = '&#10007;'; }
       }
-      var selectedNow = !locked && item.userChoice === origLetter;
+      var showFilled = item.userChoice === origLetter;
       var strikeBtn = !locked
         ? '<button type="button" class="nbme-strike-btn' + (struck ? ' active' : '') + '" data-strike="' + origLetter + '" title="Cross out this choice">&#8856;</button>'
         : '';
       return (
         '<div class="' + cls + '" data-choice="' + origLetter + '">' +
           '<span class="check-slot">' + check + '</span>' +
-          '<span class="nbme-radio' + (selectedNow ? ' filled' : '') + '"></span>' +
+          '<span class="nbme-radio' + (showFilled ? ' filled' : '') + '"></span>' +
           '<span class="letter">' + displayLetter + '.</span>' +
           '<span class="choicetext">' + esc(q.options[origLetter]) + '</span>' +
           strikeBtn +
