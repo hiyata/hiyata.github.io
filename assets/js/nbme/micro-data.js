@@ -3124,11 +3124,11 @@ window.NBME_MICRO_DATA = {
       "topic": "B. anthracis: cutaneous anthrax",
       "stem": "A 50-year-old man who imports goat hair and hides from West Africa develops a painless papule on his neck. It becomes a vesicle and then the black eschar with surrounding edema shown. Gram stain of the lesion shows large rods in chains. Which virulence factor is unique among bacteria?",
       "options": {
-        "A": "A capsule made of poly-D-glutamic acid (protein)",
-        "B": "A lipooligosaccharide outer membrane",
-        "C": "A hyaluronic acid capsule",
+        "A": "A capsule made of poly-D-glutamic acid",
+        "B": "A lipooligosaccharide-rich outer membrane",
+        "C": "A capsule made of hyaluronic acid",
         "D": "A polysaccharide capsule containing sialic acid",
-        "E": "Mycolic acid in the cell wall"
+        "E": "Mycolic acid within the cell wall"
       },
       "answer": "A",
       "explanation": "Cutaneous anthrax causes a painless ulcer with a black eschar and marked edema. Almost all other bacterial capsules are polysaccharide, but B. anthracis has a poly-D-glutamate (protein) capsule that is antiphagocytic. It is an aerobic, spore-forming Gram-positive rod that grows in long chains ('boxcars'). It is a hazard of wool and hide work and of bioterrorism.",
@@ -3509,9 +3509,9 @@ window.NBME_MICRO_DATA = {
       "topic": "C. perfringens: gas gangrene",
       "stem": "A 32-year-old man has severe pain, swelling, bronze-to-purple discoloration, hemorrhagic bullae, and crepitus in his thigh 2 days after a crush injury with a contaminated open fracture, as shown. Which toxin is chiefly responsible for the tissue destruction?",
       "options": {
-        "A": "Toxin B, a glucosyltransferase acting on Rho",
+        "A": "Toxin B, a glucosyltransferase acting on Rho proteins",
         "B": "Pyrogenic exotoxin A, acting as a superantigen",
-        "C": "Alpha-toxin, a lecithinase (phospholipase C)",
+        "C": "Alpha-toxin, a lecithinase acting on membranes",
         "D": "Tetanospasmin, a protease acting on SNAREs",
         "E": "Exfoliative toxin, a protease acting on the skin"
       },
@@ -3754,10 +3754,10 @@ window.NBME_MICRO_DATA = {
       "stem": "A 60-year-old man has his first episode of non-severe C. difficile colitis. Which treatment is recommended?",
       "options": {
         "A": "Oral metronidazole plus IV clindamycin",
-        "B": "IV ceftriaxone",
-        "C": "Loperamide",
-        "D": "IV vancomycin",
-        "E": "Oral fidaxomicin (or oral vancomycin)"
+        "B": "Intravenous ceftriaxone",
+        "C": "Loperamide alone",
+        "D": "Intravenous vancomycin",
+        "E": "Oral fidaxomicin or oral vancomycin"
       },
       "answer": "E",
       "explanation": "First-line treatment for an initial episode is oral fidaxomicin (a macrolide-like RNA polymerase inhibitor with lower relapse rates) or oral vancomycin. IV vancomycin does not reach the colonic lumen. Metronidazole is now reserved for when those drugs are unavailable. Fulminant disease is treated with oral vancomycin plus IV metronidazole, and sometimes colectomy. Multiple recurrences are treated with fecal microbiota transplant. Bezlotoxumab (anti–toxin B antibody) reduces recurrence.",
@@ -6037,8 +6037,8 @@ window.NBME_MICRO_DATA = {
         "A": "A 14-day course of oral ciprofloxacin",
         "B": "A course of oral vancomycin therapy",
         "C": "A course of intravenous ceftriaxone",
-        "D": "Cholecystectomy to prevent chronic gallbladder carriage",
-        "E": "Oral rehydration only"
+        "D": "Cholecystectomy to prevent gallbladder carriage",
+        "E": "Oral rehydration without antibiotics"
       },
       "answer": "E",
       "explanation": "Non-typhoidal Salmonella (Enteritidis, Typhimurium) comes from poultry, eggs, and reptiles. It causes self-limited inflammatory gastroenteritis. Antibiotics do not shorten illness in healthy adults and can prolong carriage. Treat patients who are severely ill, infants, adults over 50, or immunocompromised, and those with sickle cell disease, prostheses, or vascular grafts. Salmonella is a notable cause of osteomyelitis in sickle cell disease.",
@@ -6874,10 +6874,10 @@ window.NBME_MICRO_DATA = {
       "topic": "Y. pestis: morphology",
       "stem": "A blood smear from a febrile patient with a painful axillary bubo is shown (Wayson stain). What is the characteristic appearance of the organism?",
       "options": {
-        "A": "Acid-fast beaded rods",
+        "A": "Beaded rods that are acid-fast",
         "B": "Gram-positive rods in long chains with central spores",
-        "C": "Spirochetes between red cells",
-        "D": "Bipolar ('safety pin') staining of Gram-negative rods",
+        "C": "Loose spirochetes lying between red cells",
+        "D": "Bipolar safety-pin staining of Gram-negative rods",
         "E": "Intracellular morulae in monocytes"
       },
       "answer": "D",
@@ -7313,10 +7313,10 @@ window.NBME_MICRO_DATA = {
       "stem": "A 30-year-old man has a single painless, indurated ulcer with a clean base on his finger, as shown, and painless regional lymphadenopathy. He reports unprotected sex with multiple partners. The organism cannot be grown in routine culture. Which test gives the fastest direct confirmation from the lesion?",
       "options": {
         "A": "Culture on Thayer-Martin agar",
-        "B": "Tzanck smear",
-        "C": "Nontreponemal serology alone, which is always positive at this stage",
-        "D": "Dark-field microscopy (or PCR) of the lesion exudate",
-        "E": "Gram stain of the exudate"
+        "B": "A Tzanck smear of the base",
+        "C": "Nontreponemal serology alone, which is reliably positive here",
+        "D": "Dark-field microscopy of the lesion exudate",
+        "E": "Gram stain of exudate from the ulcer"
       },
       "answer": "D",
       "explanation": "A primary chancre is painless, indurated, and clean-based. It usually appears on the genitals but can be extragenital, as here on a finger. Treponema pallidum is too thin for Gram stain and cannot be cultured on artificial media. Dark-field microscopy or PCR shows motile spirochetes. Nontreponemal tests (VDRL/RPR) can be negative early in primary syphilis. Chancroid (H. ducreyi) causes painful ulcers ('you do cry'). HSV causes painful grouped vesicles.",
@@ -8619,11 +8619,11 @@ window.NBME_MICRO_DATA = {
       "topic": "Chlamydia: life cycle",
       "stem": "A cell culture inoculated with a cervical swab shows intracytoplasmic inclusions (stained brown) after incubation, as shown. The organism alternates between an infectious extracellular form and a replicating intracellular form. Which statement about this organism is correct?",
       "options": {
-        "A": "Elementary bodies enter cells; reticulate bodies divide",
+        "A": "Elementary bodies enter cells and reticulate bodies divide",
         "B": "Reticulate bodies are the infectious extracellular form",
         "C": "It replicates in the nucleus using host DNA polymerase",
         "D": "It has a thick peptidoglycan wall rich in muramic acid",
-        "E": "It makes its own ATP and needs no host cell"
+        "E": "It makes its own ATP and does not need a host cell"
       },
       "answer": "A",
       "explanation": "Chlamydiae are obligate intracellular bacteria. The small, dense elementary body ('Enters') is taken up by endocytosis and turns into the reticulate body ('Replicates') inside an inclusion that avoids lysosomal fusion. Reticulate bodies divide and convert back to elementary bodies, which are released. Chlamydiae cannot make their own ATP. Their cell wall lacks classic peptidoglycan (reduced muramic acid), so β-lactams are ineffective. Glycogen-rich C. trachomatis inclusions stain with iodine. Cytoplasmic inclusions can be seen on Giemsa stain or fluorescent antibody.",
@@ -8962,10 +8962,10 @@ window.NBME_MICRO_DATA = {
       "stem": "Which feature is shared by Chlamydia, Rickettsia, and Coxiella?",
       "options": {
         "A": "Ready growth on ordinary blood agar plates",
-        "B": "Absence of a cell wall, with sterols in the membrane",
+        "B": "Absence of a cell wall, with membrane sterols",
         "C": "Transmission exclusively by arthropod vectors",
         "D": "Acid-fast staining caused by mycolic acids",
-        "E": "Obligate intracellular growth"
+        "E": "Growth only inside living host cells"
       },
       "answer": "E",
       "explanation": "Obligate intracellular bacteria (Rickettsia, Chlamydia, Coxiella; 'stay inside when it is Really Chilly and Cold') cannot make enough ATP or cofactors on their own and do not grow on artificial media. They are treated with drugs that get into cells: tetracyclines, macrolides, and fluoroquinolones. Mycoplasma is the organism that lacks a cell wall and has cholesterol (sterols) in its membrane.",
@@ -9360,11 +9360,11 @@ window.NBME_MICRO_DATA = {
       "topic": "TB drugs: isoniazid",
       "stem": "A 50-year-old woman on RIPE therapy for pulmonary TB develops burning paresthesias in her feet. Which drug is responsible, and how could this have been prevented?",
       "options": {
-        "A": "Isoniazid; give pyridoxine (vitamin B6)",
+        "A": "Isoniazid; give supplemental pyridoxine",
         "B": "Rifampin; give supplemental thiamine",
         "C": "Isoniazid; give supplemental cobalamin",
         "D": "Ethambutol; give supplemental folate",
-        "E": "Pyrazinamide; give allopurinol"
+        "E": "Pyrazinamide; give allopurinol as well"
       },
       "answer": "A",
       "explanation": "Isoniazid is a prodrug activated by mycobacterial catalase-peroxidase (KatG). It inhibits InhA and blocks mycolic acid synthesis. It competes with pyridoxine, causing peripheral neuropathy and sideroblastic anemia, so B6 is given with it. It is also hepatotoxic, especially in older patients, and inhibits CYP450. Slow acetylators (NAT2) have higher levels and more toxicity. It can cause drug-induced lupus. Isoniazid overdose causes seizures treated with pyridoxine. Resistance most often comes from katG mutations.",
@@ -10446,7 +10446,7 @@ window.NBME_MICRO_DATA = {
       "topic": "Tetracyclines",
       "stem": "A 25-year-old is prescribed doxycycline for Lyme disease. Which counseling point is most important?",
       "options": {
-        "A": "Avoid milk, antacids, and iron; use sun protection",
+        "A": "Avoid milk, antacids, and iron, and use sun protection",
         "B": "Watch for loss of red-green color discrimination",
         "C": "Expect orange discoloration of the urine and tears",
         "D": "Avoid alcohol because of a disulfiram-like reaction",
@@ -12069,8 +12069,8 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Generalized transduction moves only toxin genes",
         "B": "Generalized transduction requires a sex pilus",
-        "C": "There is no meaningful difference between them",
-        "D": "Generalized moves any gene; specialized moves flanking genes",
+        "C": "There is no meaningful difference between the two",
+        "D": "Generalized moves any gene, specialized only flanking genes",
         "E": "Specialized transduction happens only in the lytic cycle"
       },
       "answer": "D",
@@ -14144,10 +14144,10 @@ window.NBME_MICRO_DATA = {
       "topic": "Viral envelope & transmission",
       "stem": "A virus is resistant to ether, bile, and drying, and spreads efficiently by the fecal-oral route. Which structural feature most likely explains this?",
       "options": {
-        "A": "It buds from the plasma membrane",
-        "B": "It lacks a lipid envelope (naked capsid)",
-        "C": "It has a segmented genome",
-        "D": "It has a helical nucleocapsid",
+        "A": "It buds through the host plasma membrane",
+        "B": "It lacks a lipid envelope around the capsid",
+        "C": "It has a segmented RNA genome",
+        "D": "It has a helical nucleocapsid core",
         "E": "It carries a positive-sense RNA genome"
       },
       "answer": "B",
@@ -15187,11 +15187,11 @@ window.NBME_MICRO_DATA = {
       "topic": "Measles: complications",
       "stem": "A child has a maculopapular rash that began at the hairline and spread downward over 3 days, as shown, after a high fever with cough and conjunctivitis. Which complication is the most common cause of death from this infection, and which rare complication appears years later?",
       "options": {
-        "A": "Orchitis; sterility",
+        "A": "Orchitis; subsequent infertility",
         "B": "Aplastic crisis; hydrops fetalis",
-        "C": "Pneumonia; subacute sclerosing panencephalitis (SSPE)",
+        "C": "Pneumonia; subacute sclerosing panencephalitis",
         "D": "Myocarditis; progressive multifocal leukoencephalopathy",
-        "E": "Hepatitis; Reye syndrome"
+        "E": "Hepatitis; Reye syndrome after aspirin"
       },
       "answer": "C",
       "explanation": "Measles spreads by aerosol and is extremely contagious. The rash is erythematous and maculopapular, starting at the hairline and face and spreading downward, sparing the palms and soles, and later darkening. Complications: pneumonia (giant cell pneumonia; the most common cause of death), otitis media, acute encephalitis, 'immune amnesia' from destroyed memory lymphocytes, and SSPE (a fatal chronic encephalitis 7–10 years later from defective M-protein virus). Lymph nodes show Warthin-Finkeldey giant cells.",
@@ -15866,11 +15866,11 @@ window.NBME_MICRO_DATA = {
       "topic": "Positive vs negative sense RNA",
       "stem": "When purified RNA genome from one virus is injected into a susceptible cell, it produces infectious progeny. For another virus, purified genome alone does not. What explains the difference?",
       "options": {
-        "A": "Positive-sense RNA is read directly; negative-sense needs its own polymerase",
-        "B": "Positive-sense viruses always have envelopes",
+        "A": "Positive-sense RNA is read directly, negative-sense is not",
+        "B": "Positive-sense RNA viruses always carry an envelope",
         "C": "Negative-sense RNA viruses are all DNA viruses",
-        "D": "Negative-sense genomes are single-stranded DNA",
-        "E": "Positive-sense genomes all require a reverse transcriptase in order to replicate"
+        "D": "Negative-sense genomes are made of single-stranded DNA",
+        "E": "Positive-sense genomes need a reverse transcriptase"
       },
       "answer": "A",
       "explanation": "Positive-sense ssRNA genomes (picornavirus, calicivirus, flavivirus, togavirus, coronavirus, hepevirus, and retrovirus, although retroviruses use reverse transcriptase) act as mRNA and are infectious by themselves. Negative-sense ssRNA viruses (orthomyxo, paramyxo, rhabdo, filo, bunya, arena, deltavirus) and dsRNA viruses (reo) carry their own RNA-dependent RNA polymerase, so purified genome alone is not infectious. Most RNA viruses replicate in the cytoplasm. Influenza and retroviruses replicate in the nucleus.",
@@ -17236,10 +17236,10 @@ window.NBME_MICRO_DATA = {
       "topic": "HDV",
       "stem": "A man with known chronic hepatitis B, previously stable, has a sudden severe flare of hepatitis after injection drug use. A second infection is suspected. Which statement about the most likely co-pathogen is correct?",
       "options": {
-        "A": "It is spread mainly by the fecal-oral route",
+        "A": "It is spread mainly by the fecal-oral route in water",
         "B": "Superinfection is milder than a simultaneous co-infection would be",
-        "C": "The HBV vaccine does not protect against it",
-        "D": "A defective RNA virus that needs HBsAg; superinfection is severe",
+        "C": "The hepatitis B vaccine gives no protection against it",
+        "D": "A defective RNA virus needing HBsAg, severe in superinfection",
         "E": "It is a DNA virus that replicates independently"
       },
       "answer": "D",
@@ -17590,10 +17590,10 @@ window.NBME_MICRO_DATA = {
       "stem": "A child has chronic, recurrent Candida infections of the skin, nails, and mucous membranes but not invasive candidiasis. Which arm of immunity is most likely defective?",
       "options": {
         "A": "Neutrophil oxidative burst",
-        "B": "Complement C5–C9",
+        "B": "Terminal complement C5 through C9",
         "C": "B cells and immunoglobulin production",
-        "D": "T cells (especially Th17 responses)",
-        "E": "Splenic macrophages"
+        "D": "T cells, especially Th17 responses",
+        "E": "Macrophages of the splenic red pulp"
       },
       "answer": "D",
       "explanation": "T cells, especially Th17 and IL-17/IL-22 signaling, protect skin and mucosal surfaces from Candida. Defects (chronic mucocutaneous candidiasis from AIRE mutation in APS-1, STAT1 gain-of-function, HIV, hyper-IgE syndrome from STAT3) cause superficial infection. Neutrophils prevent invasive disease: neutropenia and CGD lead to candidemia and deep infection.",
@@ -18856,8 +18856,8 @@ window.NBME_MICRO_DATA = {
         "A": "It is reliably killed by standard water chlorination systems",
         "B": "It is a helminth whose eggs are passed in stool",
         "C": "Metronidazole reliably cures it in AIDS patients",
-        "D": "Chlorine-resistant oocysts; ART is the key treatment in AIDS",
-        "E": "It invades the liver and forms abscesses"
+        "D": "Chlorine-resistant oocysts, with ART the key treatment in AIDS",
+        "E": "It invades the liver and forms abscesses there"
       },
       "answer": "D",
       "explanation": "Cryptosporidium parvum and hominis are small apicomplexan parasites. Their oocysts are acid-fast and resist chlorine, causing outbreaks from pools and municipal water. In healthy hosts the diarrhea is self-limited (nitazoxanide can shorten it). In AIDS with low CD4 it causes chronic, severe watery diarrhea and can involve the biliary tree (sclerosing cholangitis). The main treatment is ART, since antiparasitic drugs work poorly. Filtering water prevents it. Cyclospora and Cystoisospora are also acid-fast but larger.",
@@ -19257,9 +19257,9 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Chloroquine; hemoglobin electrophoresis",
         "B": "Mefloquine; psychiatric screening",
-        "C": "Doxycycline; pregnancy test",
-        "D": "Artesunate; ECG",
-        "E": "Primaquine (or tafenoquine); G6PD testing"
+        "C": "Doxycycline; a pregnancy test first",
+        "D": "Artesunate; an ECG before dosing",
+        "E": "Primaquine or tafenoquine; G6PD testing"
       },
       "answer": "E",
       "explanation": "P. vivax and P. ovale form dormant liver hypnozoites that can reactivate months later. Blood-stage drugs (chloroquine, or artemisinin combinations for resistant vivax) do not reach them. Primaquine or tafenoquine eradicates hypnozoites but causes hemolysis in G6PD deficiency, so test first. Both avoid pregnancy. Vivax and ovale have 48-hour (tertian) fevers and enlarged RBCs with Schüffner dots. P. vivax enters RBCs through the Duffy antigen, so Duffy-negative people (common in West Africa) are resistant.",
@@ -19432,10 +19432,10 @@ window.NBME_MICRO_DATA = {
       "topic": "Malaria: host protective factors",
       "stem": "Which host trait protects against P. falciparum malaria?",
       "options": {
-        "A": "Blood group O deficiency",
+        "A": "Blood group AB phenotype",
         "B": "Hereditary hemochromatosis",
-        "C": "Sickle cell trait (HbAS)",
-        "D": "Duffy antigen positivity",
+        "C": "Sickle cell trait",
+        "D": "Duffy antigen positive red cells",
         "E": "Selective IgA deficiency"
       },
       "answer": "C",
@@ -20346,9 +20346,9 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Autoinfection with filariform larvae",
         "B": "Allergic bronchopulmonary aspergillosis",
-        "C": "Larvae migrating through the lungs (Löffler syndrome)",
+        "C": "Larvae migrating through the lungs",
         "D": "Hematogenous spread of the adult worms to the lungs",
-        "E": "Cysts forming in the lung parenchyma"
+        "E": "Cysts forming within the lung parenchyma"
       },
       "answer": "C",
       "explanation": "Ascaris lumbricoides eggs are ingested from contaminated soil or food. Larvae hatch in the intestine, cross the gut wall, travel to the lungs, climb the trachea, and are swallowed to become adult worms in the small intestine. The lung phase causes Löffler syndrome (transient eosinophilic pneumonitis). Heavy worm burdens cause obstruction, biliary blockage, and malnutrition. Treat with albendazole or mebendazole.",
@@ -22012,10 +22012,10 @@ window.NBME_MICRO_DATA = {
       "stem": "Which pairing of patient setting and most characteristic pneumonia pathogen is correct?",
       "options": {
         "A": "Alcohol use disorder with currant-jelly sputum — Legionella",
-        "B": "Healthy college student with walking pneumonia — Klebsiella pneumoniae",
+        "B": "Healthy college student with walking pneumonia — Klebsiella",
         "C": "Post-influenza cavitary pneumonia — Mycoplasma pneumoniae",
         "D": "Neonate in the first week — Streptococcus pneumoniae",
-        "E": "Cystic fibrosis — Pseudomonas aeruginosa"
+        "E": "Cystic fibrosis — Pseudomonas aeruginosa in an adolescent"
       },
       "answer": "E",
       "explanation": "Typical associations: neonates — GBS, E. coli. Infants and children — RSV, other viruses, S. pneumoniae. Young adults (dorms, military) — Mycoplasma, C. pneumoniae. Community-acquired overall — S. pneumoniae. Post-influenza — S. aureus, S. pneumoniae, H. influenzae. Alcoholism/aspiration — Klebsiella, anaerobes. CF — S. aureus (early), Pseudomonas, Burkholderia cepacia. Hospital/ventilator — Pseudomonas, S. aureus, Gram-negative rods. AIDS — Pneumocystis.",
@@ -23117,7 +23117,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A 60-year-old man admitted for pneumonia has one of four blood culture bottles grow coagulase-negative staphylococci after 3 days. He has no intravascular devices and is improving on ceftriaxone. What is the most appropriate interpretation?",
       "options": {
         "A": "Evidence of MRSA requiring nasal decolonization",
-        "B": "Likely a skin contaminant; no therapy is needed",
+        "B": "Most likely a skin contaminant needing no therapy",
         "C": "Evidence of staphylococcal toxic shock syndrome",
         "D": "True bacteremia needing six weeks of vancomycin",
         "E": "Endocarditis needing echocardiography and surgery"
@@ -23641,8 +23641,8 @@ window.NBME_MICRO_DATA = {
       "stem": "Large epidemics of meningococcal meningitis occur during the dry season across sub-Saharan Africa from Senegal to Ethiopia. Travelers to this region and to Hajj pilgrimage in Saudi Arabia are advised to get which vaccine?",
       "options": {
         "A": "The typhoid Vi polysaccharide vaccine for travelers",
-        "B": "The BCG vaccine",
-        "C": "The quadrivalent conjugate vaccine (MenACWY)",
+        "B": "The BCG vaccine before departure",
+        "C": "The quadrivalent conjugate meningococcal vaccine",
         "D": "The Japanese encephalitis vaccine",
         "E": "A serogroup B protein vaccine alone"
       },
@@ -24277,10 +24277,10 @@ window.NBME_MICRO_DATA = {
       "stem": "A 4-year-old has high fever, bloody mucoid stools, and a brief seizure. Stool culture grows Shigella sonnei. Which statement is correct?",
       "options": {
         "A": "Shigella makes a cholera-like toxin, so only rehydration is used",
-        "B": "Antibiotics help; watch for seizures, arthritis, and HUS",
+        "B": "Antibiotics help, and seizures, arthritis, and HUS may follow",
         "C": "Shigella is spread mainly by undercooked poultry",
         "D": "Antibiotics are contraindicated because they always cause HUS",
-        "E": "Shigella has a very high infectious dose"
+        "E": "Shigella requires a very high infectious dose"
       },
       "answer": "B",
       "explanation": "Unlike EHEC, shigellosis is usually treated with antibiotics (azithromycin, ciprofloxacin, or ceftriaxone, depending on resistance) to shorten illness and reduce spread in daycare. Complications: febrile seizures in children, reactive arthritis, and HUS (mostly S. dysenteriae type 1 with Shiga toxin). Shigella is non-motile and invades M cells.",
@@ -24911,10 +24911,10 @@ window.NBME_MICRO_DATA = {
       "stem": "A 45-year-old man in Massachusetts has had knee swelling for 2 months. He recalls a rash the previous summer. Which approach to diagnosis is correct?",
       "options": {
         "A": "Dark-field microscopy of synovial fluid",
-        "B": "Two-tier serology: screening EIA, then immunoblot",
+        "B": "Two-tier serology, a screening EIA then an immunoblot",
         "C": "Serology stays negative in late Lyme disease, so diagnose clinically",
         "D": "Wright-stained blood smear showing spirochetes",
-        "E": "Blood culture on routine media"
+        "E": "Blood culture on routine bacteriologic media"
       },
       "answer": "B",
       "explanation": "Lyme serology (two-tier) is the test for disseminated or late disease, when nearly all patients are seropositive. It is often negative in early EM, so diagnose clinically then. Borrelia burgdorferi changes its outer surface proteins: OspA in the tick midgut, OspC during transmission, and VlsE antigenic variation in the host. Lyme arthritis is treated with 28 days of oral doxycycline. Synovial fluid PCR can support the diagnosis.",
@@ -28153,8 +28153,8 @@ window.NBME_MICRO_DATA = {
         "A": "A 30-year-old man with one long-term female partner",
         "B": "A 60-year-old woman who is not sexually active",
         "C": "A 16-year-old girl who has never been sexually active",
-        "D": "A sexually active 21-year-old woman",
-        "E": "A sexually active 40-year-old woman in a monogamous relationship"
+        "D": "A sexually active woman who is 21 years old",
+        "E": "A sexually active 40-year-old woman with one partner"
       },
       "answer": "D",
       "explanation": "Annual chlamydia screening is recommended for all sexually active women under 25, and for older women with risk factors such as new or multiple partners. Most infections are asymptomatic, and untreated infection causes PID, tubal infertility, and ectopic pregnancy. Screening uses nucleic acid amplification testing.",
@@ -32062,6 +32062,17155 @@ window.NBME_MICRO_DATA = {
         "E": "Outpatient management of this condition is unsafe.",
         "C": "Compression does not address the underlying necrosis."
       }
+    },
+    {
+      "id": 3503,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. aureus: coagulase & clumping factor",
+      "stem": "Colonies from a wound culture are catalase-positive Gram-positive cocci in clusters. A tube of rabbit plasma inoculated with the organism forms a clot within four hours. Which enzyme does this test detect?",
+      "options": {
+        "A": "An enzyme that hydrolyzes urea into ammonia",
+        "B": "An enzyme that degrades hyaluronic acid in tissue",
+        "C": "An enzyme that splits hydrogen peroxide into oxygen",
+        "D": "An enzyme that converts fibrinogen to fibrin",
+        "E": "An enzyme that converts plasminogen to plasmin"
+      },
+      "answer": "D",
+      "explanation": "Coagulase (free coagulase detected in the tube test, and bound clumping factor detected on a slide) converts fibrinogen to fibrin. It is the classic marker that separates S. aureus from the coagulase-negative staphylococci. The fibrin coat is thought to shield the organism from phagocytosis and helps wall off abscesses.",
+      "wrong": {
+        "C": "That is catalase, which all staphylococci make, so it cannot separate the species.",
+        "A": "Urease is positive in S. saprophyticus and Proteus but is not detected with plasma.",
+        "B": "Hyaluronidase is a spreading factor and has no clotting effect.",
+        "E": "That is staphylokinase or streptokinase, which dissolves clots rather than forming them."
+      },
+      "tables": [
+        {
+          "title": "Staphylococci compared",
+          "cols": [
+            "Species",
+            "Coagulase",
+            "Novobiocin",
+            "Key features",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. aureus",
+              "+",
+              "Sensitive",
+              "Protein A, TSST-1, PVL, exfoliatins, enterotoxins; yellow colonies; ferments mannitol",
+              "Abscesses, osteomyelitis, acute endocarditis (IVDU), post-flu pneumonia, TSS, SSSS, food poisoning"
+            ],
+            [
+              "S. epidermidis",
+              "−",
+              "Sensitive",
+              "Biofilm on plastic; skin flora; common contaminant",
+              "Prosthetic device, catheter, and shunt infections"
+            ],
+            [
+              "S. saprophyticus",
+              "−",
+              "Resistant",
+              "Urease +; adheres to uroepithelium",
+              "Cystitis in young sexually active women"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3504,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. aureus: mannitol salt agar",
+      "stem": "A nasal swab is plated on a medium containing 7.5% sodium chloride and a sugar with a pH indicator. Yellow colonies grow surrounded by yellow medium. Which organism is most likely?",
+      "options": {
+        "A": "Staphylococcus aureus",
+        "B": "Staphylococcus epidermidis",
+        "C": "Enterococcus faecalis",
+        "D": "Micrococcus luteus",
+        "E": "Streptococcus pyogenes"
+      },
+      "answer": "A",
+      "explanation": "Mannitol salt agar is selective (high salt inhibits most organisms except staphylococci) and differential (mannitol fermentation acidifies the medium and turns the phenol red indicator yellow). S. aureus ferments mannitol; S. epidermidis grows but leaves the medium pink-red. It is commonly used to screen nasal swabs for carriage.",
+      "wrong": {
+        "B": "It tolerates salt but does not ferment mannitol, so the medium stays red.",
+        "E": "Streptococci are inhibited by 7.5% salt.",
+        "C": "Enterococci tolerate 6.5% salt but are not the organism this medium is designed to detect, and they usually fail to grow well at 7.5%.",
+        "D": "Micrococcus grows as yellow-pigmented colonies but does not ferment mannitol."
+      },
+      "tables": [
+        {
+          "title": "Staphylococci compared",
+          "cols": [
+            "Species",
+            "Coagulase",
+            "Novobiocin",
+            "Key features",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. aureus",
+              "+",
+              "Sensitive",
+              "Protein A, TSST-1, PVL, exfoliatins, enterotoxins; yellow colonies; ferments mannitol",
+              "Abscesses, osteomyelitis, acute endocarditis (IVDU), post-flu pneumonia, TSS, SSSS, food poisoning"
+            ],
+            [
+              "S. epidermidis",
+              "−",
+              "Sensitive",
+              "Biofilm on plastic; skin flora; common contaminant",
+              "Prosthetic device, catheter, and shunt infections"
+            ],
+            [
+              "S. saprophyticus",
+              "−",
+              "Resistant",
+              "Urease +; adheres to uroepithelium",
+              "Cystitis in young sexually active women"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3505,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. aureus: golden pigment",
+      "stem": "The characteristic golden color of S. aureus colonies comes from staphyloxanthin. What is the main survival advantage of this pigment?",
+      "options": {
+        "A": "It lyses red cells and gives beta-hemolysis on blood agar",
+        "B": "It anchors the organism to fibronectin on host tissue",
+        "C": "It protects the cell against oxidant killing by neutrophils",
+        "D": "It degrades DNA in neutrophil extracellular traps",
+        "E": "It binds the Fc region of antibodies and blocks opsonization"
+      },
+      "answer": "C",
+      "explanation": "Staphyloxanthin is a carotenoid antioxidant that quenches reactive oxygen species. Mutants without the pigment are killed more readily by neutrophil oxidative burst. This pairs with catalase, which destroys hydrogen peroxide, as the organism's defense against phagocyte killing.",
+      "wrong": {
+        "E": "Fc binding is the function of protein A.",
+        "A": "Hemolysis is caused by alpha toxin and other hemolysins.",
+        "D": "Nuclease (thermonuclease) degrades NETs.",
+        "B": "Fibronectin-binding proteins are surface adhesins, not pigments."
+      }
+    },
+    {
+      "id": 3506,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: Panton-Valentine leukocidin",
+      "stem": "A previously healthy 19-year-old wrestler develops multiple recurrent furuncles, then a severe necrotizing pneumonia with hemoptysis after influenza. The isolate is methicillin-resistant and carries the lukS-lukF genes. What does this toxin do?",
+      "options": {
+        "A": "Crosslinks MHC class II with T-cell receptors",
+        "B": "Forms pores that lyse neutrophils and macrophages",
+        "C": "Cleaves SNARE proteins at the neuromuscular junction",
+        "D": "Cleaves desmoglein 1 in the superficial epidermis",
+        "E": "ADP-ribosylates elongation factor 2 in host cells"
+      },
+      "answer": "B",
+      "explanation": "Panton-Valentine leukocidin is a two-component pore-forming toxin that kills leukocytes. It is strongly associated with community-acquired MRSA (the USA300 lineage), recurrent skin abscesses, and necrotizing pneumonia after influenza. Toxin-suppressing agents such as clindamycin or linezolid are often added in severe disease.",
+      "wrong": {
+        "D": "That is exfoliative toxin, which causes scalded skin syndrome.",
+        "A": "That is the superantigen mechanism of TSST-1 and enterotoxins.",
+        "E": "That is diphtheria toxin and Pseudomonas exotoxin A.",
+        "C": "That is botulinum and tetanus toxin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3507,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. aureus: alpha toxin",
+      "stem": "Which S. aureus toxin is a heptameric pore former that binds ADAM10 on epithelial and endothelial cells and is the main cause of beta-hemolysis on blood agar?",
+      "options": {
+        "A": "Staphylokinase",
+        "B": "Alpha-hemolysin",
+        "C": "Toxic shock syndrome toxin",
+        "D": "Enterotoxin B",
+        "E": "Exfoliative toxin A"
+      },
+      "answer": "B",
+      "explanation": "Alpha toxin (alpha-hemolysin) assembles into a heptameric pore after binding its receptor ADAM10. It damages epithelium, endothelium, platelets, and red cells, contributing to pneumonia, skin necrosis, and hemolysis on blood agar.",
+      "wrong": {
+        "E": "This is a serine protease targeting desmoglein 1, not a pore.",
+        "D": "Enterotoxins are superantigens that cause vomiting.",
+        "C": "TSST-1 is a superantigen, not a membrane pore.",
+        "A": "Staphylokinase activates plasminogen and does not lyse cells."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3508,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: protein A & opsonization",
+      "stem": "An investigator deletes the spa gene from S. aureus and finds the mutant is phagocytosed far more efficiently by neutrophils in the presence of immune serum. What did the deleted protein normally do?",
+      "options": {
+        "A": "Bound IgG by its Fc region in the wrong orientation",
+        "B": "Degraded complement C5a to block neutrophil chemotaxis",
+        "C": "Inactivated hydrogen peroxide inside the phagosome",
+        "D": "Cleaved IgA at the hinge region on mucosal surfaces",
+        "E": "Formed a polysaccharide capsule of hyaluronic acid"
+      },
+      "answer": "A",
+      "explanation": "Protein A is a cell wall protein that binds the Fc portion of IgG. Antibodies are held upside down, so their Fc cannot engage neutrophil Fc receptors or activate complement efficiently. The result is impaired opsonization and phagocytosis.",
+      "wrong": {
+        "D": "IgA protease is made by Neisseria, H. influenzae, and pneumococcus.",
+        "B": "C5a peptidase is a virulence factor of S. pyogenes.",
+        "E": "A hyaluronic acid capsule belongs to S. pyogenes.",
+        "C": "That is catalase, encoded by a different gene."
+      },
+      "tables": [
+        {
+          "title": "Staphylococci compared",
+          "cols": [
+            "Species",
+            "Coagulase",
+            "Novobiocin",
+            "Key features",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. aureus",
+              "+",
+              "Sensitive",
+              "Protein A, TSST-1, PVL, exfoliatins, enterotoxins; yellow colonies; ferments mannitol",
+              "Abscesses, osteomyelitis, acute endocarditis (IVDU), post-flu pneumonia, TSS, SSSS, food poisoning"
+            ],
+            [
+              "S. epidermidis",
+              "−",
+              "Sensitive",
+              "Biofilm on plastic; skin flora; common contaminant",
+              "Prosthetic device, catheter, and shunt infections"
+            ],
+            [
+              "S. saprophyticus",
+              "−",
+              "Resistant",
+              "Urease +; adheres to uroepithelium",
+              "Cystitis in young sexually active women"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3509,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. aureus: enterotoxin heat stability",
+      "stem": "Eleven guests at a picnic develop severe vomiting and abdominal cramps about three hours after eating a cream-filled pastry that had been left out in the sun. Reheating the pastry would not have prevented illness. Why not?",
+      "options": {
+        "A": "The preformed toxin survives heat that kills the bacteria",
+        "B": "The spores survive boiling and germinate in the intestine",
+        "C": "The toxin forms only after the food has been eaten",
+        "D": "The organism invades the gut wall before heating matters",
+        "E": "The organism grows best at refrigerator temperatures"
+      },
+      "answer": "A",
+      "explanation": "Staphylococcal enterotoxins are preformed in food held at room temperature and are heat-stable, so cooking kills the organisms but not the toxin. Illness begins 1-6 hours after ingestion with vomiting and cramps and resolves within a day. The toxin acts as a superantigen and on the vagus/emetic center.",
+      "wrong": {
+        "B": "S. aureus does not form spores; that describes Bacillus and Clostridium.",
+        "E": "Cold growth is typical of Listeria and Yersinia.",
+        "C": "In-gut toxin production gives a longer incubation, as with C. perfringens.",
+        "D": "This is an intoxication with no invasion."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3510,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: exfoliative toxin target",
+      "stem": "A 3-year-old has fever, diffuse tender erythema, and large flaccid bullae that slough with gentle pressure. The oral mucosa is spared. Biopsy shows a split in the granular layer. Which host protein is the toxin's target?",
+      "options": {
+        "A": "Keratin 14",
+        "B": "Type VII collagen",
+        "C": "Desmoglein 1",
+        "D": "Desmoglein 3",
+        "E": "Type XVII collagen"
+      },
+      "answer": "C",
+      "explanation": "Exfoliative toxins A and B are serine proteases that cleave desmoglein 1, which holds keratinocytes together in the superficial epidermis (stratum granulosum). Mucosa is spared because it relies on desmoglein 3. The toxin is produced at a distant focus, so the bullae are usually culture-negative. The same target is attacked by autoantibodies in pemphigus foliaceus.",
+      "wrong": {
+        "D": "Desmoglein 3 is targeted in pemphigus vulgaris, which involves mucosa.",
+        "E": "BP180 is the target in bullous pemphigoid, a subepidermal split.",
+        "B": "Anchoring fibril collagen is affected in epidermolysis bullosa acquisita.",
+        "A": "Keratin mutations cause epidermolysis bullosa simplex."
+      }
+    },
+    {
+      "id": 3511,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. aureus: post-influenza pneumonia",
+      "stem": "A 45-year-old woman recovering from influenza develops high fever, rigors, and hypoxia. Chest CT shows multiple thick-walled cavities. Sputum shows Gram-positive cocci in clusters. Which organism is most likely?",
+      "options": {
+        "A": "Streptococcus pyogenes",
+        "B": "Staphylococcus aureus",
+        "C": "Streptococcus pneumoniae",
+        "D": "Enterococcus faecalis",
+        "E": "Streptococcus agalactiae"
+      },
+      "answer": "B",
+      "explanation": "Influenza damages respiratory epithelium and impairs neutrophil function, predisposing to secondary bacterial pneumonia. S. aureus, including PVL-positive MRSA, causes a necrotizing, cavitary pneumonia after influenza. Pneumococcus remains the most common secondary pathogen overall but forms lancet-shaped diplococci, not clusters.",
+      "wrong": {
+        "C": "Pneumococci are lancet-shaped diplococci, and cavitation is uncommon.",
+        "A": "Group A strep grows in chains, although it can also follow influenza.",
+        "D": "Enterococci rarely cause pneumonia.",
+        "E": "Group B strep grows in chains and mainly affects neonates and diabetics."
+      }
+    },
+    {
+      "id": 3512,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. aureus: septic arthritis in adults",
+      "stem": "A 70-year-old man with rheumatoid arthritis and a prosthesis-free knee has an acutely hot, swollen knee. Synovial fluid shows 85,000 white cells/µL with 95% neutrophils and no crystals. Which organism is the most common cause in this setting?",
+      "options": {
+        "A": "Pseudomonas aeruginosa",
+        "B": "Staphylococcus aureus",
+        "C": "Borrelia burgdorferi",
+        "D": "Salmonella species",
+        "E": "Neisseria gonorrhoeae"
+      },
+      "answer": "B",
+      "explanation": "S. aureus is the most common cause of non-gonococcal septic arthritis, and rheumatoid arthritis is a major risk factor. Gonococcal arthritis mainly affects young sexually active adults and often has tenosynovitis and pustular skin lesions. Treatment is joint drainage plus antibiotics covering S. aureus.",
+      "wrong": {
+        "E": "Gonococcal arthritis is typical of young sexually active adults.",
+        "A": "Pseudomonas joint infection is linked to injection drug use and puncture wounds.",
+        "D": "Salmonella causes osteomyelitis in sickle cell disease.",
+        "C": "Lyme arthritis gives a large effusion with lower cell counts and a slower onset."
+      }
+    },
+    {
+      "id": 3513,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: vertebral osteomyelitis & epidural abscess",
+      "stem": "A 52-year-old man who injects drugs has two weeks of worsening back pain and fever, and now has leg weakness and urinary retention. MRI shows discitis with an epidural collection. Which organism is most likely, and what is the priority?",
+      "options": {
+        "A": "Brucella; doxycycline with rifampin for six weeks",
+        "B": "E. coli; oral ciprofloxacin and outpatient follow-up",
+        "C": "S. aureus; urgent surgical decompression and antibiotics",
+        "D": "M. tuberculosis; four-drug therapy before any surgery",
+        "E": "Candida; fluconazole alone with repeat imaging in a month"
+      },
+      "answer": "C",
+      "explanation": "S. aureus causes most cases of hematogenous vertebral osteomyelitis and spinal epidural abscess, particularly in people who inject drugs. New neurologic deficits indicate cord compression and require urgent decompression along with intravenous antibiotics covering MRSA.",
+      "wrong": {
+        "D": "Pott disease is more indolent and does not explain an acute bacterial abscess.",
+        "B": "Gram-negative spinal infection occurs after urinary sources and still requires IV therapy.",
+        "A": "Brucellar spondylitis follows animal or dairy exposure.",
+        "E": "Fungal discitis is rare and still needs decompression with cord compression."
+      }
+    },
+    {
+      "id": 3514,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: bacteremia workup",
+      "stem": "A 60-year-old man has two of two blood cultures growing methicillin-susceptible S. aureus. The source appears to be a peripheral IV line that has been removed. Which next step is essential?",
+      "options": {
+        "A": "Treat as a skin contaminant and observe",
+        "B": "Start oral metronidazole for anaerobes",
+        "C": "Repeat cultures only if a fever recurs",
+        "D": "Discharge on two weeks of oral amoxicillin",
+        "E": "Echocardiography to look for endocarditis"
+      },
+      "answer": "E",
+      "explanation": "S. aureus in the blood is never dismissed as a contaminant. Management includes source removal, repeat blood cultures until clearance, echocardiography (transthoracic, often transesophageal) to exclude endocarditis, and intravenous anti-staphylococcal therapy, usually cefazolin or nafcillin for MSSA, for at least 14 days.",
+      "wrong": {
+        "C": "Clearance must be documented with repeat cultures regardless of symptoms.",
+        "D": "Amoxicillin is destroyed by staphylococcal penicillinase.",
+        "A": "S. aureus bacteremia is always treated as real.",
+        "B": "Metronidazole has no activity against S. aureus."
+      }
+    },
+    {
+      "id": 3515,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "medium",
+      "topic": "MSSA bacteremia: drug choice",
+      "stem": "Blood cultures from a patient with S. aureus bacteremia show susceptibility to oxacillin. The patient has no drug allergies and was started empirically on vancomycin. What is the best change?",
+      "options": {
+        "A": "Add gentamicin for synergy",
+        "B": "Continue vancomycin alone",
+        "C": "Switch to oral linezolid",
+        "D": "Switch to cefazolin",
+        "E": "Switch to ceftazidime"
+      },
+      "answer": "D",
+      "explanation": "For methicillin-susceptible S. aureus, anti-staphylococcal beta-lactams (cefazolin, nafcillin, oxacillin) clear bacteremia faster and lower mortality compared with vancomycin. Vancomycin is reserved for MRSA or serious beta-lactam allergy. Adding gentamicin increases kidney injury without improving outcomes.",
+      "wrong": {
+        "B": "Vancomycin is inferior to beta-lactams for MSSA.",
+        "C": "Linezolid is bacteriostatic and not first-line for bacteremia.",
+        "A": "Gentamicin adds nephrotoxicity without benefit in native-valve disease.",
+        "E": "Ceftazidime has weak Gram-positive activity."
+      },
+      "tables": [
+        {
+          "title": "Cephalosporin generations",
+          "cols": [
+            "Generation",
+            "Examples",
+            "Coverage / use"
+          ],
+          "rows": [
+            [
+              "1st",
+              "Cefazolin, cephalexin",
+              "Gram-positives, PEcK; surgical prophylaxis, MSSA"
+            ],
+            [
+              "2nd",
+              "Cefoxitin, cefuroxime",
+              "Adds H. influenzae, Enterobacter, Neisseria; cefoxitin anaerobes"
+            ],
+            [
+              "3rd",
+              "Ceftriaxone, cefotaxime, ceftazidime",
+              "Serious Gram-negatives; meningitis, gonorrhea; ceftazidime → Pseudomonas"
+            ],
+            [
+              "4th",
+              "Cefepime",
+              "Gram-positives + Pseudomonas; AmpC-stable"
+            ],
+            [
+              "5th",
+              "Ceftaroline",
+              "MRSA (binds PBP2a); not Pseudomonas"
+            ],
+            [
+              "None cover",
+              "—",
+              "Listeria, Atypicals, MRSA (except 5th), Enterococci (LAME)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3516,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "medium",
+      "topic": "Daptomycin: failure in pneumonia",
+      "stem": "A patient with MRSA bacteremia improves on daptomycin, but then develops MRSA pneumonia while still on the drug. Why is daptomycin a poor choice for pneumonia?",
+      "options": {
+        "A": "It is excreted unchanged into the bile",
+        "B": "It antagonizes the effect of vancomycin",
+        "C": "It cannot cross cell membranes to reach bacteria",
+        "D": "It is inactivated by pulmonary surfactant",
+        "E": "It only acts on Gram-negative organisms"
+      },
+      "answer": "D",
+      "explanation": "Daptomycin is a lipopeptide that inserts into Gram-positive membranes, causing depolarization. Surfactant binds and inactivates it, so it fails in pneumonia. It is used for MRSA bacteremia and right-sided endocarditis, and its main adverse effect is myopathy with elevated CK.",
+      "wrong": {
+        "C": "It acts on the bacterial membrane directly.",
+        "A": "Daptomycin is renally cleared.",
+        "E": "It acts only on Gram-positive organisms.",
+        "B": "There is no such antagonism, and pneumonia failure has a different cause."
+      }
+    },
+    {
+      "id": 3517,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "easy",
+      "topic": "MRSA: oral options for skin infection",
+      "stem": "A 25-year-old has a drained abscess on the thigh and surrounding cellulitis. Culture grows MRSA. Which oral agent is appropriate?",
+      "options": {
+        "A": "Dicloxacillin",
+        "B": "Penicillin V",
+        "C": "Doxycycline",
+        "D": "Amoxicillin-clavulanate",
+        "E": "Cephalexin"
+      },
+      "answer": "C",
+      "explanation": "Community MRSA skin infections are usually susceptible to doxycycline, TMP-SMX, and often clindamycin. Linezolid is another option. All beta-lactams except ceftaroline fail against MRSA because PBP2a has low affinity for them.",
+      "wrong": {
+        "D": "Clavulanate blocks penicillinase but not PBP2a-mediated resistance.",
+        "E": "First-generation cephalosporins do not bind PBP2a.",
+        "A": "Dicloxacillin is inactive against methicillin-resistant strains by definition.",
+        "B": "Nearly all S. aureus make penicillinase."
+      },
+      "tables": [
+        {
+          "title": "Cell wall and membrane agents",
+          "cols": [
+            "Drug",
+            "Target",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Fosfomycin",
+              "MurA (first cytoplasmic step)",
+              "Single-dose cystitis therapy"
+            ],
+            [
+              "Bacitracin",
+              "Bactoprenol recycling",
+              "Topical only (nephrotoxic)"
+            ],
+            [
+              "Vancomycin",
+              "Binds D-Ala-D-Ala",
+              "MRSA, C. difficile (oral); resistance D-Ala-D-Lac"
+            ],
+            [
+              "β-lactams",
+              "PBPs (transpeptidases)",
+              "Resistance: β-lactamase, altered PBPs, porins"
+            ],
+            [
+              "Daptomycin",
+              "Depolarizes Gram-positive membrane",
+              "Inactivated by surfactant; CPK"
+            ],
+            [
+              "Polymyxins",
+              "Bind lipid A, disrupt membranes",
+              "Last resort Gram-negatives; nephro-/neurotoxic"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3518,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "easy",
+      "topic": "Ceftaroline: MRSA activity",
+      "stem": "Which cephalosporin binds PBP2a and is therefore active against methicillin-resistant S. aureus?",
+      "options": {
+        "A": "Ceftaroline",
+        "B": "Cefazolin",
+        "C": "Cefoxitin",
+        "D": "Cefoperazone",
+        "E": "Ceftriaxone"
+      },
+      "answer": "A",
+      "explanation": "Ceftaroline is sometimes called a fifth-generation cephalosporin. It has high affinity for PBP2a and treats MRSA skin infections and community pneumonia. It keeps broad Gram-negative activity but does not cover Pseudomonas.",
+      "wrong": {
+        "E": "Third-generation cephalosporins do not bind PBP2a.",
+        "D": "This third-generation agent covers some Pseudomonas but not MRSA.",
+        "B": "Cefazolin treats MSSA, not MRSA.",
+        "C": "Cefoxitin is used in the lab to detect mecA-mediated resistance, not to treat it."
+      },
+      "tables": [
+        {
+          "title": "Cephalosporin generations",
+          "cols": [
+            "Generation",
+            "Examples",
+            "Coverage / use"
+          ],
+          "rows": [
+            [
+              "1st",
+              "Cefazolin, cephalexin",
+              "Gram-positives, PEcK; surgical prophylaxis, MSSA"
+            ],
+            [
+              "2nd",
+              "Cefoxitin, cefuroxime",
+              "Adds H. influenzae, Enterobacter, Neisseria; cefoxitin anaerobes"
+            ],
+            [
+              "3rd",
+              "Ceftriaxone, cefotaxime, ceftazidime",
+              "Serious Gram-negatives; meningitis, gonorrhea; ceftazidime → Pseudomonas"
+            ],
+            [
+              "4th",
+              "Cefepime",
+              "Gram-positives + Pseudomonas; AmpC-stable"
+            ],
+            [
+              "5th",
+              "Ceftaroline",
+              "MRSA (binds PBP2a); not Pseudomonas"
+            ],
+            [
+              "None cover",
+              "—",
+              "Listeria, Atypicals, MRSA (except 5th), Enterococci (LAME)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3519,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "MRSA: laboratory detection",
+      "stem": "A microbiology lab uses a cefoxitin disk rather than an oxacillin disk to predict methicillin resistance in S. aureus. What does resistance to cefoxitin indicate?",
+      "options": {
+        "A": "Presence of erm, which methylates the ribosome",
+        "B": "Presence of a thickened wall that traps drug",
+        "C": "Presence of vanA, which alters the wall terminus",
+        "D": "Presence of mecA, which encodes PBP2a",
+        "E": "Presence of blaZ, which encodes penicillinase"
+      },
+      "answer": "D",
+      "explanation": "Cefoxitin is a strong inducer of mecA expression and gives a clearer result than oxacillin. Resistance predicts mecA, carried on the SCCmec element, which encodes PBP2a. PCR for mecA or detection of PBP2a by latex agglutination confirms MRSA.",
+      "wrong": {
+        "E": "Penicillinase affects penicillin but not cefoxitin or oxacillin.",
+        "C": "vanA causes vancomycin resistance.",
+        "A": "erm causes macrolide and inducible clindamycin resistance.",
+        "B": "A thick wall is the mechanism of VISA."
+      },
+      "tables": [
+        {
+          "title": "Resistance mechanisms",
+          "cols": [
+            "Drug",
+            "Main mechanism"
+          ],
+          "rows": [
+            [
+              "β-lactams",
+              "β-lactamases; altered PBPs (MRSA PBP2a, pneumococcus); porin loss"
+            ],
+            [
+              "Vancomycin",
+              "D-Ala-D-Ala → D-Ala-D-Lac (vanA)"
+            ],
+            [
+              "Aminoglycosides",
+              "Acetylation, adenylation, phosphorylation"
+            ],
+            [
+              "Macrolides",
+              "23S rRNA methylation (erm), efflux (mef)"
+            ],
+            [
+              "Tetracyclines",
+              "Efflux, ribosomal protection"
+            ],
+            [
+              "Fluoroquinolones",
+              "Gyrase/topo IV mutations, efflux, qnr"
+            ],
+            [
+              "Rifampin",
+              "rpoB mutation"
+            ],
+            [
+              "Sulfonamides",
+              "Altered dihydropteroate synthase, ↑PABA"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3520,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: decolonization",
+      "stem": "A patient has had five recurrent MRSA skin abscesses over a year despite appropriate drainage. Nasal swab is positive for MRSA. Which measure reduces recurrences?",
+      "options": {
+        "A": "Intranasal mupirocin and chlorhexidine bathing",
+        "B": "Long-term daily oral vancomycin for six months",
+        "C": "Routine avoidance of all skin contact",
+        "D": "Monthly intramuscular benzathine penicillin",
+        "E": "A single dose of oral fluconazole at each relapse"
+      },
+      "answer": "A",
+      "explanation": "Up to a third of people carry S. aureus in the anterior nares, which serves as a reservoir for recurrent infection. Decolonization uses intranasal mupirocin twice daily for five days plus chlorhexidine washes, along with hygiene measures and not sharing towels or razors.",
+      "wrong": {
+        "B": "Oral vancomycin is not absorbed and does not reach the nares or skin.",
+        "D": "This prevents rheumatic fever recurrence, not MRSA.",
+        "E": "Fluconazole is an antifungal.",
+        "C": "This is impractical and not recommended."
+      }
+    },
+    {
+      "id": 3521,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: pyomyositis",
+      "stem": "A 12-year-old boy in a tropical country develops fever and a firm, painful thigh after minor trauma. MRI shows an abscess within the quadriceps muscle. Which organism is most likely?",
+      "options": {
+        "A": "Enterococcus faecium",
+        "B": "Staphylococcus epidermidis",
+        "C": "Streptococcus pneumoniae",
+        "D": "Clostridium perfringens",
+        "E": "Staphylococcus aureus"
+      },
+      "answer": "E",
+      "explanation": "Pyomyositis is a primary bacterial abscess of skeletal muscle, historically called tropical pyomyositis. S. aureus causes about 90% of cases. Risk factors include muscle trauma, HIV, and diabetes. Treatment is drainage plus anti-staphylococcal antibiotics.",
+      "wrong": {
+        "D": "Gas gangrene causes rapid myonecrosis with crepitus and shock, not a focal abscess.",
+        "C": "Pneumococcus rarely infects muscle.",
+        "A": "Enterococci cause urinary, biliary, and endovascular infections.",
+        "B": "It infects devices, not normal muscle."
+      }
+    },
+    {
+      "id": 3522,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. aureus: hyper-IgE syndrome",
+      "stem": "A 9-year-old has recurrent cold staphylococcal skin abscesses without warmth or redness, recurrent pneumonia with pneumatoceles, retained primary teeth, eczema, and an IgE of 4,000 IU/mL. Which defect explains the susceptibility?",
+      "options": {
+        "A": "Terminal complement deficiency impairing lysis",
+        "B": "NADPH oxidase deficiency impairing oxidative burst",
+        "C": "CD18 deficiency impairing neutrophil adhesion",
+        "D": "STAT3 mutation impairing Th17 differentiation",
+        "E": "LYST mutation impairing phagolysosome fusion"
+      },
+      "answer": "D",
+      "explanation": "Autosomal dominant hyper-IgE (Job) syndrome results from STAT3 mutations. Th17 cells fail to develop, so IL-17-driven neutrophil recruitment is poor and abscesses are 'cold.' The mnemonic FATED covers coarse Facies, cold Abscesses, retained baby Teeth, high IgE, and Dermatologic eczema.",
+      "wrong": {
+        "B": "Chronic granulomatous disease causes catalase-positive infections with granulomas, not high IgE with retained teeth.",
+        "C": "Leukocyte adhesion deficiency causes delayed cord separation and no pus.",
+        "E": "Chediak-Higashi syndrome has albinism, neuropathy, and giant granules.",
+        "A": "C5-C9 deficiency predisposes to Neisseria."
+      },
+      "tables": [
+        {
+          "title": "Immune defects and typical infections",
+          "cols": [
+            "Defect",
+            "Examples",
+            "Typical organisms"
+          ],
+          "rows": [
+            [
+              "B cell / antibody",
+              "XLA, CVID",
+              "Encapsulated bacteria, enteroviruses, Giardia"
+            ],
+            [
+              "T cell",
+              "DiGeorge, HIV",
+              "Candida, Pneumocystis, viruses, intracellular bacteria"
+            ],
+            [
+              "Phagocyte",
+              "CGD, neutropenia, LAD",
+              "Catalase-positive bacteria, Aspergillus, Candida"
+            ],
+            [
+              "Terminal complement (C5–C9)",
+              "Congenital, eculizumab",
+              "Neisseria"
+            ],
+            [
+              "Asplenia",
+              "Splenectomy, sickle cell",
+              "Encapsulated bacteria, Babesia, Capnocytophaga"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3523,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: prosthetic joint timing",
+      "stem": "Six years after a hip replacement, a 74-year-old woman develops sudden fever and a painful hip two weeks after an episode of cellulitis. Which organism most likely seeded the joint?",
+      "options": {
+        "A": "Corynebacterium striatum",
+        "B": "Mycobacterium fortuitum",
+        "C": "Staphylococcus aureus",
+        "D": "Cutibacterium acnes",
+        "E": "Staphylococcus epidermidis"
+      },
+      "answer": "C",
+      "explanation": "Late acute prosthetic joint infection arises from hematogenous seeding of the prosthesis years after surgery, often from skin, urinary, or dental sources. S. aureus is the typical organism and causes abrupt symptoms. Early and delayed infections after surgery are more often coagulase-negative staphylococci or Cutibacterium, which produce indolent pain.",
+      "wrong": {
+        "D": "It causes indolent infection, especially of shoulder prostheses, introduced at surgery.",
+        "E": "It is typically introduced at surgery and causes slow, low-grade infection.",
+        "A": "A skin diphtheroid, occasionally a device pathogen, not a typical bacteremic seeder.",
+        "B": "Rapidly growing mycobacteria cause rare surgical site infections."
+      }
+    },
+    {
+      "id": 3524,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. epidermidis: novobiocin",
+      "stem": "Two coagulase-negative staphylococci are isolated: one from the blood of a patient with a ventriculoperitoneal shunt, and one from the urine of a sexually active 20-year-old woman. Which test separates them?",
+      "options": {
+        "A": "Bile solubility",
+        "B": "Hippurate hydrolysis",
+        "C": "Optochin disk susceptibility",
+        "D": "Novobiocin susceptibility",
+        "E": "Bacitracin susceptibility"
+      },
+      "answer": "D",
+      "explanation": "Among coagulase-negative staphylococci, S. epidermidis is novobiocin-sensitive and S. saprophyticus is novobiocin-resistant. Mnemonic: 'On the staph retreat, there's NO StRESS' - Novobiocin: Saprophyticus Resistant, Epidermidis Sensitive.",
+      "wrong": {
+        "C": "Optochin separates pneumococcus from viridans streptococci.",
+        "E": "Bacitracin separates group A from group B streptococci.",
+        "A": "Bile solubility identifies pneumococcus.",
+        "B": "Hippurate hydrolysis identifies group B streptococci."
+      },
+      "tables": [
+        {
+          "title": "Gram-positive cocci: first branch points",
+          "cols": [
+            "Test",
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "Catalase",
+              "Staphylococcus (and Micrococcus)",
+              "Streptococcus, Enterococcus"
+            ],
+            [
+              "Coagulase (staph)",
+              "S. aureus",
+              "S. epidermidis, S. saprophyticus"
+            ],
+            [
+              "Novobiocin (CoNS)",
+              "Sensitive: S. epidermidis",
+              "Resistant: S. saprophyticus"
+            ],
+            [
+              "Optochin (α-hemolytic)",
+              "Sensitive: S. pneumoniae",
+              "Resistant: viridans strep"
+            ],
+            [
+              "Bacitracin (β-hemolytic)",
+              "Sensitive: GAS",
+              "Resistant: GBS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3525,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. epidermidis: device infection pathogenesis",
+      "stem": "A patient with a central venous catheter has persistent low-grade bacteremia with S. epidermidis despite vancomycin. Why is this infection hard to clear without removing the device?",
+      "options": {
+        "A": "The organism has a thick capsule of poly-D-glutamate that blocks complement",
+        "B": "Bacteria in a polysaccharide biofilm resist drugs and phagocytes",
+        "C": "The organism hides inside macrophages where vancomycin cannot reach it",
+        "D": "The organism switches its surface pili through gene conversion",
+        "E": "The organism produces a superantigen that suppresses antibody formation"
+      },
+      "answer": "B",
+      "explanation": "S. epidermidis colonizes plastic by producing a biofilm of polysaccharide intercellular adhesin. Bacteria in biofilm grow slowly, are shielded from antibiotics and neutrophils, and repeatedly shed into the blood. Cure usually requires removing the device.",
+      "wrong": {
+        "C": "It is an extracellular organism.",
+        "A": "A poly-D-glutamate capsule is unique to B. anthracis.",
+        "E": "S. epidermidis is not a superantigen producer.",
+        "D": "Pilus gene conversion is a Neisseria gonorrhoeae mechanism."
+      }
+    },
+    {
+      "id": 3526,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. epidermidis: single positive culture",
+      "stem": "In an otherwise stable outpatient without any implanted devices, one of four blood culture bottles grows coagulase-negative staphylococci after 3 days. What is the most likely explanation?",
+      "options": {
+        "A": "Bacteremia from an undiagnosed urinary infection",
+        "B": "Early infective endocarditis of a native valve",
+        "C": "Seeding from an occult vertebral osteomyelitis",
+        "D": "Reactivation of a latent intracellular infection",
+        "E": "Contamination from skin during venipuncture"
+      },
+      "answer": "E",
+      "explanation": "Coagulase-negative staphylococci are the most common blood culture contaminants. One positive bottle out of several, with long time to positivity, in a patient without prosthetic material strongly suggests contamination from skin flora. True infection is supported by multiple positive sets with the same organism and a device or prosthetic valve.",
+      "wrong": {
+        "B": "Native-valve endocarditis would produce continuous bacteremia with multiple positive sets.",
+        "C": "S. aureus, not CoNS, causes hematogenous osteomyelitis.",
+        "A": "Urinary sources yield Gram-negative rods.",
+        "D": "Staphylococci do not establish latency."
+      }
+    },
+    {
+      "id": 3527,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. saprophyticus: adhesion & urease",
+      "stem": "A 22-year-old woman has dysuria and frequency. Urine culture grows a catalase-positive, coagulase-negative Gram-positive coccus that is urease-positive and novobiocin-resistant. Which statement about this organism is correct?",
+      "options": {
+        "A": "It is identified by its sensitivity to optochin",
+        "B": "It is the leading cause of catheter-associated bacteremia in ICUs",
+        "C": "It is the second most common cause of cystitis in young women",
+        "D": "It is usually a contaminant from vaginal flora",
+        "E": "It typically causes pyelonephritis in elderly catheterized men"
+      },
+      "answer": "C",
+      "explanation": "Staphylococcus saprophyticus is second only to E. coli as a cause of uncomplicated cystitis in young sexually active women. It adheres to uroepithelium and makes urease. Nitrofurantoin or TMP-SMX usually works. Nitrite is often negative because Gram-positive organisms do not reduce nitrate.",
+      "wrong": {
+        "B": "That is S. epidermidis.",
+        "E": "Its classic host is young women with cystitis.",
+        "D": "It is a true pathogen in the urine at significant counts.",
+        "A": "Optochin is used for pneumococcus."
+      },
+      "tables": [
+        {
+          "title": "Staphylococci compared",
+          "cols": [
+            "Species",
+            "Coagulase",
+            "Novobiocin",
+            "Key features",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. aureus",
+              "+",
+              "Sensitive",
+              "Protein A, TSST-1, PVL, exfoliatins, enterotoxins; yellow colonies; ferments mannitol",
+              "Abscesses, osteomyelitis, acute endocarditis (IVDU), post-flu pneumonia, TSS, SSSS, food poisoning"
+            ],
+            [
+              "S. epidermidis",
+              "−",
+              "Sensitive",
+              "Biofilm on plastic; skin flora; common contaminant",
+              "Prosthetic device, catheter, and shunt infections"
+            ],
+            [
+              "S. saprophyticus",
+              "−",
+              "Resistant",
+              "Urease +; adheres to uroepithelium",
+              "Cystitis in young sexually active women"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3528,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. lugdunensis: aggressive CoNS",
+      "stem": "A blood culture grows a coagulase-negative staphylococcus that is PYR-positive and ornithine decarboxylase-positive. The patient has a destructive aortic valve infection with a perivalvular abscess. Which species is this?",
+      "options": {
+        "A": "Staphylococcus haemolyticus",
+        "B": "Staphylococcus saprophyticus",
+        "C": "Staphylococcus capitis",
+        "D": "Staphylococcus hominis",
+        "E": "Staphylococcus lugdunensis"
+      },
+      "answer": "E",
+      "explanation": "S. lugdunensis is coagulase-negative but behaves like S. aureus, causing aggressive native-valve endocarditis with abscesses, as well as skin and bone infection. It is identified by PYR and ornithine decarboxylase positivity, and it should never be dismissed as a contaminant.",
+      "wrong": {
+        "B": "This is a urinary pathogen and is novobiocin-resistant.",
+        "D": "It is a low-virulence skin commensal and a common contaminant.",
+        "C": "It is a scalp commensal that occasionally infects devices.",
+        "A": "It is a multidrug-resistant commensal, typically of line infections."
+      }
+    },
+    {
+      "id": 3529,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "Staph vs strep: catalase branch logic",
+      "stem": "A blood culture grows Gram-positive cocci in clusters that are catalase-negative. Which conclusion is most appropriate?",
+      "options": {
+        "A": "The organism is a coagulase-negative staphylococcus",
+        "B": "The organism is S. aureus that has lost its catalase gene",
+        "C": "The organism must be an anaerobic coccus from the gut flora",
+        "D": "A streptococcus-like organism is the most likely identity",
+        "E": "The organism is Micrococcus and should be discarded"
+      },
+      "answer": "D",
+      "explanation": "Staphylococci are catalase-positive, so a catalase-negative Gram-positive coccus is best treated as a streptococcus-like organism (for example Aerococcus or Gemella, which can appear in clusters or tetrads) until identified. Gram stain arrangement can be misleading in broth. MALDI-TOF resolves the identity.",
+      "wrong": {
+        "B": "Catalase-negative S. aureus is exceedingly rare.",
+        "C": "Aerobic blood culture growth argues against an obligate anaerobe.",
+        "A": "All staphylococci, coagulase-positive or not, are catalase-positive.",
+        "E": "Micrococcus is catalase-positive."
+      },
+      "tables": [
+        {
+          "title": "Gram-positive cocci: first branch points",
+          "cols": [
+            "Test",
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "Catalase",
+              "Staphylococcus (and Micrococcus)",
+              "Streptococcus, Enterococcus"
+            ],
+            [
+              "Coagulase (staph)",
+              "S. aureus",
+              "S. epidermidis, S. saprophyticus"
+            ],
+            [
+              "Novobiocin (CoNS)",
+              "Sensitive: S. epidermidis",
+              "Resistant: S. saprophyticus"
+            ],
+            [
+              "Optochin (α-hemolytic)",
+              "Sensitive: S. pneumoniae",
+              "Resistant: viridans strep"
+            ],
+            [
+              "Bacitracin (β-hemolytic)",
+              "Sensitive: GAS",
+              "Resistant: GBS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3530,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "TSST-1: mechanism from the immunology side",
+      "stem": "In staphylococcal toxic shock syndrome, a single toxin activates up to 20% of the body's T cells. Which feature explains this?",
+      "options": {
+        "A": "It binds MHC II outside the groove and the TCR V-beta region",
+        "B": "It is processed into peptides presented in the MHC II groove",
+        "C": "It cross-links IgE on mast cells and triggers degranulation",
+        "D": "It binds CD14 and TLR4 on monocytes as lipopolysaccharide does",
+        "E": "It is presented on MHC I after cytosolic proteasome cleavage"
+      },
+      "answer": "A",
+      "explanation": "Superantigens bypass normal antigen processing. They bridge the outside of the MHC class II molecule and the variable beta region of the T-cell receptor, activating every T cell with a matching V-beta family. The resulting massive IL-2, IFN-gamma, and TNF release causes fever, rash, and shock.",
+      "wrong": {
+        "B": "Conventional antigens activate only a tiny fraction of T cells.",
+        "D": "That is the endotoxin pathway of Gram-negative organisms.",
+        "C": "This describes type I hypersensitivity.",
+        "E": "MHC I presentation drives CD8 cells and is antigen-specific."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3531,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "Toxic shock: diagnosis and desquamation",
+      "stem": "A 17-year-old has fever of 40°C, hypotension, a diffuse sunburn-like rash, vomiting, and myalgia with elevated CK, during menstruation. Which finding is expected one to two weeks later if she survives?",
+      "options": {
+        "A": "Desquamation of the palms and soles",
+        "B": "Grouped vesicles in a single dermatome",
+        "C": "Scaly annular plaques with central clearing",
+        "D": "Painless genital chancre with firm edges",
+        "E": "Honey-crusted plaques on the face"
+      },
+      "answer": "A",
+      "explanation": "Staphylococcal toxic shock produces fever, hypotension, an erythroderma rash, and involvement of three or more organ systems. Desquamation, especially of the palms and soles, follows in one to two weeks. Management is removal of the source (tampon or packing), fluids, and an anti-staphylococcal drug plus clindamycin.",
+      "wrong": {
+        "E": "These describe impetigo.",
+        "B": "These describe herpes zoster.",
+        "D": "This describes primary syphilis.",
+        "C": "These describe tinea corporis."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3532,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "medium",
+      "topic": "Clindamycin in toxin-mediated disease",
+      "stem": "Why is clindamycin added to a beta-lactam when treating staphylococcal toxic shock syndrome?",
+      "options": {
+        "A": "It enhances beta-lactam entry through the outer membrane",
+        "B": "It binds and neutralizes circulating toxin in the bloodstream",
+        "C": "It prevents the organism from forming heat-resistant spores",
+        "D": "It kills the organism faster than the beta-lactam alone can",
+        "E": "It halts toxin synthesis at the ribosome in any growth phase"
+      },
+      "answer": "E",
+      "explanation": "Clindamycin binds the 50S subunit and halts synthesis of toxins such as TSST-1 and streptococcal pyrogenic exotoxins. Unlike beta-lactams, it works in stationary-phase organisms, which is when high inocula produce most toxin. It does not neutralize toxin that is already circulating; IVIG is sometimes given for that purpose.",
+      "wrong": {
+        "B": "Neutralization is the role of IVIG, not clindamycin.",
+        "D": "Clindamycin is mainly bacteriostatic.",
+        "C": "Staphylococci do not form spores.",
+        "A": "Staphylococci have no outer membrane."
+      },
+      "tables": [
+        {
+          "title": "Protein synthesis inhibitors",
+          "cols": [
+            "Drug",
+            "Subunit / action",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Aminoglycosides",
+              "30S; misreading, block initiation",
+              "Nephrotoxicity, ototoxicity, NM blockade, teratogen"
+            ],
+            [
+              "Tetracyclines",
+              "30S; block aminoacyl-tRNA",
+              "Teeth/bone in kids, photosensitivity, esophagitis"
+            ],
+            [
+              "Chloramphenicol",
+              "50S; peptidyltransferase",
+              "Aplastic anemia, gray baby"
+            ],
+            [
+              "Clindamycin",
+              "50S; peptide transfer",
+              "C. difficile"
+            ],
+            [
+              "Linezolid",
+              "50S (23S); initiation complex",
+              "Myelosuppression, serotonin syndrome"
+            ],
+            [
+              "Macrolides",
+              "50S (23S); translocation",
+              "QT prolongation, GI motility, CYP3A4 inhibition"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3533,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: surgical site prevention",
+      "stem": "Before cardiac surgery, patients are screened for nasal S. aureus carriage and decolonized if positive. What is the reason?",
+      "options": {
+        "A": "Carriage indicates an underlying immune deficiency to treat first",
+        "B": "Carriers transmit the organism by the airborne route",
+        "C": "Carriers are at higher risk of infection with their own strain",
+        "D": "Carriers are more likely to develop a drug allergy after surgery",
+        "E": "Carriage makes cefazolin prophylaxis contraindicated"
+      },
+      "answer": "C",
+      "explanation": "Most S. aureus surgical site infections come from the patient's own nasal flora. Preoperative mupirocin and chlorhexidine reduce postoperative S. aureus infection in carriers. Staphylococci spread mainly by contact, especially on hands, not through the air.",
+      "wrong": {
+        "D": "Carriage has no effect on drug allergy.",
+        "A": "About 30% of healthy people are carriers.",
+        "E": "Cefazolin remains standard prophylaxis.",
+        "B": "Transmission is mainly by contact."
+      }
+    },
+    {
+      "id": 3534,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. aureus: food poisoning vs B. cereus",
+      "stem": "Two outbreaks cause vomiting within 1-6 hours of eating. Outbreak 1 follows ham salad prepared by a cook with a paronychia. Outbreak 2 follows fried rice kept warm overnight. Which feature do the causative toxins share?",
+      "options": {
+        "A": "Both are released only when spores germinate in the gut",
+        "B": "Both are produced after ingestion in the ileum",
+        "C": "Both require invasion of colonic epithelial cells",
+        "D": "Both act by cleaving 60S ribosomal RNA",
+        "E": "Both are preformed in food and heat-stable"
+      },
+      "answer": "E",
+      "explanation": "Staphylococcal enterotoxin (from food handlers) and B. cereus cereulide (emetic toxin, from rice) are both preformed and heat-stable, which is why both cause rapid-onset vomiting. B. cereus also has a diarrheal form from a heat-labile toxin made in the gut, with an 8-16 hour incubation.",
+      "wrong": {
+        "B": "Toxin production in the gut gives a longer incubation.",
+        "A": "S. aureus does not form spores.",
+        "D": "That is the mechanism of Shiga and Shiga-like toxin.",
+        "C": "Neither organism invades in these syndromes."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3535,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "hard",
+      "topic": "Vancomycin: resistance in S. aureus",
+      "stem": "A patient has persistent MRSA bacteremia with a vancomycin MIC of 4 µg/mL. The isolate has a markedly thickened cell wall but lacks vanA. What is the mechanism of reduced susceptibility?",
+      "options": {
+        "A": "An efflux pump removes vancomycin from the cytoplasm of the organism",
+        "B": "A plasmid-encoded enzyme hydrolyzes the glycopeptide structure of vancomycin",
+        "C": "A methylase alters the 23S ribosomal RNA binding site of vancomycin",
+        "D": "Excess D-Ala-D-Ala residues in the wall trap the drug as decoys",
+        "E": "The organism substitutes D-Ala-D-Lac for the terminal peptide residues"
+      },
+      "answer": "D",
+      "explanation": "Vancomycin-intermediate S. aureus (VISA) accumulates a thickened wall rich in free D-Ala-D-Ala termini that act as decoys and bind vancomycin before it reaches the membrane-level synthesis sites. Full resistance (VRSA) requires acquiring vanA from enterococci, which replaces the terminus with D-Ala-D-Lac.",
+      "wrong": {
+        "B": "Vancomycin is not inactivated enzymatically.",
+        "E": "That is vanA-mediated full resistance, which this isolate lacks.",
+        "A": "Vancomycin acts outside the cytoplasm.",
+        "C": "Methylation affects macrolides and clindamycin; vancomycin does not bind ribosomes."
+      },
+      "tables": [
+        {
+          "title": "Resistance mechanisms",
+          "cols": [
+            "Drug",
+            "Main mechanism"
+          ],
+          "rows": [
+            [
+              "β-lactams",
+              "β-lactamases; altered PBPs (MRSA PBP2a, pneumococcus); porin loss"
+            ],
+            [
+              "Vancomycin",
+              "D-Ala-D-Ala → D-Ala-D-Lac (vanA)"
+            ],
+            [
+              "Aminoglycosides",
+              "Acetylation, adenylation, phosphorylation"
+            ],
+            [
+              "Macrolides",
+              "23S rRNA methylation (erm), efflux (mef)"
+            ],
+            [
+              "Tetracyclines",
+              "Efflux, ribosomal protection"
+            ],
+            [
+              "Fluoroquinolones",
+              "Gyrase/topo IV mutations, efflux, qnr"
+            ],
+            [
+              "Rifampin",
+              "rpoB mutation"
+            ],
+            [
+              "Sulfonamides",
+              "Altered dihydropteroate synthase, ↑PABA"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3536,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. pyogenes: PYR and bacitracin",
+      "stem": "A throat swab grows small colonies with a wide zone of complete clearing on sheep blood agar. The organism is catalase-negative. Which pair of results identifies it as group A?",
+      "options": {
+        "A": "Bacitracin-resistant and CAMP-positive",
+        "B": "Bacitracin-sensitive and PYR-positive",
+        "C": "Novobiocin-resistant and urease-positive",
+        "D": "Bile esculin-positive and salt-tolerant",
+        "E": "Optochin-sensitive and bile-soluble"
+      },
+      "answer": "B",
+      "explanation": "Among beta-hemolytic streptococci, group A (S. pyogenes) is bacitracin-sensitive and PYR-positive, while group B is bacitracin-resistant, CAMP-positive, and hippurate-positive. Rapid antigen tests detect the group A carbohydrate directly from the throat.",
+      "wrong": {
+        "A": "These identify group B strep.",
+        "E": "These identify pneumococcus, an alpha-hemolytic organism.",
+        "C": "These identify S. saprophyticus, a catalase-positive staphylococcus.",
+        "D": "These identify enterococci."
+      },
+      "tables": [
+        {
+          "title": "Gram-positive cocci: first branch points",
+          "cols": [
+            "Test",
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "Catalase",
+              "Staphylococcus (and Micrococcus)",
+              "Streptococcus, Enterococcus"
+            ],
+            [
+              "Coagulase (staph)",
+              "S. aureus",
+              "S. epidermidis, S. saprophyticus"
+            ],
+            [
+              "Novobiocin (CoNS)",
+              "Sensitive: S. epidermidis",
+              "Resistant: S. saprophyticus"
+            ],
+            [
+              "Optochin (α-hemolytic)",
+              "Sensitive: S. pneumoniae",
+              "Resistant: viridans strep"
+            ],
+            [
+              "Bacitracin (β-hemolytic)",
+              "Sensitive: GAS",
+              "Resistant: GBS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3537,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: Centor and testing",
+      "stem": "A 9-year-old has fever of 39°C, tonsillar exudates, tender anterior cervical nodes, and no cough. A rapid antigen test is negative. What is the next step?",
+      "options": {
+        "A": "Obtain a monospot test and treat as viral illness",
+        "B": "Treat with amoxicillin regardless of any testing",
+        "C": "Send a throat culture before deciding on treatment",
+        "D": "Order an antistreptolysin O titer from the blood",
+        "E": "Reassure the family; the negative test excludes it"
+      },
+      "answer": "C",
+      "explanation": "Rapid antigen tests are highly specific but only about 85% sensitive. In children and adolescents a negative rapid test is backed up by a throat culture, because missing group A strep risks acute rheumatic fever. In adults, backup culture is usually unnecessary because rheumatic fever is rare.",
+      "wrong": {
+        "B": "Empiric treatment without confirmation leads to overuse of antibiotics.",
+        "E": "A negative rapid test in a child can be a false negative.",
+        "D": "ASO rises weeks after infection and does not diagnose acute pharyngitis.",
+        "A": "Mono is possible, but a strep culture is still needed first."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3538,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. pyogenes: M protein function",
+      "stem": "Which function of group A streptococcal M protein makes it the organism's main defense against phagocytosis?",
+      "options": {
+        "A": "It binds factor H and blocks alternative complement",
+        "B": "It lyses red cells by forming an oxygen-labile pore",
+        "C": "It binds the Fc region of IgG in reverse orientation",
+        "D": "It dissolves fibrin clots by activating plasminogen",
+        "E": "It cleaves IgA at its hinge on mucosal surfaces"
+      },
+      "answer": "A",
+      "explanation": "M protein recruits factor H and C4b-binding protein to the bacterial surface. This degrades C3b and prevents opsonization. Antibody against a specific M type is protective, but there are more than 200 emm types, so immunity is type-specific and reinfection is common.",
+      "wrong": {
+        "C": "That is protein A of S. aureus.",
+        "E": "IgA protease belongs to Neisseria, Haemophilus, and pneumococcus.",
+        "B": "That is streptolysin O.",
+        "D": "That is streptokinase."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3539,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. pyogenes: streptolysin S vs O",
+      "stem": "Group A strep produces two hemolysins. One is oxygen-labile and immunogenic; the other is oxygen-stable and non-immunogenic. Which statement is correct?",
+      "options": {
+        "A": "Streptolysin S is the target of the anti-DNase B test",
+        "B": "Streptolysin S is oxygen-stable and non-immunogenic",
+        "C": "Streptolysin O is oxygen-stable and non-immunogenic",
+        "D": "Streptolysin S raises ASO titers after throat infection",
+        "E": "Streptolysin O is responsible for the scarlet fever rash"
+      },
+      "answer": "B",
+      "explanation": "Streptolysin O is oxygen-labile (hemolysis is best seen in stabs below the agar surface) and immunogenic, so it produces ASO antibodies. Streptolysin S is oxygen-stable, non-immunogenic, and produces the surface beta-hemolysis. The scarlet fever rash comes from pyrogenic exotoxins.",
+      "wrong": {
+        "D": "ASO titers are antibodies to streptolysin O.",
+        "C": "Streptolysin O is oxygen-labile and strongly immunogenic.",
+        "E": "The rash is caused by pyrogenic exotoxins SpeA and SpeC.",
+        "A": "Anti-DNase B targets streptococcal DNase."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3540,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: anti-DNase B after skin infection",
+      "stem": "Three weeks after impetigo, a 7-year-old has cola-colored urine and periorbital edema. His ASO titer is normal. Which test best documents a recent streptococcal infection?",
+      "options": {
+        "A": "Heterophile antibody test",
+        "B": "Blood culture on sheep agar",
+        "C": "Anti-hyaluronidase IgE level",
+        "D": "Throat rapid antigen test",
+        "E": "Anti-DNase B antibody"
+      },
+      "answer": "E",
+      "explanation": "ASO rises reliably after pharyngitis but often stays low after skin infection, because skin lipids bind and inactivate streptolysin O. Anti-DNase B rises after both throat and skin infection, making it the better test for glomerulonephritis following impetigo. Complement C3 is also low.",
+      "wrong": {
+        "B": "Post-streptococcal glomerulonephritis is immune-mediated and cultures are negative.",
+        "D": "The infection was of the skin and has already resolved.",
+        "A": "This detects EBV infection.",
+        "C": "No IgE-based strep test is used clinically."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3541,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: PSGN histology",
+      "stem": "A child with post-streptococcal glomerulonephritis has a kidney biopsy. Which pattern of immune deposits is expected on electron microscopy?",
+      "options": {
+        "A": "Mesangial IgA deposits only",
+        "B": "Subepithelial humps",
+        "C": "Subendothelial wire loops",
+        "D": "Effacement of podocytes alone",
+        "E": "Linear deposits along the GBM"
+      },
+      "answer": "B",
+      "explanation": "Post-streptococcal glomerulonephritis is a type III hypersensitivity: immune complexes form and deposit in the subepithelial space as 'humps', with granular 'lumpy-bumpy' IgG and C3 on immunofluorescence. It follows specific nephritogenic strains after either pharyngitis or skin infection, and children usually recover fully.",
+      "wrong": {
+        "C": "These are characteristic of lupus nephritis.",
+        "E": "Linear IgG is anti-GBM disease (Goodpasture).",
+        "A": "IgA nephropathy follows mucosal infection within days, not weeks.",
+        "D": "This is minimal change disease."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3542,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: rheumatic fever pathogenesis",
+      "stem": "A 12-year-old develops migratory polyarthritis, a new mitral regurgitation murmur, and subcutaneous nodules three weeks after an untreated sore throat. What is the mechanism of the cardiac injury?",
+      "options": {
+        "A": "Streptolysin O forms pores in the valve endothelium",
+        "B": "Bacteria seed the mitral valve and form vegetations",
+        "C": "Immune complexes deposit in the coronary arteries",
+        "D": "Pyrogenic exotoxin directly kills cardiac myocytes",
+        "E": "Antibodies to M protein cross-react with myosin"
+      },
+      "answer": "E",
+      "explanation": "Acute rheumatic fever is a type II hypersensitivity driven by molecular mimicry: antibodies and T cells raised against M protein cross-react with myosin and valve proteins. Aschoff bodies with Anitschkow cells are seen in the myocardium. It follows pharyngitis only, never skin infection, and treating the pharyngitis within nine days prevents it.",
+      "wrong": {
+        "B": "Blood cultures are sterile in rheumatic fever; that describes endocarditis.",
+        "D": "Exotoxins cause scarlet fever and toxic shock, not carditis.",
+        "C": "That is type III disease, the mechanism of PSGN.",
+        "A": "Cardiac injury is immune-mediated, not direct toxin damage."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3543,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "Rheumatic fever: secondary prophylaxis",
+      "stem": "A 14-year-old has had acute rheumatic fever with carditis and residual mitral regurgitation. Which long-term measure prevents recurrence?",
+      "options": {
+        "A": "Oral rifampin twice daily for household close contacts",
+        "B": "A single dose of amoxicillin before dental procedures",
+        "C": "Daily oral aspirin continued for the rest of her life",
+        "D": "Tonsillectomy followed by no further antibiotic therapy",
+        "E": "Intramuscular benzathine penicillin G every four weeks"
+      },
+      "answer": "E",
+      "explanation": "Recurrent group A strep infection can reactivate rheumatic fever and worsen valve damage. Secondary prophylaxis with benzathine penicillin G every 3-4 weeks continues for 10 years or until age 21 (longer with residual valve disease). Oral penicillin V twice daily is an alternative.",
+      "wrong": {
+        "B": "That is endocarditis prophylaxis, not prevention of rheumatic fever.",
+        "C": "Aspirin treats arthritis in the acute attack.",
+        "A": "Rifampin prophylaxis is used for meningococcal contacts.",
+        "D": "Tonsillectomy does not replace antibiotic prophylaxis."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3544,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. pyogenes: scarlet fever toxin",
+      "stem": "A 6-year-old with pharyngitis has a sandpaper-like rash that starts on the neck and spreads, sparing the area around the mouth, with a strawberry tongue and accentuation in skin folds. What produces the rash?",
+      "options": {
+        "A": "Lipoteichoic acid binding to TLR2 in the dermis",
+        "B": "Immune complexes against the M protein of the strain",
+        "C": "Direct bacterial invasion of the dermal capillaries",
+        "D": "Pyrogenic exotoxins encoded by a lysogenic phage",
+        "E": "Streptolysin O released from bacteria in the throat"
+      },
+      "answer": "D",
+      "explanation": "Streptococcal pyrogenic exotoxins (SpeA, SpeC) are superantigens encoded by bacteriophage genes. They cause the diffuse sandpaper rash, circumoral pallor, Pastia lines in skin folds, and a strawberry tongue, followed by desquamation. Scarlet fever is treated like any strep pharyngitis.",
+      "wrong": {
+        "B": "Immune complexes cause PSGN, not the rash.",
+        "C": "Scarlet fever is toxin-mediated; the skin is not infected.",
+        "E": "Streptolysin O is a hemolysin and does not cause rash.",
+        "A": "This triggers inflammation but not the scarlet fever exanthem."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3545,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: spreading factors",
+      "stem": "Group A strep causes rapidly spreading cellulitis and necrotizing fasciitis. Which pair of enzymes most directly promotes its spread through tissue planes?",
+      "options": {
+        "A": "Hyaluronidase and streptokinase",
+        "B": "Urease and phospholipase C",
+        "C": "Neuraminidase and IgA protease",
+        "D": "Catalase and superoxide dismutase",
+        "E": "Coagulase and clumping factor"
+      },
+      "answer": "A",
+      "explanation": "Hyaluronidase breaks down connective tissue ground substance, streptokinase activates plasminogen to dissolve fibrin barriers, and DNase (streptodornase) thins pus. Together they explain the spreading nature of streptococcal infection, in contrast to the walled-off abscesses of S. aureus.",
+      "wrong": {
+        "E": "These S. aureus factors wall infection off, the opposite of spreading.",
+        "B": "Urease belongs to Proteus and H. pylori; phospholipase C is C. perfringens alpha toxin.",
+        "D": "Streptococci are catalase-negative.",
+        "C": "These are pneumococcal and influenza-associated factors."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3546,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "Necrotizing fasciitis: clinical clue",
+      "stem": "A 50-year-old with a minor leg abrasion has pain far out of proportion to the mild erythema, rapidly rising lactate, and hypotension. Which finding at surgery confirms the diagnosis?",
+      "options": {
+        "A": "A localized collection of pus with a fibrous capsule",
+        "B": "Well-defined raised borders at the edge of erythema",
+        "C": "Lymphatic streaking toward the regional lymph nodes",
+        "D": "Normal fascia with inflammation only of the dermis",
+        "E": "Gray necrotic fascia that peels easily off muscle"
+      },
+      "answer": "E",
+      "explanation": "Necrotizing fasciitis spreads along the fascia faster than the overlying skin changes, so pain out of proportion is the key early sign. At surgery the fascia is gray and necrotic, 'dishwater' fluid is present, and tissue separates easily with a finger (a positive finger test). Management is emergent debridement, broad-spectrum antibiotics, and clindamycin.",
+      "wrong": {
+        "A": "That describes an abscess, which is typically staphylococcal.",
+        "D": "That describes cellulitis.",
+        "B": "Raised sharply demarcated borders describe erysipelas.",
+        "C": "Lymphangitis can accompany cellulitis but does not define fasciitis."
+      }
+    },
+    {
+      "id": 3547,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pyogenes: penicillin susceptibility",
+      "stem": "Why is penicillin still reliably effective against group A streptococci after decades of use, while S. aureus became resistant?",
+      "options": {
+        "A": "GAS has never acquired beta-lactamase or altered PBPs",
+        "B": "GAS lacks a cell wall target for other drug classes",
+        "C": "GAS is intracellular where penicillin concentrates",
+        "D": "GAS has an outer membrane that excludes most drugs",
+        "E": "GAS is killed faster at high bacterial inocula"
+      },
+      "answer": "A",
+      "explanation": "No clinical group A streptococcal isolate resistant to penicillin has been documented. It lacks beta-lactamases and has not acquired low-affinity PBPs. Macrolide resistance does occur, so macrolides are not first-line. At very high inocula penicillin works less well (the Eagle effect), which is one reason clindamycin is added in invasive disease.",
+      "wrong": {
+        "B": "GAS has a typical Gram-positive wall.",
+        "C": "GAS is mainly extracellular.",
+        "D": "Outer membranes are a Gram-negative feature.",
+        "E": "The opposite is true: the Eagle effect reduces killing at high inocula."
+      }
+    },
+    {
+      "id": 3548,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "PANDAS / Sydenham chorea",
+      "stem": "A 10-year-old girl develops involuntary, purposeless jerking movements of her face and arms and emotional lability. She had an untreated sore throat four months ago. Which structure is targeted?",
+      "options": {
+        "A": "Myelin sheaths, by antibodies to gangliosides",
+        "B": "Anterior horn cells, by direct viral invasion",
+        "C": "Motor end plates, by antibodies to acetylcholine receptors",
+        "D": "Basal ganglia neurons, by cross-reacting antibodies",
+        "E": "Cerebellar Purkinje cells, by circulating toxins"
+      },
+      "answer": "D",
+      "explanation": "Sydenham chorea is a major Jones criterion and may appear months after pharyngitis, often as the only manifestation. Antibodies to streptococcal antigens cross-react with basal ganglia neurons. It usually resolves over months, but secondary penicillin prophylaxis is still required.",
+      "wrong": {
+        "C": "That is myasthenia gravis.",
+        "B": "That is poliovirus.",
+        "A": "Anti-ganglioside antibodies occur in Guillain-Barré after Campylobacter.",
+        "E": "Paraneoplastic cerebellar degeneration targets Purkinje cells."
+      },
+      "tables": [
+        {
+          "title": "Post-streptococcal sequelae",
+          "cols": [
+            "Feature",
+            "Acute rheumatic fever",
+            "Post-streptococcal GN"
+          ],
+          "rows": [
+            [
+              "Preceding infection",
+              "Pharyngitis only",
+              "Pharyngitis or skin (impetigo)"
+            ],
+            [
+              "Mechanism",
+              "Type II: anti-M protein cross-reacts with myosin (molecular mimicry)",
+              "Type III: immune complexes"
+            ],
+            [
+              "Prevented by antibiotics?",
+              "Yes (treat within ~9 days)",
+              "No"
+            ],
+            [
+              "Findings",
+              "Carditis, migratory polyarthritis, chorea, nodules, erythema marginatum",
+              "Cola urine, edema, hypertension, low C3"
+            ],
+            [
+              "Labs",
+              "ASO or anti-DNase B, ESR",
+              "Low C3; subepithelial humps"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3549,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. agalactiae: CAMP test",
+      "stem": "A beta-hemolytic, catalase-negative coccus from a neonate's blood is streaked perpendicular to S. aureus on blood agar and produces an arrowhead zone of enhanced hemolysis. What does this identify?",
+      "options": {
+        "A": "Enterococcus faecalis",
+        "B": "Group B streptococcus",
+        "C": "Listeria monocytogenes",
+        "D": "Group A streptococcus",
+        "E": "Viridans streptococcus"
+      },
+      "answer": "B",
+      "explanation": "The CAMP factor of group B strep acts together with S. aureus beta-hemolysin to create an arrowhead of enhanced hemolysis. Group B strep is also bacitracin-resistant and hippurate-positive. Listeria can also be CAMP-positive, but it is a Gram-positive rod with tumbling motility.",
+      "wrong": {
+        "D": "Group A is CAMP-negative and bacitracin-sensitive.",
+        "A": "Enterococci are usually non-hemolytic and bile esculin-positive.",
+        "C": "Listeria is a rod, although it can give a positive CAMP reaction.",
+        "E": "Viridans strep is alpha-hemolytic."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3550,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. agalactiae: early vs late onset",
+      "stem": "A 5-week-old infant presents with fever, irritability, and a bulging fontanelle. CSF grows group B strep. The mother's intrapartum antibiotics were given appropriately. Which statement explains this presentation?",
+      "options": {
+        "A": "Late-onset disease is usually pneumonia acquired during vaginal delivery",
+        "B": "The infant must have been infected by a contaminated blood transfusion",
+        "C": "Maternal antibiotics cause late disease by selecting resistant flora",
+        "D": "Maternal prophylaxis prevents early-onset disease but not late-onset",
+        "E": "Group B strep meningitis occurs only in the first 24 hours of life"
+      },
+      "answer": "D",
+      "explanation": "Early-onset GBS disease (days 0-6) is acquired during delivery and presents as sepsis and pneumonia; it is prevented by intrapartum penicillin. Late-onset disease (1 week to 3 months) is often acquired after birth, more often presents as meningitis, and is not prevented by intrapartum prophylaxis.",
+      "wrong": {
+        "A": "Pneumonia and sepsis are typical of early-onset disease.",
+        "B": "Late-onset GBS is acquired from the mother, community, or hospital, not typically transfusion.",
+        "E": "Meningitis is actually more common in late-onset disease.",
+        "C": "Penicillin resistance in GBS is not a recognized problem."
+      },
+      "tables": [
+        {
+          "title": "Bacterial meningitis by age",
+          "cols": [
+            "Age",
+            "Common causes",
+            "Empiric therapy"
+          ],
+          "rows": [
+            [
+              "0–6 months",
+              "GBS, E. coli, Listeria",
+              "Ampicillin + cefotaxime (or gentamicin)"
+            ],
+            [
+              "6 months–6 years",
+              "S. pneumoniae, N. meningitidis, Hib (unvaccinated), enteroviruses",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              "6–60 years",
+              "N. meningitidis, S. pneumoniae, enteroviruses, HSV",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              ">60 years",
+              "S. pneumoniae, N. meningitidis, Listeria",
+              "Ceftriaxone + vancomycin + ampicillin"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3551,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. agalactiae: capsule and neonatal risk",
+      "stem": "Why are infants born before 34 weeks at greater risk of invasive group B strep disease than term infants of colonized mothers?",
+      "options": {
+        "A": "Preterm delivery is always by cesarean, bypassing colonization",
+        "B": "Less maternal IgG against the capsule has crossed the placenta",
+        "C": "Preterm infants make more complement, which feeds GBS growth",
+        "D": "Preterm infants have higher IgA levels in their respiratory tract",
+        "E": "Preterm infants lack the receptors that bind GBS to epithelium"
+      },
+      "answer": "B",
+      "explanation": "Protective anti-capsular IgG crosses the placenta mainly in the third trimester. Preterm infants receive less of it, so the sialic acid-rich polysaccharide capsule of GBS protects the organism from complement-mediated opsonization more effectively. Prematurity, prolonged rupture of membranes, and intrapartum fever are all risk factors.",
+      "wrong": {
+        "E": "Preterm infants are more, not less, susceptible to adherence.",
+        "C": "Neonates, especially preterm infants, have lower complement levels.",
+        "A": "Many preterm deliveries are vaginal.",
+        "D": "Neonatal IgA levels are low regardless of gestation."
+      }
+    },
+    {
+      "id": 3552,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. agalactiae: intrapartum drug choice",
+      "stem": "A woman at 36 weeks has a positive rectovaginal GBS culture. She reports a remote childhood rash with amoxicillin but no hives, swelling, or anaphylaxis. Which intrapartum regimen is preferred?",
+      "options": {
+        "A": "Intravenous cefazolin during labor",
+        "B": "No prophylaxis, since she is allergic",
+        "C": "Oral azithromycin at the onset of labor",
+        "D": "Intravenous vancomycin during labor",
+        "E": "Oral cephalexin started immediately"
+      },
+      "answer": "A",
+      "explanation": "Penicillin or ampicillin is first choice. For a low-risk penicillin allergy (no anaphylaxis, angioedema, or urticaria), cefazolin is preferred because it reaches high amniotic levels. Clindamycin (if susceptible) or vancomycin is used for high-risk allergies. Prophylaxis must be intravenous and given at least four hours before delivery.",
+      "wrong": {
+        "C": "Oral agents and macrolides are not adequate intrapartum prophylaxis.",
+        "D": "Vancomycin is reserved for high-risk allergy with clindamycin-resistant strains.",
+        "B": "Alternatives exist, and omitting prophylaxis raises neonatal risk.",
+        "E": "Antepartum oral treatment does not prevent colonization at delivery."
+      }
+    },
+    {
+      "id": 3553,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. pneumoniae: bile solubility and optochin",
+      "stem": "An alpha-hemolytic, catalase-negative diplococcus from sputum dissolves when sodium deoxycholate is added. What does this confirm, and which other test agrees?",
+      "options": {
+        "A": "Group A strep; it is also PYR-positive",
+        "B": "Enterococcus; it also grows in 6.5% salt",
+        "C": "Viridans strep; it is also optochin-resistant",
+        "D": "Group B strep; it is also hippurate-positive",
+        "E": "Pneumococcus; it is also optochin-sensitive"
+      },
+      "answer": "E",
+      "explanation": "Bile (deoxycholate) activates pneumococcal autolysin, which lyses the cells. Pneumococci are also optochin-sensitive and show umbilicated, 'draughtsman' colonies. Viridans streptococci are bile-insoluble and optochin-resistant.",
+      "wrong": {
+        "C": "Viridans strep is bile-insoluble.",
+        "B": "Enterococci are bile-tolerant, not bile-soluble.",
+        "D": "Group B strep is beta-hemolytic.",
+        "A": "Group A strep is beta-hemolytic."
+      },
+      "tables": [
+        {
+          "title": "Gram-positive cocci: first branch points",
+          "cols": [
+            "Test",
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "Catalase",
+              "Staphylococcus (and Micrococcus)",
+              "Streptococcus, Enterococcus"
+            ],
+            [
+              "Coagulase (staph)",
+              "S. aureus",
+              "S. epidermidis, S. saprophyticus"
+            ],
+            [
+              "Novobiocin (CoNS)",
+              "Sensitive: S. epidermidis",
+              "Resistant: S. saprophyticus"
+            ],
+            [
+              "Optochin (α-hemolytic)",
+              "Sensitive: S. pneumoniae",
+              "Resistant: viridans strep"
+            ],
+            [
+              "Bacitracin (β-hemolytic)",
+              "Sensitive: GAS",
+              "Resistant: GBS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3554,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pneumoniae: quellung reaction",
+      "stem": "Adding type-specific antiserum to a pneumococcal isolate makes the capsule appear swollen and sharply outlined under the microscope. What is this test used for?",
+      "options": {
+        "A": "Measuring penicillin resistance",
+        "B": "Confirming beta-lactamase activity",
+        "C": "Detecting the pneumolysin toxin",
+        "D": "Quantifying bacterial viability",
+        "E": "Identifying the capsular serotype"
+      },
+      "answer": "E",
+      "explanation": "The quellung (Neufeld) reaction uses anticapsular antibody to identify the capsular type. Pneumococcus has about 100 serotypes, and vaccines target the most invasive ones. The capsule is the main virulence factor because it blocks phagocytosis.",
+      "wrong": {
+        "A": "Resistance is measured with MIC testing.",
+        "C": "Pneumolysin is not detected by capsular swelling.",
+        "D": "Viability is measured by colony counts.",
+        "B": "Pneumococci resist penicillin by altered PBPs, not beta-lactamase."
+      }
+    },
+    {
+      "id": 3555,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pneumoniae: conjugate vaccine immunology",
+      "stem": "Why does a pneumococcal conjugate vaccine protect infants when the plain polysaccharide vaccine does not?",
+      "options": {
+        "A": "The conjugate contains live attenuated bacteria that colonize the pharynx",
+        "B": "Conjugation removes the capsule so antibodies bind the cell wall instead",
+        "C": "Protein carriers recruit helper T cells to drive class switching and memory",
+        "D": "Infants lack B cells, so the conjugate activates CD8 T cells for killing",
+        "E": "Polysaccharides are digested in the infant gut before they reach lymph nodes"
+      },
+      "answer": "C",
+      "explanation": "Pure polysaccharides are T-independent antigens: they give weak IgM responses without memory, and children under two respond poorly. Linking the polysaccharide to a protein carrier (such as CRM197, a diphtheria toxoid variant) lets helper T cells recognize carrier peptides and help polysaccharide-specific B cells class-switch to IgG and form memory cells.",
+      "wrong": {
+        "E": "Vaccines are injected, not swallowed.",
+        "B": "Protection is directed at the capsule itself.",
+        "D": "Infants have B cells; their marginal zone response to T-independent antigens is immature.",
+        "A": "Conjugate vaccines are subunit vaccines, not live."
+      },
+      "tables": [
+        {
+          "title": "Vaccine types",
+          "cols": [
+            "Type",
+            "Examples",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Live attenuated",
+              "MMR, varicella, yellow fever, rotavirus, intranasal flu, oral typhoid, BCG",
+              "Strong cellular + humoral immunity; avoid in pregnancy and severe immunosuppression"
+            ],
+            [
+              "Inactivated",
+              "Rabies, injectable influenza, IPV, hepatitis A",
+              "Humoral; boosters needed"
+            ],
+            [
+              "Subunit / recombinant",
+              "HBV, HPV, recombinant zoster, acellular pertussis",
+              "Safe in immunocompromised"
+            ],
+            [
+              "Toxoid",
+              "Tetanus, diphtheria",
+              "Antitoxin antibodies"
+            ],
+            [
+              "Conjugate",
+              "Hib, PCV, MenACWY",
+              "T-cell help → IgG and memory in infants"
+            ],
+            [
+              "mRNA",
+              "COVID-19",
+              "Encodes antigen (spike)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3556,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pneumoniae: meningitis empiric therapy",
+      "stem": "A 40-year-old has fever, neck stiffness, and confusion. CSF Gram stain shows Gram-positive diplococci. Which regimen is started, along with dexamethasone?",
+      "options": {
+        "A": "Vancomycin plus ceftriaxone",
+        "B": "Penicillin G alone",
+        "C": "Ceftriaxone plus azithromycin",
+        "D": "Ampicillin plus gentamicin",
+        "E": "Meropenem plus metronidazole"
+      },
+      "answer": "A",
+      "explanation": "Pneumococci resist penicillin through altered penicillin-binding proteins, and some are also less susceptible to ceftriaxone. Empiric meningitis treatment therefore combines vancomycin and ceftriaxone until susceptibilities are known. Dexamethasone given before or with the first dose reduces hearing loss and death in pneumococcal meningitis.",
+      "wrong": {
+        "D": "This is neonatal or Listeria-directed coverage.",
+        "B": "Resistance is too common to rely on penicillin before susceptibility results.",
+        "C": "This covers community pneumonia, not resistant meningitis.",
+        "E": "This is not standard empiric meningitis therapy."
+      },
+      "tables": [
+        {
+          "title": "Bacterial meningitis by age",
+          "cols": [
+            "Age",
+            "Common causes",
+            "Empiric therapy"
+          ],
+          "rows": [
+            [
+              "0–6 months",
+              "GBS, E. coli, Listeria",
+              "Ampicillin + cefotaxime (or gentamicin)"
+            ],
+            [
+              "6 months–6 years",
+              "S. pneumoniae, N. meningitidis, Hib (unvaccinated), enteroviruses",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              "6–60 years",
+              "N. meningitidis, S. pneumoniae, enteroviruses, HSV",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              ">60 years",
+              "S. pneumoniae, N. meningitidis, Listeria",
+              "Ceftriaxone + vancomycin + ampicillin"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3557,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. pneumoniae: penicillin resistance mechanism",
+      "stem": "A pneumococcal isolate has a penicillin MIC of 4 µg/mL. It produces no beta-lactamase. What is the resistance mechanism, and how did the organism acquire it?",
+      "options": {
+        "A": "An efflux pump acquired by phage transduction",
+        "B": "A methylated ribosome acquired from a transposon",
+        "C": "Loss of an outer membrane porin by point mutation",
+        "D": "A plasmid beta-lactamase acquired by conjugation",
+        "E": "Mosaic PBP genes acquired by natural transformation"
+      },
+      "answer": "E",
+      "explanation": "Pneumococci are naturally competent and take up DNA from related streptococci. Recombination creates mosaic PBP genes that encode low-affinity binding proteins. Beta-lactamase inhibitors do not help because no beta-lactamase is involved.",
+      "wrong": {
+        "D": "Pneumococci do not produce beta-lactamases.",
+        "C": "Pneumococci have no outer membrane.",
+        "A": "Efflux causes macrolide (mef) resistance, not beta-lactam resistance.",
+        "B": "Ribosome methylation (erm) affects macrolides and clindamycin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial gene transfer",
+          "cols": [
+            "Process",
+            "Mechanism",
+            "DNase-sensitive?",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Transformation",
+              "Uptake of naked DNA",
+              "Yes",
+              "S. pneumoniae, H. influenzae, Neisseria"
+            ],
+            [
+              "Conjugation",
+              "Sex pilus (F factor); plasmid transfer",
+              "No",
+              "R plasmids, ESBL spread"
+            ],
+            [
+              "Generalized transduction",
+              "Phage packages random host DNA (lytic)",
+              "No",
+              "Any gene"
+            ],
+            [
+              "Specialized transduction",
+              "Faulty prophage excision (lysogenic)",
+              "No",
+              "Genes next to insertion site"
+            ],
+            [
+              "Lysogenic conversion",
+              "Prophage genes expressed",
+              "No",
+              "Diphtheria, cholera, botulinum, Shiga-like, erythrogenic toxins"
+            ],
+            [
+              "Transposition",
+              "Transposons jump without homology",
+              "No",
+              "vanA (Tn1546)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3558,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. pneumoniae: host risk after splenectomy",
+      "stem": "A 30-year-old man who had a splenectomy after trauma develops fever and within 12 hours is in shock with purpura and DIC. Which organism is the most common cause?",
+      "options": {
+        "A": "Streptococcus pneumoniae",
+        "B": "Streptococcus agalactiae",
+        "C": "Streptococcus mutans",
+        "D": "Staphylococcus epidermidis",
+        "E": "Enterococcus faecalis"
+      },
+      "answer": "A",
+      "explanation": "Overwhelming post-splenectomy infection is most often caused by pneumococcus, followed by H. influenzae type b and meningococcus. The spleen removes opsonized encapsulated bacteria and produces IgM against polysaccharides. Asplenic patients should receive pneumococcal, meningococcal, and Hib vaccines and carry standby antibiotics.",
+      "wrong": {
+        "D": "It is not encapsulated in the relevant sense and causes device infections.",
+        "E": "Enterococci are not a typical cause of post-splenectomy sepsis.",
+        "C": "S. mutans causes dental caries and endocarditis.",
+        "B": "GBS affects neonates and older diabetics."
+      },
+      "tables": [
+        {
+          "title": "Immune defects and typical infections",
+          "cols": [
+            "Defect",
+            "Examples",
+            "Typical organisms"
+          ],
+          "rows": [
+            [
+              "B cell / antibody",
+              "XLA, CVID",
+              "Encapsulated bacteria, enteroviruses, Giardia"
+            ],
+            [
+              "T cell",
+              "DiGeorge, HIV",
+              "Candida, Pneumocystis, viruses, intracellular bacteria"
+            ],
+            [
+              "Phagocyte",
+              "CGD, neutropenia, LAD",
+              "Catalase-positive bacteria, Aspergillus, Candida"
+            ],
+            [
+              "Terminal complement (C5–C9)",
+              "Congenital, eculizumab",
+              "Neisseria"
+            ],
+            [
+              "Asplenia",
+              "Splenectomy, sickle cell",
+              "Encapsulated bacteria, Babesia, Capnocytophaga"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3559,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "S. pneumoniae: urinary antigen",
+      "stem": "A 72-year-old with community-acquired pneumonia received antibiotics before sputum could be collected. Which test can still identify pneumococcus as the cause?",
+      "options": {
+        "A": "Urinary antigen for C-polysaccharide",
+        "B": "Heterophile antibody on a blood sample",
+        "C": "Urinary antigen for Legionella serogroup 1",
+        "D": "Acid-fast stain of expectorated sputum",
+        "E": "Cold agglutinin titer in the serum"
+      },
+      "answer": "A",
+      "explanation": "The pneumococcal urinary antigen test detects C-polysaccharide and remains positive for days to weeks after antibiotics are started. It is useful when cultures are compromised. The Legionella urinary antigen detects serogroup 1 only.",
+      "wrong": {
+        "E": "Cold agglutinins suggest Mycoplasma.",
+        "D": "Acid-fast stains detect mycobacteria.",
+        "C": "This detects Legionella, not pneumococcus.",
+        "B": "This detects EBV."
+      },
+      "tables": [
+        {
+          "title": "Atypical pneumonia organisms",
+          "cols": [
+            "Organism",
+            "Setting / clue",
+            "Diagnosis",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Mycoplasma pneumoniae",
+              "Young adults in close quarters; cold agglutinins",
+              "PCR; no cell wall",
+              "Macrolide, doxycycline, FQ"
+            ],
+            [
+              "Chlamydophila pneumoniae",
+              "Mild pneumonia, pharyngitis, hoarseness",
+              "PCR, serology",
+              "Macrolide, doxycycline"
+            ],
+            [
+              "Legionella pneumophila",
+              "Water aerosols; GI symptoms, confusion, hyponatremia",
+              "Urine antigen; BCYE culture",
+              "Levofloxacin or azithromycin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Birds (parrots)",
+              "Serology, PCR",
+              "Doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Livestock birth products; no rash",
+              "Serology",
+              "Doxycycline"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3560,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "Viridans strep: dextran and valve adherence",
+      "stem": "A 45-year-old with mitral valve prolapse has low-grade fevers and weight loss for six weeks after a dental extraction. Blood cultures grow alpha-hemolytic, optochin-resistant cocci. Which property lets this organism adhere to damaged valves?",
+      "options": {
+        "A": "A poly-D-glutamate capsule",
+        "B": "Coagulase coating the bacterial surface",
+        "C": "Dextran synthesized from sucrose",
+        "D": "Lipoteichoic acid-binding TLR4",
+        "E": "Protein A binding immunoglobulin"
+      },
+      "answer": "C",
+      "explanation": "Viridans streptococci such as S. sanguinis and S. mutans make dextrans from sucrose, which let them stick to fibrin-platelet aggregates on damaged valves. They cause subacute endocarditis, typically after dental work, with a slower course than S. aureus. Penicillin or ceftriaxone is standard therapy.",
+      "wrong": {
+        "E": "Protein A belongs to S. aureus.",
+        "A": "This is the capsule of B. anthracis.",
+        "B": "Coagulase belongs to S. aureus.",
+        "D": "Lipoteichoic acid signals through TLR2, and it is not an adhesin for valves."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3561,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "S. anginosus group: abscesses",
+      "stem": "A 58-year-old has a brain abscess and a separate liver abscess. Aspirates grow small colonies with a caramel odor that are Gram-positive cocci in chains, catalase-negative, and optochin-resistant. Which organism is most likely?",
+      "options": {
+        "A": "Streptococcus intermedius",
+        "B": "Streptococcus pneumoniae",
+        "C": "Streptococcus pyogenes",
+        "D": "Streptococcus gallolyticus",
+        "E": "Streptococcus agalactiae"
+      },
+      "answer": "A",
+      "explanation": "S. intermedius belongs to the S. anginosus (milleri) group - S. anginosus, S. intermedius, and S. constellatus - is a viridans subgroup with a strong tendency to form abscesses in the brain, liver, lungs, and pleura. Cultures often smell of butterscotch or caramel.",
+      "wrong": {
+        "B": "Pneumococcus is optochin-sensitive and rarely causes liver abscess.",
+        "C": "GAS is beta-hemolytic and spreads rather than forming abscesses.",
+        "D": "It is linked to colon cancer and endocarditis, not multifocal abscesses.",
+        "E": "GBS is beta-hemolytic and hippurate-positive."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3562,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "S. gallolyticus: colonoscopy",
+      "stem": "A 67-year-old man has endocarditis. Blood cultures grow a non-enterococcal group D streptococcus that grows on bile esculin but not in 6.5% salt. Which test should follow his valve workup?",
+      "options": {
+        "A": "Upper endoscopy",
+        "B": "Bone marrow biopsy",
+        "C": "Renal ultrasound",
+        "D": "Bronchoscopy",
+        "E": "Colonoscopy"
+      },
+      "answer": "E",
+      "explanation": "Streptococcus gallolyticus (formerly S. bovis biotype I) bacteremia and endocarditis are strongly associated with colorectal adenomas and carcinoma, so colonoscopy is indicated. It is separated from enterococci by its failure to grow in 6.5% NaCl.",
+      "wrong": {
+        "D": "The association is with colon, not lung, neoplasia.",
+        "A": "Gastric cancer is not the recognized association.",
+        "B": "No hematologic malignancy is linked to this organism.",
+        "C": "It is not a urinary pathogen."
+      },
+      "tables": [
+        {
+          "title": "Catalase-negative Gram-positive cocci",
+          "cols": [
+            "Organism",
+            "Hemolysis",
+            "Key test",
+            "Classic diseases"
+          ],
+          "rows": [
+            [
+              "S. pyogenes (GAS)",
+              "β",
+              "Bacitracin S, PYR +",
+              "Pharyngitis, impetigo, erysipelas, necrotizing fasciitis, scarlet fever; ARF, PSGN"
+            ],
+            [
+              "S. agalactiae (GBS)",
+              "β",
+              "Bacitracin R, CAMP +, hippurate +",
+              "Neonatal sepsis, pneumonia, meningitis"
+            ],
+            [
+              "S. pneumoniae",
+              "α",
+              "Optochin S, bile soluble, quellung +",
+              "Pneumonia, otitis media, sinusitis, meningitis"
+            ],
+            [
+              "Viridans strep",
+              "α",
+              "Optochin R, bile insoluble",
+              "Dental caries (S. mutans), subacute endocarditis"
+            ],
+            [
+              "Enterococcus",
+              "γ (usually)",
+              "Grows in 6.5% NaCl, bile esculin +, PYR +",
+              "UTI, biliary infection, endocarditis after GU/GI procedures"
+            ],
+            [
+              "S. gallolyticus",
+              "γ",
+              "Bile esculin +, no growth in 6.5% NaCl",
+              "Endocarditis linked to colon cancer"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3563,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "hard",
+      "topic": "Nutritionally variant streptococci",
+      "stem": "A patient with culture-negative endocarditis has Gram-positive cocci seen in blood culture broth that grow on blood agar only as tiny satellite colonies around a streak of S. aureus. Which organism is most likely?",
+      "options": {
+        "A": "Abiotrophia or Granulicatella",
+        "B": "Enterococcus faecalis",
+        "C": "Haemophilus influenzae type b",
+        "D": "Streptococcus gallolyticus",
+        "E": "Aerococcus urinae"
+      },
+      "answer": "A",
+      "explanation": "Abiotrophia and Granulicatella, the nutritionally variant streptococci, need pyridoxal (vitamin B6) and grow only as satellites near S. aureus or on supplemented media. They cause about 5% of streptococcal endocarditis and are treated like enterococci because relapse is common.",
+      "wrong": {
+        "C": "H. influenzae also satellites near S. aureus but is a Gram-negative coccobacillus.",
+        "D": "It grows readily on standard media.",
+        "B": "Enterococci grow readily on standard media.",
+        "E": "It grows on blood agar without supplementation."
+      }
+    },
+    {
+      "id": 3564,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "easy",
+      "topic": "Enterococcus: salt and bile growth",
+      "stem": "A catalase-negative Gram-positive coccus from urine grows in 6.5% NaCl and hydrolyzes esculin in the presence of bile. Which organism is this?",
+      "options": {
+        "A": "Enterococcus faecalis",
+        "B": "Streptococcus agalactiae",
+        "C": "Staphylococcus saprophyticus",
+        "D": "Streptococcus mitis",
+        "E": "Streptococcus gallolyticus"
+      },
+      "answer": "A",
+      "explanation": "Enterococci are hardy: they grow in 6.5% salt, 40% bile, and a wide range of temperatures. Both enterococci and S. gallolyticus are bile esculin-positive, but only enterococci grow in 6.5% salt. Enterococci are also PYR-positive.",
+      "wrong": {
+        "E": "It is bile esculin-positive but does not grow in 6.5% salt.",
+        "B": "GBS is beta-hemolytic and CAMP-positive.",
+        "C": "It is catalase-positive.",
+        "D": "Viridans strep does not grow in bile or high salt."
+      },
+      "tables": [
+        {
+          "title": "Gram-positive cocci: first branch points",
+          "cols": [
+            "Test",
+            "Positive",
+            "Negative"
+          ],
+          "rows": [
+            [
+              "Catalase",
+              "Staphylococcus (and Micrococcus)",
+              "Streptococcus, Enterococcus"
+            ],
+            [
+              "Coagulase (staph)",
+              "S. aureus",
+              "S. epidermidis, S. saprophyticus"
+            ],
+            [
+              "Novobiocin (CoNS)",
+              "Sensitive: S. epidermidis",
+              "Resistant: S. saprophyticus"
+            ],
+            [
+              "Optochin (α-hemolytic)",
+              "Sensitive: S. pneumoniae",
+              "Resistant: viridans strep"
+            ],
+            [
+              "Bacitracin (β-hemolytic)",
+              "Sensitive: GAS",
+              "Resistant: GBS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3565,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "Enterococcus: intrinsic cephalosporin resistance",
+      "stem": "A patient on ceftriaxone for pneumonia develops a urinary infection with a Gram-positive coccus that grew through the antibiotic. Why are enterococci intrinsically resistant to cephalosporins?",
+      "options": {
+        "A": "They pump cephalosporins out with efflux systems",
+        "B": "Their outer membrane porins exclude cephalosporins",
+        "C": "They produce an extended-spectrum beta-lactamase from a plasmid",
+        "D": "They lack peptidoglycan in the wall",
+        "E": "Their PBPs bind cephalosporins with low affinity"
+      },
+      "answer": "E",
+      "explanation": "Enterococci carry low-affinity PBPs (such as PBP5) that cephalosporins bind poorly. Cephalosporin use therefore selects for enterococcal superinfection. Mnemonic: LAME organisms are not covered by cephalosporins - Listeria, Atypicals, MRSA (except ceftaroline), and Enterococci.",
+      "wrong": {
+        "C": "ESBLs are a Gram-negative mechanism.",
+        "B": "Enterococci have no outer membrane.",
+        "D": "Enterococci have a thick peptidoglycan wall.",
+        "A": "Efflux is not the main mechanism of intrinsic cephalosporin resistance."
+      },
+      "tables": [
+        {
+          "title": "Cephalosporin generations",
+          "cols": [
+            "Generation",
+            "Examples",
+            "Coverage / use"
+          ],
+          "rows": [
+            [
+              "1st",
+              "Cefazolin, cephalexin",
+              "Gram-positives, PEcK; surgical prophylaxis, MSSA"
+            ],
+            [
+              "2nd",
+              "Cefoxitin, cefuroxime",
+              "Adds H. influenzae, Enterobacter, Neisseria; cefoxitin anaerobes"
+            ],
+            [
+              "3rd",
+              "Ceftriaxone, cefotaxime, ceftazidime",
+              "Serious Gram-negatives; meningitis, gonorrhea; ceftazidime → Pseudomonas"
+            ],
+            [
+              "4th",
+              "Cefepime",
+              "Gram-positives + Pseudomonas; AmpC-stable"
+            ],
+            [
+              "5th",
+              "Ceftaroline",
+              "MRSA (binds PBP2a); not Pseudomonas"
+            ],
+            [
+              "None cover",
+              "—",
+              "Listeria, Atypicals, MRSA (except 5th), Enterococci (LAME)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3566,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "hard",
+      "topic": "E. faecalis endocarditis: double beta-lactam",
+      "stem": "A 78-year-old with chronic kidney disease has E. faecalis native valve endocarditis that is ampicillin-susceptible with high-level gentamicin resistance. Which regimen is preferred?",
+      "options": {
+        "A": "Ampicillin plus gentamicin",
+        "B": "Ampicillin plus ceftriaxone",
+        "C": "Nafcillin plus gentamicin",
+        "D": "Ceftriaxone alone",
+        "E": "Vancomycin plus rifampin"
+      },
+      "answer": "B",
+      "explanation": "Ampicillin plus ceftriaxone works synergistically because the two drugs saturate different PBPs. It avoids aminoglycoside nephrotoxicity and still works when there is high-level aminoglycoside resistance. Ceftriaxone alone is inactive against enterococci.",
+      "wrong": {
+        "A": "High-level gentamicin resistance abolishes synergy, and the drug is nephrotoxic.",
+        "D": "Enterococci are intrinsically resistant to cephalosporins.",
+        "E": "Vancomycin is inferior when the organism is ampicillin-susceptible.",
+        "C": "Nafcillin has poor activity against enterococci."
+      }
+    },
+    {
+      "id": 3567,
+      "part": "Gram+ Cocci",
+      "tag": "Gram+ Cocci",
+      "difficulty": "medium",
+      "topic": "E. faecium vs E. faecalis",
+      "stem": "Which statement correctly contrasts the two main enterococcal species?",
+      "options": {
+        "A": "E. faecium is found only in the environment, not the gut",
+        "B": "E. faecium is catalase-positive and E. faecalis is negative",
+        "C": "E. faecalis is beta-hemolytic and E. faecium is alpha",
+        "D": "E. faecium is more often ampicillin- and vancomycin-resistant",
+        "E": "E. faecalis is more often ampicillin- and vancomycin-resistant"
+      },
+      "answer": "D",
+      "explanation": "E. faecalis causes most enterococcal infections and is usually ampicillin-susceptible. E. faecium causes fewer infections but accounts for most vancomycin-resistant (VRE) and ampicillin-resistant isolates. VRE infections are treated with linezolid or daptomycin.",
+      "wrong": {
+        "E": "The reverse is true.",
+        "B": "Both are catalase-negative.",
+        "C": "Most enterococci are gamma-hemolytic.",
+        "A": "Both species colonize the gut."
+      },
+      "tables": [
+        {
+          "title": "Resistance mechanisms",
+          "cols": [
+            "Drug",
+            "Main mechanism"
+          ],
+          "rows": [
+            [
+              "β-lactams",
+              "β-lactamases; altered PBPs (MRSA PBP2a, pneumococcus); porin loss"
+            ],
+            [
+              "Vancomycin",
+              "D-Ala-D-Ala → D-Ala-D-Lac (vanA)"
+            ],
+            [
+              "Aminoglycosides",
+              "Acetylation, adenylation, phosphorylation"
+            ],
+            [
+              "Macrolides",
+              "23S rRNA methylation (erm), efflux (mef)"
+            ],
+            [
+              "Tetracyclines",
+              "Efflux, ribosomal protection"
+            ],
+            [
+              "Fluoroquinolones",
+              "Gyrase/topo IV mutations, efflux, qnr"
+            ],
+            [
+              "Rifampin",
+              "rpoB mutation"
+            ],
+            [
+              "Sulfonamides",
+              "Altered dihydropteroate synthase, ↑PABA"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3568,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "medium",
+      "topic": "VRE: drug choice for bacteremia",
+      "stem": "A liver transplant recipient has bacteremia with E. faecium resistant to both ampicillin and vancomycin. Which drug is appropriate?",
+      "options": {
+        "A": "Daptomycin",
+        "B": "Polymyxin B",
+        "C": "Aztreonam",
+        "D": "Ceftaroline",
+        "E": "Cefazolin"
+      },
+      "answer": "A",
+      "explanation": "Options for VRE are daptomycin (preferred for bacteremia, often at high dose) and linezolid. Tigecycline has low blood levels. Ceftaroline and other cephalosporins are inactive against enterococci.",
+      "wrong": {
+        "D": "Ceftaroline is active against MRSA but not enterococci.",
+        "C": "Aztreonam acts only on Gram-negative organisms.",
+        "E": "Enterococci are intrinsically cephalosporin-resistant.",
+        "B": "Polymyxins act only on Gram-negative outer membranes."
+      },
+      "tables": [
+        {
+          "title": "Resistance mechanisms",
+          "cols": [
+            "Drug",
+            "Main mechanism"
+          ],
+          "rows": [
+            [
+              "β-lactams",
+              "β-lactamases; altered PBPs (MRSA PBP2a, pneumococcus); porin loss"
+            ],
+            [
+              "Vancomycin",
+              "D-Ala-D-Ala → D-Ala-D-Lac (vanA)"
+            ],
+            [
+              "Aminoglycosides",
+              "Acetylation, adenylation, phosphorylation"
+            ],
+            [
+              "Macrolides",
+              "23S rRNA methylation (erm), efflux (mef)"
+            ],
+            [
+              "Tetracyclines",
+              "Efflux, ribosomal protection"
+            ],
+            [
+              "Fluoroquinolones",
+              "Gyrase/topo IV mutations, efflux, qnr"
+            ],
+            [
+              "Rifampin",
+              "rpoB mutation"
+            ],
+            [
+              "Sulfonamides",
+              "Altered dihydropteroate synthase, ↑PABA"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3569,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "easy",
+      "topic": "Listeria: tumbling motility and cold growth",
+      "stem": "A Gram-positive rod from a neonate's blood shows end-over-end tumbling motility in a wet mount at room temperature and an umbrella pattern in semisolid agar. It also grows at 4°C. Which organism is this?",
+      "options": {
+        "A": "Bacillus cereus",
+        "B": "Corynebacterium jeikeium",
+        "C": "Listeria monocytogenes",
+        "D": "Erysipelothrix rhusiopathiae",
+        "E": "Clostridium perfringens"
+      },
+      "answer": "C",
+      "explanation": "Listeria is a facultative intracellular Gram-positive rod that is motile at room temperature (tumbling, umbrella pattern) but not at 37°C. It grows in the cold, which lets it multiply in refrigerated foods such as deli meats, soft cheeses, and smoked fish. It is catalase-positive and shows narrow beta-hemolysis.",
+      "wrong": {
+        "A": "B. cereus is a large spore-forming rod and does not grow at 4°C.",
+        "B": "Corynebacteria are non-motile club-shaped rods.",
+        "D": "Erysipelothrix is non-motile and infects handlers of fish and meat.",
+        "E": "C. perfringens is an anaerobic, non-motile, boxcar-shaped rod."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3570,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Listeria: listeriolysin O",
+      "stem": "After being phagocytosed by a macrophage, Listeria escapes into the cytoplasm. Which factor is required for this escape?",
+      "options": {
+        "A": "Streptolysin S",
+        "B": "Protein A of S. aureus",
+        "C": "ActA surface protein",
+        "D": "Internalin A",
+        "E": "Listeriolysin O"
+      },
+      "answer": "E",
+      "explanation": "Listeriolysin O is a cholesterol-dependent pore-forming toxin that ruptures the phagosome membrane. In the cytoplasm, ActA recruits host Arp2/3 to polymerize actin 'rockets' that propel the bacterium into neighboring cells. Internalin binds E-cadherin to trigger uptake into intestinal and placental cells.",
+      "wrong": {
+        "C": "ActA drives actin-based motility after the organism reaches the cytoplasm.",
+        "D": "Internalin mediates entry into epithelial cells through E-cadherin.",
+        "B": "Protein A binds the Fc region of IgG.",
+        "A": "Streptolysin S is a group A streptococcal hemolysin."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3571,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Listeria: cell-mediated immunity",
+      "stem": "Why are patients taking high-dose glucocorticoids or TNF inhibitors at particular risk of Listeria meningitis?",
+      "options": {
+        "A": "Clearance needs eosinophils to release major basic protein",
+        "B": "Clearance needs IgA secreted into the intestinal lumen",
+        "C": "Clearance needs T cells to activate infected macrophages",
+        "D": "Clearance needs antibody to neutralize a secreted exotoxin",
+        "E": "Clearance needs complement to lyse the bacteria directly"
+      },
+      "answer": "C",
+      "explanation": "Listeria lives inside macrophages and spreads directly from cell to cell, so antibody and complement contribute little. Control requires IFN-gamma from Th1 and CD8 cells to activate macrophages. Risk groups include pregnancy, neonates, the elderly, and anyone with impaired cell-mediated immunity.",
+      "wrong": {
+        "E": "Complement defects predispose to Neisseria, not Listeria.",
+        "B": "IgA deficiency does not predispose to listeriosis.",
+        "A": "Eosinophils are directed against helminths.",
+        "D": "Listeria disease is not driven by a circulating exotoxin."
+      },
+      "tables": [
+        {
+          "title": "Immune defects and typical infections",
+          "cols": [
+            "Defect",
+            "Examples",
+            "Typical organisms"
+          ],
+          "rows": [
+            [
+              "B cell / antibody",
+              "XLA, CVID",
+              "Encapsulated bacteria, enteroviruses, Giardia"
+            ],
+            [
+              "T cell",
+              "DiGeorge, HIV",
+              "Candida, Pneumocystis, viruses, intracellular bacteria"
+            ],
+            [
+              "Phagocyte",
+              "CGD, neutropenia, LAD",
+              "Catalase-positive bacteria, Aspergillus, Candida"
+            ],
+            [
+              "Terminal complement (C5–C9)",
+              "Congenital, eculizumab",
+              "Neisseria"
+            ],
+            [
+              "Asplenia",
+              "Splenectomy, sickle cell",
+              "Encapsulated bacteria, Babesia, Capnocytophaga"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3572,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Listeria: pregnancy presentation",
+      "stem": "A 28-year-old woman at 30 weeks' gestation who ate soft cheese made from unpasteurized milk develops fever and myalgias. Blood cultures grow a Gram-positive rod. What is the major risk?",
+      "options": {
+        "A": "Acute liver failure caused by a toxin made in the mother's gut",
+        "B": "Ascending paralysis caused by antibodies to peripheral myelin",
+        "C": "Transplacental spread causing fetal loss or preterm sepsis",
+        "D": "Fetal hydrops caused by arrest of red cell production",
+        "E": "Congenital cataracts with a patent ductus arteriosus"
+      },
+      "answer": "C",
+      "explanation": "Pregnant women have a much higher risk of listeriosis, and the maternal illness is usually mild. The organism crosses the placenta and can cause miscarriage, stillbirth, preterm labor, or granulomatosis infantiseptica with disseminated microabscesses. Treatment is ampicillin, often with gentamicin.",
+      "wrong": {
+        "A": "Hepatic failure from a gut toxin is not a feature of listeriosis.",
+        "B": "Guillain-Barré syndrome follows Campylobacter infection.",
+        "D": "Hydrops fetalis is caused by parvovirus B19.",
+        "E": "These are features of congenital rubella."
+      },
+      "tables": [
+        {
+          "title": "Congenital (TORCH) infections",
+          "cols": [
+            "Infection",
+            "Classic findings"
+          ],
+          "rows": [
+            [
+              "Toxoplasma",
+              "Chorioretinitis, hydrocephalus, diffuse calcifications"
+            ],
+            [
+              "Rubella",
+              "PDA, cataracts, deafness, blueberry muffin rash"
+            ],
+            [
+              "CMV",
+              "Periventricular calcifications, microcephaly, sensorineural deafness"
+            ],
+            [
+              "HSV",
+              "Vesicles, keratoconjunctivitis, encephalitis, dissemination"
+            ],
+            [
+              "Syphilis",
+              "Snuffles, rash; later Hutchinson teeth, saddle nose, saber shins"
+            ],
+            [
+              "Varicella",
+              "Limb hypoplasia, cicatricial scars"
+            ],
+            [
+              "Parvovirus B19",
+              "Hydrops fetalis"
+            ],
+            [
+              "Zika",
+              "Severe microcephaly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3573,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "easy",
+      "topic": "Listeria: cephalosporin gap",
+      "stem": "A 70-year-old on chemotherapy has meningitis with a Gram-positive rod on CSF Gram stain. He is receiving vancomycin and ceftriaxone. Which drug must be added?",
+      "options": {
+        "A": "Ampicillin",
+        "B": "Aztreonam",
+        "C": "Metronidazole",
+        "D": "Cefepime",
+        "E": "Gentamicin alone"
+      },
+      "answer": "A",
+      "explanation": "Listeria is intrinsically resistant to all cephalosporins, so empiric meningitis therapy in adults over 50, neonates, and immunocompromised patients adds ampicillin. TMP-SMX is the alternative in penicillin allergy. Gentamicin may be added for synergy but is never used alone.",
+      "wrong": {
+        "E": "Aminoglycosides penetrate CSF poorly and are only synergistic.",
+        "D": "Listeria resists every cephalosporin.",
+        "B": "Aztreonam acts only against Gram-negative organisms.",
+        "C": "Metronidazole covers anaerobes, and Listeria is facultative."
+      },
+      "tables": [
+        {
+          "title": "Bacterial meningitis by age",
+          "cols": [
+            "Age",
+            "Common causes",
+            "Empiric therapy"
+          ],
+          "rows": [
+            [
+              "0–6 months",
+              "GBS, E. coli, Listeria",
+              "Ampicillin + cefotaxime (or gentamicin)"
+            ],
+            [
+              "6 months–6 years",
+              "S. pneumoniae, N. meningitidis, Hib (unvaccinated), enteroviruses",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              "6–60 years",
+              "N. meningitidis, S. pneumoniae, enteroviruses, HSV",
+              "Ceftriaxone + vancomycin"
+            ],
+            [
+              ">60 years",
+              "S. pneumoniae, N. meningitidis, Listeria",
+              "Ceftriaxone + vancomycin + ampicillin"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3574,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "easy",
+      "topic": "C. diphtheriae: microscopy and media",
+      "stem": "A throat swab from an unvaccinated child with a gray pharyngeal membrane is stained with methylene blue. Which appearance is expected?",
+      "options": {
+        "A": "Curved rods with a single flagellum at one pole",
+        "B": "Chains of spherical cocci surrounded by a clear capsule",
+        "C": "Branching filaments that fragment into short rods",
+        "D": "Large boxcar-shaped rods with central pale endospores",
+        "E": "Club-shaped rods in angular clusters with granules"
+      },
+      "answer": "E",
+      "explanation": "C. diphtheriae is a club-shaped Gram-positive rod arranged in angular 'Chinese letter' clusters, with metachromatic Babes-Ernst granules of polyphosphate. It grows on Loeffler medium and forms black colonies on cystine-tellurite agar.",
+      "wrong": {
+        "B": "This describes streptococci.",
+        "D": "Boxcar rods with spores describe Bacillus and Clostridium.",
+        "C": "Branching filaments describe Actinomyces and Nocardia.",
+        "A": "This describes Vibrio or Campylobacter."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3575,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Diphtheria toxin: mechanism",
+      "stem": "Diphtheria toxin has an A and a B fragment. What does the A fragment do once inside the cell?",
+      "options": {
+        "A": "ADP-ribosylates the Gs alpha subunit",
+        "B": "ADP-ribosylates the Gi alpha subunit",
+        "C": "Cleaves 28S ribosomal RNA at one adenine",
+        "D": "ADP-ribosylates elongation factor 2",
+        "E": "Blocks release of glycine from interneurons"
+      },
+      "answer": "D",
+      "explanation": "Fragment B binds the heparin-binding EGF-like receptor and delivers fragment A, which ADP-ribosylates elongation factor 2 and shuts down host protein synthesis. Local necrosis produces the pseudomembrane, and absorbed toxin causes myocarditis and neuritis. Pseudomonas exotoxin A shares this mechanism.",
+      "wrong": {
+        "A": "That is cholera toxin and pertussis-related cAMP toxins.",
+        "B": "That is pertussis toxin.",
+        "C": "That is Shiga and Shiga-like toxin.",
+        "E": "That is tetanospasmin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3576,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Diphtheria: airway and antitoxin timing",
+      "stem": "A child has a firmly adherent gray membrane over the tonsils that bleeds when scraped, a 'bull neck' from cervical edema, and stridor. What is the most important immediate intervention?",
+      "options": {
+        "A": "Give erythromycin and wait for the culture to confirm",
+        "B": "Scrape the membrane off to relieve airway obstruction",
+        "C": "Give equine antitoxin before culture results return",
+        "D": "Give a dose of diphtheria toxoid vaccine immediately",
+        "E": "Give corticosteroids alone to reduce cervical edema"
+      },
+      "answer": "C",
+      "explanation": "Antitoxin neutralizes only circulating toxin, not toxin already bound to cells, so it is given on clinical suspicion without waiting for confirmation. Antibiotics (erythromycin or penicillin) stop toxin production and transmission but do not replace antitoxin. Airway protection and cardiac monitoring are essential, and the membrane is never scraped because it bleeds and can obstruct.",
+      "wrong": {
+        "A": "Delay allows more toxin to bind irreversibly.",
+        "B": "Scraping causes bleeding and can worsen obstruction.",
+        "D": "Active immunization is too slow for acute disease, though it is needed in convalescence.",
+        "E": "Steroids do not neutralize toxin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3577,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Diphtheria: carrier vs disease",
+      "stem": "Which feature determines whether a C. diphtheriae isolate can cause the classic disease?",
+      "options": {
+        "A": "Ability to ferment mannitol on selective agar",
+        "B": "Presence of a type III secretion apparatus",
+        "C": "Ability to grow anaerobically in deep tissue",
+        "D": "Presence of a capsule made of poly-D-glutamic acid",
+        "E": "Carriage of a lysogenic phage bearing the tox gene"
+      },
+      "answer": "E",
+      "explanation": "The tox gene is carried by a lysogenic corynebacteriophage, so only phage-infected strains are toxigenic. Toxin production is repressed by iron through the DtxR regulator and rises when iron is low. The Elek test detects toxin production.",
+      "wrong": {
+        "D": "That capsule belongs to B. anthracis.",
+        "C": "C. diphtheriae is a facultative anaerobe, and this is not what distinguishes toxigenic strains.",
+        "A": "Mannitol fermentation identifies S. aureus.",
+        "B": "Diphtheria toxin is secreted and does not use a type III injectisome."
+      },
+      "tables": [
+        {
+          "title": "Bacterial gene transfer",
+          "cols": [
+            "Process",
+            "Mechanism",
+            "DNase-sensitive?",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Transformation",
+              "Uptake of naked DNA",
+              "Yes",
+              "S. pneumoniae, H. influenzae, Neisseria"
+            ],
+            [
+              "Conjugation",
+              "Sex pilus (F factor); plasmid transfer",
+              "No",
+              "R plasmids, ESBL spread"
+            ],
+            [
+              "Generalized transduction",
+              "Phage packages random host DNA (lytic)",
+              "No",
+              "Any gene"
+            ],
+            [
+              "Specialized transduction",
+              "Faulty prophage excision (lysogenic)",
+              "No",
+              "Genes next to insertion site"
+            ],
+            [
+              "Lysogenic conversion",
+              "Prophage genes expressed",
+              "No",
+              "Diphtheria, cholera, botulinum, Shiga-like, erythrogenic toxins"
+            ],
+            [
+              "Transposition",
+              "Transposons jump without homology",
+              "No",
+              "vanA (Tn1546)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3578,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Corynebacterium: non-diphtheriae species",
+      "stem": "Blood cultures from a neutropenic patient with a tunneled catheter grow a multidrug-resistant, lipophilic Gram-positive rod identified as Corynebacterium jeikeium. What is the appropriate treatment?",
+      "options": {
+        "A": "Vancomycin and catheter removal",
+        "B": "Metronidazole with catheter retention",
+        "C": "No therapy, since this is skin flora",
+        "D": "Penicillin G alone through the catheter",
+        "E": "Oral erythromycin as an outpatient"
+      },
+      "answer": "A",
+      "explanation": "C. jeikeium and other non-diphtherial corynebacteria (diphtheroids) are usually contaminants, but in neutropenic patients with indwelling lines they cause true bacteremia. They are typically resistant to beta-lactams, so vancomycin is the drug of choice, along with line removal.",
+      "wrong": {
+        "D": "These organisms are usually beta-lactam resistant.",
+        "E": "Macrolide resistance is common and the patient needs IV therapy.",
+        "C": "In a neutropenic patient with a line this is treated as real.",
+        "B": "Metronidazole has no aerobic Gram-positive activity."
+      }
+    },
+    {
+      "id": 3579,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Corynebacterium minutissimum: erythrasma",
+      "stem": "A 55-year-old obese man has well-demarcated red-brown patches in the groin that fluoresce coral-red under a Wood lamp. KOH preparation shows no fungal elements. Which organism is responsible?",
+      "options": {
+        "A": "Trichophyton rubrum, a dermatophyte",
+        "B": "Staphylococcus aureus",
+        "C": "Malassezia furfur",
+        "D": "Corynebacterium minutissimum",
+        "E": "Candida albicans"
+      },
+      "answer": "D",
+      "explanation": "Erythrasma is a superficial infection of skin folds caused by Corynebacterium minutissimum, producing coral-red fluorescence from porphyrins. It mimics tinea cruris but has no fungal hyphae on KOH. Treatment is topical or oral erythromycin or clindamycin.",
+      "wrong": {
+        "A": "Tinea cruris shows hyphae on KOH and does not fluoresce coral-red.",
+        "C": "Tinea versicolor shows spaghetti-and-meatballs yeast and hyphae.",
+        "E": "Candidal intertrigo has satellite pustules and shows pseudohyphae.",
+        "B": "Staphylococcal skin infection is pustular or crusted."
+      }
+    },
+    {
+      "id": 3580,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "B. anthracis: capsule and spores",
+      "stem": "Which combination of features distinguishes Bacillus anthracis from other Bacillus species?",
+      "options": {
+        "A": "A poly-D-glutamate capsule and non-motility",
+        "B": "Mycolic acid in the wall and acid-fastness",
+        "C": "A polysaccharide capsule and swarming motility",
+        "D": "A lipid A-rich outer membrane and motility",
+        "E": "A sialic acid capsule and cold growth"
+      },
+      "answer": "A",
+      "explanation": "B. anthracis is the only Bacillus species with a poly-D-glutamate capsule, and it is non-motile, unlike B. cereus and B. subtilis. The capsule resists phagocytosis and is poorly immunogenic because it is not made of sugars. Spores allow survival in soil for decades.",
+      "wrong": {
+        "C": "Its capsule is a polypeptide and the organism is non-motile.",
+        "D": "Outer membranes and lipid A belong to Gram-negative organisms.",
+        "B": "Mycolic acids are found in mycobacteria and Nocardia.",
+        "E": "Sialic acid capsules occur in group B strep and E. coli K1."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3581,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Anthrax toxins: edema and lethal factor",
+      "stem": "Anthrax produces a tripartite toxin. Protective antigen delivers two enzymes into the cell. What does each enzyme do?",
+      "options": {
+        "A": "One is an adenylyl cyclase; the other cleaves MAP kinase kinase",
+        "B": "One methylates 23S rRNA; the other phosphorylates CFTR",
+        "C": "One ADP-ribosylates EF-2; the other cleaves ribosomal RNA",
+        "D": "One is a protease of SNARE proteins; the other blocks Gi signaling",
+        "E": "One activates guanylate cyclase; the other blocks Gs signaling"
+      },
+      "answer": "A",
+      "explanation": "Protective antigen forms the pore. Edema factor is a calmodulin-dependent adenylyl cyclase that raises cAMP and causes massive edema. Lethal factor is a zinc metalloprotease that cleaves MAP kinase kinases, killing cells and driving shock. The vaccine targets protective antigen.",
+      "wrong": {
+        "D": "SNARE cleavage describes botulinum and tetanus toxins.",
+        "C": "That describes diphtheria toxin and Shiga toxin.",
+        "B": "Ribosomal methylation is an antibiotic resistance mechanism.",
+        "E": "Guanylate cyclase activation describes heat-stable E. coli toxin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3582,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Anthrax: cutaneous lesion evolution",
+      "stem": "A sheep farmer develops a painless papule on the forearm that becomes a vesicle, then ulcerates with a black center and marked surrounding swelling. Which statement about this lesion is correct?",
+      "options": {
+        "A": "It appears months after the exposure to infected animals",
+        "B": "It is exquisitely tender, unlike a staphylococcal boil",
+        "C": "It should be surgically excised to prevent dissemination",
+        "D": "A lack of pain helps separate it from other skin ulcers",
+        "E": "It heals only after intravenous immunoglobulin is given"
+      },
+      "answer": "D",
+      "explanation": "Cutaneous anthrax begins one to seven days after spores enter broken skin and forms a painless ulcer with a black eschar and prominent non-pitting edema from edema toxin. Painlessness is a key clue. Treatment is ciprofloxacin or doxycycline; excision is avoided because it may promote spread.",
+      "wrong": {
+        "B": "The anthrax eschar is characteristically painless.",
+        "C": "Excision is discouraged and antibiotics are the mainstay.",
+        "E": "Antitoxin is reserved for systemic disease, not routine cutaneous cases.",
+        "A": "Incubation is days, not months."
+      }
+    },
+    {
+      "id": 3583,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Inhalational anthrax: imaging",
+      "stem": "A worker at a wool processing plant has two days of fever and malaise, then abrupt respiratory failure and shock. Which chest imaging finding is most characteristic?",
+      "options": {
+        "A": "Widened mediastinum with pleural effusions",
+        "B": "Bilateral hilar calcifications with egg-shell pattern",
+        "C": "A single dense lobar consolidation with air bronchograms",
+        "D": "Upper lobe cavity with surrounding nodules",
+        "E": "Diffuse miliary nodules throughout both lungs"
+      },
+      "answer": "A",
+      "explanation": "Inhaled spores are carried by macrophages to mediastinal lymph nodes, causing hemorrhagic mediastinitis with a widened mediastinum and bloody pleural effusions. There is no true pneumonia. Hemorrhagic meningitis may follow. Treatment combines ciprofloxacin, a protein synthesis inhibitor, and antitoxin.",
+      "wrong": {
+        "D": "Cavitation suggests tuberculosis or S. aureus.",
+        "E": "Miliary nodules suggest disseminated tuberculosis.",
+        "C": "Lobar consolidation suggests pneumococcus.",
+        "B": "Egg-shell calcification suggests silicosis."
+      }
+    },
+    {
+      "id": 3584,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "B. cereus: two syndromes",
+      "stem": "Two groups of diners become ill after a buffet. Group 1 vomited within two hours of eating fried rice. Group 2 had watery diarrhea 12 hours after eating meat and vegetables. Which explanation fits both?",
+      "options": {
+        "A": "One toxin is preformed in food; the other is made in the gut",
+        "B": "Both illnesses require the organism to invade the intestinal wall",
+        "C": "One toxin blocks Gi signaling; the other blocks Gs signaling",
+        "D": "Both illnesses come from toxin preformed in the food before cooking",
+        "E": "One illness is bacterial and the other is a viral co-infection"
+      },
+      "answer": "A",
+      "explanation": "B. cereus makes two distinct toxins. Cereulide is preformed in food, heat-stable, and causes vomiting within one to six hours, classically from reheated rice. The heat-labile enterotoxin is produced in the small bowel and causes watery diarrhea after 8 to 16 hours. Both are self-limited and treated with fluids.",
+      "wrong": {
+        "D": "The diarrheal form depends on toxin made in the gut.",
+        "B": "Neither syndrome is invasive.",
+        "E": "Both syndromes come from the same organism.",
+        "C": "G-protein modification describes pertussis and cholera toxins."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3585,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "B. cereus: keratitis and line infection",
+      "stem": "Besides food poisoning, which other presentations should prompt consideration of Bacillus cereus?",
+      "options": {
+        "A": "Pelvic inflammatory disease with perihepatitis",
+        "B": "Chronic prostatitis in older diabetic men",
+        "C": "Contact lens keratitis and catheter-related bacteremia",
+        "D": "Cervical lymphadenitis in young children",
+        "E": "Cavitary pneumonia and endocarditis of the aortic valve"
+      },
+      "answer": "C",
+      "explanation": "B. cereus also causes severe keratitis, especially in contact lens wearers and after eye trauma, and it causes catheter-related bacteremia in immunocompromised patients. Spores resist disinfection, which explains its role in hospital and ocular infections.",
+      "wrong": {
+        "E": "These suggest S. aureus.",
+        "A": "PID with perihepatitis suggests chlamydia or gonorrhea.",
+        "B": "Chronic prostatitis is usually caused by Gram-negative rods.",
+        "D": "This suggests nontuberculous mycobacteria or S. aureus."
+      }
+    },
+    {
+      "id": 3586,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. tetani: toxin transport",
+      "stem": "Tetanospasmin is produced in a contaminated wound but causes rigidity throughout the body. How does it reach the central nervous system?",
+      "options": {
+        "A": "Spread along the cerebrospinal fluid from the wound",
+        "B": "Transport inside infected circulating macrophages",
+        "C": "Direct invasion of the spinal cord by the bacteria",
+        "D": "Passive diffusion across the blood-brain barrier",
+        "E": "Retrograde axonal transport up motor neurons"
+      },
+      "answer": "E",
+      "explanation": "Tetanospasmin binds motor nerve terminals and travels by retrograde axonal transport to the spinal cord, where it moves into inhibitory interneurons. There it cleaves synaptobrevin (a SNARE protein), blocking release of glycine and GABA, so motor neurons fire unopposed. The bacteria stay at the wound.",
+      "wrong": {
+        "D": "The toxin is too large and uses axonal transport instead.",
+        "B": "The organism is not intracellular.",
+        "A": "CSF spread is not the route.",
+        "C": "C. tetani remains localized in the wound."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3587,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "easy",
+      "topic": "Tetanus: clinical signs",
+      "stem": "A 60-year-old gardener with no vaccination records has trouble opening his mouth, a fixed grimace, and painful arching of the back with a stiff abdomen. Which set of findings fits this illness?",
+      "options": {
+        "A": "Trismus and risus sardonicus with a clear sensorium",
+        "B": "Flaccid paralysis with loss of deep tendon reflexes",
+        "C": "Ascending symmetric weakness with high CSF protein",
+        "D": "Descending weakness with dilated pupils and dry mouth",
+        "E": "Fever with nuchal rigidity and neutrophils in the CSF"
+      },
+      "answer": "A",
+      "explanation": "Tetanus causes trismus (lockjaw), risus sardonicus, opisthotonos, and autonomic instability, with intact sensation and consciousness. Treatment includes wound debridement, metronidazole, tetanus immune globulin, benzodiazepines, and later active immunization, because the disease does not produce immunity.",
+      "wrong": {
+        "D": "This describes botulism.",
+        "B": "Tetanus causes rigidity, not flaccid weakness.",
+        "E": "That pattern indicates bacterial meningitis.",
+        "C": "That describes Guillain-Barré syndrome."
+      },
+      "tables": [
+        {
+          "title": "Clostridia compared (anaerobic, spore-forming Gram-positive rods)",
+          "cols": [
+            "Species",
+            "Toxin and mechanism",
+            "Disease",
+            "Treatment / prevention"
+          ],
+          "rows": [
+            [
+              "C. tetani",
+              "Tetanospasmin cleaves synaptobrevin in inhibitory interneurons (↓ glycine, GABA)",
+              "Spastic paralysis, trismus, opisthotonus",
+              "TIG + toxoid, metronidazole, benzodiazepines"
+            ],
+            [
+              "C. botulinum",
+              "Botulinum toxin cleaves SNAREs at NMJ (↓ ACh)",
+              "Descending flaccid paralysis; infant (honey), food, wound",
+              "Antitoxin (BabyBIG in infants)"
+            ],
+            [
+              "C. perfringens",
+              "α-toxin = phospholipase C (lecithinase)",
+              "Gas gangrene; late-onset food poisoning",
+              "Debridement + penicillin + clindamycin"
+            ],
+            [
+              "C. difficile",
+              "Toxins A and B glucosylate Rho GTPases",
+              "Pseudomembranous colitis after antibiotics",
+              "Oral fidaxomicin or vancomycin; FMT for recurrence"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3588,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Botulinum toxin: same target, opposite effect",
+      "stem": "Botulinum and tetanus toxins both cleave SNARE proteins, yet one causes flaccid paralysis and the other rigidity. What explains the difference?",
+      "options": {
+        "A": "Botulinum acts at inhibitory interneurons; tetanus at the neuromuscular junction",
+        "B": "Botulinum destroys motor neurons while tetanus destroys sensory neurons",
+        "C": "Botulinum acts at the neuromuscular junction; tetanus at interneurons",
+        "D": "Botulinum blocks sodium channels while tetanus blocks calcium channels",
+        "E": "Botulinum is an endotoxin while tetanus is a secreted exotoxin"
+      },
+      "answer": "C",
+      "explanation": "Both are zinc proteases that cleave SNARE proteins and block vesicle fusion. Botulinum toxin blocks acetylcholine release at the neuromuscular junction and at autonomic synapses, giving flaccid paralysis with dry mouth and dilated pupils. Tetanospasmin blocks inhibitory glycine and GABA release in the spinal cord, giving rigidity and spasms.",
+      "wrong": {
+        "A": "The two sites are reversed in this option.",
+        "D": "Neither toxin blocks ion channels.",
+        "E": "Both are exotoxins; these organisms are Gram-positive.",
+        "B": "Neither toxin destroys neurons."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3589,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Infant botulism: source and treatment",
+      "stem": "A 4-month-old has poor feeding, a weak cry, constipation, and loss of head control. Which combination of source and treatment is correct?",
+      "options": {
+        "A": "Ingested spores germinating in the colon; human antitoxin",
+        "B": "A contaminated umbilical stump; penicillin with metronidazole",
+        "C": "Toxin in unpasteurized milk; intravenous immunoglobulin alone",
+        "D": "Ingested spores in honey; aminoglycoside therapy with fluids",
+        "E": "Preformed toxin in home-canned food; equine-derived antitoxin"
+      },
+      "answer": "A",
+      "explanation": "Infants lack a protective gut microbiome, so ingested spores (classically from honey) germinate and produce toxin in the colon. Treatment is human-derived botulism immune globulin (BabyBIG), not equine antitoxin. Aminoglycosides are avoided because they worsen neuromuscular blockade.",
+      "wrong": {
+        "E": "Preformed toxin in canned goods causes adult food-borne botulism.",
+        "B": "That describes neonatal tetanus.",
+        "D": "The source is right but aminoglycosides worsen the paralysis.",
+        "C": "Unpasteurized milk is linked to Listeria, Brucella, and Campylobacter."
+      },
+      "tables": [
+        {
+          "title": "Clostridia compared (anaerobic, spore-forming Gram-positive rods)",
+          "cols": [
+            "Species",
+            "Toxin and mechanism",
+            "Disease",
+            "Treatment / prevention"
+          ],
+          "rows": [
+            [
+              "C. tetani",
+              "Tetanospasmin cleaves synaptobrevin in inhibitory interneurons (↓ glycine, GABA)",
+              "Spastic paralysis, trismus, opisthotonus",
+              "TIG + toxoid, metronidazole, benzodiazepines"
+            ],
+            [
+              "C. botulinum",
+              "Botulinum toxin cleaves SNAREs at NMJ (↓ ACh)",
+              "Descending flaccid paralysis; infant (honey), food, wound",
+              "Antitoxin (BabyBIG in infants)"
+            ],
+            [
+              "C. perfringens",
+              "α-toxin = phospholipase C (lecithinase)",
+              "Gas gangrene; late-onset food poisoning",
+              "Debridement + penicillin + clindamycin"
+            ],
+            [
+              "C. difficile",
+              "Toxins A and B glucosylate Rho GTPases",
+              "Pseudomembranous colitis after antibiotics",
+              "Oral fidaxomicin or vancomycin; FMT for recurrence"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3590,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. perfringens: alpha toxin",
+      "stem": "A crush injury to the thigh becomes swollen with crepitus, and the skin has a bronze discoloration with a thin brown discharge. What is the enzymatic action of the responsible toxin?",
+      "options": {
+        "A": "A lecithinase that hydrolyzes cell phospholipids",
+        "B": "A protease that cleaves desmoglein in the epidermis",
+        "C": "A nuclease that degrades host cell DNA in tissue",
+        "D": "A superantigen that bridges MHC II and the TCR",
+        "E": "A pore-forming protein that binds cholesterol only"
+      },
+      "answer": "A",
+      "explanation": "Alpha toxin is a phospholipase C (lecithinase) that destroys cell membranes, causing myonecrosis, hemolysis, and platelet destruction. Gas in tissue comes from fermentation. The Nagler reaction on egg yolk agar demonstrates lecithinase. Management is urgent debridement plus penicillin and clindamycin.",
+      "wrong": {
+        "B": "That is staphylococcal exfoliative toxin.",
+        "E": "That describes listeriolysin O and streptolysin O.",
+        "C": "DNases thin pus but do not cause myonecrosis.",
+        "D": "Superantigens cause toxic shock, not gas gangrene."
+      },
+      "tables": [
+        {
+          "title": "Clostridia compared (anaerobic, spore-forming Gram-positive rods)",
+          "cols": [
+            "Species",
+            "Toxin and mechanism",
+            "Disease",
+            "Treatment / prevention"
+          ],
+          "rows": [
+            [
+              "C. tetani",
+              "Tetanospasmin cleaves synaptobrevin in inhibitory interneurons (↓ glycine, GABA)",
+              "Spastic paralysis, trismus, opisthotonus",
+              "TIG + toxoid, metronidazole, benzodiazepines"
+            ],
+            [
+              "C. botulinum",
+              "Botulinum toxin cleaves SNAREs at NMJ (↓ ACh)",
+              "Descending flaccid paralysis; infant (honey), food, wound",
+              "Antitoxin (BabyBIG in infants)"
+            ],
+            [
+              "C. perfringens",
+              "α-toxin = phospholipase C (lecithinase)",
+              "Gas gangrene; late-onset food poisoning",
+              "Debridement + penicillin + clindamycin"
+            ],
+            [
+              "C. difficile",
+              "Toxins A and B glucosylate Rho GTPases",
+              "Pseudomembranous colitis after antibiotics",
+              "Oral fidaxomicin or vancomycin; FMT for recurrence"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3591,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. perfringens: food poisoning timing",
+      "stem": "Twenty attendees at a banquet develop watery diarrhea and cramps about 12 hours after eating beef stew that was held on a warm steam table. Vomiting is rare. Which mechanism fits?",
+      "options": {
+        "A": "Persistent activation of adenylyl cyclase by an AB5 toxin",
+        "B": "Cytotoxin that inhibits protein synthesis in the colonic wall",
+        "C": "Preformed heat-stable toxin acting on the vagal emetic center",
+        "D": "Enterotoxin released as the organisms sporulate in the gut",
+        "E": "Invasion of colonic mucosa with bloody inflammatory diarrhea"
+      },
+      "answer": "D",
+      "explanation": "C. perfringens type A food poisoning follows ingestion of large numbers of vegetative cells in meat or gravy. The enterotoxin is released as the organisms sporulate in the small intestine, giving watery diarrhea and cramps at 8-16 hours with little vomiting, resolving within 24 hours.",
+      "wrong": {
+        "C": "That mechanism gives vomiting in one to six hours.",
+        "E": "There is no invasion or blood in the stool.",
+        "B": "That describes Shiga toxin.",
+        "A": "That describes cholera toxin."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3592,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. difficile: toxins A and B",
+      "stem": "A patient on clindamycin develops profuse watery diarrhea. Colonoscopy shows yellow-white plaques. Which action explains the mucosal damage?",
+      "options": {
+        "A": "Glucosylation of Rho GTPases disrupting the cytoskeleton",
+        "B": "Cleavage of an adenine from 28S ribosomal RNA",
+        "C": "Permanent activation of Gs raising intracellular cAMP",
+        "D": "ADP-ribosylation of elongation factor 2 halting translation",
+        "E": "Inactivation of Gi increasing intracellular cAMP"
+      },
+      "answer": "A",
+      "explanation": "Toxins A (enterotoxin) and B (cytotoxin) glucosylate Rho-family GTPases, so actin filaments collapse and tight junctions fail. Cells round up and die, producing the pseudomembranes of fibrin, mucin, and neutrophils. Diagnosis uses NAAT for toxin genes or an EIA for toxin with GDH.",
+      "wrong": {
+        "D": "That is diphtheria toxin.",
+        "B": "That is Shiga toxin.",
+        "C": "That is cholera toxin.",
+        "E": "That is pertussis toxin."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3593,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. difficile: severe disease management",
+      "stem": "A 78-year-old has C. difficile colitis with a white count of 22,000/µL, creatinine 1.8 times baseline, and marked abdominal distension. Which approach is correct?",
+      "options": {
+        "A": "Fecal microbiota transplantation as initial therapy for all cases",
+        "B": "Oral metronidazole alone, reserving vancomycin for relapse",
+        "C": "Oral vancomycin, adding intravenous metronidazole for ileus",
+        "D": "Intravenous vancomycin, which concentrates in the colonic lumen",
+        "E": "Loperamide to slow transit and reduce fluid losses quickly"
+      },
+      "answer": "C",
+      "explanation": "Oral vancomycin (or fidaxomicin) is first-line for C. difficile, including severe disease, because it is not absorbed and reaches high colonic levels. With ileus or fulminant disease, IV metronidazole is added and vancomycin may be given per rectum. Antimotility agents risk ileus and toxic megacolon. FMT is used for recurrent disease.",
+      "wrong": {
+        "B": "Metronidazole is now second-line and inferior in severe disease.",
+        "D": "IV vancomycin does not reach the colonic lumen.",
+        "E": "Antimotility drugs can precipitate toxic megacolon.",
+        "A": "FMT is reserved for recurrent infection."
+      }
+    },
+    {
+      "id": 3594,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "C. difficile: recurrence prevention",
+      "stem": "A patient has had three episodes of C. difficile colitis in six months, each responding to oral vancomycin. Which option best reduces further recurrence?",
+      "options": {
+        "A": "A six-month course of oral metronidazole",
+        "B": "Fecal microbiota transplantation",
+        "C": "Routine screening of household contacts",
+        "D": "Daily oral probiotics as sole therapy",
+        "E": "Intravenous immunoglobulin every month"
+      },
+      "answer": "B",
+      "explanation": "Recurrent C. difficile reflects persistent disruption of the gut microbiome. Fecal microbiota transplantation cures about 85-90% of multiply recurrent cases. Other options include a tapered vancomycin course, fidaxomicin, and bezlotoxumab, a monoclonal antibody against toxin B.",
+      "wrong": {
+        "A": "Prolonged metronidazole risks neuropathy and does not restore flora.",
+        "D": "Probiotics alone do not reliably prevent recurrence.",
+        "E": "IVIG is not standard; bezlotoxumab targets toxin B specifically.",
+        "C": "Asymptomatic carriers are not screened or treated."
+      }
+    },
+    {
+      "id": 3595,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "easy",
+      "topic": "Actinomyces vs Nocardia: oxygen and stain",
+      "stem": "Two branching filamentous organisms are isolated. Isolate 1 is a strict anaerobe and is not acid-fast. Isolate 2 is aerobic and partially acid-fast. Which pair of identifications is correct?",
+      "options": {
+        "A": "Isolate 1 Actinomyces; isolate 2 Nocardia",
+        "B": "Isolate 1 Nocardia; isolate 2 Actinomyces",
+        "C": "Isolate 1 Mycobacterium; isolate 2 Actinomyces",
+        "D": "Isolate 1 Streptomyces; isolate 2 Mycobacterium",
+        "E": "Isolate 1 Nocardia; isolate 2 Streptomyces"
+      },
+      "answer": "A",
+      "explanation": "Actinomyces is an anaerobic, non-acid-fast branching rod that is normal oral flora and causes cervicofacial infection with draining sinus tracts and sulfur granules. Nocardia is an aerobic, partially acid-fast soil organism causing pulmonary and brain disease in immunocompromised hosts. Treatment differs: penicillin for Actinomyces, TMP-SMX for Nocardia.",
+      "wrong": {
+        "B": "The oxygen requirements are reversed here.",
+        "C": "Mycobacteria are strongly acid-fast and do not branch prominently.",
+        "D": "Streptomyces is an aerobic soil organism.",
+        "E": "Nocardia is aerobic, not anaerobic."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3596,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Actinomyces: sulfur granules",
+      "stem": "A 45-year-old man has a firm swelling along the jaw after a dental extraction, with a sinus tract draining pus that contains yellow granules. What are these granules?",
+      "options": {
+        "A": "Calcified remnants of degenerating bone fragments",
+        "B": "Clusters of eosinophils around a parasitic larva",
+        "C": "Aggregates of filaments with inflammatory cells",
+        "D": "Fungal spherules packed with mature endospores",
+        "E": "Collections of elemental sulfur made by the bacteria"
+      },
+      "answer": "C",
+      "explanation": "Sulfur granules are macroscopic colonies of Actinomyces filaments with surrounding neutrophils and debris; the name reflects their yellow color, not sulfur content. Cervicofacial actinomycosis follows dental procedures or poor dentition and crosses tissue planes, forming sinus tracts. Treatment is prolonged penicillin.",
+      "wrong": {
+        "E": "No sulfur is present; the color is the only similarity.",
+        "A": "These granules are bacterial colonies, not bone.",
+        "B": "Eosinophilic granulomas indicate parasitic disease.",
+        "D": "Spherules indicate Coccidioides."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        },
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3597,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Nocardia: pulmonary and CNS disease",
+      "stem": "A renal transplant recipient on tacrolimus has three weeks of cough and a cavitary upper lobe lesion. Sputum shows beaded, branching, weakly acid-fast rods. Which additional evaluation is essential?",
+      "options": {
+        "A": "Echocardiography to look for vegetations",
+        "B": "Bone marrow biopsy to look for granulomas",
+        "C": "Brain imaging to look for abscesses",
+        "D": "Colonoscopy to look for mucosal ulcers",
+        "E": "Nerve conduction studies of the limbs"
+      },
+      "answer": "C",
+      "explanation": "Nocardia disseminates from the lung to the brain in up to a third of immunocompromised patients, often without neurologic symptoms, so brain imaging is standard. Treatment is high-dose TMP-SMX, often with a carbapenem or amikacin in severe disease, for six months or longer.",
+      "wrong": {
+        "B": "Marrow involvement is not typical.",
+        "A": "Endocarditis is a rare manifestation.",
+        "D": "Gut involvement is uncommon.",
+        "E": "Peripheral nerve disease is not a feature of nocardiosis."
+      },
+      "tables": [
+        {
+          "title": "Other Gram-positive rods and branching organisms",
+          "cols": [
+            "Organism",
+            "Key features",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Corynebacterium diphtheriae",
+              "Club-shaped, metachromatic granules; phage-encoded toxin (EF-2)",
+              "Pseudomembranous pharyngitis, myocarditis",
+              "Antitoxin + erythromycin/penicillin"
+            ],
+            [
+              "Listeria monocytogenes",
+              "Tumbling motility, cold growth, actin rockets, β-hemolytic",
+              "Neonatal/elderly meningitis, amnionitis",
+              "Ampicillin"
+            ],
+            [
+              "Bacillus anthracis",
+              "Aerobic, spores, poly-D-glutamate capsule",
+              "Cutaneous eschar, inhalational mediastinitis",
+              "Ciprofloxacin/doxycycline"
+            ],
+            [
+              "Bacillus cereus",
+              "Spores survive cooking rice; cereulide",
+              "Emetic (1–5 h) or diarrheal food poisoning",
+              "Supportive"
+            ],
+            [
+              "Actinomyces israelii",
+              "Anaerobic, non–acid-fast, sulfur granules; oral flora",
+              "Cervicofacial abscess with sinus tracts; IUD PID",
+              "Penicillin"
+            ],
+            [
+              "Nocardia",
+              "Aerobic, weakly acid-fast, catalase +, soil",
+              "Pneumonia, brain abscess in immunocompromised",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3598,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Nocardia: mycetoma after soil injury",
+      "stem": "A farmer steps on a thorn and months later has a chronically draining, swollen foot with sinus tracts and grains in the discharge. Which organism group should be considered along with fungi?",
+      "options": {
+        "A": "Spirochetes such as Treponema pallidum",
+        "B": "Rickettsiae transmitted by mite bites",
+        "C": "Aerobic actinomycetes such as Nocardia",
+        "D": "Anaerobic cocci such as Peptostreptococcus",
+        "E": "Mycoplasma species lacking a cell wall"
+      },
+      "answer": "C",
+      "explanation": "Mycetoma is a chronic granulomatous infection of the foot. Actinomycetoma is caused by aerobic actinomycetes (Nocardia, Actinomadura, Streptomyces) and responds to TMP-SMX-based therapy; eumycetoma is caused by fungi such as Madurella and needs antifungals with surgery. Distinguishing them changes treatment entirely.",
+      "wrong": {
+        "D": "These cause abscesses, not grain-forming mycetoma.",
+        "A": "Syphilis does not produce grains or mycetoma.",
+        "B": "Rickettsiae cause acute febrile illness with rash.",
+        "E": "Mycoplasma causes respiratory and urogenital disease."
+      }
+    },
+    {
+      "id": 3599,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Erysipelothrix: fish handler",
+      "stem": "A fishmonger has a spreading violaceous plaque with a raised border on the hand after a puncture from a fish spine. Culture grows a thin, non-motile, catalase-negative, H2S-producing Gram-positive rod. What is the organism and treatment?",
+      "options": {
+        "A": "Vibrio vulnificus; doxycycline",
+        "B": "Streptococcus iniae; vancomycin",
+        "C": "Listeria monocytogenes; ampicillin and gentamicin",
+        "D": "Erysipelothrix rhusiopathiae; penicillin",
+        "E": "Mycobacterium marinum; clarithromycin"
+      },
+      "answer": "D",
+      "explanation": "Erysipelothrix rhusiopathiae causes erysipeloid, a violaceous cellulitis of the hand in fish, meat, and poultry handlers. It is catalase-negative, produces H2S on triple sugar iron agar, and is notably resistant to vancomycin. Penicillin is the drug of choice.",
+      "wrong": {
+        "C": "Listeria is catalase-positive and motile and causes invasive disease.",
+        "B": "S. iniae infects fish handlers but is a coccus in chains.",
+        "E": "M. marinum causes indolent nodules in a sporotrichoid pattern.",
+        "A": "V. vulnificus is a Gram-negative rod that causes hemorrhagic bullae."
+      }
+    },
+    {
+      "id": 3600,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "hard",
+      "topic": "Cutibacterium acnes: shoulder prosthesis",
+      "stem": "Eleven months after shoulder replacement, a patient has persistent pain without fever. Cultures held for 14 days grow an anaerobic, catalase-positive Gram-positive rod. Which organism is this?",
+      "options": {
+        "A": "Lactobacillus species",
+        "B": "Clostridium perfringens",
+        "C": "Actinomyces israelii",
+        "D": "Bacillus subtilis",
+        "E": "Cutibacterium acnes"
+      },
+      "answer": "E",
+      "explanation": "Cutibacterium (formerly Propionibacterium) acnes lives in sebaceous follicles, is dense on the shoulder, and causes indolent prosthetic joint infection that needs prolonged anaerobic culture to detect. It also contributes to acne and can infect CSF shunts. It is catalase-positive, unlike Actinomyces.",
+      "wrong": {
+        "C": "Actinomyces is catalase-negative and forms sinus tracts.",
+        "B": "C. perfringens forms spores and causes acute myonecrosis.",
+        "D": "B. subtilis is an aerobic spore former and usually a contaminant.",
+        "A": "Lactobacilli are rarely pathogenic outside endocarditis in compromised hosts."
+      }
+    },
+    {
+      "id": 3601,
+      "part": "Gram+ Rods & Branching",
+      "tag": "Gram+ Rods & Branching",
+      "difficulty": "medium",
+      "topic": "Spore structure and sterilization",
+      "stem": "Which feature of bacterial endospores explains why they survive boiling at 100°C and require an autoclave at 121°C?",
+      "options": {
+        "A": "A polysaccharide capsule that excludes hot water",
+        "B": "An efflux system that expels heat-shock products",
+        "C": "A thick outer membrane rich in lipid A and porins",
+        "D": "A mycolic acid layer that repels aqueous solutions",
+        "E": "A dehydrated core held by calcium dipicolinate"
+      },
+      "answer": "E",
+      "explanation": "Spores have a dehydrated core containing calcium dipicolinate and small acid-soluble proteins that protect DNA, plus a keratin-like coat and cortex. They resist heat, drying, radiation, and many disinfectants. Autoclaving at 121°C for 15 minutes, or ethylene oxide, is needed; alcohol hand gel does not kill C. difficile spores.",
+      "wrong": {
+        "C": "Spore formers are Gram-positive and have no outer membrane.",
+        "A": "Capsules do not confer heat resistance.",
+        "D": "Mycolic acids explain acid-fastness in mycobacteria.",
+        "B": "Efflux pumps affect drug resistance, not heat survival."
+      },
+      "tables": [
+        {
+          "title": "Bacterial gene transfer",
+          "cols": [
+            "Process",
+            "Mechanism",
+            "DNase-sensitive?",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Transformation",
+              "Uptake of naked DNA",
+              "Yes",
+              "S. pneumoniae, H. influenzae, Neisseria"
+            ],
+            [
+              "Conjugation",
+              "Sex pilus (F factor); plasmid transfer",
+              "No",
+              "R plasmids, ESBL spread"
+            ],
+            [
+              "Generalized transduction",
+              "Phage packages random host DNA (lytic)",
+              "No",
+              "Any gene"
+            ],
+            [
+              "Specialized transduction",
+              "Faulty prophage excision (lysogenic)",
+              "No",
+              "Genes next to insertion site"
+            ],
+            [
+              "Lysogenic conversion",
+              "Prophage genes expressed",
+              "No",
+              "Diphtheria, cholera, botulinum, Shiga-like, erythrogenic toxins"
+            ],
+            [
+              "Transposition",
+              "Transposons jump without homology",
+              "No",
+              "vanA (Tn1546)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3602,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Neisseria: maltose fermentation",
+      "stem": "Two oxidase-positive Gram-negative diplococci are isolated. Both ferment glucose; only one ferments maltose. Which identification follows?",
+      "options": {
+        "A": "Both organisms ferment maltose equally well",
+        "B": "The maltose fermenter is Moraxella catarrhalis",
+        "C": "The maltose fermenter is N. gonorrhoeae",
+        "D": "The maltose fermenter is N. meningitidis",
+        "E": "Neither organism can ferment any sugar"
+      },
+      "answer": "D",
+      "explanation": "Meningococci ferment maltose and glucose; gonococci ferment glucose only. Mnemonic: MeninGococci ferment Maltose and Glucose, Gonococci ferment Glucose. Moraxella catarrhalis ferments neither and is also oxidase-positive.",
+      "wrong": {
+        "C": "Gonococci do not ferment maltose.",
+        "B": "Moraxella is asaccharolytic.",
+        "E": "Both ferment glucose.",
+        "A": "Only the meningococcus ferments maltose."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3603,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "N. gonorrhoeae: why no lasting immunity",
+      "stem": "A 24-year-old man has his third episode of gonococcal urethritis in two years. Which property of the organism best explains repeated infection?",
+      "options": {
+        "A": "A polysaccharide capsule blocks all antibody binding",
+        "B": "Antibody to its endotoxin core is always protective",
+        "C": "The organism hides within neurons between episodes",
+        "D": "The organism integrates its DNA into the host genome",
+        "E": "Pilin gene rearrangement alters its surface antigens"
+      },
+      "answer": "E",
+      "explanation": "Gonococci vary pilin and Opa proteins by recombination among silent gene copies, so antibody from one infection does not protect against the next. They also make IgA protease. There is no gonococcal vaccine, unlike the meningococcus, which has a capsule that can be targeted.",
+      "wrong": {
+        "A": "Gonococci are not encapsulated; that is the meningococcus.",
+        "C": "Neuronal latency is a herpesvirus property.",
+        "D": "Integration into host DNA is a retroviral property.",
+        "B": "Anti-LOS antibody does not prevent reinfection."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3604,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Gonorrhea: current treatment",
+      "stem": "A 26-year-old woman has purulent cervicitis and a positive nucleic acid amplification test for N. gonorrhoeae. Chlamydia testing is negative. What is the recommended treatment?",
+      "options": {
+        "A": "A fourteen-day course of oral doxycycline",
+        "B": "A single oral dose of ciprofloxacin",
+        "C": "A single intramuscular dose of ceftriaxone",
+        "D": "A single oral dose of cefixime with azithromycin",
+        "E": "A seven-day course of oral penicillin V"
+      },
+      "answer": "C",
+      "explanation": "Current guidance is a single intramuscular dose of ceftriaxone (500 mg, or 1 g if 150 kg or more) for uncomplicated gonorrhea. Doxycycline is added only when chlamydia is not excluded. Fluoroquinolone resistance is widespread, and penicillins are no longer used.",
+      "wrong": {
+        "B": "Quinolone resistance is too common.",
+        "E": "Penicillinase-producing strains are widespread.",
+        "D": "Oral cefixime is a backup option only when ceftriaxone is unavailable.",
+        "A": "Doxycycline treats chlamydia, not gonorrhea."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3605,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Gonococcal arthritis vs septic arthritis",
+      "stem": "A 22-year-old woman has fever, migratory joint pains, tenosynovitis of the wrist, and a few pustules on the extremities. Aspirate of the knee grows nothing. Which explanation fits?",
+      "options": {
+        "A": "The negative culture rules out any bacterial cause of arthritis",
+        "B": "The findings indicate crystal-induced rather than infectious arthritis",
+        "C": "Disseminated gonococcal infection always yields positive joint cultures",
+        "D": "Disseminated gonococcal infection often has sterile joint fluid",
+        "E": "The findings represent reactive arthritis after enteric infection"
+      },
+      "answer": "D",
+      "explanation": "Disseminated gonococcal infection has two patterns. The arthritis-dermatitis form has fever, tenosynovitis, migratory polyarthralgia, and pustular lesions, with frequently negative joint and blood cultures; NAAT of genital, rectal, or throat sites is the best diagnostic test. The purulent form is a true septic monoarthritis with positive fluid cultures.",
+      "wrong": {
+        "C": "Cultures are often negative in the arthritis-dermatitis form.",
+        "A": "Culture is insensitive here, so NAAT at mucosal sites is used.",
+        "B": "Crystal disease does not cause pustules or tenosynovitis with fever.",
+        "E": "Reactive arthritis follows enteric or chlamydial infection and is not pustular."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3606,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "N. meningitidis: carriage to invasion",
+      "stem": "A college dormitory resident becomes ill with meningococcemia, while several roommates carry the organism without illness. Which factor most determines progression to invasive disease?",
+      "options": {
+        "A": "Absence of bactericidal antibody to that capsule",
+        "B": "Absence of nasal ciliary function from smoking alone",
+        "C": "Presence of high titers of secretory IgA in saliva",
+        "D": "Presence of a mutation in the bacterial pilin gene",
+        "E": "Absence of a functional spleen in every case"
+      },
+      "answer": "A",
+      "explanation": "Nasopharyngeal carriage is common, especially in adolescents and crowded settings, and usually leads to protective antibody. Invasive disease occurs when a susceptible person without bactericidal anticapsular antibody acquires a virulent strain. Complement deficiency, asplenia, eculizumab, smoking, and viral infection all increase risk.",
+      "wrong": {
+        "D": "Pilin variation aids colonization but does not determine invasion.",
+        "E": "Asplenia raises risk but most cases occur in people with spleens.",
+        "C": "The organism cleaves IgA, and mucosal IgA does not prevent bacteremia.",
+        "B": "Smoking is a risk factor but not the main determinant."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3607,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Meningococcal vaccines: serogroup coverage",
+      "stem": "A 16-year-old received a quadrivalent conjugate meningococcal vaccine at 11 years of age. Which additional vaccine is recommended, and why?",
+      "options": {
+        "A": "No further vaccine, since one dose provides lifelong immunity",
+        "B": "A serogroup B vaccine, which the quadrivalent does not cover",
+        "C": "A pneumococcal conjugate vaccine, which covers serogroup B",
+        "D": "A repeat quadrivalent dose, since serogroup B is included in it",
+        "E": "A Haemophilus influenzae type b vaccine for cross-protection"
+      },
+      "answer": "B",
+      "explanation": "MenACWY conjugate vaccines cover serogroups A, C, W, and Y. Serogroup B has a capsule resembling human neural tissue, so its vaccines are protein-based (MenB-4C, MenB-FHbp) and are given separately, typically at 16-23 years. A MenACWY booster at 16 is also recommended.",
+      "wrong": {
+        "D": "Serogroup B is not in the quadrivalent vaccine.",
+        "C": "Pneumococcal vaccines do not cover meningococci.",
+        "E": "Hib vaccine gives no meningococcal protection.",
+        "A": "Protection wanes, and serogroup B is still uncovered."
+      },
+      "tables": [
+        {
+          "title": "Vaccine types",
+          "cols": [
+            "Type",
+            "Examples",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Live attenuated",
+              "MMR, varicella, yellow fever, rotavirus, intranasal flu, oral typhoid, BCG",
+              "Strong cellular + humoral immunity; avoid in pregnancy and severe immunosuppression"
+            ],
+            [
+              "Inactivated",
+              "Rabies, injectable influenza, IPV, hepatitis A",
+              "Humoral; boosters needed"
+            ],
+            [
+              "Subunit / recombinant",
+              "HBV, HPV, recombinant zoster, acellular pertussis",
+              "Safe in immunocompromised"
+            ],
+            [
+              "Toxoid",
+              "Tetanus, diphtheria",
+              "Antitoxin antibodies"
+            ],
+            [
+              "Conjugate",
+              "Hib, PCV, MenACWY",
+              "T-cell help → IgG and memory in infants"
+            ],
+            [
+              "mRNA",
+              "COVID-19",
+              "Encodes antigen (spike)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3608,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Meningococcal prophylaxis: agents",
+      "stem": "A nurse performed mouth-to-mouth resuscitation on a patient later found to have meningococcal meningitis. Which prophylactic option is appropriate?",
+      "options": {
+        "A": "A single oral dose of ciprofloxacin",
+        "B": "Observation alone, since risk is negligible",
+        "C": "A ten-day course of oral penicillin V",
+        "D": "A single intravenous dose of vancomycin",
+        "E": "A single oral dose of amoxicillin"
+      },
+      "answer": "A",
+      "explanation": "Close contacts (household members, childcare contacts, anyone exposed to oral secretions) receive prophylaxis with rifampin, ciprofloxacin, or ceftriaxone. Casual contacts do not. Ceftriaxone is preferred in pregnancy. Prophylaxis eradicates nasopharyngeal carriage, which penicillin does not do reliably.",
+      "wrong": {
+        "E": "Amoxicillin does not eradicate carriage.",
+        "C": "Penicillin treats disease but does not clear the nasopharynx.",
+        "D": "Vancomycin has no Gram-negative activity.",
+        "B": "Exposure to oral secretions is a clear indication for prophylaxis."
+      },
+      "tables": [
+        {
+          "title": "Neisseria compared",
+          "cols": [
+            "Feature",
+            "N. meningitidis",
+            "N. gonorrhoeae"
+          ],
+          "rows": [
+            [
+              "Carbohydrates fermented",
+              "Glucose and maltose",
+              "Glucose only"
+            ],
+            [
+              "Capsule",
+              "Yes (polysaccharide)",
+              "No"
+            ],
+            [
+              "Vaccine",
+              "Yes (MenACWY conjugate; MenB protein)",
+              "No (antigenic variation of pili)"
+            ],
+            [
+              "Transmission",
+              "Respiratory droplets",
+              "Sexual, perinatal"
+            ],
+            [
+              "Diseases",
+              "Meningitis, meningococcemia, Waterhouse-Friderichsen",
+              "Urethritis, cervicitis, PID, septic arthritis, ophthalmia neonatorum"
+            ],
+            [
+              "Treatment",
+              "Ceftriaxone or penicillin G",
+              "Ceftriaxone (+ doxycycline if chlamydia not excluded)"
+            ],
+            [
+              "Prophylaxis",
+              "Rifampin, ciprofloxacin, or ceftriaxone for contacts",
+              "Erythromycin eye ointment for neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3609,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "H. influenzae: factors X and V",
+      "stem": "A Gram-negative coccobacillus grows on chocolate agar but not on sheep blood agar, and it grows on blood agar only in satellite colonies beside S. aureus. Which nutrients does it require?",
+      "options": {
+        "A": "Mevalonate and biotin",
+        "B": "Pyridoxal and L-cysteine",
+        "C": "Cysteine and iron",
+        "D": "Hemin and NAD",
+        "E": "Charcoal and yeast extract"
+      },
+      "answer": "D",
+      "explanation": "H. influenzae needs factor X (hemin) and factor V (NAD). Sheep blood agar contains NADases, so the organism grows only near S. aureus colonies that release NAD by lysing red cells (satellite phenomenon). Chocolate agar is heated blood agar, which releases both factors.",
+      "wrong": {
+        "C": "Cysteine and iron are required by Legionella and Francisella.",
+        "B": "Pyridoxal is needed by nutritionally variant streptococci.",
+        "A": "These are not standard growth factor requirements in the clinical lab.",
+        "E": "These are ingredients of media for Legionella and Bordetella."
+      },
+      "tables": [
+        {
+          "title": "Fastidious respiratory Gram-negatives",
+          "cols": [
+            "Organism",
+            "Culture",
+            "Key virulence",
+            "Disease"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar (factors X and V); satellites around S. aureus",
+              "Type b PRP capsule; IgA protease",
+              "Epiglottitis, meningitis (Hib); otitis, COPD flares (nontypeable)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou or Regan-Lowe; PCR preferred",
+              "Pertussis toxin (Gi), adenylate cyclase toxin, tracheal cytotoxin",
+              "Whooping cough"
+            ],
+            [
+              "Legionella",
+              "BCYE with cysteine and iron; silver stain",
+              "Type IV secretion; intracellular in macrophages",
+              "Legionnaires' disease, Pontiac fever"
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Blood/chocolate agar",
+              "β-lactamase",
+              "Otitis, sinusitis, COPD flares"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3610,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Hib vaccine: effect on disease pattern",
+      "stem": "Since routine Hib conjugate vaccination began, which change in H. influenzae disease has occurred?",
+      "options": {
+        "A": "The organism no longer causes any human disease",
+        "B": "Nontypeable strains now cause most disease",
+        "C": "Type b strains now cause most adult meningitis",
+        "D": "Disease has shifted entirely to immunized children",
+        "E": "Type f strains now cause most childhood epiglottitis"
+      },
+      "answer": "B",
+      "explanation": "Conjugate vaccination nearly eliminated invasive type b disease, including meningitis and epiglottitis in children. Most remaining disease is from nontypeable (unencapsulated) strains causing otitis media, sinusitis, conjunctivitis, and exacerbations of COPD. The vaccine targets the polyribosylribitol phosphate capsule, so it does not prevent nontypeable disease.",
+      "wrong": {
+        "C": "Adult meningitis is mainly pneumococcal and meningococcal.",
+        "A": "Nontypeable strains remain common pathogens.",
+        "E": "Epiglottitis is now rare and more often from other organisms.",
+        "D": "Vaccinated children are largely protected against type b."
+      },
+      "tables": [
+        {
+          "title": "Vaccine types",
+          "cols": [
+            "Type",
+            "Examples",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Live attenuated",
+              "MMR, varicella, yellow fever, rotavirus, intranasal flu, oral typhoid, BCG",
+              "Strong cellular + humoral immunity; avoid in pregnancy and severe immunosuppression"
+            ],
+            [
+              "Inactivated",
+              "Rabies, injectable influenza, IPV, hepatitis A",
+              "Humoral; boosters needed"
+            ],
+            [
+              "Subunit / recombinant",
+              "HBV, HPV, recombinant zoster, acellular pertussis",
+              "Safe in immunocompromised"
+            ],
+            [
+              "Toxoid",
+              "Tetanus, diphtheria",
+              "Antitoxin antibodies"
+            ],
+            [
+              "Conjugate",
+              "Hib, PCV, MenACWY",
+              "T-cell help → IgG and memory in infants"
+            ],
+            [
+              "mRNA",
+              "COVID-19",
+              "Encodes antigen (spike)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3611,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Epiglottitis: airway priority",
+      "stem": "An unimmunized 4-year-old is drooling, leaning forward, and has a muffled voice with high fever and stridor. What is the first priority?",
+      "options": {
+        "A": "Give nebulized racemic epinephrine and discharge",
+        "B": "Secure the airway in a controlled setting",
+        "C": "Obtain a lateral neck radiograph immediately",
+        "D": "Examine the throat with a tongue depressor",
+        "E": "Start oral amoxicillin and observe at home"
+      },
+      "answer": "B",
+      "explanation": "Epiglottitis is an airway emergency. The child is kept calm and taken to the operating room for controlled intubation; pharyngeal examination can precipitate complete obstruction. After the airway is secured, ceftriaxone is given, and rifampin prophylaxis is offered to unimmunized close contacts.",
+      "wrong": {
+        "C": "Imaging delays airway control, although a thumbprint sign may be seen.",
+        "D": "This can trigger laryngospasm and complete obstruction.",
+        "E": "This is a life-threatening infection needing hospital care.",
+        "A": "That is croup management, a different illness."
+      }
+    },
+    {
+      "id": 3612,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "H. ducreyi: painful ulcer",
+      "stem": "A man has a painful genital ulcer with ragged undermined edges and tender suppurative inguinal nodes. Gram stain shows Gram-negative rods in a 'school of fish' pattern. What is the organism and treatment?",
+      "options": {
+        "A": "Treponema pallidum; penicillin G",
+        "B": "Klebsiella granulomatis; doxycycline",
+        "C": "Chlamydia trachomatis L1-L3; doxycycline",
+        "D": "Herpes simplex virus; valacyclovir",
+        "E": "Haemophilus ducreyi; azithromycin"
+      },
+      "answer": "E",
+      "explanation": "Chancroid from H. ducreyi causes a painful ulcer with a soft base and tender, often suppurative buboes. Mnemonic: 'do cry' for painful H. ducreyi. Treatment is a single dose of azithromycin or ceftriaxone. Syphilitic chancres are painless with firm borders.",
+      "wrong": {
+        "A": "The syphilitic chancre is painless with indurated edges.",
+        "B": "Granuloma inguinale causes beefy-red painless ulcers with Donovan bodies.",
+        "D": "HSV causes shallow grouped vesicles and ulcers, not deep undermined ulcers.",
+        "C": "Lymphogranuloma venereum has a small painless ulcer with painful nodes."
+      },
+      "tables": [
+        {
+          "title": "Genital ulcers",
+          "cols": [
+            "Disease",
+            "Organism",
+            "Ulcer",
+            "Nodes"
+          ],
+          "rows": [
+            [
+              "Primary syphilis",
+              "Treponema pallidum",
+              "Painless, indurated, clean base",
+              "Painless, rubbery"
+            ],
+            [
+              "Genital herpes",
+              "HSV-2 (or HSV-1)",
+              "Painful grouped vesicles → shallow ulcers",
+              "Tender"
+            ],
+            [
+              "Chancroid",
+              "Haemophilus ducreyi",
+              "Painful, soft, ragged, purulent",
+              "Painful, suppurative"
+            ],
+            [
+              "LGV",
+              "C. trachomatis L1–L3",
+              "Painless, transient",
+              "Painful buboes, groove sign"
+            ],
+            [
+              "Donovanosis",
+              "Klebsiella granulomatis",
+              "Painless, beefy red, bleeds",
+              "Pseudobuboes"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3613,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pertussis: toxin actions",
+      "stem": "Pertussis toxin ADP-ribosylates the inhibitory alpha subunit of a G protein. What is the consequence inside the host cell?",
+      "options": {
+        "A": "Protein synthesis halts at the elongation step",
+        "B": "Adenylyl cyclase is disinhibited and cAMP rises",
+        "C": "Adenylyl cyclase is inhibited and cAMP falls sharply",
+        "D": "Chloride channels close and secretion decreases",
+        "E": "Guanylate cyclase is activated and cGMP rises"
+      },
+      "answer": "B",
+      "explanation": "Pertussis toxin inactivates Gi, so adenylyl cyclase is no longer restrained and cAMP rises. This impairs neutrophil chemotaxis and causes lymphocytosis. The organism also makes adenylate cyclase toxin, tracheal cytotoxin (which destroys ciliated cells), and filamentous hemagglutinin.",
+      "wrong": {
+        "C": "Blocking the inhibitory subunit raises cAMP rather than lowering it.",
+        "E": "Guanylate cyclase activation describes heat-stable E. coli toxin.",
+        "A": "That describes diphtheria and Shiga toxins.",
+        "D": "Cholera toxin opens chloride channels; pertussis does not act this way."
+      },
+      "tables": [
+        {
+          "title": "Bacterial exotoxins by mechanism",
+          "cols": [
+            "Mechanism",
+            "Toxins",
+            "Effect"
+          ],
+          "rows": [
+            [
+              "ADP-ribosylate EF-2",
+              "Diphtheria toxin, Pseudomonas exotoxin A",
+              "Stop protein synthesis → cell death"
+            ],
+            [
+              "Cleave 28S rRNA (60S)",
+              "Shiga toxin, Shiga-like toxin (EHEC)",
+              "Stop protein synthesis → HUS, dysentery"
+            ],
+            [
+              "ADP-ribosylate Gs (↑cAMP)",
+              "Cholera toxin, ETEC heat-labile toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "Activate guanylyl cyclase (↑cGMP)",
+              "ETEC heat-stable toxin",
+              "Watery diarrhea"
+            ],
+            [
+              "ADP-ribosylate Gi (↑cAMP)",
+              "Pertussis toxin",
+              "Lymphocytosis, impaired phagocytes"
+            ],
+            [
+              "Adenylyl cyclase itself",
+              "Anthrax edema factor, B. pertussis adenylate cyclase toxin",
+              "Edema, impaired neutrophils"
+            ],
+            [
+              "Zinc protease on MAPKK",
+              "Anthrax lethal factor",
+              "Macrophage death"
+            ],
+            [
+              "Cleave SNAREs",
+              "Tetanospasmin (CNS inhibitory neurons), botulinum toxin (NMJ)",
+              "Spastic vs flaccid paralysis"
+            ],
+            [
+              "Glucosylate Rho GTPases",
+              "C. difficile toxins A and B",
+              "Colonocyte death, pseudomembranes"
+            ],
+            [
+              "Phospholipase / pore",
+              "C. perfringens α-toxin; streptolysin O; listeriolysin O",
+              "Membrane damage, hemolysis"
+            ],
+            [
+              "Superantigen (MHC II–TCR Vβ)",
+              "TSST-1, staph enterotoxins, SpeA/SpeC",
+              "Cytokine storm, shock"
+            ],
+            [
+              "Protease on desmoglein-1",
+              "Staph exfoliative toxins",
+              "Bullous impetigo, SSSS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3614,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pertussis: stage-dependent treatment benefit",
+      "stem": "A 6-year-old has had three weeks of paroxysmal coughing fits with post-tussive vomiting. Which statement about azithromycin is correct?",
+      "options": {
+        "A": "It shortens the cough substantially at any disease stage",
+        "B": "It eradicates the organism and prevents all complications",
+        "C": "It is contraindicated in children of this age group",
+        "D": "It reduces transmission but will not shorten this cough",
+        "E": "It works only if given with a course of corticosteroids"
+      },
+      "answer": "D",
+      "explanation": "Pertussis has catarrhal, paroxysmal, and convalescent stages. Antibiotics help symptoms only if given in the catarrhal stage; later the cough is driven by damage already done to ciliated epithelium. Treatment is still given to reduce transmission, and close contacts receive prophylaxis.",
+      "wrong": {
+        "A": "By the paroxysmal stage, symptom benefit is minimal.",
+        "C": "Macrolides are the treatment of choice at this age.",
+        "E": "Steroids are not standard therapy.",
+        "B": "Eradication does not reverse established epithelial injury."
+      },
+      "tables": [
+        {
+          "title": "Fastidious respiratory Gram-negatives",
+          "cols": [
+            "Organism",
+            "Culture",
+            "Key virulence",
+            "Disease"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar (factors X and V); satellites around S. aureus",
+              "Type b PRP capsule; IgA protease",
+              "Epiglottitis, meningitis (Hib); otitis, COPD flares (nontypeable)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou or Regan-Lowe; PCR preferred",
+              "Pertussis toxin (Gi), adenylate cyclase toxin, tracheal cytotoxin",
+              "Whooping cough"
+            ],
+            [
+              "Legionella",
+              "BCYE with cysteine and iron; silver stain",
+              "Type IV secretion; intracellular in macrophages",
+              "Legionnaires' disease, Pontiac fever"
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Blood/chocolate agar",
+              "β-lactamase",
+              "Otitis, sinusitis, COPD flares"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3615,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pertussis: infant presentation",
+      "stem": "A 6-week-old has episodes of breath-holding and turning blue while feeding, without much coughing. His white count is 30,000/µL with 80% lymphocytes. Which diagnosis fits best?",
+      "options": {
+        "A": "Congenital laryngomalacia with inspiratory stridor",
+        "B": "Respiratory syncytial virus with typical wheezing",
+        "C": "Pertussis, which often presents as apnea in infants",
+        "D": "Acute lymphoblastic leukemia with airway compression",
+        "E": "Foreign body aspiration into the right main bronchus"
+      },
+      "answer": "C",
+      "explanation": "Young infants with pertussis often have apnea, cyanosis, or gagging rather than the classic whoop, and marked lymphocytosis is a clue. They are at highest risk of death. Prevention depends on maternal Tdap at 27-36 weeks and cocooning of close contacts.",
+      "wrong": {
+        "D": "Leukemia would usually show blasts and other cytopenias.",
+        "B": "RSV gives wheezing and crackles and does not cause this lymphocytosis.",
+        "E": "Aspiration causes focal findings and does not raise the lymphocyte count.",
+        "A": "Laryngomalacia causes stridor without fever or leukocytosis."
+      },
+      "tables": [
+        {
+          "title": "Fastidious respiratory Gram-negatives",
+          "cols": [
+            "Organism",
+            "Culture",
+            "Key virulence",
+            "Disease"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar (factors X and V); satellites around S. aureus",
+              "Type b PRP capsule; IgA protease",
+              "Epiglottitis, meningitis (Hib); otitis, COPD flares (nontypeable)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou or Regan-Lowe; PCR preferred",
+              "Pertussis toxin (Gi), adenylate cyclase toxin, tracheal cytotoxin",
+              "Whooping cough"
+            ],
+            [
+              "Legionella",
+              "BCYE with cysteine and iron; silver stain",
+              "Type IV secretion; intracellular in macrophages",
+              "Legionnaires' disease, Pontiac fever"
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Blood/chocolate agar",
+              "β-lactamase",
+              "Otitis, sinusitis, COPD flares"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3616,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Legionella: staining and culture",
+      "stem": "A smoker with pneumonia, diarrhea, confusion, and a sodium of 128 mEq/L has a sputum sample with many neutrophils but no organisms on Gram stain. Which laboratory approach identifies the cause?",
+      "options": {
+        "A": "Culture on Lowenstein-Jensen medium for several weeks",
+        "B": "Culture on chocolate agar in five percent carbon dioxide",
+        "C": "Culture on MacConkey agar to assess lactose fermentation",
+        "D": "Culture on charcoal yeast extract with added cysteine",
+        "E": "Culture on Thayer-Martin medium with antibiotics added"
+      },
+      "answer": "D",
+      "explanation": "Legionella stains poorly with Gram stain because of its branched-chain fatty acids, and it needs buffered charcoal yeast extract agar with iron and cysteine. Urinary antigen detects serogroup 1 rapidly. Clues include hyponatremia, diarrhea, confusion, and transaminitis in a smoker.",
+      "wrong": {
+        "B": "Chocolate agar is used for Haemophilus and Neisseria.",
+        "E": "Thayer-Martin is selective for Neisseria.",
+        "C": "MacConkey selects for Gram-negative enterics.",
+        "A": "This medium is used for mycobacteria."
+      },
+      "tables": [
+        {
+          "title": "Special culture media",
+          "cols": [
+            "Organism",
+            "Medium"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar with factors V and X"
+            ],
+            [
+              "Neisseria",
+              "Thayer-Martin (VPN + trimethoprim)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou, Regan-Lowe"
+            ],
+            [
+              "C. diphtheriae",
+              "Tellurite, Löffler"
+            ],
+            [
+              "M. tuberculosis",
+              "Löwenstein-Jensen, Middlebrook"
+            ],
+            [
+              "Mycoplasma",
+              "Eaton agar"
+            ],
+            [
+              "Legionella",
+              "Buffered charcoal yeast extract + cysteine + iron"
+            ],
+            [
+              "Fungi",
+              "Sabouraud"
+            ],
+            [
+              "Vibrio",
+              "TCBS"
+            ],
+            [
+              "E. coli O157:H7",
+              "Sorbitol MacConkey"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3617,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "hard",
+      "topic": "Legionella: intracellular survival",
+      "stem": "How does Legionella pneumophila survive within alveolar macrophages?",
+      "options": {
+        "A": "It replicates inside the nucleus alongside host DNA",
+        "B": "It escapes into the cytoplasm using a pore-forming toxin",
+        "C": "It survives by forming a thick waxy mycolic acid coat",
+        "D": "It neutralizes the phagosome by producing urease",
+        "E": "It blocks fusion of the phagosome with lysosomes"
+      },
+      "answer": "E",
+      "explanation": "Legionella uses a Dot/Icm type IV secretion system to remodel its vacuole and prevent phagosome-lysosome fusion, replicating inside a rough ER-derived compartment. This is why treatment needs drugs that penetrate cells, such as azithromycin or levofloxacin, rather than beta-lactams.",
+      "wrong": {
+        "B": "Cytoplasmic escape describes Listeria and Shigella.",
+        "D": "Urease-based survival is a feature of H. pylori in acid.",
+        "C": "Mycolic acids belong to mycobacteria.",
+        "A": "No bacterium replicates in the nucleus."
+      },
+      "tables": [
+        {
+          "title": "Fastidious respiratory Gram-negatives",
+          "cols": [
+            "Organism",
+            "Culture",
+            "Key virulence",
+            "Disease"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar (factors X and V); satellites around S. aureus",
+              "Type b PRP capsule; IgA protease",
+              "Epiglottitis, meningitis (Hib); otitis, COPD flares (nontypeable)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou or Regan-Lowe; PCR preferred",
+              "Pertussis toxin (Gi), adenylate cyclase toxin, tracheal cytotoxin",
+              "Whooping cough"
+            ],
+            [
+              "Legionella",
+              "BCYE with cysteine and iron; silver stain",
+              "Type IV secretion; intracellular in macrophages",
+              "Legionnaires' disease, Pontiac fever"
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Blood/chocolate agar",
+              "β-lactamase",
+              "Otitis, sinusitis, COPD flares"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3618,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pontiac fever vs Legionnaires disease",
+      "stem": "Several hotel guests develop chills, headache, and myalgia without pneumonia after using a whirlpool spa; all recover in a few days without treatment. Which statement is correct?",
+      "options": {
+        "A": "This is Pontiac fever, a self-limited form of the infection",
+        "B": "This represents a different organism unrelated to Legionella",
+        "C": "This is Legionnaires disease with a mild pneumonia on imaging",
+        "D": "This indicates that the spa water was free of Legionella",
+        "E": "This requires four weeks of levofloxacin for every guest"
+      },
+      "answer": "A",
+      "explanation": "Pontiac fever is a self-limited flu-like illness from Legionella exposure without pneumonia, resolving in two to five days without antibiotics. Legionnaires disease is the pneumonic form and requires a macrolide or fluoroquinolone. Both follow aerosol exposure from water systems; there is no person-to-person spread.",
+      "wrong": {
+        "C": "No pneumonia is present in this scenario.",
+        "B": "Both syndromes come from Legionella.",
+        "E": "Pontiac fever resolves without antibiotics.",
+        "D": "Aerosolized spa water is a classic source."
+      },
+      "tables": [
+        {
+          "title": "Fastidious respiratory Gram-negatives",
+          "cols": [
+            "Organism",
+            "Culture",
+            "Key virulence",
+            "Disease"
+          ],
+          "rows": [
+            [
+              "H. influenzae",
+              "Chocolate agar (factors X and V); satellites around S. aureus",
+              "Type b PRP capsule; IgA protease",
+              "Epiglottitis, meningitis (Hib); otitis, COPD flares (nontypeable)"
+            ],
+            [
+              "B. pertussis",
+              "Bordet-Gengou or Regan-Lowe; PCR preferred",
+              "Pertussis toxin (Gi), adenylate cyclase toxin, tracheal cytotoxin",
+              "Whooping cough"
+            ],
+            [
+              "Legionella",
+              "BCYE with cysteine and iron; silver stain",
+              "Type IV secretion; intracellular in macrophages",
+              "Legionnaires' disease, Pontiac fever"
+            ],
+            [
+              "Moraxella catarrhalis",
+              "Blood/chocolate agar",
+              "β-lactamase",
+              "Otitis, sinusitis, COPD flares"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3619,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Pseudomonas: aerobic metabolism and lab clues",
+      "stem": "An organism from a burn wound is an oxidase-positive, non-lactose-fermenting Gram-negative rod that grows as blue-green colonies with a grape-like odor. Which metabolic description fits?",
+      "options": {
+        "A": "An obligate aerobe that does not ferment glucose",
+        "B": "An aerotolerant organism lacking catalase entirely",
+        "C": "An obligate anaerobe killed by ambient oxygen",
+        "D": "A facultative anaerobe that ferments lactose rapidly",
+        "E": "A microaerophile needing added carbon dioxide"
+      },
+      "answer": "A",
+      "explanation": "Pseudomonas aeruginosa is an obligate aerobe (it can use nitrate for anaerobic respiration) that does not ferment sugars, so it is a non-lactose fermenter on MacConkey agar and oxidase-positive. Pyocyanin and pyoverdin give the blue-green color, and it smells of grapes or corn tortillas.",
+      "wrong": {
+        "D": "That describes E. coli and Klebsiella.",
+        "C": "That describes Bacteroides and Clostridium.",
+        "E": "That describes Campylobacter and Neisseria growth conditions.",
+        "B": "Pseudomonas is catalase-positive."
+      },
+      "tables": [
+        {
+          "title": "Antipseudomonal agents",
+          "cols": [
+            "Class",
+            "Active drugs",
+            "Not active"
+          ],
+          "rows": [
+            [
+              "Penicillins",
+              "Piperacillin-tazobactam",
+              "Ampicillin, nafcillin"
+            ],
+            [
+              "Cephalosporins",
+              "Ceftazidime, cefepime, ceftolozane-tazobactam",
+              "Ceftriaxone, cefazolin, ceftaroline"
+            ],
+            [
+              "Carbapenems",
+              "Imipenem, meropenem",
+              "Ertapenem"
+            ],
+            [
+              "Others",
+              "Aztreonam, ciprofloxacin/levofloxacin, aminoglycosides, polymyxins",
+              "Tigecycline, TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3620,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pseudomonas: alginate in cystic fibrosis",
+      "stem": "Sputum from an adolescent with cystic fibrosis grows mucoid Pseudomonas colonies. Which property does this mucoid phenotype reflect, and what does it mean clinically?",
+      "options": {
+        "A": "A plasmid carrying carbapenemase and colistin resistance",
+        "B": "A lipopolysaccharide O antigen that blocks phagocytosis",
+        "C": "A poly-D-glutamate capsule that resists complement lysis",
+        "D": "An efflux pump that expels all classes of antibiotic",
+        "E": "An alginate biofilm that makes eradication difficult"
+      },
+      "answer": "E",
+      "explanation": "Chronic airway infection selects mucoid strains that overproduce alginate, forming biofilm. Biofilm bacteria grow slowly and tolerate antibiotics and phagocytes, so chronic infection is suppressed with inhaled tobramycin or aztreonam rather than cured. Chronic Pseudomonas infection predicts faster decline in lung function.",
+      "wrong": {
+        "C": "That capsule is unique to B. anthracis.",
+        "B": "O antigen variation does not produce mucoid colonies.",
+        "D": "Efflux contributes to resistance but is not what makes colonies mucoid.",
+        "A": "Mucoid appearance is not a marker of carbapenemase."
+      },
+      "tables": [
+        {
+          "title": "Antipseudomonal agents",
+          "cols": [
+            "Class",
+            "Active drugs",
+            "Not active"
+          ],
+          "rows": [
+            [
+              "Penicillins",
+              "Piperacillin-tazobactam",
+              "Ampicillin, nafcillin"
+            ],
+            [
+              "Cephalosporins",
+              "Ceftazidime, cefepime, ceftolozane-tazobactam",
+              "Ceftriaxone, cefazolin, ceftaroline"
+            ],
+            [
+              "Carbapenems",
+              "Imipenem, meropenem",
+              "Ertapenem"
+            ],
+            [
+              "Others",
+              "Aztreonam, ciprofloxacin/levofloxacin, aminoglycosides, polymyxins",
+              "Tigecycline, TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3621,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "medium",
+      "topic": "Pseudomonas: malignant otitis externa",
+      "stem": "A 72-year-old man with diabetes has severe ear pain, drainage, and granulation tissue at the bone-cartilage junction of the ear canal, with a facial droop. Which organism and site of extension should be assumed?",
+      "options": {
+        "A": "M. tuberculosis spreading to cervical nodes",
+        "B": "Aspergillus spreading into the middle ear cavity",
+        "C": "S. pneumoniae spreading to the mastoid air cells",
+        "D": "Pseudomonas spreading to the skull base",
+        "E": "Candida spreading along the tympanic membrane"
+      },
+      "answer": "D",
+      "explanation": "Malignant (necrotizing) otitis externa is a Pseudomonas osteomyelitis of the skull base, typically in older diabetics, with cranial nerve palsies as a warning sign. It needs imaging and prolonged systemic anti-pseudomonal therapy such as ciprofloxacin, not topical drops alone.",
+      "wrong": {
+        "C": "Pneumococcus causes otitis media and mastoiditis, not this necrotizing canal disease.",
+        "E": "Fungal otitis externa is usually superficial.",
+        "B": "Aspergillus otomycosis is rarely invasive except in severe immunosuppression.",
+        "A": "Tuberculous otitis is rare and painless with chronic drainage."
+      },
+      "tables": [
+        {
+          "title": "Antipseudomonal agents",
+          "cols": [
+            "Class",
+            "Active drugs",
+            "Not active"
+          ],
+          "rows": [
+            [
+              "Penicillins",
+              "Piperacillin-tazobactam",
+              "Ampicillin, nafcillin"
+            ],
+            [
+              "Cephalosporins",
+              "Ceftazidime, cefepime, ceftolozane-tazobactam",
+              "Ceftriaxone, cefazolin, ceftaroline"
+            ],
+            [
+              "Carbapenems",
+              "Imipenem, meropenem",
+              "Ertapenem"
+            ],
+            [
+              "Others",
+              "Aztreonam, ciprofloxacin/levofloxacin, aminoglycosides, polymyxins",
+              "Tigecycline, TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3622,
+      "part": "Gram− Cocci & Respiratory Rods",
+      "tag": "Gram− Cocci & Respiratory Rods",
+      "difficulty": "easy",
+      "topic": "Pseudomonas: puncture wound osteomyelitis",
+      "stem": "A teenager steps on a nail through the sole of a sneaker and develops osteomyelitis of the foot. Which organism is classically implicated besides S. aureus?",
+      "options": {
+        "A": "Eikenella corrodens",
+        "B": "Pasteurella multocida",
+        "C": "Pseudomonas aeruginosa",
+        "D": "Bartonella henselae",
+        "E": "Salmonella species, as in sickle cell"
+      },
+      "answer": "C",
+      "explanation": "Puncture wounds through footwear are classically associated with Pseudomonas osteomyelitis, likely from moist sneaker linings, although S. aureus remains most common overall. Salmonella osteomyelitis is associated with sickle cell disease, and Pasteurella with animal bites.",
+      "wrong": {
+        "E": "Salmonella bone infection is linked to sickle cell disease.",
+        "D": "Bartonella causes cat scratch lymphadenitis.",
+        "B": "Pasteurella follows cat and dog bites.",
+        "A": "Eikenella follows human bites and fist-to-mouth injuries."
+      }
+    },
+    {
+      "id": 3623,
+      "part": "Antibacterial Drugs",
+      "tag": "Antibacterial Drugs",
+      "difficulty": "medium",
+      "topic": "Anti-pseudomonal coverage: identifying the gap",
+      "stem": "A patient with febrile neutropenia is started on an antibiotic that must cover Pseudomonas. Which agent lacks such coverage?",
+      "options": {
+        "A": "Ceftazidime",
+        "B": "Cefepime",
+        "C": "Meropenem",
+        "D": "Piperacillin-tazobactam",
+        "E": "Ertapenem"
+      },
+      "answer": "E",
+      "explanation": "Ertapenem is the one carbapenem without Pseudomonas or Acinetobacter activity, which is why it is not used for febrile neutropenia. Anti-pseudomonal options include piperacillin-tazobactam, cefepime, ceftazidime, meropenem, imipenem, aztreonam, ciprofloxacin, and aminoglycosides.",
+      "wrong": {
+        "C": "Meropenem is reliably anti-pseudomonal.",
+        "B": "Cefepime is a standard anti-pseudomonal cephalosporin.",
+        "D": "This combination is anti-pseudomonal.",
+        "A": "Ceftazidime is anti-pseudomonal, with weaker Gram-positive activity."
+      },
+      "tables": [
+        {
+          "title": "Antipseudomonal agents",
+          "cols": [
+            "Class",
+            "Active drugs",
+            "Not active"
+          ],
+          "rows": [
+            [
+              "Penicillins",
+              "Piperacillin-tazobactam",
+              "Ampicillin, nafcillin"
+            ],
+            [
+              "Cephalosporins",
+              "Ceftazidime, cefepime, ceftolozane-tazobactam",
+              "Ceftriaxone, cefazolin, ceftaroline"
+            ],
+            [
+              "Carbapenems",
+              "Imipenem, meropenem",
+              "Ertapenem"
+            ],
+            [
+              "Others",
+              "Aztreonam, ciprofloxacin/levofloxacin, aminoglycosides, polymyxins",
+              "Tigecycline, TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3624,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "hard",
+      "topic": "E. coli: UPEC adhesins",
+      "stem": "Which bacterial structure allows uropathogenic E. coli to ascend from the bladder to the kidney?",
+      "options": {
+        "A": "Type III secretion injecting effector proteins",
+        "B": "P fimbriae binding to uroepithelial glycolipids",
+        "C": "Shiga toxin that damages renal tubular cells",
+        "D": "Peritrichous flagella that resist urine flow alone",
+        "E": "A urease that alkalinizes the urine directly"
+      },
+      "answer": "B",
+      "explanation": "Type 1 fimbriae mediate bladder colonization, and P fimbriae (pap genes) bind the P blood group antigen on uroepithelium, permitting ascent to the kidney and pyelonephritis. Other UPEC factors include hemolysin, aerobactin for iron capture, and capsule.",
+      "wrong": {
+        "A": "Type III secretion is used by enteropathogenic strains, Shigella, and Salmonella.",
+        "E": "Urease belongs to Proteus, Klebsiella, and Staphylococcus saprophyticus.",
+        "D": "Motility contributes but is not the key adhesin.",
+        "C": "Shiga toxin acts on endothelium in HUS, not in ascending infection."
+      },
+      "tables": [
+        {
+          "title": "E. coli pathotypes",
+          "cols": [
+            "Pathotype",
+            "Mechanism",
+            "Clinical picture"
+          ],
+          "rows": [
+            [
+              "ETEC",
+              "Heat-labile (↑cAMP) and heat-stable (↑cGMP) toxins; no invasion",
+              "Traveler's watery diarrhea"
+            ],
+            [
+              "EPEC",
+              "Bundle-forming pili, intimin–Tir attaching and effacing lesions; no toxin",
+              "Watery diarrhea in infants"
+            ],
+            [
+              "EHEC (O157:H7)",
+              "Shiga-like toxin; A/E lesions; sorbitol-negative",
+              "Bloody diarrhea without fever → HUS; avoid antibiotics"
+            ],
+            [
+              "EIEC",
+              "Invades colonic mucosa (like Shigella)",
+              "Dysentery"
+            ],
+            [
+              "EAEC",
+              "Stacked-brick adherence, biofilm",
+              "Persistent diarrhea"
+            ],
+            [
+              "UPEC",
+              "Type 1 fimbriae (cystitis), P fimbriae (pyelonephritis)",
+              "UTI"
+            ],
+            [
+              "K1 strains",
+              "Polysialic acid capsule",
+              "Neonatal meningitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3625,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "E. coli: toxin pair in traveler's diarrhea",
+      "stem": "A traveler has several days of watery diarrhea without fever or blood. The isolate produces a heat-labile and a heat-stable toxin. What are their targets?",
+      "options": {
+        "A": "One glucosylates Rho and the other cleaves SNAREs",
+        "B": "One cleaves ribosomal RNA and the other forms pores",
+        "C": "One inactivates Gi and the other inactivates Gs",
+        "D": "One raises cAMP and the other blocks protein synthesis",
+        "E": "One raises cAMP and the other raises cGMP"
+      },
+      "answer": "E",
+      "explanation": "Enterotoxigenic E. coli makes a labile toxin that activates adenylyl cyclase (raising cAMP, like cholera toxin) and a stable toxin that activates guanylate cyclase (raising cGMP). Both drive chloride and water secretion without invasion, so there is no fever or blood. Mnemonic: labile like Air (adenylate), stable like Ground (guanylate).",
+      "wrong": {
+        "D": "Protein synthesis inhibition describes Shiga toxin.",
+        "B": "Neither ETEC toxin acts this way.",
+        "C": "Gi inactivation describes pertussis toxin.",
+        "A": "These describe C. difficile and botulinum toxins."
+      },
+      "tables": [
+        {
+          "title": "E. coli pathotypes",
+          "cols": [
+            "Pathotype",
+            "Mechanism",
+            "Clinical picture"
+          ],
+          "rows": [
+            [
+              "ETEC",
+              "Heat-labile (↑cAMP) and heat-stable (↑cGMP) toxins; no invasion",
+              "Traveler's watery diarrhea"
+            ],
+            [
+              "EPEC",
+              "Bundle-forming pili, intimin–Tir attaching and effacing lesions; no toxin",
+              "Watery diarrhea in infants"
+            ],
+            [
+              "EHEC (O157:H7)",
+              "Shiga-like toxin; A/E lesions; sorbitol-negative",
+              "Bloody diarrhea without fever → HUS; avoid antibiotics"
+            ],
+            [
+              "EIEC",
+              "Invades colonic mucosa (like Shigella)",
+              "Dysentery"
+            ],
+            [
+              "EAEC",
+              "Stacked-brick adherence, biofilm",
+              "Persistent diarrhea"
+            ],
+            [
+              "UPEC",
+              "Type 1 fimbriae (cystitis), P fimbriae (pyelonephritis)",
+              "UTI"
+            ],
+            [
+              "K1 strains",
+              "Polysialic acid capsule",
+              "Neonatal meningitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3626,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "EHEC: antibiotic avoidance",
+      "stem": "A 5-year-old has bloody diarrhea after eating undercooked ground beef. Stool is positive for Shiga toxin and a sorbitol-negative E. coli. Why are antibiotics avoided?",
+      "options": {
+        "A": "Antibiotics cause the organism to become invasive in the colon",
+        "B": "Antibiotics reduce toxin binding without changing outcomes",
+        "C": "Antibiotics prevent the immune response needed for clearance",
+        "D": "Killing the organism releases more toxin and raises HUS risk",
+        "E": "Antibiotics select for vancomycin resistance in gut flora"
+      },
+      "answer": "D",
+      "explanation": "Antibiotics (and antimotility agents) increase the risk of hemolytic uremic syndrome in Shiga toxin-producing E. coli infection, probably by increasing toxin release during bacterial lysis. Management is supportive with careful IV hydration, monitoring the hemoglobin, platelet count, and creatinine.",
+      "wrong": {
+        "A": "EHEC remains non-invasive throughout.",
+        "E": "That concern is unrelated to this decision.",
+        "C": "Immune suppression is not the mechanism of harm here.",
+        "B": "They actually worsen outcomes rather than being neutral."
+      },
+      "tables": [
+        {
+          "title": "E. coli pathotypes",
+          "cols": [
+            "Pathotype",
+            "Mechanism",
+            "Clinical picture"
+          ],
+          "rows": [
+            [
+              "ETEC",
+              "Heat-labile (↑cAMP) and heat-stable (↑cGMP) toxins; no invasion",
+              "Traveler's watery diarrhea"
+            ],
+            [
+              "EPEC",
+              "Bundle-forming pili, intimin–Tir attaching and effacing lesions; no toxin",
+              "Watery diarrhea in infants"
+            ],
+            [
+              "EHEC (O157:H7)",
+              "Shiga-like toxin; A/E lesions; sorbitol-negative",
+              "Bloody diarrhea without fever → HUS; avoid antibiotics"
+            ],
+            [
+              "EIEC",
+              "Invades colonic mucosa (like Shigella)",
+              "Dysentery"
+            ],
+            [
+              "EAEC",
+              "Stacked-brick adherence, biofilm",
+              "Persistent diarrhea"
+            ],
+            [
+              "UPEC",
+              "Type 1 fimbriae (cystitis), P fimbriae (pyelonephritis)",
+              "UTI"
+            ],
+            [
+              "K1 strains",
+              "Polysialic acid capsule",
+              "Neonatal meningitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3627,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "easy",
+      "topic": "Klebsiella: currant jelly sputum",
+      "stem": "An alcohol-dependent man has a right upper lobe cavitary pneumonia with thick, blood-tinged sputum. Culture grows a lactose-fermenting, non-motile, urease-positive Gram-negative rod with a large capsule. Which organism is this?",
+      "options": {
+        "A": "Klebsiella pneumoniae",
+        "B": "Proteus mirabilis",
+        "C": "Serratia marcescens",
+        "D": "Enterobacter aerogenes",
+        "E": "Escherichia coli"
+      },
+      "answer": "A",
+      "explanation": "Klebsiella is a heavily encapsulated, non-motile lactose fermenter that causes aspiration pneumonia in alcohol-dependent and diabetic patients, often with cavitation and thick 'currant jelly' sputum. It also causes UTIs and, in hypervirulent strains, liver abscess with metastatic spread.",
+      "wrong": {
+        "E": "E. coli is motile and rarely cavitates the lung.",
+        "B": "Proteus swarms, smells of burnt chocolate, and is not a lung pathogen.",
+        "C": "Serratia produces red pigment and is a hospital pathogen.",
+        "D": "Enterobacter is motile and mainly a hospital pathogen."
+      },
+      "tables": [
+        {
+          "title": "MacConkey agar reactions",
+          "cols": [
+            "Lactose fermenters (pink)",
+            "Non-fermenters (colorless)"
+          ],
+          "rows": [
+            [
+              "E. coli",
+              "Proteus"
+            ],
+            [
+              "Klebsiella",
+              "Pseudomonas (oxidase +)"
+            ],
+            [
+              "Enterobacter",
+              "Salmonella (H2S +)"
+            ],
+            [
+              "Citrobacter",
+              "Shigella"
+            ],
+            [
+              "Serratia (late)",
+              "Yersinia"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3628,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Proteus: urease and stones",
+      "stem": "A woman with recurrent urinary infections has a large branching renal stone and urine pH of 8.2. Which mechanism links the organism to the stone?",
+      "options": {
+        "A": "Urease raises urine pH, precipitating struvite",
+        "B": "Capsule binds cystine, which then crystallizes",
+        "C": "Biofilm traps oxalate crystals on the urothelium",
+        "D": "Hemolysin damages tubules, releasing calcium",
+        "E": "Nitrate reduction acidifies urine, forming urate"
+      },
+      "answer": "A",
+      "explanation": "Proteus urease splits urea into ammonia and carbon dioxide, raising urine pH. Alkaline urine precipitates magnesium ammonium phosphate (struvite), which forms staghorn calculi that harbor bacteria. Cure requires removing the stone as well as treating the infection. Other urease producers include Klebsiella, S. saprophyticus, and Ureaplasma.",
+      "wrong": {
+        "D": "Calcium stones are metabolic and not driven by hemolysin.",
+        "E": "Proteus alkalinizes rather than acidifies urine.",
+        "C": "Oxalate stones are not infection-related.",
+        "B": "Cystine stones result from an inherited transport defect."
+      },
+      "tables": [
+        {
+          "title": "Urease-positive organisms (CHuNKS PUNCH)",
+          "cols": [
+            "Organism",
+            "Clinical relevance"
+          ],
+          "rows": [
+            [
+              "Proteus",
+              "Struvite (staghorn) stones, alkaline urine"
+            ],
+            [
+              "Klebsiella",
+              "UTI, struvite stones"
+            ],
+            [
+              "S. saprophyticus",
+              "Cystitis"
+            ],
+            [
+              "H. pylori",
+              "Ammonia buffers gastric acid; urea breath test"
+            ],
+            [
+              "Cryptococcus",
+              "Virulence factor"
+            ],
+            [
+              "Nocardia",
+              "Soil organism"
+            ],
+            [
+              "Ureaplasma",
+              "Urethritis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3629,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Salmonella vs Shigella: invasion route",
+      "stem": "Both Salmonella and Shigella invade the colon, yet only one regularly causes bacteremia. Which statement explains the difference?",
+      "options": {
+        "A": "Shigella lacks any mechanism for epithelial invasion",
+        "B": "Salmonella survives in macrophages and enters the blood",
+        "C": "Shigella survives in macrophages and reaches the bloodstream",
+        "D": "Salmonella is non-invasive and acts only through toxin",
+        "E": "Both organisms are equally likely to cause bacteremia"
+      },
+      "answer": "B",
+      "explanation": "Salmonella invades through M cells, survives inside macrophages, and can disseminate, causing bacteremia and osteomyelitis. Shigella invades epithelium through M cells, escapes into the cytoplasm, and spreads cell to cell but kills macrophages by apoptosis and rarely enters the blood. Shigella also has a much lower infectious dose.",
+      "wrong": {
+        "C": "Shigella triggers macrophage death instead of surviving inside them.",
+        "A": "Shigella is highly invasive of epithelium.",
+        "D": "Salmonella is invasive.",
+        "E": "Bacteremia is far more common with Salmonella."
+      },
+      "tables": [
+        {
+          "title": "Salmonella vs Shigella",
+          "cols": [
+            "Feature",
+            "Salmonella",
+            "Shigella"
+          ],
+          "rows": [
+            [
+              "Motility",
+              "Motile (flagella)",
+              "Non-motile"
+            ],
+            [
+              "H2S",
+              "Produces (black colonies)",
+              "No"
+            ],
+            [
+              "Infectious dose",
+              "High (~10⁵; acid-labile)",
+              "Very low (10–200; acid-stable)"
+            ],
+            [
+              "Reservoir",
+              "Animals (poultry, eggs, reptiles); Typhi only humans",
+              "Humans only"
+            ],
+            [
+              "Spread",
+              "Hematogenous (Typhi via macrophages)",
+              "Cell-to-cell (actin); rarely bacteremic"
+            ],
+            [
+              "Antibiotics",
+              "Not for uncomplicated non-typhoidal (prolong carriage)",
+              "Yes (shorten illness and spread)"
+            ],
+            [
+              "Lactose",
+              "Non-fermenter",
+              "Non-fermenter"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3630,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Salmonella: acid and antacid risk",
+      "stem": "Which factor most increases susceptibility to non-typhoidal Salmonella gastroenteritis?",
+      "options": {
+        "A": "A high-fiber vegetarian diet",
+        "B": "Chronic beta-blocker therapy",
+        "C": "Recent influenza vaccination",
+        "D": "Daily aspirin therapy",
+        "E": "Proton pump inhibitor use"
+      },
+      "answer": "E",
+      "explanation": "Salmonella has a relatively high infectious dose and is acid-sensitive, so reduced gastric acidity from proton pump inhibitors, antacids, or gastrectomy lowers the dose needed. Sickle cell disease, asplenia, HIV, and extremes of age raise the risk of invasive disease.",
+      "wrong": {
+        "D": "Aspirin does not raise gastric pH enough to matter.",
+        "A": "Diet fiber is not a recognized risk factor.",
+        "C": "Vaccination does not predispose to enteric infection.",
+        "B": "Beta-blockers have no effect on gastric acid."
+      },
+      "tables": [
+        {
+          "title": "Salmonella vs Shigella",
+          "cols": [
+            "Feature",
+            "Salmonella",
+            "Shigella"
+          ],
+          "rows": [
+            [
+              "Motility",
+              "Motile (flagella)",
+              "Non-motile"
+            ],
+            [
+              "H2S",
+              "Produces (black colonies)",
+              "No"
+            ],
+            [
+              "Infectious dose",
+              "High (~10⁵; acid-labile)",
+              "Very low (10–200; acid-stable)"
+            ],
+            [
+              "Reservoir",
+              "Animals (poultry, eggs, reptiles); Typhi only humans",
+              "Humans only"
+            ],
+            [
+              "Spread",
+              "Hematogenous (Typhi via macrophages)",
+              "Cell-to-cell (actin); rarely bacteremic"
+            ],
+            [
+              "Antibiotics",
+              "Not for uncomplicated non-typhoidal (prolong carriage)",
+              "Yes (shorten illness and spread)"
+            ],
+            [
+              "Lactose",
+              "Non-fermenter",
+              "Non-fermenter"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3631,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Shigella: toxin and complication",
+      "stem": "A child in a daycare outbreak has fever, tenesmus, and scant bloody stools, then develops a seizure. Which statements about this organism are correct?",
+      "options": {
+        "A": "It makes Shiga toxin and has a very low infectious dose",
+        "B": "It is spread only by undercooked beef and never person to person",
+        "C": "It makes Shiga toxin and requires a very high inoculum",
+        "D": "It makes cholera-like toxin and is spread only by water",
+        "E": "It is non-invasive and produces watery stools exclusively"
+      },
+      "answer": "A",
+      "explanation": "Shigella needs as few as 10-100 organisms, so person-to-person spread in daycares and households is common. S. dysenteriae type 1 produces Shiga toxin, which inhibits protein synthesis by cleaving 28S rRNA and can cause HUS. Seizures occur in young children, often with fever.",
+      "wrong": {
+        "C": "The infectious dose is remarkably low.",
+        "D": "Cholera-like enterotoxin describes Vibrio and ETEC.",
+        "E": "Shigella invades colonic epithelium and causes dysentery.",
+        "B": "Beef is the EHEC vehicle; Shigella spreads person to person."
+      },
+      "tables": [
+        {
+          "title": "Salmonella vs Shigella",
+          "cols": [
+            "Feature",
+            "Salmonella",
+            "Shigella"
+          ],
+          "rows": [
+            [
+              "Motility",
+              "Motile (flagella)",
+              "Non-motile"
+            ],
+            [
+              "H2S",
+              "Produces (black colonies)",
+              "No"
+            ],
+            [
+              "Infectious dose",
+              "High (~10⁵; acid-labile)",
+              "Very low (10–200; acid-stable)"
+            ],
+            [
+              "Reservoir",
+              "Animals (poultry, eggs, reptiles); Typhi only humans",
+              "Humans only"
+            ],
+            [
+              "Spread",
+              "Hematogenous (Typhi via macrophages)",
+              "Cell-to-cell (actin); rarely bacteremic"
+            ],
+            [
+              "Antibiotics",
+              "Not for uncomplicated non-typhoidal (prolong carriage)",
+              "Yes (shorten illness and spread)"
+            ],
+            [
+              "Lactose",
+              "Non-fermenter",
+              "Non-fermenter"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3632,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Vibrio cholerae: rehydration physiology",
+      "stem": "A patient with cholera has profuse rice-water stools. Why does oral rehydration solution with glucose work despite ongoing chloride secretion?",
+      "options": {
+        "A": "Glucose inhibits adenylyl cyclase inside the enterocyte",
+        "B": "Glucose stimulates gastric acid, which neutralizes toxin",
+        "C": "Glucose blocks cholera toxin binding to the GM1 receptor",
+        "D": "Sodium-glucose cotransport is intact and pulls water in",
+        "E": "Glucose kills the organism by fermentative acidification"
+      },
+      "answer": "D",
+      "explanation": "Cholera toxin causes secretion through CFTR but leaves the SGLT1 sodium-glucose cotransporter working. Glucose-coupled sodium absorption pulls water back across the mucosa, which is why oral rehydration solution saves lives without stopping the diarrhea. Severe cases also get doxycycline or azithromycin, which shortens shedding.",
+      "wrong": {
+        "C": "Glucose has no effect on toxin binding.",
+        "A": "cAMP remains elevated during treatment.",
+        "E": "Oral rehydration does not kill Vibrio.",
+        "B": "Gastric acid plays no role in the effect."
+      },
+      "tables": [
+        {
+          "title": "Vibrio species",
+          "cols": [
+            "Species",
+            "Source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "V. cholerae",
+              "Fecally contaminated water",
+              "Rice-water diarrhea (cholera toxin)",
+              "Oral rehydration ± doxycycline/azithromycin"
+            ],
+            [
+              "V. parahaemolyticus",
+              "Raw shellfish",
+              "Self-limited gastroenteritis",
+              "Supportive"
+            ],
+            [
+              "V. vulnificus",
+              "Raw oysters, seawater wounds",
+              "Sepsis and hemorrhagic bullae in liver disease/iron overload",
+              "Doxycycline + ceftriaxone, debridement"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3633,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "easy",
+      "topic": "Campylobacter: growth conditions",
+      "stem": "A teenager has fever, cramping abdominal pain, and bloody diarrhea after handling raw chicken. The comma-shaped organism grows at 42°C in a microaerophilic atmosphere. Which organism is this?",
+      "options": {
+        "A": "Aeromonas hydrophila",
+        "B": "Campylobacter jejuni",
+        "C": "Vibrio parahaemolyticus",
+        "D": "Yersinia enterocolitica",
+        "E": "Shigella sonnei"
+      },
+      "answer": "B",
+      "explanation": "C. jejuni is a curved, comma- or S-shaped Gram-negative rod that is oxidase-positive and grows best at 42°C in reduced oxygen on Skirrow medium. Poultry is the main source. It is the most common bacterial cause of diarrhea in many countries and precedes Guillain-Barré syndrome and reactive arthritis.",
+      "wrong": {
+        "C": "This follows shellfish and grows on TCBS agar with salt.",
+        "D": "Yersinia grows in the cold and mimics appendicitis.",
+        "E": "Shigella is a straight, non-motile rod.",
+        "A": "Aeromonas is linked to fresh water and is not thermophilic."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3634,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "H. pylori: urease-based tests",
+      "stem": "Which diagnostic tests for H. pylori depend on the organism's urease, and what must be stopped before testing?",
+      "options": {
+        "A": "Breath and stool-independent urea tests; hold PPIs first",
+        "B": "Biopsy silver stain; hold anticoagulants for three days",
+        "C": "Stool antigen tests; hold antacids for twenty-four hours",
+        "D": "Complement fixation tests; hold proton pump inhibitors",
+        "E": "Serologic antibody tests; hold all antibiotics for a month"
+      },
+      "answer": "A",
+      "explanation": "The urea breath test and rapid urease test on biopsy both detect urease, which H. pylori uses to neutralize acid. Proton pump inhibitors, bismuth, and antibiotics suppress the organism and cause false negatives, so PPIs are stopped one to two weeks before testing. Serology cannot distinguish current from past infection.",
+      "wrong": {
+        "E": "Serology does not measure urease and cannot confirm eradication.",
+        "C": "Stool antigen detects bacterial protein rather than urease activity.",
+        "B": "Staining visualizes organisms without using urease.",
+        "D": "Complement fixation is not used for H. pylori."
+      },
+      "tables": [
+        {
+          "title": "Urease-positive organisms (CHuNKS PUNCH)",
+          "cols": [
+            "Organism",
+            "Clinical relevance"
+          ],
+          "rows": [
+            [
+              "Proteus",
+              "Struvite (staghorn) stones, alkaline urine"
+            ],
+            [
+              "Klebsiella",
+              "UTI, struvite stones"
+            ],
+            [
+              "S. saprophyticus",
+              "Cystitis"
+            ],
+            [
+              "H. pylori",
+              "Ammonia buffers gastric acid; urea breath test"
+            ],
+            [
+              "Cryptococcus",
+              "Virulence factor"
+            ],
+            [
+              "Nocardia",
+              "Soil organism"
+            ],
+            [
+              "Ureaplasma",
+              "Urethritis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3635,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "hard",
+      "topic": "H. pylori: ulcer site and mechanism",
+      "stem": "How does H. pylori lead to duodenal ulceration?",
+      "options": {
+        "A": "It blocks bicarbonate secretion from the exocrine pancreas",
+        "B": "It invades the duodenal wall and causes direct necrosis",
+        "C": "Body infection destroys parietal cells and lowers acid production",
+        "D": "Antral infection raises gastrin and the duodenal acid load",
+        "E": "It secretes an enterotoxin that raises duodenal cAMP levels"
+      },
+      "answer": "D",
+      "explanation": "Antral-predominant infection reduces somatostatin from D cells, so gastrin and acid output rise and the duodenum receives an excess acid load, producing duodenal ulcers. Body-predominant infection causes atrophic gastritis, lower acid, and greater risk of gastric ulcer and adenocarcinoma. CagA and VacA increase virulence.",
+      "wrong": {
+        "C": "That pattern lowers acid and is linked to gastric cancer rather than duodenal ulcer.",
+        "E": "H. pylori does not act through a cAMP enterotoxin.",
+        "B": "It remains in the mucus layer and does not invade deeply.",
+        "A": "Pancreatic secretion is not the mechanism."
+      },
+      "tables": [
+        {
+          "title": "Urease-positive organisms (CHuNKS PUNCH)",
+          "cols": [
+            "Organism",
+            "Clinical relevance"
+          ],
+          "rows": [
+            [
+              "Proteus",
+              "Struvite (staghorn) stones, alkaline urine"
+            ],
+            [
+              "Klebsiella",
+              "UTI, struvite stones"
+            ],
+            [
+              "S. saprophyticus",
+              "Cystitis"
+            ],
+            [
+              "H. pylori",
+              "Ammonia buffers gastric acid; urea breath test"
+            ],
+            [
+              "Cryptococcus",
+              "Virulence factor"
+            ],
+            [
+              "Nocardia",
+              "Soil organism"
+            ],
+            [
+              "Ureaplasma",
+              "Urethritis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3636,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "medium",
+      "topic": "Bacteroides fragilis: intrinsic resistance",
+      "stem": "An intra-abdominal abscess after colon surgery grows an obligate anaerobe with no lipopolysaccharide-driven endotoxin activity typical of enterics. Which regimen is appropriate?",
+      "options": {
+        "A": "Penicillin G with gentamicin synergy",
+        "B": "Aztreonam with vancomycin",
+        "C": "Metronidazole with a cephalosporin",
+        "D": "Nitrofurantoin with doxycycline",
+        "E": "Cephalexin with azithromycin"
+      },
+      "answer": "C",
+      "explanation": "Bacteroides fragilis is the most common anaerobe in intra-abdominal infection. It produces beta-lactamase and resists penicillin and aminoglycosides, which need oxygen for uptake. Effective options include metronidazole, carbapenems, piperacillin-tazobactam, and cefoxitin, combined with aerobic Gram-negative coverage.",
+      "wrong": {
+        "A": "Both fail: the organism makes beta-lactamase and aminoglycosides need oxygen.",
+        "B": "Neither drug covers anaerobic Gram-negative rods.",
+        "E": "Neither reliably covers B. fragilis.",
+        "D": "Nitrofurantoin is limited to the urinary tract."
+      },
+      "tables": [
+        {
+          "title": "High-yield antibiotic toxicities",
+          "cols": [
+            "Drug",
+            "Toxicity"
+          ],
+          "rows": [
+            [
+              "Fluoroquinolones",
+              "Tendon rupture, QT, cartilage damage, CNS effects"
+            ],
+            [
+              "TMP-SMX",
+              "Hyperkalemia (ENaC), SJS, kernicterus, hemolysis in G6PD"
+            ],
+            [
+              "Metronidazole",
+              "Disulfiram-like reaction, metallic taste, neuropathy"
+            ],
+            [
+              "Nitrofurantoin",
+              "Pulmonary fibrosis, hemolysis in G6PD"
+            ],
+            [
+              "Vancomycin",
+              "Nephrotoxicity, ototoxicity, infusion reaction"
+            ],
+            [
+              "Chloramphenicol",
+              "Aplastic anemia, gray baby syndrome"
+            ],
+            [
+              "Linezolid",
+              "Thrombocytopenia, serotonin syndrome, optic neuropathy"
+            ],
+            [
+              "Imipenem",
+              "Seizures"
+            ],
+            [
+              "Ceftriaxone",
+              "Biliary sludge, kernicterus in neonates"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3637,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "hard",
+      "topic": "Yersinia enterocolitica: mimics and iron",
+      "stem": "A child with beta-thalassemia on transfusions and chelation develops fever, right lower quadrant pain, and diarrhea. Which organism should be suspected, and why is he at risk?",
+      "options": {
+        "A": "Shigella flexneri, which needs a very small inoculum",
+        "B": "Yersinia enterocolitica, which thrives on excess iron",
+        "C": "Campylobacter jejuni, which follows poultry exposure",
+        "D": "Clostridioides difficile, which follows antibiotic use",
+        "E": "Vibrio vulnificus, which follows raw oyster ingestion"
+      },
+      "answer": "B",
+      "explanation": "Yersinia uses siderophores and multiplies readily in iron-replete hosts, so iron overload from transfusions and deferoxamine therapy raises the risk. It causes pseudoappendicitis with mesenteric adenitis, and it grows in the cold, so refrigerated milk and pork are vehicles. Reactive arthritis may follow.",
+      "wrong": {
+        "A": "Shigella causes dysentery without a link to iron overload.",
+        "D": "No antibiotic exposure is described here.",
+        "E": "V. vulnificus risk rises with iron overload but causes sepsis with bullae after oysters.",
+        "C": "Campylobacter is not associated with iron overload."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3638,
+      "part": "Enteric Gram− Rods",
+      "tag": "Enteric Gram− Rods",
+      "difficulty": "easy",
+      "topic": "Enterics: lactose fermentation logic",
+      "stem": "On MacConkey agar, which set of organisms produces pink colonies?",
+      "options": {
+        "A": "Pseudomonas, Salmonella, E. coli, Shigella, Proteus",
+        "B": "E. coli, Klebsiella, Enterobacter, Citrobacter",
+        "C": "Proteus, Enterobacter, Pseudomonas, Shigella, Yersinia",
+        "D": "Salmonella, Shigella, Proteus, Yersinia, Pseudomonas",
+        "E": "Klebsiella, Shigella, Serratia, Yersinia, Salmonella"
+      },
+      "answer": "B",
+      "explanation": "Lactose fermenters turn MacConkey agar pink: E. coli, Klebsiella, Enterobacter, Citrobacter, and Serratia (Serratia slowly). Mnemonic: 'lactose is KEE' for Klebsiella, E. coli, Enterobacter as the fast fermenters. Non-fermenters (colorless) include Salmonella, Shigella, Proteus, Yersinia, and Pseudomonas.",
+      "wrong": {
+        "D": "These are all non-fermenters.",
+        "A": "Only E. coli in this list ferments lactose.",
+        "E": "Shigella, Yersinia, and Salmonella do not ferment lactose.",
+        "C": "Only Enterobacter here ferments lactose."
+      },
+      "tables": [
+        {
+          "title": "MacConkey agar reactions",
+          "cols": [
+            "Lactose fermenters (pink)",
+            "Non-fermenters (colorless)"
+          ],
+          "rows": [
+            [
+              "E. coli",
+              "Proteus"
+            ],
+            [
+              "Klebsiella",
+              "Pseudomonas (oxidase +)"
+            ],
+            [
+              "Enterobacter",
+              "Salmonella (H2S +)"
+            ],
+            [
+              "Citrobacter",
+              "Shigella"
+            ],
+            [
+              "Serratia (late)",
+              "Yersinia"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3639,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "hard",
+      "topic": "TB: cord factor",
+      "stem": "Which mycobacterial cell wall component causes serpentine cord formation in culture and activates macrophages to release TNF-alpha, contributing to caseating granulomas?",
+      "options": {
+        "A": "Sulfatide lipids",
+        "B": "Lipoarabinomannan",
+        "C": "Trehalose dimycolate",
+        "D": "Mycolic acid alone",
+        "E": "Arabinogalactan polymer"
+      },
+      "answer": "C",
+      "explanation": "Cord factor (trehalose 6,6'-dimycolate) makes the organism grow in serpentine cords, inhibits phagosome maturation, and induces TNF-alpha release that drives granuloma formation and the weight loss of tuberculosis. Sulfatides also block phagosome-lysosome fusion.",
+      "wrong": {
+        "D": "Mycolic acids confer acid-fastness but do not by themselves cause cording.",
+        "E": "Arabinogalactan is a structural polysaccharide and is the target of ethambutol.",
+        "B": "LAM modulates immune signaling and is used in a urine antigen test.",
+        "A": "Sulfatides block phagolysosome fusion but do not cause cording."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3640,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "easy",
+      "topic": "TB: granuloma cell types",
+      "stem": "A lymph node biopsy from a patient with tuberculosis shows granulomas. Which cell and cytokine pair is central to keeping this infection contained?",
+      "options": {
+        "A": "B cells activated by interleukin-21",
+        "B": "Mast cells activated by interleukin-4",
+        "C": "Eosinophils activated by interleukin-5",
+        "D": "Neutrophils activated by interleukin-8",
+        "E": "Macrophages driven by interferon-gamma"
+      },
+      "answer": "E",
+      "explanation": "CD4 Th1 cells release IFN-gamma, which activates macrophages to form epithelioid cells, Langhans giant cells, and granulomas. Blocking TNF-alpha or losing CD4 cells breaks containment, which is why TNF inhibitors and HIV reactivate latent tuberculosis, and why the IGRA measures IFN-gamma release.",
+      "wrong": {
+        "D": "Neutrophils dominate acute pyogenic infection, not granulomas.",
+        "C": "Eosinophils respond to helminths.",
+        "B": "Mast cells mediate allergy.",
+        "A": "Antibody plays little role in containing tuberculosis."
+      },
+      "tables": [
+        {
+          "title": "Immune defects and typical infections",
+          "cols": [
+            "Defect",
+            "Examples",
+            "Typical organisms"
+          ],
+          "rows": [
+            [
+              "B cell / antibody",
+              "XLA, CVID",
+              "Encapsulated bacteria, enteroviruses, Giardia"
+            ],
+            [
+              "T cell",
+              "DiGeorge, HIV",
+              "Candida, Pneumocystis, viruses, intracellular bacteria"
+            ],
+            [
+              "Phagocyte",
+              "CGD, neutropenia, LAD",
+              "Catalase-positive bacteria, Aspergillus, Candida"
+            ],
+            [
+              "Terminal complement (C5–C9)",
+              "Congenital, eculizumab",
+              "Neisseria"
+            ],
+            [
+              "Asplenia",
+              "Splenectomy, sickle cell",
+              "Encapsulated bacteria, Babesia, Capnocytophaga"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3641,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "TB: Ghon complex vs reactivation site",
+      "stem": "Why does primary tuberculosis typically involve the lower lobes while reactivation disease favors the apices?",
+      "options": {
+        "A": "Lower lobes lack alveolar macrophages for the organism",
+        "B": "Lower lobes have thicker pleura that blocks reactivation",
+        "C": "Apices are cooler, which slows bacterial multiplication",
+        "D": "Apices receive far more blood flow than the lung bases do",
+        "E": "Apices have higher oxygen tension and poorer drainage"
+      },
+      "answer": "E",
+      "explanation": "Inhaled droplets deposit where ventilation is greatest, the lower lobes, producing the Ghon focus with hilar adenopathy (Ghon complex). Reactivation favors the apices, where the ventilation-perfusion ratio gives the highest oxygen tension, favoring this obligate aerobe, and lymphatic clearance is poorer.",
+      "wrong": {
+        "D": "Perfusion is actually lowest at the apices when upright.",
+        "B": "Pleural thickness does not determine reactivation site.",
+        "A": "Macrophages are present throughout the lung.",
+        "C": "Cooler temperature favors M. marinum and leprosy, not apical TB."
+      }
+    },
+    {
+      "id": 3642,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "TB: acid-fast alternatives",
+      "stem": "A patient's sputum is processed for mycobacteria. Which method most quickly identifies an isolate that will not respond to rifampin?",
+      "options": {
+        "A": "Solid culture on Lowenstein-Jensen slants for weeks",
+        "B": "Tuberculin skin testing with intradermal PPD",
+        "C": "Auramine-rhodamine fluorescent staining of sputum",
+        "D": "Ziehl-Neelsen staining of a concentrated sputum smear",
+        "E": "Nucleic acid amplification with rpoB probes"
+      },
+      "answer": "E",
+      "explanation": "Molecular tests (for example Xpert MTB/RIF) detect M. tuberculosis DNA and rpoB mutations conferring rifampin resistance within hours. Smears are quick but insensitive and do not give susceptibility. Culture remains the reference standard but takes weeks, and the skin test cannot distinguish infection from disease.",
+      "wrong": {
+        "D": "Smear microscopy gives no resistance information.",
+        "C": "Fluorescent staining is more sensitive than ZN but still gives no susceptibility data.",
+        "A": "Solid culture takes three to eight weeks.",
+        "B": "The skin test detects prior sensitization, not resistance."
+      },
+      "tables": [
+        {
+          "title": "Special stains",
+          "cols": [
+            "Stain",
+            "Organisms"
+          ],
+          "rows": [
+            [
+              "Giemsa",
+              "Chlamydia, Borrelia, Rickettsia, trypanosomes, Plasmodium, Toxoplasma"
+            ],
+            [
+              "PAS",
+              "Tropheryma whipplei (macrophages)"
+            ],
+            [
+              "Ziehl-Neelsen / acid-fast",
+              "Mycobacteria; Nocardia (modified); Cryptosporidium, Cyclospora, Cystoisospora oocysts"
+            ],
+            [
+              "India ink",
+              "Cryptococcus capsule"
+            ],
+            [
+              "Silver",
+              "Helicobacter, Legionella, Bartonella, fungi (Pneumocystis)"
+            ],
+            [
+              "Mucicarmine",
+              "Cryptococcus capsule in tissue"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3643,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "Isoniazid: mechanism and activation",
+      "stem": "Isoniazid requires bacterial activation before it can act. Which sequence is correct?",
+      "options": {
+        "A": "KatG activates it, then it blocks arabinogalactan synthesis",
+        "B": "It is activated in the liver and blocks DNA gyrase",
+        "C": "KatG activates it, then it blocks mycolic acid synthesis",
+        "D": "Pyrazinamidase activates it, then it disrupts membranes",
+        "E": "It needs no activation and blocks RNA polymerase directly"
+      },
+      "answer": "C",
+      "explanation": "Isoniazid is a prodrug activated by mycobacterial catalase-peroxidase (KatG); the active form inhibits InhA, an enoyl reductase in mycolic acid synthesis. Resistance arises from katG or inhA mutations. Adverse effects include hepatitis, peripheral neuropathy from pyridoxine depletion, and drug-induced lupus.",
+      "wrong": {
+        "A": "Arabinogalactan synthesis is inhibited by ethambutol.",
+        "D": "Pyrazinamidase activates pyrazinamide.",
+        "E": "RNA polymerase is the rifampin target.",
+        "B": "Gyrase is the fluoroquinolone target."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3644,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "easy",
+      "topic": "Rifampin: induction consequences",
+      "stem": "A woman on combined oral contraceptives and warfarin is started on rifampin for tuberculosis. What is the expected consequence?",
+      "options": {
+        "A": "Neither drug is affected because rifampin is renally cleared",
+        "B": "Warfarin fails while the contraceptive becomes stronger",
+        "C": "Both drugs become more potent from enzyme inhibition",
+        "D": "Both drugs become less effective from enzyme induction",
+        "E": "The contraceptive fails while warfarin needs a lower dose"
+      },
+      "answer": "D",
+      "explanation": "Rifampin is a potent inducer of cytochrome P450, especially CYP3A4, so it accelerates metabolism of oral contraceptives, warfarin, protease inhibitors, and many other drugs. It also causes orange discoloration of urine, sweat, and tears, and can cause hepatotoxicity. Rifabutin induces less and is preferred with antiretroviral therapy.",
+      "wrong": {
+        "C": "Rifampin induces rather than inhibits P450.",
+        "E": "Warfarin requirements rise, not fall.",
+        "B": "Both are made less effective.",
+        "A": "Rifampin is a classic inducer with many interactions."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3645,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "easy",
+      "topic": "Ethambutol and pyrazinamide: adverse effects",
+      "stem": "A patient on four-drug tuberculosis therapy reports difficulty distinguishing red from green, and his uric acid is elevated with a painful great toe. Which drugs explain these two problems?",
+      "options": {
+        "A": "Rifampin for the vision and isoniazid for the gout",
+        "B": "Pyrazinamide for the vision and ethambutol for the gout",
+        "C": "Ethambutol for the eyes and pyrazinamide for the gout",
+        "D": "Streptomycin for the vision and ethambutol for the gout",
+        "E": "Isoniazid for the vision and rifampin for the gout"
+      },
+      "answer": "C",
+      "explanation": "Ethambutol inhibits arabinosyl transferase and causes dose-dependent optic neuritis with red-green color blindness. Pyrazinamide reduces uric acid excretion and can precipitate gout; it also causes hepatotoxicity. Isoniazid causes neuropathy and hepatitis, rifampin causes orange fluids, and streptomycin causes vestibular and auditory toxicity.",
+      "wrong": {
+        "B": "The two adverse effects are swapped.",
+        "E": "Isoniazid causes peripheral neuropathy rather than optic neuritis.",
+        "A": "Neither drug causes these effects.",
+        "D": "Streptomycin is ototoxic, not a cause of optic neuritis."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3646,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "easy",
+      "topic": "Isoniazid: pyridoxine and neuropathy",
+      "stem": "Why is pyridoxine given with isoniazid, especially in pregnancy, alcohol use disorder, and malnutrition?",
+      "options": {
+        "A": "Isoniazid chelates calcium, causing tetany and paresthesias",
+        "B": "Isoniazid depletes vitamin B6, causing peripheral neuropathy",
+        "C": "Isoniazid blocks thiamine use, causing Wernicke syndrome",
+        "D": "Isoniazid depletes vitamin B12, causing subacute degeneration",
+        "E": "Isoniazid blocks folate absorption, causing megaloblastosis"
+      },
+      "answer": "B",
+      "explanation": "Isoniazid forms hydrazones with pyridoxal phosphate and increases its excretion, so B6 becomes deficient and a sensory peripheral neuropathy develops. Pyridoxine 25-50 mg daily prevents this. Massive isoniazid overdose causes refractory seizures treated with high-dose pyridoxine.",
+      "wrong": {
+        "D": "B12 deficiency is unrelated to isoniazid.",
+        "E": "Folate antagonism is a feature of TMP-SMX and phenytoin.",
+        "A": "Isoniazid does not chelate calcium.",
+        "C": "Thiamine deficiency relates to alcohol use itself."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3647,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "Latent TB: regimen options",
+      "stem": "A healthy 32-year-old nurse has a positive IGRA, a normal chest radiograph, and no symptoms. Which treatment options are appropriate?",
+      "options": {
+        "A": "Bacille Calmette-Guerin vaccination instead of any drug",
+        "B": "A single dose of azithromycin repeated every month",
+        "C": "Rifampin for four months, or isoniazid with rifapentine weekly",
+        "D": "No treatment, because latent infection cannot be treated",
+        "E": "Four-drug therapy with isoniazid, rifampin, pyrazinamide, ethambutol"
+      },
+      "answer": "C",
+      "explanation": "Latent tuberculosis is treated to prevent reactivation. Preferred short regimens are rifampin daily for four months, isoniazid plus rifapentine weekly for 12 doses, or isoniazid plus rifampin daily for three months. Isoniazid alone for six to nine months remains an alternative. Four-drug therapy is for active disease.",
+      "wrong": {
+        "E": "Four drugs are reserved for active disease.",
+        "D": "Treating latent infection is standard and prevents reactivation.",
+        "B": "Azithromycin does not treat M. tuberculosis.",
+        "A": "BCG is not used to treat latent infection."
+      },
+      "tables": [
+        {
+          "title": "First-line TB drugs (RIPE)",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "Rifampin",
+              "Inhibits DNA-dependent RNA polymerase (rpoB)",
+              "Orange fluids, CYP450 induction, hepatotoxicity"
+            ],
+            [
+              "Isoniazid",
+              "Prodrug (KatG) → inhibits mycolic acid synthesis (InhA)",
+              "Neuropathy (give B6), hepatotoxicity, drug-induced lupus"
+            ],
+            [
+              "Pyrazinamide",
+              "Unclear; active at acidic pH",
+              "Hyperuricemia/gout, hepatotoxicity"
+            ],
+            [
+              "Ethambutol",
+              "Inhibits arabinosyltransferase",
+              "Optic neuritis (red-green color loss)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3648,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "TB skin test: false negatives",
+      "stem": "A patient with miliary tuberculosis and advanced AIDS has a tuberculin skin test with no induration. What explains this?",
+      "options": {
+        "A": "Anergy from impaired cell-mediated immunity",
+        "B": "An error, since the test is always positive in disease",
+        "C": "A booster effect from repeated annual testing",
+        "D": "Prior BCG vaccination blunting the reaction",
+        "E": "Recent exposure within the last two years only"
+      },
+      "answer": "A",
+      "explanation": "The tuberculin test depends on a type IV hypersensitivity response, so it is falsely negative with severe immunosuppression, overwhelming disease, malnutrition, recent viral infection, and in the first 2-8 weeks after exposure. An IGRA avoids BCG cross-reactivity but can also be affected by immunosuppression.",
+      "wrong": {
+        "D": "BCG causes false positives, not negatives.",
+        "B": "Severe disease commonly produces a negative result.",
+        "E": "This patient has active disease, so the window period is not the issue.",
+        "C": "Boosting increases reactions rather than suppressing them."
+      },
+      "tables": [
+        {
+          "title": "Tuberculin skin test cutoffs (induration)",
+          "cols": [
+            "≥5 mm",
+            "≥10 mm",
+            "≥15 mm"
+          ],
+          "rows": [
+            [
+              "HIV, recent contacts of active TB, fibrotic CXR, transplant/immunosuppressed",
+              "Recent immigrants, IVDU, healthcare/prison/shelter workers and residents, children <4",
+              "No risk factors"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3649,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "MAC prophylaxis and treatment",
+      "stem": "A patient with AIDS and a CD4 count of 30 cells/µL has fever, weight loss, diarrhea, and anemia, with blood cultures growing Mycobacterium avium complex. Which regimen treats this?",
+      "options": {
+        "A": "Azithromycin, ethambutol, and rifabutin together",
+        "B": "Isoniazid with rifampin for nine months total",
+        "C": "TMP-SMX at treatment dose for three weeks",
+        "D": "Amphotericin B followed by oral fluconazole",
+        "E": "Dapsone with rifampin and clofazimine daily"
+      },
+      "answer": "A",
+      "explanation": "Disseminated MAC occurs when the CD4 count falls below 50 and causes fever, weight loss, diarrhea, and elevated alkaline phosphatase. Treatment is a macrolide plus ethambutol, often with rifabutin. Antiretroviral therapy is essential and can precipitate IRIS.",
+      "wrong": {
+        "B": "MAC is not reliably susceptible to isoniazid.",
+        "E": "That regimen treats leprosy.",
+        "C": "TMP-SMX treats Pneumocystis and Nocardia.",
+        "D": "That treats cryptococcal disease."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3650,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "hard",
+      "topic": "M. scrofulaceum vs TB lymphadenitis",
+      "stem": "A 3-year-old has a firm, painless, slowly enlarging submandibular node with violaceous overlying skin, no fever, and a normal chest radiograph. Which management is best?",
+      "options": {
+        "A": "Four-drug antituberculous therapy",
+        "B": "Surgical excision of the node",
+        "C": "Observation without any intervention",
+        "D": "Intravenous ceftriaxone for two weeks",
+        "E": "Incision and drainage with packing"
+      },
+      "answer": "B",
+      "explanation": "Nontuberculous mycobacterial lymphadenitis in young children is usually caused by M. avium complex or M. scrofulaceum. Complete surgical excision is both diagnostic and curative; incision and drainage risks a chronic draining sinus tract. Systemic symptoms and abnormal imaging would point to tuberculosis instead.",
+      "wrong": {
+        "A": "Tuberculous adenitis usually has systemic signs or lung findings.",
+        "E": "This often leads to a chronically draining fistula.",
+        "C": "Untreated nodes may rupture and scar.",
+        "D": "Beta-lactams do not treat mycobacteria."
+      }
+    },
+    {
+      "id": 3651,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "Leprosy: nerve involvement",
+      "stem": "A patient from an endemic area has thickened peripheral nerves and loss of sensation on the cool areas of skin, with preserved sensation in the warm axillae and groin. What explains this distribution?",
+      "options": {
+        "A": "The organism requires high tissue oxygen levels",
+        "B": "The organism spreads along arterial walls",
+        "C": "Warm areas have denser lymphatic drainage",
+        "D": "Cool areas have fewer Schwann cells present",
+        "E": "The organism prefers cooler temperatures"
+      },
+      "answer": "E",
+      "explanation": "M. leprae grows best at 27-30°C, so it targets skin, superficial nerves, the nose, testes, and earlobes while sparing warm areas. It invades Schwann cells, causing sensory loss, then trauma and deformity. It cannot be cultured on artificial media and is grown in armadillos or mouse footpads.",
+      "wrong": {
+        "B": "It spreads within nerves rather than along arteries.",
+        "C": "Lymphatic density does not explain the pattern.",
+        "D": "Schwann cell density is not the determining factor.",
+        "A": "Temperature, not oxygen, determines the distribution."
+      },
+      "tables": [
+        {
+          "title": "Leprosy spectrum",
+          "cols": [
+            "Feature",
+            "Tuberculoid",
+            "Lepromatous"
+          ],
+          "rows": [
+            [
+              "Immune response",
+              "Th1 (IFN-γ, IL-2)",
+              "Th2 (IL-4, IL-10)"
+            ],
+            [
+              "Lesions",
+              "Few, well-demarcated, hypoesthetic plaques",
+              "Diffuse nodules, leonine facies"
+            ],
+            [
+              "Bacilli",
+              "Few",
+              "Many (foamy macrophages)"
+            ],
+            [
+              "Lepromin test",
+              "Positive",
+              "Negative"
+            ],
+            [
+              "Treatment",
+              "Dapsone + rifampin",
+              "Dapsone + rifampin + clofazimine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3652,
+      "part": "Mycobacteria",
+      "tag": "Mycobacteria",
+      "difficulty": "medium",
+      "topic": "Leprosy: lepromatous vs tuberculoid",
+      "stem": "Two patients have leprosy. Patient A has a few well-defined anesthetic plaques with rare bacilli on biopsy. Patient B has diffuse nodular skin thickening with numerous bacilli. Which immunologic contrast is correct?",
+      "options": {
+        "A": "Patient A has a strong Th1 response; patient B a Th2 response",
+        "B": "Patient B has the stronger cell-mediated response of the two",
+        "C": "Patient A lacks antibody entirely while patient B lacks T cells",
+        "D": "Patient A has a strong Th2 response; patient B a Th1 response",
+        "E": "Both patients have identical cell-mediated immune responses"
+      },
+      "answer": "A",
+      "explanation": "Tuberculoid leprosy reflects a strong Th1 response that limits the organism: few lesions, few bacilli, marked nerve damage, and a positive lepromin test. Lepromatous leprosy reflects a Th2-skewed response with poor macrophage activation: diffuse disease, abundant bacilli, and leonine facies. Tuberculoid disease is treated with dapsone and rifampin, and lepromatous disease adds clofazimine.",
+      "wrong": {
+        "D": "The two responses are reversed in this option.",
+        "E": "The spectrum is defined by differing T-cell responses.",
+        "C": "Antibody is present in both; the difference is T-cell polarization.",
+        "B": "Lepromatous disease reflects the weaker cellular response."
+      },
+      "tables": [
+        {
+          "title": "Leprosy spectrum",
+          "cols": [
+            "Feature",
+            "Tuberculoid",
+            "Lepromatous"
+          ],
+          "rows": [
+            [
+              "Immune response",
+              "Th1 (IFN-γ, IL-2)",
+              "Th2 (IL-4, IL-10)"
+            ],
+            [
+              "Lesions",
+              "Few, well-demarcated, hypoesthetic plaques",
+              "Diffuse nodules, leonine facies"
+            ],
+            [
+              "Bacilli",
+              "Few",
+              "Many (foamy macrophages)"
+            ],
+            [
+              "Lepromin test",
+              "Positive",
+              "Negative"
+            ],
+            [
+              "Treatment",
+              "Dapsone + rifampin",
+              "Dapsone + rifampin + clofazimine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3653,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "medium",
+      "topic": "Syphilis: treponemal vs nontreponemal tests",
+      "stem": "A man given benzathine penicillin for syphilis two years ago now has a reactive treponemal antibody test with a nonreactive RPR. How should this be interpreted?",
+      "options": {
+        "A": "A false positive treponemal test in a healthy person",
+        "B": "Early primary infection before antibody develops fully",
+        "C": "Prior infection, since treponemal tests remain positive",
+        "D": "Active untreated infection requiring immediate therapy",
+        "E": "Laboratory error, since both tests should always agree"
+      },
+      "answer": "C",
+      "explanation": "Treponemal tests (FTA-ABS, TP-PA, EIA) usually remain reactive for life, while nontreponemal titers (RPR, VDRL) fall after successful treatment and are used to monitor response. A fourfold titer drop indicates cure. A reactive treponemal test with a nonreactive RPR usually means previously treated infection.",
+      "wrong": {
+        "D": "Active infection would usually have a reactive RPR.",
+        "A": "False positive treponemal tests are uncommon and the history fits treated disease.",
+        "B": "In very early disease the treponemal test may be the first to turn positive, but the history of treatment fits better.",
+        "E": "Discordance is expected after treatment."
+      },
+      "tables": [
+        {
+          "title": "Syphilis serology",
+          "cols": [
+            "Test",
+            "Detects",
+            "Use",
+            "After treatment"
+          ],
+          "rows": [
+            [
+              "VDRL / RPR (nontreponemal)",
+              "Anti-cardiolipin antibodies",
+              "Screening; follow titers",
+              "Titers fall"
+            ],
+            [
+              "FTA-ABS, TP-PA, EIA (treponemal)",
+              "Anti-treponemal antibodies",
+              "Confirmation",
+              "Usually positive for life"
+            ],
+            [
+              "Dark-field / PCR",
+              "Organisms in lesion",
+              "Primary and secondary lesions",
+              "—"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3654,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "hard",
+      "topic": "Syphilis: prozone phenomenon",
+      "stem": "A pregnant woman with widespread condyloma lata has a nonreactive RPR, but dilution of the serum produces a strongly reactive result. What explains the initial result?",
+      "options": {
+        "A": "The dilution removed an interfering anticoagulant",
+        "B": "Heat during handling destroyed the original antibody",
+        "C": "Antibody was absent until the sample was diluted",
+        "D": "Complement in the undiluted serum lysed the antigen",
+        "E": "Excess antibody prevented visible lattice formation"
+      },
+      "answer": "E",
+      "explanation": "In the prozone phenomenon, very high antibody concentrations block cross-linking of antigen particles, so the undiluted sample appears nonreactive. Diluting the serum restores lattice formation and reveals the true titer. It matters most in secondary syphilis and pregnancy, where titers are highest.",
+      "wrong": {
+        "C": "Dilution cannot create antibody.",
+        "A": "Anticoagulants do not cause this effect.",
+        "D": "Complement is not involved in the RPR reaction.",
+        "B": "Heat inactivation would not be reversed by dilution."
+      },
+      "tables": [
+        {
+          "title": "Syphilis serology",
+          "cols": [
+            "Test",
+            "Detects",
+            "Use",
+            "After treatment"
+          ],
+          "rows": [
+            [
+              "VDRL / RPR (nontreponemal)",
+              "Anti-cardiolipin antibodies",
+              "Screening; follow titers",
+              "Titers fall"
+            ],
+            [
+              "FTA-ABS, TP-PA, EIA (treponemal)",
+              "Anti-treponemal antibodies",
+              "Confirmation",
+              "Usually positive for life"
+            ],
+            [
+              "Dark-field / PCR",
+              "Organisms in lesion",
+              "Primary and secondary lesions",
+              "—"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3655,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "medium",
+      "topic": "Syphilis: biologic false positive RPR",
+      "stem": "A woman with systemic lupus erythematosus and antiphospholipid antibodies has a reactive RPR but a nonreactive treponemal test. What is the interpretation?",
+      "options": {
+        "A": "A false negative treponemal test caused by the prozone effect",
+        "B": "Untreated latent syphilis that needs three weekly injections",
+        "C": "Successfully treated early syphilis from years earlier",
+        "D": "Active neurosyphilis requiring a lumbar puncture today",
+        "E": "A false positive RPR from cross-reacting cardiolipin antibody"
+      },
+      "answer": "E",
+      "explanation": "Nontreponemal tests detect antibody to cardiolipin, so they can be falsely reactive in lupus, antiphospholipid syndrome, pregnancy, viral infections, tuberculosis, malaria, injection drug use, and advanced age. A nonreactive treponemal test rules out syphilis in this setting.",
+      "wrong": {
+        "B": "A nonreactive treponemal test argues against true infection.",
+        "C": "Treated syphilis leaves the treponemal test reactive.",
+        "D": "There is no evidence of treponemal infection.",
+        "A": "The prozone affects nontreponemal titers, not treponemal tests."
+      },
+      "tables": [
+        {
+          "title": "Syphilis serology",
+          "cols": [
+            "Test",
+            "Detects",
+            "Use",
+            "After treatment"
+          ],
+          "rows": [
+            [
+              "VDRL / RPR (nontreponemal)",
+              "Anti-cardiolipin antibodies",
+              "Screening; follow titers",
+              "Titers fall"
+            ],
+            [
+              "FTA-ABS, TP-PA, EIA (treponemal)",
+              "Anti-treponemal antibodies",
+              "Confirmation",
+              "Usually positive for life"
+            ],
+            [
+              "Dark-field / PCR",
+              "Organisms in lesion",
+              "Primary and secondary lesions",
+              "—"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3656,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "medium",
+      "topic": "Syphilis: dark-field and PCR",
+      "stem": "Why is Treponema pallidum not identified in the routine microbiology laboratory?",
+      "options": {
+        "A": "It forms spores that resist all standard staining methods",
+        "B": "It requires charcoal yeast extract agar with added iron",
+        "C": "It grows only at 42°C in a microaerophilic atmosphere",
+        "D": "It lives only within host macrophages and never outside them",
+        "E": "It cannot be grown in vitro and is too slender to see"
+      },
+      "answer": "E",
+      "explanation": "T. pallidum cannot be cultured on artificial media and is too slender to be seen with Gram stain. Dark-field microscopy of lesion exudate, direct fluorescent antibody testing, or PCR can demonstrate it, and silver stains show it in tissue. Diagnosis is usually serologic.",
+      "wrong": {
+        "C": "Those are Campylobacter growth conditions.",
+        "B": "That medium is for Legionella.",
+        "D": "It is an extracellular organism.",
+        "A": "Spirochetes do not form spores."
+      },
+      "tables": [
+        {
+          "title": "Special stains",
+          "cols": [
+            "Stain",
+            "Organisms"
+          ],
+          "rows": [
+            [
+              "Giemsa",
+              "Chlamydia, Borrelia, Rickettsia, trypanosomes, Plasmodium, Toxoplasma"
+            ],
+            [
+              "PAS",
+              "Tropheryma whipplei (macrophages)"
+            ],
+            [
+              "Ziehl-Neelsen / acid-fast",
+              "Mycobacteria; Nocardia (modified); Cryptosporidium, Cyclospora, Cystoisospora oocysts"
+            ],
+            [
+              "India ink",
+              "Cryptococcus capsule"
+            ],
+            [
+              "Silver",
+              "Helicobacter, Legionella, Bartonella, fungi (Pneumocystis)"
+            ],
+            [
+              "Mucicarmine",
+              "Cryptococcus capsule in tissue"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3657,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "easy",
+      "topic": "Lyme disease: stage-specific treatment",
+      "stem": "A 40-year-old has an expanding annular rash with central clearing after a hike in Connecticut. Serology is negative. What is the best management?",
+      "options": {
+        "A": "Treat with intravenous ceftriaxone for four weeks",
+        "B": "Treat with a single dose of azithromycin only",
+        "C": "Treat with doxycycline now on clinical grounds",
+        "D": "Await convalescent serology before any treatment",
+        "E": "Reassure and observe, since serology is negative"
+      },
+      "answer": "C",
+      "explanation": "Erythema migrans is a clinical diagnosis; serology is often negative in the first weeks because antibody has not yet developed. Early disease is treated with oral doxycycline (or amoxicillin or cefuroxime). Intravenous ceftriaxone is reserved for meningitis, high-grade carditis, or refractory arthritis.",
+      "wrong": {
+        "D": "Delay risks progression, and treatment should not wait.",
+        "A": "IV therapy is for neurologic or cardiac involvement.",
+        "B": "Macrolides are second-line and require a full course.",
+        "E": "Early serology is insensitive and does not exclude Lyme disease."
+      },
+      "tables": [
+        {
+          "title": "Lyme disease stages",
+          "cols": [
+            "Stage",
+            "Timing",
+            "Findings",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Early localized",
+              "Days–1 month",
+              "Erythema migrans, flu-like illness",
+              "Oral doxycycline"
+            ],
+            [
+              "Early disseminated",
+              "Weeks–months",
+              "Multiple EM, facial palsy, meningitis, AV block",
+              "Doxycycline; IV ceftriaxone for severe carditis"
+            ],
+            [
+              "Late",
+              "Months–years",
+              "Oligoarthritis (knee), encephalopathy",
+              "Doxycycline 28 days; ceftriaxone if refractory or CNS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3658,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "medium",
+      "topic": "Lyme: two-tier testing logic",
+      "stem": "Why is Lyme serology performed as a two-step algorithm rather than a single test?",
+      "options": {
+        "A": "A specific screen is confirmed by a more sensitive second test",
+        "B": "The first test detects IgM and the second detects only antigen",
+        "C": "A sensitive screen is confirmed by a specific second test",
+        "D": "The first test measures spirochete DNA and the second culture",
+        "E": "The two tests detect different Borrelia species separately"
+      },
+      "answer": "C",
+      "explanation": "The first step is a sensitive EIA; reactive or equivocal samples go to a more specific second test, historically an immunoblot and now often a second EIA. This limits false positives from cross-reacting antibodies. Neither test distinguishes active from past infection, so testing is reserved for patients with compatible illness.",
+      "wrong": {
+        "A": "The order of sensitivity and specificity is reversed.",
+        "B": "Both steps detect antibody.",
+        "D": "PCR is not part of routine serologic testing.",
+        "E": "Both target B. burgdorferi antigens."
+      },
+      "tables": [
+        {
+          "title": "Lyme disease stages",
+          "cols": [
+            "Stage",
+            "Timing",
+            "Findings",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Early localized",
+              "Days–1 month",
+              "Erythema migrans, flu-like illness",
+              "Oral doxycycline"
+            ],
+            [
+              "Early disseminated",
+              "Weeks–months",
+              "Multiple EM, facial palsy, meningitis, AV block",
+              "Doxycycline; IV ceftriaxone for severe carditis"
+            ],
+            [
+              "Late",
+              "Months–years",
+              "Oligoarthritis (knee), encephalopathy",
+              "Doxycycline 28 days; ceftriaxone if refractory or CNS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3659,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "hard",
+      "topic": "Lyme carditis: conduction block",
+      "stem": "A 25-year-old with a recent tick bite has light-headedness. ECG shows complete heart block with a narrow QRS. What is the expected course with treatment?",
+      "options": {
+        "A": "Conduction rarely recovers, so a permanent pacemaker is required",
+        "B": "The block will progress to ventricular tachycardia in most cases",
+        "C": "The block indicates chronic Chagas disease rather than Lyme",
+        "D": "The block requires immediate cardiac transplantation evaluation",
+        "E": "Conduction usually recovers, so pacing is rarely permanent"
+      },
+      "answer": "E",
+      "explanation": "Lyme carditis typically causes AV block at the level of the AV node, which resolves with intravenous ceftriaxone; temporary pacing may be needed, but permanent pacemakers are rarely required. Chagas disease, by contrast, causes irreversible conduction disease and apical aneurysms.",
+      "wrong": {
+        "A": "Lyme block is usually reversible.",
+        "B": "Ventricular arrhythmias are not the typical course.",
+        "C": "The tick bite and acute course point to Lyme disease.",
+        "D": "Transplantation is not indicated for reversible block."
+      },
+      "tables": [
+        {
+          "title": "Lyme disease stages",
+          "cols": [
+            "Stage",
+            "Timing",
+            "Findings",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Early localized",
+              "Days–1 month",
+              "Erythema migrans, flu-like illness",
+              "Oral doxycycline"
+            ],
+            [
+              "Early disseminated",
+              "Weeks–months",
+              "Multiple EM, facial palsy, meningitis, AV block",
+              "Doxycycline; IV ceftriaxone for severe carditis"
+            ],
+            [
+              "Late",
+              "Months–years",
+              "Oligoarthritis (knee), encephalopathy",
+              "Doxycycline 28 days; ceftriaxone if refractory or CNS"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3660,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "medium",
+      "topic": "Leptospirosis: exposure and phases",
+      "stem": "A triathlete who swam in a freshwater lake develops fever, severe myalgias, conjunctival suffusion without discharge, and then jaundice with kidney injury. Which statement about this illness is correct?",
+      "options": {
+        "A": "The organism requires a tick vector to complete its life cycle",
+        "B": "The organism is transmitted only by the bite of an infected rodent",
+        "C": "The organism is shed in animal urine and enters broken skin",
+        "D": "The organism is spread person to person by respiratory droplets",
+        "E": "The organism is acquired by inhaling aerosols from birth fluids"
+      },
+      "answer": "C",
+      "explanation": "Leptospira is shed in the urine of rats, dogs, and livestock and penetrates skin abrasions or mucous membranes during freshwater exposure. Conjunctival suffusion is a useful clue. Severe disease (Weil disease) brings jaundice, kidney failure, and hemorrhage. Treatment is doxycycline or penicillin.",
+      "wrong": {
+        "B": "Bites are not the usual route; contaminated water is.",
+        "E": "That route describes Coxiella burnetii.",
+        "D": "Person-to-person spread does not occur.",
+        "A": "Ticks transmit Borrelia, not Leptospira."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3661,
+      "part": "Spirochetes",
+      "tag": "Spirochetes",
+      "difficulty": "hard",
+      "topic": "Relapsing fever: antigenic variation",
+      "stem": "A patient has repeated episodes of high fever lasting three days, separated by afebrile intervals of about a week. Blood smears during fever show spirochetes. What explains the relapses?",
+      "options": {
+        "A": "Immune complexes deposit and cause periodic fevers",
+        "B": "The organism hides in hepatocytes between febrile episodes",
+        "C": "The spirochete forms spores that later germinate in blood",
+        "D": "Reinfection occurs from repeated bites by the same vector",
+        "E": "Variable surface antigen switching evades new antibody"
+      },
+      "answer": "E",
+      "explanation": "Borrelia recurrentis and related species rearrange variable major protein genes, so each antibody response clears one antigenic variant and a new one emerges, producing recurring fevers. Louse-borne disease is epidemic and has fewer relapses; tick-borne disease is endemic with more relapses. Treatment can trigger a Jarisch-Herxheimer reaction.",
+      "wrong": {
+        "B": "Hepatic latency describes Plasmodium vivax hypnozoites.",
+        "D": "Relapses occur without new exposure.",
+        "C": "Spirochetes do not form spores.",
+        "A": "Relapses follow antigenic switching with recurrent spirochetemia."
+      },
+      "tables": [
+        {
+          "title": "Tick-borne infections in the US",
+          "cols": [
+            "Disease",
+            "Organism",
+            "Tick",
+            "Clues",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Lyme disease",
+              "Borrelia burgdorferi",
+              "Ixodes",
+              "Erythema migrans, facial palsy, AV block, arthritis",
+              "Doxycycline"
+            ],
+            [
+              "Babesiosis",
+              "Babesia microti",
+              "Ixodes",
+              "Hemolysis, Maltese cross, asplenia",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Anaplasmosis",
+              "Anaplasma phagocytophilum",
+              "Ixodes",
+              "Morulae in neutrophils, leukopenia",
+              "Doxycycline"
+            ],
+            [
+              "Ehrlichiosis",
+              "Ehrlichia chaffeensis",
+              "Amblyomma (lone star)",
+              "Morulae in monocytes, no rash",
+              "Doxycycline"
+            ],
+            [
+              "RMSF",
+              "Rickettsia rickettsii",
+              "Dermacentor",
+              "Rash wrists/ankles → palms/soles",
+              "Doxycycline (all ages)"
+            ],
+            [
+              "Tularemia",
+              "Francisella tularensis",
+              "Dermacentor, Amblyomma",
+              "Ulcer + regional nodes",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Relapsing fever",
+              "Borrelia hermsii",
+              "Ornithodoros (soft)",
+              "Recurrent fevers, cabins",
+              "Doxycycline"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3662,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "easy",
+      "topic": "Rickettsia: energy parasitism",
+      "stem": "Why must Rickettsia species be grown in cell culture rather than on agar?",
+      "options": {
+        "A": "They divide only at temperatures above forty-five degrees",
+        "B": "They lack any cell wall and are destroyed by agar surfaces",
+        "C": "They grow only inside erythrocytes that agar cannot supply",
+        "D": "They require an anaerobic atmosphere unavailable in culture",
+        "E": "They are obligate intracellular users of host metabolites"
+      },
+      "answer": "E",
+      "explanation": "Rickettsiae are obligate intracellular Gram-negative organisms that rely on host CoA and NAD, so they cannot be cultured on cell-free media. They replicate in endothelium, producing a vasculitis with rash, and are diagnosed serologically or by PCR. Doxycycline is treatment for all rickettsial disease.",
+      "wrong": {
+        "B": "Lacking a cell wall describes Mycoplasma.",
+        "D": "Oxygen requirement is not the barrier to culture.",
+        "C": "Red cell parasitism describes Babesia and Plasmodium.",
+        "A": "They grow at human body temperature."
+      },
+      "tables": [
+        {
+          "title": "Rickettsial and related infections",
+          "cols": [
+            "Organism",
+            "Vector",
+            "Rash",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "R. rickettsii (RMSF)",
+              "Dermacentor tick",
+              "Wrists/ankles → trunk, palms, soles",
+              "Endothelial vasculitis"
+            ],
+            [
+              "R. prowazekii (epidemic typhus)",
+              "Human body louse",
+              "Trunk → out, spares palms/soles",
+              "Brill-Zinsser recrudescence"
+            ],
+            [
+              "R. typhi (murine typhus)",
+              "Fleas",
+              "Truncal",
+              "Milder"
+            ],
+            [
+              "Ehrlichia / Anaplasma",
+              "Amblyomma / Ixodes",
+              "Usually none",
+              "Morulae; leukopenia"
+            ],
+            [
+              "Coxiella burnetii",
+              "None (aerosol)",
+              "None",
+              "Q fever, endocarditis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3663,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "easy",
+      "topic": "RMSF vs typhus: rash direction",
+      "stem": "Two patients have fever, headache, and rash. In patient A the rash began on the wrists and ankles and spread inward, including the palms. In patient B it began on the trunk and spread outward, sparing palms and soles. Which pair of diagnoses fits?",
+      "options": {
+        "A": "A has Lyme disease; B has Q fever with a rash",
+        "B": "A has Rocky Mountain spotted fever; B has typhus",
+        "C": "Both patients have Rocky Mountain spotted fever",
+        "D": "A has ehrlichiosis; B has Rocky Mountain spotted fever",
+        "E": "A has typhus; B has Rocky Mountain spotted fever"
+      },
+      "answer": "B",
+      "explanation": "Rocky Mountain spotted fever starts peripherally and moves centrally, involving the palms and soles, and follows Dermacentor tick exposure. Typhus starts centrally and spreads outward, sparing palms and soles. Both are treated with doxycycline, given empirically because serology is often negative early.",
+      "wrong": {
+        "E": "The two rash patterns are reversed.",
+        "C": "The rash directions differ, so the diagnoses differ.",
+        "D": "Ehrlichiosis usually has no rash in adults.",
+        "A": "Lyme produces a single expanding annular lesion, and Q fever rarely has a rash."
+      },
+      "tables": [
+        {
+          "title": "Rickettsial and related infections",
+          "cols": [
+            "Organism",
+            "Vector",
+            "Rash",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "R. rickettsii (RMSF)",
+              "Dermacentor tick",
+              "Wrists/ankles → trunk, palms, soles",
+              "Endothelial vasculitis"
+            ],
+            [
+              "R. prowazekii (epidemic typhus)",
+              "Human body louse",
+              "Trunk → out, spares palms/soles",
+              "Brill-Zinsser recrudescence"
+            ],
+            [
+              "R. typhi (murine typhus)",
+              "Fleas",
+              "Truncal",
+              "Milder"
+            ],
+            [
+              "Ehrlichia / Anaplasma",
+              "Amblyomma / Ixodes",
+              "Usually none",
+              "Morulae; leukopenia"
+            ],
+            [
+              "Coxiella burnetii",
+              "None (aerosol)",
+              "None",
+              "Q fever, endocarditis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3664,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "medium",
+      "topic": "Ehrlichia vs Anaplasma: inclusions",
+      "stem": "A patient in the southeastern United States has fever, headache, leukopenia, thrombocytopenia, and elevated transaminases after a tick bite, with no rash. The smear shows intracytoplasmic inclusions in monocytes. Which organism is this?",
+      "options": {
+        "A": "Anaplasma phagocytophilum",
+        "B": "Ehrlichia chaffeensis",
+        "C": "Borrelia burgdorferi",
+        "D": "Babesia microti",
+        "E": "Rickettsia rickettsii"
+      },
+      "answer": "B",
+      "explanation": "Ehrlichia chaffeensis infects monocytes (morulae in monocytes) and is spread by Amblyomma; Anaplasma phagocytophilum infects granulocytes and is spread by Ixodes, so it can coexist with Lyme disease and babesiosis. Both cause fever with cytopenias and transaminitis and are treated with doxycycline.",
+      "wrong": {
+        "A": "Anaplasma forms morulae in granulocytes and is Ixodes-borne.",
+        "E": "R. rickettsii infects endothelium and usually produces a rash.",
+        "D": "Babesia parasitizes red cells and causes hemolysis.",
+        "C": "Borrelia is a spirochete without intracellular inclusions."
+      },
+      "tables": [
+        {
+          "title": "Tick-borne infections in the US",
+          "cols": [
+            "Disease",
+            "Organism",
+            "Tick",
+            "Clues",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Lyme disease",
+              "Borrelia burgdorferi",
+              "Ixodes",
+              "Erythema migrans, facial palsy, AV block, arthritis",
+              "Doxycycline"
+            ],
+            [
+              "Babesiosis",
+              "Babesia microti",
+              "Ixodes",
+              "Hemolysis, Maltese cross, asplenia",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Anaplasmosis",
+              "Anaplasma phagocytophilum",
+              "Ixodes",
+              "Morulae in neutrophils, leukopenia",
+              "Doxycycline"
+            ],
+            [
+              "Ehrlichiosis",
+              "Ehrlichia chaffeensis",
+              "Amblyomma (lone star)",
+              "Morulae in monocytes, no rash",
+              "Doxycycline"
+            ],
+            [
+              "RMSF",
+              "Rickettsia rickettsii",
+              "Dermacentor",
+              "Rash wrists/ankles → palms/soles",
+              "Doxycycline (all ages)"
+            ],
+            [
+              "Tularemia",
+              "Francisella tularensis",
+              "Dermacentor, Amblyomma",
+              "Ulcer + regional nodes",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Relapsing fever",
+              "Borrelia hermsii",
+              "Ornithodoros (soft)",
+              "Recurrent fevers, cabins",
+              "Doxycycline"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3665,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "easy",
+      "topic": "Chlamydia: elementary vs reticulate body",
+      "stem": "Which statement correctly describes the two forms in the chlamydial developmental cycle?",
+      "options": {
+        "A": "Both forms are infectious and metabolically identical",
+        "B": "The elementary body replicates; the reticulate body is infectious",
+        "C": "The reticulate body survives for long periods outside cells",
+        "D": "The elementary body infects; the reticulate body replicates",
+        "E": "The elementary body divides only inside the host nucleus"
+      },
+      "answer": "D",
+      "explanation": "The elementary body is the small, dense, infectious form that enters cells; inside, it becomes the larger reticulate body, which divides by binary fission using host ATP. New elementary bodies are released to infect other cells. Chlamydia lacks muramic acid in its wall, which is one reason beta-lactams are ineffective.",
+      "wrong": {
+        "B": "The two roles are reversed here.",
+        "A": "Only the elementary body is infectious.",
+        "E": "Replication occurs in a cytoplasmic inclusion.",
+        "C": "The reticulate body is fragile and intracellular."
+      },
+      "tables": [
+        {
+          "title": "Chlamydia trachomatis serovars",
+          "cols": [
+            "Serovars",
+            "Disease",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "A–C",
+              "Trachoma",
+              "Blindness; flies, hands; Africa"
+            ],
+            [
+              "D–K",
+              "Urethritis, cervicitis, PID, neonatal conjunctivitis and pneumonia",
+              "Most common bacterial STI"
+            ],
+            [
+              "L1–L3",
+              "Lymphogranuloma venereum",
+              "Painless ulcer → painful buboes, proctitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3666,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "medium",
+      "topic": "Chlamydia: serovar and syndrome matching",
+      "stem": "A traveler has a small painless genital ulcer followed by large, tender, matted inguinal nodes that begin to drain. Which chlamydial serovars cause this?",
+      "options": {
+        "A": "Serovars M and N",
+        "B": "A through C",
+        "C": "Serovar J only",
+        "D": "D through K",
+        "E": "L1 through L3"
+      },
+      "answer": "E",
+      "explanation": "Lymphogranuloma venereum is caused by C. trachomatis L1-L3 and produces a transient painless ulcer followed by painful suppurative lymphadenopathy (buboes) and sometimes proctitis. Serovars A-C cause trachoma; D-K cause urethritis, cervicitis, PID, and neonatal disease. Treatment is doxycycline for three weeks.",
+      "wrong": {
+        "B": "These cause trachoma, a chronic conjunctival infection.",
+        "D": "These cause genital and neonatal infections without buboes.",
+        "C": "Serovar J belongs to the urogenital group.",
+        "A": "No such serovars are recognized."
+      },
+      "tables": [
+        {
+          "title": "Chlamydia trachomatis serovars",
+          "cols": [
+            "Serovars",
+            "Disease",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "A–C",
+              "Trachoma",
+              "Blindness; flies, hands; Africa"
+            ],
+            [
+              "D–K",
+              "Urethritis, cervicitis, PID, neonatal conjunctivitis and pneumonia",
+              "Most common bacterial STI"
+            ],
+            [
+              "L1–L3",
+              "Lymphogranuloma venereum",
+              "Painless ulcer → painful buboes, proctitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3667,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "medium",
+      "topic": "Trachoma: mechanism of blindness",
+      "stem": "How does repeated ocular C. trachomatis infection lead to blindness?",
+      "options": {
+        "A": "The organism invades the optic nerve and destroys the axons",
+        "B": "The lens becomes opacified by direct bacterial invasion",
+        "C": "Immune complexes deposit in the retina and detach it",
+        "D": "Intraocular pressure rises and damages the optic disc",
+        "E": "Conjunctival scarring turns the lashes inward onto the cornea"
+      },
+      "answer": "E",
+      "explanation": "Repeated infection in childhood scars the conjunctiva, causing entropion and trichiasis; inturned lashes abrade the cornea, leading to opacification. The SAFE strategy is Surgery, Azithromycin, Facial cleanliness, and Environmental improvement. Mass azithromycin distribution is the pharmacologic core.",
+      "wrong": {
+        "A": "Optic nerve invasion does not occur.",
+        "C": "Retinal detachment is not the mechanism.",
+        "B": "Cataract is unrelated to trachoma.",
+        "D": "Glaucoma is not the mechanism of trachomatous blindness."
+      },
+      "tables": [
+        {
+          "title": "Chlamydia trachomatis serovars",
+          "cols": [
+            "Serovars",
+            "Disease",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "A–C",
+              "Trachoma",
+              "Blindness; flies, hands; Africa"
+            ],
+            [
+              "D–K",
+              "Urethritis, cervicitis, PID, neonatal conjunctivitis and pneumonia",
+              "Most common bacterial STI"
+            ],
+            [
+              "L1–L3",
+              "Lymphogranuloma venereum",
+              "Painless ulcer → painful buboes, proctitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3668,
+      "part": "Rickettsiae & Chlamydiae",
+      "tag": "Rickettsiae & Chlamydiae",
+      "difficulty": "medium",
+      "topic": "Coxiella: exposure and no vector",
+      "stem": "A veterinarian who assisted with sheep births develops a prolonged fever with pneumonia and hepatitis. Which statement about this organism is correct?",
+      "options": {
+        "A": "It is acquired by drinking water contaminated with urine",
+        "B": "It requires direct inoculation through a needle stick",
+        "C": "It is inhaled as spore-like particles without a vector",
+        "D": "It is transmitted by the bite of an infected sandfly",
+        "E": "It is transmitted by a tick bite like other rickettsiae"
+      },
+      "answer": "C",
+      "explanation": "Coxiella burnetii forms a spore-like form and is inhaled from aerosols of placental tissue, birth fluids, urine, and dust from cattle, sheep, and goats, with no arthropod vector needed. Acute Q fever causes pneumonia and hepatitis; chronic disease causes culture-negative endocarditis. It usually causes no rash.",
+      "wrong": {
+        "E": "Ticks maintain it in animals, but human disease follows inhalation.",
+        "A": "That describes leptospirosis.",
+        "D": "Sandflies transmit Leishmania and Bartonella bacilliformis.",
+        "B": "Aerosol inhalation is the usual route."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3669,
+      "part": "Zoonotic Bacteria",
+      "tag": "Zoonotic Bacteria",
+      "difficulty": "medium",
+      "topic": "Brucella: exposure and lab hazard",
+      "stem": "A worker at a goat dairy in the Mediterranean has weeks of undulating fever, night sweats, and back pain. Which additional measure is essential when blood cultures are drawn?",
+      "options": {
+        "A": "Notify the laboratory so a biosafety cabinet is used",
+        "B": "Request anaerobic bottles only, since it is anaerobic",
+        "C": "Ask the lab to add lysostaphin to the culture medium",
+        "D": "Send the sample for dark-field microscopy immediately",
+        "E": "Request rapid room-temperature incubation of the bottles"
+      },
+      "answer": "A",
+      "explanation": "Brucella is a major cause of laboratory-acquired infection, so the laboratory must be warned to handle cultures in a biosafety cabinet. It is a facultative intracellular Gram-negative coccobacillus acquired from unpasteurized dairy or animal contact, causing undulant fever, sacroiliitis, and spondylitis. Treatment is doxycycline plus rifampin or streptomycin for six weeks.",
+      "wrong": {
+        "E": "Brucella needs standard incubation and may take days to grow.",
+        "C": "Lysostaphin is used for staphylococci in research settings.",
+        "B": "Brucella is aerobic.",
+        "D": "Dark-field microscopy is used for spirochetes."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3670,
+      "part": "Zoonotic Bacteria",
+      "tag": "Zoonotic Bacteria",
+      "difficulty": "medium",
+      "topic": "Francisella: infectious dose and syndromes",
+      "stem": "A hunter who skinned rabbits develops an ulcer on the hand with tender regional adenopathy. Which statement about this organism is correct?",
+      "options": {
+        "A": "It is spread person to person by the respiratory droplet route",
+        "B": "A very large inoculum is required, which limits its transmissibility",
+        "C": "It is treated with amoxicillin-clavulanate for two weeks",
+        "D": "A very small inoculum suffices, so it is a bioterror concern",
+        "E": "It grows readily on MacConkey agar as a lactose fermenter"
+      },
+      "answer": "D",
+      "explanation": "Francisella tularensis needs as few as 10 organisms and is classified as a tier 1 select agent. Exposures include rabbits, ticks and deer flies, contaminated water, and aerosols from mowing over carcasses. Ulceroglandular disease is most common; treatment is streptomycin, gentamicin, or doxycycline. It needs cysteine-enriched media.",
+      "wrong": {
+        "B": "The infectious dose is extremely low.",
+        "A": "Person-to-person spread does not occur.",
+        "E": "It is fastidious and needs cysteine-supplemented media.",
+        "C": "Beta-lactams are ineffective against tularemia."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3671,
+      "part": "Zoonotic Bacteria",
+      "tag": "Zoonotic Bacteria",
+      "difficulty": "hard",
+      "topic": "Bartonella: immune status determines lesion",
+      "stem": "Two patients are infected with Bartonella henselae after cat exposure. One has tender regional lymphadenopathy with granulomas; the other, with AIDS, has friable vascular skin nodules. What explains the difference?",
+      "options": {
+        "A": "The vascular lesions are a coinfection with Kaposi sarcoma virus",
+        "B": "The organism makes a toxin only in patients with normal T cells",
+        "C": "The immunocompetent patient has the higher burden of organisms",
+        "D": "The two patients are infected with different Bartonella species",
+        "E": "Intact cell-mediated immunity contains the organism instead"
+      },
+      "answer": "E",
+      "explanation": "With intact cell-mediated immunity, B. henselae causes cat scratch disease with stellate necrotizing granulomas. With advanced HIV, the response shifts to vasoproliferation, producing bacillary angiomatosis, which mimics Kaposi sarcoma but resolves with erythromycin or doxycycline. Tissue shows organisms on Warthin-Starry silver stain.",
+      "wrong": {
+        "D": "The same species causes both presentations.",
+        "A": "Bacillary angiomatosis is bacterial and responds to antibiotics.",
+        "B": "No such toxin explains the difference.",
+        "C": "Burden is much higher in the immunocompromised patient."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3672,
+      "part": "Zoonotic Bacteria",
+      "tag": "Zoonotic Bacteria",
+      "difficulty": "easy",
+      "topic": "Pasteurella vs Bartonella after a cat",
+      "stem": "A woman is bitten by her cat and 18 hours later has rapidly spreading cellulitis with purulent drainage. Which organism and treatment fit best?",
+      "options": {
+        "A": "Bartonella henselae; a course of azithromycin",
+        "B": "Pasteurella multocida; amoxicillin-clavulanate",
+        "C": "Staphylococcus aureus; oral cephalexin",
+        "D": "Capnocytophaga canimorsus; ceftriaxone",
+        "E": "Eikenella corrodens; ampicillin-sulbactam"
+      },
+      "answer": "B",
+      "explanation": "Pasteurella multocida causes cellulitis within 24 hours of a cat or dog bite and may extend to tenosynovitis or osteomyelitis. Amoxicillin-clavulanate covers Pasteurella along with staphylococci, streptococci, and oral anaerobes; cephalexin alone misses Pasteurella. Cat scratch disease develops over weeks as regional adenopathy.",
+      "wrong": {
+        "A": "Bartonella causes subacute lymphadenopathy, not rapid cellulitis.",
+        "D": "Capnocytophaga causes sepsis in asplenic patients after dog bites.",
+        "E": "Eikenella follows human bites.",
+        "C": "The timing points to Pasteurella, and cephalexin does not cover it."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3673,
+      "part": "Zoonotic Bacteria",
+      "tag": "Zoonotic Bacteria",
+      "difficulty": "medium",
+      "topic": "Yersinia pestis: virulence and forms",
+      "stem": "A patient in the southwestern United States has fever and an exquisitely tender, swollen inguinal node after camping where prairie dogs were dying. Which statement is correct?",
+      "options": {
+        "A": "Bubonic disease never spreads to the lungs in any patient",
+        "B": "The bubo should be excised promptly to prevent spread",
+        "C": "The organism is spread mainly by person-to-person contact",
+        "D": "Treatment is a beta-lactam such as ampicillin-sulbactam",
+        "E": "Untreated bubonic disease may become pneumonic plague"
+      },
+      "answer": "E",
+      "explanation": "Fleas from rodents transmit Y. pestis, producing a bubo. Untreated infection can progress to secondary pneumonic plague, which then spreads person to person by droplets and requires airborne precautions. Treatment is an aminoglycoside, fluoroquinolone, or doxycycline. The organism shows bipolar 'safety pin' staining.",
+      "wrong": {
+        "A": "Secondary pneumonic plague is a recognized complication.",
+        "C": "Flea bites cause most cases; droplet spread occurs only with pneumonic disease.",
+        "D": "Beta-lactams are not used for plague.",
+        "B": "Aspiration may be done for diagnosis, but excision is not therapy."
+      },
+      "tables": [
+        {
+          "title": "Zoonotic bacteria",
+          "cols": [
+            "Organism",
+            "Reservoir / vector",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Yersinia pestis",
+              "Rodents; fleas",
+              "Bubonic, septicemic, pneumonic plague",
+              "Gentamicin/streptomycin, FQ"
+            ],
+            [
+              "Francisella tularensis",
+              "Rabbits; ticks, deer flies, aerosols",
+              "Ulceroglandular or pneumonic tularemia",
+              "Gentamicin/streptomycin"
+            ],
+            [
+              "Brucella",
+              "Unpasteurized dairy, livestock",
+              "Undulant fever, sacroiliitis",
+              "Doxycycline + rifampin"
+            ],
+            [
+              "Pasteurella multocida",
+              "Cat and dog mouths",
+              "Rapid cellulitis after bites",
+              "Amoxicillin-clavulanate"
+            ],
+            [
+              "Bartonella henselae",
+              "Cats (kittens); cat fleas",
+              "Cat scratch disease, bacillary angiomatosis",
+              "Azithromycin; erythromycin/doxycycline"
+            ],
+            [
+              "Coxiella burnetii",
+              "Cattle, sheep, goat birth products",
+              "Q fever, culture-negative endocarditis",
+              "Doxycycline"
+            ],
+            [
+              "Leptospira",
+              "Rat and animal urine in water",
+              "Leptospirosis, Weil disease",
+              "Doxycycline or penicillin"
+            ],
+            [
+              "Chlamydia psittaci",
+              "Parrots and birds",
+              "Psittacosis",
+              "Doxycycline"
+            ],
+            [
+              "Capnocytophaga",
+              "Dog mouths",
+              "Sepsis in asplenic patients",
+              "β-lactam/β-lactamase inhibitor"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3674,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "HSV: latency site by serotype",
+      "stem": "Which pairing of herpes simplex serotype and latency site is correct?",
+      "options": {
+        "A": "Both serotypes integrate into the host cell chromosome",
+        "B": "Both serotypes remain latent in regional lymph nodes",
+        "C": "HSV-1 in the trigeminal ganglion; HSV-2 in sacral ganglia",
+        "D": "HSV-1 in sacral ganglia; HSV-2 in the trigeminal ganglion",
+        "E": "Both serotypes remain latent within circulating B cells"
+      },
+      "answer": "C",
+      "explanation": "HSV-1 travels up sensory axons to the trigeminal ganglion, and HSV-2 to the sacral ganglia, where the genome persists as a circular episome expressing latency-associated transcripts. Reactivation follows stress, fever, sunlight, or immunosuppression. Neither virus integrates into host DNA.",
+      "wrong": {
+        "D": "The two latency sites are reversed.",
+        "B": "Lymphoid latency describes EBV.",
+        "E": "B-cell latency is characteristic of EBV.",
+        "A": "Integration is a retroviral and HPV feature."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3675,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "HSV encephalitis: lobe and CSF",
+      "stem": "A previously healthy 30-year-old has fever, confusion, and olfactory hallucinations with a focal seizure. Which combination of findings is expected?",
+      "options": {
+        "A": "Frontal lobe changes with a neutrophilic CSF and low glucose",
+        "B": "Cerebellar changes with eosinophils in the spinal fluid",
+        "C": "Basal ganglia changes with a completely normal spinal fluid",
+        "D": "Periventricular changes with a very high CSF protein alone",
+        "E": "Temporal lobe changes with lymphocytes and red cells in CSF"
+      },
+      "answer": "E",
+      "explanation": "HSV-1 encephalitis characteristically affects the temporal lobes, producing personality change, olfactory hallucinations, and seizures. CSF shows lymphocytic pleocytosis, often with red blood cells from hemorrhagic necrosis, and elevated protein with normal glucose. PCR is diagnostic, and intravenous acyclovir must be started empirically.",
+      "wrong": {
+        "A": "Neutrophils with low glucose indicate bacterial meningitis.",
+        "B": "Eosinophilic CSF suggests parasitic infection.",
+        "C": "CSF is abnormal in HSV encephalitis.",
+        "D": "This pattern does not describe HSV encephalitis."
+      },
+      "tables": [
+        {
+          "title": "CSF patterns",
+          "cols": [
+            "Cause",
+            "Cells",
+            "Protein",
+            "Glucose",
+            "Opening pressure"
+          ],
+          "rows": [
+            [
+              "Bacterial",
+              "↑↑ neutrophils",
+              "↑",
+              "↓",
+              "↑"
+            ],
+            [
+              "Viral",
+              "↑ lymphocytes",
+              "Normal/slightly ↑",
+              "Normal",
+              "Normal/↑"
+            ],
+            [
+              "TB / fungal",
+              "↑ lymphocytes",
+              "↑↑",
+              "↓",
+              "↑ (very high in Crypto)"
+            ],
+            [
+              "Guillain-Barré",
+              "Normal",
+              "↑↑",
+              "Normal",
+              "Normal"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3676,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "Acyclovir: selectivity and resistance",
+      "stem": "Acyclovir is far more toxic to infected cells than to uninfected cells. Which mechanism explains this, and how does resistance arise?",
+      "options": {
+        "A": "Host kinases activate it; resistance follows a host mutation",
+        "B": "Viral thymidine kinase activates it; resistance follows its loss",
+        "C": "It needs no activation; resistance follows increased efflux",
+        "D": "Viral protease activates it; resistance follows a protease mutation",
+        "E": "Viral integrase activates it; resistance follows integrase change"
+      },
+      "answer": "B",
+      "explanation": "Acyclovir is monophosphorylated by viral thymidine kinase, then converted by host kinases to the triphosphate, which inhibits viral DNA polymerase and causes chain termination. Thymidine kinase-deficient mutants are resistant, and such isolates are treated with foscarnet or cidofovir, which act directly on the polymerase.",
+      "wrong": {
+        "D": "Acyclovir is not protease-dependent.",
+        "A": "The first step needs the viral kinase, which is why it is selective.",
+        "C": "Acyclovir is a prodrug requiring phosphorylation.",
+        "E": "Herpesviruses do not use integrase."
+      },
+      "tables": [
+        {
+          "title": "Anti-herpesvirus drugs",
+          "cols": [
+            "Drug",
+            "Activation",
+            "Use",
+            "Toxicity"
+          ],
+          "rows": [
+            [
+              "Acyclovir, valacyclovir, famciclovir",
+              "Viral thymidine kinase",
+              "HSV, VZV",
+              "Crystal nephropathy"
+            ],
+            [
+              "Ganciclovir, valganciclovir",
+              "CMV UL97 kinase",
+              "CMV",
+              "Myelosuppression"
+            ],
+            [
+              "Foscarnet",
+              "None (pyrophosphate analog)",
+              "Resistant CMV, acyclovir-resistant HSV",
+              "Nephrotoxicity, ↓Ca/Mg, seizures"
+            ],
+            [
+              "Cidofovir",
+              "None (nucleotide analog)",
+              "Resistant CMV, adenovirus",
+              "Nephrotoxicity (give probenecid)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3677,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "Neonatal HSV: three patterns",
+      "stem": "A 10-day-old infant born vaginally to a mother with unrecognized genital herpes has lethargy and seizures. Which statement about neonatal HSV is correct?",
+      "options": {
+        "A": "Acyclovir is withheld until CSF PCR results are available",
+        "B": "Skin, eye, and mouth disease carries the highest mortality",
+        "C": "Disseminated and CNS disease carry the worst outcomes",
+        "D": "Transmission risk is highest with recurrent maternal disease",
+        "E": "Cesarean delivery after rupture never reduces transmission"
+      },
+      "answer": "C",
+      "explanation": "Neonatal HSV presents as skin-eye-mouth disease, CNS disease, or disseminated disease; the latter two carry high mortality and morbidity, so high-dose intravenous acyclovir is started empirically. Risk is highest with primary maternal infection near delivery, when there is little maternal antibody, and cesarean delivery before prolonged rupture lowers risk.",
+      "wrong": {
+        "B": "That form has the best prognosis with treatment.",
+        "E": "Cesarean delivery does reduce risk, especially before prolonged rupture.",
+        "D": "Primary maternal infection carries much greater risk.",
+        "A": "Treatment begins immediately on suspicion."
+      },
+      "tables": [
+        {
+          "title": "Congenital (TORCH) infections",
+          "cols": [
+            "Infection",
+            "Classic findings"
+          ],
+          "rows": [
+            [
+              "Toxoplasma",
+              "Chorioretinitis, hydrocephalus, diffuse calcifications"
+            ],
+            [
+              "Rubella",
+              "PDA, cataracts, deafness, blueberry muffin rash"
+            ],
+            [
+              "CMV",
+              "Periventricular calcifications, microcephaly, sensorineural deafness"
+            ],
+            [
+              "HSV",
+              "Vesicles, keratoconjunctivitis, encephalitis, dissemination"
+            ],
+            [
+              "Syphilis",
+              "Snuffles, rash; later Hutchinson teeth, saddle nose, saber shins"
+            ],
+            [
+              "Varicella",
+              "Limb hypoplasia, cicatricial scars"
+            ],
+            [
+              "Parvovirus B19",
+              "Hydrops fetalis"
+            ],
+            [
+              "Zika",
+              "Severe microcephaly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3678,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "VZV: shingles and postherpetic pain",
+      "stem": "A 70-year-old has a painful vesicular rash in one thoracic dermatome. Which intervention reduces the risk of postherpetic neuralgia?",
+      "options": {
+        "A": "Immediate varicella vaccination during the eruption",
+        "B": "Oral prednisone alone without any antiviral drug",
+        "C": "Topical antibiotic ointment applied to the vesicles",
+        "D": "Delay of antivirals until the vesicles have crusted",
+        "E": "Antiviral therapy started within 72 hours of onset"
+      },
+      "answer": "E",
+      "explanation": "Starting valacyclovir, famciclovir, or acyclovir within 72 hours of rash onset shortens the eruption and reduces the risk and duration of postherpetic neuralgia. The recombinant zoster vaccine prevents zoster and is recommended at 50 years and older, but vaccination is not given during acute disease.",
+      "wrong": {
+        "C": "Antibacterial ointment does not affect the virus or the neuralgia.",
+        "B": "Steroids may help acute pain but do not replace antivirals.",
+        "D": "The benefit is lost after roughly 72 hours.",
+        "A": "Vaccination is a preventive measure, not a treatment."
+      },
+      "tables": [
+        {
+          "title": "Anti-herpesvirus drugs",
+          "cols": [
+            "Drug",
+            "Activation",
+            "Use",
+            "Toxicity"
+          ],
+          "rows": [
+            [
+              "Acyclovir, valacyclovir, famciclovir",
+              "Viral thymidine kinase",
+              "HSV, VZV",
+              "Crystal nephropathy"
+            ],
+            [
+              "Ganciclovir, valganciclovir",
+              "CMV UL97 kinase",
+              "CMV",
+              "Myelosuppression"
+            ],
+            [
+              "Foscarnet",
+              "None (pyrophosphate analog)",
+              "Resistant CMV, acyclovir-resistant HSV",
+              "Nephrotoxicity, ↓Ca/Mg, seizures"
+            ],
+            [
+              "Cidofovir",
+              "None (nucleotide analog)",
+              "Resistant CMV, adenovirus",
+              "Nephrotoxicity (give probenecid)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3679,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "VZV: Ramsay Hunt and ophthalmic zoster",
+      "stem": "A patient with zoster has vesicles on the tip of the nose along with eye pain and redness. Which nerve branch involvement does the nasal tip indicate, and why does it matter?",
+      "options": {
+        "A": "Glossopharyngeal nerve, which signals swallowing risk",
+        "B": "Nasociliary branch, which signals risk to the eye",
+        "C": "Vagus nerve, which signals risk of vocal cord palsy",
+        "D": "Mandibular branch, which signals risk to the teeth",
+        "E": "Facial nerve, which signals risk of hearing loss"
+      },
+      "answer": "B",
+      "explanation": "Hutchinson sign, vesicles on the nasal tip, indicates involvement of the nasociliary branch of V1 and predicts ocular involvement, so urgent ophthalmology referral and systemic antivirals are required. Ramsay Hunt syndrome is zoster of the geniculate ganglion with facial palsy, ear vesicles, and hearing changes.",
+      "wrong": {
+        "E": "That describes Ramsay Hunt syndrome with ear canal vesicles.",
+        "A": "The nasal tip is not supplied by cranial nerve IX.",
+        "D": "V3 supplies the lower face, not the nasal tip.",
+        "C": "The vagus does not supply the nasal tip."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3680,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "hard",
+      "topic": "EBV: heterophile antibody basis",
+      "stem": "The monospot test detects antibodies that agglutinate horse or sheep erythrocytes. Why are such antibodies produced during infectious mononucleosis?",
+      "options": {
+        "A": "The antibodies are directed against a viral capsid protein",
+        "B": "Polyclonal B-cell activation makes many antibodies",
+        "C": "Complement fragments bind red cells and cause agglutination",
+        "D": "Infected T cells release antibody after viral transformation",
+        "E": "The virus expresses a protein identical to an animal antigen"
+      },
+      "answer": "B",
+      "explanation": "EBV infects B cells through CD21 and drives polyclonal activation, so antibodies are made against many antigens including unrelated animal red cell antigens (heterophile antibodies). The test can be negative in the first week and in young children, in whom EBV-specific serology is used instead. Atypical lymphocytes are reactive CD8 T cells.",
+      "wrong": {
+        "E": "Mimicry of an animal antigen is not the mechanism.",
+        "D": "EBV infects B cells, and T cells do not make antibody.",
+        "C": "Complement is not the basis of the test.",
+        "A": "Capsid antibodies are measured by specific EBV serology, not the monospot."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3681,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "EBV: splenic rupture counseling",
+      "stem": "A 19-year-old football player has infectious mononucleosis with tender splenomegaly. Which advice is most important?",
+      "options": {
+        "A": "Begin oral acyclovir to shorten the illness",
+        "B": "Avoid contact sports for at least three weeks",
+        "C": "Undergo elective splenectomy to prevent rupture",
+        "D": "Resume full contact play once the fever resolves",
+        "E": "Take a course of amoxicillin to prevent bacterial superinfection"
+      },
+      "answer": "B",
+      "explanation": "Splenic rupture is the feared complication of mononucleosis, so contact and collision sports are avoided for at least three weeks and until splenomegaly resolves. Antivirals do not alter the course. Corticosteroids are reserved for airway compromise from tonsillar hypertrophy.",
+      "wrong": {
+        "A": "Acyclovir reduces shedding but not clinical illness.",
+        "E": "Amoxicillin risks a morbilliform rash and has no benefit.",
+        "D": "Splenomegaly outlasts the fever.",
+        "C": "Splenectomy is never indicated for this purpose."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3682,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "EBV: oral hairy leukoplakia",
+      "stem": "A man with untreated HIV has white corrugated plaques along the lateral tongue that cannot be scraped off. Which cause is most likely?",
+      "options": {
+        "A": "Human papillomavirus",
+        "B": "Herpes simplex virus",
+        "C": "Epstein-Barr virus",
+        "D": "Kaposi sarcoma herpesvirus",
+        "E": "Candida albicans"
+      },
+      "answer": "C",
+      "explanation": "Oral hairy leukoplakia is an EBV-driven epithelial proliferation on the lateral tongue that does not scrape off, unlike candidal thrush. It signals advanced immunosuppression and improves with antiretroviral therapy. Kaposi sarcoma from HHV-8 produces violaceous palatal or gingival plaques instead.",
+      "wrong": {
+        "E": "Thrush is a white plaque that scrapes off, leaving erythema.",
+        "A": "HPV causes oral warts and oropharyngeal carcinoma.",
+        "B": "HSV causes painful ulcers rather than corrugated plaques.",
+        "D": "HHV-8 lesions are violaceous vascular plaques."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3683,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "hard",
+      "topic": "EBV: post-transplant lymphoproliferative disease",
+      "stem": "Six months after a kidney transplant, a patient on tacrolimus and mycophenolate has fever, adenopathy, and a rising EBV viral load with a nodal B-cell proliferation. Which initial step is appropriate?",
+      "options": {
+        "A": "Begin antituberculous therapy empirically today",
+        "B": "Start acyclovir monotherapy at high oral doses",
+        "C": "Reduce immunosuppression and monitor the graft",
+        "D": "Increase immunosuppression to control inflammation",
+        "E": "Proceed directly to allograft removal surgery"
+      },
+      "answer": "C",
+      "explanation": "Post-transplant lymphoproliferative disorder arises when immunosuppression removes T-cell control of EBV-transformed B cells. First-line management is reducing immunosuppression, often with rituximab; chemotherapy is used for aggressive disease. Antivirals do not treat established proliferation, because the transformed cells are in latency.",
+      "wrong": {
+        "D": "More immunosuppression worsens the proliferation.",
+        "B": "Acyclovir acts on replicating virus, not latently infected transformed cells.",
+        "A": "The biopsy shows a B-cell proliferation, not granulomas.",
+        "E": "Graft removal is not the initial treatment."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3684,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "medium",
+      "topic": "CMV: owl eye inclusions and retinitis",
+      "stem": "A patient with AIDS and a CD4 count of 30 cells/µL reports floaters and painless vision loss. Funduscopy shows perivascular hemorrhages with yellow-white exudates. Which treatment is indicated?",
+      "options": {
+        "A": "TMP-SMX at treatment dosing",
+        "B": "Ganciclovir or valganciclovir",
+        "C": "Acyclovir at standard doses",
+        "D": "Amphotericin B with flucytosine",
+        "E": "Pyrimethamine with sulfadiazine"
+      },
+      "answer": "B",
+      "explanation": "CMV retinitis produces a 'pizza pie' fundus with hemorrhage and exudates and occurs when the CD4 count drops below 50. Treatment is ganciclovir, valganciclovir, or foscarnet, along with antiretroviral therapy. CMV has low affinity for the thymidine kinase that acyclovir requires, so acyclovir is ineffective.",
+      "wrong": {
+        "C": "CMV lacks the kinase needed to activate acyclovir efficiently.",
+        "D": "That combination treats cryptococcal meningitis.",
+        "E": "That treats toxoplasmic encephalitis.",
+        "A": "That treats Pneumocystis pneumonia."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3685,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "hard",
+      "topic": "Ganciclovir vs foscarnet toxicity",
+      "stem": "A transplant recipient with CMV viremia develops severe neutropenia on valganciclovir, and therapy is switched to foscarnet. Which toxicity must now be monitored?",
+      "options": {
+        "A": "Nephrotoxicity with electrolyte wasting",
+        "B": "Irreversible optic nerve inflammation",
+        "C": "Hemorrhagic cystitis from drug metabolites",
+        "D": "Pulmonary fibrosis with a restrictive defect",
+        "E": "Severe bone marrow suppression once again"
+      },
+      "answer": "A",
+      "explanation": "Ganciclovir causes dose-limiting neutropenia and thrombocytopenia. Foscarnet, a pyrophosphate analog that inhibits viral DNA polymerase without needing phosphorylation, causes nephrotoxicity with hypocalcemia, hypomagnesemia, and hypokalemia, and can cause seizures. Cidofovir is also nephrotoxic and is given with probenecid and hydration.",
+      "wrong": {
+        "E": "Marrow suppression is the ganciclovir problem being avoided.",
+        "B": "Optic neuritis is an ethambutol effect.",
+        "D": "Pulmonary fibrosis is caused by bleomycin and amiodarone.",
+        "C": "That is caused by cyclophosphamide and BK virus."
+      },
+      "tables": [
+        {
+          "title": "Anti-herpesvirus drugs",
+          "cols": [
+            "Drug",
+            "Activation",
+            "Use",
+            "Toxicity"
+          ],
+          "rows": [
+            [
+              "Acyclovir, valacyclovir, famciclovir",
+              "Viral thymidine kinase",
+              "HSV, VZV",
+              "Crystal nephropathy"
+            ],
+            [
+              "Ganciclovir, valganciclovir",
+              "CMV UL97 kinase",
+              "CMV",
+              "Myelosuppression"
+            ],
+            [
+              "Foscarnet",
+              "None (pyrophosphate analog)",
+              "Resistant CMV, acyclovir-resistant HSV",
+              "Nephrotoxicity, ↓Ca/Mg, seizures"
+            ],
+            [
+              "Cidofovir",
+              "None (nucleotide analog)",
+              "Resistant CMV, adenovirus",
+              "Nephrotoxicity (give probenecid)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3686,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "CMV: congenital findings",
+      "stem": "A newborn has microcephaly, periventricular calcifications, sensorineural hearing loss, and a petechial rash. Which infection fits best?",
+      "options": {
+        "A": "Rubella virus",
+        "B": "Treponema pallidum",
+        "C": "Toxoplasma gondii",
+        "D": "Cytomegalovirus",
+        "E": "Parvovirus B19"
+      },
+      "answer": "D",
+      "explanation": "Congenital CMV is the most common congenital infection and the leading infectious cause of sensorineural hearing loss. Periventricular calcifications and microcephaly distinguish it from congenital toxoplasmosis, which causes diffuse intracranial calcifications, chorioretinitis, and hydrocephalus. Valganciclovir improves hearing outcomes in symptomatic infants.",
+      "wrong": {
+        "C": "Toxoplasmosis causes scattered calcifications with hydrocephalus and chorioretinitis.",
+        "A": "Congenital rubella causes cataracts, cardiac defects, and deafness.",
+        "B": "Congenital syphilis causes snuffles, bone lesions, and a desquamating rash.",
+        "E": "Parvovirus causes hydrops fetalis from aplastic anemia."
+      },
+      "tables": [
+        {
+          "title": "Congenital (TORCH) infections",
+          "cols": [
+            "Infection",
+            "Classic findings"
+          ],
+          "rows": [
+            [
+              "Toxoplasma",
+              "Chorioretinitis, hydrocephalus, diffuse calcifications"
+            ],
+            [
+              "Rubella",
+              "PDA, cataracts, deafness, blueberry muffin rash"
+            ],
+            [
+              "CMV",
+              "Periventricular calcifications, microcephaly, sensorineural deafness"
+            ],
+            [
+              "HSV",
+              "Vesicles, keratoconjunctivitis, encephalitis, dissemination"
+            ],
+            [
+              "Syphilis",
+              "Snuffles, rash; later Hutchinson teeth, saddle nose, saber shins"
+            ],
+            [
+              "Varicella",
+              "Limb hypoplasia, cicatricial scars"
+            ],
+            [
+              "Parvovirus B19",
+              "Hydrops fetalis"
+            ],
+            [
+              "Zika",
+              "Severe microcephaly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3687,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "HHV-6 and HHV-8: distinguishing disease",
+      "stem": "Which pairing of human herpesvirus and disease is correct?",
+      "options": {
+        "A": "HHV-6 with congenital deafness; HHV-8 with infant hydrops",
+        "B": "HHV-6 with roseola infantum; HHV-8 with Kaposi sarcoma",
+        "C": "HHV-6 with hand-foot-and-mouth disease; HHV-8 with shingles",
+        "D": "HHV-6 with Burkitt lymphoma; HHV-8 with oral hairy leukoplakia",
+        "E": "HHV-6 with Kaposi sarcoma; HHV-8 with roseola infantum"
+      },
+      "answer": "B",
+      "explanation": "HHV-6 causes roseola (exanthem subitum): high fever for three to five days, then a rose-colored maculopapular rash as the fever breaks, and it is a common cause of febrile seizures. HHV-8 causes Kaposi sarcoma, primary effusion lymphoma, and multicentric Castleman disease.",
+      "wrong": {
+        "E": "The two associations are reversed.",
+        "D": "Burkitt lymphoma and hairy leukoplakia are EBV-associated.",
+        "C": "That illness is caused by coxsackievirus A16.",
+        "A": "Congenital deafness is linked to CMV and rubella."
+      },
+      "tables": [
+        {
+          "title": "Human herpesviruses",
+          "cols": [
+            "Virus",
+            "Latency site",
+            "Key diseases",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "HSV-1",
+              "Trigeminal ganglion",
+              "Oral herpes, temporal lobe encephalitis, keratitis",
+              "Acyclovir family"
+            ],
+            [
+              "HSV-2",
+              "Sacral ganglia",
+              "Genital herpes, neonatal herpes, recurrent meningitis",
+              "Acyclovir family"
+            ],
+            [
+              "VZV (HHV-3)",
+              "Dorsal root / cranial ganglia",
+              "Chickenpox, shingles",
+              "Acyclovir family; vaccines"
+            ],
+            [
+              "EBV (HHV-4)",
+              "B cells",
+              "Mono, Burkitt, nasopharyngeal carcinoma, Hodgkin, PTLD",
+              "Supportive"
+            ],
+            [
+              "CMV (HHV-5)",
+              "Monocytes/macrophages",
+              "Congenital deafness, retinitis, colitis, transplant disease",
+              "Ganciclovir, foscarnet, cidofovir"
+            ],
+            [
+              "HHV-6/7",
+              "T cells",
+              "Roseola",
+              "Supportive"
+            ],
+            [
+              "HHV-8",
+              "B cells, endothelium",
+              "Kaposi sarcoma, primary effusion lymphoma, Castleman",
+              "ART ± chemotherapy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3688,
+      "part": "Herpesviruses",
+      "tag": "Herpesviruses",
+      "difficulty": "easy",
+      "topic": "Herpesvirus structure and drug targets",
+      "stem": "All herpesviruses share which structural features?",
+      "options": {
+        "A": "Segmented double-stranded RNA with a double capsid shell",
+        "B": "Single-stranded RNA with an envelope and a helical nucleocapsid",
+        "C": "Double-stranded circular DNA with no envelope at all",
+        "D": "Single-stranded DNA with a naked icosahedral capsid only",
+        "E": "Double-stranded linear DNA, enveloped and icosahedral"
+      },
+      "answer": "E",
+      "explanation": "Herpesviruses are enveloped, icosahedral, double-stranded linear DNA viruses that replicate in the nucleus and acquire their envelope from nuclear and Golgi membranes. The envelope explains sensitivity to drying and detergents and the need for close contact, and all establish latency.",
+      "wrong": {
+        "B": "That describes paramyxoviruses and rhabdoviruses.",
+        "C": "That describes papillomaviruses and polyomaviruses.",
+        "D": "That describes parvovirus B19.",
+        "A": "That describes rotavirus."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3689,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "easy",
+      "topic": "HPV: E6 and E7 targets",
+      "stem": "High-risk HPV types drive cervical carcinogenesis through two early proteins. Which host proteins do they inactivate?",
+      "options": {
+        "A": "E6 inhibits Rb and E7 degrades p53",
+        "B": "Both proteins inactivate the BRCA1 repair pathway",
+        "C": "E6 blocks APC and E7 blocks mismatch repair",
+        "D": "E6 degrades p53 and E7 inhibits Rb",
+        "E": "Both proteins activate the RAS signaling cascade"
+      },
+      "answer": "D",
+      "explanation": "E6 targets p53 for ubiquitin-mediated degradation, and E7 binds Rb and releases E2F, so the cell loses both apoptotic and cell-cycle checkpoints. Types 16 and 18 account for most cervical cancers, along with anal, vulvar, penile, and oropharyngeal cancers. Types 6 and 11 cause condyloma acuminatum.",
+      "wrong": {
+        "A": "The two targets are reversed.",
+        "B": "BRCA1 is not the HPV target.",
+        "E": "RAS activation is not the HPV mechanism.",
+        "C": "These pathways relate to colorectal cancer."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3690,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "HPV: koilocytes",
+      "stem": "A cervical cytology specimen shows enlarged squamous cells with wrinkled hyperchromatic nuclei surrounded by a clear perinuclear halo. What does this finding indicate?",
+      "options": {
+        "A": "Cytopathic change from human papillomavirus",
+        "B": "Pseudohyphae with budding yeast typical of candida",
+        "C": "Intranuclear inclusions typical of cytomegalovirus",
+        "D": "Multinucleated giant cells typical of herpes simplex",
+        "E": "Intracytoplasmic inclusions typical of chlamydia"
+      },
+      "answer": "A",
+      "explanation": "Koilocytes are the hallmark cytopathic effect of HPV infection. They reflect productive viral replication in maturing squamous cells. Screening combines cytology and high-risk HPV DNA testing, and vaccination prevents infection with the covered types.",
+      "wrong": {
+        "C": "CMV produces large owl-eye inclusions.",
+        "D": "HSV gives multinucleated cells with intranuclear inclusions on a Tzanck smear.",
+        "E": "Chlamydial inclusions are seen in conjunctival scrapings.",
+        "B": "Candida shows fungal forms, not koilocytes."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3691,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "Parvovirus B19: receptor and hematology",
+      "stem": "Parvovirus B19 causes transient aplastic crisis in sickle cell disease. Which mechanism explains this?",
+      "options": {
+        "A": "It infects mature erythrocytes and lyses them directly",
+        "B": "It suppresses the marrow by triggering antibody to platelets",
+        "C": "It causes splenic sequestration of circulating red cells",
+        "D": "It infects erythroid progenitors through the P antigen",
+        "E": "It infects megakaryocytes and halts platelet production"
+      },
+      "answer": "D",
+      "explanation": "B19 binds the P blood group antigen (globoside) on erythroid precursors and halts their maturation, producing giant pronormoblasts. In people with normal red cell survival this causes only a brief dip, but with shortened survival, as in sickle cell disease, hemoglobin falls sharply. In pregnancy it causes hydrops fetalis.",
+      "wrong": {
+        "A": "Mature red cells lack the nucleus needed for viral replication.",
+        "B": "Immune thrombocytopenia is a different process.",
+        "E": "The target is the erythroid lineage.",
+        "C": "Sequestration crisis is a separate complication of sickle cell disease."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3692,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "Parvovirus B19: adult arthropathy",
+      "stem": "A 34-year-old teacher develops symmetric joint pain in the hands and knees and a lacy rash on the arms; her child recently had a bright red rash across both cheeks. Which statement is correct?",
+      "options": {
+        "A": "The illness is contagious once the rash has already appeared",
+        "B": "Joint symptoms indicate that antibiotics should be started",
+        "C": "Adults and children both present with the slapped cheek rash",
+        "D": "Adults often have arthropathy, children a cheek eruption",
+        "E": "The virus is a double-stranded RNA virus spread in stool"
+      },
+      "answer": "D",
+      "explanation": "In children, B19 causes erythema infectiosum with slapped-cheek rash and a lacy reticular rash. Adults, particularly women, more often have symmetric polyarthropathy that can mimic rheumatoid arthritis. Patients are contagious before the rash appears, so isolation after the rash offers little benefit. B19 is a single-stranded DNA virus.",
+      "wrong": {
+        "C": "Facial rash is typical of children, not adults.",
+        "B": "This is a viral illness and needs no antibiotics.",
+        "A": "Contagiousness precedes the rash.",
+        "E": "B19 is a single-stranded DNA virus."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3693,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "Smallpox vs chickenpox lesion synchrony",
+      "stem": "Which feature best distinguishes the rash of smallpox from that of varicella?",
+      "options": {
+        "A": "Lesions all at one stage, heaviest on the face and limbs",
+        "B": "Lesions at several different stages, heaviest on the trunk",
+        "C": "Lesions confined to a single dermatome with severe pain",
+        "D": "Lesions appearing only after the fever has fully resolved",
+        "E": "Lesions sparing the palms and the soles in every case"
+      },
+      "answer": "A",
+      "explanation": "Smallpox lesions appear in a single synchronous crop with centrifugal distribution, involving palms and soles, and are deep-seated. Varicella lesions come in successive crops, so macules, papules, vesicles, and crusts coexist, and they are centripetal, sparing palms and soles. Smallpox was declared eradicated in 1980.",
+      "wrong": {
+        "B": "That pattern describes varicella.",
+        "C": "Dermatomal grouping describes zoster.",
+        "E": "Smallpox characteristically involves palms and soles.",
+        "D": "Fever precedes and accompanies the rash in both."
+      },
+      "tables": [
+        {
+          "title": "Childhood exanthems",
+          "cols": [
+            "Disease",
+            "Cause",
+            "Features"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Paramyxovirus",
+              "3 Cs, Koplik spots, descending rash"
+            ],
+            [
+              "Rubella",
+              "Togavirus",
+              "Postauricular nodes, mild descending rash"
+            ],
+            [
+              "Roseola",
+              "HHV-6",
+              "High fever, then rash as fever breaks"
+            ],
+            [
+              "Erythema infectiosum",
+              "Parvovirus B19",
+              "Slapped cheeks, lacy rash"
+            ],
+            [
+              "Varicella",
+              "VZV",
+              "Crops of lesions in different stages"
+            ],
+            [
+              "Hand-foot-mouth",
+              "Coxsackie A",
+              "Oral ulcers, palm/sole vesicles"
+            ],
+            [
+              "Scarlet fever",
+              "GAS",
+              "Sandpaper rash, strawberry tongue, desquamation"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3694,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "easy",
+      "topic": "Adenovirus: syndromes and setting",
+      "stem": "Outbreaks of pharyngoconjunctival fever in a swim club, keratoconjunctivitis in a clinic, and hemorrhagic cystitis in a transplant unit. Which virus links these?",
+      "options": {
+        "A": "Adenovirus",
+        "B": "Parainfluenza virus",
+        "C": "Norovirus",
+        "D": "Rhinovirus",
+        "E": "Coxsackievirus A"
+      },
+      "answer": "A",
+      "explanation": "Adenovirus is a non-enveloped double-stranded DNA virus causing pharyngoconjunctival fever, epidemic keratoconjunctivitis, febrile pharyngitis, gastroenteritis, and hemorrhagic cystitis, plus outbreaks of pneumonia in military recruits. Its lack of an envelope makes it resistant to drying and chlorine, favoring pool and fomite spread.",
+      "wrong": {
+        "E": "Coxsackie A causes herpangina and hand-foot-and-mouth disease.",
+        "D": "Rhinovirus causes the common cold without conjunctivitis outbreaks of this kind.",
+        "C": "Norovirus causes outbreaks of vomiting and diarrhea.",
+        "B": "Parainfluenza causes croup."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3695,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "Polyomaviruses: JC vs BK",
+      "stem": "Which pairing of polyomavirus and clinical setting is correct?",
+      "options": {
+        "A": "Both viruses cause progressive dementia in immunocompetent adults",
+        "B": "Both viruses cause hemorrhagic cystitis only after transplant",
+        "C": "JC virus with demyelination in AIDS; BK with graft nephropathy",
+        "D": "JC virus with oral hairy leukoplakia; BK virus with retinitis",
+        "E": "JC virus with graft nephropathy; BK virus with demyelination in AIDS"
+      },
+      "answer": "C",
+      "explanation": "JC virus reactivates in severe immunosuppression and infects oligodendrocytes, causing progressive multifocal leukoencephalopathy with asymmetric white matter lesions and no enhancement; natalizumab and rituximab also raise the risk. BK virus reactivates after kidney transplant, causing nephropathy and graft dysfunction, and causes hemorrhagic cystitis after marrow transplant.",
+      "wrong": {
+        "E": "The two associations are reversed.",
+        "B": "JC virus targets the central nervous system.",
+        "A": "Disease occurs in immunosuppressed hosts.",
+        "D": "Hairy leukoplakia is EBV-driven and retinitis is usually CMV."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3696,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "easy",
+      "topic": "Molluscum contagiosum: management",
+      "stem": "A 6-year-old has several small dome-shaped papules with central umbilication on the trunk. What is the natural history and management?",
+      "options": {
+        "A": "They usually resolve on their own over months",
+        "B": "They require systemic acyclovir for several weeks",
+        "C": "They must be excised widely because of malignant potential",
+        "D": "They indicate underlying immune deficiency in most children",
+        "E": "They respond only to a course of oral antifungal therapy"
+      },
+      "answer": "A",
+      "explanation": "Molluscum contagiosum is a poxvirus infection spread by skin contact and fomites. In healthy children lesions resolve spontaneously over months to a couple of years; cryotherapy or curettage speeds clearance. Extensive facial lesions in an adult suggest HIV infection.",
+      "wrong": {
+        "B": "Acyclovir has no activity against poxviruses.",
+        "D": "Most affected children are immunologically normal.",
+        "C": "These lesions are benign.",
+        "E": "Antifungals have no role."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3697,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "medium",
+      "topic": "Naked vs enveloped DNA viruses",
+      "stem": "Which set contains only non-enveloped DNA viruses?",
+      "options": {
+        "A": "Parvovirus, herpesvirus, polyomavirus, hepadnavirus",
+        "B": "Herpesvirus, poxvirus, hepadnavirus, and adenovirus",
+        "C": "Papillomavirus, herpesvirus, parvovirus, and poxvirus",
+        "D": "Poxvirus, adenovirus, hepadnavirus, and polyomavirus",
+        "E": "Adenovirus, papillomavirus, polyomavirus, parvovirus"
+      },
+      "answer": "E",
+      "explanation": "Among DNA viruses, only the herpesviruses, poxviruses, and hepadnaviruses (HBV) are enveloped; adenoviruses, papillomaviruses, polyomaviruses, and parvoviruses are naked. Naked viruses resist drying, detergents, acid, and bile, which is why they spread by fomites and the fecal-oral route.",
+      "wrong": {
+        "B": "The first three are all enveloped.",
+        "C": "Herpesviruses and poxviruses are enveloped.",
+        "D": "Poxvirus and hepadnavirus are enveloped.",
+        "A": "Herpesvirus and hepadnavirus are enveloped."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3698,
+      "part": "DNA Viruses (Non-Herpes)",
+      "tag": "DNA Viruses (Non-Herpes)",
+      "difficulty": "hard",
+      "topic": "Poxvirus: cytoplasmic replication",
+      "stem": "Poxviruses are unique among DNA viruses in replicating entirely in the cytoplasm. What does this require the virus to carry?",
+      "options": {
+        "A": "Its own DNA-dependent RNA polymerase",
+        "B": "A reverse transcriptase to copy its genome",
+        "C": "An integrase to insert DNA into the host genome",
+        "D": "A neuraminidase to release progeny virions",
+        "E": "A host histone complex to package its DNA"
+      },
+      "answer": "A",
+      "explanation": "Because poxviruses never enter the nucleus, they must encode their own DNA-dependent RNA polymerase and transcription machinery, which they carry in the virion. They are large, complex, enveloped viruses, and vaccinia is used as the smallpox and mpox vaccine platform.",
+      "wrong": {
+        "B": "Reverse transcriptase is used by retroviruses and HBV.",
+        "C": "Poxviruses do not integrate.",
+        "D": "Neuraminidase is an influenza protein.",
+        "E": "Poxviruses do not depend on host histones for packaging."
+      },
+      "tables": [
+        {
+          "title": "DNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Herpesviridae",
+              "dsDNA, linear",
+              "Yes",
+              "HSV, VZV, EBV, CMV, HHV-6/7/8"
+            ],
+            [
+              "Hepadnaviridae",
+              "Partially dsDNA, circular",
+              "Yes",
+              "HBV"
+            ],
+            [
+              "Adenoviridae",
+              "dsDNA, linear",
+              "No",
+              "Adenovirus"
+            ],
+            [
+              "Parvoviridae",
+              "ssDNA, linear",
+              "No",
+              "Parvovirus B19"
+            ],
+            [
+              "Papillomaviridae",
+              "dsDNA, circular",
+              "No",
+              "HPV"
+            ],
+            [
+              "Polyomaviridae",
+              "dsDNA, circular",
+              "No",
+              "JC, BK"
+            ],
+            [
+              "Poxviridae",
+              "dsDNA, linear; cytoplasmic replication",
+              "Yes",
+              "Smallpox, molluscum, mpox"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3699,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Poliovirus: anterior horn cells",
+      "stem": "An unvaccinated traveler develops fever and headache, then asymmetric flaccid weakness of one leg with absent reflexes and intact sensation. Which structure is damaged?",
+      "options": {
+        "A": "Peripheral nerve myelin sheaths",
+        "B": "Dorsal root sensory ganglia",
+        "C": "Anterior horn motor neurons",
+        "D": "Posterior columns of the spinal cord",
+        "E": "The neuromuscular junction receptors"
+      },
+      "answer": "C",
+      "explanation": "Poliovirus enters by the fecal-oral route, replicates in the gut and lymphoid tissue, and in a small fraction of cases reaches anterior horn cells, destroying lower motor neurons. This gives asymmetric flaccid paralysis with preserved sensation. Guillain-Barré, by contrast, is symmetric, ascending, and demyelinating.",
+      "wrong": {
+        "B": "Sensation is intact in poliomyelitis.",
+        "A": "Demyelination causes symmetric ascending weakness.",
+        "E": "Junction disease causes fatigable weakness without reflex loss early.",
+        "D": "Posterior column disease causes sensory ataxia."
+      }
+    },
+    {
+      "id": 3700,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Polio vaccines: OPV vs IPV tradeoff",
+      "stem": "Why do many countries use inactivated polio vaccine rather than oral polio vaccine, despite the oral vaccine producing better mucosal immunity?",
+      "options": {
+        "A": "The oral vaccine cannot be given to children under five",
+        "B": "The inactivated vaccine provides immunity after one dose",
+        "C": "The oral vaccine can revert and cause paralytic disease",
+        "D": "The oral vaccine fails to produce any serum antibody",
+        "E": "The inactivated vaccine also prevents all virus shedding"
+      },
+      "answer": "C",
+      "explanation": "Live attenuated oral vaccine gives strong intestinal IgA and interrupts transmission, but it can revert to neurovirulence, causing vaccine-associated paralytic polio, and it is contraindicated in immunodeficiency. Inactivated vaccine is safe and produces IgG but less mucosal immunity, so it protects the individual while allowing some gut replication.",
+      "wrong": {
+        "D": "It produces both serum and mucosal antibody.",
+        "E": "IPV gives less mucosal protection, so shedding can occur.",
+        "A": "Its usual recipients are young children.",
+        "B": "IPV requires a multi-dose series."
+      },
+      "tables": [
+        {
+          "title": "Vaccine types",
+          "cols": [
+            "Type",
+            "Examples",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Live attenuated",
+              "MMR, varicella, yellow fever, rotavirus, intranasal flu, oral typhoid, BCG",
+              "Strong cellular + humoral immunity; avoid in pregnancy and severe immunosuppression"
+            ],
+            [
+              "Inactivated",
+              "Rabies, injectable influenza, IPV, hepatitis A",
+              "Humoral; boosters needed"
+            ],
+            [
+              "Subunit / recombinant",
+              "HBV, HPV, recombinant zoster, acellular pertussis",
+              "Safe in immunocompromised"
+            ],
+            [
+              "Toxoid",
+              "Tetanus, diphtheria",
+              "Antitoxin antibodies"
+            ],
+            [
+              "Conjugate",
+              "Hib, PCV, MenACWY",
+              "T-cell help → IgG and memory in infants"
+            ],
+            [
+              "mRNA",
+              "COVID-19",
+              "Encodes antigen (spike)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3701,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Coxsackie B: myocarditis",
+      "stem": "A 20-year-old has chest pain and dyspnea two weeks after a flu-like illness. Troponin is elevated, ECG shows diffuse ST changes, and the ejection fraction is 35% with normal coronary arteries. Which virus is the classic cause?",
+      "options": {
+        "A": "Rhinovirus",
+        "B": "Rotavirus",
+        "C": "Norovirus",
+        "D": "Hepatitis A virus",
+        "E": "Coxsackievirus B"
+      },
+      "answer": "E",
+      "explanation": "Coxsackie B is the classic cause of viral myocarditis and pericarditis, and it also causes pleurodynia (Bornholm disease) and aseptic meningitis. Coxsackie A causes herpangina and hand-foot-and-mouth disease. Both are non-enveloped, positive-sense single-stranded RNA enteroviruses spread by the fecal-oral route.",
+      "wrong": {
+        "A": "Rhinovirus is limited to the upper airway by its temperature preference.",
+        "B": "Rotavirus causes infant gastroenteritis.",
+        "C": "Norovirus causes outbreaks of vomiting and diarrhea.",
+        "D": "HAV is an enterovirus-like picornavirus but targets the liver."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3702,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Rhinovirus: temperature and acid lability",
+      "stem": "Why does rhinovirus cause only upper respiratory disease and not enteric infection, unlike other picornaviruses?",
+      "options": {
+        "A": "It replicates only inside lymphoid germinal centers",
+        "B": "It prefers 37°C and is resistant to stomach acid",
+        "C": "It prefers 33°C and is inactivated by stomach acid",
+        "D": "It requires a receptor found only in the alveoli",
+        "E": "It has an envelope that stomach bile dissolves"
+      },
+      "answer": "C",
+      "explanation": "Rhinovirus grows best at the cooler temperature of the nasal passages (about 33°C) and is acid-labile, so it cannot survive gastric passage. It binds ICAM-1 on respiratory epithelium. With over 100 serotypes, immunity is type-specific and reinfection is common, which is why there is no vaccine.",
+      "wrong": {
+        "B": "Those properties describe the enteroviruses.",
+        "E": "Picornaviruses are non-enveloped.",
+        "D": "ICAM-1 is widely expressed on upper airway cells.",
+        "A": "Replication occurs in respiratory epithelium."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3703,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Norovirus: outbreak control",
+      "stem": "An outbreak of vomiting and diarrhea sweeps through a cruise ship. Alcohol hand gel dispensers are everywhere. Which measure is most effective?",
+      "options": {
+        "A": "Prophylactic azithromycin for all passengers aboard",
+        "B": "Handwashing with soap and water plus bleach wipes",
+        "C": "Restricting only the passengers who report symptoms",
+        "D": "Switching to a bottled water supply for the ship",
+        "E": "Increasing the use of alcohol-based hand sanitizer"
+      },
+      "answer": "B",
+      "explanation": "Norovirus is non-enveloped and resists alcohol, so soap-and-water handwashing and bleach-based surface disinfection are needed. Its very low infectious dose, environmental stability, and prolonged shedding make outbreaks explosive. Asymptomatic and recovering people still shed, so isolating only symptomatic passengers is insufficient.",
+      "wrong": {
+        "E": "Alcohol is relatively ineffective against non-enveloped viruses.",
+        "A": "Antibiotics do not affect viruses.",
+        "C": "Shedding continues after symptoms resolve.",
+        "D": "Spread is mainly person-to-person and via surfaces."
+      },
+      "tables": [
+        {
+          "title": "Infectious diarrhea patterns",
+          "cols": [
+            "Type",
+            "Organisms",
+            "Clues"
+          ],
+          "rows": [
+            [
+              "Preformed toxin (1–6 h)",
+              "S. aureus, B. cereus (emetic)",
+              "Vomiting predominant, no fever"
+            ],
+            [
+              "Watery, non-inflammatory",
+              "V. cholerae, ETEC, C. perfringens, Giardia, Cryptosporidium, norovirus, rotavirus",
+              "No blood, no fecal leukocytes"
+            ],
+            [
+              "Bloody, inflammatory",
+              "Campylobacter, Salmonella, Shigella, EHEC, EIEC, Yersinia, C. difficile, E. histolytica",
+              "Fever, blood, fecal leukocytes"
+            ],
+            [
+              "Pseudoappendicitis",
+              "Yersinia enterocolitica",
+              "Mesenteric adenitis, pork"
+            ],
+            [
+              "Seafood",
+              "V. parahaemolyticus, V. vulnificus, norovirus",
+              "Raw oysters"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3704,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Rotavirus: mechanism and vaccine caution",
+      "stem": "A 9-month-old has profuse watery diarrhea in winter. Which statement about the responsible virus and its vaccine is correct?",
+      "options": {
+        "A": "NSP4 acts as an enterotoxin; the vaccine is inactivated",
+        "B": "The virus is a naked DNA virus; the vaccine uses capsid protein",
+        "C": "The virus destroys colonocytes; the vaccine is contraindicated in all infants",
+        "D": "NSP4 acts as an enterotoxin; the vaccine is live and oral",
+        "E": "The virus invades the colon; the vaccine is given by injection"
+      },
+      "answer": "D",
+      "explanation": "Rotavirus is a naked, segmented double-stranded RNA virus that destroys small bowel villous tips, causing osmotic diarrhea, and its NSP4 protein acts as a viral enterotoxin driving secretion. The vaccine is live attenuated and oral; it is associated with a small increase in intussusception risk and is avoided in infants with a history of intussusception or SCID.",
+      "wrong": {
+        "A": "The rotavirus vaccine is live attenuated.",
+        "E": "It infects the small intestine.",
+        "B": "Rotavirus is a double-stranded RNA virus.",
+        "C": "The vaccine is routinely given to healthy infants."
+      },
+      "tables": [
+        {
+          "title": "Vaccine types",
+          "cols": [
+            "Type",
+            "Examples",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Live attenuated",
+              "MMR, varicella, yellow fever, rotavirus, intranasal flu, oral typhoid, BCG",
+              "Strong cellular + humoral immunity; avoid in pregnancy and severe immunosuppression"
+            ],
+            [
+              "Inactivated",
+              "Rabies, injectable influenza, IPV, hepatitis A",
+              "Humoral; boosters needed"
+            ],
+            [
+              "Subunit / recombinant",
+              "HBV, HPV, recombinant zoster, acellular pertussis",
+              "Safe in immunocompromised"
+            ],
+            [
+              "Toxoid",
+              "Tetanus, diphtheria",
+              "Antitoxin antibodies"
+            ],
+            [
+              "Conjugate",
+              "Hib, PCV, MenACWY",
+              "T-cell help → IgG and memory in infants"
+            ],
+            [
+              "mRNA",
+              "COVID-19",
+              "Encodes antigen (spike)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3705,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Influenza: drift vs shift consequences",
+      "stem": "Which statement correctly contrasts antigenic drift and antigenic shift in influenza?",
+      "options": {
+        "A": "Drift occurs only in influenza B and shift only in influenza A",
+        "B": "Both result from point mutations during replication",
+        "C": "Both result from reassortment of segmented genomes",
+        "D": "Drift causes seasonal epidemics; shift can cause pandemics",
+        "E": "Drift can cause pandemics; shift causes seasonal epidemics"
+      },
+      "answer": "D",
+      "explanation": "Drift is the gradual accumulation of point mutations in hemagglutinin and neuraminidase, producing seasonal epidemics and requiring annual vaccine updates. Shift is reassortment of whole genome segments between human and animal strains, creating a novel subtype against which populations have no immunity, which can cause a pandemic. Only influenza A undergoes shift.",
+      "wrong": {
+        "E": "The two are reversed.",
+        "C": "Drift is mutation, not reassortment.",
+        "B": "Shift requires segment exchange.",
+        "A": "Both A and B drift; only A shifts."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3706,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Oseltamivir vs baloxavir mechanisms",
+      "stem": "Which pairing of influenza antiviral and target is correct?",
+      "options": {
+        "A": "Both drugs block the viral hemagglutinin attachment step",
+        "B": "Oseltamivir blocks reverse transcriptase; baloxavir blocks protease",
+        "C": "Oseltamivir blocks neuraminidase; baloxavir blocks endonuclease",
+        "D": "Both drugs block the M2 ion channel used for uncoating",
+        "E": "Oseltamivir blocks endonuclease; baloxavir blocks neuraminidase"
+      },
+      "answer": "C",
+      "explanation": "Oseltamivir and zanamivir inhibit neuraminidase, so progeny virions cannot be released from the cell surface. Baloxavir inhibits the cap-dependent endonuclease of the viral polymerase complex and is given as a single dose. Amantadine blocked the M2 channel but is no longer used because of widespread resistance.",
+      "wrong": {
+        "E": "The targets are reversed.",
+        "A": "Neither agent targets hemagglutinin.",
+        "D": "That was the adamantane mechanism.",
+        "B": "Influenza does not use reverse transcriptase."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3707,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "hard",
+      "topic": "Measles: immune amnesia and complications",
+      "stem": "A child recovering from measles develops a bacterial pneumonia. Which mechanism links measles to increased infection risk afterward?",
+      "options": {
+        "A": "Autoantibody formation against neutrophil granules",
+        "B": "Complement consumption that lasts several years",
+        "C": "Permanent destruction of bone marrow stem cell lines",
+        "D": "Depletion of memory lymphocytes for months to years",
+        "E": "Loss of mucosal IgA production for the rest of life"
+      },
+      "answer": "D",
+      "explanation": "Measles infects lymphocytes through CD150 and depletes pre-existing memory B and T cells, leaving a period of heightened susceptibility to other infections for months to years. The most common cause of death is secondary pneumonia. Vitamin A reduces mortality. Subacute sclerosing panencephalitis appears years later.",
+      "wrong": {
+        "C": "Marrow stem cells are not destroyed.",
+        "A": "ANCA formation is unrelated to measles.",
+        "B": "Complement is not persistently consumed.",
+        "E": "IgA production recovers."
+      },
+      "tables": [
+        {
+          "title": "Paramyxoviruses",
+          "cols": [
+            "Virus",
+            "Disease",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Rubeola",
+              "Koplik spots; vitamin A; SSPE; giant cell pneumonia"
+            ],
+            [
+              "Mumps",
+              "Parotitis",
+              "Orchitis, aseptic meningitis, pancreatitis"
+            ],
+            [
+              "RSV",
+              "Bronchiolitis",
+              "F protein; no hemagglutinin; nirsevimab"
+            ],
+            [
+              "Parainfluenza",
+              "Croup",
+              "Steeple sign; dexamethasone"
+            ],
+            [
+              "hMPV",
+              "Bronchiolitis/pneumonia",
+              "Similar to RSV"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3708,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Measles: Koplik spots and prodrome",
+      "stem": "Which finding appears before the measles exanthem and is most specific for the diagnosis?",
+      "options": {
+        "A": "Gray-white buccal lesions with a red halo",
+        "B": "Posterior auricular and occipital adenopathy",
+        "C": "Strawberry tongue with circumoral pallor",
+        "D": "Bilateral parotid gland swelling and pain",
+        "E": "Tender vesicles on the palms and soles"
+      },
+      "answer": "A",
+      "explanation": "Koplik spots are small gray-white papules on the buccal mucosa that appear one to two days before the rash and are pathognomonic. The prodrome is the three Cs: cough, coryza, and conjunctivitis, with high fever. The rash begins at the hairline and spreads downward, becoming confluent.",
+      "wrong": {
+        "B": "That is characteristic of rubella.",
+        "C": "That describes scarlet fever.",
+        "E": "That describes hand-foot-and-mouth disease.",
+        "D": "That describes mumps."
+      },
+      "tables": [
+        {
+          "title": "Childhood exanthems",
+          "cols": [
+            "Disease",
+            "Cause",
+            "Features"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Paramyxovirus",
+              "3 Cs, Koplik spots, descending rash"
+            ],
+            [
+              "Rubella",
+              "Togavirus",
+              "Postauricular nodes, mild descending rash"
+            ],
+            [
+              "Roseola",
+              "HHV-6",
+              "High fever, then rash as fever breaks"
+            ],
+            [
+              "Erythema infectiosum",
+              "Parvovirus B19",
+              "Slapped cheeks, lacy rash"
+            ],
+            [
+              "Varicella",
+              "VZV",
+              "Crops of lesions in different stages"
+            ],
+            [
+              "Hand-foot-mouth",
+              "Coxsackie A",
+              "Oral ulcers, palm/sole vesicles"
+            ],
+            [
+              "Scarlet fever",
+              "GAS",
+              "Sandpaper rash, strawberry tongue, desquamation"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3709,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Mumps: complications by age",
+      "stem": "An unvaccinated 19-year-old has bilateral parotid swelling followed by testicular pain and swelling. Which statement is correct?",
+      "options": {
+        "A": "Parotitis in mumps is usually unilateral and suppurative",
+        "B": "Orchitis is more common before puberty and always causes sterility",
+        "C": "Aseptic meningitis never occurs with this infection",
+        "D": "Antiviral therapy shortens the course substantially",
+        "E": "Orchitis is more common after puberty and can impair fertility"
+      },
+      "answer": "E",
+      "explanation": "Mumps causes parotitis (typically bilateral and non-suppurative), and post-pubertal males may develop orchitis, which can reduce fertility but rarely causes sterility. Other complications are aseptic meningitis, pancreatitis, and sensorineural hearing loss. Care is supportive; the MMR vaccine prevents it.",
+      "wrong": {
+        "B": "Orchitis is a post-pubertal problem and sterility is rare.",
+        "A": "It is usually bilateral and non-suppurative; suppuration suggests bacterial parotitis.",
+        "C": "Aseptic meningitis is a recognized complication.",
+        "D": "No antiviral is effective."
+      },
+      "tables": [
+        {
+          "title": "Paramyxoviruses",
+          "cols": [
+            "Virus",
+            "Disease",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Rubeola",
+              "Koplik spots; vitamin A; SSPE; giant cell pneumonia"
+            ],
+            [
+              "Mumps",
+              "Parotitis",
+              "Orchitis, aseptic meningitis, pancreatitis"
+            ],
+            [
+              "RSV",
+              "Bronchiolitis",
+              "F protein; no hemagglutinin; nirsevimab"
+            ],
+            [
+              "Parainfluenza",
+              "Croup",
+              "Steeple sign; dexamethasone"
+            ],
+            [
+              "hMPV",
+              "Bronchiolitis/pneumonia",
+              "Similar to RSV"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3710,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "RSV: prophylaxis for high-risk infants",
+      "stem": "A 2-month-old born at 29 weeks with chronic lung disease is entering RSV season. Which preventive option is appropriate?",
+      "options": {
+        "A": "Monthly intravenous immunoglobulin infusions",
+        "B": "A live attenuated intranasal RSV vaccine now",
+        "C": "Prophylactic azithromycin during winter months",
+        "D": "A monoclonal antibody against the F protein",
+        "E": "A course of oral ribavirin through the season"
+      },
+      "answer": "D",
+      "explanation": "Monoclonal antibodies against the fusion (F) protein, palivizumab monthly or nirsevimab as a single dose, provide passive protection for high-risk infants. Maternal RSV vaccination is another route to infant protection. There is no live attenuated infant RSV vaccine in routine use, and ribavirin is reserved for rare severe cases.",
+      "wrong": {
+        "B": "No such vaccine is used routinely in infants.",
+        "E": "Ribavirin is not used for prophylaxis.",
+        "A": "Nonspecific IVIG is not the standard approach.",
+        "C": "Antibiotics do not prevent a viral infection."
+      },
+      "tables": [
+        {
+          "title": "Paramyxoviruses",
+          "cols": [
+            "Virus",
+            "Disease",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Rubeola",
+              "Koplik spots; vitamin A; SSPE; giant cell pneumonia"
+            ],
+            [
+              "Mumps",
+              "Parotitis",
+              "Orchitis, aseptic meningitis, pancreatitis"
+            ],
+            [
+              "RSV",
+              "Bronchiolitis",
+              "F protein; no hemagglutinin; nirsevimab"
+            ],
+            [
+              "Parainfluenza",
+              "Croup",
+              "Steeple sign; dexamethasone"
+            ],
+            [
+              "hMPV",
+              "Bronchiolitis/pneumonia",
+              "Similar to RSV"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3711,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Croup vs bronchiolitis vs epiglottitis",
+      "stem": "A 2-year-old has a barking cough, inspiratory stridor, and hoarseness that worsen at night, with a normal appetite and no drooling. Which condition and treatment fit?",
+      "options": {
+        "A": "Foreign body; rigid bronchoscopy for its removal",
+        "B": "Epiglottitis; immediate intubation and ceftriaxone",
+        "C": "Bronchiolitis; nebulized albuterol and antibiotics",
+        "D": "Croup; dexamethasone, with epinephrine if severe",
+        "E": "Bacterial tracheitis; vancomycin with bronchoscopy"
+      },
+      "answer": "D",
+      "explanation": "Croup (laryngotracheobronchitis), usually from parainfluenza virus, causes subglottic narrowing with a barking cough and stridor, and the 'steeple sign' on radiograph. Treatment is dexamethasone, plus nebulized epinephrine for stridor at rest. Epiglottitis produces drooling and a toxic appearance; bronchiolitis produces wheezing in infants.",
+      "wrong": {
+        "C": "Bronchiolitis causes wheezing in younger infants and is managed supportively.",
+        "B": "Epiglottitis presents with drooling and a muffled voice.",
+        "E": "Tracheitis causes a toxic appearance with purulent secretions.",
+        "A": "Aspiration gives sudden onset with focal findings."
+      },
+      "tables": [
+        {
+          "title": "Paramyxoviruses",
+          "cols": [
+            "Virus",
+            "Disease",
+            "Key points"
+          ],
+          "rows": [
+            [
+              "Measles",
+              "Rubeola",
+              "Koplik spots; vitamin A; SSPE; giant cell pneumonia"
+            ],
+            [
+              "Mumps",
+              "Parotitis",
+              "Orchitis, aseptic meningitis, pancreatitis"
+            ],
+            [
+              "RSV",
+              "Bronchiolitis",
+              "F protein; no hemagglutinin; nirsevimab"
+            ],
+            [
+              "Parainfluenza",
+              "Croup",
+              "Steeple sign; dexamethasone"
+            ],
+            [
+              "hMPV",
+              "Bronchiolitis/pneumonia",
+              "Similar to RSV"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3712,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "easy",
+      "topic": "Rabies: Negri bodies and progression",
+      "stem": "A man bitten by a dog abroad presents two months later with agitation, hypersalivation, and pain on attempting to drink. Which statement is correct?",
+      "options": {
+        "A": "Once symptoms begin, the disease is nearly always fatal",
+        "B": "Post-exposure prophylaxis remains effective at this stage",
+        "C": "Diagnosis requires a positive blood culture for the virus",
+        "D": "The illness resolves spontaneously in most patients",
+        "E": "The virus travels through the bloodstream to the brain"
+      },
+      "answer": "A",
+      "explanation": "Rabies virus travels by retrograde axonal transport from the bite site to the CNS, which is why the incubation period varies with bite location. Once encephalitic symptoms appear, survival is exceptional. Prophylaxis works only before symptoms: wound washing, rabies immune globulin into the wound, and vaccine. Negri bodies are cytoplasmic inclusions in neurons.",
+      "wrong": {
+        "B": "Prophylaxis must precede symptom onset.",
+        "E": "Spread is neural, not hematogenous.",
+        "D": "Untreated symptomatic rabies is nearly uniformly fatal.",
+        "C": "The virus is not detected by blood culture."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3713,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "hard",
+      "topic": "Arbovirus: dengue severe disease mechanism",
+      "stem": "A traveler who had dengue two years ago returns from another trip with high fever, then develops plasma leakage with hemoptysis and a falling platelet count. Which mechanism explains the severity of the second infection?",
+      "options": {
+        "A": "Antibody to the first serotype enhances uptake of the second",
+        "B": "Cross-reactive antibody destroys platelets by direct lysis",
+        "C": "The second infection is caused by a bacterial superinfection",
+        "D": "The virus integrates into host DNA and reactivates later",
+        "E": "Antibody to the first serotype neutralizes all four serotypes"
+      },
+      "answer": "A",
+      "explanation": "Antibody-dependent enhancement occurs when non-neutralizing antibody from a prior dengue serotype binds a new serotype and promotes Fc receptor-mediated uptake into monocytes, raising viral load and cytokine release. Severe dengue features plasma leakage, hemorrhage, and shock. This is why dengue vaccination strategy depends on prior infection status.",
+      "wrong": {
+        "E": "Cross-protection is incomplete and transient.",
+        "C": "Severe dengue is a viral and immune phenomenon.",
+        "D": "Flaviviruses do not integrate.",
+        "B": "Thrombocytopenia is multifactorial, not simple antibody lysis."
+      },
+      "tables": [
+        {
+          "title": "Mosquito-borne viruses",
+          "cols": [
+            "Virus",
+            "Family",
+            "Vector",
+            "Hallmark"
+          ],
+          "rows": [
+            [
+              "Dengue",
+              "Flavivirus",
+              "Aedes",
+              "Breakbone fever; severe with second serotype (ADE)"
+            ],
+            [
+              "Zika",
+              "Flavivirus",
+              "Aedes (also sexual)",
+              "Congenital microcephaly"
+            ],
+            [
+              "Yellow fever",
+              "Flavivirus",
+              "Aedes",
+              "Jaundice, black vomit, Councilman bodies"
+            ],
+            [
+              "Chikungunya",
+              "Togavirus",
+              "Aedes",
+              "Severe prolonged polyarthralgia"
+            ],
+            [
+              "West Nile",
+              "Flavivirus",
+              "Culex (birds reservoir)",
+              "Encephalitis, flaccid paralysis in elderly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3714,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Yellow fever vs dengue vs chikungunya",
+      "stem": "Three travelers return from the same region. One has jaundice with black vomit, one has severe joint pains lasting months, and one has retro-orbital pain with a falling platelet count. Which set of diagnoses fits?",
+      "options": {
+        "A": "Yellow fever, chikungunya, dengue",
+        "B": "Chikungunya, dengue, yellow fever",
+        "C": "Dengue, yellow fever, chikungunya",
+        "D": "Chikungunya, yellow fever, dengue",
+        "E": "Yellow fever, dengue, chikungunya"
+      },
+      "answer": "A",
+      "explanation": "Yellow fever causes hepatic necrosis with jaundice and hematemesis (black vomit) and has a live attenuated vaccine. Chikungunya causes prominent, often prolonged polyarthralgia. Dengue causes retro-orbital pain, myalgia, thrombocytopenia, and, in severe cases, plasma leakage. All three are transmitted by Aedes mosquitoes.",
+      "wrong": {
+        "C": "The order does not match the described features.",
+        "B": "The jaundice case is yellow fever, not chikungunya.",
+        "E": "Prolonged arthralgia points to chikungunya, not dengue.",
+        "D": "The first patient has hepatic disease typical of yellow fever."
+      },
+      "tables": [
+        {
+          "title": "Mosquito-borne viruses",
+          "cols": [
+            "Virus",
+            "Family",
+            "Vector",
+            "Hallmark"
+          ],
+          "rows": [
+            [
+              "Dengue",
+              "Flavivirus",
+              "Aedes",
+              "Breakbone fever; severe with second serotype (ADE)"
+            ],
+            [
+              "Zika",
+              "Flavivirus",
+              "Aedes (also sexual)",
+              "Congenital microcephaly"
+            ],
+            [
+              "Yellow fever",
+              "Flavivirus",
+              "Aedes",
+              "Jaundice, black vomit, Councilman bodies"
+            ],
+            [
+              "Chikungunya",
+              "Togavirus",
+              "Aedes",
+              "Severe prolonged polyarthralgia"
+            ],
+            [
+              "West Nile",
+              "Flavivirus",
+              "Culex (birds reservoir)",
+              "Encephalitis, flaccid paralysis in elderly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3715,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Zika: congenital and sexual transmission",
+      "stem": "Which features distinguish Zika virus from other flaviviruses in a pregnant traveler?",
+      "options": {
+        "A": "Neonatal hepatitis and transmission by contaminated water",
+        "B": "Fetal hydrops and transmission by blood transfusion only",
+        "C": "Fetal limb hypoplasia and transmission by the fecal-oral route",
+        "D": "Fetal microcephaly and transmission through semen",
+        "E": "Congenital cataracts and transmission by breast milk only"
+      },
+      "answer": "D",
+      "explanation": "Zika is transmitted by Aedes mosquitoes but also sexually and vertically, and it can persist in semen for months. Congenital Zika syndrome includes microcephaly, intracranial calcifications, and eye abnormalities. Guillain-Barré syndrome is a recognized complication in adults. Pregnant travelers avoid endemic areas.",
+      "wrong": {
+        "B": "Hydrops is a parvovirus B19 feature.",
+        "E": "Cataracts point to congenital rubella.",
+        "C": "Limb hypoplasia follows congenital varicella.",
+        "A": "This pattern does not describe Zika."
+      },
+      "tables": [
+        {
+          "title": "Mosquito-borne viruses",
+          "cols": [
+            "Virus",
+            "Family",
+            "Vector",
+            "Hallmark"
+          ],
+          "rows": [
+            [
+              "Dengue",
+              "Flavivirus",
+              "Aedes",
+              "Breakbone fever; severe with second serotype (ADE)"
+            ],
+            [
+              "Zika",
+              "Flavivirus",
+              "Aedes (also sexual)",
+              "Congenital microcephaly"
+            ],
+            [
+              "Yellow fever",
+              "Flavivirus",
+              "Aedes",
+              "Jaundice, black vomit, Councilman bodies"
+            ],
+            [
+              "Chikungunya",
+              "Togavirus",
+              "Aedes",
+              "Severe prolonged polyarthralgia"
+            ],
+            [
+              "West Nile",
+              "Flavivirus",
+              "Culex (birds reservoir)",
+              "Encephalitis, flaccid paralysis in elderly"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3716,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Segmented genomes: which viruses",
+      "stem": "Which group of viruses has segmented genomes, permitting reassortment?",
+      "options": {
+        "A": "Coronaviruses, filoviruses, hepeviruses, astroviruses",
+        "B": "Paramyxoviruses, rhabdoviruses, coronaviruses, flaviviruses",
+        "C": "Picornaviruses, caliciviruses, togaviruses, retroviruses",
+        "D": "Bunyaviruses, orthomyxoviruses, arenaviruses, reoviruses",
+        "E": "Herpesviruses, adenoviruses, poxviruses, parvoviruses"
+      },
+      "answer": "D",
+      "explanation": "Mnemonic BOAR: Bunyaviruses, Orthomyxoviruses, Arenaviruses, and Reoviruses have segmented genomes, so co-infection can produce reassortment, the basis of influenza antigenic shift. Non-segmented RNA viruses change only through mutation and recombination.",
+      "wrong": {
+        "B": "These all have non-segmented genomes.",
+        "C": "These are non-segmented, although retroviruses are diploid.",
+        "E": "These are DNA viruses without segments.",
+        "A": "All are non-segmented."
+      },
+      "tables": [
+        {
+          "title": "RNA virus families",
+          "cols": [
+            "Family",
+            "Genome",
+            "Envelope",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "Picornavirus",
+              "+ssRNA",
+              "No",
+              "Polio, coxsackie, echo, rhino, HAV"
+            ],
+            [
+              "Calicivirus",
+              "+ssRNA",
+              "No",
+              "Norovirus"
+            ],
+            [
+              "Reovirus",
+              "dsRNA, segmented",
+              "No",
+              "Rotavirus"
+            ],
+            [
+              "Hepevirus",
+              "+ssRNA",
+              "No",
+              "HEV"
+            ],
+            [
+              "Flavivirus",
+              "+ssRNA",
+              "Yes",
+              "HCV, dengue, yellow fever, West Nile, Zika"
+            ],
+            [
+              "Togavirus",
+              "+ssRNA",
+              "Yes",
+              "Rubella, chikungunya, EEE"
+            ],
+            [
+              "Coronavirus",
+              "+ssRNA",
+              "Yes",
+              "SARS-CoV-2"
+            ],
+            [
+              "Retrovirus",
+              "+ssRNA (RT)",
+              "Yes",
+              "HIV, HTLV"
+            ],
+            [
+              "Orthomyxovirus",
+              "−ssRNA, segmented",
+              "Yes",
+              "Influenza"
+            ],
+            [
+              "Paramyxovirus",
+              "−ssRNA",
+              "Yes",
+              "Measles, mumps, RSV, parainfluenza"
+            ],
+            [
+              "Rhabdovirus",
+              "−ssRNA",
+              "Yes",
+              "Rabies"
+            ],
+            [
+              "Filovirus",
+              "−ssRNA",
+              "Yes",
+              "Ebola, Marburg"
+            ],
+            [
+              "Bunya / Arena",
+              "−ssRNA, segmented",
+              "Yes",
+              "Hantavirus / LCMV, Lassa"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3717,
+      "part": "RNA Viruses",
+      "tag": "RNA Viruses",
+      "difficulty": "medium",
+      "topic": "Prions: mechanism of disease",
+      "stem": "A 62-year-old has rapidly progressive dementia, startle myoclonus, and periodic sharp waves on EEG, dying within eight months. What is the molecular basis?",
+      "options": {
+        "A": "A circular RNA that silences host gene expression",
+        "B": "A defective virus that requires a helper to replicate",
+        "C": "An autoantibody directed against neuronal receptors",
+        "D": "A misfolded beta-sheet protein templating others",
+        "E": "A retrovirus integrating into neuronal chromosomes"
+      },
+      "answer": "D",
+      "explanation": "Prion diseases result from conversion of normal alpha-helical PrPc into beta-sheet-rich PrPsc, which is protease-resistant, aggregates, and templates further misfolding. Creutzfeldt-Jakob disease is usually sporadic; variant CJD follows exposure to bovine material, and kuru followed ritual cannibalism. Prions resist standard autoclaving and formalin.",
+      "wrong": {
+        "B": "That describes hepatitis D virus.",
+        "A": "Viroids of that kind infect plants.",
+        "E": "No nucleic acid is involved in prion transmission.",
+        "C": "That describes autoimmune encephalitis."
+      }
+    },
+    {
+      "id": 3718,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "medium",
+      "topic": "HIV: diagnostic algorithm",
+      "stem": "A patient has a fourth-generation HIV antigen/antibody test that is reactive, and the supplemental antibody differentiation assay is negative. What is the next step?",
+      "options": {
+        "A": "Repeat the same screening test in six months",
+        "B": "Report the result as a false positive and stop testing",
+        "C": "Perform an HIV RNA test to detect acute infection",
+        "D": "Start antiretroviral therapy without further testing",
+        "E": "Order a CD4 count to establish the diagnosis"
+      },
+      "answer": "C",
+      "explanation": "A reactive antigen/antibody screen with a negative antibody differentiation assay suggests acute infection, when p24 antigen is present before antibodies develop. HIV RNA testing resolves this: a positive RNA confirms acute infection. CD4 counts stage disease but never diagnose it.",
+      "wrong": {
+        "B": "Acute infection must be excluded first.",
+        "A": "Delay would miss highly infectious acute infection.",
+        "D": "Confirmation precedes treatment.",
+        "E": "CD4 counts do not diagnose HIV."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3719,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "medium",
+      "topic": "HIV: acute retroviral syndrome",
+      "stem": "A 25-year-old has fever, sore throat, diffuse adenopathy, a maculopapular rash, and oral ulcers two weeks after a new sexual partner. A rapid antibody test is negative. Which test confirms the suspected diagnosis?",
+      "options": {
+        "A": "Heterophile antibody agglutination",
+        "B": "Western blot for HIV antibodies",
+        "C": "CD4 to CD8 ratio measurement",
+        "D": "Plasma HIV RNA quantification",
+        "E": "Rapid plasma reagin titer testing"
+      },
+      "answer": "D",
+      "explanation": "Acute HIV infection mimics mononucleosis, with mucocutaneous ulcers being a useful clue. Antibody tests may still be negative during the window period, so HIV RNA (or a p24 antigen-containing assay) is required. Recognizing acute infection matters because viral load and transmissibility are very high.",
+      "wrong": {
+        "B": "Antibody testing is negative during the window period.",
+        "A": "This tests for EBV, which is the mimic to exclude.",
+        "C": "The ratio is nonspecific and not diagnostic.",
+        "E": "RPR screens for syphilis."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3720,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "medium",
+      "topic": "HIV: NRTI toxicities",
+      "stem": "Which pairing of nucleoside reverse transcriptase inhibitor and characteristic adverse effect is correct?",
+      "options": {
+        "A": "Tenofovir with red-green color blindness; lamivudine with gout",
+        "B": "Zidovudine with marrow suppression; tenofovir with renal harm",
+        "C": "Abacavir with optic neuritis; lamivudine with pancreatitis",
+        "D": "Zidovudine with renal injury; tenofovir with marrow suppression",
+        "E": "Emtricitabine with cardiomyopathy; abacavir with deafness"
+      },
+      "answer": "B",
+      "explanation": "Zidovudine causes anemia, neutropenia, and myopathy. Tenofovir disoproxil causes proximal tubular injury with Fanconi syndrome and reduced bone density; the alafenamide prodrug is gentler. Abacavir can cause a severe hypersensitivity reaction tied to HLA-B*57:01, which is screened for before use. Lamivudine and emtricitabine are well tolerated.",
+      "wrong": {
+        "D": "The toxicities are reversed.",
+        "C": "Abacavir causes hypersensitivity, and optic neuritis is an ethambutol effect.",
+        "E": "Neither association is correct.",
+        "A": "Color vision loss is caused by ethambutol."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3721,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "easy",
+      "topic": "HIV: abacavir hypersensitivity screening",
+      "stem": "Before starting abacavir, which test must be performed?",
+      "options": {
+        "A": "Serum tryptase baseline measurement",
+        "B": "HLA-B allele genotyping before the first dose",
+        "C": "CYP2C19 loss-of-function genotyping",
+        "D": "Glucose-6-phosphate dehydrogenase assay",
+        "E": "Thiopurine methyltransferase activity"
+      },
+      "answer": "B",
+      "explanation": "Abacavir hypersensitivity presents with fever, rash, and gastrointestinal and respiratory symptoms and can be fatal on re-challenge. It is strongly associated with HLA-B*57:01, so genotyping before use is mandatory and the drug is avoided in carriers.",
+      "wrong": {
+        "D": "G6PD testing relates to dapsone, primaquine, and sulfonamides.",
+        "E": "TPMT testing precedes azathioprine and mercaptopurine.",
+        "C": "That genotype affects clopidogrel and voriconazole.",
+        "A": "Tryptase assesses mast cell disorders."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3722,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "easy",
+      "topic": "HIV: integrase inhibitor suffix logic",
+      "stem": "A regimen contains bictegravir, emtricitabine, and tenofovir alafenamide. Which drug classes are represented?",
+      "options": {
+        "A": "Two integrase inhibitors with one protease inhibitor",
+        "B": "A CCR5 antagonist with two integrase inhibitors",
+        "C": "A fusion inhibitor with two non-nucleoside analogs",
+        "D": "An integrase inhibitor with two nucleoside analogs",
+        "E": "A protease inhibitor with two nucleoside analogs"
+      },
+      "answer": "D",
+      "explanation": "Drug name suffixes give the class: -gravir for integrase strand transfer inhibitors, -navir for protease inhibitors, -virine for NNRTIs, and -viroc for CCR5 antagonists. Integrase inhibitor-based regimens with two NRTIs are first-line because of potency, tolerability, and few interactions.",
+      "wrong": {
+        "E": "Protease inhibitor names end in -navir.",
+        "A": "Only one integrase inhibitor is present.",
+        "C": "Enfuvirtide is the fusion inhibitor, and no NNRTI is present.",
+        "B": "Maraviroc is the CCR5 antagonist and is not in this regimen."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3723,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "hard",
+      "topic": "HIV: maraviroc and tropism testing",
+      "stem": "Why must a tropism assay be performed before prescribing maraviroc?",
+      "options": {
+        "A": "It works only against strains that use the CCR5 co-receptor",
+        "B": "It works only against strains resistant to integrase inhibitors",
+        "C": "It must be matched to the viral subtype found in the patient",
+        "D": "It requires confirmation that the CD4 count exceeds 500 cells",
+        "E": "It is effective only when the viral load is below detection"
+      },
+      "answer": "A",
+      "explanation": "Maraviroc blocks the CCR5 co-receptor, so it has no activity against CXCR4-tropic (X4) or dual-tropic virus. A tropism assay identifies patients whose virus is exclusively R5-tropic. The CCR5-delta32 homozygous genotype confers natural resistance to R5 strains.",
+      "wrong": {
+        "B": "Its activity is unrelated to integrase resistance.",
+        "D": "CD4 count does not determine eligibility.",
+        "C": "Subtype is not the determinant; co-receptor use is.",
+        "E": "It is used to reduce viral load."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3724,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "easy",
+      "topic": "HIV: opportunistic infection thresholds",
+      "stem": "Which pairing of CD4 count threshold and characteristic opportunistic infection is correct?",
+      "options": {
+        "A": "Below 200 for Pneumocystis; below 50 for CMV retinitis",
+        "B": "Below 100 for oral candidiasis; below 50 for tuberculosis",
+        "C": "Below 50 for Pneumocystis; below 200 for CMV retinitis",
+        "D": "Below 500 for cryptococcal meningitis; below 400 for MAC",
+        "E": "Below 350 for toxoplasmosis; below 300 for CMV retinitis"
+      },
+      "answer": "A",
+      "explanation": "Pneumocystis pneumonia becomes a risk below 200 cells/µL, which is also when prophylaxis with TMP-SMX begins. Toxoplasmosis and cryptococcal disease cluster below 100, and CMV retinitis and disseminated MAC appear below 50. Tuberculosis can occur at any CD4 count.",
+      "wrong": {
+        "C": "The thresholds are reversed.",
+        "D": "Cryptococcal disease occurs at much lower counts.",
+        "E": "Toxoplasmic encephalitis occurs below about 100.",
+        "B": "Thrush occurs at higher counts, and tuberculosis occurs at any count."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3725,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "medium",
+      "topic": "HIV: IRIS recognition",
+      "stem": "Two weeks after starting antiretroviral therapy with a CD4 count of 40, a patient with treated cryptococcal meningitis develops worsening headache with a higher CSF white count but negative cultures. What is happening?",
+      "options": {
+        "A": "Relapse from inadequate antifungal dosing",
+        "B": "Direct neurotoxicity of the antiretroviral drugs",
+        "C": "A second bacterial meningitis superinfection",
+        "D": "Immune reconstitution inflammatory syndrome",
+        "E": "Antiretroviral drug failure with resistance"
+      },
+      "answer": "D",
+      "explanation": "IRIS occurs as recovering immunity mounts an inflammatory response against residual antigen from a treated or subclinical infection, typically within weeks to months of starting therapy at a low CD4 count. Cultures are negative because this is inflammation, not uncontrolled infection. Antiretrovirals are usually continued, with steroids in severe cases.",
+      "wrong": {
+        "E": "Failure would show a rising viral load rather than sterile inflammation.",
+        "C": "Cultures are negative and the timing fits IRIS.",
+        "B": "This pattern is not a recognized drug toxicity.",
+        "A": "Relapse would typically yield positive cultures."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3726,
+      "part": "HIV & Antiretrovirals",
+      "tag": "HIV & Antiretrovirals",
+      "difficulty": "medium",
+      "topic": "HIV: perinatal prevention steps",
+      "stem": "A pregnant woman newly diagnosed with HIV has a viral load of 40,000 copies/mL at 36 weeks. Which measures reduce transmission to the infant?",
+      "options": {
+        "A": "Deferring all therapy until the infant's testing is completed",
+        "B": "Antiretrovirals only after delivery, with breastfeeding encouraged",
+        "C": "A single dose of nevirapine at delivery as the only intervention",
+        "D": "Antiretrovirals now, cesarean delivery, and infant prophylaxis",
+        "E": "Vaginal delivery regardless of viral load, with no infant therapy"
+      },
+      "answer": "D",
+      "explanation": "Perinatal transmission is reduced by maternal antiretroviral therapy to suppress viral load, scheduled cesarean delivery when the viral load exceeds 1,000 copies/mL near term, intrapartum zidovudine, infant postexposure prophylaxis, and avoidance of breastfeeding where formula is safe. Combined, these lower transmission to about 1%.",
+      "wrong": {
+        "B": "Suppression before and during delivery is essential.",
+        "E": "Cesarean delivery is recommended with high viral loads.",
+        "C": "Single-dose strategies are inferior and risk resistance.",
+        "A": "Prevention must occur before and at delivery."
+      },
+      "tables": [
+        {
+          "title": "Antiretroviral classes",
+          "cols": [
+            "Class",
+            "Examples",
+            "Mechanism",
+            "Key toxicity"
+          ],
+          "rows": [
+            [
+              "NRTIs",
+              "Tenofovir, emtricitabine, lamivudine, abacavir, zidovudine",
+              "Chain terminators of RT",
+              "Lactic acidosis; abacavir HLA-B*57:01; TDF kidney/bone; AZT anemia"
+            ],
+            [
+              "NNRTIs",
+              "Efavirenz, rilpivirine, doravirine",
+              "Allosteric RT inhibition",
+              "Rash; efavirenz CNS effects"
+            ],
+            [
+              "Integrase inhibitors",
+              "Dolutegravir, bictegravir, raltegravir",
+              "Block strand transfer",
+              "Weight gain, ↑CK"
+            ],
+            [
+              "Protease inhibitors",
+              "Darunavir, atazanavir (boosted)",
+              "Block Gag-Pol cleavage",
+              "Hyperglycemia, lipodystrophy, CYP interactions"
+            ],
+            [
+              "Entry/fusion",
+              "Maraviroc, enfuvirtide",
+              "CCR5 / gp41",
+              "Hepatotoxicity / injection reactions"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3727,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "easy",
+      "topic": "HBV serologic patterns: acute vs chronic vs vaccinated",
+      "stem": "A patient has a positive surface antibody and a positive core antibody, with negative surface antigen. How is this interpreted?",
+      "options": {
+        "A": "Successful vaccination without infection",
+        "B": "Chronic infection in the inactive carrier state",
+        "C": "Resolved prior infection with immunity",
+        "D": "Active chronic infection with high infectivity",
+        "E": "The window period of acute infection"
+      },
+      "answer": "C",
+      "explanation": "Anti-HBs indicates immunity; anti-HBc indicates that natural infection occurred, since the vaccine contains only surface antigen. Both positive with a negative HBsAg means resolved infection. Vaccination gives anti-HBs alone. The window period has anti-HBc (IgM) with neither antigen nor surface antibody detectable.",
+      "wrong": {
+        "A": "Vaccination does not produce core antibody.",
+        "D": "Chronic infection has persistent surface antigen.",
+        "E": "In the window period, surface antibody has not yet appeared.",
+        "B": "Carriers remain surface antigen-positive."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis B serology",
+          "cols": [
+            "Pattern",
+            "HBsAg",
+            "Anti-HBs",
+            "Anti-HBc",
+            "HBeAg"
+          ],
+          "rows": [
+            [
+              "Acute infection",
+              "+",
+              "−",
+              "IgM",
+              "+"
+            ],
+            [
+              "Window period",
+              "−",
+              "−",
+              "IgM",
+              "±"
+            ],
+            [
+              "Chronic (high infectivity)",
+              "+",
+              "−",
+              "IgG",
+              "+"
+            ],
+            [
+              "Chronic (low infectivity)",
+              "+",
+              "−",
+              "IgG",
+              "−"
+            ],
+            [
+              "Recovered",
+              "−",
+              "+",
+              "IgG",
+              "−"
+            ],
+            [
+              "Vaccinated",
+              "−",
+              "+",
+              "−",
+              "−"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3728,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "HBV: e antigen meaning",
+      "stem": "A patient with chronic hepatitis B has a positive e antigen and an HBV DNA level above 10 million IU/mL. What does the e antigen indicate?",
+      "options": {
+        "A": "Coinfection with hepatitis D virus specifically",
+        "B": "Resolution of infection with developing immunity",
+        "C": "Immunity to reinfection with other genotypes",
+        "D": "A vaccine response rather than natural infection",
+        "E": "Active viral replication and high infectivity"
+      },
+      "answer": "E",
+      "explanation": "HBeAg is a marker of active replication and high infectivity, including high risk of perinatal transmission. Seroconversion to anti-HBe usually accompanies falling viral loads. Precore mutants can replicate actively while HBeAg-negative, so viral load is measured alongside serology.",
+      "wrong": {
+        "B": "That is signaled by anti-HBs and anti-HBe.",
+        "D": "The vaccine contains surface antigen only.",
+        "A": "HDV requires separate antibody or RNA testing.",
+        "C": "HBeAg is not a marker of immunity."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis B serology",
+          "cols": [
+            "Pattern",
+            "HBsAg",
+            "Anti-HBs",
+            "Anti-HBc",
+            "HBeAg"
+          ],
+          "rows": [
+            [
+              "Acute infection",
+              "+",
+              "−",
+              "IgM",
+              "+"
+            ],
+            [
+              "Window period",
+              "−",
+              "−",
+              "IgM",
+              "±"
+            ],
+            [
+              "Chronic (high infectivity)",
+              "+",
+              "−",
+              "IgG",
+              "+"
+            ],
+            [
+              "Chronic (low infectivity)",
+              "+",
+              "−",
+              "IgG",
+              "−"
+            ],
+            [
+              "Recovered",
+              "−",
+              "+",
+              "IgG",
+              "−"
+            ],
+            [
+              "Vaccinated",
+              "−",
+              "+",
+              "−",
+              "−"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3729,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "hard",
+      "topic": "HBV: reverse transcriptase and integration",
+      "stem": "Hepatitis B is a DNA virus, yet it uses reverse transcriptase. Where does this step fit in its replication?",
+      "options": {
+        "A": "The genome is translated directly into structural proteins",
+        "B": "Host mRNA is reverse transcribed into a provirus",
+        "C": "Viral RNA is integrated by an integrase enzyme",
+        "D": "A pregenomic RNA is copied back into DNA",
+        "E": "Genomic DNA is copied directly into new DNA"
+      },
+      "answer": "D",
+      "explanation": "HBV transcribes its partially double-stranded circular DNA into a pregenomic RNA, which is reverse transcribed back into DNA inside the capsid. This explains why nucleoside analogs such as tenofovir and entecavir are effective and why HBV shares risk of resistance with HIV drugs. HBV DNA can also integrate, contributing to hepatocellular carcinoma even without cirrhosis.",
+      "wrong": {
+        "E": "An RNA intermediate is obligatory.",
+        "C": "HBV has no integrase; integration is incidental.",
+        "B": "The template is viral pregenomic RNA.",
+        "A": "DNA is not translated directly."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3730,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "HBV: who needs treatment",
+      "stem": "Which chronic hepatitis B patient most clearly needs antiviral therapy?",
+      "options": {
+        "A": "One who is anti-HBs positive after vaccination",
+        "B": "One with isolated anti-HBc and no other markers",
+        "C": "One with normal enzymes and undetectable DNA",
+        "D": "One with cirrhosis and detectable HBV DNA",
+        "E": "One with resolved infection and normal imaging"
+      },
+      "answer": "D",
+      "explanation": "Treatment is indicated for cirrhosis with any detectable HBV DNA, and for active hepatitis with elevated ALT and high viral load. Entecavir and tenofovir are first-line. Inactive carriers with normal enzymes and low DNA are monitored. All chronic patients need hepatocellular carcinoma surveillance.",
+      "wrong": {
+        "C": "This is the inactive carrier state, which is monitored.",
+        "A": "This person is immune, not infected.",
+        "B": "This usually reflects remote resolved infection.",
+        "E": "Resolved infection needs no antiviral therapy."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3731,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "HDV: coinfection vs superinfection",
+      "stem": "Which statement contrasts hepatitis D coinfection with superinfection?",
+      "options": {
+        "A": "Superinfection of a chronic carrier causes more severe disease",
+        "B": "Coinfection with hepatitis B causes more severe chronic disease",
+        "C": "Both patterns resolve spontaneously without any sequelae",
+        "D": "Coinfection requires no hepatitis B surface antigen at all",
+        "E": "Superinfection occurs only in people vaccinated against hepatitis B"
+      },
+      "answer": "A",
+      "explanation": "HDV is a defective virus that needs HBsAg as its envelope, so it infects only people with hepatitis B. Simultaneous coinfection usually resolves as the HBV does; superinfection of an established chronic carrier causes severe acute exacerbation and accelerated progression to cirrhosis. Hepatitis B vaccination prevents both.",
+      "wrong": {
+        "B": "Coinfection typically follows the course of the acute HBV infection.",
+        "E": "Vaccination prevents HDV by preventing HBV.",
+        "D": "HDV depends on HBsAg entirely.",
+        "C": "Superinfection frequently leads to cirrhosis."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3732,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "HEV: pregnancy mortality and zoonosis",
+      "stem": "Which feature distinguishes hepatitis E from hepatitis A?",
+      "options": {
+        "A": "High mortality in children and a rodent reservoir",
+        "B": "Availability of a routine vaccine in most countries",
+        "C": "High mortality in pregnancy and a swine reservoir",
+        "D": "Transmission by sexual contact and shared needles",
+        "E": "Chronic infection in all healthy hosts after exposure"
+      },
+      "answer": "C",
+      "explanation": "Both HAV and HEV are enterically transmitted and usually self-limited, but HEV carries mortality up to 20% in the third trimester of pregnancy and has zoonotic reservoirs, particularly pigs and deer. Chronic HEV occurs in organ transplant recipients. A vaccine exists but is not widely available; HAV has a widely used vaccine.",
+      "wrong": {
+        "A": "The risk group is pregnant women, and pigs are the reservoir.",
+        "E": "Chronic infection occurs only with immunosuppression.",
+        "D": "Those are bloodborne routes for HBV and HCV.",
+        "B": "The HEV vaccine is not widely available."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3733,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "HCV: why no vaccine",
+      "stem": "Which property of hepatitis C virus most explains the absence of an effective vaccine?",
+      "options": {
+        "A": "Integration of viral DNA into the host chromosome",
+        "B": "Lack of any envelope protein to target with antibody",
+        "C": "High mutation rate producing many envelope variants",
+        "D": "Replication exclusively inside bile duct epithelium",
+        "E": "Latency in dorsal root ganglia between recurrences"
+      },
+      "answer": "C",
+      "explanation": "HCV has no proofreading in its RNA-dependent RNA polymerase, so hypervariable envelope regions change constantly, producing quasispecies that escape neutralizing antibody. This is also why most infections become chronic. Direct-acting antivirals now cure over 95%, targeting NS3/4A protease (-previr), NS5A (-asvir), and NS5B polymerase (-buvir).",
+      "wrong": {
+        "A": "HCV does not integrate.",
+        "E": "Ganglionic latency is a herpesvirus property.",
+        "B": "HCV is enveloped with E1 and E2 glycoproteins.",
+        "D": "It replicates in hepatocytes."
+      },
+      "tables": [
+        {
+          "title": "HCV direct-acting antivirals",
+          "cols": [
+            "Target",
+            "Suffix",
+            "Examples"
+          ],
+          "rows": [
+            [
+              "NS5B polymerase",
+              "-buvir",
+              "Sofosbuvir"
+            ],
+            [
+              "NS5A",
+              "-asvir",
+              "Ledipasvir, velpatasvir, pibrentasvir"
+            ],
+            [
+              "NS3/4A protease",
+              "-previr",
+              "Glecaprevir, grazoprevir, voxilaprevir"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3734,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "hard",
+      "topic": "HCV: extrahepatic manifestations",
+      "stem": "A patient with chronic hepatitis C has palpable purpura, arthralgia, neuropathy, and glomerulonephritis, with low complement and a positive rheumatoid factor. Which mechanism explains this?",
+      "options": {
+        "A": "IgA deposition in the mesangium after mucosal infection",
+        "B": "Granulomatous inflammation of medium-sized arteries",
+        "C": "Direct viral invasion of vascular endothelial cells",
+        "D": "Antibody directed against the glomerular basement membrane",
+        "E": "Cryoglobulin immune complexes deposit in small vessels"
+      },
+      "answer": "E",
+      "explanation": "Mixed cryoglobulinemia is the classic extrahepatic manifestation of HCV: immune complexes containing IgM rheumatoid factor and IgG precipitate in the cold and deposit in small vessels, producing purpura, arthralgia, neuropathy, and membranoproliferative glomerulonephritis. Treating the virus treats the vasculitis. HCV is also linked to porphyria cutanea tarda and lichen planus.",
+      "wrong": {
+        "C": "The vasculitis is immune complex-mediated.",
+        "D": "That describes anti-GBM disease.",
+        "B": "That describes polyarteritis or granulomatous vasculitis.",
+        "A": "That describes IgA nephropathy."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3735,
+      "part": "Hepatitis Viruses",
+      "tag": "Hepatitis Viruses",
+      "difficulty": "medium",
+      "topic": "Hepatitis A: post-exposure options",
+      "stem": "A 45-year-old healthy man ate at a restaurant where a food handler has confirmed hepatitis A ten days ago. Which post-exposure measure is preferred?",
+      "options": {
+        "A": "A course of oral ribavirin for two weeks",
+        "B": "No intervention, since exposure was by food",
+        "C": "Hepatitis A vaccine given as a single dose",
+        "D": "Hepatitis A immune globulin used alone always",
+        "E": "Hepatitis B immune globulin plus vaccine"
+      },
+      "answer": "C",
+      "explanation": "Post-exposure prophylaxis within two weeks prevents or attenuates hepatitis A. For healthy people aged 12 months to 40 years, vaccine alone is preferred; immune globulin is favored for infants under 12 months, adults over 40, immunocompromised patients, and those with chronic liver disease. HAV causes no chronic infection.",
+      "wrong": {
+        "D": "Immune globulin is reserved for specific groups.",
+        "A": "Ribavirin has no role in hepatitis A.",
+        "E": "That is hepatitis B exposure management.",
+        "B": "Foodborne exposure is exactly the indication."
+      },
+      "tables": [
+        {
+          "title": "Hepatitis viruses",
+          "cols": [
+            "Virus",
+            "Family / genome",
+            "Spread",
+            "Chronic?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "HAV",
+              "Picornavirus, +ssRNA, naked",
+              "Fecal-oral",
+              "No",
+              "Travel, shellfish; vaccine"
+            ],
+            [
+              "HBV",
+              "Hepadnavirus, partially dsDNA, RT",
+              "Blood, sex, perinatal",
+              "Yes (90% neonates)",
+              "HCC; PAN; vaccine"
+            ],
+            [
+              "HCV",
+              "Flavivirus, +ssRNA",
+              "Blood (IVDU)",
+              "Yes (60–80%)",
+              "Cryoglobulinemia; DAAs cure"
+            ],
+            [
+              "HDV",
+              "Deltavirus, −ssRNA circular",
+              "Blood; needs HBsAg",
+              "Yes",
+              "Superinfection severe"
+            ],
+            [
+              "HEV",
+              "Hepevirus, +ssRNA, naked",
+              "Fecal-oral, pork",
+              "No (except immunosuppressed)",
+              "Fulminant in pregnancy"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3736,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "easy",
+      "topic": "Candida: germ tube test",
+      "stem": "A yeast from a blood culture forms true germ tubes within three hours in serum at 37°C. Which species is identified?",
+      "options": {
+        "A": "Cryptococcus neoformans",
+        "B": "Candida albicans",
+        "C": "Malassezia furfur",
+        "D": "Candida glabrata",
+        "E": "Candida krusei"
+      },
+      "answer": "B",
+      "explanation": "C. albicans forms germ tubes in serum and produces chlamydospores on cornmeal agar, distinguishing it from other Candida species. This matters because C. glabrata and C. krusei are often fluconazole-resistant, so species identification guides therapy.",
+      "wrong": {
+        "D": "C. glabrata is germ tube-negative and often fluconazole-resistant.",
+        "E": "C. krusei is germ tube-negative and intrinsically fluconazole-resistant.",
+        "A": "Cryptococcus is an encapsulated yeast that does not form germ tubes.",
+        "C": "Malassezia requires lipid-supplemented media to grow."
+      },
+      "tables": [
+        {
+          "title": "Opportunistic fungi",
+          "cols": [
+            "Fungus",
+            "Morphology",
+            "Setting",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Candida",
+              "Yeast + pseudohyphae; germ tube",
+              "Thrush, candidemia (lines, TPN)",
+              "Azoles; echinocandins for candidemia"
+            ],
+            [
+              "Aspergillus",
+              "Septate hyphae, acute-angle branching",
+              "Neutropenia; ABPA; aspergilloma",
+              "Voriconazole"
+            ],
+            [
+              "Mucor / Rhizopus",
+              "Broad nonseptate hyphae, right-angle branching",
+              "DKA, neutropenia, deferoxamine",
+              "Debridement + amphotericin B"
+            ],
+            [
+              "Cryptococcus",
+              "Encapsulated yeast (India ink)",
+              "AIDS meningitis",
+              "Amphotericin B + flucytosine → fluconazole"
+            ],
+            [
+              "Pneumocystis",
+              "Cup-shaped cysts (GMS)",
+              "CD4 <200, steroids",
+              "TMP-SMX ± steroids"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3737,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Candida: host defense layers",
+      "stem": "Which pairing of immune defect and candidal syndrome is correct?",
+      "options": {
+        "A": "IgA deficiency with candidemia; T-cell defects with onychomycosis",
+        "B": "Complement deficiency with thrush; asplenia with candidemia",
+        "C": "T-cell defects with mucosal disease; neutropenia with dissemination",
+        "D": "Neutropenia with thrush only; B-cell defects with deep organ disease",
+        "E": "T-cell defects with dissemination; neutropenia with mucocutaneous disease"
+      },
+      "answer": "C",
+      "explanation": "T cells control Candida at mucosal surfaces, so HIV, steroid use, and chronic mucocutaneous candidiasis produce thrush and esophagitis. Neutrophils prevent tissue invasion and bloodstream spread, so neutropenia, central lines, and broad-spectrum antibiotics lead to candidemia and disseminated disease with retinal and hepatosplenic lesions.",
+      "wrong": {
+        "E": "The two defenses are reversed.",
+        "B": "Complement defects predispose to Neisseria.",
+        "A": "IgA deficiency causes sinopulmonary and gastrointestinal infections.",
+        "D": "Neutropenia carries a risk of invasive disease, not just thrush."
+      },
+      "tables": [
+        {
+          "title": "Immune defects and typical infections",
+          "cols": [
+            "Defect",
+            "Examples",
+            "Typical organisms"
+          ],
+          "rows": [
+            [
+              "B cell / antibody",
+              "XLA, CVID",
+              "Encapsulated bacteria, enteroviruses, Giardia"
+            ],
+            [
+              "T cell",
+              "DiGeorge, HIV",
+              "Candida, Pneumocystis, viruses, intracellular bacteria"
+            ],
+            [
+              "Phagocyte",
+              "CGD, neutropenia, LAD",
+              "Catalase-positive bacteria, Aspergillus, Candida"
+            ],
+            [
+              "Terminal complement (C5–C9)",
+              "Congenital, eculizumab",
+              "Neisseria"
+            ],
+            [
+              "Asplenia",
+              "Splenectomy, sickle cell",
+              "Encapsulated bacteria, Babesia, Capnocytophaga"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3738,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Candida esophagitis vs oral thrush in HIV",
+      "stem": "A man with HIV and a CD4 count of 90 has odynophagia and white plaques on the tongue. What is the appropriate next step?",
+      "options": {
+        "A": "Acyclovir, since ulcers in HIV are usually herpetic",
+        "B": "Intravenous amphotericin B for two weeks minimum",
+        "C": "Empiric fluconazole, with endoscopy if no response",
+        "D": "Immediate endoscopy with biopsy before any therapy",
+        "E": "Topical nystatin swish and swallow as sole therapy"
+      },
+      "answer": "C",
+      "explanation": "Esophageal candidiasis is an AIDS-defining illness and is treated empirically with systemic fluconazole; endoscopy is reserved for patients who do not improve, to look for CMV or HSV esophagitis. Topical agents treat thrush but do not reach the esophagus adequately.",
+      "wrong": {
+        "D": "Empiric therapy is standard first, with endoscopy for failures.",
+        "E": "Topical therapy does not treat esophageal disease.",
+        "B": "Amphotericin is excessive for uncomplicated esophagitis.",
+        "A": "The plaques and clinical picture point to Candida."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3739,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Aspergillus: three syndromes by host",
+      "stem": "Three patients have Aspergillus-related illness: an asthmatic with wheezing and high IgE, a man with an old tuberculous cavity and hemoptysis, and a neutropenic patient with a halo sign on chest CT. Which set of diagnoses fits?",
+      "options": {
+        "A": "ABPA, invasive aspergillosis, aspergilloma",
+        "B": "Aspergilloma, ABPA, invasive aspergillosis",
+        "C": "Invasive aspergillosis, ABPA, aspergilloma",
+        "D": "Aspergilloma, invasive aspergillosis, ABPA",
+        "E": "ABPA, aspergilloma, invasive aspergillosis"
+      },
+      "answer": "E",
+      "explanation": "ABPA is a hypersensitivity reaction in asthma or cystic fibrosis with high IgE, eosinophilia, and central bronchiectasis, treated with steroids plus itraconazole. Aspergilloma is a fungus ball colonizing a pre-existing cavity, causing hemoptysis. Invasive aspergillosis occurs in neutropenia, with angioinvasion producing halo and air-crescent signs, treated with voriconazole.",
+      "wrong": {
+        "B": "The first two are swapped.",
+        "C": "The order does not match the three hosts described.",
+        "A": "The last two are swapped.",
+        "D": "The asthmatic patient has ABPA, not aspergilloma."
+      },
+      "tables": [
+        {
+          "title": "Opportunistic fungi",
+          "cols": [
+            "Fungus",
+            "Morphology",
+            "Setting",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Candida",
+              "Yeast + pseudohyphae; germ tube",
+              "Thrush, candidemia (lines, TPN)",
+              "Azoles; echinocandins for candidemia"
+            ],
+            [
+              "Aspergillus",
+              "Septate hyphae, acute-angle branching",
+              "Neutropenia; ABPA; aspergilloma",
+              "Voriconazole"
+            ],
+            [
+              "Mucor / Rhizopus",
+              "Broad nonseptate hyphae, right-angle branching",
+              "DKA, neutropenia, deferoxamine",
+              "Debridement + amphotericin B"
+            ],
+            [
+              "Cryptococcus",
+              "Encapsulated yeast (India ink)",
+              "AIDS meningitis",
+              "Amphotericin B + flucytosine → fluconazole"
+            ],
+            [
+              "Pneumocystis",
+              "Cup-shaped cysts (GMS)",
+              "CD4 <200, steroids",
+              "TMP-SMX ± steroids"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3740,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "hard",
+      "topic": "Mucormycosis: risk and angioinvasion",
+      "stem": "A patient in diabetic ketoacidosis has facial pain, a black eschar on the palate, and cranial nerve palsies. Biopsy shows broad ribbon-like hyphae with wide-angle branching. Which factor explains the predisposition?",
+      "options": {
+        "A": "High insulin levels that directly promote fungal growth",
+        "B": "An absent spleen that fails to clear fungal spores",
+        "C": "Complement deficiency preventing fungal opsonization",
+        "D": "Neutrophilia that walls the fungus into the sinuses",
+        "E": "Acidosis and high glucose free iron for fungal growth"
+      },
+      "answer": "E",
+      "explanation": "Ketoacidosis lowers pH and reduces iron binding by transferrin, and Rhizopus has a ketone reductase that lets it thrive in this environment. It invades blood vessels, causing thrombosis and necrosis, spreading from sinuses to orbit and brain. Treatment is urgent surgical debridement plus amphotericin B and correction of the acidosis.",
+      "wrong": {
+        "D": "Neutrophil dysfunction, not neutrophilia, is the problem.",
+        "A": "Insulin deficiency, not excess, characterizes DKA.",
+        "B": "Asplenia predisposes to encapsulated bacteria.",
+        "C": "Complement defects predispose to Neisseria."
+      },
+      "tables": [
+        {
+          "title": "Opportunistic fungi",
+          "cols": [
+            "Fungus",
+            "Morphology",
+            "Setting",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Candida",
+              "Yeast + pseudohyphae; germ tube",
+              "Thrush, candidemia (lines, TPN)",
+              "Azoles; echinocandins for candidemia"
+            ],
+            [
+              "Aspergillus",
+              "Septate hyphae, acute-angle branching",
+              "Neutropenia; ABPA; aspergilloma",
+              "Voriconazole"
+            ],
+            [
+              "Mucor / Rhizopus",
+              "Broad nonseptate hyphae, right-angle branching",
+              "DKA, neutropenia, deferoxamine",
+              "Debridement + amphotericin B"
+            ],
+            [
+              "Cryptococcus",
+              "Encapsulated yeast (India ink)",
+              "AIDS meningitis",
+              "Amphotericin B + flucytosine → fluconazole"
+            ],
+            [
+              "Pneumocystis",
+              "Cup-shaped cysts (GMS)",
+              "CD4 <200, steroids",
+              "TMP-SMX ± steroids"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3741,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "hard",
+      "topic": "Cryptococcus: capsule and India ink",
+      "stem": "A patient with AIDS has a subacute headache. CSF opening pressure is 34 cm H2O, and India ink shows round yeast with a wide clear halo. Which additional management step is essential?",
+      "options": {
+        "A": "Serial lumbar punctures to draw off fluid",
+        "B": "Empiric antituberculous therapy while awaiting cultures",
+        "C": "Prompt initiation of antiretroviral therapy",
+        "D": "A ventriculoperitoneal shunt within 24 hours",
+        "E": "Immediate high-dose corticosteroid therapy"
+      },
+      "answer": "A",
+      "explanation": "Cryptococcal meningitis kills mainly through raised intracranial pressure, so repeated therapeutic lumbar punctures are essential alongside amphotericin B with flucytosine, then fluconazole. Antiretroviral therapy is deliberately delayed by a few weeks to reduce IRIS. The capsule excludes ink particles, giving the halo, and the cryptococcal antigen test is highly sensitive.",
+      "wrong": {
+        "E": "Steroids worsen outcomes in cryptococcal meningitis.",
+        "C": "Early antiretrovirals increase IRIS-related mortality here.",
+        "D": "Shunting is reserved for pressure refractory to punctures.",
+        "B": "The India ink finding establishes the diagnosis."
+      },
+      "tables": [
+        {
+          "title": "Opportunistic fungi",
+          "cols": [
+            "Fungus",
+            "Morphology",
+            "Setting",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Candida",
+              "Yeast + pseudohyphae; germ tube",
+              "Thrush, candidemia (lines, TPN)",
+              "Azoles; echinocandins for candidemia"
+            ],
+            [
+              "Aspergillus",
+              "Septate hyphae, acute-angle branching",
+              "Neutropenia; ABPA; aspergilloma",
+              "Voriconazole"
+            ],
+            [
+              "Mucor / Rhizopus",
+              "Broad nonseptate hyphae, right-angle branching",
+              "DKA, neutropenia, deferoxamine",
+              "Debridement + amphotericin B"
+            ],
+            [
+              "Cryptococcus",
+              "Encapsulated yeast (India ink)",
+              "AIDS meningitis",
+              "Amphotericin B + flucytosine → fluconazole"
+            ],
+            [
+              "Pneumocystis",
+              "Cup-shaped cysts (GMS)",
+              "CD4 <200, steroids",
+              "TMP-SMX ± steroids"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3742,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "easy",
+      "topic": "Dimorphic fungi: geography and morphology",
+      "stem": "Which pairing of dimorphic fungus, region, and tissue form is correct?",
+      "options": {
+        "A": "Coccidioides; Mississippi valley; broad-based budding yeast",
+        "B": "Paracoccidioides; Ohio valley; spherules with endospores",
+        "C": "Blastomyces; southwestern desert; yeast inside macrophages",
+        "D": "Histoplasma; Ohio valley; yeast inside macrophages",
+        "E": "Histoplasma; southwestern desert; spherules with endospores"
+      },
+      "answer": "D",
+      "explanation": "Histoplasma is found in the Ohio and Mississippi river valleys, in bird and bat droppings, and appears as small yeast within macrophages. Coccidioides is found in the southwestern United States and forms spherules filled with endospores. Blastomyces is found in the eastern United States and forms broad-based budding yeast. Paracoccidioides, from Latin America, forms a captain's wheel.",
+      "wrong": {
+        "E": "Spherules and the desert describe Coccidioides.",
+        "A": "Broad-based budding describes Blastomyces.",
+        "C": "Intracellular yeast describes Histoplasma.",
+        "B": "Paracoccidioides is Latin American and forms a captain's wheel."
+      },
+      "tables": [
+        {
+          "title": "Endemic dimorphic fungi",
+          "cols": [
+            "Fungus",
+            "Region",
+            "Tissue form",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Histoplasma",
+              "Ohio/Mississippi valleys; bird/bat droppings",
+              "Small yeast inside macrophages",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Blastomyces",
+              "Great Lakes, Ohio/Mississippi, southeast",
+              "Large yeast, broad-based budding",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Coccidioides",
+              "Southwest US deserts",
+              "Spherules with endospores",
+              "Fluconazole/itraconazole; amphotericin B"
+            ],
+            [
+              "Paracoccidioides",
+              "Latin America",
+              "Multiple buds ('captain's wheel')",
+              "Itraconazole"
+            ],
+            [
+              "Sporothrix",
+              "Worldwide; plants, soil",
+              "Cigar-shaped yeast",
+              "Itraconazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3743,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "hard",
+      "topic": "Coccidioides: erythema nodosum and dissemination risk",
+      "stem": "A construction worker in Arizona develops fever, cough, arthralgia, and tender red shin nodules. Which statement about his illness is correct?",
+      "options": {
+        "A": "The illness is transmitted person to person by respiratory droplets",
+        "B": "Dissemination risk is highest in young healthy nonpregnant adults",
+        "C": "The illness always requires amphotericin B, even when mild",
+        "D": "The skin nodules indicate fungal invasion of the subcutaneous fat",
+        "E": "The skin nodules reflect a good immune response, not dissemination"
+      },
+      "answer": "E",
+      "explanation": "Primary coccidioidomycosis ('valley fever') may cause erythema nodosum and erythema multiforme, which reflect vigorous cell-mediated immunity and a favorable prognosis. Dissemination risk is higher in pregnancy, immunosuppression, and in people of Filipino and African ancestry. Mild disease is often observed; fluconazole is used for more severe or disseminated illness, and meningitis requires lifelong fluconazole.",
+      "wrong": {
+        "D": "Erythema nodosum is a reactive panniculitis without organisms.",
+        "B": "Risk is highest in pregnancy and immunosuppression.",
+        "C": "Mild disease is frequently managed without antifungals.",
+        "A": "Infection follows inhalation of arthroconidia from soil."
+      },
+      "tables": [
+        {
+          "title": "Endemic dimorphic fungi",
+          "cols": [
+            "Fungus",
+            "Region",
+            "Tissue form",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Histoplasma",
+              "Ohio/Mississippi valleys; bird/bat droppings",
+              "Small yeast inside macrophages",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Blastomyces",
+              "Great Lakes, Ohio/Mississippi, southeast",
+              "Large yeast, broad-based budding",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Coccidioides",
+              "Southwest US deserts",
+              "Spherules with endospores",
+              "Fluconazole/itraconazole; amphotericin B"
+            ],
+            [
+              "Paracoccidioides",
+              "Latin America",
+              "Multiple buds ('captain's wheel')",
+              "Itraconazole"
+            ],
+            [
+              "Sporothrix",
+              "Worldwide; plants, soil",
+              "Cigar-shaped yeast",
+              "Itraconazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3744,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Histoplasma: reactivation with TNF inhibitors",
+      "stem": "A man in Missouri on infliximab for rheumatoid arthritis develops fever, weight loss, pancytopenia, and hepatosplenomegaly. Bone marrow shows small intracellular yeast. Which statement is correct?",
+      "options": {
+        "A": "Reactivation occurs only in patients who also have diabetes",
+        "B": "TNF is needed to maintain granulomas that contain this fungus",
+        "C": "The infection reflects a new inoculation from air conditioning",
+        "D": "TNF inhibitors block neutrophil migration into infected tissue",
+        "E": "The finding indicates a hematologic malignancy rather than infection"
+      },
+      "answer": "B",
+      "explanation": "TNF-alpha maintains granuloma integrity, so TNF inhibitors allow reactivation of latent Histoplasma and tuberculosis. Disseminated histoplasmosis presents with fever, cytopenias, hepatosplenomegaly, and oral ulcers. The urine antigen test is sensitive, and treatment is amphotericin B followed by itraconazole. Screening before starting these drugs is standard.",
+      "wrong": {
+        "D": "The key effect is on granuloma maintenance by macrophages and T cells.",
+        "C": "This is reactivation of latent infection in an endemic area.",
+        "E": "Intracellular yeast establish the infectious diagnosis.",
+        "A": "Diabetes is not required for reactivation."
+      },
+      "tables": [
+        {
+          "title": "Endemic dimorphic fungi",
+          "cols": [
+            "Fungus",
+            "Region",
+            "Tissue form",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Histoplasma",
+              "Ohio/Mississippi valleys; bird/bat droppings",
+              "Small yeast inside macrophages",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Blastomyces",
+              "Great Lakes, Ohio/Mississippi, southeast",
+              "Large yeast, broad-based budding",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Coccidioides",
+              "Southwest US deserts",
+              "Spherules with endospores",
+              "Fluconazole/itraconazole; amphotericin B"
+            ],
+            [
+              "Paracoccidioides",
+              "Latin America",
+              "Multiple buds ('captain's wheel')",
+              "Itraconazole"
+            ],
+            [
+              "Sporothrix",
+              "Worldwide; plants, soil",
+              "Cigar-shaped yeast",
+              "Itraconazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3745,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Pneumocystis: diagnosis and steroid indication",
+      "stem": "A man with AIDS has exertional dyspnea, diffuse ground-glass opacities, LDH of 600 U/L, and a room-air PaO2 of 62 mm Hg. Which treatment plan is correct?",
+      "options": {
+        "A": "TMP-SMX alone, avoiding steroids entirely",
+        "B": "Azithromycin with ethambutol and rifabutin",
+        "C": "TMP-SMX with adjunctive corticosteroids",
+        "D": "Amphotericin B with oral flucytosine added",
+        "E": "Fluconazole with adjunctive corticosteroids"
+      },
+      "answer": "C",
+      "explanation": "Pneumocystis jirovecii pneumonia is treated with TMP-SMX. Corticosteroids are added when the PaO2 is below 70 mm Hg or the A-a gradient exceeds 35 mm Hg, because dying organisms trigger inflammation that worsens hypoxemia. Diagnosis uses induced sputum or lavage with silver or immunofluorescent staining, since the organism cannot be cultured.",
+      "wrong": {
+        "A": "Steroids reduce mortality in moderate to severe disease.",
+        "E": "Pneumocystis lacks ergosterol and does not respond to azoles.",
+        "B": "That regimen treats disseminated MAC.",
+        "D": "That combination treats cryptococcal disease."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3746,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "easy",
+      "topic": "Antifungal targets: matching",
+      "stem": "Which pairing of antifungal class and molecular target is correct?",
+      "options": {
+        "A": "Terbinafine inhibits 14-alpha-demethylase; griseofulvin blocks glucan",
+        "B": "Flucytosine inhibits glucan synthase; echinocandins block DNA synthesis",
+        "C": "Azoles inhibit 14-alpha-demethylase; echinocandins block glucan synthase",
+        "D": "Azoles bind ergosterol directly; echinocandins inhibit squalene epoxidase",
+        "E": "Amphotericin blocks glucan synthase; flucytosine binds ergosterol"
+      },
+      "answer": "C",
+      "explanation": "Azoles inhibit lanosterol 14-alpha-demethylase, reducing ergosterol synthesis. Echinocandins (caspofungin, micafungin) inhibit beta-1,3-glucan synthase in the wall. Amphotericin B binds ergosterol and forms membrane pores. Flucytosine is converted to 5-fluorouracil, disrupting nucleic acid synthesis. Terbinafine inhibits squalene epoxidase, and griseofulvin disrupts microtubules.",
+      "wrong": {
+        "D": "Direct ergosterol binding is the amphotericin mechanism.",
+        "E": "Glucan synthase is the echinocandin target.",
+        "A": "Terbinafine acts on squalene epoxidase.",
+        "B": "Flucytosine interferes with nucleic acid synthesis."
+      },
+      "tables": [
+        {
+          "title": "Antifungal drugs",
+          "cols": [
+            "Drug",
+            "Target",
+            "Toxicity / notes"
+          ],
+          "rows": [
+            [
+              "Amphotericin B, nystatin",
+              "Bind ergosterol → pores",
+              "Nephrotoxicity, ↓K/Mg, infusion reactions"
+            ],
+            [
+              "Azoles",
+              "14α-demethylase (ergosterol synthesis)",
+              "CYP3A4 inhibition; ketoconazole antiandrogen; voriconazole visual changes"
+            ],
+            [
+              "Echinocandins",
+              "β-(1,3)-glucan synthase",
+              "Well tolerated; poor for Cryptococcus"
+            ],
+            [
+              "Flucytosine",
+              "Converted to 5-FU",
+              "Bone marrow suppression"
+            ],
+            [
+              "Terbinafine",
+              "Squalene epoxidase",
+              "Hepatotoxicity; onychomycosis"
+            ],
+            [
+              "Griseofulvin",
+              "Microtubules",
+              "Teratogen, CYP induction; tinea capitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3747,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Amphotericin B: toxicity management",
+      "stem": "A patient on conventional amphotericin B develops a creatinine rise, potassium of 3.0 mEq/L, and magnesium of 1.2 mg/dL. Which interventions address these problems?",
+      "options": {
+        "A": "Saline loading, electrolyte repletion, a lipid formulation",
+        "B": "Adding probenecid to reduce renal tubular drug uptake",
+        "C": "Switching to oral fluconazole regardless of the organism",
+        "D": "Fluid restriction, potassium binders, and dose escalation",
+        "E": "Adding flucytosine to allow a higher amphotericin dose"
+      },
+      "answer": "A",
+      "explanation": "Amphotericin causes dose-dependent nephrotoxicity with distal tubular potassium and magnesium wasting, plus infusion-related fevers and rigors. Sodium loading before infusion, aggressive electrolyte repletion, and liposomal formulations reduce renal injury. Probenecid is used with cidofovir, not amphotericin.",
+      "wrong": {
+        "D": "This would worsen both the kidney injury and the hypokalemia.",
+        "E": "Flucytosine allows a shorter course but adds marrow toxicity.",
+        "C": "Many organisms treated with amphotericin are azole-resistant.",
+        "B": "Probenecid is a cidofovir adjunct."
+      },
+      "tables": [
+        {
+          "title": "Antifungal drugs",
+          "cols": [
+            "Drug",
+            "Target",
+            "Toxicity / notes"
+          ],
+          "rows": [
+            [
+              "Amphotericin B, nystatin",
+              "Bind ergosterol → pores",
+              "Nephrotoxicity, ↓K/Mg, infusion reactions"
+            ],
+            [
+              "Azoles",
+              "14α-demethylase (ergosterol synthesis)",
+              "CYP3A4 inhibition; ketoconazole antiandrogen; voriconazole visual changes"
+            ],
+            [
+              "Echinocandins",
+              "β-(1,3)-glucan synthase",
+              "Well tolerated; poor for Cryptococcus"
+            ],
+            [
+              "Flucytosine",
+              "Converted to 5-FU",
+              "Bone marrow suppression"
+            ],
+            [
+              "Terbinafine",
+              "Squalene epoxidase",
+              "Hepatotoxicity; onychomycosis"
+            ],
+            [
+              "Griseofulvin",
+              "Microtubules",
+              "Teratogen, CYP induction; tinea capitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3748,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Azole interactions and selectivity",
+      "stem": "A transplant recipient on tacrolimus is started on voriconazole and develops tremor with a high tacrolimus level. What explains this?",
+      "options": {
+        "A": "Azoles induce CYP3A4 and speed tacrolimus metabolism",
+        "B": "Azoles increase tacrolimus absorption by altering gut flora",
+        "C": "Azoles inhibit CYP3A4 and slow tacrolimus metabolism",
+        "D": "Azoles inhibit P-glycoprotein export from hepatocytes only",
+        "E": "Azoles displace tacrolimus from renal tubular transporters"
+      },
+      "answer": "C",
+      "explanation": "Azoles inhibit CYP3A4, raising levels of calcineurin inhibitors, warfarin, statins, and many other drugs, so doses must be reduced and levels monitored. Voriconazole also causes transient visual disturbances, photosensitivity, and periostitis with long use. Itraconazole has negative inotropic effects and is avoided in heart failure.",
+      "wrong": {
+        "A": "Azoles inhibit rather than induce this enzyme.",
+        "E": "Renal transport is not the mechanism.",
+        "B": "Flora changes do not account for this interaction.",
+        "D": "CYP3A4 inhibition is the principal mechanism."
+      },
+      "tables": [
+        {
+          "title": "Antifungal drugs",
+          "cols": [
+            "Drug",
+            "Target",
+            "Toxicity / notes"
+          ],
+          "rows": [
+            [
+              "Amphotericin B, nystatin",
+              "Bind ergosterol → pores",
+              "Nephrotoxicity, ↓K/Mg, infusion reactions"
+            ],
+            [
+              "Azoles",
+              "14α-demethylase (ergosterol synthesis)",
+              "CYP3A4 inhibition; ketoconazole antiandrogen; voriconazole visual changes"
+            ],
+            [
+              "Echinocandins",
+              "β-(1,3)-glucan synthase",
+              "Well tolerated; poor for Cryptococcus"
+            ],
+            [
+              "Flucytosine",
+              "Converted to 5-FU",
+              "Bone marrow suppression"
+            ],
+            [
+              "Terbinafine",
+              "Squalene epoxidase",
+              "Hepatotoxicity; onychomycosis"
+            ],
+            [
+              "Griseofulvin",
+              "Microtubules",
+              "Teratogen, CYP induction; tinea capitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3749,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Sporothrix: rose gardener",
+      "stem": "A gardener pricked by a thorn develops a nodule at the site, followed by a chain of nodules ascending the arm along lymphatics. Which treatment is preferred?",
+      "options": {
+        "A": "Oral doxycycline for two weeks",
+        "B": "Topical terbinafine cream daily",
+        "C": "Intravenous caspofungin therapy",
+        "D": "Itraconazole for several months",
+        "E": "Oral fluconazole for a single week"
+      },
+      "answer": "D",
+      "explanation": "Sporotrichosis is a subcutaneous mycosis caused by a dimorphic fungus inoculated by thorns or sphagnum moss, producing ascending nodular lymphangitis. Itraconazole for three to six months is first-line; potassium iodide is a traditional alternative. Amphotericin is reserved for disseminated or pulmonary disease.",
+      "wrong": {
+        "E": "Fluconazole is less effective and the course would be far too short.",
+        "C": "Echinocandins are not active against Sporothrix.",
+        "B": "Topical therapy cannot reach subcutaneous and lymphatic disease.",
+        "A": "Antibacterials do not treat a fungal infection."
+      },
+      "tables": [
+        {
+          "title": "Endemic dimorphic fungi",
+          "cols": [
+            "Fungus",
+            "Region",
+            "Tissue form",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Histoplasma",
+              "Ohio/Mississippi valleys; bird/bat droppings",
+              "Small yeast inside macrophages",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Blastomyces",
+              "Great Lakes, Ohio/Mississippi, southeast",
+              "Large yeast, broad-based budding",
+              "Itraconazole; amphotericin B if severe"
+            ],
+            [
+              "Coccidioides",
+              "Southwest US deserts",
+              "Spherules with endospores",
+              "Fluconazole/itraconazole; amphotericin B"
+            ],
+            [
+              "Paracoccidioides",
+              "Latin America",
+              "Multiple buds ('captain's wheel')",
+              "Itraconazole"
+            ],
+            [
+              "Sporothrix",
+              "Worldwide; plants, soil",
+              "Cigar-shaped yeast",
+              "Itraconazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3750,
+      "part": "Fungi & Antifungals",
+      "tag": "Fungi & Antifungals",
+      "difficulty": "medium",
+      "topic": "Dermatophytes vs Malassezia",
+      "stem": "A teenager has hypopigmented scaly macules on the upper back that fluoresce yellow-green and show short hyphae with round yeast on KOH. Which organism and treatment fit?",
+      "options": {
+        "A": "Candida albicans; oral terbinafine for months",
+        "B": "Epidermophyton floccosum; topical nystatin",
+        "C": "Malassezia furfur; oral griseofulvin for weeks",
+        "D": "Trichophyton rubrum; topical selenium sulfide",
+        "E": "Malassezia furfur; topical selenium sulfide"
+      },
+      "answer": "E",
+      "explanation": "Tinea versicolor is caused by Malassezia, a lipophilic yeast; KOH shows the 'spaghetti and meatballs' pattern. It degrades lipids into acids that inhibit melanocytes, causing hypopigmentation that is most visible after sun exposure. Treatment is topical selenium sulfide, ketoconazole, or an oral azole for extensive disease. Griseofulvin does not work against it.",
+      "wrong": {
+        "D": "Dermatophytes show branching septate hyphae without yeast forms.",
+        "C": "Griseofulvin is ineffective against Malassezia.",
+        "B": "Nystatin treats Candida, not dermatophytes.",
+        "A": "Candida produces pseudohyphae and causes moist intertrigo."
+      },
+      "tables": [
+        {
+          "title": "Antifungal drugs",
+          "cols": [
+            "Drug",
+            "Target",
+            "Toxicity / notes"
+          ],
+          "rows": [
+            [
+              "Amphotericin B, nystatin",
+              "Bind ergosterol → pores",
+              "Nephrotoxicity, ↓K/Mg, infusion reactions"
+            ],
+            [
+              "Azoles",
+              "14α-demethylase (ergosterol synthesis)",
+              "CYP3A4 inhibition; ketoconazole antiandrogen; voriconazole visual changes"
+            ],
+            [
+              "Echinocandins",
+              "β-(1,3)-glucan synthase",
+              "Well tolerated; poor for Cryptococcus"
+            ],
+            [
+              "Flucytosine",
+              "Converted to 5-FU",
+              "Bone marrow suppression"
+            ],
+            [
+              "Terbinafine",
+              "Squalene epoxidase",
+              "Hepatotoxicity; onychomycosis"
+            ],
+            [
+              "Griseofulvin",
+              "Microtubules",
+              "Teratogen, CYP induction; tinea capitis"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3751,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Giardia: IgA deficiency link",
+      "stem": "A patient with recurrent giardiasis, sinopulmonary infections, and an anaphylactic reaction to a blood transfusion most likely has which underlying condition?",
+      "options": {
+        "A": "Selective IgA deficiency",
+        "B": "Chronic granulomatous disease",
+        "C": "Terminal complement deficiency",
+        "D": "Hereditary angioedema from C1 inhibitor loss",
+        "E": "Severe combined immunodeficiency"
+      },
+      "answer": "A",
+      "explanation": "Secretory IgA blocks Giardia attachment to the duodenal brush border, so IgA deficiency leads to recurrent or chronic giardiasis along with sinopulmonary infections. Anti-IgA antibodies can cause anaphylaxis with blood products, so washed cellular products are used. Treatment of giardiasis is metronidazole or tinidazole.",
+      "wrong": {
+        "B": "CGD causes catalase-positive bacterial and fungal infections.",
+        "C": "That predisposes to Neisseria infections.",
+        "E": "SCID presents in infancy with severe infections of all types.",
+        "D": "That causes swelling attacks, not infections."
+      },
+      "tables": [
+        {
+          "title": "Intestinal protozoa",
+          "cols": [
+            "Organism",
+            "Disease",
+            "Diagnosis",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Giardia",
+              "Fatty diarrhea, bloating (campers)",
+              "Stool antigen, cysts/trophozoites",
+              "Tinidazole or metronidazole"
+            ],
+            [
+              "Entamoeba histolytica",
+              "Bloody diarrhea, liver abscess",
+              "Trophozoites with RBCs; serology",
+              "Metronidazole + paromomycin"
+            ],
+            [
+              "Cryptosporidium",
+              "Watery diarrhea; chronic in AIDS",
+              "Acid-fast oocysts",
+              "Nitazoxanide; ART"
+            ],
+            [
+              "Cyclospora",
+              "Watery diarrhea (imported produce)",
+              "Acid-fast larger oocysts",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3752,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Entamoeba: trophozoite finding",
+      "stem": "A traveler has bloody diarrhea with tenesmus. Stool microscopy shows trophozoites containing ingested red blood cells. Which statement about management is correct?",
+      "options": {
+        "A": "Treat with a luminal agent alone, such as paromomycin",
+        "B": "Treat with metronidazole alone and no follow-up",
+        "C": "Treat with vancomycin, since colitis is bacterial",
+        "D": "Treat with metronidazole, then a luminal agent",
+        "E": "No treatment is needed, since infection self-resolves"
+      },
+      "answer": "D",
+      "explanation": "Erythrophagocytosis distinguishes E. histolytica from non-pathogenic amoebae. Invasive disease is treated with metronidazole or tinidazole to kill trophozoites in tissue, followed by a luminal agent (paromomycin or iodoquinol) to eradicate cysts and prevent relapse and ongoing transmission. Flask-shaped colonic ulcers are characteristic.",
+      "wrong": {
+        "B": "Without a luminal agent, cysts persist and relapse occurs.",
+        "A": "Luminal agents do not reach invasive tissue trophozoites.",
+        "C": "Vancomycin treats C. difficile, not amoebiasis.",
+        "E": "Invasive amoebiasis can progress to liver abscess and perforation."
+      },
+      "tables": [
+        {
+          "title": "Intestinal protozoa",
+          "cols": [
+            "Organism",
+            "Disease",
+            "Diagnosis",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Giardia",
+              "Fatty diarrhea, bloating (campers)",
+              "Stool antigen, cysts/trophozoites",
+              "Tinidazole or metronidazole"
+            ],
+            [
+              "Entamoeba histolytica",
+              "Bloody diarrhea, liver abscess",
+              "Trophozoites with RBCs; serology",
+              "Metronidazole + paromomycin"
+            ],
+            [
+              "Cryptosporidium",
+              "Watery diarrhea; chronic in AIDS",
+              "Acid-fast oocysts",
+              "Nitazoxanide; ART"
+            ],
+            [
+              "Cyclospora",
+              "Watery diarrhea (imported produce)",
+              "Acid-fast larger oocysts",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3753,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Cryptosporidium: chlorine resistance",
+      "stem": "An outbreak of watery diarrhea affects swimmers at a chlorinated public pool. Acid-fast oocysts are seen in stool. Which property explains the outbreak setting?",
+      "options": {
+        "A": "The parasite survives only in warm untreated fresh water",
+        "B": "The parasite multiplies within the pool filtration system",
+        "C": "The parasite forms heat-resistant endospores in water",
+        "D": "A thick-walled oocyst resists standard chlorination",
+        "E": "A lipid envelope protects the organism from chlorine"
+      },
+      "answer": "D",
+      "explanation": "Cryptosporidium oocysts are highly chlorine-resistant, so pool outbreaks are common and filtration or UV treatment is needed. In healthy hosts the illness is self-limited; with CD4 counts below 100 it causes severe chronic diarrhea, treated primarily by restoring immunity, with nitazoxanide as an adjunct.",
+      "wrong": {
+        "E": "The oocyst wall is not a lipid envelope.",
+        "B": "It does not multiply outside a host.",
+        "A": "It survives in treated water as well.",
+        "C": "Endospores are a bacterial structure."
+      },
+      "tables": [
+        {
+          "title": "Intestinal protozoa",
+          "cols": [
+            "Organism",
+            "Disease",
+            "Diagnosis",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Giardia",
+              "Fatty diarrhea, bloating (campers)",
+              "Stool antigen, cysts/trophozoites",
+              "Tinidazole or metronidazole"
+            ],
+            [
+              "Entamoeba histolytica",
+              "Bloody diarrhea, liver abscess",
+              "Trophozoites with RBCs; serology",
+              "Metronidazole + paromomycin"
+            ],
+            [
+              "Cryptosporidium",
+              "Watery diarrhea; chronic in AIDS",
+              "Acid-fast oocysts",
+              "Nitazoxanide; ART"
+            ],
+            [
+              "Cyclospora",
+              "Watery diarrhea (imported produce)",
+              "Acid-fast larger oocysts",
+              "TMP-SMX"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3754,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Toxoplasma: ring lesions vs lymphoma",
+      "stem": "A patient with AIDS and a CD4 count of 60 has headache and MRI showing multiple ring-enhancing lesions in the basal ganglia. Toxoplasma serology is positive. What is the appropriate approach?",
+      "options": {
+        "A": "Immediate brain biopsy before starting any antimicrobial therapy",
+        "B": "Empiric amphotericin B for presumed cryptococcal disease",
+        "C": "Observation alone while the CD4 count recovers on therapy",
+        "D": "Whole-brain radiation for presumed central nervous system lymphoma",
+        "E": "Empiric pyrimethamine and sulfadiazine, with imaging in two weeks"
+      },
+      "answer": "E",
+      "explanation": "Multiple ring-enhancing lesions with positive serology at a low CD4 count are treated empirically with pyrimethamine, sulfadiazine, and leucovorin. Clinical and radiographic improvement within two weeks confirms the diagnosis; failure to improve prompts biopsy to look for primary CNS lymphoma, which is typically a single periventricular lesion and EBV-positive on CSF PCR.",
+      "wrong": {
+        "A": "Biopsy is reserved for patients who fail empiric therapy.",
+        "D": "Lymphoma usually produces a solitary lesion and needs tissue confirmation.",
+        "B": "Cryptococcal disease causes meningitis rather than multiple ring lesions.",
+        "C": "Untreated toxoplasmic encephalitis progresses rapidly."
+      },
+      "tables": [
+        {
+          "title": "HIV opportunistic infections by CD4 count",
+          "cols": [
+            "CD4 (cells/μL)",
+            "Infections / conditions",
+            "Prophylaxis"
+          ],
+          "rows": [
+            [
+              "<500",
+              "Thrush, zoster, TB, oral hairy leukoplakia",
+              "—"
+            ],
+            [
+              "<200",
+              "Pneumocystis, PML, HIV dementia",
+              "TMP-SMX"
+            ],
+            [
+              "<100",
+              "Toxoplasma, Cryptococcus, Candida esophagitis, histoplasmosis",
+              "TMP-SMX if Toxo IgG +"
+            ],
+            [
+              "<50",
+              "CMV retinitis/colitis, disseminated MAC, primary CNS lymphoma",
+              "Azithromycin only if ART delayed"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3755,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Malaria: species and relapse",
+      "stem": "A traveler returns from Papua New Guinea and has malaria. Which species require additional therapy to prevent relapse, and with which drug?",
+      "options": {
+        "A": "All species relapse; artemether-lumefantrine is sufficient",
+        "B": "P. vivax and P. falciparum; doxycycline for four weeks",
+        "C": "P. falciparum and P. malariae; primaquine after G6PD testing",
+        "D": "P. ovale and P. knowlesi; chloroquine for eight weeks",
+        "E": "P. vivax and P. ovale; primaquine after G6PD testing"
+      },
+      "answer": "E",
+      "explanation": "P. vivax and P. ovale form dormant hepatic hypnozoites that cause true relapse weeks to months later, so radical cure requires primaquine or tafenoquine after testing for G6PD deficiency to avoid hemolysis. P. falciparum and P. malariae have no liver stage, although P. malariae can persist in blood for years.",
+      "wrong": {
+        "C": "Neither species forms hypnozoites.",
+        "B": "P. falciparum does not relapse, and doxycycline does not clear hypnozoites.",
+        "D": "P. knowlesi has no hypnozoites, and chloroquine does not kill them.",
+        "A": "Only vivax and ovale have a dormant liver stage."
+      },
+      "tables": [
+        {
+          "title": "Plasmodium species",
+          "cols": [
+            "Species",
+            "Cycle",
+            "Features",
+            "Relapse?"
+          ],
+          "rows": [
+            [
+              "P. falciparum",
+              "Irregular",
+              "Multiple rings, banana gametocytes, all RBC ages; cerebral malaria",
+              "No"
+            ],
+            [
+              "P. vivax",
+              "48 h",
+              "Enlarged RBCs, Schüffner dots; Duffy antigen",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. ovale",
+              "48 h",
+              "Oval RBCs, Schüffner dots",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. malariae",
+              "72 h",
+              "Band forms; nephrotic syndrome",
+              "No"
+            ],
+            [
+              "P. knowlesi",
+              "24 h",
+              "Southeast Asia macaques; high parasitemia",
+              "No"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3756,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "hard",
+      "topic": "P. falciparum: severe disease mechanism",
+      "stem": "Why does P. falciparum cause cerebral malaria and higher parasitemia than the other species?",
+      "options": {
+        "A": "It causes antibodies that attack the cerebral endothelium",
+        "B": "It produces an exotoxin that crosses the blood-brain barrier",
+        "C": "It invades red cells of all ages and makes them cytoadhere",
+        "D": "It survives inside neurons and destroys them from within",
+        "E": "It invades only reticulocytes but multiplies far more quickly"
+      },
+      "answer": "C",
+      "explanation": "P. falciparum invades erythrocytes of every age, so parasitemia can be very high, and it expresses PfEMP1 knobs that bind endothelium, sequestering infected cells in cerebral and placental microvasculature. This causes cerebral malaria, severe anemia, hypoglycemia, and acidosis. P. vivax and P. ovale prefer reticulocytes, and P. malariae prefers older cells.",
+      "wrong": {
+        "E": "Reticulocyte restriction describes vivax and ovale.",
+        "B": "Sequestration, not an exotoxin, causes cerebral disease.",
+        "D": "The parasite is confined to red cells and hepatocytes.",
+        "A": "The mechanism is mechanical and inflammatory, not autoimmune."
+      },
+      "tables": [
+        {
+          "title": "Plasmodium species",
+          "cols": [
+            "Species",
+            "Cycle",
+            "Features",
+            "Relapse?"
+          ],
+          "rows": [
+            [
+              "P. falciparum",
+              "Irregular",
+              "Multiple rings, banana gametocytes, all RBC ages; cerebral malaria",
+              "No"
+            ],
+            [
+              "P. vivax",
+              "48 h",
+              "Enlarged RBCs, Schüffner dots; Duffy antigen",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. ovale",
+              "48 h",
+              "Oval RBCs, Schüffner dots",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. malariae",
+              "72 h",
+              "Band forms; nephrotic syndrome",
+              "No"
+            ],
+            [
+              "P. knowlesi",
+              "24 h",
+              "Southeast Asia macaques; high parasitemia",
+              "No"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3757,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "hard",
+      "topic": "Malaria: protective host polymorphisms",
+      "stem": "Which pairing of red cell variant and the malaria species it protects against is correct?",
+      "options": {
+        "A": "Duffy-negative red cells with resistance to P. falciparum",
+        "B": "G6PD deficiency with increased risk of severe falciparum",
+        "C": "Sickle cell trait with complete resistance to P. vivax",
+        "D": "Hereditary spherocytosis with resistance to all species",
+        "E": "Duffy-negative red cells with resistance to P. vivax"
+      },
+      "answer": "E",
+      "explanation": "P. vivax uses the Duffy antigen to enter red cells, so Duffy-negative individuals, common in West Africa, are largely resistant to it. Sickle cell trait, thalassemia, and G6PD deficiency give partial protection against severe P. falciparum, which is why they persist at high frequency in endemic regions.",
+      "wrong": {
+        "A": "Duffy is the vivax receptor.",
+        "C": "Sickle trait gives partial protection against falciparum.",
+        "D": "Spherocytosis is not a recognized protective polymorphism here.",
+        "B": "G6PD deficiency is protective rather than harmful in this context."
+      },
+      "tables": [
+        {
+          "title": "Plasmodium species",
+          "cols": [
+            "Species",
+            "Cycle",
+            "Features",
+            "Relapse?"
+          ],
+          "rows": [
+            [
+              "P. falciparum",
+              "Irregular",
+              "Multiple rings, banana gametocytes, all RBC ages; cerebral malaria",
+              "No"
+            ],
+            [
+              "P. vivax",
+              "48 h",
+              "Enlarged RBCs, Schüffner dots; Duffy antigen",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. ovale",
+              "48 h",
+              "Oval RBCs, Schüffner dots",
+              "Yes (hypnozoites)"
+            ],
+            [
+              "P. malariae",
+              "72 h",
+              "Band forms; nephrotic syndrome",
+              "No"
+            ],
+            [
+              "P. knowlesi",
+              "24 h",
+              "Southeast Asia macaques; high parasitemia",
+              "No"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3758,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Babesia: asplenia and smear",
+      "stem": "An asplenic man from Nantucket has fever, hemolytic anemia, and a blood smear showing small intraerythrocytic rings and a rare tetrad. Which treatment is standard?",
+      "options": {
+        "A": "Atovaquone with azithromycin",
+        "B": "Amphotericin B with flucytosine",
+        "C": "Doxycycline with rifampin",
+        "D": "TMP-SMX with leucovorin",
+        "E": "Chloroquine with primaquine"
+      },
+      "answer": "A",
+      "explanation": "Babesia microti is transmitted by Ixodes ticks and causes severe disease in asplenic and elderly patients. The Maltese cross tetrad is characteristic but uncommon; there is no pigment, unlike malaria. Treatment is atovaquone plus azithromycin, or clindamycin plus quinine for severe disease, with exchange transfusion for very high parasitemia. Co-infection with Lyme disease is common.",
+      "wrong": {
+        "E": "Antimalarials of this type do not treat babesiosis.",
+        "C": "Doxycycline treats other tick-borne infections but not Babesia.",
+        "D": "That combination treats Pneumocystis.",
+        "B": "That combination treats cryptococcal disease."
+      },
+      "tables": [
+        {
+          "title": "Blood and tissue protozoa",
+          "cols": [
+            "Organism",
+            "Vector / source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Babesia microti",
+              "Ixodes tick",
+              "Hemolysis, Maltese cross",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Trypanosoma cruzi",
+              "Reduviid bug",
+              "Chagas: cardiomyopathy, megacolon, megaesophagus",
+              "Benznidazole, nifurtimox"
+            ],
+            [
+              "Trypanosoma brucei",
+              "Tsetse fly",
+              "Sleeping sickness",
+              "Suramin, fexinidazole, melarsoprol"
+            ],
+            [
+              "Leishmania donovani",
+              "Sandfly",
+              "Kala-azar",
+              "Liposomal amphotericin B"
+            ],
+            [
+              "Toxoplasma gondii",
+              "Cat feces, undercooked meat",
+              "Encephalitis (AIDS), congenital",
+              "Pyrimethamine + sulfadiazine + leucovorin"
+            ],
+            [
+              "Naegleria fowleri",
+              "Warm freshwater",
+              "Primary amebic meningoencephalitis",
+              "Amphotericin B + miltefosine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3759,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Chagas: vector and chronic disease",
+      "stem": "A man who lived in rural Bolivia has progressive dysphagia and constipation, with a dilated esophagus and colon on imaging, plus an enlarged heart. Which mechanism explains the gastrointestinal findings?",
+      "options": {
+        "A": "Ischemic injury from small vessel thrombosis",
+        "B": "Autoantibodies directed against smooth muscle actin",
+        "C": "Destruction of myenteric plexus ganglion cells",
+        "D": "Fibrosis of the esophageal muscularis from toxin",
+        "E": "Obstruction of the lumen by adult worms in the gut"
+      },
+      "answer": "C",
+      "explanation": "Trypanosoma cruzi, spread by the reduviid 'kissing' bug, destroys autonomic ganglion cells in the myenteric plexus, producing megaesophagus and megacolon, and damages the myocardium, causing dilated cardiomyopathy with apical aneurysms and conduction disease. Acute disease may show Romana sign. Benznidazole and nifurtimox treat acute infection.",
+      "wrong": {
+        "D": "No toxin-mediated fibrosis explains this syndrome.",
+        "B": "Autoimmunity contributes but ganglion cell loss is the key lesion.",
+        "E": "T. cruzi is a protozoan, not a helminth.",
+        "A": "Thrombotic ischemia is not the mechanism."
+      },
+      "tables": [
+        {
+          "title": "Blood and tissue protozoa",
+          "cols": [
+            "Organism",
+            "Vector / source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Babesia microti",
+              "Ixodes tick",
+              "Hemolysis, Maltese cross",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Trypanosoma cruzi",
+              "Reduviid bug",
+              "Chagas: cardiomyopathy, megacolon, megaesophagus",
+              "Benznidazole, nifurtimox"
+            ],
+            [
+              "Trypanosoma brucei",
+              "Tsetse fly",
+              "Sleeping sickness",
+              "Suramin, fexinidazole, melarsoprol"
+            ],
+            [
+              "Leishmania donovani",
+              "Sandfly",
+              "Kala-azar",
+              "Liposomal amphotericin B"
+            ],
+            [
+              "Toxoplasma gondii",
+              "Cat feces, undercooked meat",
+              "Encephalitis (AIDS), congenital",
+              "Pyrimethamine + sulfadiazine + leucovorin"
+            ],
+            [
+              "Naegleria fowleri",
+              "Warm freshwater",
+              "Primary amebic meningoencephalitis",
+              "Amphotericin B + miltefosine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3760,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "hard",
+      "topic": "African trypanosomiasis: stage determines drug",
+      "stem": "A patient from Uganda has fever, posterior cervical lymphadenopathy, and daytime somnolence with reversed sleep-wake cycles. Why is it essential to examine the cerebrospinal fluid?",
+      "options": {
+        "A": "CSF findings distinguish the two vector species involved",
+        "B": "CSF culture is the only way to grow the organism",
+        "C": "CSF glucose determines whether antibiotics will work",
+        "D": "CNS involvement requires drugs that reach the brain",
+        "E": "CSF pressure predicts the risk of permanent blindness"
+      },
+      "answer": "D",
+      "explanation": "Staging determines therapy: early hemolymphatic disease is treated with suramin (T. b. rhodesiense) or pentamidine (T. b. gambiense), while CNS involvement requires drugs that penetrate the brain, such as melarsoprol or eflornithine, or newer fexinidazole. Winterbottom sign is posterior cervical adenopathy, and the vector is the tsetse fly.",
+      "wrong": {
+        "B": "Diagnosis uses microscopy of blood, nodes, or CSF.",
+        "C": "This is a parasitic, not bacterial, infection.",
+        "A": "Geography and clinical course distinguish the subspecies.",
+        "E": "Blindness is a feature of onchocerciasis."
+      },
+      "tables": [
+        {
+          "title": "Blood and tissue protozoa",
+          "cols": [
+            "Organism",
+            "Vector / source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Babesia microti",
+              "Ixodes tick",
+              "Hemolysis, Maltese cross",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Trypanosoma cruzi",
+              "Reduviid bug",
+              "Chagas: cardiomyopathy, megacolon, megaesophagus",
+              "Benznidazole, nifurtimox"
+            ],
+            [
+              "Trypanosoma brucei",
+              "Tsetse fly",
+              "Sleeping sickness",
+              "Suramin, fexinidazole, melarsoprol"
+            ],
+            [
+              "Leishmania donovani",
+              "Sandfly",
+              "Kala-azar",
+              "Liposomal amphotericin B"
+            ],
+            [
+              "Toxoplasma gondii",
+              "Cat feces, undercooked meat",
+              "Encephalitis (AIDS), congenital",
+              "Pyrimethamine + sulfadiazine + leucovorin"
+            ],
+            [
+              "Naegleria fowleri",
+              "Warm freshwater",
+              "Primary amebic meningoencephalitis",
+              "Amphotericin B + miltefosine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3761,
+      "part": "Protozoa",
+      "tag": "Protozoa",
+      "difficulty": "medium",
+      "topic": "Naegleria vs Acanthamoeba",
+      "stem": "Two patients have amoebic central nervous system disease. Patient A swam in a warm freshwater lake and died within a week of fulminant meningoencephalitis. Patient B, immunosuppressed, had a slowly progressive encephalitis over weeks. Which pairing is correct?",
+      "options": {
+        "A": "A is Naegleria fowleri; B is Acanthamoeba",
+        "B": "Both patients are infected with Naegleria fowleri",
+        "C": "A is Entamoeba histolytica; B is Naegleria fowleri",
+        "D": "A is Acanthamoeba; B is Naegleria fowleri",
+        "E": "A is Acanthamoeba; B is Balamuthia in a healthy host"
+      },
+      "answer": "A",
+      "explanation": "Naegleria enters through the cribriform plate after warm freshwater exposure and causes rapidly fatal primary amoebic meningoencephalitis; motile trophozoites may be seen in CSF, and amphotericin B with miltefosine is attempted. Acanthamoeba and Balamuthia cause granulomatous amoebic encephalitis in immunocompromised hosts over weeks, and Acanthamoeba also causes contact lens-associated keratitis.",
+      "wrong": {
+        "D": "The two courses are reversed.",
+        "B": "The subacute course in the second patient fits a different organism.",
+        "C": "E. histolytica causes colitis and liver abscess.",
+        "E": "The acute freshwater case is Naegleria."
+      },
+      "tables": [
+        {
+          "title": "Blood and tissue protozoa",
+          "cols": [
+            "Organism",
+            "Vector / source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Babesia microti",
+              "Ixodes tick",
+              "Hemolysis, Maltese cross",
+              "Atovaquone + azithromycin"
+            ],
+            [
+              "Trypanosoma cruzi",
+              "Reduviid bug",
+              "Chagas: cardiomyopathy, megacolon, megaesophagus",
+              "Benznidazole, nifurtimox"
+            ],
+            [
+              "Trypanosoma brucei",
+              "Tsetse fly",
+              "Sleeping sickness",
+              "Suramin, fexinidazole, melarsoprol"
+            ],
+            [
+              "Leishmania donovani",
+              "Sandfly",
+              "Kala-azar",
+              "Liposomal amphotericin B"
+            ],
+            [
+              "Toxoplasma gondii",
+              "Cat feces, undercooked meat",
+              "Encephalitis (AIDS), congenital",
+              "Pyrimethamine + sulfadiazine + leucovorin"
+            ],
+            [
+              "Naegleria fowleri",
+              "Warm freshwater",
+              "Primary amebic meningoencephalitis",
+              "Amphotericin B + miltefosine"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3762,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Strongyloides: autoinfection cycle",
+      "stem": "Why can Strongyloides infection persist for decades after a person leaves an endemic area?",
+      "options": {
+        "A": "Cysts survive in the gallbladder and periodically hatch",
+        "B": "Adult worms encyst in skeletal muscle and later reactivate",
+        "C": "Larvae reinfect the host through the bowel or perianal skin",
+        "D": "Eggs remain dormant in the liver for many years at a time",
+        "E": "The parasite integrates its DNA into intestinal epithelium"
+      },
+      "answer": "C",
+      "explanation": "Strongyloides is unique among nematodes in completing autoinfection: rhabditiform larvae mature into infective filariform larvae within the host and reinvade through the intestinal wall or perianal skin. Corticosteroids convert this to hyperinfection with disseminated larvae and Gram-negative bacteremia, so screening before immunosuppression is essential.",
+      "wrong": {
+        "D": "Hepatic dormancy describes Plasmodium hypnozoites.",
+        "B": "Muscle encystment describes Trichinella.",
+        "E": "Helminths do not integrate into host DNA.",
+        "A": "Chronic biliary carriage describes Salmonella Typhi."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3763,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Ascaris: Loeffler syndrome",
+      "stem": "A child in a rural area has cough, wheezing, transient pulmonary infiltrates, and eosinophilia, followed weeks later by passing a large worm. Which explains the pulmonary phase?",
+      "options": {
+        "A": "Eggs embolize to the lungs and provoke granulomas",
+        "B": "Adult worms lodge in the pulmonary arteries and die there",
+        "C": "Larvae enter the lungs through inhaled contaminated dust",
+        "D": "The infection triggers asthma without any lung invasion",
+        "E": "Larvae migrate through alveoli before being swallowed"
+      },
+      "answer": "E",
+      "explanation": "Ascaris, hookworm, and Strongyloides larvae all migrate through the lungs, ascend the airway, and are swallowed, producing transient eosinophilic infiltrates known as Loeffler syndrome. Adults live in the small intestine, and heavy burdens cause obstruction or biliary disease. Treatment is albendazole or mebendazole.",
+      "wrong": {
+        "B": "Adults remain in the intestine.",
+        "A": "Egg embolization to lungs occurs in schistosomiasis.",
+        "D": "Larval migration through the lung is the mechanism.",
+        "C": "Infection follows ingestion of eggs."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3764,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "easy",
+      "topic": "Hookworm: anemia mechanism",
+      "stem": "A farmer who walks barefoot has iron deficiency anemia and eosinophilia. Which mechanism causes the anemia?",
+      "options": {
+        "A": "Worms block iron absorption by coating the duodenum",
+        "B": "Worms consume dietary vitamin B12 in the ileum",
+        "C": "Worms destroy red cells directly in the bloodstream",
+        "D": "Worms trigger antibodies that lyse red cell precursors",
+        "E": "Worms attach to the mucosa and feed on blood"
+      },
+      "answer": "E",
+      "explanation": "Necator americanus and Ancylostoma duodenale penetrate skin, migrate through lungs, and attach to the small bowel mucosa with cutting plates or teeth, causing chronic blood loss and iron deficiency. Treatment is albendazole plus iron. Diphyllobothrium latum, a tapeworm, is the one that consumes B12.",
+      "wrong": {
+        "B": "B12 consumption describes the fish tapeworm.",
+        "C": "Hookworms do not enter the bloodstream as adults.",
+        "A": "The anemia comes from blood loss, not malabsorption.",
+        "D": "There is no autoimmune mechanism here."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3765,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "easy",
+      "topic": "Enterobius: diagnosis and treatment",
+      "stem": "A 6-year-old has nocturnal perianal itching. Which diagnostic method and treatment approach is correct?",
+      "options": {
+        "A": "Stool ova and parasite exam; treat only the affected child",
+        "B": "Duodenal aspirate; treat with a two-week metronidazole course",
+        "C": "Blood eosinophil count; treat with a single course of steroids",
+        "D": "Adhesive tape test; treat the child and household contacts",
+        "E": "Serologic antibody testing; treat with praziquantel once"
+      },
+      "answer": "D",
+      "explanation": "Pinworm eggs are deposited on perianal skin, so the cellophane tape test applied in the morning is diagnostic while stool examination is usually negative. Treatment is albendazole, mebendazole, or pyrantel pamoate, repeated in two weeks, and household members are treated because reinfection is common. Bedding and clothes are washed.",
+      "wrong": {
+        "A": "Eggs are rarely found in stool and household spread is common.",
+        "C": "Pinworm does not usually cause eosinophilia and steroids are not treatment.",
+        "E": "Praziquantel treats flukes and tapeworms.",
+        "B": "That approach targets Giardia."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3766,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Trichinella: muscle and clinical clue",
+      "stem": "A man develops fever, periorbital edema, and severe myalgia with marked eosinophilia after eating undercooked bear meat. Which statement is correct?",
+      "options": {
+        "A": "Adult worms migrate into muscle and die there in cysts",
+        "B": "The organism infects only the intestinal lumen without invasion",
+        "C": "Larvae encyst in striated muscle after intestinal invasion",
+        "D": "Muscle damage results from an antibody against sarcomeres",
+        "E": "Eggs deposited in muscle hatch and cause inflammation"
+      },
+      "answer": "C",
+      "explanation": "Trichinella spiralis larvae are released from ingested meat, mature in the intestine, and newborn larvae disseminate to encyst in striated muscle, preferring the diaphragm, extraocular, and masseter muscles. Periorbital edema, myalgia, eosinophilia, and elevated CK are the classic picture. Treatment is albendazole with steroids for severe disease.",
+      "wrong": {
+        "A": "Adults remain in the intestine; larvae migrate.",
+        "E": "Trichinella females release live larvae rather than eggs into tissue.",
+        "B": "Tissue invasion is what produces the syndrome.",
+        "D": "Damage is caused by larval invasion."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3767,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "hard",
+      "topic": "Filariasis: Wolbachia and doxycycline",
+      "stem": "Why is doxycycline used in the treatment of onchocerciasis and lymphatic filariasis?",
+      "options": {
+        "A": "It blocks the inflammatory reaction to dying microfilariae",
+        "B": "It prevents the mosquito vector from transmitting larvae",
+        "C": "It kills endosymbiotic bacteria the worms need to survive",
+        "D": "It reverses lymphatic fibrosis that has already developed",
+        "E": "It kills the microfilariae directly within the bloodstream"
+      },
+      "answer": "C",
+      "explanation": "Filarial worms depend on Wolbachia endosymbionts for fertility and survival, so doxycycline sterilizes and kills adult worms over weeks. Ivermectin kills microfilariae in onchocerciasis, and diethylcarbamazine is used in lymphatic filariasis but is avoided in onchocerciasis because of the severe Mazzotti reaction.",
+      "wrong": {
+        "E": "Ivermectin, not doxycycline, is the microfilaricide.",
+        "A": "Steroids, not doxycycline, blunt that reaction.",
+        "B": "Doxycycline does not act on the vector.",
+        "D": "Established elephantiasis is not reversed by drugs."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3768,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Onchocerca: river blindness and vector",
+      "stem": "A man from West Africa has intensely itchy skin nodules and progressive vision loss. Slit-lamp examination shows microfilariae in the anterior chamber. Which vector transmits this parasite?",
+      "options": {
+        "A": "The blackfly, which breeds in swift rivers",
+        "B": "The reduviid bug, which defecates while feeding",
+        "C": "The Ixodes tick, which attaches for many hours",
+        "D": "The tsetse fly, which transmits it in dry savanna",
+        "E": "The Anopheles mosquito, which bites at night"
+      },
+      "answer": "A",
+      "explanation": "Onchocerca volvulus is transmitted by Simulium blackflies breeding in fast-flowing rivers, which is why the disease is called river blindness. Adults live in subcutaneous nodules and release microfilariae that migrate through skin and eye. Ivermectin given periodically is the mainstay, with doxycycline targeting Wolbachia.",
+      "wrong": {
+        "D": "Tsetse flies transmit African trypanosomiasis.",
+        "E": "Anopheles transmits malaria and Wuchereria.",
+        "B": "The reduviid bug transmits Chagas disease.",
+        "C": "Ixodes transmits Lyme disease, babesiosis, and anaplasmosis."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3769,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Taenia solium: two very different diseases",
+      "stem": "Which statement correctly distinguishes the two forms of Taenia solium infection?",
+      "options": {
+        "A": "Undercooked pork gives intestinal worms; eggs give tissue cysts",
+        "B": "Eating beef gives cysts and eating pork gives intestinal worms",
+        "C": "Eating undercooked pork gives cysts; eating eggs gives intestinal worms",
+        "D": "Both routes produce only cysts within the brain and muscle",
+        "E": "Both routes produce only an intestinal tapeworm infection"
+      },
+      "answer": "A",
+      "explanation": "Ingesting cysticerci in undercooked pork produces an adult intestinal tapeworm (taeniasis), treated with praziquantel. Ingesting eggs, usually by the fecal-oral route from a human carrier, produces cysticercosis, with cysts in brain and muscle. Neurocysticercosis is a leading cause of adult-onset seizures in endemic regions, and treatment adds albendazole with steroids and antiepileptics.",
+      "wrong": {
+        "C": "The two routes are reversed.",
+        "E": "Egg ingestion produces tissue cysts.",
+        "D": "Cysticerci in pork produce an intestinal tapeworm.",
+        "B": "Taenia saginata from beef causes only intestinal infection."
+      },
+      "tables": [
+        {
+          "title": "Cestodes (tapeworms) and trematodes (flukes)",
+          "cols": [
+            "Worm",
+            "Source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Taenia solium",
+              "Pork (taeniasis) or eggs (cysticercosis)",
+              "Neurocysticercosis",
+              "Albendazole ± praziquantel"
+            ],
+            [
+              "Diphyllobothrium latum",
+              "Raw freshwater fish",
+              "B12 deficiency",
+              "Praziquantel"
+            ],
+            [
+              "Echinococcus granulosus",
+              "Dog feces (sheep)",
+              "Hydatid cysts",
+              "Albendazole + surgery/PAIR"
+            ],
+            [
+              "Schistosoma mansoni/japonicum",
+              "Snails (skin penetration)",
+              "Portal hypertension",
+              "Praziquantel"
+            ],
+            [
+              "Schistosoma haematobium",
+              "Snails",
+              "Hematuria, bladder SCC",
+              "Praziquantel"
+            ],
+            [
+              "Clonorchis",
+              "Raw fish",
+              "Cholangiocarcinoma",
+              "Praziquantel"
+            ],
+            [
+              "Paragonimus",
+              "Undercooked crab",
+              "Hemoptysis",
+              "Praziquantel"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3770,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Echinococcus: why not to aspirate",
+      "stem": "A shepherd has a large hepatic liver lesion with internal daughter loculations and eggshell calcification. Why is simple percutaneous aspiration hazardous?",
+      "options": {
+        "A": "The cyst contains bacteria that cause peritonitis",
+        "B": "Spillage can cause anaphylaxis and seed new cysts",
+        "C": "The needle tract allows adult worms to escape the liver",
+        "D": "Aspiration converts the cyst into a malignant lesion",
+        "E": "Aspiration invariably leads to uncontrollable bleeding"
+      },
+      "answer": "B",
+      "explanation": "Hydatid cyst fluid is highly antigenic, so leakage can cause anaphylaxis, and spilled protoscolices seed new cysts. Management is albendazole with careful surgery or the PAIR technique (puncture, aspiration, injection of a scolicidal agent, reaspiration) under cover. Dogs are definitive hosts and sheep intermediate hosts.",
+      "wrong": {
+        "A": "Hydatid cysts are not primarily bacterial.",
+        "E": "Bleeding is not the principal hazard.",
+        "C": "Adults live in the dog intestine, not the human cyst.",
+        "D": "Hydatid cysts do not become malignant."
+      },
+      "tables": [
+        {
+          "title": "Cestodes (tapeworms) and trematodes (flukes)",
+          "cols": [
+            "Worm",
+            "Source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Taenia solium",
+              "Pork (taeniasis) or eggs (cysticercosis)",
+              "Neurocysticercosis",
+              "Albendazole ± praziquantel"
+            ],
+            [
+              "Diphyllobothrium latum",
+              "Raw freshwater fish",
+              "B12 deficiency",
+              "Praziquantel"
+            ],
+            [
+              "Echinococcus granulosus",
+              "Dog feces (sheep)",
+              "Hydatid cysts",
+              "Albendazole + surgery/PAIR"
+            ],
+            [
+              "Schistosoma mansoni/japonicum",
+              "Snails (skin penetration)",
+              "Portal hypertension",
+              "Praziquantel"
+            ],
+            [
+              "Schistosoma haematobium",
+              "Snails",
+              "Hematuria, bladder SCC",
+              "Praziquantel"
+            ],
+            [
+              "Clonorchis",
+              "Raw fish",
+              "Cholangiocarcinoma",
+              "Praziquantel"
+            ],
+            [
+              "Paragonimus",
+              "Undercooked crab",
+              "Hemoptysis",
+              "Praziquantel"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3771,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Schistosoma: species and organ",
+      "stem": "Which pairing of schistosome species and clinical consequence is correct?",
+      "options": {
+        "A": "S. haematobium with portal fibrosis; S. mansoni with bladder cancer",
+        "B": "S. haematobium with bladder cancer; S. mansoni with liver fibrosis",
+        "C": "S. japonicum with bladder cancer; S. mansoni with lung cysts",
+        "D": "Both species cause only intestinal ulceration without fibrosis",
+        "E": "Both species cause squamous cell carcinoma of the bladder"
+      },
+      "answer": "B",
+      "explanation": "S. haematobium lives in the vesical venous plexus, causing hematuria, obstructive uropathy, and squamous cell carcinoma of the bladder. S. mansoni and S. japonicum live in mesenteric veins; eggs embolize to the liver, causing periportal 'pipestem' fibrosis with portal hypertension and preserved hepatocyte function. Praziquantel treats all species; snails are the intermediate host.",
+      "wrong": {
+        "A": "The two associations are reversed.",
+        "E": "Only S. haematobium is linked to bladder cancer.",
+        "D": "Hepatic and urinary disease are the major consequences.",
+        "C": "S. japonicum affects the mesenteric circulation and liver."
+      },
+      "tables": [
+        {
+          "title": "Cestodes (tapeworms) and trematodes (flukes)",
+          "cols": [
+            "Worm",
+            "Source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Taenia solium",
+              "Pork (taeniasis) or eggs (cysticercosis)",
+              "Neurocysticercosis",
+              "Albendazole ± praziquantel"
+            ],
+            [
+              "Diphyllobothrium latum",
+              "Raw freshwater fish",
+              "B12 deficiency",
+              "Praziquantel"
+            ],
+            [
+              "Echinococcus granulosus",
+              "Dog feces (sheep)",
+              "Hydatid cysts",
+              "Albendazole + surgery/PAIR"
+            ],
+            [
+              "Schistosoma mansoni/japonicum",
+              "Snails (skin penetration)",
+              "Portal hypertension",
+              "Praziquantel"
+            ],
+            [
+              "Schistosoma haematobium",
+              "Snails",
+              "Hematuria, bladder SCC",
+              "Praziquantel"
+            ],
+            [
+              "Clonorchis",
+              "Raw fish",
+              "Cholangiocarcinoma",
+              "Praziquantel"
+            ],
+            [
+              "Paragonimus",
+              "Undercooked crab",
+              "Hemoptysis",
+              "Praziquantel"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3772,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Liver flukes and cholangiocarcinoma",
+      "stem": "A man from Southeast Asia who regularly ate raw freshwater fish develops biliary obstruction and is found to have cholangiocarcinoma. Which parasite is implicated?",
+      "options": {
+        "A": "Fasciola hepatica",
+        "B": "Clonorchis sinensis",
+        "C": "Schistosoma haematobium",
+        "D": "Paragonimus westermani",
+        "E": "Diphyllobothrium latum"
+      },
+      "answer": "B",
+      "explanation": "Clonorchis sinensis and Opisthorchis are acquired from raw or undercooked freshwater fish, inhabit bile ducts, and cause chronic cholangitis, biliary obstruction, and cholangiocarcinoma. Paragonimus, from crabs and crayfish, causes lung disease mimicking tuberculosis. Fasciola comes from watercress and also involves the biliary tree. Praziquantel treats these flukes, except Fasciola, which needs triclabendazole.",
+      "wrong": {
+        "D": "Paragonimus causes chronic cough with hemoptysis from lung involvement.",
+        "A": "Fasciola causes biliary disease but is not strongly linked to cholangiocarcinoma.",
+        "C": "That species is linked to bladder cancer.",
+        "E": "The fish tapeworm causes B12 deficiency."
+      },
+      "tables": [
+        {
+          "title": "Cestodes (tapeworms) and trematodes (flukes)",
+          "cols": [
+            "Worm",
+            "Source",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Taenia solium",
+              "Pork (taeniasis) or eggs (cysticercosis)",
+              "Neurocysticercosis",
+              "Albendazole ± praziquantel"
+            ],
+            [
+              "Diphyllobothrium latum",
+              "Raw freshwater fish",
+              "B12 deficiency",
+              "Praziquantel"
+            ],
+            [
+              "Echinococcus granulosus",
+              "Dog feces (sheep)",
+              "Hydatid cysts",
+              "Albendazole + surgery/PAIR"
+            ],
+            [
+              "Schistosoma mansoni/japonicum",
+              "Snails (skin penetration)",
+              "Portal hypertension",
+              "Praziquantel"
+            ],
+            [
+              "Schistosoma haematobium",
+              "Snails",
+              "Hematuria, bladder SCC",
+              "Praziquantel"
+            ],
+            [
+              "Clonorchis",
+              "Raw fish",
+              "Cholangiocarcinoma",
+              "Praziquantel"
+            ],
+            [
+              "Paragonimus",
+              "Undercooked crab",
+              "Hemoptysis",
+              "Praziquantel"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3773,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "medium",
+      "topic": "Anthelmintic mechanisms",
+      "stem": "Which pairing of anthelmintic drug and mechanism is correct?",
+      "options": {
+        "A": "Pyrantel blocks microtubules; albendazole depolarizes the worm",
+        "B": "Albendazole blocks microtubules; ivermectin opens chloride channels",
+        "C": "Ivermectin inhibits protein synthesis; praziquantel blocks microtubules",
+        "D": "Praziquantel blocks folate synthesis; albendazole opens sodium channels",
+        "E": "Albendazole opens chloride channels; ivermectin blocks microtubules"
+      },
+      "answer": "B",
+      "explanation": "Benzimidazoles (albendazole, mebendazole) bind beta-tubulin and block microtubule polymerization and glucose uptake. Ivermectin opens glutamate-gated chloride channels, paralyzing the parasite; it spares humans because these channels are absent and the blood-brain barrier excludes the drug. Praziquantel increases calcium permeability, causing spastic paralysis. Pyrantel is a depolarizing neuromuscular blocker.",
+      "wrong": {
+        "E": "The two mechanisms are reversed.",
+        "D": "Folate synthesis inhibition describes antibacterial sulfonamides.",
+        "C": "Ivermectin acts on ion channels.",
+        "A": "Pyrantel acts at the neuromuscular junction."
+      },
+      "tables": [
+        {
+          "title": "Anthelmintics",
+          "cols": [
+            "Drug",
+            "Mechanism",
+            "Uses"
+          ],
+          "rows": [
+            [
+              "Albendazole / mebendazole",
+              "Bind β-tubulin; block glucose uptake",
+              "Most nematodes; cysticercosis, echinococcus"
+            ],
+            [
+              "Pyrantel pamoate",
+              "Nicotinic agonist (spastic paralysis)",
+              "Pinworm, Ascaris, hookworm"
+            ],
+            [
+              "Ivermectin",
+              "Glutamate-gated Cl− channels",
+              "Strongyloides, Onchocerca, scabies, lice"
+            ],
+            [
+              "Praziquantel",
+              "↑Ca2+ permeability",
+              "Trematodes and cestodes"
+            ],
+            [
+              "Diethylcarbamazine",
+              "Sensitizes microfilariae",
+              "Loa loa, Wuchereria"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3774,
+      "part": "Helminths",
+      "tag": "Helminths",
+      "difficulty": "easy",
+      "topic": "Eosinophilia: which parasites",
+      "stem": "A returning traveler has marked eosinophilia. Which category of parasite most reliably causes this?",
+      "options": {
+        "A": "Intestinal protozoa such as Giardia",
+        "B": "Blood protozoa such as Plasmodium",
+        "C": "Intracellular bacteria such as Rickettsia",
+        "D": "Tissue-invasive helminths",
+        "E": "Luminal tapeworms confined to the gut"
+      },
+      "answer": "D",
+      "explanation": "Eosinophilia is characteristic of helminths that invade tissue, including Strongyloides, hookworm, Ascaris during migration, Toxocara, Trichinella, filariae, and schistosomes. Protozoa, including Giardia and Plasmodium, do not typically cause eosinophilia, and adult tapeworms confined to the lumen cause little or none.",
+      "wrong": {
+        "A": "Giardia typically causes no eosinophilia.",
+        "B": "Malaria does not characteristically raise eosinophils.",
+        "C": "Rickettsial illness does not cause eosinophilia.",
+        "E": "Luminal worms provoke little eosinophil response."
+      },
+      "tables": [
+        {
+          "title": "Nematodes (roundworms)",
+          "cols": [
+            "Worm",
+            "Transmission",
+            "Disease",
+            "Treatment"
+          ],
+          "rows": [
+            [
+              "Enterobius",
+              "Fecal-oral",
+              "Perianal itch; tape test",
+              "Albendazole, pyrantel"
+            ],
+            [
+              "Ascaris",
+              "Fecal-oral (eggs)",
+              "Löffler syndrome, obstruction",
+              "Albendazole"
+            ],
+            [
+              "Strongyloides",
+              "Skin penetration; autoinfection",
+              "Hyperinfection with steroids",
+              "Ivermectin"
+            ],
+            [
+              "Hookworm",
+              "Skin penetration",
+              "Iron deficiency anemia",
+              "Albendazole"
+            ],
+            [
+              "Trichinella",
+              "Undercooked pork/game",
+              "Myositis, periorbital edema",
+              "Albendazole"
+            ],
+            [
+              "Toxocara",
+              "Dog/cat feces",
+              "Visceral and ocular larva migrans",
+              "Albendazole"
+            ],
+            [
+              "Onchocerca",
+              "Blackfly",
+              "River blindness",
+              "Ivermectin"
+            ],
+            [
+              "Loa loa",
+              "Deer fly",
+              "Eye worm, Calabar swellings",
+              "Diethylcarbamazine"
+            ],
+            [
+              "Wuchereria",
+              "Mosquito",
+              "Elephantiasis",
+              "DEC, ivermectin + albendazole"
+            ]
+          ]
+        }
+      ]
     }
   ]
 };

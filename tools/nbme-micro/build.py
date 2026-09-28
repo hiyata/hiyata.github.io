@@ -22,6 +22,25 @@ SECTIONS = [
 EXTRA_GLOB = "n"
 LENGTH_CUE_RATIO = 1.15   # key may not exceed the longest distractor by more than 15%
 STRICT = "--strict" in sys.argv
+# Files from n08 on always fail the build on any cue; older files only report them.
+ENFORCE_FROM = 8
+PUNCT_CUES = ("(", ";", ":", "e.g.", "i.e.")   # extra detail that appears only in the key
+_STOP = set("""which with that this from their there these those about after before being between
+both could does during each other over same some such than them then they through under until
+very when where while would most more patient patients following likely statement correct
+causes caused cause organism organisms infection infections""".split())
+
+def _words(s):
+    import re
+    return {w for w in re.findall(r"[a-z][a-z0-9-]{4,}", s.lower()) if w not in _STOP}
+
+def stem_echo(stem, opts):
+    """Words the key shares with the stem that no distractor uses - a clang-association cue."""
+    others = set().union(*(_words(o) for o in opts[1:]))
+    return (_words(opts[0]) & _words(stem)) - others
+
+def enforced(section):
+    return section.startswith("n") and int(section[1:3]) >= ENFORCE_FROM
 
 def main():
     import qcore
@@ -36,6 +55,7 @@ def main():
             print("  (missing section", s, ")"); continue
         mod = importlib.import_module(s)
         for q in mod.QUESTIONS:
+            q["_src"] = s
             r = RETRO.get(q["topic"])
             if r:
                 q["opts"] = list(q["opts"])
@@ -60,7 +80,7 @@ def main():
 
     credits_path = os.path.join(HERE, "credits.json")
     credits = json.load(open(credits_path)) if os.path.exists(credits_path) else {}
-    errors, out, length_cues = [], [], []
+    errors, out, length_cues, echo_cues = [], [], [], []
     seen_stems = set()
     for i, q in enumerate(questions):
         qid = 3001 + i
@@ -94,6 +114,17 @@ def main():
         key_len, max_other = len(opts[0]), max(len(o) for o in opts[1:])
         if key_len > max_other * LENGTH_CUE_RATIO and key_len - max_other > 10:
             length_cues.append(f"{qid} {q['topic']}: key {key_len} vs longest distractor {max_other}")
+        min_other = min(len(o) for o in opts[1:])
+        if key_len * LENGTH_CUE_RATIO < min_other and min_other - key_len > 10:
+            length_cues.append(f"{qid} {q['topic']}: key {key_len} vs shortest distractor {min_other} (key too short)")
+        for mark in PUNCT_CUES:
+            if mark in opts[0] and not any(mark in o for o in opts[1:]):
+                length_cues.append(f"{qid} {q['topic']}: only the key contains {mark!r}")
+        echo = stem_echo(q["stem"], opts)
+        if echo: echo_cues.append(f"{qid} {q['topic']}: key alone repeats stem word(s) {sorted(echo)}")
+        if enforced(q["_src"]):
+            new_cues = [c for c in length_cues + echo_cues if c.startswith(f"{qid} ")]
+            errors.extend(f"[{q['_src']}] {c}" for c in new_cues)
         diff = q.get("difficulty", "medium")
         if diff not in ("easy", "medium", "hard"): errors.append(f"{qid}: bad difficulty {diff}")
         item = {"id": qid, "part": q["tag"], "tag": q["tag"], "difficulty": diff,
@@ -123,10 +154,15 @@ def main():
         out.append(item)
 
     key_longest = sum(1 for q in questions if len(q["opts"][0]) > max(len(o) for o in q["opts"][1:]))
-    print(f"key strictly longest: {key_longest}/{len(questions)} ({100*key_longest//max(1,len(questions))}%) — target ≈20%")
-    if length_cues:
-        print(f"LENGTH CUES ({len(length_cues)}):"); [print(" ", c) for c in length_cues]
-        if STRICT: errors.append(f"{len(length_cues)} length cues")
+    key_shortest = sum(1 for q in questions if len(q["opts"][0]) < min(len(o) for o in q["opts"][1:]))
+    pct = lambda n: f"{n}/{len(questions)} ({100*n//max(1,len(questions))}%)"
+    print(f"key strictly longest: {pct(key_longest)}, strictly shortest: {pct(key_shortest)} — target ≈20% each")
+    if "-v" in sys.argv:
+        if length_cues: print(f"LENGTH / FORMAT CUES ({len(length_cues)}):"); [print(" ", c) for c in length_cues]
+        if echo_cues: print(f"STEM-ECHO CUES ({len(echo_cues)}):"); [print(" ", c) for c in echo_cues]
+    else:
+        print(f"cues in legacy files: {len(length_cues)} length/format, {len(echo_cues)} stem-echo (run with -v to list)")
+    if STRICT and length_cues: errors.append(f"{len(length_cues)} length cues")
     if errors:
         print("ERRORS:"); [print(" ", e) for e in errors]; sys.exit(1)
 
