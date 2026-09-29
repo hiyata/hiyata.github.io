@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-09-28T23:18:14+00:00",
+  "generated_at": "2026-09-29T05:46:24+00:00",
   "items": [
+    {
+      "title": "GenoMorph: Pathway-Grounded Genomic Disease Reasoning via Adaptive Latent Computation",
+      "link": "http://arxiv.org/abs/2609.34079v1",
+      "date": "2026-09-28T01:14:04Z",
+      "authors": [
+        "Tanmoy Kanti Halder",
+        "Akash Ghosh",
+        "Arijit Roy",
+        "Sriparna Saha"
+      ],
+      "summary": "Large language models (LLMs) have demonstrated strong capabilities in biological reasoning; however, genomic disease inference remains largely dependent on memorized gene-disease associations rather than understanding..."
+    },
+    {
+      "title": "Active Hypothesis Testing under Computational Budgets",
+      "link": "http://arxiv.org/abs/2512.01423v3",
+      "date": "2025-12-01T08:59:34Z",
+      "authors": [
+        "Qi Kuang",
+        "Bowen Gang",
+        "Yin Xia"
+      ],
+      "summary": "In large-scale hypothesis testing, computing exact $p$-values or $e$-values is often resource-intensive, creating a need for budget-aware inferential methods. We propose a general framework for active hypothesis testing..."
+    },
     {
       "title": "Motif-Vocab: StatisticallyCalibrated Transcription-Factor-Identity Tokenization forGenomic Language Models",
       "link": "http://arxiv.org/abs/2609.28386v1",
@@ -75,31 +98,6 @@
         "H Liu"
       ],
       "summary": "Large Language Models (LLMs) have displayed impressive capabilities in handling tasks that require few demonstration examples, making them effective few-shot learners. Despite their potential, LLMs face challenges when..."
-    },
-    {
-      "title": "Convergent Emergence of In-Context Learning Across Modalities",
-      "link": "http://arxiv.org/abs/2609.14011v1",
-      "date": "2026-09-12T15:55:30Z",
-      "authors": [
-        "Nathan Breslow",
-        "Seungwook Han",
-        "Daniel Hyunsoo Lee",
-        "Aayush Mishra",
-        "Anqi Liu",
-        "Daniel Khashabi"
-      ],
-      "summary": "Few-shot in-context learning (ICL), the capacity of a model to infer abstract patterns from input-output examples provided in its prompt and apply them to new inputs, has been extensively studied in large language..."
-    },
-    {
-      "title": "HypoKG: Evidence-Disciplined Biomedical Hypothesis Generation Beyond Endpoint Knowledge",
-      "link": "http://arxiv.org/abs/2609.12260v1",
-      "date": "2026-09-10T22:36:02Z",
-      "authors": [
-        "Dominic Okonkwo",
-        "Adetayo Okunoye",
-        "Ismailcem Budak Arpinar"
-      ],
-      "summary": "Large language models (LLMs) can generate biomedical hypotheses, but it remains unclear whether they truly reason from scientific evidence or simply produce convincing-sounding ideas. To study this, we combine three..."
     }
   ]
 }
