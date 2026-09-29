@@ -1397,7 +1397,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "summary": "The dominant cause of neonatal sepsis and meningitis, and an increasingly common invasive pathogen in diabetics and the elderly.",
    "aka": [
     "group B strep",
-    "GBS"
+    "GBS",
+    "S. agalactiae"
    ],
    "keywords": [
     "neonatal sepsis",
@@ -1616,7 +1617,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "aka": [
     "group A strep",
     "GAS",
-    "strep throat"
+    "strep throat",
+    "S. pyogenes"
    ],
    "keywords": [
     "pharyngitis",
@@ -1760,7 +1762,9 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "S. bovis",
     "S. gallolyticus",
     "S. anginosus",
-    "milleri group"
+    "milleri group",
+    "Viridans strep",
+    "Viridans streptococci"
    ],
    "keywords": [
     "subacute endocarditis",
@@ -1843,7 +1847,9 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "aka": [
     "actinomycosis",
     "nocardiosis",
-    "sulfur granules"
+    "sulfur granules",
+    "Actinomyces",
+    "Nocardia"
    ],
    "keywords": [
     "branching filaments",
@@ -1931,6 +1937,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "aka": [
     "anthrax",
     "B. cereus",
+    "B. anthracis",
     "fried rice syndrome"
    ],
    "keywords": [
@@ -2532,7 +2539,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "aka": [
     "Hib",
     "H. flu",
-    "H. ducreyi"
+    "H. ducreyi",
+    "H. influenzae"
    ],
    "keywords": [
     "epiglottitis",
@@ -2809,7 +2817,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "tularemia",
     "brucellosis",
     "cat scratch disease",
-    "Pasteurella"
+    "Pasteurella",
+    "Yersinia",
+    "Francisella",
+    "Brucella",
+    "Bartonella"
    ],
    "keywords": [
     "bubo",
@@ -3013,7 +3025,10 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "Proteus mirabilis",
     "Serratia marcescens",
     "Enterobacter",
-    "Citrobacter"
+    "Citrobacter",
+    "Klebsiella",
+    "Serratia",
+    "Proteus"
    ],
    "keywords": [
     "currant jelly",
@@ -3220,7 +3235,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "Campylobacter jejuni",
     "Helicobacter pylori",
     "cholera",
-    "V. vulnificus"
+    "V. vulnificus",
+    "Vibrio",
+    "Campylobacter",
+    "Helicobacter",
+    "H. pylori"
    ],
    "keywords": [
     "rice water stool",
@@ -3330,7 +3349,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "Lyme disease",
     "Borrelia burgdorferi",
     "relapsing fever",
-    "Borrelia recurrentis"
+    "Borrelia recurrentis",
+    "Borrelia"
    ],
    "keywords": [
     "erythema migrans",
@@ -4096,7 +4116,12 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "typhus",
     "Q fever",
     "ehrlichiosis",
-    "anaplasmosis"
+    "anaplasmosis",
+    "Rickettsia",
+    "Ehrlichia",
+    "Anaplasma",
+    "Coxiella",
+    "RMSF"
    ],
    "keywords": [
     "rash wrists ankles",
@@ -4673,7 +4698,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "human immunodeficiency virus",
     "AIDS",
     "ART",
-    "HAART"
+    "HAART",
+    "HIV"
    ],
    "keywords": [
     "CD4",
@@ -4786,7 +4812,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "aka": [
     "flu",
     "influenza A",
-    "influenza B"
+    "influenza B",
+    "Influenza"
    ],
    "keywords": [
     "antigenic drift",
@@ -5084,7 +5111,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "aspergilloma",
     "Rhizopus",
     "Mucor",
-    "zygomycosis"
+    "zygomycosis",
+    "Aspergillus"
    ],
    "keywords": [
     "halo sign",
@@ -5175,7 +5203,8 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "thrush",
     "candidiasis",
     "C. glabrata",
-    "C. auris"
+    "C. auris",
+    "Candida"
    ],
    "keywords": [
     "germ tube",
@@ -5264,7 +5293,9 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "Cryptococcus neoformans",
     "Pneumocystis jirovecii",
     "PCP",
-    "PJP"
+    "PJP",
+    "Cryptococcus",
+    "Pneumocystis"
    ],
    "keywords": [
     "India ink",
@@ -5358,7 +5389,10 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "ringworm",
     "Trichophyton",
     "tinea versicolor",
-    "sporotrichosis"
+    "sporotrichosis",
+    "Dermatophytes",
+    "Malassezia",
+    "Sporothrix"
    ],
    "keywords": [
     "KOH",
@@ -5546,7 +5580,9 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "amebiasis",
     "Entamoeba histolytica",
     "Cryptosporidium",
-    "Cyclospora"
+    "Cyclospora",
+    "Giardia",
+    "Entamoeba"
    ],
    "keywords": [
     "steatorrhea",
@@ -5644,7 +5680,9 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "malaria",
     "P. falciparum",
     "P. vivax",
-    "babesiosis"
+    "babesiosis",
+    "Babesia",
+    "Plasmodium"
    ],
    "keywords": [
     "hypnozoite",
@@ -6205,7 +6243,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     "transformation",
     "conjugation",
     "transduction",
-    "transposition"
+    "transposition",
+    "transposon",
+    "lysogenic conversion",
+    "plasmid",
+    "restriction"
    ],
    "keywords": [
     "plasmid",

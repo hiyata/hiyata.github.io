@@ -78,7 +78,7 @@ E("hpv-polyoma-pox", "HPV, Parvovirus, Polyomaviruses & Poxviruses", "DNA Viruse
 
 E("influenza", "Influenza Viruses", "RNA Viruses",
   "A segmented negative-sense RNA virus whose segmentation is the whole story: drift causes epidemics, shift causes pandemics.",
-  aka=["flu", "influenza A", "influenza B"],
+  aka=["flu", "influenza A", "influenza B", "Influenza"],
   keywords=["antigenic drift", "antigenic shift", "reassortment", "hemagglutinin", "neuraminidase", "oseltamivir", "Reye"],
   treatment="Oseltamivir or baloxavir, best within 48 hours. Annual inactivated vaccine for everyone 6 months and older.",
   quick=[("Genome", "8 segments of negative-sense single-stranded RNA, enveloped"),
@@ -186,7 +186,7 @@ E("arbo-other-rna", "Arboviruses, Rabies, Prions & Other RNA Viruses", "RNA Viru
 
 E("hiv", "HIV & Antiretroviral Therapy", "RNA Viruses",
   "A retrovirus that destroys the CD4 cell, with a drug target at almost every step of its life cycle.",
-  aka=["human immunodeficiency virus", "AIDS", "ART", "HAART"],
+  aka=["human immunodeficiency virus", "AIDS", "ART", "HAART", "HIV"],
   keywords=["CD4", "viral load", "gp120", "CCR5", "reverse transcriptase", "integrase", "protease", "PrEP", "IRIS"],
   treatment="Two NRTIs plus an integrase strand transfer inhibitor is standard first-line (e.g. bictegravir/emtricitabine/tenofovir alafenamide). Start regardless of CD4 count.",
   quick=[("Genome", "Two copies of positive-sense ssRNA, enveloped retrovirus"),

@@ -30,7 +30,7 @@ E("gram-stain", "Gram Stain, Cell Walls & Special Stains", "Principles & Pharmac
 
 E("genetics", "Bacterial Genetics & Gene Transfer", "Principles & Pharmacology",
   "The four ways bacteria acquire new DNA, and why that determines how fast resistance spreads.",
-  aka=["transformation", "conjugation", "transduction", "transposition"],
+  aka=["transformation", "conjugation", "transduction", "transposition", "transposon", "lysogenic conversion", "plasmid", "restriction"],
   keywords=["plasmid", "F factor", "Hfr", "bacteriophage", "lysogeny", "transposon", "integron"],
   quick=[("Transformation", "Naked DNA from the environment; blocked by DNase"),
          ("Conjugation", "Direct cell contact via pilus; NOT blocked by DNase"),
