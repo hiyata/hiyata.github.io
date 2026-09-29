@@ -2,7 +2,8 @@
 layout: post
 title:  "Migration Patterns Behind HCMV Diversity"
 date:   2024-08-01 13:00:00 -0400
-categories: jekyll update
+permalink: /blog/migration-patterns-hcmv/
+redirect_from: /jekyll/update/2024/08/01/Migration_Patterns_HCMV.html
 excerpt: "Can ancient human migration explain the geographic diversity of HCMV, and does that shared history help explain why some people get sick from infection while most never notice it at all?"
 ---
 

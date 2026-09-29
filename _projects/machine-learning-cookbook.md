@@ -160,7 +160,7 @@ If you don't already have data, you'll need to collect it. In the fields of viro
      - [Ensembl](https://www.ensembl.org/): A genome browser for vertebrate genomes that supports research in comparative genomics, evolution, sequence variation, and transcriptional regulation.
 
    - **Virology**: 
-     - [ViPR (Virus Pathogen Resource)](https://www.viprbrc.org/brc/home.spg?decorator=vipr): A database of viral genomics data, including sequence data, gene and protein annotations, and epidemiological data.
+     - [BV-BRC (formerly ViPR)](https://www.bv-brc.org/): A database of viral genomics data, including sequence data, gene and protein annotations, and epidemiological data.
      - [NCBI Virus(NCBI VIRUS)](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/): NCBI's virus-specific database, containing expansive genomic sequence information and metadata on viruses.
 
    - **Epidemiology**: 

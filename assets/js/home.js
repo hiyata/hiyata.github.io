@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return false;
     }
 
-    fetch('assets/pdb_files/artificial_hepB_ORF1.pdb')
+    fetch('/assets/pdb_files/artificial_hepB_ORF1.pdb')
       .then((response) => response.text())
       .then((data) => {
         const viewer = window.$3Dmol.createViewer(container, {
