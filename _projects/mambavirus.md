@@ -2,7 +2,7 @@
 layout: default
 excerpt: MambaVirus is a 1 billion parameter foundational genomic model trained on labeled viral genomes, genes, and instruction prompts. We evaluate its ability to follow instructions and the quality of the generated genomes. Advances in genome design will open the doors for personalized medical treatments, improve pandemic response, and new understandings of evolutionary changes. 
 title: MambaVirus
-category: genomics 
+category: genomics
 presented_at: WSUSOM Graduate Student Research Presentation Day
 ---
 

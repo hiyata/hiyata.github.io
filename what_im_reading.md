@@ -240,7 +240,7 @@ redirect_from: /what_im_reading.html
                 <img src="{{ '/assets/images/prob_ml_intro_cover.webp' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>
-                        <a href="https://www.amazon.com/Probabilistic-Machine-Learning-Introduction-Computation/dp/0262046822" target="_blank">
+                        <a href="https://www.amazon.com/Probabilistic-Machine-Learning-Introduction-Computation/dp/0262046822" target="_blank" rel="noopener">
                             Probabilistic Machine Learning: An Introduction
                         </a>
                     </h3>
@@ -254,7 +254,7 @@ redirect_from: /what_im_reading.html
                 <img src="{{ '/assets/images/hundred-page-machine_learning_book_cover.webp' | relative_url }}" alt="Book Cover">
                 <div class="details">
                     <h3>                        
-                        <a href="https://themlbook.com" target="_blank">
+                        <a href="https://themlbook.com" target="_blank" rel="noopener">
                             The Hundred-Page Machine Learning Book
                         </a>
                         </h3>
@@ -272,7 +272,7 @@ redirect_from: /what_im_reading.html
         <div class="paper">
             <img src="{{ '/assets/images/DNABERT.webp' | relative_url }}" alt="DNABERT">
             <div class="details">
-                <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank">DNABERT</a></h3>
+                <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank" rel="noopener">DNABERT</a></h3>
                 <div class="author">Yanrong Ji, Zhihan Zhou, Han Liu, Ramana V Davuluri.</div>
                 <p>Published in 2021, this is the first foundational model trained on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
             </div>
