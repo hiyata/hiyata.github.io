@@ -12,9 +12,9 @@ E("treponema", "Treponema pallidum (Syphilis)", "Spirochetes",
          ("Screening", "Treponemal (FTA-ABS, TP-PA, EIA) - positive for life"),
          ("Monitoring", "Nontreponemal (RPR, VDRL) - titers fall with cure"),
          ("Transmission", "Sexual contact and transplacental")],
-  images=[("chancre.jpg", "Primary chancre: a single painless ulcer with indurated edges and a clean base."),
-          ("syph-palms.jpg", "Secondary syphilis: a copper-colored maculopapular rash involving the palms."),
-          ("congenital-syphilis.jpg", "Congenital syphilis in a newborn.")],
+  images=[("chancre.webp", "Primary chancre: a single painless ulcer with indurated edges and a clean base."),
+          ("syph-palms.webp", "Secondary syphilis: a copper-colored maculopapular rash involving the palms."),
+          ("congenital-syphilis.webp", "Congenital syphilis in a newborn.")],
   sections=[
     S("Stages", [
       H("Primary: a single painless, indurated ulcer (chancre) with a clean base at the inoculation site, 3 weeks after exposure, with painless regional adenopathy. It heals spontaneously, which is why it is so often missed."),
@@ -45,9 +45,9 @@ E("borrelia", "Borrelia (Lyme & Relapsing Fever)", "Spirochetes",
          ("Attachment", "Tick must feed >36-48 h to transmit Lyme"),
          ("Diagnosis", "Erythema migrans is clinical; otherwise two-tier serology"),
          ("Co-infections", "Babesia and Anaplasma share the Ixodes vector")],
-  images=[("em-rash.jpg", "Erythema migrans: an expanding annular lesion with central clearing."),
-          ("ixodes.jpg", "Ixodes scapularis, the deer tick vector."),
-          ("borrelia-smear.jpg", "Borrelia spirochetes on a Giemsa-stained blood film in relapsing fever.")],
+  images=[("em-rash.webp", "Erythema migrans: an expanding annular lesion with central clearing."),
+          ("ixodes.webp", "Ixodes scapularis, the deer tick vector."),
+          ("borrelia-smear.webp", "Borrelia spirochetes on a Giemsa-stained blood film in relapsing fever.")],
   sections=[
     S("Lyme disease stages", [
       H("Early localized (days to a month): erythema migrans, an expanding annular lesion with central clearing at the bite site, often with flu-like symptoms. This is a clinical diagnosis - serology is frequently negative this early because antibody has not yet developed, and treatment should not wait for it."),
@@ -76,7 +76,7 @@ E("leptospira", "Leptospira interrogans", "Spirochetes",
          ("Entry", "Abraded skin or mucous membranes"),
          ("Clue", "Conjunctival suffusion without exudate"),
          ("Severe form", "Weil disease")],
-  images=[("lepto-sem.jpg", "Leptospira: a tightly coiled spirochete with hooked ends.")],
+  images=[("lepto-sem.webp", "Leptospira: a tightly coiled spirochete with hooked ends.")],
   sections=[
     S("Clinical course", [
       H("A biphasic illness. The first (leptospiremic) phase has abrupt high fever, severe myalgia - especially calves - headache, and conjunctival suffusion, which is redness without discharge and is the classic examination clue. After a brief defervescence the immune phase brings meningitis and, in severe cases, organ failure."),
@@ -95,11 +95,11 @@ E("mtb", "Mycobacterium tuberculosis", "Mycobacteria",
          ("Oxygen", "Obligate aerobe - hence the lung apices"),
          ("Growth", "Slow: 3-8 weeks on Lowenstein-Jensen"),
          ("Rapid test", "NAAT with rpoB probes detects rifampin resistance in hours")],
-  images=[("tb-zn.jpg", "Ziehl-Neelsen stain: red beaded acid-fast bacilli."),
-          ("afb-smear.jpg", "Acid-fast bacilli in a concentrated sputum smear."),
-          ("tb-granuloma.jpg", "Caseating granuloma with epithelioid macrophages and Langhans giant cells."),
-          ("miliary-tb.jpg", "Miliary tuberculosis: innumerable small nodules throughout both lungs."),
-          ("mantoux.jpg", "Mantoux tuberculin skin test - induration, not erythema, is measured.")],
+  images=[("tb-zn.webp", "Ziehl-Neelsen stain: red beaded acid-fast bacilli."),
+          ("afb-smear.webp", "Acid-fast bacilli in a concentrated sputum smear."),
+          ("tb-granuloma.webp", "Caseating granuloma with epithelioid macrophages and Langhans giant cells."),
+          ("miliary-tb.webp", "Miliary tuberculosis: innumerable small nodules throughout both lungs."),
+          ("mantoux.webp", "Mantoux tuberculin skin test - induration, not erythema, is measured.")],
   sections=[
     S("Cell wall and virulence", [
       H("Mycolic acids - very long-chain branched fatty acids - make the wall waxy, impermeable, and acid-fast. They also explain the slow growth, the resistance to drying and disinfectants, and the need for multidrug therapy over months."),
@@ -134,7 +134,7 @@ E("ntm", "Nontuberculous Mycobacteria & M. leprae", "Mycobacteria",
          ("M. scrofulaceum", "Cervical lymphadenitis in children - excise"),
          ("M. leprae", "Cannot be cultured; grown in armadillos and mouse footpads"),
          ("Leprosy spectrum", "Tuberculoid = strong Th1; lepromatous = Th2")],
-  images=[("leprosy-ll.jpg", "Lepromatous leprosy with diffuse nodular infiltration.")],
+  images=[("leprosy-ll.webp", "Lepromatous leprosy with diffuse nodular infiltration.")],
   sections=[
     S("MAC and other environmental mycobacteria", [
       H("Disseminated Mycobacterium avium complex occurs when the CD4 count falls below 50, presenting with fever, night sweats, weight loss, diarrhea, anemia, and a raised alkaline phosphatase. Treatment is a macrolide plus ethambutol, with antiretroviral therapy - which can then precipitate IRIS."),
@@ -159,8 +159,8 @@ E("chlamydia", "Chlamydia & Chlamydophila", "Intracellular & Atypical Bacteria",
          ("A-C", "Trachoma (chronic conjunctivitis, blindness)"),
          ("D-K", "Urethritis, cervicitis, PID, neonatal disease"),
          ("L1-L3", "Lymphogranuloma venereum")],
-  images=[("chlamydia-incl.jpg", "Intracytoplasmic chlamydial inclusions in cell culture."),
-          ("trachoma.jpg", "Trachomatous trichiasis: scarring has turned the lashes onto the cornea.")],
+  images=[("chlamydia-incl.webp", "Intracytoplasmic chlamydial inclusions in cell culture."),
+          ("trachoma.webp", "Trachomatous trichiasis: scarring has turned the lashes onto the cornea.")],
   sections=[
     S("Life cycle", [
       H("The elementary body is small, dense, metabolically inert, and infectious; it enters the cell and transforms into the larger reticulate body, which divides by binary fission inside a cytoplasmic inclusion using host ATP. Reticulate bodies then condense back into elementary bodies and are released."),
@@ -184,8 +184,8 @@ E("rickettsia", "Rickettsiae, Ehrlichia, Anaplasma & Coxiella", "Intracellular &
          ("Ehrlichia", "Morulae in monocytes; Amblyomma; southeastern US"),
          ("Anaplasma", "Morulae in granulocytes; Ixodes; northeastern US"),
          ("Coxiella", "Inhaled, no vector, spore-like form, no rash")],
-  images=[("rmsf.jpg", "Rocky Mountain spotted fever: petechial rash on the palm."),
-          ("ehrlichia.jpg", "Morulae - clusters of organisms - within a leukocyte.")],
+  images=[("rmsf.webp", "Rocky Mountain spotted fever: petechial rash on the palm."),
+          ("ehrlichia.webp", "Morulae - clusters of organisms - within a leukocyte.")],
   sections=[
     S("Rickettsia", [
       H("Rocky Mountain spotted fever (R. rickettsii, Dermacentor tick) begins with fever and severe headache, then a rash that starts on the wrists and ankles and spreads centrally, involving palms and soles. Despite the name it is most common in the southeastern and south-central United States."),
@@ -231,8 +231,8 @@ E("other-bacteria", "Gardnerella, Tropheryma & Other Bacteria", "Intracellular &
   quick=[("BV", "pH >4.5, clue cells, positive whiff test, thin gray discharge"),
          ("Whipple", "PAS-positive foamy macrophages in lamina propria"),
          ("HACEK", "Haemophilus, Aggregatibacter, Cardiobacterium, Eikenella, Kingella")],
-  images=[("clue-cells.jpg", "Clue cells: epithelial cells so coated with bacteria that their borders are obscured."),
-          ("whipple.jpg", "Whipple disease: PAS-positive foamy macrophages distending intestinal villi.")],
+  images=[("clue-cells.webp", "Clue cells: epithelial cells so coated with bacteria that their borders are obscured."),
+          ("whipple.webp", "Whipple disease: PAS-positive foamy macrophages distending intestinal villi.")],
   sections=[
     S("Bacterial vaginosis", [
       H("Not an infection so much as a shift in flora: loss of hydrogen peroxide-producing lactobacilli lets Gardnerella and anaerobes overgrow. Diagnosis uses Amsel criteria - thin gray homogeneous discharge, vaginal pH above 4.5, clue cells on wet mount, and a positive whiff (amine) test when KOH is added."),

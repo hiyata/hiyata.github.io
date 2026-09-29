@@ -8,7 +8,7 @@ from qcore import F
 R = {
 # ---------------- bacterial structure & genetics ----------------
 "Gram-positive cell wall": dict(
-  fig=F("fig-gram-wall.jpg",
+  fig=F("fig-gram-wall.webp",
         "Envelope layers. Top, Gram-negative: (1) inner membrane, (2) thin peptidoglycan, (3) outer membrane, with lipoprotein (6), porin (7), lipoteichoic-type anchor (8), and a transport channel (9). Bottom, Gram-positive: (1) a single membrane under a thick multilayer peptidoglycan wall (2) threaded by teichoic acids (green, 5) and lipoteichoic acid (4)."),
   steps=["Gram-positive cells have one membrane and a thick peptidoglycan wall, so the crystal violet-iodine complex is trapped when alcohol is applied, and the cell stays purple.",
          "Teichoic and lipoteichoic acids run through that thick wall; they are the molecules that signal through TLR2 and drive cytokine release.",
@@ -17,7 +17,7 @@ R = {
          "The same outer membrane carries LPS and porins, which explains endotoxin and several antibiotic-resistance mechanisms."]),
 
 "Endotoxin": dict(
-  fig=F("fig-lps.jpg",
+  fig=F("fig-lps.webp",
         "Lipopolysaccharide, drawn from the membrane outward: lipid A anchored in the outer leaflet, then inner and outer core sugars, then the long repeating O antigen."),
   steps=["Lipid A is the innermost part, embedded in the outer membrane, and it is the toxic portion of the molecule.",
          "When bacteria are lysed or divide, LPS is shed and lipid A is delivered to host cells by LPS-binding protein.",
@@ -27,7 +27,7 @@ R = {
          "The outer O antigen is highly variable and is what serotyping detects; it is not the toxic part."]),
 
 "Conjugation": dict(
-  fig=F("fig-conjugation.jpg",
+  fig=F("fig-conjugation.webp",
         "Bacterial conjugation. (1) The F-plasmid-bearing donor extends a pilus; (2) the pilus contacts the recipient and retracts, pulling the cells together; (3) the relaxosome nicks the plasmid and one strand is transferred while DNA polymerase copies it; (4) both cells now carry the plasmid and can act as donors."),
   steps=["The donor cell carries the F (fertility) plasmid and uses it to build a sex pilus.",
          "The pilus attaches to a recipient and retracts, bringing the two cells into direct contact.",
@@ -38,7 +38,7 @@ R = {
 
 # ---------------- antibiotics ----------------
 "Protein synthesis: subunit targets": dict(
-  fig=F("fig-abx-targets.jpg",
+  fig=F("fig-abx-targets.webp",
         "Antibiotic classes grouped by the bacterial structure each one attacks: cell wall synthesis, cell membrane, DNA gyrase, RNA synthesis, folate synthesis, and the ribosome."),
   steps=["Locate the ribosome in the diagram: protein synthesis inhibitors act here, and they split by subunit.",
          "The 30S subunit is the target of aminoglycosides (misreading, blocked initiation) and tetracyclines (blocked aminoacyl-tRNA entry).",
@@ -47,7 +47,7 @@ R = {
          "Every other arrow in the figure marks a different target class, which is why combination regimens can attack several pathways at once."]),
 
 "Penicillins: mechanism": dict(
-  fig=F("fig-abx-targets.jpg",
+  fig=F("fig-abx-targets.webp",
         "Antibiotic targets in a bacterial cell. Beta-lactams sit in the 'cell wall synthesis inhibitors' group at the top left, alongside glycopeptides such as vancomycin."),
   steps=["Peptidoglycan is built from repeating sugar chains cross-linked through short peptide stems ending in D-Ala-D-Ala.",
          "Transpeptidases, also called penicillin-binding proteins, form those cross-links and give the wall its strength.",
@@ -67,7 +67,7 @@ R = {
 
 # ---------------- viruses ----------------
 "HIV: entry & CCR5": dict(
-  fig=F("fig-hiv-cycle.jpg",
+  fig=F("fig-hiv-cycle.webp",
         "HIV replication cycle: gp120 attaches to CD4 and a co-receptor, gp41 drives fusion, reverse transcriptase copies RNA into DNA, integrase inserts it into host DNA, and protease cleaves the polyprotein during assembly and release."),
   steps=["gp120 binds CD4 on the target cell, which changes its shape and exposes the co-receptor binding site.",
          "gp120 then binds a chemokine co-receptor: CCR5 on macrophages and memory T cells early in infection, or CXCR4 later.",
@@ -78,7 +78,7 @@ R = {
          "Each step is a drug target, which is why a CCR5-Delta32 deletion blocks entry of R5 strains entirely."]),
 
 "HIV: genes & proteins": dict(
-  fig=F("fig-hiv-cycle.jpg",
+  fig=F("fig-hiv-cycle.webp",
         "The labelled virion at the upper left shows the products of the three structural genes: env makes gp120 and gp41, gag makes the capsid and matrix, and pol makes reverse transcriptase, integrase, and protease."),
   steps=["env encodes gp160, which host protease cuts into gp120 (attachment) and gp41 (fusion).",
          "gag encodes the structural core: p24 capsid, p17 matrix, and nucleocapsid proteins.",
@@ -87,7 +87,7 @@ R = {
          "p24 is the antigen detected by 4th-generation screening assays before antibodies appear."]),
 
 "Influenza: antigenic shift": dict(
-  fig=F("fig-flu-shift.jpg",
+  fig=F("fig-flu-shift.webp",
         "Antigenic shift by reassortment: a cell co-infected with an avian strain and a human strain packages a mixture of the eight genome segments, producing a new strain with avian surface proteins and human-adapted internal genes."),
   steps=["Influenza A has a segmented genome of eight separate RNA pieces.",
          "If two different strains infect the same cell, usually in pigs or birds, the segments mix freely during packaging.",
@@ -97,7 +97,7 @@ R = {
          "Only segmented viruses can reassort, which is why shift happens with influenza but not with measles or rabies."]),
 
 "Herpesvirus structure": dict(
-  fig=F("fig-hsv-latency.jpg",
+  fig=F("fig-hsv-latency.webp",
         "HSV-1 replication: the virion binds and enters, the nucleocapsid travels to the nucleus and injects its DNA, and genes are transcribed in ordered waves - immediate-early (alpha), early (beta), then late (gamma) - before assembly and nuclear budding."),
   steps=["The enveloped virion attaches to the cell surface and fuses, releasing the nucleocapsid into the cytoplasm.",
          "The capsid is carried to a nuclear pore and injects its linear double-stranded DNA into the nucleus.",
@@ -109,7 +109,7 @@ R = {
 
 # ---------------- mycobacteria ----------------
 "TB: granuloma immunology": dict(
-  fig=F("fig-tb-latency.jpg",
+  fig=F("fig-tb-latency.webp",
         "Tuberculosis after inhalation: bacilli reach the alveoli, dendritic cells carry antigen to lymph nodes and activate T cells, and the granuloma that forms either clears the organism, contains it as latent infection, or breaks down into active, transmissible disease."),
   steps=["Droplet nuclei are inhaled and reach the alveoli, where macrophages take up the bacilli.",
          "M. tuberculosis blocks phagolysosome fusion and survives inside the macrophage.",
@@ -120,7 +120,7 @@ R = {
          "Blocking TNF with infliximab or adalimumab dismantles that structure, which is why latent TB is screened for and treated before these drugs are started."]),
 
 "TB: primary vs reactivation": dict(
-  fig=F("fig-tb-latency.jpg",
+  fig=F("fig-tb-latency.webp",
         "The three outcomes after infection: elimination with recovery, a stable granuloma holding latent infection, or breakdown of the granuloma into active tuberculosis that can be transmitted again."),
   steps=["Inhaled bacilli land in the well-ventilated lower and middle lung zones, forming the Ghon focus.",
          "Bacilli drain to hilar nodes; focus plus node make the Ghon complex, which usually calcifies.",
@@ -131,7 +131,7 @@ R = {
 
 # ---------------- protozoa ----------------
 "Malaria: life cycle": dict(
-  fig=F("fig-malaria-cycle.jpg",
+  fig=F("fig-malaria-cycle.webp",
         "Plasmodium life cycle: the mosquito injects sporozoites that infect liver cells, merozoites are released into the blood and cycle through red cells, and gametocytes taken up in a blood meal complete sexual development in the mosquito."),
   steps=["A female Anopheles mosquito bites and injects sporozoites from its salivary glands.",
          "Sporozoites travel in the blood to the liver and infect hepatocytes, multiplying silently for 1-2 weeks.",
@@ -142,7 +142,7 @@ R = {
          "This is why blood-stage drugs clear symptoms but only primaquine or tafenoquine kills hypnozoites and prevents relapse."]),
 
 "Toxoplasma: congenital": dict(
-  fig=F("fig-toxo-cycle.jpg",
+  fig=F("fig-toxo-cycle.webp",
         "Toxoplasma gondii: cats shed oocysts in feces, and humans are infected by swallowing oocysts or by eating tissue cysts in undercooked meat. Tachyzoites spread through tissues, then convert to slow bradyzoite cysts in brain and muscle."),
   steps=["Cats are the definitive host, the only animal in which the sexual cycle completes, and they shed oocysts in feces.",
          "Humans are infected two ways: swallowing oocysts from cat litter, soil, or unwashed produce, or eating tissue cysts in undercooked meat.",
@@ -153,7 +153,7 @@ R = {
          "If cell-mediated immunity later fails, as at CD4 counts under 100, those cysts reactivate and cause ring-enhancing brain lesions."]),
 
 "Chagas disease": dict(
-  fig=F("fig-tcruzi-cycle.jpg",
+  fig=F("fig-tcruzi-cycle.webp",
         "Trypanosoma cruzi: the reduviid bug deposits infected feces while feeding, trypomastigotes enter through the wound or conjunctiva, become intracellular amastigotes that multiply and burst the cell, and circulating trypomastigotes are taken up at the next blood meal."),
   steps=["A triatomine ('kissing') bug feeds at night, typically near the face, and defecates on the skin.",
          "Scratching rubs infected feces into the bite wound or the conjunctiva - not the bite itself.",
@@ -164,7 +164,7 @@ R = {
          "Benznidazole or nifurtimox helps in acute and early infection but cannot reverse established organ damage."]),
 
 "Visceral leishmaniasis": dict(
-  fig=F("fig-leish-cycle.jpg",
+  fig=F("fig-leish-cycle.webp",
         "Leishmania: a sandfly injects promastigotes, macrophages take them up, and inside the macrophage they become amastigotes that multiply until the cell ruptures. Another sandfly bite returns the parasite to the insect."),
   steps=["A female sandfly bites and injects promastigotes into the skin.",
          "Macrophages phagocytose them, but the parasite survives inside the phagolysosome.",
@@ -175,7 +175,7 @@ R = {
          "The kinetoplast is the feature that distinguishes amastigotes from Histoplasma yeasts, which also sit inside macrophages."]),
 
 "Giardia": dict(
-  fig=F("fig-giardia-cycle.jpg",
+  fig=F("fig-giardia-cycle.webp",
         "Giardia: chlorine-resistant cysts are swallowed in contaminated water, excyst in the small intestine into trophozoites that attach to the duodenal wall, and new cysts are passed in stool."),
   steps=["Cysts are swallowed in untreated stream water, or passed person to person in daycare settings.",
          "The cyst wall resists chlorination, which is why filtration or boiling is required.",
@@ -186,7 +186,7 @@ R = {
          "Secretory IgA normally limits attachment, so IgA deficiency and hypogammaglobulinemia cause chronic infection."]),
 
 "Entamoeba histolytica": dict(
-  fig=F("fig-entamoeba-cycle.jpg",
+  fig=F("fig-entamoeba-cycle.webp",
         "Entamoeba histolytica: cysts are swallowed, excyst in the intestine, and trophozoites either live in the lumen or invade the colonic wall, from which they can travel by the portal vein to the liver."),
   steps=["Cysts are ingested from fecally contaminated food or water.",
          "Excystation in the small intestine releases trophozoites that colonize the colon.",
@@ -197,7 +197,7 @@ R = {
          "Treatment needs two drugs: metronidazole for invasive tissue forms, then paromomycin to clear luminal cysts."]),
 
 "Babesia": dict(
-  fig=F("fig-babesia-cycle.jpg",
+  fig=F("fig-babesia-cycle.webp",
         "Babesia microti: the Ixodes tick injects sporozoites that invade red blood cells directly, where they divide and sometimes form the tetrad 'Maltese cross'. There is no liver stage."),
   steps=["An Ixodes tick, usually a nymph, injects sporozoites while feeding.",
          "Unlike malaria, the parasite goes straight into red blood cells with no liver phase.",
@@ -209,7 +209,7 @@ R = {
 
 # ---------------- helminths ----------------
 "Enterobius": dict(
-  fig=F("fig-pinworm-cycle.jpg",
+  fig=F("fig-pinworm-cycle.webp",
         "Enterobius vermicularis: (1) eggs on perianal skin are swallowed, (2) larvae hatch in the small intestine, (3-5) adults mature in the colon, and gravid females migrate at night to lay eggs on the perianal skin. 'i' marks the infective stage and 'd' the diagnostic stage."),
   steps=["Eggs are swallowed from contaminated fingers, bedding, or clothing.",
          "Larvae hatch in the small intestine and mature into adults in the colon.",
@@ -220,7 +220,7 @@ R = {
          "Treatment is albendazole, mebendazole, or pyrantel for the whole household, repeated at two weeks to kill worms that hatched after the first dose."]),
 
 "Ascaris": dict(
-  fig=F("fig-ascaris-cycle.jpg",
+  fig=F("fig-ascaris-cycle.webp",
         "Ascaris lumbricoides: swallowed eggs hatch in the intestine, larvae cross into the bloodstream and travel through the lungs, are coughed up and swallowed, then mature into adults in the small intestine."),
   steps=["Eggs are swallowed from soil or produce contaminated with human feces.",
          "Larvae hatch in the small intestine and penetrate the gut wall into the portal circulation.",
@@ -231,7 +231,7 @@ R = {
          "Treat with albendazole or mebendazole; the lung phase explains why symptoms can precede any stool findings."]),
 
 "Hookworm": dict(
-  fig=F("fig-hookworm-cycle.jpg",
+  fig=F("fig-hookworm-cycle.webp",
         "Hookworm: filariform larvae in soil penetrate skin, travel through the bloodstream to the lungs, are coughed up and swallowed, and attach to the small intestinal mucosa where they feed on blood."),
   steps=["Filariform larvae in warm, moist soil penetrate bare skin, typically on the feet, causing local itching known as ground itch.",
          "Larvae enter the bloodstream and are carried to the lungs.",
@@ -242,7 +242,7 @@ R = {
          "Treatment is albendazole or mebendazole plus iron replacement; dog and cat hookworms instead cause creeping cutaneous larva migrans."]),
 
 "Strongyloides: hyperinfection": dict(
-  fig=F("fig-strongy-cycle.jpg",
+  fig=F("fig-strongy-cycle.webp",
         "Strongyloides stercoralis: skin-penetrating larvae migrate through lungs to the gut, and unlike other nematodes, larvae can mature inside the host and reinvade through the bowel wall or perianal skin - autoinfection."),
   steps=["Filariform larvae penetrate skin, travel through the lungs, and mature in the duodenum.",
          "Females lay eggs that hatch in the gut into rhabditiform larvae, which normally pass in stool.",
@@ -253,7 +253,7 @@ R = {
          "This is why patients from endemic areas are screened with serology and treated with ivermectin before starting steroids."]),
 
 "Taenia solium: transmission": dict(
-  fig=F("fig-taenia-cycle.jpg",
+  fig=F("fig-taenia-cycle.webp",
         "Taenia solium has two routes. Eating undercooked pork containing cysticerci gives an intestinal tapeworm; swallowing eggs shed in human feces gives cysticercosis, with larvae encysting in tissue including brain."),
   steps=["Pigs eat eggs from human feces, and larvae encyst in pig muscle as cysticerci.",
          "A person who eats undercooked pork swallows those cysticerci; each becomes an adult tapeworm in the intestine (taeniasis), which is usually mild.",
@@ -264,7 +264,7 @@ R = {
          "This is why a strict vegetarian can develop neurocysticercosis from a household tapeworm carrier, while pork itself only causes the intestinal worm."]),
 
 "Echinococcus": dict(
-  fig=F("fig-echino-cycle.jpg",
+  fig=F("fig-echino-cycle.webp",
         "Echinococcus granulosus: dogs are the definitive host and shed eggs, sheep are the usual intermediate host, and a human who swallows eggs becomes an accidental intermediate host in whom hydatid cysts grow in liver and lung."),
   steps=["Adult worms live in the intestine of dogs and other canids, which shed eggs in feces.",
          "Sheep and other livestock swallow the eggs and develop cysts; dogs are infected by eating that offal, completing the natural cycle.",
@@ -275,7 +275,7 @@ R = {
          "Treatment is albendazole with careful surgery or the PAIR technique: puncture, aspirate, inject a scolicidal agent, then re-aspirate."]),
 
 "Schistosoma mansoni": dict(
-  fig=F("fig-schisto-cycle.jpg",
+  fig=F("fig-schisto-cycle.webp",
         "Schistosoma: eggs passed in stool or urine hatch in fresh water, infect snails, and release cercariae that penetrate human skin. Adults pair in the venous plexus, and it is the trapped eggs that cause disease."),
   steps=["Eggs leave the body in stool (S. mansoni, S. japonicum) or urine (S. haematobium) and hatch in fresh water.",
          "Miracidia infect freshwater snails, the intermediate host, and multiply.",
@@ -287,7 +287,7 @@ R = {
 
 # ---------------- ticks ----------------
 "Lyme disease: tick & co-infection": dict(
-  fig=F("fig-tick-cycle.jpg",
+  fig=F("fig-tick-cycle.webp",
         "The two-year Ixodes scapularis cycle: larvae feed on mice (acquiring Borrelia), moult to nymphs that feed the following spring and summer, and adults feed on deer in the fall. Nymphs transmit most human infections."),
   steps=["Adult ticks feed and mate on deer in the fall; deer maintain the tick population but do not carry Borrelia.",
          "Eggs are laid in spring and hatch into larvae, which take a single blood meal from small mammals.",

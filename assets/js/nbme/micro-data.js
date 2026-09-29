@@ -4,1127 +4,1127 @@ window.NBME_MICRO_DATA = {
   "imageBase": "/assets/images/nbme/micro/",
   "imageCredits": [
     {
-      "file": "actino-histo.jpg",
+      "file": "actino-histo.webp",
       "artist": "Yale Rosen",
       "lic": "CC BY-SA 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Actinomycosis_1.jpg",
       "title": "File:Actinomycosis 1.jpg"
     },
     {
-      "file": "actinomyces.jpg",
+      "file": "actinomyces.webp",
       "artist": "Nephron",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Actinomyces_-_high_mag.jpg",
       "title": "File:Actinomyces - high mag.jpg"
     },
     {
-      "file": "afb-smear.jpg",
+      "file": "afb-smear.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Acid_fast_bacilli_(AFB)_positive_smear_of_sputum.jpg",
       "title": "File:Acid fast bacilli (AFB) positive smear of sputum.jpg"
     },
     {
-      "file": "alpha-hemolysis.jpg",
+      "file": "alpha-hemolysis.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Alpha-hemolysis_on_blood_agar_of_Viridans_streptococci.jpg",
       "title": "File:Alpha-hemolysis on blood agar of Viridans streptococci.jpg"
     },
     {
-      "file": "anthrax-eschar.jpg",
+      "file": "anthrax-eschar.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Cutaneous_anthrax_lesion_on_the_neck._PHIL_1934_lores.jpg",
       "title": "File:Cutaneous anthrax lesion on the neck. PHIL 1934 lores.jpg"
     },
     {
-      "file": "anthrax-gram.jpg",
+      "file": "anthrax-gram.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Bacillus_anthracis_Gram.jpg",
       "title": "File:Bacillus anthracis Gram.jpg"
     },
     {
-      "file": "ascaris.jpg",
+      "file": "ascaris.webp",
       "artist": "CDC/ Dr. Mae Melvin",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Fertilized_egg_of_Ascaris_lumbricoides_PHIL_410_lores.jpg",
       "title": "File:Fertilized egg of Ascaris lumbricoides PHIL 410 lores.jpg"
     },
     {
-      "file": "aspergillus.jpg",
+      "file": "aspergillus.webp",
       "artist": "Wellcome Collection",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Histopathology_of_pulmonary_aspergillosis.jpg",
       "title": "File:Histopathology of pulmonary aspergillosis.jpg"
     },
     {
-      "file": "babesia.jpg",
+      "file": "babesia.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn; Laboratory &amp; Consulta",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Babiesa_spp.jpg",
       "title": "File:Babiesa spp.jpg"
     },
     {
-      "file": "beta-hemolysis.jpg",
+      "file": "beta-hemolysis.webp",
       "artist": "HansN.",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Beta_hemolysis_on_blood_agar.jpg",
       "title": "File:Beta hemolysis on blood agar.jpg"
     },
     {
-      "file": "blasto.jpg",
+      "file": "blasto.webp",
       "artist": "Medmyco (talk) (Uploads)",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Blastomyces_dermatitidis_GMS.jpeg",
       "title": "File:Blastomyces dermatitidis GMS.jpeg"
     },
     {
-      "file": "blueberry.jpg",
+      "file": "blueberry.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Infant_with_skin_lesions_from_congenital_rubella.jpg",
       "title": "File:Infant with skin lesions from congenital rubella.jpg"
     },
     {
-      "file": "borrelia-smear.jpg",
+      "file": "borrelia-smear.webp",
       "artist": "Schwan TG, Policastro PF, Miller Z, Thompson RL, Damrow T, Keirans JE",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:PMC3016790_03-0280-F1.png",
       "title": "File:PMC3016790 03-0280-F1.png"
     },
     {
-      "file": "bpertussis.jpg",
+      "file": "bpertussis.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Bordetella_pertussis_6379_lores.jpg",
       "title": "File:Bordetella pertussis 6379 lores.jpg"
     },
     {
-      "file": "bubo.jpg",
+      "file": "bubo.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Plague_-buboes.jpg",
       "title": "File:Plague -buboes.jpg"
     },
     {
-      "file": "bullous-impetigo.jpg",
+      "file": "bullous-impetigo.webp",
       "artist": "Littlekidsdoc",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Bullous_impetigo.jpg",
       "title": "File:Bullous impetigo.jpg"
     },
     {
-      "file": "camp-test.jpg",
+      "file": "camp-test.webp",
       "artist": "Stefan Walkowski",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Positive_CAMP_test.jpg",
       "title": "File:Positive CAMP test.jpg"
     },
     {
-      "file": "campy-sem.jpg",
+      "file": "campy-sem.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Campylobacter_jejuni_5778_lores.jpg",
       "title": "File:Campylobacter jejuni 5778 lores.jpg"
     },
     {
-      "file": "candida-gram.jpg",
+      "file": "candida-gram.webp",
       "artist": "Microrao",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Candida_with_pseudohyphae.jpg",
       "title": "File:Candida with pseudohyphae.jpg"
     },
     {
-      "file": "catscratch.jpg",
+      "file": "catscratch.webp",
       "artist": "CDC/ Dr. Thomas F. Sellers; Emory University",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Cat-scratch_disease_lesion.jpg",
       "title": "File:Cat-scratch disease lesion.jpg"
     },
     {
-      "file": "cdiphtheriae-gram.jpg",
+      "file": "cdiphtheriae-gram.webp",
       "artist": "Photo Credit:\nContent Providers(s):",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Corynebacterium_diphtheriae_Gram_stain.jpg",
       "title": "File:Corynebacterium diphtheriae Gram stain.jpg"
     },
     {
-      "file": "chancre.jpg",
+      "file": "chancre.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Extragenital_syphilitic_chancre_of_the_left_index_finger_PHIL_4147_lores.jpg",
       "title": "File:Extragenital syphilitic chancre of the left index finger PHIL 4147 lores.jpg"
     },
     {
-      "file": "chlamydia-incl.jpg",
+      "file": "chlamydia-incl.webp",
       "artist": "User Marcus007 on de.wikipedia",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:ChlamydiaTrachomatisEinschlussk%C3%B6rperchen.jpg",
       "title": "File:ChlamydiaTrachomatisEinschlusskörperchen.jpg"
     },
     {
-      "file": "clonorchis-egg.jpg",
+      "file": "clonorchis-egg.webp",
       "artist": "Photo Credit: Content Providers(s): CDC/Dr. Mae Melvin",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Clonorchis_sinensis_egg_06G0049_jpg_lores.jpg",
       "title": "File:Clonorchis sinensis egg 06G0049 jpg lores.jpg"
     },
     {
-      "file": "clue-cells.jpg",
+      "file": "clue-cells.webp",
       "artist": "CDC/ M. Rein",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Clue_cells_-_CDC_PHIL_3720.jpg",
       "title": "File:Clue cells - CDC PHIL 3720.jpg"
     },
     {
-      "file": "cmv-owl.jpg",
+      "file": "cmv-owl.webp",
       "artist": "Jensflorian",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:CMV_encephalitis_owl_eye_inclusions_HE_stain.jpg",
       "title": "File:CMV encephalitis owl eye inclusions HE stain.jpg"
     },
     {
-      "file": "coagulase.jpg",
+      "file": "coagulase.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Tube_coagulase_test_of_Staphylococcus_aureus_-Positive_and_negative_Demonstration.jpg",
       "title": "File:Tube coagulase test of Staphylococcus aureus -Positive and negative Demonstration.jpg"
     },
     {
-      "file": "cocci-spherule.jpg",
+      "file": "cocci-spherule.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Spherule_and_endospore_forms_of_Coccidioides_immitis_01ee057_lores.jpg",
       "title": "File:Spherule and endospore forms of Coccidioides immitis 01ee057 lores.jpg"
     },
     {
-      "file": "congenital-syphilis.jpg",
+      "file": "congenital-syphilis.webp",
       "artist": "National Museum of Health and Medicine",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Infant_with_congenital_syphilis_(Reeve_031272),_National_Museum_of_Health_and_Medicine_(5468825189).jpg",
       "title": "File:Infant with congenital syphilis (Reeve 031272), National Museum of Health and Medicine (5468825189).jpg"
     },
     {
-      "file": "cperf-gram.jpg",
+      "file": "cperf-gram.webp",
       "artist": "Content Providers(s):\tCDC/Don Stalons",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Clostridium_perfringens.jpg",
       "title": "File:Clostridium perfringens.jpg"
     },
     {
-      "file": "crypto-af.jpg",
+      "file": "crypto-af.webp",
       "artist": "CDC - DPDx - Laboratory Identification of Parasites of Public Health Concern",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Oocists_de_Cryptosporidium_parvum_2.jpg",
       "title": "File:Oocists de Cryptosporidium parvum 2.jpg"
     },
     {
-      "file": "crypto-ink.jpg",
+      "file": "crypto-ink.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Leanor Haley",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Cryptococcus_neoformans_using_a_light_India_ink_staining_preparation_PHIL_3771_lores.jpg",
       "title": "File:Cryptococcus neoformans using a light India ink staining preparation PHIL 3771 lores.jpg"
     },
     {
-      "file": "crypto-mucicarmine.jpg",
+      "file": "crypto-mucicarmine.webp",
       "artist": "Photo Credit: Content Providers(s): CDC/ Dr. Edwin P. Ewing, Jr.",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Cryptococcosis_of_lung_in_patient_with_AIDS._Mucicarmine_stain_962_lores.jpg",
       "title": "File:Cryptococcosis of lung in patient with AIDS. Mucicarmine stain 962 lores.jpg"
     },
     {
-      "file": "diphtheria-membrane.jpg",
+      "file": "diphtheria-membrane.webp",
       "artist": "User:Dileepunnikri",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Dirty_white_pseudomembrane_classically_seen_in_diphtheria_2013-07-06_11-07.jpg",
       "title": "File:Dirty white pseudomembrane classically seen in diphtheria 2013-07-06 11-07.jpg"
     },
     {
-      "file": "dlatum.jpg",
+      "file": "dlatum.webp",
       "artist": "Stefan Walkowski",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Diphyllobothrium_latum_egg.jpg",
       "title": "File:Diphyllobothrium latum egg.jpg"
     },
     {
-      "file": "ebola-em.jpg",
+      "file": "ebola-em.webp",
       "artist": "Photo Credit: Dr. Frederick Murphy Content Providers(s): CDC/ Dr. Frederick A. Murphy",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
       "title": "File:Ebola virus em.jpg"
     },
     {
-      "file": "ecoli-emb.jpg",
+      "file": "ecoli-emb.webp",
       "artist": "Eunice Laurent",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:E_coli_on_EMB_plate.jpg",
       "title": "File:E coli on EMB plate.jpg"
     },
     {
-      "file": "ehrlichia.jpg",
+      "file": "ehrlichia.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Echaff.jpg",
       "title": "File:Echaff.jpg"
     },
     {
-      "file": "elephantiasis.jpg",
+      "file": "elephantiasis.webp",
       "artist": "Photo Credit:\nContent Providers: CDC/",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Elephantiasis.jpg",
       "title": "File:Elephantiasis.jpg"
     },
     {
-      "file": "em-rash.jpg",
+      "file": "em-rash.webp",
       "artist": "Photo Credit: James Gathany\nContent Providers(s): CDC/ James Gathany",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Erythema_migrans_-_erythematous_rash_in_Lyme_disease_-_PHIL_9875.jpg",
       "title": "File:Erythema migrans - erythematous rash in Lyme disease - PHIL 9875.jpg"
     },
     {
-      "file": "entamoeba.jpg",
+      "file": "entamoeba.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Trophozoites_of_Entamoeba_histolytica_with_ingested_erythrocytes.JPG",
       "title": "File:Trophozoites of Entamoeba histolytica with ingested erythrocytes.JPG"
     },
     {
-      "file": "enterobius.jpg",
+      "file": "enterobius.webp",
       "artist": "J3D3",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_art2t.jpg",
       "title": "File:Enterobius vermicularis art2t.jpg"
     },
     {
-      "file": "epiglottitis.jpg",
+      "file": "epiglottitis.webp",
       "artist": "Med Chaos",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Epiglottitis.jpg",
       "title": "File:Epiglottitis.jpg"
     },
     {
-      "file": "erysipelas.jpg",
+      "file": "erysipelas.webp",
       "artist": "CDC/Dr. Thomas F. Sellers/Emory University",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Facial_erysipelas.jpg",
       "title": "File:Facial erysipelas.jpg"
     },
     {
-      "file": "fifth.jpg",
+      "file": "fifth.webp",
       "artist": "Fifth_disease.jpg: Andrew Kerr\nderivative work: Berita",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Fifth_disease_cropped.jpg",
       "title": "File:Fifth disease cropped.jpg"
     },
     {
-      "file": "fig-abx-targets.jpg",
+      "file": "fig-abx-targets.webp",
       "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png",
       "title": "File:How do different antibiotics work?.png"
     },
     {
-      "file": "fig-ascaris-cycle.jpg",
+      "file": "fig-ascaris-cycle.webp",
       "artist": "Centers for Disease Control and Prevention",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Ascaris_lumbricoides_life_cycle.png",
       "title": "File:Ascaris lumbricoides life cycle.png"
     },
     {
-      "file": "fig-babesia-cycle.jpg",
+      "file": "fig-babesia-cycle.webp",
       "artist": "LadyofHats Mariana Ruiz Villarreal",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Babesia_microti_life_cycle_en.svg",
       "title": "File:Babesia microti life cycle en.svg"
     },
     {
-      "file": "fig-clonorchis-cycle.jpg",
+      "file": "fig-clonorchis-cycle.webp",
       "artist": "Unknown",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Clonorchis_sinensis_LifeCycle.png",
       "title": "File:Clonorchis sinensis LifeCycle.png"
     },
     {
-      "file": "fig-conjugation.jpg",
+      "file": "fig-conjugation.webp",
       "artist": "Adenosine",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Conjugation.svg",
       "title": "File:Conjugation.svg"
     },
     {
-      "file": "fig-echino-cycle.jpg",
+      "file": "fig-echino-cycle.webp",
       "artist": "Original:  CDC Vector:  Pixelsquid🎱",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Echinococcus_Life_Cycle.svg",
       "title": "File:Echinococcus Life Cycle.svg"
     },
     {
-      "file": "fig-entamoeba-cycle.jpg",
+      "file": "fig-entamoeba-cycle.webp",
       "artist": "Mariana Ruiz Villarreal LadyofHats",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Entamoeba_histolytica_life_cycle-en.svg",
       "title": "File:Entamoeba histolytica life cycle-en.svg"
     },
     {
-      "file": "fig-flu-shift.jpg",
+      "file": "fig-flu-shift.webp",
       "artist": "Dhorspool at en.wikipedia",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Influenza_geneticshift.jpg",
       "title": "File:Influenza geneticshift.jpg"
     },
     {
-      "file": "fig-giardia-cycle.jpg",
+      "file": "fig-giardia-cycle.webp",
       "artist": "LadyofHats",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Giardia_life_cycle_en.svg",
       "title": "File:Giardia life cycle en.svg"
     },
     {
-      "file": "fig-gram-wall.jpg",
+      "file": "fig-gram-wall.webp",
       "artist": "Franciscosp2",
       "lic": "CC BY 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Bacteria_cell_wall.svg",
       "title": "File:Bacteria cell wall.svg"
     },
     {
-      "file": "fig-hiv-cycle.jpg",
+      "file": "fig-hiv-cycle.webp",
       "artist": "Jmarchn",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg",
       "title": "File:HIV-replication-cycle-en.svg"
     },
     {
-      "file": "fig-hookworm-cycle.jpg",
+      "file": "fig-hookworm-cycle.webp",
       "artist": "The original uploader was Sonett72 at English Wikipedia.",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Hookworm_LifeCycle.gif",
       "title": "File:Hookworm LifeCycle.gif"
     },
     {
-      "file": "fig-hsv-latency.jpg",
+      "file": "fig-hsv-latency.webp",
       "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
       "lic": "CC BY 2.5",
       "page": "https://commons.wikimedia.org/wiki/File:12035_2012_8320_Fig2_HTML.webp",
       "title": "File:12035 2012 8320 Fig2 HTML.webp"
     },
     {
-      "file": "fig-leish-cycle.jpg",
+      "file": "fig-leish-cycle.webp",
       "artist": "LadyofHats Mariana Ruiz Villarreal",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Leishmaniasis_life_cycle_diagram_en.svg",
       "title": "File:Leishmaniasis life cycle diagram en.svg"
     },
     {
-      "file": "fig-lps.jpg",
+      "file": "fig-lps.webp",
       "artist": "Mike Jones",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:LPS.svg",
       "title": "File:LPS.svg"
     },
     {
-      "file": "fig-malaria-cycle.jpg",
+      "file": "fig-malaria-cycle.webp",
       "artist": "national Institute of Allergy and Infectious Diseases",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg",
       "title": "File:Malaria parasite life cycle-NIAID.jpg"
     },
     {
-      "file": "fig-pinworm-cycle.jpg",
+      "file": "fig-pinworm-cycle.webp",
       "artist": "Derivative work by André Koehne",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_LifeCycle_B.svg",
       "title": "File:Enterobius vermicularis LifeCycle B.svg"
     },
     {
-      "file": "fig-schisto-cycle.jpg",
+      "file": "fig-schisto-cycle.webp",
       "artist": "CDC",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_life_cycle.svg",
       "title": "File:Schistosoma life cycle.svg"
     },
     {
-      "file": "fig-strongy-cycle.jpg",
+      "file": "fig-strongy-cycle.webp",
       "artist": "CDC DPDx courtesy of CDC's Division of Parasitic Diseases and Malaria (DPDM)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_Storcoralis_Lifecycle_Diagram.jpg",
       "title": "File:Strongyloides Storcoralis Lifecycle Diagram.jpg"
     },
     {
-      "file": "fig-taenia-cycle.jpg",
+      "file": "fig-taenia-cycle.webp",
       "artist": "DPDx is an educational resource designed for health professionals and laboratory",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_Life_cycle_(01).jpg",
       "title": "File:Taenia solium Life cycle (01).jpg"
     },
     {
-      "file": "fig-tb-latency.jpg",
+      "file": "fig-tb-latency.webp",
       "artist": "Wenping Gong and Xueqiong Wu",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Fmicb-12-745592-g001_(1).jpg",
       "title": "File:Fmicb-12-745592-g001 (1).jpg"
     },
     {
-      "file": "fig-tcruzi-cycle.jpg",
+      "file": "fig-tcruzi-cycle.webp",
       "artist": "DPD CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Trypanosoma_cruzi_LifeCycle.gif",
       "title": "File:Trypanosoma cruzi LifeCycle.gif"
     },
     {
-      "file": "fig-tick-cycle.jpg",
+      "file": "fig-tick-cycle.webp",
       "artist": "User:Philg88",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Deer_Tick_life_cycle.svg",
       "title": "File:Deer Tick life cycle.svg"
     },
     {
-      "file": "fig-toxo-cycle.jpg",
+      "file": "fig-toxo-cycle.webp",
       "artist": "LadyofHats",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Toxoplasmosis_life_cycle_en.svg",
       "title": "File:Toxoplasmosis life cycle en.svg"
     },
     {
-      "file": "gas-gangrene.jpg",
+      "file": "gas-gangrene.webp",
       "artist": "Engelbert Schröpfer, Stephan Rauthe and Thomas Meyer.",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Gas_gangrene.jpg",
       "title": "File:Gas gangrene.jpg"
     },
     {
-      "file": "gc-gram.jpg",
+      "file": "gc-gram.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Norman Jacobs",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Neisseria_gonorrhoeae_PHIL_3693_lores.jpg",
       "title": "File:Neisseria gonorrhoeae PHIL 3693 lores.jpg"
     },
     {
-      "file": "germ-tube.jpg",
+      "file": "germ-tube.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Germ_tube_test_(GTT)_of_Candida_albicans-Positive.jpg",
       "title": "File:Germ tube test (GTT) of Candida albicans-Positive.jpg"
     },
     {
-      "file": "giardia.jpg",
+      "file": "giardia.webp",
       "artist": "Servier Medical Art",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Giardia_intestinalis_trophozoite.png",
       "title": "File:Giardia intestinalis trophozoite.png"
     },
     {
-      "file": "ground-glass.jpg",
+      "file": "ground-glass.webp",
       "artist": "Nephron",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Ground_glass_hepatocytes_high_mag_cropped.jpg",
       "title": "File:Ground glass hepatocytes high mag cropped.jpg"
     },
     {
-      "file": "halo-sign.jpg",
+      "file": "halo-sign.webp",
       "artist": "Alves GR, et al.",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:CT_Halo_sign_around_a_right_lower_lobe_pulmonary_nodule.png",
       "title": "File:CT Halo sign around a right lower lobe pulmonary nodule.png"
     },
     {
-      "file": "he-agar.jpg",
+      "file": "he-agar.webp",
       "artist": "Mediocreclementine",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Hektoen_enteric_agar_stool_culture.jpg",
       "title": "File:Hektoen enteric agar stool culture.jpg"
     },
     {
-      "file": "hemolysis-types.jpg",
+      "file": "hemolysis-types.webp",
       "artist": "Unknown",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Hemolysis_AlphaBetaGamma_01.png",
       "title": "File:Hemolysis AlphaBetaGamma 01.png"
     },
     {
-      "file": "herpes-labialis.jpg",
+      "file": "herpes-labialis.webp",
       "artist": "Metju12",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Herpes_labialis.jpg",
       "title": "File:Herpes labialis.jpg"
     },
     {
-      "file": "hflu-gram.jpg",
+      "file": "hflu-gram.webp",
       "artist": "Microman12345",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Haemophilus_influenzae_sputum_1000x_edited.jpg",
       "title": "File:Haemophilus influenzae sputum 1000x edited.jpg"
     },
     {
-      "file": "hfmd.jpg",
+      "file": "hfmd.webp",
       "artist": "MidgleyDJ (talk) at en.wikipedia",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Hand_Foot_Mouth_Disease.png",
       "title": "File:Hand Foot Mouth Disease.png"
     },
     {
-      "file": "histo-mac.jpg",
+      "file": "histo-mac.webp",
       "artist": "Yale Rosen from USA",
       "lic": "CC BY-SA 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Histoplasmosis_(5414173501).jpg",
       "title": "File:Histoplasmosis (5414173501).jpg"
     },
     {
-      "file": "hpylori.jpg",
+      "file": "hpylori.webp",
       "artist": "Ed Uthman from Houston, TX, USA",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Helicobacter_pylori,_Gastric_Biopsy,_Giemsa_Stain_(5517582111).jpg",
       "title": "File:Helicobacter pylori, Gastric Biopsy, Giemsa Stain (5517582111).jpg"
     },
     {
-      "file": "hutchinson.jpg",
+      "file": "hutchinson.webp",
       "artist": "CDC/Susan Lindsley",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Hutchinson_teeth_congenital_syphilis_PHIL_2385.rsh.jpg",
       "title": "File:Hutchinson teeth congenital syphilis PHIL 2385.rsh.jpg"
     },
     {
-      "file": "hydatid.jpg",
+      "file": "hydatid.webp",
       "artist": "Department of Pathology, Calicut Medical College",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Hydatid_cyst.JPG",
       "title": "File:Hydatid cyst.JPG"
     },
     {
-      "file": "ixodes.jpg",
+      "file": "ixodes.webp",
       "artist": "US federal government Center for Disease Control (CDC)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Deer_tick_Ixodes_scapularis_b.jpg",
       "title": "File:Deer tick Ixodes scapularis b.jpg"
     },
     {
-      "file": "janeway.jpg",
+      "file": "janeway.webp",
       "artist": "Warfieldian",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Janeway_lesion.JPG",
       "title": "File:Janeway lesion.JPG"
     },
     {
-      "file": "kaposi.jpg",
+      "file": "kaposi.webp",
       "artist": "Unknown authorUnknown author",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Kaposi%27s_Sarcoma.jpg",
       "title": "File:Kaposi's Sarcoma.jpg"
     },
     {
-      "file": "kleb-mucoid.jpg",
+      "file": "kleb-mucoid.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Klebsiella_pneumoniae_mucoid_lactose_fermenter_(MLF)_colonies_on_MacConkey_agar.jpg",
       "title": "File:Klebsiella pneumoniae mucoid lactose fermenter (MLF) colonies on MacConkey agar.jpg"
     },
     {
-      "file": "koilocytes.jpg",
+      "file": "koilocytes.webp",
       "artist": "Alcaraz-Chavez, J.E.; Téllez-Anguiano, A.d.C.; Olivares-Rojas, J.C.; Martínez-Parrales, R.",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Detection_and_correspondence_of_cells_within_a_field_of_cervical_cytology._Koilocytes.png",
       "title": "File:Detection and correspondence of cells within a field of cervical cytology. Koilocytes.png"
     },
     {
-      "file": "koplik.jpg",
+      "file": "koplik.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Koplik_spots,_measles_6111_lores.jpg",
       "title": "File:Koplik spots, measles 6111 lores.jpg"
     },
     {
-      "file": "larva-migrans.jpg",
+      "file": "larva-migrans.webp",
       "artist": "Center for Disease Control and Prevention (CDC)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Cutaneous-larva-migrans-foot.jpg",
       "title": "File:Cutaneous-larva-migrans-foot.jpg"
     },
     {
-      "file": "legionella.jpg",
+      "file": "legionella.webp",
       "artist": "CDC (PHIL #1187)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Legionella_pneumophila_01.jpg",
       "title": "File:Legionella pneumophila 01.jpg"
     },
     {
-      "file": "leish-amast.jpg",
+      "file": "leish-amast.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Amastigotes_of_Leishmania_donovani.jpg",
       "title": "File:Amastigotes of Leishmania donovani.jpg"
     },
     {
-      "file": "leish-ulcer.jpg",
+      "file": "leish-ulcer.webp",
       "artist": "Layne Harris",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Leishmaniasis_ulcer.jpg",
       "title": "File:Leishmaniasis ulcer.jpg"
     },
     {
-      "file": "leprosy-ll.jpg",
+      "file": "leprosy-ll.webp",
       "artist": "Department of Pathology, Calicut Medical College",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Leprosy_-_Lepromatous_leprosy_(LL)_40x.jpg",
       "title": "File:Leprosy - Lepromatous leprosy (LL) 40x.jpg"
     },
     {
-      "file": "lepto-sem.jpg",
+      "file": "lepto-sem.webp",
       "artist": "CDC/ Rob Weyant",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Leptospira_scanning_micrograph.jpg",
       "title": "File:Leptospira scanning micrograph.jpg"
     },
     {
-      "file": "listeria-gram.jpg",
+      "file": "listeria-gram.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Gram_staining_footage_of_Listeria_monocytogenes_in_Gram_staining_of_culture_microscopy.jpg",
       "title": "File:Gram staining footage of Listeria monocytogenes in Gram staining of culture microscopy.jpg"
     },
     {
-      "file": "loa.jpg",
+      "file": "loa.webp",
       "artist": "CDC - DPDx",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:L_loa_whole_HBa.jpg",
       "title": "File:L loa whole HBa.jpg"
     },
     {
-      "file": "lobar-pneumonia.jpg",
+      "file": "lobar-pneumonia.webp",
       "artist": "Mikael Häggström, M.D. Author info - Reusing images- Conflicts of interest:  Non",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:X-ray_of_lobar_pneumonia.jpg",
       "title": "File:X-ray of lobar pneumonia.jpg"
     },
     {
-      "file": "macconkey.jpg",
+      "file": "macconkey.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Lactose_fementing_(LF),_and_non-lactose_fermenting_(NLF)_colonies_on_MacConkey_agar.jpg",
       "title": "File:Lactose fementing (LF), and non-lactose fermenting (NLF) colonies on MacConkey agar.jpg"
     },
     {
-      "file": "malassezia.jpg",
+      "file": "malassezia.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Malassezia_furfur_in_skin_scale_from_a_patient_with_tinea_versicolor_PHIL_3938_lores.jpg",
       "title": "File:Malassezia furfur in skin scale from a patient with tinea versicolor PHIL 3938 lores.jpg"
     },
     {
-      "file": "mantoux.jpg",
+      "file": "mantoux.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Mantoux_Test_48h.jpeg",
       "title": "File:Mantoux Test 48h.jpeg"
     },
     {
-      "file": "measles-rash.jpg",
+      "file": "measles-rash.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Measles_rash_PHIL_4497_lores.jpg",
       "title": "File:Measles rash PHIL 4497 lores.jpg"
     },
     {
-      "file": "miliary-tb.jpg",
+      "file": "miliary-tb.webp",
       "artist": "Benjamín Herreros, Isabel Plaza, Rebeca García, Marta Chichón, Carmen Guerrero a",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_miliary_tuberculosis_1.jpg",
       "title": "File:Chest radiograph of miliary tuberculosis 1.jpg"
     },
     {
-      "file": "molluscum.jpg",
+      "file": "molluscum.webp",
       "artist": "CoRus13",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Molluscum_contagiosum,_high_mag.jpg",
       "title": "File:Molluscum contagiosum, high mag.jpg"
     },
     {
-      "file": "msa-agar.jpg",
+      "file": "msa-agar.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Staphylococcus_aureus_(yellow_colonies)_and_CoNS_(pink_colonies)_on_Mannitol_salt_agar_(MSA).jpg",
       "title": "File:Staphylococcus aureus (yellow colonies) and CoNS (pink colonies) on Mannitol salt agar (MSA).jpg"
     },
     {
-      "file": "mucor.jpg",
+      "file": "mucor.webp",
       "artist": "Nephron",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Zygomycosis.jpg",
       "title": "File:Zygomycosis.jpg"
     },
     {
-      "file": "mumps.jpg",
+      "file": "mumps.webp",
       "artist": "Heinrich Weingaertner",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Mumps.jpg",
       "title": "File:Mumps.jpg"
     },
     {
-      "file": "naegleria.jpg",
+      "file": "naegleria.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Naegleria_trophA.JPG",
       "title": "File:Naegleria trophA.JPG"
     },
     {
-      "file": "ncc-ct.jpg",
+      "file": "ncc-ct.webp",
       "artist": "Innocent Lule Segamwenge",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Neurocysticercosis_brain_CT.jpg",
       "title": "File:Neurocysticercosis brain CT.jpg"
     },
     {
-      "file": "necrotizing-fasciitis.jpg",
+      "file": "necrotizing-fasciitis.webp",
       "artist": "Piotr Smuszkiewicz, Iwona Trojanowska and Hanna Tomczak",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Necrotizing_fasciitis_left_leg.JPEG",
       "title": "File:Necrotizing fasciitis left leg.JPEG"
     },
     {
-      "file": "negri.jpg",
+      "file": "negri.webp",
       "artist": "CDC/Dr. Makonnen Fekadu",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Rabies_negri_bodies_brain.jpg",
       "title": "File:Rabies negri bodies brain.jpg"
     },
     {
-      "file": "nmen-csf.jpg",
+      "file": "nmen-csf.webp",
       "artist": "Microman12345",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Neisseria_meningitidis_CSF_Gram_1000.jpg",
       "title": "File:Neisseria meningitidis CSF Gram 1000.jpg"
     },
     {
-      "file": "nmen-gram.jpg",
+      "file": "nmen-gram.webp",
       "artist": "Microman12345",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Neisseria_meningitidis_CSF_Gram_1000.jpg",
       "title": "File:Neisseria meningitidis CSF Gram 1000.jpg"
     },
     {
-      "file": "nocardia.jpg",
+      "file": "nocardia.webp",
       "artist": "Ajay Kumar Chaurasiya",
       "lic": "CC BY 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Nocardia_in_modified_Ziehl-Neelsen_staining.jpg",
       "title": "File:Nocardia in modified Ziehl-Neelsen staining.jpg"
     },
     {
-      "file": "onychomycosis.jpg",
+      "file": "onychomycosis.webp",
       "artist": "No machine-readable author provided. Dermatologist~commonswiki assumed (based on copyright claims).",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Onychomycosis_(tinea_unguium).jpg",
       "title": "File:Onychomycosis (tinea unguium).jpg"
     },
     {
-      "file": "ophthalmia.jpg",
+      "file": "ophthalmia.webp",
       "artist": "CDC/ J. Pledger",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Gonococcal_ophthalmia_neonatorum.jpg",
       "title": "File:Gonococcal ophthalmia neonatorum.jpg"
     },
     {
-      "file": "opisthotonus.jpg",
+      "file": "opisthotonus.webp",
       "artist": "Sir Charles Bell",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Opisthotonus_in_a_patient_suffering_from_tetanus_-_Painting_by_Sir_Charles_Bell_-_1809.jpg",
       "title": "File:Opisthotonus in a patient suffering from tetanus - Painting by Sir Charles Bell - 1809.jpg"
     },
     {
-      "file": "optochin.jpg",
+      "file": "optochin.webp",
       "artist": "Ccroberts",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Optochin.png",
       "title": "File:Optochin.png"
     },
     {
-      "file": "osler-nodes.jpg",
+      "file": "osler-nodes.webp",
       "artist": "Roberto J. Galindo",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Osler_Nodules_Hand.jpg",
       "title": "File:Osler Nodules Hand.jpg"
     },
     {
-      "file": "paracocci.jpg",
+      "file": "paracocci.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Lucille K. Georg",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Paracoccidioides_brasiliensis_01.jpg",
       "title": "File:Paracoccidioides brasiliensis 01.jpg"
     },
     {
-      "file": "pcp-gms.jpg",
+      "file": "pcp-gms.webp",
       "artist": "Unknown",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Pneumocystis_carinii_01.jpg",
       "title": "File:Pneumocystis carinii 01.jpg"
     },
     {
-      "file": "pf-gametocyte.jpg",
+      "file": "pf-gametocyte.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Mae Melvin\nTranswiki approved by: w:",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_01.png",
       "title": "File:Plasmodium falciparum 01.png"
     },
     {
-      "file": "pf-rings.jpg",
+      "file": "pf-rings.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_rings_form_parasites4885_lores.jpg",
       "title": "File:Plasmodium falciparum rings form parasites4885 lores.jpg"
     },
     {
-      "file": "pmc.jpg",
+      "file": "pmc.webp",
       "artist": "Narraburra",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Clostridioides_(pseudomembranous)_colitis.jpg",
       "title": "File:Clostridioides (pseudomembranous) colitis.jpg"
     },
     {
-      "file": "proteus-swarm.jpg",
+      "file": "proteus-swarm.webp",
       "artist": "Microrao",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Proteus_swarming_on_blood_agar.jpg",
       "title": "File:Proteus swarming on blood agar.jpg"
     },
     {
-      "file": "pseudomonas-pigment.jpg",
+      "file": "pseudomonas-pigment.webp",
       "artist": "Y tambe",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Pseudomonas_aeruginosa_pyocyanin.jpg",
       "title": "File:Pseudomonas aeruginosa pyocyanin.jpg"
     },
     {
-      "file": "pvivax.jpg",
+      "file": "pvivax.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn, Laboratory &amp; Consulta",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_vivax_01.png",
       "title": "File:Plasmodium vivax 01.png"
     },
     {
-      "file": "rmsf.jpg",
+      "file": "rmsf.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Rocky_Mountain_spotted_fever_PHIL_1962_lores.jpg",
       "title": "File:Rocky Mountain spotted fever PHIL 1962 lores.jpg"
     },
     {
-      "file": "romana.jpg",
+      "file": "romana.webp",
       "artist": "Centers for Disease Control and Prevention (CDC)",
       "lic": "CC0",
       "page": "https://commons.wikimedia.org/wiki/File:Romanas_sign.jpg",
       "title": "File:Romanas sign.jpg"
     },
     {
-      "file": "rose-spots.jpg",
+      "file": "rose-spots.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC/Armed Forces Institute of Pathology, Cha",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Salmonella_typhi_typhoid_fever_PHIL_2215_lores.jpg",
       "title": "File:Salmonella typhi typhoid fever PHIL 2215 lores.jpg"
     },
     {
-      "file": "rotavirus-em.jpg",
+      "file": "rotavirus-em.webp",
       "artist": "Dr Graham Beards",
       "lic": "CC BY 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Multiple_rotavirus_particles.jpg",
       "title": "File:Multiple rotavirus particles.jpg"
     },
     {
-      "file": "saureus-gram.jpg",
+      "file": "saureus-gram.webp",
       "artist": "Y Tambe",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Staphylococcus_aureus_Gram.jpg",
       "title": "File:Staphylococcus aureus Gram.jpg"
     },
     {
-      "file": "schisto-haem.jpg",
+      "file": "schisto-haem.webp",
       "artist": "CDC, Public Health Image Library (PHIL)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_haematobium_egg_4843_lores.jpg",
       "title": "File:Schistosoma haematobium egg 4843 lores.jpg"
     },
     {
-      "file": "schisto-mansoni.jpg",
+      "file": "schisto-mansoni.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_mansoni_egg_4841_lores.jpg",
       "title": "File:Schistosoma mansoni egg 4841 lores.jpg"
     },
     {
-      "file": "shigella-stool.jpg",
+      "file": "shigella-stool.webp",
       "artist": "Centers for Disease Control and Prevention Publich Health Image Library",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Shigella_stool.jpg",
       "title": "File:Shigella stool.jpg"
     },
     {
-      "file": "smallpox.jpg",
+      "file": "smallpox.webp",
       "artist": "medicalmuseum",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Smallpox_lesions_on_face_(AFIP_551882),_National_Museum_of_Health_and_Medicine.jpg",
       "title": "File:Smallpox lesions on face (AFIP 551882), National Museum of Health and Medicine.jpg"
     },
     {
-      "file": "sporotrichosis.jpg",
+      "file": "sporotrichosis.webp",
       "artist": "Content Providers(s):\tCDC/Dr. Lucille K. Georg",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Sporotrichosis_by_the_fungus_Sporothrix_schenckii_PHIL_3940_lores.jpg",
       "title": "File:Sporotrichosis by the fungus Sporothrix schenckii PHIL 3940 lores.jpg"
     },
     {
-      "file": "strep-tongue.jpg",
+      "file": "strep-tongue.webp",
       "artist": "Whispyhistory",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Strep_throat_with_white_strawberry_tongue.jpg",
       "title": "File:Strep throat with white strawberry tongue.jpg"
     },
     {
-      "file": "strongy.jpg",
+      "file": "strongy.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_stercoralis_larva.jpg",
       "title": "File:Strongyloides stercoralis larva.jpg"
     },
     {
-      "file": "syph-palms.jpg",
+      "file": "syph-palms.webp",
       "artist": "CDC/ Robert Sumpter",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Secondary_Syphilis_on_palms_CDC_6809_lores.rsh.jpg",
       "title": "File:Secondary Syphilis on palms CDC 6809 lores.rsh.jpg"
     },
     {
-      "file": "tb-granuloma.jpg",
+      "file": "tb-granuloma.webp",
       "artist": "Department of Pathology, Calicut Medical College",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Tuberculous_lymph_node_with_caseating_granuloma_40X.jpg",
       "title": "File:Tuberculous lymph node with caseating granuloma 40X.jpg"
     },
     {
-      "file": "tb-zn.jpg",
+      "file": "tb-zn.webp",
       "artist": "Microrao",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:M_tuberculosis_sputum.jpg",
       "title": "File:M tuberculosis sputum.jpg"
     },
     {
-      "file": "tbrucei.jpg",
+      "file": "tbrucei.webp",
       "artist": "Photo Credit: Content Providers: CDC/Dr. Myron G. Schultz",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Trypanosoma_sp._PHIL_613_lores_(cropped).jpg",
       "title": "File:Trypanosoma sp. PHIL 613 lores (cropped).jpg"
     },
     {
-      "file": "tcbs.jpg",
+      "file": "tcbs.webp",
       "artist": "Chainwit.",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:TCBS_agar_plate_of_Vibrio_Cholerae_and_vibrio_parahaemolyticus.jpg",
       "title": "File:TCBS agar plate of Vibrio Cholerae and vibrio parahaemolyticus.jpg"
     },
     {
-      "file": "tcruzi.jpg",
+      "file": "tcruzi.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:T._cruzi_trypomastigotes_in_peripheral_blood_smear.jpg",
       "title": "File:T. cruzi trypomastigotes in peripheral blood smear.jpg"
     },
     {
-      "file": "thrush.jpg",
+      "file": "thrush.webp",
       "artist": "Photo Credit:\nContent Providers(s): CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Oral_thrush_Aphthae_Candida_albicans._PHIL_1217_lores.jpg",
       "title": "File:Oral thrush Aphthae Candida albicans. PHIL 1217 lores.jpg"
     },
     {
-      "file": "toxo-cyst.jpg",
+      "file": "toxo-cyst.webp",
       "artist": "Jitinder P. Dubey",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Toxoplasma_gondii_tissue_cyst_in_mouse_brain.jpg",
       "title": "File:Toxoplasma gondii tissue cyst in mouse brain.jpg"
     },
     {
-      "file": "trachoma.jpg",
+      "file": "trachoma.webp",
       "artist": "Shelley Panzarella",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Buttonhook_Trachoma.jpg",
       "title": "File:Buttonhook Trachoma.jpg"
     },
     {
-      "file": "trich.jpg",
+      "file": "trich.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Trichomonas_Giemsa_DPDx.JPG",
       "title": "File:Trichomonas Giemsa DPDx.JPG"
     },
     {
-      "file": "trichinella-muscle.jpg",
+      "file": "trichinella-muscle.webp",
       "artist": "Self",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Trichinella_spiralis_larvae_within_muscle.jpg",
       "title": "File:Trichinella spiralis larvae within muscle.jpg"
     },
     {
-      "file": "tsolium-scolex.jpg",
+      "file": "tsolium-scolex.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_tapeworm_scolex_with_its_four_suckers_and_two_rows_of_hooks_5262_lores.jpg",
       "title": "File:Taenia solium tapeworm scolex with its four suckers and two rows of hooks 5262 lores.jpg"
     },
     {
-      "file": "tularemia.jpg",
+      "file": "tularemia.webp",
       "artist": "",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Tularemia_lesion.jpg",
       "title": "File:Tularemia lesion.jpg"
     },
     {
-      "file": "tzanck.jpg",
+      "file": "tzanck.webp",
       "artist": "National Institute of Allergy and Infectious Diseases (NIAID)",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Tzanck_test.png",
       "title": "File:Tzanck test.png"
     },
     {
-      "file": "varicella.jpg",
+      "file": "varicella.webp",
       "artist": "",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Child_with_chickenpox.jpg",
       "title": "File:Child with chickenpox.jpg"
     },
     {
-      "file": "vibrio-gram.jpg",
+      "file": "vibrio-gram.webp",
       "artist": "CDC",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Vibrio_cholerae_gram_stain_CDC.jpg",
       "title": "File:Vibrio cholerae gram stain CDC.jpg"
     },
     {
-      "file": "wfs-adrenal.jpg",
+      "file": "wfs-adrenal.webp",
       "artist": "Amadalvarez",
       "lic": "CC BY-SA 4.0",
       "page": "https://commons.wikimedia.org/wiki/File:Waterhouse-Friderichsen._IMG_2912.jpg",
       "title": "File:Waterhouse-Friderichsen. IMG 2912.jpg"
     },
     {
-      "file": "whipple.jpg",
+      "file": "whipple.webp",
       "artist": "Ed Uthman from Houston, TX, USA",
       "lic": "CC BY 2.0",
       "page": "https://commons.wikimedia.org/wiki/File:Whipples_Disease,_PAS_(6881958605).jpg",
       "title": "File:Whipples Disease, PAS (6881958605).jpg"
     },
     {
-      "file": "wuchereria.jpg",
+      "file": "wuchereria.webp",
       "artist": "Unknown",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Wuchereria_bancrofti_1_DPDX.JPG",
       "title": "File:Wuchereria bancrofti 1 DPDX.JPG"
     },
     {
-      "file": "ypestis-wayson.jpg",
+      "file": "ypestis-wayson.webp",
       "artist": "U.S. Center for Disease Control",
       "lic": "Public domain",
       "page": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg",
       "title": "File:Yersinia pestis wayson.jpg"
     },
     {
-      "file": "zoster.jpg",
+      "file": "zoster.webp",
       "artist": "No machine-readable author provided. Gentgeen assumed (based on copyright claims",
       "lic": "CC BY-SA 3.0",
       "page": "https://commons.wikimedia.org/wiki/File:Herpes_zoster_neck.png",
@@ -1149,7 +1149,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "The image shows Gram-positive cocci in grape-like clusters. Catalase-positive means Staphylococcus. Coagulase positive makes it S. aureus, a classic cause of necrotizing, cavitating pneumonia after influenza. Novobiocin resistance points to S. saprophyticus. Optochin (S. pneumoniae), bacitracin (S. pyogenes), and bile esculin (Enterococcus) are tests for catalase-negative streptococci and enterococci.",
       "images": [
-        "saureus-gram.jpg"
+        "saureus-gram.webp"
       ],
       "wrong": {
         "E": "Novobiocin resistance separates S. saprophyticus from other coagulase-negative staph; it does not identify S. aureus.",
@@ -1465,7 +1465,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Bullous impetigo, and its generalized form staphylococcal scalded skin syndrome (SSSS), is caused by exfoliative toxins A and B. These are serine proteases that cleave desmoglein-1 in the stratum granulosum. Because the split is superficial and desmoglein-1 is not the main mucosal cadherin, the mucosa is spared. Pemphigus vulgaris targets desmoglein-3. Bullous pemphigoid targets hemidesmosomes (BP180/230). Epidermolysis bullosa acquisita targets type VII collagen.",
       "images": [
-        "bullous-impetigo.jpg"
+        "bullous-impetigo.webp"
       ],
       "wrong": {
         "C": "Desmoglein-3 is the target in pemphigus vulgaris, which causes painful mucosal erosions.",
@@ -1514,7 +1514,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Injection drug use with tricuspid regurgitation (murmur louder with inspiration, Carvallo sign) and septic pulmonary emboli is classic acute right-sided S. aureus endocarditis. The palm lesions are painless Janeway lesions, which are septic microemboli and are more common in acute (S. aureus) endocarditis. Osler nodes are painful immune-complex lesions on the finger pads. Viridans strep cause subacute left-sided disease on previously damaged valves.",
       "images": [
-        "janeway.jpg"
+        "janeway.webp"
       ],
       "wrong": {
         "D": "Viridans strep cause subacute left-sided disease on damaged valves after dental work.",
@@ -1788,7 +1788,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Scarlet fever (sandpaper rash, circumoral pallor, strawberry tongue, Pastia lines, then desquamation) is caused by group A strep strains that make erythrogenic (pyrogenic) exotoxins, which are superantigens. GAS is β-hemolytic, bacitracin-sensitive, and PYR-positive. Group B strep is bacitracin-resistant and CAMP-positive. S. pneumoniae is optochin-sensitive and bile-soluble. Enterococcus grows in 6.5% NaCl and bile esculin.",
       "images": [
-        "strep-tongue.jpg"
+        "strep-tongue.webp"
       ],
       "wrong": {
         "D": "That pattern is group B strep, which causes neonatal disease, not scarlet fever.",
@@ -2015,7 +2015,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Erysipelas is a superficial cellulitis of the upper dermis and dermal lymphatics. It has a raised, well-demarcated edge (the 'peau d'orange' border) and is most often due to S. pyogenes. Classic cellulitis involves deeper dermis and subcutaneous fat, has indistinct borders, and is caused by strep or S. aureus. Necrotizing fasciitis involves fascia and needs surgery. Treat erysipelas with penicillin or a first-generation cephalosporin.",
       "images": [
-        "erysipelas.jpg"
+        "erysipelas.webp"
       ],
       "wrong": {
         "D": "Necrotizing fasciitis causes pain out of proportion, dusky skin, and crepitus, not a sharply raised border.",
@@ -2087,7 +2087,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Group B strep (S. agalactiae) is the leading cause of early-onset neonatal sepsis, pneumonia, and meningitis. It is picked up from maternal vaginal and rectal colonization during delivery. It is β-hemolytic, bacitracin-resistant, hippurate-positive, and CAMP-positive (enhances S. aureus hemolysis). Its sialic acid–rich polysaccharide capsule blocks alternative complement activation and is the main virulence factor. Neonates lacking maternal anticapsular IgG are at greatest risk.",
       "images": [
-        "beta-hemolysis.jpg"
+        "beta-hemolysis.webp"
       ],
       "wrong": {
         "D": "M protein belongs to group A strep and underlies rheumatic fever.",
@@ -2185,7 +2185,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "The radiograph shows lobar consolidation (right middle lobe). With rusty sputum and lancet-shaped diplococci, the cause is S. pneumoniae, the most common cause of community-acquired pneumonia. It is α-hemolytic, optochin-sensitive, and bile-soluble (autolysin). Viridans streptococci are also α-hemolytic but are optochin-resistant and bile-insoluble. The quellung reaction (capsular swelling with antiserum) also identifies pneumococcus.",
       "images": [
-        "lobar-pneumonia.jpg"
+        "lobar-pneumonia.webp"
       ],
       "wrong": {
         "E": "Bacitracin sensitivity identifies group A strep, which is beta-hemolytic.",
@@ -2990,7 +2990,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Diphtheria causes an adherent gray pseudomembrane of necrotic epithelium, fibrin, and leukocytes. It can obstruct the airway, and cervical lymphadenopathy gives a 'bull neck.' Diphtheria toxin is an A-B toxin: the B subunit binds heparin-binding EGF receptor, and the A subunit ADP-ribosylates EF-2, killing the cell. Pseudomonas exotoxin A works the same way. Shiga toxin cleaves 28S rRNA. Pertussis toxin ribosylates Gi. Tetanus and botulinum toxins cleave SNAREs.",
       "images": [
-        "diphtheria-membrane.jpg"
+        "diphtheria-membrane.webp"
       ],
       "wrong": {
         "C": "That is Shiga and Shiga-like toxin, which cause dysentery and HUS.",
@@ -3169,7 +3169,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "C. diphtheriae is a Gram-positive club-shaped rod arranged in 'Chinese letter' (V and L) patterns, as in the image. It has polyphosphate granules that stain metachromatically with methylene blue. It forms black colonies on cystine-tellurite agar and grows on Loeffler medium. The Elek test (immunodiffusion) confirms that the strain makes toxin.",
       "images": [
-        "cdiphtheriae-gram.jpg"
+        "cdiphtheriae-gram.webp"
       ],
       "wrong": {
         "C": "Boxcar rods with spores describe Bacillus species, not Corynebacterium.",
@@ -3364,7 +3364,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Cutaneous anthrax causes a painless ulcer with a black eschar and marked edema. Almost all other bacterial capsules are polysaccharide, but B. anthracis has a poly-D-glutamate (protein) capsule that is antiphagocytic. It is an aerobic, spore-forming Gram-positive rod that grows in long chains ('boxcars'). It is a hazard of wool and hide work and of bioterrorism.",
       "images": [
-        "anthrax-eschar.jpg"
+        "anthrax-eschar.webp"
       ],
       "wrong": {
         "D": "Sialic acid capsules are found in group B strep and meningococcus B.",
@@ -3485,7 +3485,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Inhaled spores are carried to mediastinal lymph nodes, where they germinate and cause hemorrhagic mediastinitis (widened mediastinum), then sepsis and meningitis. Treat systemic anthrax with a fluoroquinolone (ciprofloxacin), plus a bactericidal drug and a protein synthesis inhibitor. Add anti-protective antigen antibodies (raxibacumab, obiltoxaximab). The Gram stain shows large Gram-positive rods in chains. Post-exposure prophylaxis is ciprofloxacin or doxycycline for 60 days plus vaccine.",
       "images": [
-        "anthrax-gram.jpg"
+        "anthrax-gram.webp"
       ],
       "wrong": {
         "E": "Oral monotherapy is inadequate for systemic anthrax, which needs IV multidrug therapy.",
@@ -3571,7 +3571,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Tetanospasmin enters peripheral nerve endings and travels by retrograde axonal transport (dynein) to the spinal cord. There it cleaves synaptobrevin (VAMP) in inhibitory interneurons, blocking glycine and GABA release. The result is unopposed motor activity: spastic paralysis, lockjaw, risus sardonicus, and opisthotonus (shown in Sir Charles Bell's painting). Botulinum toxin cleaves SNAREs at the NMJ and causes flaccid paralysis.",
       "images": [
-        "opisthotonus.jpg"
+        "opisthotonus.webp"
       ],
       "wrong": {
         "E": "Blocking ACh release at the NMJ is botulinum toxin and causes flaccid paralysis.",
@@ -3749,7 +3749,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Clostridial myonecrosis (gas gangrene) follows deep, contaminated, devitalized wounds. C. perfringens α-toxin is a phospholipase C (lecithinase) that breaks down cell membranes. It causes myonecrosis, hemolysis, and gas in tissues (crepitus). Treatment is emergent surgical debridement plus high-dose penicillin and clindamycin. Hyperbaric oxygen is sometimes added.",
       "images": [
-        "gas-gangrene.jpg"
+        "gas-gangrene.webp"
       ],
       "wrong": {
         "D": "Tetanospasmin causes spastic paralysis, not muscle necrosis with gas.",
@@ -3812,7 +3812,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "C. perfringens is a large, rectangular Gram-positive rod that rarely shows spores in tissue. It produces a characteristic double zone of β-hemolysis: a narrow complete zone from θ-toxin and a wider incomplete zone from α-toxin. Lecithinase activity appears as opacity on egg-yolk agar (Nagler reaction). Few neutrophils are seen because the toxins destroy them. B. anthracis is also a large boxcar rod but is aerobic.",
       "images": [
-        "cperf-gram.jpg"
+        "cperf-gram.webp"
       ],
       "wrong": {
         "D": "B. anthracis is aerobic and causes eschar or mediastinitis rather than myonecrosis.",
@@ -3898,7 +3898,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "The colon shows yellow-white pseudomembranes (plaques of fibrin, mucus, and inflammatory debris): pseudomembranous colitis. C. difficile toxin A (enterotoxin) and toxin B (cytotoxin) glucosylate and inactivate Rho, Rac, and Cdc42. This breaks down the cytoskeleton and tight junctions, killing colonocytes. Binary toxin appears in hypervirulent strains such as ribotype 027. ETEC heat-stable toxin increases cGMP.",
       "images": [
-        "pmc.jpg"
+        "pmc.webp"
       ],
       "wrong": {
         "E": "That mechanism (cholera, ETEC LT) causes watery diarrhea without pseudomembranes.",
@@ -4053,8 +4053,8 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Actinomyces israelii is normal oral flora. After dental work or trauma it causes cervicofacial 'lumpy jaw' abscesses with sinus tracts that cross tissue planes. Pus contains yellow 'sulfur granules,' which are masses of filaments with a club-shaped rim, as shown. It can also cause pelvic actinomycosis with IUDs. Treat with penicillin and drainage. Mnemonic SNAP: Sulfonamides for Nocardia, Actinomyces gets Penicillin.",
       "images": [
-        "actinomyces.jpg",
-        "actino-histo.jpg"
+        "actinomyces.webp",
+        "actino-histo.webp"
       ],
       "wrong": {
         "D": "TMP-SMX treats Nocardia, which is aerobic and weakly acid-fast.",
@@ -4064,7 +4064,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "actino-histo.jpg",
+          "file": "actino-histo.webp",
           "caption": "Histology of actinomycosis: a colony of filamentous organisms - the sulfur granule - ringed by dense neutrophils. The granule is bacterial, not mineral; the name comes only from its yellow color.",
           "credit": {
             "artist": "Yale Rosen",
@@ -4141,7 +4141,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Nocardia (N. asteroides complex) is an aerobic, weakly acid-fast, branching Gram-positive filament from soil. In immunocompromised hosts it causes pneumonia that can mimic TB, and it spreads to the brain (abscess) and skin. It is catalase-positive. Treat with TMP-SMX, often combined with imipenem or amikacin for severe or CNS disease. Actinomyces, in contrast, is anaerobic, non–acid-fast, and treated with penicillin.",
       "images": [
-        "nocardia.jpg"
+        "nocardia.webp"
       ],
       "wrong": {
         "E": "Penicillin is the drug for Actinomyces, which is anaerobic and non-acid-fast.",
@@ -4239,7 +4239,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "The CSF shows neutrophils with Gram-negative diplococci. Fever, meningismus, and petechiae in a young adult living in close quarters point to N. meningitidis. Meningococci ferment Maltose and glucose ('MeninGococci'). Gonococci ferment Glucose only ('GonoCoccus'). Both are oxidase-positive, and meningococcus has a polysaccharide capsule, while gonococcus does not.",
       "images": [
-        "nmen-csf.jpg"
+        "nmen-csf.webp"
       ],
       "wrong": {
         "A": "Glucose-only fermentation identifies N. gonorrhoeae, which does not cause epidemic meningitis.",
@@ -4312,7 +4312,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "The adrenals show bilateral hemorrhagic necrosis: Waterhouse-Friderichsen syndrome. It results from meningococcemia with DIC and shock. Meningococci shed large amounts of lipooligosaccharide (LOS) in outer membrane blebs. LOS activates TLR4/MD-2, triggering massive TNF, IL-1, and IL-6 release, DIC, and vascular collapse. Adrenal hemorrhage causes acute adrenal insufficiency.",
       "images": [
-        "wfs-adrenal.jpg"
+        "wfs-adrenal.webp"
       ],
       "wrong": {
         "C": "EF-2 inactivation is diphtheria and Pseudomonas exotoxin A, which do not cause adrenal hemorrhage.",
@@ -4575,7 +4575,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Intracellular Gram-negative diplococci inside neutrophils in urethral discharge diagnose gonorrhea in men. Treat with single-dose IM ceftriaxone. Widespread resistance rules out penicillin and fluoroquinolones. Co-infection with Chlamydia is common, so doxycycline for 7 days is added unless chlamydia NAAT is negative. Partners should be treated, and patients are tested for other STIs.",
       "images": [
-        "gc-gram.jpg"
+        "gc-gram.webp"
       ],
       "wrong": {
         "C": "Penicillin resistance in gonococci is widespread.",
@@ -4718,7 +4718,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Gonococcal ophthalmia neonatorum appears 2–5 days after birth with hyperacute purulent conjunctivitis. It can perforate the cornea. Universal erythromycin ointment prophylaxis prevents it. Treat with a single dose of ceftriaxone (cefotaxime if hyperbilirubinemic). Chlamydial conjunctivitis appears later (5–14 days), is less purulent, and is not prevented by eye ointment. It is treated with oral erythromycin.",
       "images": [
-        "ophthalmia.jpg"
+        "ophthalmia.webp"
       ],
       "wrong": {
         "D": "Chlamydial conjunctivitis appears at 5-14 days, is less purulent, and is not prevented by ointment.",
@@ -4901,7 +4901,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "The 'thumb sign' (swollen epiglottis) on lateral radiograph indicates acute epiglottitis. In unvaccinated children, it is classically caused by H. influenzae type b. The type b capsule, polyribosylribitol phosphate (PRP), is antiphagocytic and the key virulence factor. The Hib vaccine conjugates PRP to a protein carrier (e.g., tetanus toxoid) to produce a T-cell–dependent response in infants. Do not examine the throat, and secure the airway first.",
       "images": [
-        "epiglottitis.jpg"
+        "epiglottitis.webp"
       ],
       "wrong": {
         "D": "LOS contributes to inflammation but is not the vaccine target.",
@@ -4964,7 +4964,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "H. influenzae needs both factor X (hematin) and factor V (NAD+). Chocolate agar (heated blood) releases both. Sheep blood agar has factor X locked inside intact RBCs and has NADases that destroy factor V. β-hemolytic S. aureus lyses RBCs and secretes NAD, so H. influenzae 'satellites' around it. Legionella, in contrast, needs cysteine and iron on buffered charcoal yeast extract.",
       "images": [
-        "hflu-gram.jpg"
+        "hflu-gram.webp"
       ],
       "wrong": {
         "A": "Cysteine and iron are the growth requirements of Legionella on BCYE agar.",
@@ -5360,7 +5360,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "P. aeruginosa is an aerobic, non–lactose-fermenting, oxidase-positive Gram-negative rod. It smells grape-like (aminoacetophenone) and makes pyocyanin (blue-green) and pyoverdine (yellow-green, fluorescent siderophore). Pyocyanin redox-cycles to produce superoxide and H2O2, damaging tissue. In CF, mucoid (alginate-producing) strains form biofilms in the airways. Serratia makes red prodigiosin.",
       "images": [
-        "pseudomonas-pigment.jpg"
+        "pseudomonas-pigment.webp"
       ],
       "wrong": {
         "A": "Staphyloxanthin is the golden pigment of S. aureus and is an antioxidant.",
@@ -5605,7 +5605,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "A green metallic sheen on EMB agar is characteristic of E. coli, which ferments lactose vigorously. Uropathogenic E. coli (UPEC) is the leading cause of UTI and pyelonephritis. Type 1 fimbriae bind mannose on bladder epithelium (cystitis). P fimbriae (pap genes) bind Gal-Gal residues on kidney epithelium and are linked to pyelonephritis. K1 capsule causes neonatal meningitis. Intimin/Tir is EPEC and EHEC.",
       "images": [
-        "ecoli-emb.jpg"
+        "ecoli-emb.webp"
       ],
       "wrong": {
         "A": "K1 strains cause neonatal meningitis, not ascending UTI.",
@@ -5953,7 +5953,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Klebsiella pneumoniae is a non-motile, lactose-fermenting Gram-negative rod with a thick polysaccharide capsule. This makes large, mucoid pink colonies on MacConkey agar. It causes aspiration pneumonia in alcoholics and diabetics (currant-jelly sputum, upper lobes, abscess formation), UTIs, and liver abscesses (hypervirulent strains). Klebsiella is also urease-positive. Mnemonic '4 A's': Aspiration pneumonia, Abscess in lungs and liver, Alcohol use disorder, di-A-betes.",
       "images": [
-        "kleb-mucoid.jpg"
+        "kleb-mucoid.webp"
       ],
       "wrong": {
         "C": "Swarming is characteristic of Proteus; Klebsiella is non-motile.",
@@ -6076,7 +6076,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Proteus mirabilis is highly motile and swarms in waves on agar. Its urease splits urea into ammonia and CO2, alkalinizing the urine. Magnesium ammonium phosphate (struvite) precipitates and forms staghorn calculi, which can harbor bacteria. Other urease-positive organisms: Klebsiella, S. saprophyticus, H. pylori, Nocardia, Cryptococcus, Ureaplasma ('CHuNKS PUNCH').",
       "images": [
-        "proteus-swarm.jpg"
+        "proteus-swarm.webp"
       ],
       "wrong": {
         "B": "Catalase breaks down hydrogen peroxide and does not alkalinize urine.",
@@ -6141,7 +6141,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Typhoid fever: fever with relative bradycardia, abdominal pain, constipation then diarrhea, rose spots, and hepatosplenomegaly. S. Typhi has only a human reservoir. It invades through Peyer patches, survives in macrophages, and spreads through the reticuloendothelial system. The Vi capsule resists complement. Complications include intestinal perforation and hemorrhage. Treat with ceftriaxone or azithromycin (fluoroquinolone resistance is common). Chronic carriers harbor it in the gallbladder, especially with gallstones.",
       "images": [
-        "rose-spots.jpg"
+        "rose-spots.webp"
       ],
       "wrong": {
         "D": "Non-typhoidal Salmonella has animal reservoirs; S. Typhi infects only humans.",
@@ -6214,7 +6214,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Hektoen enteric agar is selective and differential for stool pathogens. Lactose, sucrose, and salicin fermenters turn yellow-orange. Non-fermenters stay green or blue-green. H2S producers make black precipitates with ferric salts. Salmonella produces H2S and is motile. Shigella makes green colonies without H2S and is non-motile. These features separate the two non-lactose fermenters.",
       "images": [
-        "he-agar.jpg"
+        "he-agar.webp"
       ],
       "wrong": {
         "E": "Lactose fermenters turn yellow-orange on this agar, not black.",
@@ -6580,7 +6580,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "V. cholerae is a comma-shaped, flagellated, oxidase-positive Gram-negative rod. Cholera toxin (AB5, phage-encoded) ADP-ribosylates Gsα so it cannot hydrolyze GTP. Adenylyl cyclase stays on, cAMP rises, and PKA phosphorylates CFTR, causing massive Cl−, Na+, and water secretion. The illness is non-inflammatory, with no fever or blood. The mainstay of treatment is oral rehydration solution, which relies on intact Na+-glucose cotransport (SGLT1). Doxycycline or azithromycin shortens illness.",
       "images": [
-        "vibrio-gram.jpg"
+        "vibrio-gram.webp"
       ],
       "wrong": {
         "C": "Gi ribosylation is pertussis toxin, which causes cough rather than diarrhea.",
@@ -6686,7 +6686,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "TCBS is alkaline (pH ~8.6) and contains bile salts, which inhibit most other intestinal flora but allow Vibrio to grow. V. cholerae ferments sucrose, forming yellow colonies. V. parahaemolyticus and V. vulnificus do not, and stay green. V. cholerae is acid-sensitive, so it needs a large inoculum. Vibrio grows well in alkaline media.",
       "images": [
-        "tcbs.jpg"
+        "tcbs.webp"
       ],
       "wrong": {
         "A": "TCBS contains sucrose, not lactose, and V. cholerae is not halophilic.",
@@ -6797,7 +6797,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Campylobacter jejuni is a leading cause of bacterial gastroenteritis worldwide. It comes from poultry, unpasteurized milk, and puppies. It grows at 42°C ('Campylobacter likes the hot campfire'). Its LOS resembles GM1 and GQ1b gangliosides. Antibodies cross-react with nerves and cause Guillain-Barré syndrome, or Miller Fisher syndrome with anti-GQ1b. It is also a cause of reactive arthritis.",
       "images": [
-        "campy-sem.jpg"
+        "campy-sem.webp"
       ],
       "wrong": {
         "C": "Campylobacter does not invade nerves; the damage is autoimmune.",
@@ -6823,7 +6823,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "H. pylori is a curved, flagellated, microaerophilic Gram-negative rod. It colonizes the gastric antrum and uses urease to make ammonia, buffering acid around itself. It causes chronic gastritis, over 90% of duodenal ulcers and most gastric ulcers, gastric adenocarcinoma, and MALT lymphoma. The CagA protein is associated with greater cancer risk. Diagnose with urea breath test, stool antigen, or biopsy.",
       "images": [
-        "hpylori.jpg"
+        "hpylori.webp"
       ],
       "wrong": {
         "A": "Catalase counters oxidative killing but does not neutralize gastric acid.",
@@ -7034,7 +7034,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Yersinia pestis is carried by rodents (prairie dogs, ground squirrels, rats) and spread by flea bites. Bubonic plague causes very painful buboes in regional nodes. Septicemic and pneumonic forms can follow, and pneumonic plague spreads person to person by droplets. Virulence factors include the F1 capsule, Yop proteins injected by a type III secretion system (block phagocytosis), and plasminogen activator. Treat with an aminoglycoside (gentamicin, streptomycin) or a fluoroquinolone/doxycycline.",
       "images": [
-        "bubo.jpg"
+        "bubo.webp"
       ],
       "wrong": {
         "B": "Ticks transmit RMSF, Lyme, and tularemia, not plague.",
@@ -7127,7 +7127,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Y. pestis stains more densely at both ends with Wayson, Giemsa, or Wright stains, giving a 'safety pin' look. It is a facultative intracellular, non-motile, Gram-negative coccobacillus. Because of its bioterrorism potential and person-to-person droplet spread in pneumonic plague, the lab must be warned.",
       "images": [
-        "ypestis-wayson.jpg"
+        "ypestis-wayson.webp"
       ],
       "wrong": {
         "B": "That describes Bacillus species.",
@@ -7153,7 +7153,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Francisella tularensis is carried by rabbits and other small mammals and spread by ticks, deer flies, handling animal carcasses, or aerosols. Ulceroglandular tularemia is the most common form. The organism is a facultative intracellular pathogen of macrophages and forms granulomas. It is highly infectious, so notify the lab. Treat with an aminoglycoside. Doxycycline or ciprofloxacin is used for milder disease.",
       "images": [
-        "tularemia.jpg"
+        "tularemia.webp"
       ],
       "wrong": {
         "A": "Beta-lactams are unreliable against this facultative intracellular organism.",
@@ -7426,7 +7426,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Cat scratch disease is caused by Bartonella henselae, which is spread among kittens by fleas. It causes a papule at the inoculation site, then regional lymphadenopathy with stellate necrotizing granulomas. Most cases resolve on their own, but azithromycin can speed recovery. The organism stains with Warthin-Starry silver stain. It can also cause Parinaud oculoglandular syndrome, culture-negative endocarditis, and, in immunocompromised hosts, bacillary angiomatosis.",
       "images": [
-        "catscratch.jpg"
+        "catscratch.webp"
       ],
       "wrong": {
         "D": "That indicates tuberculous lymphadenitis (scrofula).",
@@ -7565,7 +7565,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "A primary chancre is painless, indurated, and clean-based. It usually appears on the genitals but can be extragenital, as here on a finger. Treponema pallidum is too thin for Gram stain and cannot be cultured on artificial media. Dark-field microscopy or PCR shows motile spirochetes. Nontreponemal tests (VDRL/RPR) can be negative early in primary syphilis. Chancroid (H. ducreyi) causes painful ulcers ('you do cry'). HSV causes painful grouped vesicles.",
       "images": [
-        "chancre.jpg"
+        "chancre.webp"
       ],
       "wrong": {
         "E": "Treponemes are too thin to be seen on Gram stain.",
@@ -7622,7 +7622,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Secondary syphilis (weeks to months after the chancre) is the disseminated stage. It causes a diffuse maculopapular rash that involves the palms and soles, condylomata lata (highly infectious moist papules), alopecia, mucous patches, and lymphadenopathy. RPR/VDRL titers are highest here. Primary, secondary, and early latent syphilis are treated with one dose of IM benzathine penicillin G. Neurosyphilis and ocular or otic syphilis need IV aqueous penicillin G.",
       "images": [
-        "syph-palms.jpg"
+        "syph-palms.webp"
       ],
       "wrong": {
         "C": "Doxycycline is an alternative only in penicillin allergy, and 7 days is too short.",
@@ -7834,8 +7834,8 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Congenital syphilis comes from transplacental spread and can cause stillbirth, hydrops, and early findings (rhinorrhea 'snuffles', rash, hepatosplenomegaly, periostitis). Late findings include Hutchinson teeth, mulberry molars, saddle nose, saber shins, interstitial keratitis, and eighth nerve deafness (Hutchinson triad). All pregnant women are screened. Penicillin is the only adequate treatment in pregnancy, so penicillin-allergic women are desensitized.",
       "images": [
-        "hutchinson.jpg",
-        "congenital-syphilis.jpg"
+        "hutchinson.webp",
+        "congenital-syphilis.webp"
       ],
       "wrong": {
         "A": "Eye ointment prevents gonococcal conjunctivitis only.",
@@ -7904,7 +7904,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Erythema migrans is an expanding annular 'bull's-eye' rash at the tick bite site. It is the hallmark of early localized Lyme disease, caused by Borrelia burgdorferi. The vector is the black-legged (deer) tick Ixodes scapularis. White-footed mice are reservoirs and deer host the adult ticks. It is most common in the Northeast and upper Midwest. Treat with doxycycline (amoxicillin or cefuroxime in young children or pregnancy). Diagnosis is clinical, since serology is often negative this early.",
       "images": [
-        "em-rash.jpg"
+        "em-rash.webp"
       ],
       "wrong": {
         "E": "Dermacentor transmits RMSF and tularemia, not Lyme disease.",
@@ -7914,7 +7914,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tick-cycle.jpg",
+          "file": "fig-tick-cycle.webp",
           "caption": "The Ixodes life cycle. Nymphs feed in late spring and summer and cause most human Lyme disease; they are tiny and their bite is usually unnoticed.",
           "credit": {
             "artist": "User:Philg88",
@@ -8014,7 +8014,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Ixodes scapularis nymphs are poppy-seed sized and often go unnoticed. Transmission of B. burgdorferi usually needs more than 36–48 hours of attachment, because spirochetes move from tick midgut to salivary glands after feeding starts. The same tick carries Babesia microti and Anaplasma phagocytophilum (and Powassan virus), so co-infection can occur. Dermacentor carries RMSF and tularemia. Amblyomma (lone star tick) carries Ehrlichia chaffeensis.",
       "images": [
-        "ixodes.jpg"
+        "ixodes.webp"
       ],
       "wrong": {
         "D": "Both are transmitted by Dermacentor ticks.",
@@ -8024,7 +8024,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tick-cycle.jpg",
+          "file": "fig-tick-cycle.webp",
           "caption": "The two-year Ixodes scapularis cycle: larvae feed on mice (acquiring Borrelia), moult to nymphs that feed the following spring and summer, and adults feed on deer in the fall. Nymphs transmit most human infections.",
           "credit": {
             "artist": "User:Philg88",
@@ -8178,7 +8178,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Relapsing fever is caused by Borrelia recurrentis (body louse, epidemic) or by Borrelia hermsii and other tick-borne species (soft Ornithodoros ticks in rodent-infested cabins). Spirochetes are visible between RBCs on Giemsa or Wright smears taken during fever. Each relapse reflects a new antigenic variant, created by switching of variable major proteins, that escapes the existing antibody. Treat with doxycycline and watch for Jarisch-Herxheimer reactions.",
       "images": [
-        "borrelia-smear.jpg"
+        "borrelia-smear.webp"
       ],
       "wrong": {
         "E": "That is malaria, which shows intraerythrocytic parasites rather than spirochetes.",
@@ -8267,7 +8267,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Leptospira interrogans is shed in the urine of rats, dogs, and livestock and enters through broken skin or mucosa in contaminated water. This is common in the tropics (Hawaii), after floods, and among surfers and sewer workers. Leptospirosis is biphasic: flu-like illness with conjunctival suffusion and calf pain, then an immune phase. Weil disease is the severe form, with jaundice, AKI, hemorrhage, and myocarditis. Treat with doxycycline or penicillin (IV penicillin or ceftriaxone if severe).",
       "images": [
-        "lepto-sem.jpg"
+        "lepto-sem.webp"
       ],
       "wrong": {
         "E": "Mosquitoes transmit malaria and arboviruses, not leptospires.",
@@ -8383,7 +8383,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Rocky Mountain spotted fever (Rickettsia rickettsii, spread by Dermacentor dog and wood ticks) is most common in the south-central and southeastern US, despite its name. The rash starts at the wrists and ankles and spreads centrally, including the palms and soles. Doxycycline is the treatment for all ages, including young children, because the risk of death outweighs the small risk of tooth staining from a short course. Start it on clinical suspicion. Delay raises mortality.",
       "images": [
-        "rmsf.jpg"
+        "rmsf.webp"
       ],
       "wrong": {
         "E": "Beta-lactams are inactive against obligate intracellular rickettsiae.",
@@ -8604,7 +8604,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Human monocytic ehrlichiosis (Ehrlichia chaffeensis, spread by the lone star tick Amblyomma americanum) causes fever with leukopenia, thrombocytopenia, and transaminitis. It usually has no rash. The morulae (berry-like clusters of bacteria in vacuoles) are in monocytes. Anaplasma phagocytophilum (Ixodes tick) forms morulae in granulocytes (neutrophils). Babesia appears inside RBCs. Treat both with doxycycline.",
       "images": [
-        "ehrlichia.jpg"
+        "ehrlichia.webp"
       ],
       "wrong": {
         "A": "Anaplasma forms morulae in granulocytes and is spread by Ixodes ticks.",
@@ -8873,7 +8873,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Chlamydiae are obligate intracellular bacteria. The small, dense elementary body ('Enters') is taken up by endocytosis and turns into the reticulate body ('Replicates') inside an inclusion that avoids lysosomal fusion. Reticulate bodies divide and convert back to elementary bodies, which are released. Chlamydiae cannot make their own ATP. Their cell wall lacks classic peptidoglycan (reduced muramic acid), so β-lactams are ineffective. Glycogen-rich C. trachomatis inclusions stain with iodine. Cytoplasmic inclusions can be seen on Giemsa stain or fluorescent antibody.",
       "images": [
-        "chlamydia-incl.jpg"
+        "chlamydia-incl.webp"
       ],
       "wrong": {
         "B": "The roles are reversed; reticulate bodies are fragile and intracellular.",
@@ -9281,7 +9281,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Mycobacteria have a waxy cell envelope rich in long-chain mycolic acids. This makes them resist decolorization with acid-alcohol after carbol fuchsin staining (acid-fast). They stain poorly with Gram stain. Cord factor (trehalose dimycolate) makes virulent M. tuberculosis grow in serpentine cords, inhibits neutrophil migration, and activates macrophages to form granulomas (TNF-α release). Sulfatides block phagolysosome fusion.",
       "images": [
-        "tb-zn.jpg"
+        "tb-zn.webp"
       ],
       "wrong": {
         "A": "Teichoic acids are in Gram-positive walls and do not confer acid-fastness.",
@@ -9342,7 +9342,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Infected macrophages present antigen and secrete IL-12. This drives CD4+ Th1 cells to produce IFN-γ, which activates macrophages to kill bacteria and become epithelioid cells and giant cells. TNF-α keeps the granuloma intact. That is why TNF inhibitors (infliximab, adalimumab, etanercept) can reactivate latent TB, so patients are screened first. Defects in IL-12/IFN-γ signaling cause disseminated mycobacterial infections. Tuberculin skin test reactions are type IV hypersensitivity.",
       "images": [
-        "tb-granuloma.jpg"
+        "tb-granuloma.webp"
       ],
       "wrong": {
         "D": "Th2 responses drive allergy and helminth defense and worsen mycobacterial control.",
@@ -9352,7 +9352,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tb-latency.jpg",
+          "file": "fig-tb-latency.webp",
           "caption": "Tuberculosis after inhalation: bacilli reach the alveoli, dendritic cells carry antigen to lymph nodes and activate T cells, and the granuloma that forms either clears the organism, contains it as latent infection, or breaks down into active, transmissible disease.",
           "credit": {
             "artist": "Wenping Gong and Xueqiong Wu",
@@ -9433,7 +9433,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tb-latency.jpg",
+          "file": "fig-tb-latency.webp",
           "caption": "The three outcomes after infection: elimination with recovery, a stable granuloma holding latent infection, or breakdown of the granuloma into active tuberculosis that can be transmitted again.",
           "credit": {
             "artist": "Wenping Gong and Xueqiong Wu",
@@ -9469,7 +9469,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Miliary TB (millet-seed nodules) is hematogenous spread in patients with weak cell-mediated immunity (the very young or old, HIV, steroids, TNF inhibitors). Extrapulmonary TB includes meningitis (basilar, with CN palsies and low CSF glucose), Pott disease (vertebral osteomyelitis), adrenal insufficiency, scrofula (cervical lymphadenitis), renal TB ('sterile pyuria'), and pericarditis. Sputum smears are often negative, and tuberculin tests may be anergic.",
       "images": [
-        "miliary-tb.jpg"
+        "miliary-tb.webp"
       ],
       "wrong": {
         "A": "Endobronchial spread gives patchy infiltrates, not uniform tiny nodules everywhere.",
@@ -9479,7 +9479,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tb-latency.jpg",
+          "file": "fig-tb-latency.webp",
           "caption": "When containment fails, bacilli escape the granuloma. If they enter the bloodstream they seed innumerable tiny foci throughout the body, producing miliary disease.",
           "credit": {
             "artist": "Wenping Gong and Xueqiong Wu",
@@ -9516,7 +9516,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Thresholds for induration (not redness): ≥5 mm in HIV, close contacts of active TB, fibrotic changes on CXR, organ transplant, or immunosuppression. ≥10 mm in recent immigrants from high-prevalence countries, injection drug users, residents and workers in high-risk settings (healthcare, prisons), and children under 4. ≥15 mm in people with no risk factors. Interferon-γ release assays (IGRAs) are not affected by BCG and need only one visit. Neither test separates latent from active TB.",
       "images": [
-        "mantoux.jpg"
+        "mantoux.webp"
       ],
       "wrong": {
         "D": "The 15 mm cutoff applies only to people with no risk factors; healthcare work lowers it to 10 mm.",
@@ -9770,7 +9770,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Leprosy (Hansen disease) forms a spectrum. Lepromatous leprosy reflects a Th2-dominant response (IL-4, IL-10) with poor macrophage activation, many bacilli, diffuse lesions, and high infectivity. It can be fatal. Tuberculoid leprosy reflects a strong Th1 response with few well-demarcated hypoesthetic plaques, thickened nerves, granulomas, and few bacilli. M. leprae grows best at cool temperatures (skin, peripheral nerves, nose, testes). It cannot be cultured on artificial media and has an armadillo reservoir in the southern US.",
       "images": [
-        "leprosy-ll.jpg"
+        "leprosy-ll.webp"
       ],
       "wrong": {
         "E": "That is tuberculoid leprosy, with few well-defined lesions and rare bacilli.",
@@ -9959,7 +9959,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Bacterial vaginosis is an overgrowth of Gardnerella vaginalis and anaerobes that replaces H2O2-producing lactobacilli. The wet mount shows clue cells: vaginal epithelial cells covered with coccobacilli so their borders are blurred. Other findings: pH above 4.5, a fishy amine odor on KOH (whiff test), and little inflammation (few WBCs). Treat with oral or vaginal metronidazole or clindamycin. It raises the risk of preterm birth and PID. It is not a classic STI, and male partners are not treated.",
       "images": [
-        "clue-cells.jpg"
+        "clue-cells.webp"
       ],
       "wrong": {
         "D": "Fluconazole treats candidiasis, which has normal pH and pseudohyphae.",
@@ -10094,7 +10094,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Whipple disease is caused by Tropheryma whipplei, a Gram-positive actinomycete. It most often affects older white men. The lamina propria fills with foamy PAS-positive, diastase-resistant macrophages, which block lymphatic drainage and cause malabsorption. Extraintestinal features: arthralgias, cardiac involvement (culture-negative endocarditis), and neurologic signs (oculomasticatory myorhythmia, dementia). Treat with IV ceftriaxone, then 1 year of TMP-SMX. MAC in AIDS also causes PAS-positive macrophages, but those are acid-fast.",
       "images": [
-        "whipple.jpg"
+        "whipple.webp"
       ],
       "wrong": {
         "A": "Giardia causes malabsorption but shows trophozoites, not PAS-positive macrophages.",
@@ -10228,7 +10228,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-abx-targets.jpg",
+          "file": "fig-abx-targets.webp",
           "caption": "Antibiotic targets in a bacterial cell. Beta-lactams sit in the 'cell wall synthesis inhibitors' group at the top left, alongside glycopeptides such as vancomycin.",
           "credit": {
             "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
@@ -11047,7 +11047,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-abx-targets.jpg",
+          "file": "fig-abx-targets.webp",
           "caption": "Antibiotic classes grouped by the bacterial structure each one attacks: cell wall synthesis, cell membrane, DNA gyrase, RNA synthesis, folate synthesis, and the ribosome.",
           "credit": {
             "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
@@ -11755,7 +11755,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-abx-targets.jpg",
+          "file": "fig-abx-targets.webp",
           "caption": "Antibiotic classes by target. The cell wall synthesis inhibitors at the top left act at different points along the same assembly line, from cytoplasmic precursor synthesis to final cross-linking.",
           "credit": {
             "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
@@ -11839,7 +11839,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-lps.jpg",
+          "file": "fig-lps.webp",
           "caption": "Lipopolysaccharide, drawn from the membrane outward: lipid A anchored in the outer leaflet, then inner and outer core sugars, then the long repeating O antigen.",
           "credit": {
             "artist": "Mike Jones",
@@ -11924,7 +11924,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-gram-wall.jpg",
+          "file": "fig-gram-wall.webp",
           "caption": "Envelope layers. Top, Gram-negative: (1) inner membrane, (2) thin peptidoglycan, (3) outer membrane, with lipoprotein (6), porin (7), lipoteichoic-type anchor (8), and a transport channel (9). Bottom, Gram-positive: (1) a single membrane under a thick multilayer peptidoglycan wall (2) threaded by teichoic acids (green, 5) and lipoteichoic acid (4).",
           "credit": {
             "artist": "Franciscosp2",
@@ -12236,7 +12236,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-conjugation.jpg",
+          "file": "fig-conjugation.webp",
           "caption": "Bacterial conjugation. (1) The F-plasmid-bearing donor extends a pilus; (2) the pilus contacts the recipient and retracts, pulling the cells together; (3) the relaxosome nicks the plasmid and one strand is transferred while DNA polymerase copies it; (4) both cells now carry the plasmid and can act as donors.",
           "credit": {
             "artist": "Adenosine",
@@ -12950,7 +12950,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "HSV-1 infects mucosal epithelium, then travels retrograde along sensory axons to the trigeminal ganglion, where it stays latent as an episome. Stress, UV light, fever, or immunosuppression cause reactivation. The virus travels back down the axon to the same site, giving recurrent herpes labialis. HSV-2 usually becomes latent in sacral ganglia (genital herpes). EBV is latent in B cells, CMV in monocytes, and HHV-8 in B cells and endothelium.",
       "images": [
-        "herpes-labialis.jpg"
+        "herpes-labialis.webp"
       ],
       "wrong": {
         "C": "Epithelial cells are where lytic replication occurs; they turn over and cannot harbor latency.",
@@ -12960,7 +12960,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hsv-latency.jpg",
+          "file": "fig-hsv-latency.webp",
           "caption": "Productive HSV-1 replication in an epithelial cell, with ordered immediate-early, early, and late gene expression. In sensory neurons this cascade is suppressed instead, leaving the genome quiet until reactivation.",
           "credit": {
             "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
@@ -13053,7 +13053,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "A Tzanck smear shows multinucleated giant cells with molded nuclei and intranuclear (Cowdry A) inclusions. These are typical of HSV-1, HSV-2, and VZV infection. It cannot tell them apart and is insensitive, so PCR of vesicle fluid is now preferred. Measles also forms multinucleated giant cells (Warthin-Finkeldey) in lymphoid tissue and lung.",
       "images": [
-        "tzanck.jpg"
+        "tzanck.webp"
       ],
       "wrong": {
         "C": "These do not produce multinucleated giant cells in skin scrapings.",
@@ -13286,7 +13286,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Chickenpox (primary VZV) spreads by aerosols and contact with lesions. It is contagious from about 2 days before the rash until all lesions crust. Crops of lesions in different stages ('dewdrops on a rose petal') start centrally. Smallpox, in contrast, has lesions all at the same stage that are denser on the face and limbs. Complications: bacterial skin superinfection (S. pyogenes, S. aureus), pneumonia (worse in adults and pregnancy), encephalitis/cerebellitis, and Reye syndrome with aspirin. Prevent with the live attenuated vaccine. VariZIG is used for exposed high-risk people.",
       "images": [
-        "varicella.jpg"
+        "varicella.webp"
       ],
       "wrong": {
         "B": "That is smallpox; varicella shows lesions in several stages at once.",
@@ -13367,7 +13367,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Shingles is VZV reactivation from a sensory ganglion as cell-mediated immunity wanes with age or immunosuppression. It causes a painful dermatomal vesicular rash that does not cross the midline. Complications: postherpetic neuralgia, zoster ophthalmicus (V1; Hutchinson sign on the nose tip predicts eye involvement), Ramsay Hunt syndrome (facial palsy, ear vesicles), and dissemination. Recombinant zoster vaccine (Shingrix), a 2-dose non-live vaccine, is recommended for all adults 50 and older and immunocompromised adults 19 and older. Treat within 72 hours with valacyclovir or famciclovir.",
       "images": [
-        "zoster.jpg"
+        "zoster.webp"
       ],
       "wrong": {
         "E": "Genital herpes causes recurrent genital lesions, not a thoracic dermatomal band.",
@@ -13604,7 +13604,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Congenital CMV is the most common congenital infection and the leading non-genetic cause of sensorineural hearing loss. Infected cells are cytomegalic with 'owl's eye' intranuclear inclusions. Classic findings: periventricular calcifications, microcephaly, chorioretinitis, and hepatosplenomegaly. Congenital toxoplasmosis has diffuse or basal ganglia calcifications and hydrocephalus. Congenital rubella causes PDA, cataracts, and deafness. Congenital varicella causes limb hypoplasia and scars. Treat symptomatic newborns with valganciclovir.",
       "images": [
-        "cmv-owl.jpg"
+        "cmv-owl.webp"
       ],
       "wrong": {
         "E": "PDA with cataracts and deafness suggests congenital rubella.",
@@ -13803,7 +13803,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Kaposi sarcoma is a vascular tumor of lymphatic endothelial origin driven by HHV-8 (KSHV). Latency proteins such as LANA (latency-associated nuclear antigen) inactivate p53. It occurs in AIDS (often MSM), transplant recipients, older Mediterranean men, and in Africa. HHV-8 also causes primary effusion lymphoma and multicentric Castleman disease. Treat with ART and, if needed, chemotherapy. Bacillary angiomatosis looks similar but has neutrophils.",
       "images": [
-        "kaposi.jpg"
+        "kaposi.webp"
       ],
       "wrong": {
         "C": "EBV drives lymphomas and nasopharyngeal carcinoma, not these vascular skin plaques.",
@@ -13891,7 +13891,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hsv-latency.jpg",
+          "file": "fig-hsv-latency.webp",
           "caption": "HSV-1 replication: the virion binds and enters, the nucleocapsid travels to the nucleus and injects its DNA, and genes are transcribed in ordered waves - immediate-early (alpha), early (beta), then late (gamma) - before assembly and nuclear budding.",
           "credit": {
             "artist": "Giovanna De Chiara, Maria Elena Marcocci, Rossella Sgarbanti, Livia Civitelli, C",
@@ -13983,7 +13983,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Parvovirus B19 is the smallest DNA virus: non-enveloped and single-stranded. It uses the P blood group antigen (globoside) to enter erythroid progenitors in the bone marrow, where it replicates and lyses them. In children it causes erythema infectiosum ('slapped cheek', fifth disease). The rash appears once the child is no longer contagious. In adults it causes symmetric arthritis. With chronic hemolysis (sickle cell, hereditary spherocytosis) it causes aplastic crisis. In pregnancy it causes hydrops fetalis. In the immunocompromised it causes chronic pure red cell aplasia.",
       "images": [
-        "fifth.jpg"
+        "fifth.webp"
       ],
       "wrong": {
         "A": "Acute chest syndrome is a vaso-occlusive complication, not direct viral injury.",
@@ -14112,7 +14112,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Molluscum contagiosum is a poxvirus. Poxviruses are the largest DNA viruses and the only ones that replicate in the cytoplasm, so they bring their own transcription machinery. The lesions contain molluscum bodies (Henderson-Patterson bodies). Spread is by skin contact, fomites, or sexually in adults. Extensive or giant lesions suggest HIV. Other poxviruses: variola (smallpox), vaccinia, and monkeypox (mpox).",
       "images": [
-        "molluscum.jpg"
+        "molluscum.webp"
       ],
       "wrong": {
         "C": "Poxviruses have double-stranded DNA.",
@@ -14193,7 +14193,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Smallpox (variola) has a severe febrile prodrome, then a centrifugal rash (face and limbs, including palms and soles). Deep, firm, synchronous lesions progress together from macule to papule to vesicle to pustule to scab. Varicella is centripetal, with superficial lesions in different stages. Smallpox was eradicated in 1980 by vaccinia vaccination. Tecovirimat inhibits orthopoxvirus envelope protein p37.",
       "images": [
-        "smallpox.jpg"
+        "smallpox.webp"
       ],
       "wrong": {
         "E": "That is varicella.",
@@ -14421,7 +14421,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Hand-foot-and-mouth disease is caused mainly by coxsackievirus A16 and enterovirus 71. These are enteroviruses (Picornaviridae): small, naked, positive-sense ssRNA viruses spread fecal-orally and by respiratory secretions, peaking in summer and fall. Coxsackie A also causes herpangina (posterior pharyngeal vesicles). Coxsackie B causes myocarditis and pericarditis, pleurodynia (Bornholm disease), and aseptic meningitis. Picornaviruses: Poliovirus, Echovirus, Rhinovirus, Coxsackievirus, HAV ('PERCH').",
       "images": [
-        "hfmd.jpg"
+        "hfmd.webp"
       ],
       "wrong": {
         "A": "Herpetic gingivostomatitis affects the mouth but not palms and soles.",
@@ -15129,7 +15129,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Congenital rubella syndrome (first-trimester infection) causes the classic triad of PDA (or pulmonary artery stenosis), cataracts, and sensorineural deafness, plus 'blueberry muffin' purpura from extramedullary hematopoiesis. Postnatal rubella (German measles, 3-day measles) is mild: fever, postauricular and occipital lymphadenopathy, a pink rash that starts on the face and spreads downward, and arthralgia in women. Prevent with MMR, a live vaccine given before pregnancy, not during.",
       "images": [
-        "blueberry.jpg"
+        "blueberry.webp"
       ],
       "wrong": {
         "A": "Congenital CMV causes periventricular calcifications and deafness, without PDA or cataracts.",
@@ -15319,7 +15319,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-flu-shift.jpg",
+          "file": "fig-flu-shift.webp",
           "caption": "Antigenic shift by reassortment: a cell co-infected with an avian strain and a human strain packages a mixture of the eight genome segments, producing a new strain with avian surface proteins and human-adapted internal genes.",
           "credit": {
             "artist": "Dhorspool at en.wikipedia",
@@ -15378,7 +15378,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Koplik spots (bluish-white spots on red buccal mucosa opposite the molars) appear before the rash of measles (rubeola), a paramyxovirus. The prodrome is the '3 Cs' (cough, coryza, conjunctivitis) with high fever. Vitamin A lowers mortality and complications, including corneal damage (keratitis causing blindness) and pneumonia, and is recommended for all children with measles.",
       "images": [
-        "koplik.jpg"
+        "koplik.webp"
       ],
       "wrong": {
         "A": "Vitamin D does not alter measles outcomes.",
@@ -15441,7 +15441,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Measles spreads by aerosol and is extremely contagious. The rash is erythematous and maculopapular, starting at the hairline and face and spreading downward, sparing the palms and soles, and later darkening. Complications: pneumonia (giant cell pneumonia; the most common cause of death), otitis media, acute encephalitis, 'immune amnesia' from destroyed memory lymphocytes, and SSPE (a fatal chronic encephalitis 7–10 years later from defective M-protein virus). Lymph nodes show Warthin-Finkeldey giant cells.",
       "images": [
-        "measles-rash.jpg"
+        "measles-rash.webp"
       ],
       "wrong": {
         "D": "PML is caused by JC virus in immunosuppressed patients.",
@@ -15504,7 +15504,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Mumps (paramyxovirus) causes parotitis, orchitis (usually after puberty; rarely sterility), aseptic meningitis, and pancreatitis ('POM': Parotitis, Orchitis, Meningitis). It can also cause sensorineural hearing loss and oophoritis. Serum amylase may be elevated from the salivary glands. It is prevented by MMR, and outbreaks still occur in close-contact settings such as college campuses.",
       "images": [
-        "mumps.jpg"
+        "mumps.webp"
       ],
       "wrong": {
         "A": "That is a parvovirus B19 complication.",
@@ -15687,7 +15687,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Rabies is a bullet-shaped, enveloped, negative-sense ssRNA rhabdovirus. It binds nicotinic ACh receptors at the neuromuscular junction, enters peripheral nerves, and travels retrograde by dynein to the CNS. The incubation can last weeks to months (longer with bites far from the head). Negri bodies (cytoplasmic inclusions) are seen in the hippocampus and Purkinje cells. In the US, bats are the most common source, and bites may go unnoticed. Once symptoms begin, the disease is almost always fatal.",
       "images": [
-        "negri.jpg"
+        "negri.webp"
       ],
       "wrong": {
         "C": "Rabies virus travels within nerves and is rarely detected in blood.",
@@ -15778,7 +15778,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Ebola and Marburg are filoviruses (long filaments, negative-sense ssRNA). Fruit bats are the likely reservoir. Human-to-human spread is by contact with blood and body fluids, including during burials, which causes hospital outbreaks. The virus infects endothelium, macrophages, and hepatocytes, causing hemorrhagic fever with high mortality. Management: strict contact isolation and supportive care. Monoclonal antibodies (Inmazeb, Ebanga) and the rVSV-ZEBOV vaccine are available for Zaire ebolavirus.",
       "images": [
-        "ebola-em.jpg"
+        "ebola-em.webp"
       ],
       "wrong": {
         "B": "That describes dengue, Zika, and yellow fever.",
@@ -15788,7 +15788,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "ebola-em.jpg",
+          "file": "ebola-em.webp",
           "caption": "Ebola virion on electron microscopy: the filamentous, sometimes shepherd's-crook shaped particle that gives the filoviruses their name.",
           "credit": {
             "artist": "Photo Credit: Dr. Frederick Murphy Content Providers(s): CDC/ Dr. Frederick A. Murphy",
@@ -16311,7 +16311,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hiv-cycle.jpg",
+          "file": "fig-hiv-cycle.webp",
           "caption": "HIV replication cycle: gp120 attaches to CD4 and a co-receptor, gp41 drives fusion, reverse transcriptase copies RNA into DNA, integrase inserts it into host DNA, and protease cleaves the polyprotein during assembly and release.",
           "credit": {
             "artist": "Jmarchn",
@@ -16398,7 +16398,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hiv-cycle.jpg",
+          "file": "fig-hiv-cycle.webp",
           "caption": "The labelled virion at the upper left shows the products of the three structural genes: env makes gp120 and gp41, gag makes the capsid and matrix, and pol makes reverse transcriptase, integrase, and protease.",
           "credit": {
             "artist": "Jmarchn",
@@ -16638,7 +16638,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hiv-cycle.jpg",
+          "file": "fig-hiv-cycle.webp",
           "caption": "Each antiretroviral class blocks one labelled step: entry inhibitors at attachment and fusion, NRTIs and NNRTIs at reverse transcription, integrase inhibitors at integration, and protease inhibitors at the final maturation step.",
           "credit": {
             "artist": "Jmarchn",
@@ -17236,7 +17236,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Ground-glass hepatocytes are typical of chronic hepatitis B. Large amounts of HBsAg fill a swollen, smooth endoplasmic reticulum. HBV extrahepatic diseases (immune complex): polyarteritis nodosa, membranous nephropathy, and serum sickness-like prodrome (arthralgias, rash). Chronic HCV shows lymphoid aggregates and macrovesicular steatosis.",
       "images": [
-        "ground-glass.jpg"
+        "ground-glass.webp"
       ],
       "wrong": {
         "C": "Councilman bodies are apoptotic hepatocytes, not granular cytoplasm.",
@@ -17721,7 +17721,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Oral candidiasis (thrush) produces white pseudomembranous plaques that can be scraped off, unlike oral hairy leukoplakia (EBV). Thrush in an adult without a clear cause (inhaled steroids, dentures, antibiotics, diabetes) suggests impaired T-cell immunity, so test for HIV. Treat with clotrimazole troches, nystatin suspension, or oral fluconazole. Candida esophagitis (odynophagia) is AIDS-defining and usually occurs at CD4 below 100.",
       "images": [
-        "thrush.jpg"
+        "thrush.webp"
       ],
       "wrong": {
         "B": "Carcinoma presents as a fixed ulcer or mass that does not scrape off.",
@@ -17790,7 +17790,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Candida albicans is a normal-flora yeast that forms pseudohyphae and, at 37°C, germ tubes. Candidemia risk factors: central lines, TPN, broad-spectrum antibiotics, neutropenia, and abdominal surgery. Echinocandins (caspofungin, micafungin, anidulafungin) are first-line. They inhibit cell wall β-glucan synthesis. They are poor against Cryptococcus. Remove the central line, and do an ophthalmologic exam for endophthalmitis. Candida auris is often multidrug-resistant.",
       "images": [
-        "candida-gram.jpg"
+        "candida-gram.webp"
       ],
       "wrong": {
         "A": "Amphotericin binds ergosterol; squalene epoxidase is the terbinafine target.",
@@ -17918,7 +17918,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Invasive aspergillosis occurs in prolonged neutropenia, hematopoietic stem cell transplant, and high-dose steroids. The hyphae are septate and branch at acute (45°) angles (shown). They invade blood vessels, causing infarction, hemoptysis, and the CT 'halo sign.' Serum galactomannan supports the diagnosis. Voriconazole is first-line (isavuconazole is an alternative). Voriconazole toxicities include visual disturbances, photosensitivity (and skin cancer with long use), hepatotoxicity, and CYP interactions. Fluconazole has no activity against Aspergillus.",
       "images": [
-        "aspergillus.jpg"
+        "aspergillus.webp"
       ],
       "wrong": {
         "A": "Fluconazole has no mold activity.",
@@ -18053,7 +18053,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Mucormycosis (Mucor, Rhizopus) invades blood vessels and causes rhinocerebral infection with necrosis and spread to the orbit and brain. It occurs in DKA (acidosis releases iron from transferrin, and the fungus uses the free iron to grow; it also has ketone reductase), neutropenia, deferoxamine therapy, and transplant. Treat with emergency debridement plus high-dose liposomal amphotericin B, then posaconazole or isavuconazole. Voriconazole is not active and may even predispose to mucormycosis.",
       "images": [
-        "mucor.jpg"
+        "mucor.webp"
       ],
       "wrong": {
         "E": "Mucorales are intrinsically resistant, and voriconazole use may predispose to them.",
@@ -18122,7 +18122,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Cryptococcus neoformans is an encapsulated yeast found in soil and pigeon droppings. It is inhaled and spreads to the meninges in AIDS (CD4 below 100) and other immunosuppression. India ink shows yeasts with clear halos (capsules), as here. The CSF cryptococcal antigen (latex agglutination) is more sensitive. Other virulence factors: melanin (laccase), urease, and growth at 37°C. Induction therapy is amphotericin B plus flucytosine, followed by fluconazole for consolidation and maintenance. Remove CSF to control high pressure. Delay ART 4–6 weeks.",
       "images": [
-        "crypto-ink.jpg"
+        "crypto-ink.webp"
       ],
       "wrong": {
         "B": "Fluconazole alone is inferior for induction and is used later for consolidation.",
@@ -18191,7 +18191,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Histoplasma is found in the Ohio and Mississippi River valleys, in soil contaminated with bird and bat droppings (caves, chicken coops). The yeast is small and grows inside macrophages. It causes pulmonary disease that can mimic TB (calcified hilar nodes). Disseminated disease in AIDS causes pancytopenia, hepatosplenomegaly, oral ulcers, and adrenal insufficiency. Urine and serum antigen detection helps. Leishmania amastigotes are also found in macrophages, but they have a kinetoplast. Treat severe disease with liposomal amphotericin B, then itraconazole.",
       "images": [
-        "histo-mac.jpg"
+        "histo-mac.webp"
       ],
       "wrong": {
         "E": "Blastomyces yeasts are large with broad-based buds, not tiny intracellular forms.",
@@ -18260,7 +18260,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Blastomyces dermatitidis lives in the Great Lakes, Ohio and Mississippi River basins, and southeastern US, often near waterways and decaying wood. Inhaled conidia become large yeasts with broad-based budding ('Blasto Buds Broadly'). It causes pneumonia and spreads to skin (verrucous lesions that can mimic SCC), bone, and the GU tract (prostate). Treat mild to moderate disease with itraconazole and severe or CNS disease with amphotericin B.",
       "images": [
-        "blasto.jpg"
+        "blasto.webp"
       ],
       "wrong": {
         "B": "Penicillin has no antifungal activity.",
@@ -18329,7 +18329,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Coccidioides immitis and C. posadasii are found in the southwestern US (San Joaquin Valley, Arizona) and northern Mexico. Arthroconidia are released by dust storms, earthquakes, and construction. Illness (valley fever) can include erythema nodosum ('desert bumps') and arthralgias ('desert rheumatism'). Dissemination to skin, bone, and meninges is more common in Filipino and Black patients, pregnancy, and immunosuppression. Treat with fluconazole or itraconazole, or amphotericin B for severe disease. Meningitis needs lifelong fluconazole.",
       "images": [
-        "cocci-spherule.jpg"
+        "cocci-spherule.webp"
       ],
       "wrong": {
         "E": "That describes Histoplasma, which is found in a different region.",
@@ -18398,7 +18398,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Paracoccidioides is found in Latin America and affects mainly male agricultural workers. It is dimorphic, and the yeast forms multiple buds around its edge, like a 'captain's wheel' or 'Mickey Mouse ears.' It causes chronic pulmonary disease and ulcerating mucocutaneous lesions. Estrogen inhibits the change from mold to yeast, which may explain why it affects men more. Treat with itraconazole.",
       "images": [
-        "paracocci.jpg"
+        "paracocci.webp"
       ],
       "wrong": {
         "E": "Blastomyces has a single broad-based bud, not many peripheral buds.",
@@ -18599,7 +18599,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Sporotrichosis (Sporothrix schenckii, 'rose gardener's disease') is a dimorphic fungus inoculated from thorns, sphagnum moss, hay, soil, or cat scratches. It spreads along lymphatics (lymphocutaneous or sporotrichoid spread). It rarely disseminates except in immunocompromised hosts. Treat with itraconazole. Saturated potassium iodide is an older option. Nocardia brasiliensis and M. marinum can spread in a similar pattern.",
       "images": [
-        "sporotrichosis.jpg"
+        "sporotrichosis.webp"
       ],
       "wrong": {
         "E": "Penicillin has no antifungal activity.",
@@ -18668,7 +18668,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Pityriasis (tinea) versicolor is caused by the lipophilic yeast Malassezia. It thrives in hot, humid conditions. Azelaic acid from the yeast inhibits tyrosinase, causing hypopigmentation, which is more visible after tanning. Lesions can also be pink or hyperpigmented. Treat with topical selenium sulfide or azoles. Malassezia also causes seborrheic dermatitis, and it can cause fungemia in infants on lipid-rich TPN.",
       "images": [
-        "malassezia.jpg"
+        "malassezia.webp"
       ],
       "wrong": {
         "C": "Dermatophytes cause annular scaly plaques, not hypopigmented macules.",
@@ -18954,7 +18954,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Giardia lamblia (intestinalis) cysts are ingested in water that has not been filtered (beavers are reservoirs, and the cysts resist chlorination) or spread person to person (daycare, MSM). Trophozoites attach to the duodenal mucosa with a ventral sucking disk and cause malabsorption: fatty diarrhea, bloating, and no invasion or blood. Diagnose with stool antigen or PCR, or by finding cysts or trophozoites. Treat with tinidazole, metronidazole, or nitazoxanide. IgA deficiency and hypogammaglobulinemia (CVID, XLA) cause chronic or recurrent giardiasis.",
       "images": [
-        "giardia.jpg"
+        "giardia.webp"
       ],
       "wrong": {
         "C": "Asplenia predisposes to encapsulated bacteria, not protozoa.",
@@ -18964,7 +18964,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-giardia-cycle.jpg",
+          "file": "fig-giardia-cycle.webp",
           "caption": "Giardia: chlorine-resistant cysts are swallowed in contaminated water, excyst in the small intestine into trophozoites that attach to the duodenal wall, and new cysts are passed in stool.",
           "credit": {
             "artist": "LadyofHats",
@@ -19038,7 +19038,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Entamoeba histolytica cysts are ingested fecal-orally. Invasive trophozoites cause flask-shaped colonic ulcers and amebic dysentery. Trophozoites that eat RBCs (erythrophagocytosis) are specific for E. histolytica, as opposed to non-pathogenic E. dispar. Spread through the portal vein causes liver abscess with 'anchovy paste' contents, usually without a positive stool at that stage. Diagnose with serology and antigen or PCR. Treat with metronidazole (tissue), then a luminal agent (paromomycin or iodoquinol) to clear cysts. Most abscesses do not need drainage.",
       "images": [
-        "entamoeba.jpg"
+        "entamoeba.webp"
       ],
       "wrong": {
         "B": "Most amebic abscesses resolve with drug therapy, and drainage alone leaves infection.",
@@ -19048,7 +19048,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-entamoeba-cycle.jpg",
+          "file": "fig-entamoeba-cycle.webp",
           "caption": "Entamoeba histolytica: cysts are swallowed, excyst in the intestine, and trophozoites either live in the lumen or invade the colonic wall, from which they can travel by the portal vein to the liver.",
           "credit": {
             "artist": "Mariana Ruiz Villarreal LadyofHats",
@@ -19122,7 +19122,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Cryptosporidium parvum and hominis are small apicomplexan parasites. Their oocysts are acid-fast and resist chlorine, causing outbreaks from pools and municipal water. In healthy hosts the diarrhea is self-limited (nitazoxanide can shorten it). In AIDS with low CD4 it causes chronic, severe watery diarrhea and can involve the biliary tree (sclerosing cholangitis). The main treatment is ART, since antiparasitic drugs work poorly. Filtering water prevents it. Cyclospora and Cystoisospora are also acid-fast but larger.",
       "images": [
-        "crypto-af.jpg"
+        "crypto-af.webp"
       ],
       "wrong": {
         "A": "Oocysts resist chlorine, which is why filtration is needed.",
@@ -19192,7 +19192,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-toxo-cycle.jpg",
+          "file": "fig-toxo-cycle.webp",
           "caption": "Tissue cysts full of slow-growing bradyzoites persist for life after primary infection. When cell-mediated immunity fails, they convert back to fast-dividing tachyzoites.",
           "credit": {
             "artist": "LadyofHats",
@@ -19285,7 +19285,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-toxo-cycle.jpg",
+          "file": "fig-toxo-cycle.webp",
           "caption": "Toxoplasma gondii: cats shed oocysts in feces, and humans are infected by swallowing oocysts or by eating tissue cysts in undercooked meat. Tachyzoites spread through tissues, then convert to slow bradyzoite cysts in brain and muscle.",
           "credit": {
             "artist": "LadyofHats",
@@ -19365,7 +19365,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "P. falciparum causes the most severe malaria. Infected RBCs develop knobs displaying PfEMP1, which binds ICAM-1, CD36, and EPCR on endothelium. This sequestration in the brain, kidney, lung, and placenta causes cerebral malaria, acute kidney injury ('blackwater fever' from hemoglobinuria), ARDS, hypoglycemia, and severe anemia. Smears show multiple small rings per cell and banana-shaped gametocytes. Severe malaria is treated with IV artesunate. Uncomplicated chloroquine-resistant malaria is treated with artemether-lumefantrine or atovaquone-proguanil.",
       "images": [
-        "pf-gametocyte.jpg"
+        "pf-gametocyte.webp"
       ],
       "wrong": {
         "E": "P. falciparum forms no hypnozoites, and they never enter CSF.",
@@ -19375,7 +19375,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-malaria-cycle.jpg",
+          "file": "fig-malaria-cycle.webp",
           "caption": "The blood stage of the cycle. In P. falciparum this stage is dangerous because the parasite invades red cells of every age and makes infected cells stick to blood vessel walls.",
           "credit": {
             "artist": "national Institute of Allergy and Infectious Diseases",
@@ -19455,7 +19455,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "P. falciparum invades RBCs of any age, so parasitemia can exceed 5–10%. P. vivax and ovale prefer reticulocytes and P. malariae prefers older RBCs, which limits their parasitemia. Mature trophozoites and schizonts are usually absent from falciparum smears because they sequester in microvessels. The fever pattern is irregular. Always suspect falciparum in a febrile traveler from sub-Saharan Africa.",
       "images": [
-        "pf-rings.jpg"
+        "pf-rings.webp"
       ],
       "wrong": {
         "B": "Vivax enlarges red cells and shows Schüffner dots, which are absent here.",
@@ -19524,7 +19524,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "P. vivax and P. ovale form dormant liver hypnozoites that can reactivate months later. Blood-stage drugs (chloroquine, or artemisinin combinations for resistant vivax) do not reach them. Primaquine or tafenoquine eradicates hypnozoites but causes hemolysis in G6PD deficiency, so test first. Both avoid pregnancy. Vivax and ovale have 48-hour (tertian) fevers and enlarged RBCs with Schüffner dots. P. vivax enters RBCs through the Duffy antigen, so Duffy-negative people (common in West Africa) are resistant.",
       "images": [
-        "pvivax.jpg"
+        "pvivax.webp"
       ],
       "wrong": {
         "A": "Chloroquine clears blood stages but leaves hypnozoites untouched.",
@@ -19534,7 +19534,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-malaria-cycle.jpg",
+          "file": "fig-malaria-cycle.webp",
           "caption": "The liver stage of the malaria cycle. In P. vivax and P. ovale, some sporozoites become dormant hypnozoites here rather than replicating immediately, and they reactivate weeks to months later.",
           "credit": {
             "artist": "national Institute of Allergy and Infectious Diseases",
@@ -19621,7 +19621,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-malaria-cycle.jpg",
+          "file": "fig-malaria-cycle.webp",
           "caption": "Plasmodium life cycle: the mosquito injects sporozoites that infect liver cells, merozoites are released into the blood and cycle through red cells, and gametocytes taken up in a blood meal complete sexual development in the mosquito.",
           "credit": {
             "artist": "national Institute of Allergy and Infectious Diseases",
@@ -19833,7 +19833,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Babesia microti is spread by Ixodes ticks in the Northeast and upper Midwest, often with Lyme or Anaplasma. It infects RBCs, causing hemolysis. Asplenia, old age, and immunosuppression lead to severe disease. Smear: rings without pigment, and Maltese cross tetrads that are pathognomonic. It resembles falciparum, but there is no travel history, no gametocytes, and no hemozoin. Treat with atovaquone plus azithromycin (clindamycin plus quinine if severe). Exchange transfusion is used for very high parasitemia.",
       "images": [
-        "babesia.jpg"
+        "babesia.webp"
       ],
       "wrong": {
         "A": "Chloroquine treats malaria, not Babesia.",
@@ -19843,7 +19843,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-babesia-cycle.jpg",
+          "file": "fig-babesia-cycle.webp",
           "caption": "Babesia microti: the Ixodes tick injects sporozoites that invade red blood cells directly, where they divide and sometimes form the tetrad 'Maltese cross'. There is no liver stage.",
           "credit": {
             "artist": "LadyofHats Mariana Ruiz Villarreal",
@@ -19943,8 +19943,8 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Trypanosoma cruzi causes Chagas disease in Latin America. The triatomine bug bites near the face and defecates, and infected feces enter the bite or conjunctiva (Romaña sign: unilateral periorbital swelling). Chronic disease destroys autonomic ganglia, causing dilated cardiomyopathy with apical aneurysm and arrhythmias, megaesophagus (secondary achalasia), and megacolon. It can also spread by transfusion, transplant, and from mother to fetus. Treat acute or young patients with benznidazole or nifurtimox.",
       "images": [
-        "tcruzi.jpg",
-        "romana.jpg"
+        "tcruzi.webp",
+        "romana.webp"
       ],
       "wrong": {
         "A": "Tsetse flies transmit African trypanosomiasis.",
@@ -19954,7 +19954,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tcruzi-cycle.jpg",
+          "file": "fig-tcruzi-cycle.webp",
           "caption": "Trypanosoma cruzi: the reduviid bug deposits infected feces while feeding, trypomastigotes enter through the wound or conjunctiva, become intracellular amastigotes that multiply and burst the cell, and circulating trypomastigotes are taken up at the next blood meal.",
           "credit": {
             "artist": "DPD CDC",
@@ -20112,7 +20112,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Leishmania donovani causes visceral leishmaniasis (kala-azar, 'black fever'). It is spread by female sandflies (Phlebotomus, Lutzomyia). Amastigotes live inside macrophages of the spleen, liver, and bone marrow, causing pancytopenia and hypergammaglobulinemia. Diagnose by finding amastigotes with kinetoplasts or by rK39 serology. Treat with liposomal amphotericin B. Sodium stibogluconate (pentavalent antimony) and miltefosine are alternatives. Histoplasma in macrophages lacks a kinetoplast.",
       "images": [
-        "leish-amast.jpg"
+        "leish-amast.webp"
       ],
       "wrong": {
         "C": "The tsetse fly transmits sleeping sickness.",
@@ -20122,7 +20122,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-leish-cycle.jpg",
+          "file": "fig-leish-cycle.webp",
           "caption": "Leishmania: a sandfly injects promastigotes, macrophages take them up, and inside the macrophage they become amastigotes that multiply until the cell ruptures. Another sandfly bite returns the parasite to the insect.",
           "credit": {
             "artist": "LadyofHats Mariana Ruiz Villarreal",
@@ -20208,7 +20208,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Cutaneous leishmaniasis (L. major, L. tropica in the Old World; L. mexicana, L. braziliensis in the New World) causes a painless papule that becomes a volcano-like ulcer with raised edges at a sandfly bite. It is common in military members returning from the Middle East and Afghanistan. L. braziliensis can later cause destructive mucocutaneous disease of the nose and mouth ('espundia'). Diagnose with biopsy or scraping showing amastigotes, or PCR.",
       "images": [
-        "leish-ulcer.jpg"
+        "leish-ulcer.webp"
       ],
       "wrong": {
         "A": "Anthrax forms a painless black eschar within days, with marked edema.",
@@ -20283,7 +20283,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Trichomonas vaginalis is a sexually transmitted flagellated protozoan that exists only as a trophozoite (no cyst). It is diagnosed by NAAT or by seeing motile trophozoites on wet mount. It causes vaginitis (strawberry cervix), urethritis in men, and adverse pregnancy outcomes, and it increases HIV transmission. Treat with metronidazole (7 days for women) and treat partners at the same time.",
       "images": [
-        "trich.jpg"
+        "trich.webp"
       ],
       "wrong": {
         "C": "Untreated partners cause rapid reinfection in this STI.",
@@ -20352,7 +20352,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Naegleria fowleri, the 'brain-eating ameba,' lives in warm freshwater (lakes, hot springs, poorly chlorinated pools, and nasal rinsing with tap water). It enters the nose and travels through the cribriform plate along olfactory nerves, causing primary amebic meningoencephalitis, which is almost always fatal within days. Treatment includes amphotericin B and miltefosine. Acanthamoeba causes contact lens keratitis and granulomatous amebic encephalitis in immunocompromised hosts.",
       "images": [
-        "naegleria.jpg"
+        "naegleria.webp"
       ],
       "wrong": {
         "C": "There is no skin lesion, and this organism does not spread from skin.",
@@ -20499,7 +20499,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Enterobius vermicularis (pinworm) is the most common helminth infection in the US. Females lay eggs on the perianal skin at night, causing pruritus ani and autoinfection by the fecal-oral route. Eggs are found by the tape test, not in stool. Treat everyone in the household with albendazole, mebendazole, or pyrantel pamoate, repeated after 2 weeks to kill newly hatched worms. Wash bedding.",
       "images": [
-        "enterobius.jpg"
+        "enterobius.webp"
       ],
       "wrong": {
         "E": "Praziquantel treats flukes and tapeworms, not pinworm.",
@@ -20509,7 +20509,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-pinworm-cycle.jpg",
+          "file": "fig-pinworm-cycle.webp",
           "caption": "Enterobius vermicularis: (1) eggs on perianal skin are swallowed, (2) larvae hatch in the small intestine, (3-5) adults mature in the colon, and gravid females migrate at night to lay eggs on the perianal skin. 'i' marks the infective stage and 'd' the diagnostic stage.",
           "credit": {
             "artist": "Derivative work by André Koehne",
@@ -20613,7 +20613,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Ascaris lumbricoides eggs are ingested from contaminated soil or food. Larvae hatch in the intestine, cross the gut wall, travel to the lungs, climb the trachea, and are swallowed to become adult worms in the small intestine. The lung phase causes Löffler syndrome (transient eosinophilic pneumonitis). Heavy worm burdens cause obstruction, biliary blockage, and malnutrition. Treat with albendazole or mebendazole.",
       "images": [
-        "ascaris.jpg"
+        "ascaris.webp"
       ],
       "wrong": {
         "D": "Adults stay in the intestine; only larvae migrate.",
@@ -20623,7 +20623,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-ascaris-cycle.jpg",
+          "file": "fig-ascaris-cycle.webp",
           "caption": "Ascaris lumbricoides: swallowed eggs hatch in the intestine, larvae cross into the bloodstream and travel through the lungs, are coughed up and swallowed, then mature into adults in the small intestine.",
           "credit": {
             "artist": "Centers for Disease Control and Prevention",
@@ -20727,7 +20727,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Strongyloides stercoralis filariform larvae penetrate skin, migrate through the lungs, and become adults in the duodenum. Eggs hatch in the gut into rhabditiform larvae, which appear in stool. Some turn into filariform larvae and reinfect through the colon or perianal skin (autoinfection), so infection can persist for decades. Corticosteroids and HTLV-1 infection allow hyperinfection or dissemination, and larvae carry gut bacteria into the blood (Gram-negative sepsis, meningitis). Treat with ivermectin. Screen and treat people from endemic areas before immunosuppression. Larva currens is a fast-moving serpiginous rash.",
       "images": [
-        "strongy.jpg"
+        "strongy.webp"
       ],
       "wrong": {
         "D": "That describes Ascaris, which does not autoinfect.",
@@ -20737,7 +20737,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-strongy-cycle.jpg",
+          "file": "fig-strongy-cycle.webp",
           "caption": "Strongyloides stercoralis: skin-penetrating larvae migrate through lungs to the gut, and unlike other nematodes, larvae can mature inside the host and reinvade through the bowel wall or perianal skin - autoinfection.",
           "credit": {
             "artist": "CDC DPDx courtesy of CDC's Division of Parasitic Diseases and Malaria (DPDM)",
@@ -20848,7 +20848,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hookworm-cycle.jpg",
+          "file": "fig-hookworm-cycle.webp",
           "caption": "Hookworm: filariform larvae in soil penetrate skin, travel through the bloodstream to the lungs, are coughed up and swallowed, and attach to the small intestinal mucosa where they feed on blood.",
           "credit": {
             "artist": "The original uploader was Sonett72 at English Wikipedia.",
@@ -21222,7 +21222,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Loa loa (African eye worm) is spread by deer flies (mango flies) in the rainforests of Central and West Africa. It causes Calabar swellings (transient angioedema) and adult worms migrating across the eye. Microfilariae circulate in the daytime. Treat with diethylcarbamazine, but only if the microfilarial load is low. Heavy loads can cause fatal encephalopathy with DEC or ivermectin, so apheresis or albendazole is used first.",
       "images": [
-        "loa.jpg"
+        "loa.webp"
       ],
       "wrong": {
         "E": "Blackflies carry Onchocerca, and ivermectin treats rather than causes blindness.",
@@ -21315,7 +21315,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Lymphatic filariasis (Wuchereria bancrofti, Brugia malayi) is spread by mosquitoes. Adults block lymphatics, causing lymphedema, elephantiasis, and hydrocele over years. Microfilariae circulate at night (nocturnal periodicity). Treat with DEC or with ivermectin plus albendazole (mass drug administration). Doxycycline targets Wolbachia. Tropical pulmonary eosinophilia is an immune reaction to microfilariae in the lung.",
       "images": [
-        "elephantiasis.jpg"
+        "elephantiasis.webp"
       ],
       "wrong": {
         "D": "Onchocerca causes skin and eye disease, not limb elephantiasis.",
@@ -21408,7 +21408,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Taenia solium has two routes. Eating cysticerci in undercooked pork gives an intestinal tapeworm (taeniasis), usually mild. Ingesting eggs from human feces (from a tapeworm carrier, by the fecal-oral route) gives cysticercosis: larvae spread to tissues, including the brain, muscle, and eye. Vegetarians can get neurocysticercosis from carriers in the household. Treat taeniasis with praziquantel or niclosamide.",
       "images": [
-        "tsolium-scolex.jpg"
+        "tsolium-scolex.webp"
       ],
       "wrong": {
         "C": "That gives an intestinal tapeworm, not tissue cysts.",
@@ -21418,7 +21418,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-taenia-cycle.jpg",
+          "file": "fig-taenia-cycle.webp",
           "caption": "Taenia solium has two routes. Eating undercooked pork containing cysticerci gives an intestinal tapeworm; swallowing eggs shed in human feces gives cysticercosis, with larvae encysting in tissue including brain.",
           "credit": {
             "artist": "DPDx is an educational resource designed for health professionals and laboratory",
@@ -21510,7 +21510,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Neurocysticercosis is the most common cause of acquired epilepsy worldwide. Cysts appear as 'cyst with a dot' (scolex), and calcified dead cysts are also seen. Treat viable cysts with albendazole (± praziquantel) and steroids, which limit inflammation as dying cysts provoke edema, along with antiseizure drugs. Calcified lesions only need seizure control. Hydrocephalus may need a shunt.",
       "images": [
-        "ncc-ct.jpg"
+        "ncc-ct.webp"
       ],
       "wrong": {
         "E": "Metronidazole treats protozoa and anaerobes.",
@@ -21520,7 +21520,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-taenia-cycle.jpg",
+          "file": "fig-taenia-cycle.webp",
           "caption": "Swallowing Taenia solium eggs - not pork - puts humans in the intermediate-host position, so larvae encyst in tissue. Brain cysts are what cause seizures.",
           "credit": {
             "artist": "DPDx is an educational resource designed for health professionals and laboratory",
@@ -21612,7 +21612,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Echinococcus granulosus: dogs are definitive hosts and sheep are intermediate hosts. Humans ingest eggs from dog feces, and larvae form hydatid cysts (liver more often than lung) containing protoscolices ('hydatid sand'). Rupture releases antigenic fluid, which can cause anaphylaxis, and seeds daughter cysts. Treat with albendazole plus surgery or PAIR (puncture, aspiration, injection of hypertonic saline or ethanol, re-aspiration). E. multilocularis (foxes) causes an invasive, tumor-like alveolar liver lesion.",
       "images": [
-        "hydatid.jpg"
+        "hydatid.webp"
       ],
       "wrong": {
         "A": "Hydatid cysts are parasitic, not bacterial.",
@@ -21622,7 +21622,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-echino-cycle.jpg",
+          "file": "fig-echino-cycle.webp",
           "caption": "Echinococcus granulosus: dogs are the definitive host and shed eggs, sheep are the usual intermediate host, and a human who swallows eggs becomes an accidental intermediate host in whom hydatid cysts grow in liver and lung.",
           "credit": {
             "artist": "Original:  CDC Vector:  Pixelsquid🎱",
@@ -21714,7 +21714,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Diphyllobothrium latum (fish tapeworm) comes from undercooked freshwater fish (sushi, gefilte fish, Scandinavia, Great Lakes). It can grow several meters long in the small intestine and absorbs dietary B12, causing megaloblastic anemia and neurologic deficits. Treat with praziquantel or niclosamide, plus B12.",
       "images": [
-        "dlatum.jpg"
+        "dlatum.webp"
       ],
       "wrong": {
         "E": "That is hookworm, which causes microcytic iron deficiency.",
@@ -21795,7 +21795,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Snails release cercariae into freshwater, and cercariae penetrate the skin (swimmer's itch). Schistosomes live in venous plexuses. S. mansoni (Africa, South America; lateral spine) and S. japonicum (Asia; small spine) live in mesenteric veins. Eggs lodge in the portal venules and trigger Th2 granulomas and fibrosis. The result is presinusoidal portal hypertension with preserved liver function. Treat with praziquantel.",
       "images": [
-        "schisto-mansoni.jpg"
+        "schisto-mansoni.webp"
       ],
       "wrong": {
         "E": "That transmits Clonorchis and Diphyllobothrium.",
@@ -21805,7 +21805,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-schisto-cycle.jpg",
+          "file": "fig-schisto-cycle.webp",
           "caption": "Schistosoma: eggs passed in stool or urine hatch in fresh water, infect snails, and release cercariae that penetrate human skin. Adults pair in the venous plexus, and it is the trapped eggs that cause disease.",
           "credit": {
             "artist": "CDC",
@@ -21897,7 +21897,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Schistosoma haematobium lives in the vesical venous plexus. Eggs with terminal spines pass in urine and cause chronic granulomatous cystitis, hematuria, obstructive uropathy, and female genital schistosomiasis. Chronic irritation and squamous metaplasia lead to squamous cell carcinoma of the bladder. Treat with praziquantel, which increases the worm's calcium permeability and causes paralysis.",
       "images": [
-        "schisto-haem.jpg"
+        "schisto-haem.webp"
       ],
       "wrong": {
         "D": "Urothelial carcinoma is linked to smoking and aniline dyes.",
@@ -21907,7 +21907,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-schisto-cycle.jpg",
+          "file": "fig-schisto-cycle.webp",
           "caption": "The schistosome cycle. S. haematobium adults live in the vesical venous plexus, so eggs are shed in urine and lodge in the bladder wall rather than the gut.",
           "credit": {
             "artist": "CDC",
@@ -25330,7 +25330,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-tick-cycle.jpg",
+          "file": "fig-tick-cycle.webp",
           "caption": "Anaplasma shares the Ixodes vector with Lyme disease and babesiosis, so a single tick bite can transmit more than one pathogen.",
           "credit": {
             "artist": "User:Philg88",
@@ -25795,7 +25795,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-hiv-cycle.jpg",
+          "file": "fig-hiv-cycle.webp",
           "caption": "Integration of the provirus into host DNA is the step that makes HIV incurable: infected resting memory CD4 cells become a silent reservoir that antiretrovirals cannot reach.",
           "credit": {
             "artist": "Jmarchn",
@@ -25893,7 +25893,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "fig-gram-wall.jpg",
+          "file": "fig-gram-wall.webp",
           "caption": "Top: the Gram-negative envelope, with a thin peptidoglycan layer (2) sandwiched between inner (1) and outer (3) membranes. Bottom: the Gram-positive envelope, a single membrane (1) under a thick peptidoglycan wall (2) crossed by teichoic acids.",
           "credit": {
             "artist": "Franciscosp2",
@@ -32340,7 +32340,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Coagulase (free coagulase detected in the tube test, and bound clumping factor detected on a slide) converts fibrinogen to fibrin. It is the classic marker that separates S. aureus from the coagulase-negative staphylococci. The fibrin coat is thought to shield the organism from phagocytosis and helps wall off abscesses.",
       "images": [
-        "coagulase.jpg"
+        "coagulase.webp"
       ],
       "wrong": {
         "C": "That is catalase, which all staphylococci make, so it cannot separate the species.",
@@ -32350,7 +32350,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "coagulase.jpg",
+          "file": "coagulase.webp",
           "caption": "Tube coagulase test. The tube on the left has set into a solid clot (positive, S. aureus); the tube on the right remains liquid and runs when tilted (negative, a coagulase-negative staphylococcus).",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -32413,7 +32413,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Mannitol salt agar is selective (high salt inhibits most organisms except staphylococci) and differential (mannitol fermentation acidifies the medium and turns the phenol red indicator yellow). S. aureus ferments mannitol; S. epidermidis grows but leaves the medium pink-red. It is commonly used to screen nasal swabs for carriage.",
       "images": [
-        "msa-agar.jpg"
+        "msa-agar.webp"
       ],
       "wrong": {
         "B": "It tolerates salt but does not ferment mannitol, so the medium stays red.",
@@ -32423,7 +32423,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "msa-agar.jpg",
+          "file": "msa-agar.webp",
           "caption": "Mannitol salt agar. The yellow colonies and surrounding yellow medium are S. aureus, which ferments mannitol and acidifies the phenol red indicator; the pink colonies are coagulase-negative staphylococci, which grow in the salt but leave the medium red.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -34003,7 +34003,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Among beta-hemolytic streptococci, group A (S. pyogenes) is bacitracin-sensitive and PYR-positive, while group B is bacitracin-resistant, CAMP-positive, and hippurate-positive. Rapid antigen tests detect the group A carbohydrate directly from the throat.",
       "images": [
-        "beta-hemolysis.jpg"
+        "beta-hemolysis.webp"
       ],
       "wrong": {
         "A": "These identify group B strep.",
@@ -34013,7 +34013,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "hemolysis-types.jpg",
+          "file": "hemolysis-types.webp",
           "caption": "The three hemolysis patterns on blood agar: alpha (partial, green discoloration), beta (complete clearing), and gamma (no change).",
           "credit": {
             "artist": "Unknown",
@@ -34673,7 +34673,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Necrotizing fasciitis spreads along the fascia faster than the overlying skin changes, so pain out of proportion is the key early sign. At surgery the fascia is gray and necrotic, 'dishwater' fluid is present, and tissue separates easily with a finger (a positive finger test). Management is emergent debridement, broad-spectrum antibiotics, and clindamycin.",
       "images": [
-        "necrotizing-fasciitis.jpg"
+        "necrotizing-fasciitis.webp"
       ],
       "wrong": {
         "A": "That describes an abscess, which is typically staphylococcal.",
@@ -34683,7 +34683,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "necrotizing-fasciitis.jpg",
+          "file": "necrotizing-fasciitis.webp",
           "caption": "Necrotizing fasciitis of the leg. Note how modest the skin changes are compared with the patient's pain and toxicity: the infection is tracking along fascia beneath skin that still looks almost viable.",
           "credit": {
             "artist": "Piotr Smuszkiewicz, Iwona Trojanowska and Hanna Tomczak",
@@ -34794,7 +34794,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "The CAMP factor of group B strep acts together with S. aureus beta-hemolysin to create an arrowhead of enhanced hemolysis. Group B strep is also bacitracin-resistant and hippurate-positive. Listeria can also be CAMP-positive, but it is a Gram-positive rod with tumbling motility.",
       "images": [
-        "camp-test.jpg"
+        "camp-test.webp"
       ],
       "wrong": {
         "D": "Group A is CAMP-negative and bacitracin-sensitive.",
@@ -34804,7 +34804,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "camp-test.jpg",
+          "file": "camp-test.webp",
           "caption": "Positive CAMP test. Group B streptococcus is streaked perpendicular to a central streak of S. aureus; where the two hemolysins overlap, an arrowhead of enhanced clearing points at the staphylococcal streak.",
           "credit": {
             "artist": "Stefan Walkowski",
@@ -34982,7 +34982,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Bile (deoxycholate) activates pneumococcal autolysin, which lyses the cells. Pneumococci are also optochin-sensitive and show umbilicated, 'draughtsman' colonies. Viridans streptococci are bile-insoluble and optochin-resistant.",
       "images": [
-        "optochin.jpg"
+        "optochin.webp"
       ],
       "wrong": {
         "C": "Viridans strep is bile-insoluble.",
@@ -34992,7 +34992,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "optochin.jpg",
+          "file": "optochin.webp",
           "caption": "Optochin disk test. A wide zone of inhibition around the P disk identifies S. pneumoniae; viridans streptococci grow up to the disk edge.",
           "credit": {
             "artist": "Ccroberts",
@@ -35002,7 +35002,7 @@ window.NBME_MICRO_DATA = {
           }
         },
         {
-          "file": "alpha-hemolysis.jpg",
+          "file": "alpha-hemolysis.webp",
           "caption": "Alpha-hemolysis: the partial, greenish discoloration produced when hydrogen peroxide oxidizes hemoglobin around the colonies.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -35415,7 +35415,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Viridans streptococci such as S. sanguinis and S. mutans make dextrans from sucrose, which let them stick to fibrin-platelet aggregates on damaged valves. They cause subacute endocarditis, typically after dental work, with a slower course than S. aureus. Penicillin or ceftriaxone is standard therapy.",
       "images": [
-        "osler-nodes.jpg"
+        "osler-nodes.webp"
       ],
       "wrong": {
         "E": "Protein A belongs to S. aureus.",
@@ -35425,7 +35425,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "osler-nodes.jpg",
+          "file": "osler-nodes.webp",
           "caption": "Osler nodes: tender violaceous nodules on the finger pads in infective endocarditis. Mnemonic: Osler nodes are Ouchy; Janeway lesions are painless.",
           "credit": {
             "artist": "Roberto J. Galindo",
@@ -35949,7 +35949,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Listeria is a facultative intracellular Gram-positive rod that is motile at room temperature (tumbling, umbrella pattern) but not at 37°C. It grows in the cold, which lets it multiply in refrigerated foods such as deli meats, soft cheeses, and smoked fish. It is catalase-positive and shows narrow beta-hemolysis.",
       "images": [
-        "listeria-gram.jpg"
+        "listeria-gram.webp"
       ],
       "wrong": {
         "A": "B. cereus is a large spore-forming rod and does not grow at 4°C.",
@@ -35959,7 +35959,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "listeria-gram.jpg",
+          "file": "listeria-gram.webp",
           "caption": "Gram stain of Listeria monocytogenes: short Gram-positive rods, easily mistaken for diphtheroids or even for cocci in a hurried read.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -37608,7 +37608,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Sulfur granules are macroscopic colonies of Actinomyces filaments with surrounding neutrophils and debris; the name reflects their yellow color, not sulfur content. Cervicofacial actinomycosis follows dental procedures or poor dentition and crosses tissue planes, forming sinus tracts. Treatment is prolonged penicillin.",
       "images": [
-        "actino-histo.jpg"
+        "actino-histo.webp"
       ],
       "wrong": {
         "E": "No sulfur is present; the color is the only similarity.",
@@ -37618,7 +37618,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "actino-histo.jpg",
+          "file": "actino-histo.webp",
           "caption": "Histology of actinomycosis: a colony of filamentous organisms - the sulfur granule - ringed by dense neutrophils. The granule is bacterial, not mineral; the name comes only from its yellow color.",
           "credit": {
             "artist": "Yale Rosen",
@@ -38235,7 +38235,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Nasopharyngeal carriage is common, especially in adolescents and crowded settings, and usually leads to protective antibody. Invasive disease occurs when a susceptible person without bactericidal anticapsular antibody acquires a virulent strain. Complement deficiency, asplenia, eculizumab, smoking, and viral infection all increase risk.",
       "images": [
-        "nmen-gram.jpg"
+        "nmen-gram.webp"
       ],
       "wrong": {
         "D": "Pilin variation aids colonization but does not determine invasion.",
@@ -38245,7 +38245,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "nmen-gram.jpg",
+          "file": "nmen-gram.webp",
           "caption": "Gram stain of cerebrospinal fluid in meningococcal meningitis: Gram-negative diplococci, many of them inside neutrophils.",
           "credit": {
             "artist": "Microman12345",
@@ -38669,7 +38669,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Pertussis toxin inactivates Gi, so adenylyl cyclase is no longer restrained and cAMP rises. This impairs neutrophil chemotaxis and causes lymphocytosis. The organism also makes adenylate cyclase toxin, tracheal cytotoxin (which destroys ciliated cells), and filamentous hemagglutinin.",
       "images": [
-        "bpertussis.jpg"
+        "bpertussis.webp"
       ],
       "wrong": {
         "C": "Blocking the inhibitory subunit raises cAMP rather than lowering it.",
@@ -38679,7 +38679,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "bpertussis.jpg",
+          "file": "bpertussis.webp",
           "caption": "Bordetella pertussis, a small Gram-negative coccobacillus. It needs Bordet-Gengou or Regan-Lowe charcoal medium to grow.",
           "credit": {
             "artist": "CDC",
@@ -38899,7 +38899,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Legionella stains poorly with Gram stain because of its branched-chain fatty acids, and it needs buffered charcoal yeast extract agar with iron and cysteine. Urinary antigen detects serogroup 1 rapidly. Clues include hyponatremia, diarrhea, confusion, and transaminitis in a smoker.",
       "images": [
-        "legionella.jpg"
+        "legionella.webp"
       ],
       "wrong": {
         "B": "Chocolate agar is used for Haemophilus and Neisseria.",
@@ -38909,7 +38909,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "legionella.jpg",
+          "file": "legionella.webp",
           "caption": "Legionella pneumophila. The organism stains poorly with the standard Gram method because of its branched-chain fatty acids, so a sputum smear shows neutrophils with no visible organisms.",
           "credit": {
             "artist": "CDC (PHIL #1187)",
@@ -39817,7 +39817,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Shigella needs as few as 10-100 organisms, so person-to-person spread in daycares and households is common. S. dysenteriae type 1 produces Shiga toxin, which inhibits protein synthesis by cleaving 28S rRNA and can cause HUS. Seizures occur in young children, often with fever.",
       "images": [
-        "shigella-stool.jpg"
+        "shigella-stool.webp"
       ],
       "wrong": {
         "C": "The infectious dose is remarkably low.",
@@ -40258,7 +40258,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Lactose fermenters turn MacConkey agar pink: E. coli, Klebsiella, Enterobacter, Citrobacter, and Serratia (Serratia slowly). Mnemonic: 'lactose is KEE' for Klebsiella, E. coli, Enterobacter as the fast fermenters. Non-fermenters (colorless) include Salmonella, Shigella, Proteus, Yersinia, and Pseudomonas.",
       "images": [
-        "macconkey.jpg"
+        "macconkey.webp"
       ],
       "wrong": {
         "D": "These are all non-fermenters.",
@@ -40268,7 +40268,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "macconkey.jpg",
+          "file": "macconkey.webp",
           "caption": "MacConkey agar. The pink colonies are lactose fermenters, which produce acid that precipitates the bile salts and turns the neutral red indicator; the pale colorless colonies are non-fermenters.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -40472,7 +40472,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Molecular tests (for example Xpert MTB/RIF) detect M. tuberculosis DNA and rpoB mutations conferring rifampin resistance within hours. Smears are quick but insensitive and do not give susceptibility. Culture remains the reference standard but takes weeks, and the skin test cannot distinguish infection from disease.",
       "images": [
-        "afb-smear.jpg"
+        "afb-smear.webp"
       ],
       "wrong": {
         "D": "Smear microscopy gives no resistance information.",
@@ -40482,7 +40482,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "afb-smear.jpg",
+          "file": "afb-smear.webp",
           "caption": "Acid-fast smear of sputum: slender red beaded bacilli against the blue counterstain. Mycolic acids in the wall retain carbol fuchsin through acid-alcohol decolorization.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -41934,7 +41934,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Repeated infection in childhood scars the conjunctiva, causing entropion and trichiasis; inturned lashes abrade the cornea, leading to opacification. The SAFE strategy is Surgery, Azithromycin, Facial cleanliness, and Environmental improvement. Mass azithromycin distribution is the pharmacologic core.",
       "images": [
-        "trachoma.jpg"
+        "trachoma.webp"
       ],
       "wrong": {
         "A": "Optic nerve invasion does not occur.",
@@ -41944,7 +41944,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "trachoma.jpg",
+          "file": "trachoma.webp",
           "caption": "Trachomatous trichiasis: conjunctival scarring has turned the lid margin and lashes inward so that they sweep the cornea with every blink.",
           "credit": {
             "artist": "Shelley Panzarella",
@@ -43650,7 +43650,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Koilocytes are the hallmark cytopathic effect of HPV infection. They reflect productive viral replication in maturing squamous cells. Screening combines cytology and high-risk HPV DNA testing, and vaccination prevents infection with the covered types.",
       "images": [
-        "koilocytes.jpg"
+        "koilocytes.webp"
       ],
       "wrong": {
         "C": "CMV produces large owl-eye inclusions.",
@@ -43660,7 +43660,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "koilocytes.jpg",
+          "file": "koilocytes.webp",
           "caption": "Koilocytes on cervical cytology: squamous cells with a large clear perinuclear halo and a wrinkled, hyperchromatic nucleus - the cytopathic signature of productive HPV infection.",
           "credit": {
             "artist": "Alcaraz-Chavez, J.E.; Téllez-Anguiano, A.d.C.; Olivares-Rojas, J.C.; Martínez-Parrales, R.",
@@ -44735,7 +44735,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Rotavirus is a naked, segmented double-stranded RNA virus that destroys small bowel villous tips, causing osmotic diarrhea, and its NSP4 protein acts as a viral enterotoxin driving secretion. The vaccine is live attenuated and oral; it is associated with a small increase in intussusception risk and is avoided in infants with a history of intussusception or SCID.",
       "images": [
-        "rotavirus-em.jpg"
+        "rotavirus-em.webp"
       ],
       "wrong": {
         "A": "The rotavirus vaccine is live attenuated.",
@@ -44745,7 +44745,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "rotavirus-em.jpg",
+          "file": "rotavirus-em.webp",
           "caption": "Rotavirus particles on electron microscopy. The double-shelled capsid gives the wheel-like outline that named the virus.",
           "credit": {
             "artist": "Dr Graham Beards",
@@ -47014,7 +47014,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "C. albicans forms germ tubes in serum and produces chlamydospores on cornmeal agar, distinguishing it from other Candida species. This matters because C. glabrata and C. krusei are often fluconazole-resistant, so species identification guides therapy.",
       "images": [
-        "germ-tube.jpg"
+        "germ-tube.webp"
       ],
       "wrong": {
         "D": "C. glabrata is germ tube-negative and often fluconazole-resistant.",
@@ -47024,7 +47024,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "germ-tube.jpg",
+          "file": "germ-tube.webp",
           "caption": "Positive germ tube test: true germ tubes extend from the yeast cells with no constriction at their point of origin, identifying Candida albicans.",
           "credit": {
             "artist": "Ajay Kumar Chaurasiya",
@@ -47217,7 +47217,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "ABPA is a hypersensitivity reaction in asthma or cystic fibrosis with high IgE, eosinophilia, and central bronchiectasis, treated with steroids plus itraconazole. Aspergilloma is a fungus ball colonizing a pre-existing cavity, causing hemoptysis. Invasive aspergillosis occurs in neutropenia, with angioinvasion producing halo and air-crescent signs, treated with voriconazole.",
       "images": [
-        "halo-sign.jpg"
+        "halo-sign.webp"
       ],
       "wrong": {
         "B": "The first two are swapped.",
@@ -47227,7 +47227,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "halo-sign.jpg",
+          "file": "halo-sign.webp",
           "caption": "CT halo sign: a pulmonary nodule surrounded by a rim of ground-glass attenuation. The nodule is infarcted lung and the halo is hemorrhage around it, produced when Aspergillus invades and occludes a vessel.",
           "credit": {
             "artist": "Alves GR, et al.",
@@ -47364,7 +47364,7 @@ window.NBME_MICRO_DATA = {
       "answer": "A",
       "explanation": "Cryptococcal meningitis kills mainly through raised intracranial pressure, so repeated therapeutic lumbar punctures are essential alongside amphotericin B with flucytosine, then fluconazole. Antiretroviral therapy is deliberately delayed by a few weeks to reduce IRIS. The capsule excludes ink particles, giving the halo, and the cryptococcal antigen test is highly sensitive.",
       "images": [
-        "crypto-ink.jpg"
+        "crypto-ink.webp"
       ],
       "wrong": {
         "E": "Steroids worsen outcomes in cryptococcal meningitis.",
@@ -47374,7 +47374,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "crypto-ink.jpg",
+          "file": "crypto-ink.webp",
           "caption": "India ink preparation of CSF: the ink particles cannot penetrate the polysaccharide capsule, so each yeast sits in a clear halo.",
           "credit": {
             "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Leanor Haley",
@@ -47384,7 +47384,7 @@ window.NBME_MICRO_DATA = {
           }
         },
         {
-          "file": "crypto-mucicarmine.jpg",
+          "file": "crypto-mucicarmine.webp",
           "caption": "Mucicarmine stain of tissue, which colors the cryptococcal capsule red.",
           "credit": {
             "artist": "Photo Credit: Content Providers(s): CDC/ Dr. Edwin P. Ewing, Jr.",
@@ -47660,7 +47660,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Pneumocystis jirovecii pneumonia is treated with TMP-SMX. Corticosteroids are added when the PaO2 is below 70 mm Hg or the A-a gradient exceeds 35 mm Hg, because dying organisms trigger inflammation that worsens hypoxemia. Diagnosis uses induced sputum or lavage with silver or immunofluorescent staining, since the organism cannot be cultured.",
       "images": [
-        "pcp-gms.jpg"
+        "pcp-gms.webp"
       ],
       "wrong": {
         "A": "Steroids reduce mortality in moderate to severe disease.",
@@ -47670,7 +47670,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "pcp-gms.jpg",
+          "file": "pcp-gms.webp",
           "caption": "Methenamine silver stain showing the crushed ping-pong ball cysts of Pneumocystis jirovecii in alveolar exudate. The organism cannot be cultured, so diagnosis rests on staining induced sputum or lavage fluid, or on PCR.",
           "credit": {
             "artist": "Unknown",
@@ -47991,7 +47991,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Tinea versicolor is caused by Malassezia, a lipophilic yeast; KOH shows the 'spaghetti and meatballs' pattern. It degrades lipids into acids that inhibit melanocytes, causing hypopigmentation that is most visible after sun exposure. Treatment is topical selenium sulfide, ketoconazole, or an oral azole for extensive disease. Griseofulvin does not work against it.",
       "images": [
-        "malassezia.jpg"
+        "malassezia.webp"
       ],
       "wrong": {
         "D": "Dermatophytes show branching septate hyphae without yeast forms.",
@@ -48001,7 +48001,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "malassezia.jpg",
+          "file": "malassezia.webp",
           "caption": "KOH preparation in tinea versicolor: short curved hyphae among clusters of round yeast, the 'spaghetti and meatballs' appearance.",
           "credit": {
             "artist": "",
@@ -48011,7 +48011,7 @@ window.NBME_MICRO_DATA = {
           }
         },
         {
-          "file": "onychomycosis.jpg",
+          "file": "onychomycosis.webp",
           "caption": "Onychomycosis for contrast - a dermatophyte infection of the nail, which needs systemic terbinafine or itraconazole rather than a topical agent.",
           "credit": {
             "artist": "No machine-readable author provided. Dermatologist~commonswiki assumed (based on copyright claims).",
@@ -48268,7 +48268,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "toxo-cyst.jpg",
+          "file": "toxo-cyst.webp",
           "caption": "A Toxoplasma gondii tissue cyst packed with bradyzoites. Cysts persist for life in brain and muscle; reactivation follows when CD4 counts fall.",
           "credit": {
             "artist": "Jitinder P. Dubey",
@@ -48670,7 +48670,7 @@ window.NBME_MICRO_DATA = {
       "answer": "D",
       "explanation": "Staging determines therapy: early hemolymphatic disease is treated with suramin (T. b. rhodesiense) or pentamidine (T. b. gambiense), while CNS involvement requires drugs that penetrate the brain, such as melarsoprol or eflornithine, or newer fexinidazole. Winterbottom sign is posterior cervical adenopathy, and the vector is the tsetse fly.",
       "images": [
-        "tbrucei.jpg"
+        "tbrucei.webp"
       ],
       "wrong": {
         "B": "Diagnosis uses microscopy of blood, nodes, or CSF.",
@@ -48680,7 +48680,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "tbrucei.jpg",
+          "file": "tbrucei.webp",
           "caption": "Trypomastigotes of Trypanosoma among red cells on a stained blood film, showing the undulating membrane and free flagellum.",
           "credit": {
             "artist": "Photo Credit: Content Providers: CDC/Dr. Myron G. Schultz",
@@ -49009,7 +49009,7 @@ window.NBME_MICRO_DATA = {
       "answer": "E",
       "explanation": "Necator americanus and Ancylostoma duodenale penetrate skin, migrate through lungs, and attach to the small bowel mucosa with cutting plates or teeth, causing chronic blood loss and iron deficiency. Treatment is albendazole plus iron. Diphyllobothrium latum, a tapeworm, is the one that consumes B12.",
       "images": [
-        "larva-migrans.jpg"
+        "larva-migrans.webp"
       ],
       "wrong": {
         "B": "B12 consumption describes the fish tapeworm.",
@@ -49019,7 +49019,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "larva-migrans.jpg",
+          "file": "larva-migrans.webp",
           "caption": "Cutaneous larva migrans - the serpiginous track of an animal hookworm larva that can penetrate skin but cannot complete its cycle in humans.",
           "credit": {
             "artist": "Center for Disease Control and Prevention (CDC)",
@@ -49029,7 +49029,7 @@ window.NBME_MICRO_DATA = {
           }
         },
         {
-          "file": "fig-hookworm-cycle.jpg",
+          "file": "fig-hookworm-cycle.webp",
           "caption": "Human hookworm cycle: filariform larvae in soil penetrate skin, travel through lungs, are swallowed, and attach in the small intestine.",
           "credit": {
             "artist": "The original uploader was Sonett72 at English Wikipedia.",
@@ -49221,7 +49221,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Trichinella spiralis larvae are released from ingested meat, mature in the intestine, and newborn larvae disseminate to encyst in striated muscle, preferring the diaphragm, extraocular, and masseter muscles. Periorbital edema, myalgia, eosinophilia, and elevated CK are the classic picture. Treatment is albendazole with steroids for severe disease.",
       "images": [
-        "trichinella-muscle.jpg"
+        "trichinella-muscle.webp"
       ],
       "wrong": {
         "A": "Adults remain in the intestine; larvae migrate.",
@@ -49231,7 +49231,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "trichinella-muscle.jpg",
+          "file": "trichinella-muscle.webp",
           "caption": "Trichinella spiralis larvae coiled inside skeletal muscle fibers, each within a nurse cell. Biopsy of a tender muscle is diagnostic, though serology is usually used first.",
           "credit": {
             "artist": "Self",
@@ -49326,7 +49326,7 @@ window.NBME_MICRO_DATA = {
       "answer": "C",
       "explanation": "Filarial worms depend on Wolbachia endosymbionts for fertility and survival, so doxycycline sterilizes and kills adult worms over weeks. Ivermectin kills microfilariae in onchocerciasis, and diethylcarbamazine is used in lymphatic filariasis but is avoided in onchocerciasis because of the severe Mazzotti reaction.",
       "images": [
-        "wuchereria.jpg"
+        "wuchereria.webp"
       ],
       "wrong": {
         "E": "Ivermectin, not doxycycline, is the microfilaricide.",
@@ -49336,7 +49336,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "wuchereria.jpg",
+          "file": "wuchereria.webp",
           "caption": "Sheathed microfilaria of Wuchereria bancrofti on a Giemsa-stained blood film. Blood is drawn at night because the microfilariae are nocturnally periodic, matching the biting habit of the mosquito vector.",
           "credit": {
             "artist": "Unknown",
@@ -49755,7 +49755,7 @@ window.NBME_MICRO_DATA = {
       "answer": "B",
       "explanation": "Clonorchis sinensis and Opisthorchis are acquired from raw or undercooked freshwater fish, inhabit bile ducts, and cause chronic cholangitis, biliary obstruction, and cholangiocarcinoma. Paragonimus, from crabs and crayfish, causes lung disease mimicking tuberculosis. Fasciola comes from watercress and also involves the biliary tree. Praziquantel treats these flukes, except Fasciola, which needs triclabendazole.",
       "images": [
-        "clonorchis-egg.jpg"
+        "clonorchis-egg.webp"
       ],
       "wrong": {
         "D": "Paragonimus causes chronic cough with hemoptysis from lung involvement.",
@@ -49765,7 +49765,7 @@ window.NBME_MICRO_DATA = {
       },
       "figures": [
         {
-          "file": "clonorchis-egg.jpg",
+          "file": "clonorchis-egg.webp",
           "caption": "Operculated egg of Clonorchis sinensis in stool, with the characteristic shoulders at the operculum and a small knob at the opposite end.",
           "credit": {
             "artist": "Photo Credit: Content Providers(s): CDC/Dr. Mae Melvin",
@@ -49775,7 +49775,7 @@ window.NBME_MICRO_DATA = {
           }
         },
         {
-          "file": "fig-clonorchis-cycle.jpg",
+          "file": "fig-clonorchis-cycle.webp",
           "caption": "Life cycle: eggs in water are eaten by snails, cercariae encyst in freshwater fish, and humans are infected by eating that fish raw or undercooked. Adults then live in the bile ducts.",
           "credit": {
             "artist": "Unknown",

@@ -206,7 +206,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Ground-glass hepatocytes are typical of chronic hepatitis B. The glassy look comes from viral surface antigen (HBsAg) packed into the endoplasmic reticulum. HBV spreads through blood, sex, and from mother to baby, and it raises the risk of liver cancer (HCC). HCV typically shows fat droplets (steatosis) instead.",
       "images": [
-        "q12a.jpg"
+        "q12a.webp"
       ],
       "difficulty": "normal"
     },
@@ -396,7 +396,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Yellow, faceted stones are cholesterol stones, the most common type in Western countries. They form when bile is supersaturated with cholesterol. Risk factors are the '4 F's' (female, fat, forty, fertile), estrogen/OCPs, rapid weight loss, and Crohn disease.",
       "images": [
-        "q23a.jpg"
+        "q23a.webp"
       ],
       "difficulty": "normal"
     },
@@ -416,7 +416,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "C",
       "explanation": "Black pigment stones form when chronic hemolysis (sickle cell disease, hereditary spherocytosis) floods bile with unconjugated bilirubin. Brown pigment stones form with bacterial or parasitic infection of the bile ducts.",
       "images": [
-        "q24a.jpg"
+        "q24a.webp"
       ],
       "difficulty": "normal"
     },
@@ -572,7 +572,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Bruising of the flank is the Grey Turner sign, caused by bleeding into the retroperitoneum in hemorrhagic pancreatitis. Cullen sign is bruising around the umbilicus. The most common causes of acute pancreatitis are gallstones and alcohol, and it is diagnosed by lipase ≥3 times the upper limit of normal.",
       "images": [
-        "q33a.jpg"
+        "q33a.webp"
       ],
       "difficulty": "normal"
     },
@@ -609,7 +609,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "B",
       "explanation": "A dilated esophagus that narrows to a point ('bird's beak') is achalasia. The LES fails to relax because the inhibitory neurons of the myenteric plexus are lost. Chagas disease can cause it, and it raises the risk of squamous cell carcinoma.",
       "images": [
-        "q35a.jpg"
+        "q35a.webp"
       ],
       "difficulty": "normal"
     },
@@ -663,7 +663,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Zenker diverticulum is an outpouching just above the upper esophageal sphincter, between the inferior pharyngeal constrictor and cricopharyngeus muscles. Food trapped in the pouch causes halitosis and regurgitation.",
       "images": [
-        "q38a.jpg"
+        "q38a.webp"
       ],
       "difficulty": "normal"
     },
@@ -734,7 +734,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Columnar cells with goblet cells replacing the normal squamous lining is intestinal metaplasia = Barrett esophagus, caused by chronic GERD. It can progress to dysplasia and then adenocarcinoma.",
       "images": [
-        "q42a.jpg"
+        "q42a.webp"
       ],
       "difficulty": "normal"
     },
@@ -771,7 +771,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Nests of tumor cells with keratin pearls mean squamous cell carcinoma, typically in the middle third. Risk factors cause chronic irritation: smoking and alcohol, hot drinks, achalasia, and Zenker diverticulum.",
       "images": [
-        "q44a.jpg"
+        "q44a.webp"
       ],
       "difficulty": "normal"
     },
@@ -927,7 +927,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Linitis plastica ('leather bottle stomach') is the look of diffuse-type gastric cancer: the whole wall is infiltrated with signet ring cells, and no discrete mass forms.",
       "images": [
-        "q53a.jpg"
+        "q53a.webp"
       ],
       "difficulty": "normal"
     },
@@ -947,7 +947,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "Signet ring cells are the hallmark of diffuse-type gastric adenocarcinoma. The intestinal type instead forms glands and a mass.",
       "images": [
-        "q54a.jpg"
+        "q54a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1035,7 +1035,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "'Thumbprinting' is caused by swelling and bleeding under the lining of the colon (submucosal edema and hemorrhage) and is classic for ischemic colitis.",
       "images": [
-        "q59a.jpg"
+        "q59a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1106,8 +1106,8 @@ window.NBME_GI_PATH_DATA = {
       "answer": "B",
       "explanation": "Dermatitis herpetiformis is the skin form of celiac disease. IgA against tTG cross-reacts with epidermal transglutaminase in the dermal papillae, where neutrophils collect.",
       "images": [
-        "q63a.jpg",
-        "q63b.jpg"
+        "q63a.webp",
+        "q63b.webp"
       ],
       "difficulty": "normal"
     },
@@ -1144,8 +1144,8 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Whipple disease (Tropheryma whipplei): villi are stuffed with foamy, PAS-positive macrophages that block lymphatic drainage and cause malabsorption. The classic tetrad is diarrhea with weight loss, migrating joint pain, swollen lymph nodes, and CNS symptoms.",
       "images": [
-        "q65a.jpg",
-        "q65b.jpg"
+        "q65a.webp",
+        "q65b.webp"
       ],
       "difficulty": "normal"
     },
@@ -1352,7 +1352,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "This yellow tumor beneath the lining is a carcinoid tumor, which makes serotonin and causes flushing, diarrhea, wheezing, and heart valve disease. Because it uses up tryptophan, the body cannot make enough niacin, which can cause pellagra.",
       "images": [
-        "q77a.jpg"
+        "q77a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1423,7 +1423,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "C",
       "explanation": "Yellow plaques (pseudomembranes) after antibiotics mean C. difficile colitis. Antibiotics kill the normal gut bacteria, allowing C. difficile to overgrow and release toxins; the lesions look like a 'volcano' under the microscope. Treatment is oral vancomycin (or fidaxomicin), metronidazole, or fecal transplant.",
       "images": [
-        "q81a.jpg"
+        "q81a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1443,7 +1443,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "A noncaseating granuloma plus fistulas point to Crohn disease: inflammation through the full thickness of the wall, skip lesions, cobblestoning, and creeping fat, most often in the terminal ileum.",
       "images": [
-        "q82a.jpg"
+        "q82a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1514,7 +1514,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Peutz-Jeghers syndrome (STK11, autosomal dominant): dark spots on the lips and mouth plus hamartomatous polyps. It increases the risk of GI, breast, and gynecologic cancers.",
       "images": [
-        "q86a.jpg"
+        "q86a.webp"
       ],
       "difficulty": "normal"
     },
@@ -1858,7 +1858,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "The image shows ground-glass hepatocytes, characteristic of chronic hepatitis B, caused by abundant HBsAg in hypertrophied smooth endoplasmic reticulum. HBV is a partially dsDNA hepadnavirus spread parenterally, sexually, and perinatally (chronicity ~90% in neonates vs 5-10% in adults) and it increases HCC risk. Triglyceride droplets are clear vacuoles (steatosis, typical of HCV). Alpha-1 antitrypsin forms discrete PAS-positive globules.",
       "images": [
-        "hard/q12a.jpg"
+        "hard/q12a.webp"
       ]
     },
     {
@@ -2048,7 +2048,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "These are yellow, faceted cholesterol stones, caused by cholesterol supersaturation of bile plus gallbladder hypomotility. Terminal ileal disease or resection (Crohn) reduces bile acid reabsorption, shrinking the bile acid pool that keeps cholesterol soluble. Other risk factors: female, fat, forty, fertile, estrogen/OCPs, rapid weight loss, clofibrate, Native American ancestry. Hemolysis causes black pigment stones; bacterial beta-glucuronidase causes brown pigment stones.",
       "images": [
-        "hard/q23a.jpg"
+        "hard/q23a.webp"
       ]
     },
     {
@@ -2068,7 +2068,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "C",
       "explanation": "Small, black, spiculated stones are black pigment stones: calcium bilirubinate formed when chronic hemolysis (hereditary spherocytosis, sickle cell disease) floods bile with unconjugated bilirubin. They are radiopaque, sterile, and form in the gallbladder. Liver fluke infestation causes brown pigment stones in the ducts; Crohn disease, weight loss, and OCPs predispose to cholesterol stones.",
       "images": [
-        "hard/q24a.jpg"
+        "hard/q24a.webp"
       ]
     },
     {
@@ -2224,7 +2224,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Ecchymosis of the flank is the Grey Turner sign, reflecting retroperitoneal hemorrhage tracking from hemorrhagic pancreatitis. Cullen sign is periumbilical ecchymosis. Acute pancreatitis is caused by autodigestion from premature enzyme activation; common causes are gallstones and alcohol (also drugs such as azathioprine, and mumps). Diagnosis relies on lipase ≥3× ULN; CT is reserved for severe or unclear cases. Murphy sign indicates acute cholecystitis; Courvoisier sign (painless palpable gallbladder) suggests pancreatic head cancer.",
       "images": [
-        "hard/q33a.jpg"
+        "hard/q33a.webp"
       ]
     },
     {
@@ -2261,7 +2261,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "B",
       "explanation": "The dilated esophagus tapering to a narrow LES ('bird's beak') is achalasia: incomplete LES relaxation, increased LES tone, and aperistalsis caused by loss of inhibitory (NO/VIP) neurons in the myenteric plexus. Secondary achalasia occurs in Chagas disease (Trypanosoma cruzi). Achalasia increases the risk of esophageal squamous cell carcinoma. Uncoordinated contractions describe esophageal spasm ('corkscrew').",
       "images": [
-        "hard/q35a.jpg"
+        "hard/q35a.webp"
       ]
     },
     {
@@ -2315,7 +2315,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Zenker diverticulum is a false diverticulum (outpouching) above the upper esophageal sphincter, between the inferior pharyngeal constrictor and the cricopharyngeus muscle (Killian triangle). Food trapped in the pouch causes halitosis and regurgitation; it may predispose to squamous cell carcinoma.",
       "images": [
-        "hard/q38a.jpg"
+        "hard/q38a.webp"
       ]
     },
     {
@@ -2386,7 +2386,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "Columnar epithelium with goblet cells replacing squamous mucosa is intestinal metaplasia, the defining lesion of Barrett esophagus, caused by chronic GERD. Goblet cells + columnar metaplasia = intestinal metaplasia = Barrett. It is the precursor in the sequence esophagitis → Barrett → dysplasia → adenocarcinoma. The glands shown lack the nuclear crowding and stratification of dysplasia.",
       "images": [
-        "hard/q42a.jpg"
+        "hard/q42a.webp"
       ]
     },
     {
@@ -2423,7 +2423,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Nests of atypical squamous cells with keratin pearls indicate squamous cell carcinoma, which predominates worldwide and typically occurs in the middle third. Think chronic irritation: alcohol + smoking, hot beverages, achalasia, Zenker diverticulum, and Plummer-Vinson syndrome. Barrett esophagus, GERD, and obesity are risk factors for adenocarcinoma.",
       "images": [
-        "hard/q44a.jpg"
+        "hard/q44a.webp"
       ]
     },
     {
@@ -2579,7 +2579,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "A rigid, thickened, non-distensible stomach without a discrete mass ('leather bottle') is linitis plastica, the gross appearance of diffuse-type gastric adenocarcinoma. It is composed of discohesive signet ring cells infiltrating the wall with a desmoplastic reaction. Gland-forming tumor cells producing a mass or ulcer are typical of the intestinal type.",
       "images": [
-        "hard/q53a.jpg"
+        "hard/q53a.webp"
       ]
     },
     {
@@ -2599,7 +2599,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "Signet ring cells (intracytoplasmic mucin droplet displacing the nucleus) infiltrating individually define diffuse-type gastric adenocarcinoma, which does not form a mass and may cause linitis plastica. Sporadic cases and hereditary cases (CDH1) share E-cadherin loss. The intestinal type forms glands and a mass.",
       "images": [
-        "hard/q54a.jpg"
+        "hard/q54a.webp"
       ]
     },
     {
@@ -2687,7 +2687,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "D",
       "explanation": "'Thumbprinting' is produced by submucosal edema and hemorrhage in ischemic colitis, seen as scalloped indentations of the colonic wall. On CT, the same process appears as circumferential wall thickening with layered attenuation (colonic edema).",
       "images": [
-        "hard/q59a.jpg"
+        "hard/q59a.webp"
       ]
     },
     {
@@ -2758,8 +2758,8 @@ window.NBME_GI_PATH_DATA = {
       "answer": "B",
       "explanation": "Dermatitis herpetiformis, the cutaneous manifestation of celiac disease, shows neutrophilic microabscesses in the dermal papillae with subepidermal blistering. IgA antibodies against tissue transglutaminase cross-react with epidermal transglutaminase in the dermal papillae. Anti-BP180 IgG causes bullous pemphigoid; anti-desmoglein IgG causes pemphigus vulgaris.",
       "images": [
-        "hard/q63a.jpg",
-        "hard/q63b.jpg"
+        "hard/q63a.webp",
+        "hard/q63b.webp"
       ]
     },
     {
@@ -2796,8 +2796,8 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Villi distended by foamy, PAS-positive macrophages indicate Whipple disease (Tropheryma whipplei). Organism-laden macrophages accumulate in the lamina propria and mesenteric nodes and obstruct lymphatic transport, causing malabsorption. The classic tetrad is malabsorptive diarrhea with weight loss, migratory arthralgias, lymphadenopathy, and CNS symptoms (memory loss, oculomasticatory myorhythmia).",
       "images": [
-        "hard/q65a.jpg",
-        "hard/q65b.jpg"
+        "hard/q65a.webp",
+        "hard/q65b.webp"
       ]
     },
     {
@@ -3004,7 +3004,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "The yellow submucosal ileal mass is a carcinoid (well-differentiated neuroendocrine) tumor, which stains for chromogranin A. High tryptophan hydroxylase activity diverts dietary tryptophan into serotonin, depleting it for niacin synthesis and causing pellagra (dermatitis, diarrhea, dementia). Carcinoid syndrome includes flushing, diarrhea, cramps, bronchospasm, and right-sided carcinoid heart disease.",
       "images": [
-        "hard/q77a.jpg"
+        "hard/q77a.webp"
       ]
     },
     {
@@ -3075,7 +3075,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "C",
       "explanation": "Yellow-tan plaques on the mucosa are pseudomembranes of Clostridioides difficile colitis, typically in older adults after antibiotics eliminate protective flora. Toxins disrupt tight junctions and slough the epithelium; microscopically, a 'volcano' eruption of fibrin, mucus, and neutrophils forms. Pseudomembranes are not entirely specific (ischemia can produce them). Treatment options include oral vancomycin (or fidaxomicin), metronidazole, and fecal microbiota transplant.",
       "images": [
-        "hard/q81a.jpg"
+        "hard/q81a.webp"
       ]
     },
     {
@@ -3095,7 +3095,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "A",
       "explanation": "The biopsy shows a noncaseating granuloma, typical of Crohn disease: patchy (skip) transmural inflammation that can involve any part of the GI tract (especially the terminal ileum), with cobblestoning, creeping fat, strictures, and fistulas. Continuous disease from the rectum, mucosal-limited inflammation, and a lead-pipe colon are features of ulcerative colitis.",
       "images": [
-        "hard/q82a.jpg"
+        "hard/q82a.webp"
       ]
     },
     {
@@ -3166,7 +3166,7 @@ window.NBME_GI_PATH_DATA = {
       "answer": "E",
       "explanation": "Mucocutaneous pigmentation (lentigines on the lips and buccal mucosa, >95% of patients) and hamartomatous polyps with arborizing smooth muscle define Peutz-Jeghers syndrome (autosomal dominant STK11/LKB1). Polyps occur mostly in the small intestine and serve as lead points for intussusception, the most common complication. SMAD4 and BMPR1A cause juvenile polyposis.",
       "images": [
-        "hard/q86a.jpg"
+        "hard/q86a.webp"
       ]
     },
     {

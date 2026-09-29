@@ -4,7 +4,7 @@ from qcore import F
 R = {
 # ---------------- cell wall / stains ----------------
 "Gram stain: color logic": dict(
-  fig=F("fig-gram-wall.jpg",
+  fig=F("fig-gram-wall.webp",
         "Top: the Gram-negative envelope, with a thin peptidoglycan layer (2) sandwiched between inner (1) and outer (3) membranes. Bottom: the Gram-positive envelope, a single membrane (1) under a thick peptidoglycan wall (2) crossed by teichoic acids."),
   steps=["Crystal violet enters every cell, and iodine fixes it as a large crystal violet-iodine complex.",
          "Alcohol is then applied. In Gram-positive cells the thick, highly cross-linked peptidoglycan dehydrates and traps the complex.",
@@ -116,7 +116,7 @@ R = {
 
 # ---------------- antibiotic targets ----------------
 "Fosfomycin & bacitracin: cell wall steps": dict(
-  fig=F("fig-abx-targets.jpg",
+  fig=F("fig-abx-targets.webp",
         "Antibiotic classes by target. The cell wall synthesis inhibitors at the top left act at different points along the same assembly line, from cytoplasmic precursor synthesis to final cross-linking."),
   steps=["Step 1, in the cytoplasm: UDP-GlcNAc is converted to UDP-MurNAc by MurA. Fosfomycin blocks this first committed step.",
          "Step 2, at the membrane: the bactoprenol lipid carrier ferries precursors across. Bacitracin blocks its recycling, so it is topical only because of nephrotoxicity.",
@@ -126,7 +126,7 @@ R = {
 
 # ---------------- HIV drugs ----------------
 "HIV: integrase & protease inhibitors": dict(
-  fig=F("fig-hiv-cycle.jpg",
+  fig=F("fig-hiv-cycle.webp",
         "Each antiretroviral class blocks one labelled step: entry inhibitors at attachment and fusion, NRTIs and NNRTIs at reverse transcription, integrase inhibitors at integration, and protease inhibitors at the final maturation step."),
   steps=["After reverse transcription, integrase inserts the viral DNA into the host chromosome; -tegravir drugs block that strand transfer step.",
          "The provirus is transcribed and translated as long Gag and Gag-Pol polyproteins.",
@@ -136,7 +136,7 @@ R = {
          "The same CYP3A4 inhibition causes many interactions, and the class is associated with hyperglycemia, dyslipidemia, and fat redistribution."]),
 
 "HIV: pathogenesis": dict(
-  fig=F("fig-hiv-cycle.jpg",
+  fig=F("fig-hiv-cycle.webp",
         "Integration of the provirus into host DNA is the step that makes HIV incurable: infected resting memory CD4 cells become a silent reservoir that antiretrovirals cannot reach."),
   steps=["HIV enters CCR5-expressing memory CD4+ T cells, which are densely concentrated in gut lymphoid tissue.",
          "Within weeks of infection the gut CD4 population is massively depleted, long before blood counts fall much.",
@@ -147,7 +147,7 @@ R = {
 
 # ---------------- malaria ----------------
 "P. vivax: hypnozoites": dict(
-  fig=F("fig-malaria-cycle.jpg",
+  fig=F("fig-malaria-cycle.webp",
         "The liver stage of the malaria cycle. In P. vivax and P. ovale, some sporozoites become dormant hypnozoites here rather than replicating immediately, and they reactivate weeks to months later."),
   steps=["Sporozoites injected by the mosquito travel to the liver and enter hepatocytes.",
          "In P. falciparum and P. malariae they all replicate and move on to the blood, so once the blood stage is cured, the infection is over.",
@@ -158,7 +158,7 @@ R = {
          "Both cause oxidative hemolysis in G6PD deficiency, so G6PD testing comes before the prescription."]),
 
 "P. falciparum: severe malaria": dict(
-  fig=F("fig-malaria-cycle.jpg",
+  fig=F("fig-malaria-cycle.webp",
         "The blood stage of the cycle. In P. falciparum this stage is dangerous because the parasite invades red cells of every age and makes infected cells stick to blood vessel walls."),
   steps=["Merozoites released from the liver invade red blood cells; P. falciparum invades cells of any age, so parasitemia climbs steeply.",
          "The parasite exports PfEMP1 onto knobs on the red cell surface.",
@@ -170,7 +170,7 @@ R = {
 
 # ---------------- TB ----------------
 "TB: miliary disease": dict(
-  fig=F("fig-tb-latency.jpg",
+  fig=F("fig-tb-latency.webp",
         "When containment fails, bacilli escape the granuloma. If they enter the bloodstream they seed innumerable tiny foci throughout the body, producing miliary disease."),
   steps=["A granuloma normally walls off the organism, and containment depends on Th1 cells, IFN-gamma, and TNF.",
          "When cell-mediated immunity is weak - infancy, old age, HIV, steroids, TNF inhibitors - that structure fails.",
@@ -182,7 +182,7 @@ R = {
 
 # ---------------- herpes ----------------
 "HSV-1: latency": dict(
-  fig=F("fig-hsv-latency.jpg",
+  fig=F("fig-hsv-latency.webp",
         "Productive HSV-1 replication in an epithelial cell, with ordered immediate-early, early, and late gene expression. In sensory neurons this cascade is suppressed instead, leaving the genome quiet until reactivation."),
   steps=["Primary infection occurs in mucosal or skin epithelium, where the full lytic cascade runs and vesicles form.",
          "Virions enter sensory nerve endings in that territory.",
@@ -243,7 +243,7 @@ R = {
 
 # ---------------- other life cycles ----------------
 "Toxoplasma: AIDS": dict(
-  fig=F("fig-toxo-cycle.jpg",
+  fig=F("fig-toxo-cycle.webp",
         "Tissue cysts full of slow-growing bradyzoites persist for life after primary infection. When cell-mediated immunity fails, they convert back to fast-dividing tachyzoites."),
   steps=["Primary infection is usually mild and leaves tissue cysts in brain and muscle, held in check by CD4+ T cells.",
          "As the CD4 count falls below about 100, that surveillance fails.",
@@ -254,7 +254,7 @@ R = {
          "Treatment is pyrimethamine plus sulfadiazine with leucovorin, and clinical response within two weeks supports the diagnosis over CNS lymphoma."]),
 
 "Neurocysticercosis": dict(
-  fig=F("fig-taenia-cycle.jpg",
+  fig=F("fig-taenia-cycle.webp",
         "Swallowing Taenia solium eggs - not pork - puts humans in the intermediate-host position, so larvae encyst in tissue. Brain cysts are what cause seizures."),
   steps=["Eggs are swallowed from food, water, or hands contaminated by a human tapeworm carrier's feces.",
          "Larvae hatch, cross the intestinal wall, and travel in the blood to muscle, eye, and brain.",
@@ -265,7 +265,7 @@ R = {
          "Viable cysts are treated with albendazole plus corticosteroids, since killing them transiently worsens inflammation; calcified lesions need only seizure control."]),
 
 "Schistosoma haematobium": dict(
-  fig=F("fig-schisto-cycle.jpg",
+  fig=F("fig-schisto-cycle.webp",
         "The schistosome cycle. S. haematobium adults live in the vesical venous plexus, so eggs are shed in urine and lodge in the bladder wall rather than the gut."),
   steps=["Cercariae from freshwater snails penetrate skin during wading or swimming.",
          "Adults mature and pair in the venous plexus around the bladder.",
@@ -276,7 +276,7 @@ R = {
          "Praziquantel increases calcium permeability in the worm tegument, paralyzing adults and allowing immune clearance."]),
 
 "Lyme disease: erythema migrans": dict(
-  fig=F("fig-tick-cycle.jpg",
+  fig=F("fig-tick-cycle.webp",
         "The Ixodes life cycle. Nymphs feed in late spring and summer and cause most human Lyme disease; they are tiny and their bite is usually unnoticed."),
   steps=["A nymphal Ixodes tick attaches, typically in late spring or summer, and feeds unnoticed.",
          "Borrelia burgdorferi lives in the tick midgut and must migrate to the salivary glands before it can be injected.",
@@ -287,7 +287,7 @@ R = {
          "Untreated infection disseminates to nerves (facial palsy), heart (AV block), and later joints. Oral doxycycline treats early disease."]),
 
 "Anaplasma": dict(
-  fig=F("fig-tick-cycle.jpg",
+  fig=F("fig-tick-cycle.webp",
         "Anaplasma shares the Ixodes vector with Lyme disease and babesiosis, so a single tick bite can transmit more than one pathogen."),
   steps=["The same Ixodes nymph that transmits Borrelia can also carry Anaplasma phagocytophilum and Babesia microti.",
          "Anaplasma infects granulocytes, where it grows in vacuoles that appear as mulberry-like morulae in neutrophils.",

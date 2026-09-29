@@ -598,7 +598,7 @@ window.NBME_RENAL_DATA = {
       "answer": "C",
       "explanation": "PSGN glomeruli are enlarged and hypercellular from neutrophils and monocytes plus proliferating endothelial and mesangial cells. Minimal change disease looks normal on light microscopy; membranous nephropathy shows thickened capillary walls without inflammation.",
       "images": [
-        "q35a.jpg"
+        "q35a.webp"
       ]
     },
     {
@@ -618,7 +618,7 @@ window.NBME_RENAL_DATA = {
       "answer": "D",
       "explanation": "PSGN shows granular 'lumpy-bumpy' ('starry sky') deposits of IgG and C3 in the mesangium and along the GBM. Smooth linear staining is anti-GBM (Goodpasture) disease.",
       "images": [
-        "q36a.jpg"
+        "q36a.webp"
       ]
     },
     {
@@ -757,8 +757,8 @@ window.NBME_RENAL_DATA = {
       "answer": "B",
       "explanation": "The yellow, variegated mass with hemorrhage, and sheets of cells with clear cytoplasm, are typical of clear cell RCC. The yellow color comes from lipid in the tumor cells. Wilms tumor is a childhood tumor.",
       "images": [
-        "q44a.jpg",
-        "q44b.jpg"
+        "q44a.webp",
+        "q44b.webp"
       ]
     },
     {
@@ -778,7 +778,7 @@ window.NBME_RENAL_DATA = {
       "answer": "D",
       "explanation": "Hyaline arteriolosclerosis is seen with benign (long-standing) hypertension and diabetes mellitus. It results from plasma protein leaking across injured endothelium plus increased matrix made by smooth muscle cells. Malignant hypertension instead causes onion-skin (hyperplastic) arteriolosclerosis and fibrinoid necrosis.",
       "images": [
-        "q45a.jpg"
+        "q45a.webp"
       ]
     },
     {

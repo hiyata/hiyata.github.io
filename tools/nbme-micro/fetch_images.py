@@ -4,15 +4,16 @@ Usage:
     python3 tools/nbme-micro/fetch_images.py wanted.tsv
     python3 tools/nbme-micro/fetch_images.py --check      # re-verify credits.json
 
-Each line of the TSV is:   localname.jpg <TAB> File:Some Commons Title.jpg
+Each line of the TSV is:   localname.webp <TAB> File:Some Commons Title.jpg
 
 The script asks the Commons API for the file's licence, author, and description
 page, refuses anything that is not public domain / CC0 / CC BY / CC BY-SA,
-downloads a width-limited copy, and writes the attribution into credits.json.
+downloads a width-limited copy, re-encodes it as WebP, and writes the
+attribution into credits.json.
 The build refuses to attach any figure that has no credits.json entry, so the
 licence and author always travel with the picture onto the page.
 """
-import json, os, sys, time, urllib.parse, urllib.request
+import io, json, os, sys, time, urllib.parse, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
@@ -21,6 +22,7 @@ CREDITS = os.path.join(HERE, "credits.json")
 API = "https://commons.wikimedia.org/w/api.php"
 UA = "hiyata-nbme-micro/1.0 (educational question bank; https://hiyata.github.io)"
 WIDTH = 1100
+WEBP_QUALITY = 82
 
 # Only these licences may be attached. Anything else is skipped and reported.
 OK_LICENCE = ("cc0", "cc by", "cc by-sa", "public domain", "pd")
@@ -38,6 +40,17 @@ def _strip(html):
     text = re.sub(r"<[^>]+>", " ", html or "")
     text = text.replace("&amp;", "&").replace("&quot;", '"').replace("&#039;", "'")
     return " ".join(text.split())
+
+
+def to_webp(blob):
+    """Commons serves JPEG/PNG; the site ships WebP."""
+    from PIL import Image
+    im = Image.open(io.BytesIO(blob))
+    if im.mode not in ("RGB", "RGBA"):
+        im = im.convert("RGBA" if "transparency" in im.info else "RGB")
+    out = io.BytesIO()
+    im.save(out, "WEBP", quality=WEBP_QUALITY, method=6)
+    return out.getvalue()
 
 
 def licence_ok(lic):
@@ -90,7 +103,8 @@ def main():
             line = line.strip()
             if not line or line.startswith("#"): continue
             local, _, title = line.partition("\t")
-            wanted.append((local.strip(), title.strip()))
+            local = os.path.splitext(local.strip())[0] + ".webp"
+            wanted.append((local, title.strip()))
 
     force = "--force" in sys.argv
     got = skipped = failed = 0
@@ -105,7 +119,7 @@ def main():
             failed += 1
             continue
         try:
-            blob = _get(info["url"], binary=True)
+            blob = to_webp(_get(info["url"], binary=True))
         except Exception as e:
             print(f"  SKIP {local}: download failed ({e})")
             failed += 1

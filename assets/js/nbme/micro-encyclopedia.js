@@ -21,1008 +21,1008 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
  ],
  "imageCredits": [
   {
-   "file": "actino-histo.jpg",
+   "file": "actino-histo.webp",
    "artist": "Yale Rosen",
    "lic": "CC BY-SA 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Actinomycosis_1.jpg",
    "title": "File:Actinomycosis 1.jpg"
   },
   {
-   "file": "actinomyces.jpg",
+   "file": "actinomyces.webp",
    "artist": "Nephron",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Actinomyces_-_high_mag.jpg",
    "title": "File:Actinomyces - high mag.jpg"
   },
   {
-   "file": "afb-smear.jpg",
+   "file": "afb-smear.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Acid_fast_bacilli_(AFB)_positive_smear_of_sputum.jpg",
    "title": "File:Acid fast bacilli (AFB) positive smear of sputum.jpg"
   },
   {
-   "file": "alpha-hemolysis.jpg",
+   "file": "alpha-hemolysis.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Alpha-hemolysis_on_blood_agar_of_Viridans_streptococci.jpg",
    "title": "File:Alpha-hemolysis on blood agar of Viridans streptococci.jpg"
   },
   {
-   "file": "anthrax-eschar.jpg",
+   "file": "anthrax-eschar.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Cutaneous_anthrax_lesion_on_the_neck._PHIL_1934_lores.jpg",
    "title": "File:Cutaneous anthrax lesion on the neck. PHIL 1934 lores.jpg"
   },
   {
-   "file": "anthrax-gram.jpg",
+   "file": "anthrax-gram.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Bacillus_anthracis_Gram.jpg",
    "title": "File:Bacillus anthracis Gram.jpg"
   },
   {
-   "file": "ascaris.jpg",
+   "file": "ascaris.webp",
    "artist": "CDC/ Dr. Mae Melvin",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Fertilized_egg_of_Ascaris_lumbricoides_PHIL_410_lores.jpg",
    "title": "File:Fertilized egg of Ascaris lumbricoides PHIL 410 lores.jpg"
   },
   {
-   "file": "aspergillus.jpg",
+   "file": "aspergillus.webp",
    "artist": "Wellcome Collection",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Histopathology_of_pulmonary_aspergillosis.jpg",
    "title": "File:Histopathology of pulmonary aspergillosis.jpg"
   },
   {
-   "file": "babesia.jpg",
+   "file": "babesia.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn; Laboratory &amp; Consulta",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Babiesa_spp.jpg",
    "title": "File:Babiesa spp.jpg"
   },
   {
-   "file": "beta-hemolysis.jpg",
+   "file": "beta-hemolysis.webp",
    "artist": "HansN.",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Beta_hemolysis_on_blood_agar.jpg",
    "title": "File:Beta hemolysis on blood agar.jpg"
   },
   {
-   "file": "blasto.jpg",
+   "file": "blasto.webp",
    "artist": "Medmyco (talk) (Uploads)",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Blastomyces_dermatitidis_GMS.jpeg",
    "title": "File:Blastomyces dermatitidis GMS.jpeg"
   },
   {
-   "file": "blueberry.jpg",
+   "file": "blueberry.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Infant_with_skin_lesions_from_congenital_rubella.jpg",
    "title": "File:Infant with skin lesions from congenital rubella.jpg"
   },
   {
-   "file": "borrelia-smear.jpg",
+   "file": "borrelia-smear.webp",
    "artist": "Schwan TG, Policastro PF, Miller Z, Thompson RL, Damrow T, Keirans JE",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:PMC3016790_03-0280-F1.png",
    "title": "File:PMC3016790 03-0280-F1.png"
   },
   {
-   "file": "bpertussis.jpg",
+   "file": "bpertussis.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Bordetella_pertussis_6379_lores.jpg",
    "title": "File:Bordetella pertussis 6379 lores.jpg"
   },
   {
-   "file": "bubo.jpg",
+   "file": "bubo.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Plague_-buboes.jpg",
    "title": "File:Plague -buboes.jpg"
   },
   {
-   "file": "camp-test.jpg",
+   "file": "camp-test.webp",
    "artist": "Stefan Walkowski",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Positive_CAMP_test.jpg",
    "title": "File:Positive CAMP test.jpg"
   },
   {
-   "file": "campy-sem.jpg",
+   "file": "campy-sem.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Campylobacter_jejuni_5778_lores.jpg",
    "title": "File:Campylobacter jejuni 5778 lores.jpg"
   },
   {
-   "file": "candida-gram.jpg",
+   "file": "candida-gram.webp",
    "artist": "Microrao",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Candida_with_pseudohyphae.jpg",
    "title": "File:Candida with pseudohyphae.jpg"
   },
   {
-   "file": "catscratch.jpg",
+   "file": "catscratch.webp",
    "artist": "CDC/ Dr. Thomas F. Sellers; Emory University",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Cat-scratch_disease_lesion.jpg",
    "title": "File:Cat-scratch disease lesion.jpg"
   },
   {
-   "file": "cdiphtheriae-gram.jpg",
+   "file": "cdiphtheriae-gram.webp",
    "artist": "Photo Credit:\nContent Providers(s):",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Corynebacterium_diphtheriae_Gram_stain.jpg",
    "title": "File:Corynebacterium diphtheriae Gram stain.jpg"
   },
   {
-   "file": "chancre.jpg",
+   "file": "chancre.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Extragenital_syphilitic_chancre_of_the_left_index_finger_PHIL_4147_lores.jpg",
    "title": "File:Extragenital syphilitic chancre of the left index finger PHIL 4147 lores.jpg"
   },
   {
-   "file": "chlamydia-incl.jpg",
+   "file": "chlamydia-incl.webp",
    "artist": "User Marcus007 on de.wikipedia",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:ChlamydiaTrachomatisEinschlussk%C3%B6rperchen.jpg",
    "title": "File:ChlamydiaTrachomatisEinschlusskörperchen.jpg"
   },
   {
-   "file": "clonorchis-egg.jpg",
+   "file": "clonorchis-egg.webp",
    "artist": "Photo Credit: Content Providers(s): CDC/Dr. Mae Melvin",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Clonorchis_sinensis_egg_06G0049_jpg_lores.jpg",
    "title": "File:Clonorchis sinensis egg 06G0049 jpg lores.jpg"
   },
   {
-   "file": "clue-cells.jpg",
+   "file": "clue-cells.webp",
    "artist": "CDC/ M. Rein",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Clue_cells_-_CDC_PHIL_3720.jpg",
    "title": "File:Clue cells - CDC PHIL 3720.jpg"
   },
   {
-   "file": "cmv-owl.jpg",
+   "file": "cmv-owl.webp",
    "artist": "Jensflorian",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:CMV_encephalitis_owl_eye_inclusions_HE_stain.jpg",
    "title": "File:CMV encephalitis owl eye inclusions HE stain.jpg"
   },
   {
-   "file": "coagulase.jpg",
+   "file": "coagulase.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Tube_coagulase_test_of_Staphylococcus_aureus_-Positive_and_negative_Demonstration.jpg",
    "title": "File:Tube coagulase test of Staphylococcus aureus -Positive and negative Demonstration.jpg"
   },
   {
-   "file": "cocci-spherule.jpg",
+   "file": "cocci-spherule.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Spherule_and_endospore_forms_of_Coccidioides_immitis_01ee057_lores.jpg",
    "title": "File:Spherule and endospore forms of Coccidioides immitis 01ee057 lores.jpg"
   },
   {
-   "file": "congenital-syphilis.jpg",
+   "file": "congenital-syphilis.webp",
    "artist": "National Museum of Health and Medicine",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Infant_with_congenital_syphilis_(Reeve_031272),_National_Museum_of_Health_and_Medicine_(5468825189).jpg",
    "title": "File:Infant with congenital syphilis (Reeve 031272), National Museum of Health and Medicine (5468825189).jpg"
   },
   {
-   "file": "crypto-af.jpg",
+   "file": "crypto-af.webp",
    "artist": "CDC - DPDx - Laboratory Identification of Parasites of Public Health Concern",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Oocists_de_Cryptosporidium_parvum_2.jpg",
    "title": "File:Oocists de Cryptosporidium parvum 2.jpg"
   },
   {
-   "file": "crypto-ink.jpg",
+   "file": "crypto-ink.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Leanor Haley",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Cryptococcus_neoformans_using_a_light_India_ink_staining_preparation_PHIL_3771_lores.jpg",
    "title": "File:Cryptococcus neoformans using a light India ink staining preparation PHIL 3771 lores.jpg"
   },
   {
-   "file": "crypto-mucicarmine.jpg",
+   "file": "crypto-mucicarmine.webp",
    "artist": "Photo Credit: Content Providers(s): CDC/ Dr. Edwin P. Ewing, Jr.",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Cryptococcosis_of_lung_in_patient_with_AIDS._Mucicarmine_stain_962_lores.jpg",
    "title": "File:Cryptococcosis of lung in patient with AIDS. Mucicarmine stain 962 lores.jpg"
   },
   {
-   "file": "ctetani.jpg",
+   "file": "ctetani.webp",
    "artist": "Content Providers(s): CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Clostridium_tetani_01.png",
    "title": "File:Clostridium tetani 01.png"
   },
   {
-   "file": "diphtheria-membrane.jpg",
+   "file": "diphtheria-membrane.webp",
    "artist": "User:Dileepunnikri",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Dirty_white_pseudomembrane_classically_seen_in_diphtheria_2013-07-06_11-07.jpg",
    "title": "File:Dirty white pseudomembrane classically seen in diphtheria 2013-07-06 11-07.jpg"
   },
   {
-   "file": "dlatum.jpg",
+   "file": "dlatum.webp",
    "artist": "Stefan Walkowski",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Diphyllobothrium_latum_egg.jpg",
    "title": "File:Diphyllobothrium latum egg.jpg"
   },
   {
-   "file": "ebola-em.jpg",
+   "file": "ebola-em.webp",
    "artist": "Photo Credit: Dr. Frederick Murphy Content Providers(s): CDC/ Dr. Frederick A. Murphy",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
    "title": "File:Ebola virus em.jpg"
   },
   {
-   "file": "ecoli-emb.jpg",
+   "file": "ecoli-emb.webp",
    "artist": "Eunice Laurent",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:E_coli_on_EMB_plate.jpg",
    "title": "File:E coli on EMB plate.jpg"
   },
   {
-   "file": "ehrlichia.jpg",
+   "file": "ehrlichia.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Echaff.jpg",
    "title": "File:Echaff.jpg"
   },
   {
-   "file": "elephantiasis.jpg",
+   "file": "elephantiasis.webp",
    "artist": "Photo Credit:\nContent Providers: CDC/",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Elephantiasis.jpg",
    "title": "File:Elephantiasis.jpg"
   },
   {
-   "file": "em-rash.jpg",
+   "file": "em-rash.webp",
    "artist": "Photo Credit: James Gathany\nContent Providers(s): CDC/ James Gathany",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Erythema_migrans_-_erythematous_rash_in_Lyme_disease_-_PHIL_9875.jpg",
    "title": "File:Erythema migrans - erythematous rash in Lyme disease - PHIL 9875.jpg"
   },
   {
-   "file": "entamoeba.jpg",
+   "file": "entamoeba.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Trophozoites_of_Entamoeba_histolytica_with_ingested_erythrocytes.JPG",
    "title": "File:Trophozoites of Entamoeba histolytica with ingested erythrocytes.JPG"
   },
   {
-   "file": "enterobius.jpg",
+   "file": "enterobius.webp",
    "artist": "J3D3",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Enterobius_vermicularis_art2t.jpg",
    "title": "File:Enterobius vermicularis art2t.jpg"
   },
   {
-   "file": "epiglottitis.jpg",
+   "file": "epiglottitis.webp",
    "artist": "Med Chaos",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Epiglottitis.jpg",
    "title": "File:Epiglottitis.jpg"
   },
   {
-   "file": "erysipelas.jpg",
+   "file": "erysipelas.webp",
    "artist": "CDC/Dr. Thomas F. Sellers/Emory University",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Facial_erysipelas.jpg",
    "title": "File:Facial erysipelas.jpg"
   },
   {
-   "file": "fifth.jpg",
+   "file": "fifth.webp",
    "artist": "Fifth_disease.jpg: Andrew Kerr\nderivative work: Berita",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Fifth_disease_cropped.jpg",
    "title": "File:Fifth disease cropped.jpg"
   },
   {
-   "file": "fig-abx-targets.jpg",
+   "file": "fig-abx-targets.webp",
    "artist": "Our World in Data, Saloni Dattani; Adapted from Sanseverino et al. (2018) and Hu",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:How_do_different_antibiotics_work%3F.png",
    "title": "File:How do different antibiotics work?.png"
   },
   {
-   "file": "fig-conjugation.jpg",
+   "file": "fig-conjugation.webp",
    "artist": "Adenosine",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Conjugation.svg",
    "title": "File:Conjugation.svg"
   },
   {
-   "file": "fig-flu-shift.jpg",
+   "file": "fig-flu-shift.webp",
    "artist": "Dhorspool at en.wikipedia",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Influenza_geneticshift.jpg",
    "title": "File:Influenza geneticshift.jpg"
   },
   {
-   "file": "fig-giardia-cycle.jpg",
+   "file": "fig-giardia-cycle.webp",
    "artist": "LadyofHats",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Giardia_life_cycle_en.svg",
    "title": "File:Giardia life cycle en.svg"
   },
   {
-   "file": "fig-gram-wall.jpg",
+   "file": "fig-gram-wall.webp",
    "artist": "Franciscosp2",
    "lic": "CC BY 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Bacteria_cell_wall.svg",
    "title": "File:Bacteria cell wall.svg"
   },
   {
-   "file": "fig-hiv-cycle.jpg",
+   "file": "fig-hiv-cycle.webp",
    "artist": "Jmarchn",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:HIV-replication-cycle-en.svg",
    "title": "File:HIV-replication-cycle-en.svg"
   },
   {
-   "file": "fig-lps.jpg",
+   "file": "fig-lps.webp",
    "artist": "Mike Jones",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:LPS.svg",
    "title": "File:LPS.svg"
   },
   {
-   "file": "fig-malaria-cycle.jpg",
+   "file": "fig-malaria-cycle.webp",
    "artist": "national Institute of Allergy and Infectious Diseases",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Malaria_parasite_life_cycle-NIAID.jpg",
    "title": "File:Malaria parasite life cycle-NIAID.jpg"
   },
   {
-   "file": "gas-gangrene.jpg",
+   "file": "gas-gangrene.webp",
    "artist": "Engelbert Schröpfer, Stephan Rauthe and Thomas Meyer.",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Gas_gangrene.jpg",
    "title": "File:Gas gangrene.jpg"
   },
   {
-   "file": "gc-gram.jpg",
+   "file": "gc-gram.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Norman Jacobs",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Neisseria_gonorrhoeae_PHIL_3693_lores.jpg",
    "title": "File:Neisseria gonorrhoeae PHIL 3693 lores.jpg"
   },
   {
-   "file": "germ-tube.jpg",
+   "file": "germ-tube.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Germ_tube_test_(GTT)_of_Candida_albicans-Positive.jpg",
    "title": "File:Germ tube test (GTT) of Candida albicans-Positive.jpg"
   },
   {
-   "file": "giardia.jpg",
+   "file": "giardia.webp",
    "artist": "Servier Medical Art",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Giardia_intestinalis_trophozoite.png",
    "title": "File:Giardia intestinalis trophozoite.png"
   },
   {
-   "file": "ground-glass.jpg",
+   "file": "ground-glass.webp",
    "artist": "Nephron",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Ground_glass_hepatocytes_high_mag_cropped.jpg",
    "title": "File:Ground glass hepatocytes high mag cropped.jpg"
   },
   {
-   "file": "halo-sign.jpg",
+   "file": "halo-sign.webp",
    "artist": "Alves GR, et al.",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:CT_Halo_sign_around_a_right_lower_lobe_pulmonary_nodule.png",
    "title": "File:CT Halo sign around a right lower lobe pulmonary nodule.png"
   },
   {
-   "file": "he-agar.jpg",
+   "file": "he-agar.webp",
    "artist": "Mediocreclementine",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Hektoen_enteric_agar_stool_culture.jpg",
    "title": "File:Hektoen enteric agar stool culture.jpg"
   },
   {
-   "file": "herpes-labialis.jpg",
+   "file": "herpes-labialis.webp",
    "artist": "Metju12",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Herpes_labialis.jpg",
    "title": "File:Herpes labialis.jpg"
   },
   {
-   "file": "hflu-gram.jpg",
+   "file": "hflu-gram.webp",
    "artist": "Microman12345",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Haemophilus_influenzae_sputum_1000x_edited.jpg",
    "title": "File:Haemophilus influenzae sputum 1000x edited.jpg"
   },
   {
-   "file": "hfmd.jpg",
+   "file": "hfmd.webp",
    "artist": "MidgleyDJ (talk) at en.wikipedia",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Hand_Foot_Mouth_Disease.png",
    "title": "File:Hand Foot Mouth Disease.png"
   },
   {
-   "file": "histo-mac.jpg",
+   "file": "histo-mac.webp",
    "artist": "Yale Rosen from USA",
    "lic": "CC BY-SA 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Histoplasmosis_(5414173501).jpg",
    "title": "File:Histoplasmosis (5414173501).jpg"
   },
   {
-   "file": "hpylori.jpg",
+   "file": "hpylori.webp",
    "artist": "Ed Uthman from Houston, TX, USA",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Helicobacter_pylori,_Gastric_Biopsy,_Giemsa_Stain_(5517582111).jpg",
    "title": "File:Helicobacter pylori, Gastric Biopsy, Giemsa Stain (5517582111).jpg"
   },
   {
-   "file": "hutchinson.jpg",
+   "file": "hutchinson.webp",
    "artist": "CDC/Susan Lindsley",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Hutchinson_teeth_congenital_syphilis_PHIL_2385.rsh.jpg",
    "title": "File:Hutchinson teeth congenital syphilis PHIL 2385.rsh.jpg"
   },
   {
-   "file": "hydatid.jpg",
+   "file": "hydatid.webp",
    "artist": "Department of Pathology, Calicut Medical College",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Hydatid_cyst.JPG",
    "title": "File:Hydatid cyst.JPG"
   },
   {
-   "file": "ixodes.jpg",
+   "file": "ixodes.webp",
    "artist": "US federal government Center for Disease Control (CDC)",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Deer_tick_Ixodes_scapularis_b.jpg",
    "title": "File:Deer tick Ixodes scapularis b.jpg"
   },
   {
-   "file": "kaposi.jpg",
+   "file": "kaposi.webp",
    "artist": "Unknown authorUnknown author",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Kaposi%27s_Sarcoma.jpg",
    "title": "File:Kaposi's Sarcoma.jpg"
   },
   {
-   "file": "kleb-mucoid.jpg",
+   "file": "kleb-mucoid.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Klebsiella_pneumoniae_mucoid_lactose_fermenter_(MLF)_colonies_on_MacConkey_agar.jpg",
    "title": "File:Klebsiella pneumoniae mucoid lactose fermenter (MLF) colonies on MacConkey agar.jpg"
   },
   {
-   "file": "koilocytes.jpg",
+   "file": "koilocytes.webp",
    "artist": "Alcaraz-Chavez, J.E.; Téllez-Anguiano, A.d.C.; Olivares-Rojas, J.C.; Martínez-Parrales, R.",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Detection_and_correspondence_of_cells_within_a_field_of_cervical_cytology._Koilocytes.png",
    "title": "File:Detection and correspondence of cells within a field of cervical cytology. Koilocytes.png"
   },
   {
-   "file": "koplik.jpg",
+   "file": "koplik.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Koplik_spots,_measles_6111_lores.jpg",
    "title": "File:Koplik spots, measles 6111 lores.jpg"
   },
   {
-   "file": "larva-migrans.jpg",
+   "file": "larva-migrans.webp",
    "artist": "Center for Disease Control and Prevention (CDC)",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Cutaneous-larva-migrans-foot.jpg",
    "title": "File:Cutaneous-larva-migrans-foot.jpg"
   },
   {
-   "file": "legionella.jpg",
+   "file": "legionella.webp",
    "artist": "CDC (PHIL #1187)",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Legionella_pneumophila_01.jpg",
    "title": "File:Legionella pneumophila 01.jpg"
   },
   {
-   "file": "leish-amast.jpg",
+   "file": "leish-amast.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Amastigotes_of_Leishmania_donovani.jpg",
    "title": "File:Amastigotes of Leishmania donovani.jpg"
   },
   {
-   "file": "leprosy-ll.jpg",
+   "file": "leprosy-ll.webp",
    "artist": "Department of Pathology, Calicut Medical College",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Leprosy_-_Lepromatous_leprosy_(LL)_40x.jpg",
    "title": "File:Leprosy - Lepromatous leprosy (LL) 40x.jpg"
   },
   {
-   "file": "lepto-sem.jpg",
+   "file": "lepto-sem.webp",
    "artist": "CDC/ Rob Weyant",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Leptospira_scanning_micrograph.jpg",
    "title": "File:Leptospira scanning micrograph.jpg"
   },
   {
-   "file": "listeria-gram.jpg",
+   "file": "listeria-gram.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Gram_staining_footage_of_Listeria_monocytogenes_in_Gram_staining_of_culture_microscopy.jpg",
    "title": "File:Gram staining footage of Listeria monocytogenes in Gram staining of culture microscopy.jpg"
   },
   {
-   "file": "loa.jpg",
+   "file": "loa.webp",
    "artist": "CDC - DPDx",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:L_loa_whole_HBa.jpg",
    "title": "File:L loa whole HBa.jpg"
   },
   {
-   "file": "lobar-pneumonia.jpg",
+   "file": "lobar-pneumonia.webp",
    "artist": "Mikael Häggström, M.D. Author info - Reusing images- Conflicts of interest:  Non",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:X-ray_of_lobar_pneumonia.jpg",
    "title": "File:X-ray of lobar pneumonia.jpg"
   },
   {
-   "file": "macconkey.jpg",
+   "file": "macconkey.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Lactose_fementing_(LF),_and_non-lactose_fermenting_(NLF)_colonies_on_MacConkey_agar.jpg",
    "title": "File:Lactose fementing (LF), and non-lactose fermenting (NLF) colonies on MacConkey agar.jpg"
   },
   {
-   "file": "malassezia.jpg",
+   "file": "malassezia.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Malassezia_furfur_in_skin_scale_from_a_patient_with_tinea_versicolor_PHIL_3938_lores.jpg",
    "title": "File:Malassezia furfur in skin scale from a patient with tinea versicolor PHIL 3938 lores.jpg"
   },
   {
-   "file": "mantoux.jpg",
+   "file": "mantoux.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Mantoux_Test_48h.jpeg",
    "title": "File:Mantoux Test 48h.jpeg"
   },
   {
-   "file": "measles-rash.jpg",
+   "file": "measles-rash.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Measles_rash_PHIL_4497_lores.jpg",
    "title": "File:Measles rash PHIL 4497 lores.jpg"
   },
   {
-   "file": "miliary-tb.jpg",
+   "file": "miliary-tb.webp",
    "artist": "Benjamín Herreros, Isabel Plaza, Rebeca García, Marta Chichón, Carmen Guerrero a",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Chest_radiograph_of_miliary_tuberculosis_1.jpg",
    "title": "File:Chest radiograph of miliary tuberculosis 1.jpg"
   },
   {
-   "file": "molluscum.jpg",
+   "file": "molluscum.webp",
    "artist": "CoRus13",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Molluscum_contagiosum,_high_mag.jpg",
    "title": "File:Molluscum contagiosum, high mag.jpg"
   },
   {
-   "file": "msa-agar.jpg",
+   "file": "msa-agar.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Staphylococcus_aureus_(yellow_colonies)_and_CoNS_(pink_colonies)_on_Mannitol_salt_agar_(MSA).jpg",
    "title": "File:Staphylococcus aureus (yellow colonies) and CoNS (pink colonies) on Mannitol salt agar (MSA).jpg"
   },
   {
-   "file": "mucor.jpg",
+   "file": "mucor.webp",
    "artist": "Nephron",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Zygomycosis.jpg",
    "title": "File:Zygomycosis.jpg"
   },
   {
-   "file": "mumps.jpg",
+   "file": "mumps.webp",
    "artist": "Heinrich Weingaertner",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Mumps.jpg",
    "title": "File:Mumps.jpg"
   },
   {
-   "file": "naegleria.jpg",
+   "file": "naegleria.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Naegleria_trophA.JPG",
    "title": "File:Naegleria trophA.JPG"
   },
   {
-   "file": "ncc-ct.jpg",
+   "file": "ncc-ct.webp",
    "artist": "Innocent Lule Segamwenge",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Neurocysticercosis_brain_CT.jpg",
    "title": "File:Neurocysticercosis brain CT.jpg"
   },
   {
-   "file": "necrotizing-fasciitis.jpg",
+   "file": "necrotizing-fasciitis.webp",
    "artist": "Piotr Smuszkiewicz, Iwona Trojanowska and Hanna Tomczak",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Necrotizing_fasciitis_left_leg.JPEG",
    "title": "File:Necrotizing fasciitis left leg.JPEG"
   },
   {
-   "file": "negri.jpg",
+   "file": "negri.webp",
    "artist": "CDC/Dr. Makonnen Fekadu",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Rabies_negri_bodies_brain.jpg",
    "title": "File:Rabies negri bodies brain.jpg"
   },
   {
-   "file": "nmen-csf.jpg",
+   "file": "nmen-csf.webp",
    "artist": "Microman12345",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Neisseria_meningitidis_CSF_Gram_1000.jpg",
    "title": "File:Neisseria meningitidis CSF Gram 1000.jpg"
   },
   {
-   "file": "nmen-gram.jpg",
+   "file": "nmen-gram.webp",
    "artist": "Microman12345",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Neisseria_meningitidis_CSF_Gram_1000.jpg",
    "title": "File:Neisseria meningitidis CSF Gram 1000.jpg"
   },
   {
-   "file": "nocardia.jpg",
+   "file": "nocardia.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC BY 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Nocardia_in_modified_Ziehl-Neelsen_staining.jpg",
    "title": "File:Nocardia in modified Ziehl-Neelsen staining.jpg"
   },
   {
-   "file": "onychomycosis.jpg",
+   "file": "onychomycosis.webp",
    "artist": "No machine-readable author provided. Dermatologist~commonswiki assumed (based on copyright claims).",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Onychomycosis_(tinea_unguium).jpg",
    "title": "File:Onychomycosis (tinea unguium).jpg"
   },
   {
-   "file": "ophthalmia.jpg",
+   "file": "ophthalmia.webp",
    "artist": "CDC/ J. Pledger",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Gonococcal_ophthalmia_neonatorum.jpg",
    "title": "File:Gonococcal ophthalmia neonatorum.jpg"
   },
   {
-   "file": "opisthotonus.jpg",
+   "file": "opisthotonus.webp",
    "artist": "Sir Charles Bell",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Opisthotonus_in_a_patient_suffering_from_tetanus_-_Painting_by_Sir_Charles_Bell_-_1809.jpg",
    "title": "File:Opisthotonus in a patient suffering from tetanus - Painting by Sir Charles Bell - 1809.jpg"
   },
   {
-   "file": "optochin.jpg",
+   "file": "optochin.webp",
    "artist": "Ccroberts",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Optochin.png",
    "title": "File:Optochin.png"
   },
   {
-   "file": "osler-nodes.jpg",
+   "file": "osler-nodes.webp",
    "artist": "Roberto J. Galindo",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Osler_Nodules_Hand.jpg",
    "title": "File:Osler Nodules Hand.jpg"
   },
   {
-   "file": "paracocci.jpg",
+   "file": "paracocci.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/ Dr. Lucille K. Georg",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Paracoccidioides_brasiliensis_01.jpg",
    "title": "File:Paracoccidioides brasiliensis 01.jpg"
   },
   {
-   "file": "pcp-gms.jpg",
+   "file": "pcp-gms.webp",
    "artist": "Unknown",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Pneumocystis_carinii_01.jpg",
    "title": "File:Pneumocystis carinii 01.jpg"
   },
   {
-   "file": "pf-gametocyte.jpg",
+   "file": "pf-gametocyte.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/Dr. Mae Melvin\nTranswiki approved by: w:",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_01.png",
    "title": "File:Plasmodium falciparum 01.png"
   },
   {
-   "file": "pf-rings.jpg",
+   "file": "pf-rings.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_falciparum_rings_form_parasites4885_lores.jpg",
    "title": "File:Plasmodium falciparum rings form parasites4885 lores.jpg"
   },
   {
-   "file": "pmc.jpg",
+   "file": "pmc.webp",
    "artist": "Narraburra",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Clostridioides_(pseudomembranous)_colitis.jpg",
    "title": "File:Clostridioides (pseudomembranous) colitis.jpg"
   },
   {
-   "file": "proteus-swarm.jpg",
+   "file": "proteus-swarm.webp",
    "artist": "Microrao",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Proteus_swarming_on_blood_agar.jpg",
    "title": "File:Proteus swarming on blood agar.jpg"
   },
   {
-   "file": "pseudomonas-pigment.jpg",
+   "file": "pseudomonas-pigment.webp",
    "artist": "Y tambe",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Pseudomonas_aeruginosa_pyocyanin.jpg",
    "title": "File:Pseudomonas aeruginosa pyocyanin.jpg"
   },
   {
-   "file": "pvivax.jpg",
+   "file": "pvivax.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/ Steven Glenn, Laboratory &amp; Consulta",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Plasmodium_vivax_01.png",
    "title": "File:Plasmodium vivax 01.png"
   },
   {
-   "file": "rmsf.jpg",
+   "file": "rmsf.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Rocky_Mountain_spotted_fever_PHIL_1962_lores.jpg",
    "title": "File:Rocky Mountain spotted fever PHIL 1962 lores.jpg"
   },
   {
-   "file": "romana.jpg",
+   "file": "romana.webp",
    "artist": "Centers for Disease Control and Prevention (CDC)",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Romanas_sign.jpg",
    "title": "File:Romanas sign.jpg"
   },
   {
-   "file": "rose-spots.jpg",
+   "file": "rose-spots.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC/Armed Forces Institute of Pathology, Cha",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Salmonella_typhi_typhoid_fever_PHIL_2215_lores.jpg",
    "title": "File:Salmonella typhi typhoid fever PHIL 2215 lores.jpg"
   },
   {
-   "file": "rotavirus-em.jpg",
+   "file": "rotavirus-em.webp",
    "artist": "Dr Graham Beards",
    "lic": "CC BY 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Multiple_rotavirus_particles.jpg",
    "title": "File:Multiple rotavirus particles.jpg"
   },
   {
-   "file": "saureus-gram.jpg",
+   "file": "saureus-gram.webp",
    "artist": "Y Tambe",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Staphylococcus_aureus_Gram.jpg",
    "title": "File:Staphylococcus aureus Gram.jpg"
   },
   {
-   "file": "scarlet-rash.jpg",
+   "file": "scarlet-rash.webp",
    "artist": "The original uploader was Estreya at English Wikipedia .",
    "lic": "CC BY 2.5",
    "page": "https://commons.wikimedia.org/wiki/File:Scarlet_fever_2.jpg",
    "title": "File:Scarlet fever 2.jpg"
   },
   {
-   "file": "schisto-haem.jpg",
+   "file": "schisto-haem.webp",
    "artist": "CDC, Public Health Image Library (PHIL)",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_haematobium_egg_4843_lores.jpg",
    "title": "File:Schistosoma haematobium egg 4843 lores.jpg"
   },
   {
-   "file": "schisto-mansoni.jpg",
+   "file": "schisto-mansoni.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Schistosoma_mansoni_egg_4841_lores.jpg",
    "title": "File:Schistosoma mansoni egg 4841 lores.jpg"
   },
   {
-   "file": "shigella-stool.jpg",
+   "file": "shigella-stool.webp",
    "artist": "Centers for Disease Control and Prevention Publich Health Image Library",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Shigella_stool.jpg",
    "title": "File:Shigella stool.jpg"
   },
   {
-   "file": "smallpox.jpg",
+   "file": "smallpox.webp",
    "artist": "medicalmuseum",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Smallpox_lesions_on_face_(AFIP_551882),_National_Museum_of_Health_and_Medicine.jpg",
    "title": "File:Smallpox lesions on face (AFIP 551882), National Museum of Health and Medicine.jpg"
   },
   {
-   "file": "spneumo-gram.jpg",
+   "file": "spneumo-gram.webp",
    "artist": "Ajay Kumar Chaurasiya",
    "lic": "CC0",
    "page": "https://commons.wikimedia.org/wiki/File:Pneumococcus_in_Gram-Stained_BAL_Sample.jpg",
    "title": "File:Pneumococcus in Gram-Stained BAL Sample.jpg"
   },
   {
-   "file": "sporotrichosis.jpg",
+   "file": "sporotrichosis.webp",
    "artist": "Content Providers(s):\tCDC/Dr. Lucille K. Georg",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Sporotrichosis_by_the_fungus_Sporothrix_schenckii_PHIL_3940_lores.jpg",
    "title": "File:Sporotrichosis by the fungus Sporothrix schenckii PHIL 3940 lores.jpg"
   },
   {
-   "file": "strep-tongue.jpg",
+   "file": "strep-tongue.webp",
    "artist": "Whispyhistory",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Strep_throat_with_white_strawberry_tongue.jpg",
    "title": "File:Strep throat with white strawberry tongue.jpg"
   },
   {
-   "file": "strongy.jpg",
+   "file": "strongy.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Strongyloides_stercoralis_larva.jpg",
    "title": "File:Strongyloides stercoralis larva.jpg"
   },
   {
-   "file": "syph-palms.jpg",
+   "file": "syph-palms.webp",
    "artist": "CDC/ Robert Sumpter",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Secondary_Syphilis_on_palms_CDC_6809_lores.rsh.jpg",
    "title": "File:Secondary Syphilis on palms CDC 6809 lores.rsh.jpg"
   },
   {
-   "file": "tb-granuloma.jpg",
+   "file": "tb-granuloma.webp",
    "artist": "Department of Pathology, Calicut Medical College",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Tuberculous_lymph_node_with_caseating_granuloma_40X.jpg",
    "title": "File:Tuberculous lymph node with caseating granuloma 40X.jpg"
   },
   {
-   "file": "tb-zn.jpg",
+   "file": "tb-zn.webp",
    "artist": "Microrao",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:M_tuberculosis_sputum.jpg",
    "title": "File:M tuberculosis sputum.jpg"
   },
   {
-   "file": "tbrucei.jpg",
+   "file": "tbrucei.webp",
    "artist": "Photo Credit: Content Providers: CDC/Dr. Myron G. Schultz",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Trypanosoma_sp._PHIL_613_lores_(cropped).jpg",
    "title": "File:Trypanosoma sp. PHIL 613 lores (cropped).jpg"
   },
   {
-   "file": "tcbs.jpg",
+   "file": "tcbs.webp",
    "artist": "Chainwit.",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:TCBS_agar_plate_of_Vibrio_Cholerae_and_vibrio_parahaemolyticus.jpg",
    "title": "File:TCBS agar plate of Vibrio Cholerae and vibrio parahaemolyticus.jpg"
   },
   {
-   "file": "tcruzi.jpg",
+   "file": "tcruzi.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:T._cruzi_trypomastigotes_in_peripheral_blood_smear.jpg",
    "title": "File:T. cruzi trypomastigotes in peripheral blood smear.jpg"
   },
   {
-   "file": "thrush.jpg",
+   "file": "thrush.webp",
    "artist": "Photo Credit:\nContent Providers(s): CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Oral_thrush_Aphthae_Candida_albicans._PHIL_1217_lores.jpg",
    "title": "File:Oral thrush Aphthae Candida albicans. PHIL 1217 lores.jpg"
   },
   {
-   "file": "tinea-corporis.jpg",
+   "file": "tinea-corporis.webp",
    "artist": "CDC/ Dr. Lucille K. Georg",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Ringworm_on_the_arm,_or_tinea_corporis_due_to_Trichophyton_mentagrophytes_PHIL_2938_lores.jpg",
    "title": "File:Ringworm on the arm, or tinea corporis due to Trichophyton mentagrophytes PHIL 2938 lores.jpg"
   },
   {
-   "file": "toxo-cyst.jpg",
+   "file": "toxo-cyst.webp",
    "artist": "Jitinder P. Dubey",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Toxoplasma_gondii_tissue_cyst_in_mouse_brain.jpg",
    "title": "File:Toxoplasma gondii tissue cyst in mouse brain.jpg"
   },
   {
-   "file": "trachoma.jpg",
+   "file": "trachoma.webp",
    "artist": "Shelley Panzarella",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Buttonhook_Trachoma.jpg",
    "title": "File:Buttonhook Trachoma.jpg"
   },
   {
-   "file": "trich.jpg",
+   "file": "trich.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Trichomonas_Giemsa_DPDx.JPG",
    "title": "File:Trichomonas Giemsa DPDx.JPG"
   },
   {
-   "file": "trichinella-muscle.jpg",
+   "file": "trichinella-muscle.webp",
    "artist": "Self",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Trichinella_spiralis_larvae_within_muscle.jpg",
    "title": "File:Trichinella spiralis larvae within muscle.jpg"
   },
   {
-   "file": "tsolium-scolex.jpg",
+   "file": "tsolium-scolex.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Taenia_solium_tapeworm_scolex_with_its_four_suckers_and_two_rows_of_hooks_5262_lores.jpg",
    "title": "File:Taenia solium tapeworm scolex with its four suckers and two rows of hooks 5262 lores.jpg"
   },
   {
-   "file": "tularemia.jpg",
+   "file": "tularemia.webp",
    "artist": "",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Tularemia_lesion.jpg",
    "title": "File:Tularemia lesion.jpg"
   },
   {
-   "file": "tzanck.jpg",
+   "file": "tzanck.webp",
    "artist": "National Institute of Allergy and Infectious Diseases (NIAID)",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Tzanck_test.png",
    "title": "File:Tzanck test.png"
   },
   {
-   "file": "varicella.jpg",
+   "file": "varicella.webp",
    "artist": "",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Child_with_chickenpox.jpg",
    "title": "File:Child with chickenpox.jpg"
   },
   {
-   "file": "vibrio-gram.jpg",
+   "file": "vibrio-gram.webp",
    "artist": "CDC",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Vibrio_cholerae_gram_stain_CDC.jpg",
    "title": "File:Vibrio cholerae gram stain CDC.jpg"
   },
   {
-   "file": "wfs-adrenal.jpg",
+   "file": "wfs-adrenal.webp",
    "artist": "Amadalvarez",
    "lic": "CC BY-SA 4.0",
    "page": "https://commons.wikimedia.org/wiki/File:Waterhouse-Friderichsen._IMG_2912.jpg",
    "title": "File:Waterhouse-Friderichsen. IMG 2912.jpg"
   },
   {
-   "file": "whipple.jpg",
+   "file": "whipple.webp",
    "artist": "Ed Uthman from Houston, TX, USA",
    "lic": "CC BY 2.0",
    "page": "https://commons.wikimedia.org/wiki/File:Whipples_Disease,_PAS_(6881958605).jpg",
    "title": "File:Whipples Disease, PAS (6881958605).jpg"
   },
   {
-   "file": "wuchereria.jpg",
+   "file": "wuchereria.webp",
    "artist": "Unknown",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Wuchereria_bancrofti_1_DPDX.JPG",
    "title": "File:Wuchereria bancrofti 1 DPDX.JPG"
   },
   {
-   "file": "ypestis-wayson.jpg",
+   "file": "ypestis-wayson.webp",
    "artist": "U.S. Center for Disease Control",
    "lic": "Public domain",
    "page": "https://commons.wikimedia.org/wiki/File:Yersinia_pestis_wayson.jpg",
    "title": "File:Yersinia pestis wayson.jpg"
   },
   {
-   "file": "zoster.jpg",
+   "file": "zoster.webp",
    "artist": "No machine-readable author provided. Gentgeen assumed (based on copyright claims",
    "lic": "CC BY-SA 3.0",
    "page": "https://commons.wikimedia.org/wiki/File:Herpes_zoster_neck.png",
@@ -1262,15 +1262,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "saureus-gram.jpg",
+     "saureus-gram.webp",
      "Gram stain: Gram-positive cocci in irregular clusters."
     ],
     [
-     "msa-agar.jpg",
+     "msa-agar.webp",
      "Mannitol salt agar: S. aureus ferments mannitol and turns the medium yellow."
     ],
     [
-     "coagulase.jpg",
+     "coagulase.webp",
      "Tube coagulase: a solid clot (left) is positive."
     ]
    ],
@@ -1436,7 +1436,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "camp-test.jpg",
+     "camp-test.webp",
      "Positive CAMP test: an arrowhead of enhanced hemolysis where GBS meets the S. aureus streak."
     ]
    ],
@@ -1530,15 +1530,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "spneumo-gram.jpg",
+     "spneumo-gram.webp",
      "Gram stain: lancet-shaped Gram-positive diplococci."
     ],
     [
-     "optochin.jpg",
+     "optochin.webp",
      "Optochin disk: a wide zone of inhibition identifies pneumococcus."
     ],
     [
-     "lobar-pneumonia.jpg",
+     "lobar-pneumonia.webp",
      "Lobar pneumonia - consolidation confined to one lobe."
     ]
    ],
@@ -1659,23 +1659,23 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "beta-hemolysis.jpg",
+     "beta-hemolysis.webp",
      "Beta-hemolysis: complete clearing of blood agar around the colonies."
     ],
     [
-     "erysipelas.jpg",
+     "erysipelas.webp",
      "Erysipelas: a raised, sharply demarcated plaque involving superficial dermis and lymphatics."
     ],
     [
-     "strep-tongue.jpg",
+     "strep-tongue.webp",
      "Strawberry tongue in scarlet fever."
     ],
     [
-     "scarlet-rash.jpg",
+     "scarlet-rash.webp",
      "Scarlet fever: a diffuse sandpaper-textured rash accentuated in skin folds."
     ],
     [
-     "necrotizing-fasciitis.jpg",
+     "necrotizing-fasciitis.webp",
      "Necrotizing fasciitis - note how modest the skin looks relative to the patient's pain."
     ]
    ],
@@ -1798,11 +1798,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "alpha-hemolysis.jpg",
+     "alpha-hemolysis.webp",
      "Alpha-hemolysis - partial, greenish discoloration of the agar."
     ],
     [
-     "osler-nodes.jpg",
+     "osler-nodes.webp",
      "Osler nodes: tender pulp nodules of endocarditis."
     ]
    ],
@@ -1880,15 +1880,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "actinomyces.jpg",
+     "actinomyces.webp",
      "Branching filamentous Gram-positive rods."
     ],
     [
-     "actino-histo.jpg",
+     "actino-histo.webp",
      "A sulfur granule ringed by neutrophils - a bacterial colony, not mineral sulfur."
     ],
     [
-     "nocardia.jpg",
+     "nocardia.webp",
      "Nocardia: beaded, branching, partially acid-fast filaments."
     ]
    ],
@@ -1973,11 +1973,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "anthrax-gram.jpg",
+     "anthrax-gram.webp",
      "Boxcar-shaped Gram-positive rods in chains."
     ],
     [
-     "anthrax-eschar.jpg",
+     "anthrax-eschar.webp",
      "Cutaneous anthrax: a painless black eschar with marked surrounding edema."
     ]
    ],
@@ -2073,19 +2073,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "ctetani.jpg",
+     "ctetani.webp",
      "Clostridium tetani with terminal spores giving the drumstick appearance."
     ],
     [
-     "opisthotonus.jpg",
+     "opisthotonus.webp",
      "Opisthotonus - the arched rigidity of tetanus."
     ],
     [
-     "gas-gangrene.jpg",
+     "gas-gangrene.webp",
      "Clostridial myonecrosis with gas in the soft tissues."
     ],
     [
-     "pmc.jpg",
+     "pmc.webp",
      "Pseudomembranous colitis: yellow-white plaques on the colonic mucosa."
     ]
    ],
@@ -2184,11 +2184,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "cdiphtheriae-gram.jpg",
+     "cdiphtheriae-gram.webp",
      "Club-shaped rods in angular 'Chinese letter' clusters."
     ],
     [
-     "diphtheria-membrane.jpg",
+     "diphtheria-membrane.webp",
      "The adherent gray pharyngeal pseudomembrane."
     ]
    ],
@@ -2284,7 +2284,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "listeria-gram.jpg",
+     "listeria-gram.webp",
      "Short Gram-positive rods, easily mistaken for diphtheroids."
     ]
    ],
@@ -2374,23 +2374,23 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "gc-gram.jpg",
+     "gc-gram.webp",
      "Gram-negative diplococci inside neutrophils in urethral exudate."
     ],
     [
-     "nmen-gram.jpg",
+     "nmen-gram.webp",
      "Meningococci in CSF, many intracellular."
     ],
     [
-     "nmen-csf.jpg",
+     "nmen-csf.webp",
      "Purulent CSF in meningococcal meningitis."
     ],
     [
-     "wfs-adrenal.jpg",
+     "wfs-adrenal.webp",
      "Waterhouse-Friderichsen syndrome: bilateral adrenal hemorrhage."
     ],
     [
-     "ophthalmia.jpg",
+     "ophthalmia.webp",
      "Ophthalmia neonatorum from N. gonorrhoeae."
     ]
    ],
@@ -2494,7 +2494,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "bpertussis.jpg",
+     "bpertussis.webp",
      "Bordetella pertussis, a small Gram-negative coccobacillus."
     ]
    ],
@@ -2577,11 +2577,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "hflu-gram.jpg",
+     "hflu-gram.webp",
      "Small pleomorphic Gram-negative coccobacilli."
     ],
     [
-     "epiglottitis.jpg",
+     "epiglottitis.webp",
      "Lateral neck film: the thumbprint sign of a swollen epiglottis."
     ]
    ],
@@ -2665,7 +2665,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "legionella.jpg",
+     "legionella.webp",
      "Legionella pneumophila - poorly visualized by routine Gram stain."
     ]
    ],
@@ -2752,7 +2752,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "pseudomonas-pigment.jpg",
+     "pseudomonas-pigment.webp",
      "Blue-green pyocyanin pigment diffusing into the agar."
     ]
    ],
@@ -2856,19 +2856,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "ypestis-wayson.jpg",
+     "ypestis-wayson.webp",
      "Bipolar 'safety pin' staining of Yersinia pestis."
     ],
     [
-     "bubo.jpg",
+     "bubo.webp",
      "An inguinal bubo - the exquisitely tender node of bubonic plague."
     ],
     [
-     "tularemia.jpg",
+     "tularemia.webp",
      "Ulceroglandular tularemia: an ulcer at the inoculation site."
     ],
     [
-     "catscratch.jpg",
+     "catscratch.webp",
      "Regional lymphadenopathy of cat scratch disease."
     ]
    ],
@@ -2966,11 +2966,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "ecoli-emb.jpg",
+     "ecoli-emb.webp",
      "Green metallic sheen of E. coli on eosin-methylene blue agar."
     ],
     [
-     "macconkey.jpg",
+     "macconkey.webp",
      "Pink (lactose-fermenting) versus colorless colonies on MacConkey agar."
     ]
    ],
@@ -3061,15 +3061,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "kleb-mucoid.jpg",
+     "kleb-mucoid.webp",
      "Klebsiella: strikingly mucoid colonies from its thick capsule."
     ],
     [
-     "proteus-swarm.jpg",
+     "proteus-swarm.webp",
      "Proteus swarming in concentric waves across the agar."
     ],
     [
-     "he-agar.jpg",
+     "he-agar.webp",
      "Hektoen enteric agar - a selective medium for Salmonella and Shigella."
     ]
    ],
@@ -3163,11 +3163,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "rose-spots.jpg",
+     "rose-spots.webp",
      "Rose spots: faint salmon-colored macules on the trunk in typhoid fever."
     ],
     [
-     "shigella-stool.jpg",
+     "shigella-stool.webp",
      "Bloody mucoid stool of bacillary dysentery."
     ]
    ],
@@ -3270,19 +3270,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "vibrio-gram.jpg",
+     "vibrio-gram.webp",
      "Comma-shaped Gram-negative rods."
     ],
     [
-     "tcbs.jpg",
+     "tcbs.webp",
      "Yellow colonies of V. cholerae on TCBS agar."
     ],
     [
-     "campy-sem.jpg",
+     "campy-sem.webp",
      "Campylobacter jejuni - curved and flagellated."
     ],
     [
-     "hpylori.jpg",
+     "hpylori.webp",
      "Helicobacter pylori in gastric mucosa."
     ]
    ],
@@ -3385,15 +3385,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "em-rash.jpg",
+     "em-rash.webp",
      "Erythema migrans: an expanding annular lesion with central clearing."
     ],
     [
-     "ixodes.jpg",
+     "ixodes.webp",
      "Ixodes scapularis, the deer tick vector."
     ],
     [
-     "borrelia-smear.jpg",
+     "borrelia-smear.webp",
      "Borrelia spirochetes on a Giemsa-stained blood film in relapsing fever."
     ]
    ],
@@ -3493,7 +3493,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "lepto-sem.jpg",
+     "lepto-sem.webp",
      "Leptospira: a tightly coiled spirochete with hooked ends."
     ]
    ],
@@ -3562,15 +3562,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "chancre.jpg",
+     "chancre.webp",
      "Primary chancre: a single painless ulcer with indurated edges and a clean base."
     ],
     [
-     "syph-palms.jpg",
+     "syph-palms.webp",
      "Secondary syphilis: a copper-colored maculopapular rash involving the palms."
     ],
     [
-     "congenital-syphilis.jpg",
+     "congenital-syphilis.webp",
      "Congenital syphilis in a newborn."
     ]
    ],
@@ -3681,23 +3681,23 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "tb-zn.jpg",
+     "tb-zn.webp",
      "Ziehl-Neelsen stain: red beaded acid-fast bacilli."
     ],
     [
-     "afb-smear.jpg",
+     "afb-smear.webp",
      "Acid-fast bacilli in a concentrated sputum smear."
     ],
     [
-     "tb-granuloma.jpg",
+     "tb-granuloma.webp",
      "Caseating granuloma with epithelioid macrophages and Langhans giant cells."
     ],
     [
-     "miliary-tb.jpg",
+     "miliary-tb.webp",
      "Miliary tuberculosis: innumerable small nodules throughout both lungs."
     ],
     [
-     "mantoux.jpg",
+     "mantoux.webp",
      "Mantoux tuberculin skin test - induration, not erythema, is measured."
     ]
    ],
@@ -3822,7 +3822,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "leprosy-ll.jpg",
+     "leprosy-ll.webp",
      "Lepromatous leprosy with diffuse nodular infiltration."
     ]
    ],
@@ -3913,11 +3913,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "chlamydia-incl.jpg",
+     "chlamydia-incl.webp",
      "Intracytoplasmic chlamydial inclusions in cell culture."
     ],
     [
-     "trachoma.jpg",
+     "trachoma.webp",
      "Trachomatous trichiasis: scarring has turned the lashes onto the cornea."
     ]
    ],
@@ -3998,11 +3998,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "clue-cells.jpg",
+     "clue-cells.webp",
      "Clue cells: epithelial cells so coated with bacteria that their borders are obscured."
     ],
     [
-     "whipple.jpg",
+     "whipple.webp",
      "Whipple disease: PAS-positive foamy macrophages distending intestinal villi."
     ]
    ],
@@ -4152,11 +4152,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "rmsf.jpg",
+     "rmsf.webp",
      "Rocky Mountain spotted fever: petechial rash on the palm."
     ],
     [
-     "ehrlichia.jpg",
+     "ehrlichia.webp",
      "Morulae - clusters of organisms - within a leukocyte."
     ]
    ],
@@ -4254,19 +4254,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "koilocytes.jpg",
+     "koilocytes.webp",
      "Koilocytes: perinuclear halos with wrinkled hyperchromatic nuclei."
     ],
     [
-     "fifth.jpg",
+     "fifth.webp",
      "Erythema infectiosum: the 'slapped cheek' rash of parvovirus B19."
     ],
     [
-     "molluscum.jpg",
+     "molluscum.webp",
      "Molluscum contagiosum: umbilicated dome-shaped papules."
     ],
     [
-     "smallpox.jpg",
+     "smallpox.webp",
      "Smallpox - lesions all at the same stage."
     ]
    ],
@@ -4376,31 +4376,31 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "herpes-labialis.jpg",
+     "herpes-labialis.webp",
      "Herpes labialis: grouped vesicles on an erythematous base."
     ],
     [
-     "tzanck.jpg",
+     "tzanck.webp",
      "Tzanck smear: multinucleated giant cells with molded nuclei."
     ],
     [
-     "varicella.jpg",
+     "varicella.webp",
      "Varicella: lesions in several stages at once - 'dew drops on a rose petal'."
     ],
     [
-     "zoster.jpg",
+     "zoster.webp",
      "Herpes zoster in a single dermatome."
     ],
     [
-     "hutchinson.jpg",
+     "hutchinson.webp",
      "Hutchinson sign: vesicles on the nasal tip predict ocular involvement."
     ],
     [
-     "cmv-owl.jpg",
+     "cmv-owl.webp",
      "CMV: 'owl eye' intranuclear inclusion."
     ],
     [
-     "kaposi.jpg",
+     "kaposi.webp",
      "Kaposi sarcoma from HHV-8."
     ]
    ],
@@ -4531,15 +4531,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "negri.jpg",
+     "negri.webp",
      "Negri bodies: eosinophilic cytoplasmic inclusions in neurons."
     ],
     [
-     "ebola-em.jpg",
+     "ebola-em.webp",
      "Ebola virion - the filamentous filovirus."
     ],
     [
-     "blueberry.jpg",
+     "blueberry.webp",
      "'Blueberry muffin' rash of congenital infection."
     ]
    ],
@@ -4639,11 +4639,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "hfmd.jpg",
+     "hfmd.webp",
      "Hand-foot-and-mouth disease from coxsackievirus A16."
     ],
     [
-     "rotavirus-em.jpg",
+     "rotavirus-em.webp",
      "Rotavirus particles with their wheel-like outline."
     ]
    ],
@@ -4737,7 +4737,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-hiv-cycle.jpg",
+     "fig-hiv-cycle.webp",
      "The HIV replication cycle, with the step each drug class blocks."
     ]
    ],
@@ -4849,7 +4849,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-flu-shift.jpg",
+     "fig-flu-shift.webp",
      "Antigenic shift: reassortment of genome segments during co-infection."
     ]
    ],
@@ -4938,15 +4938,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "koplik.jpg",
+     "koplik.webp",
      "Koplik spots: gray-white buccal lesions preceding the measles rash."
     ],
     [
-     "measles-rash.jpg",
+     "measles-rash.webp",
      "Measles: a confluent maculopapular rash spreading downward from the hairline."
     ],
     [
-     "mumps.jpg",
+     "mumps.webp",
      "Mumps parotitis - bilateral, non-suppurative swelling."
     ]
    ],
@@ -5038,7 +5038,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "ground-glass.jpg",
+     "ground-glass.webp",
      "'Ground glass' hepatocytes in chronic hepatitis B."
     ]
    ],
@@ -5148,15 +5148,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "aspergillus.jpg",
+     "aspergillus.webp",
      "Aspergillus: septate hyphae branching at acute angles."
     ],
     [
-     "halo-sign.jpg",
+     "halo-sign.webp",
      "CT halo sign - infarcted nodule surrounded by hemorrhage."
     ],
     [
-     "mucor.jpg",
+     "mucor.webp",
      "Mucormycosis: broad non-septate hyphae with wide-angle branching."
     ]
    ],
@@ -5239,15 +5239,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "thrush.jpg",
+     "thrush.webp",
      "Oral thrush: white plaques that scrape off leaving an erythematous base."
     ],
     [
-     "candida-gram.jpg",
+     "candida-gram.webp",
      "Budding yeast with pseudohyphae."
     ],
     [
-     "germ-tube.jpg",
+     "germ-tube.webp",
      "Positive germ tube test identifying C. albicans."
     ]
    ],
@@ -5330,15 +5330,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "crypto-ink.jpg",
+     "crypto-ink.webp",
      "India ink: the capsule excludes ink, leaving a clear halo."
     ],
     [
-     "crypto-mucicarmine.jpg",
+     "crypto-mucicarmine.webp",
      "Mucicarmine stains the cryptococcal capsule red."
     ],
     [
-     "pcp-gms.jpg",
+     "pcp-gms.webp",
      "Silver stain showing the crushed ping-pong ball cysts of Pneumocystis."
     ]
    ],
@@ -5423,19 +5423,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "tinea-corporis.jpg",
+     "tinea-corporis.webp",
      "Tinea corporis: an annular scaly plaque with an active advancing border."
     ],
     [
-     "malassezia.jpg",
+     "malassezia.webp",
      "'Spaghetti and meatballs': short hyphae with clusters of yeast."
     ],
     [
-     "onychomycosis.jpg",
+     "onychomycosis.webp",
      "Onychomycosis - thickened, discolored, dystrophic nail."
     ],
     [
-     "sporotrichosis.jpg",
+     "sporotrichosis.webp",
      "Sporotrichosis: nodules ascending along lymphatics."
     ]
    ],
@@ -5517,19 +5517,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "histo-mac.jpg",
+     "histo-mac.webp",
      "Histoplasma: small yeast filling macrophages."
     ],
     [
-     "blasto.jpg",
+     "blasto.webp",
      "Blastomyces: broad-based budding with a thick refractile wall."
     ],
     [
-     "cocci-spherule.jpg",
+     "cocci-spherule.webp",
      "Coccidioides spherule packed with endospores."
     ],
     [
-     "paracocci.jpg",
+     "paracocci.webp",
      "Paracoccidioides: the 'captain's wheel' of multiple buds."
     ]
    ],
@@ -5613,19 +5613,19 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "giardia.jpg",
+     "giardia.webp",
      "Giardia trophozoite with its paired nuclei and 'owl face' appearance."
     ],
     [
-     "entamoeba.jpg",
+     "entamoeba.webp",
      "Entamoeba histolytica trophozoite containing ingested red cells."
     ],
     [
-     "crypto-af.jpg",
+     "crypto-af.webp",
      "Acid-fast Cryptosporidium oocysts in stool."
     ],
     [
-     "fig-giardia-cycle.jpg",
+     "fig-giardia-cycle.webp",
      "Giardia life cycle: cysts ingested from contaminated water excyst in the duodenum."
     ]
    ],
@@ -5718,23 +5718,23 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "pf-rings.jpg",
+     "pf-rings.webp",
      "P. falciparum: delicate ring forms, often multiple per cell."
     ],
     [
-     "pf-gametocyte.jpg",
+     "pf-gametocyte.webp",
      "The banana-shaped gametocyte of P. falciparum."
     ],
     [
-     "pvivax.jpg",
+     "pvivax.webp",
      "P. vivax: enlarged red cell with Schuffner dots."
     ],
     [
-     "babesia.jpg",
+     "babesia.webp",
      "Babesia: the Maltese cross tetrad."
     ],
     [
-     "fig-malaria-cycle.jpg",
+     "fig-malaria-cycle.webp",
      "Malaria life cycle: sporozoites to liver, merozoites to red cells."
     ]
    ],
@@ -5828,31 +5828,31 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "toxo-cyst.jpg",
+     "toxo-cyst.webp",
      "Toxoplasma tissue cyst packed with bradyzoites."
     ],
     [
-     "tcruzi.jpg",
+     "tcruzi.webp",
      "Trypanosoma cruzi trypomastigote on a blood film."
     ],
     [
-     "romana.jpg",
+     "romana.webp",
      "Romana sign: unilateral periorbital swelling in acute Chagas disease."
     ],
     [
-     "tbrucei.jpg",
+     "tbrucei.webp",
      "Trypanosoma brucei among red cells."
     ],
     [
-     "leish-amast.jpg",
+     "leish-amast.webp",
      "Leishmania amastigotes within a macrophage."
     ],
     [
-     "naegleria.jpg",
+     "naegleria.webp",
      "Naegleria fowleri trophozoite."
     ],
     [
-     "trich.jpg",
+     "trich.webp",
      "Trichomonas vaginalis - motile flagellate on wet mount."
     ]
    ],
@@ -5957,31 +5957,31 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "tsolium-scolex.jpg",
+     "tsolium-scolex.webp",
      "Taenia solium scolex with its crown of hooks."
     ],
     [
-     "ncc-ct.jpg",
+     "ncc-ct.webp",
      "Neurocysticercosis: multiple cysts, some calcified."
     ],
     [
-     "hydatid.jpg",
+     "hydatid.webp",
      "Hydatid cyst with daughter cysts."
     ],
     [
-     "dlatum.jpg",
+     "dlatum.webp",
      "Diphyllobothrium latum proglottids."
     ],
     [
-     "schisto-mansoni.jpg",
+     "schisto-mansoni.webp",
      "S. mansoni egg with its lateral spine."
     ],
     [
-     "schisto-haem.jpg",
+     "schisto-haem.webp",
      "S. haematobium egg with its terminal spine."
     ],
     [
-     "clonorchis-egg.jpg",
+     "clonorchis-egg.webp",
      "Operculated Clonorchis egg."
     ]
    ],
@@ -6072,35 +6072,35 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "ascaris.jpg",
+     "ascaris.webp",
      "Adult Ascaris lumbricoides."
     ],
     [
-     "enterobius.jpg",
+     "enterobius.webp",
      "Enterobius egg - flattened on one side."
     ],
     [
-     "strongy.jpg",
+     "strongy.webp",
      "Strongyloides rhabditiform larva in stool."
     ],
     [
-     "larva-migrans.jpg",
+     "larva-migrans.webp",
      "Cutaneous larva migrans: the serpiginous track of an animal hookworm."
     ],
     [
-     "trichinella-muscle.jpg",
+     "trichinella-muscle.webp",
      "Trichinella larvae encysted in skeletal muscle."
     ],
     [
-     "wuchereria.jpg",
+     "wuchereria.webp",
      "Sheathed microfilaria of Wuchereria bancrofti."
     ],
     [
-     "elephantiasis.jpg",
+     "elephantiasis.webp",
      "Lymphatic filariasis with elephantiasis."
     ],
     [
-     "loa.jpg",
+     "loa.webp",
      "Loa loa crossing the conjunctiva."
     ]
    ],
@@ -6283,7 +6283,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-conjugation.jpg",
+     "fig-conjugation.webp",
      "Conjugation: the donor extends a pilus, then transfers one plasmid strand."
     ]
    ],
@@ -6366,7 +6366,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-abx-targets.jpg",
+     "fig-abx-targets.webp",
      "Antibiotic classes grouped by the bacterial structure each attacks."
     ]
    ],
@@ -6558,11 +6558,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-gram-wall.jpg",
+     "fig-gram-wall.webp",
      "Gram-positive and Gram-negative envelopes compared."
     ],
     [
-     "fig-lps.jpg",
+     "fig-lps.webp",
      "Lipopolysaccharide: lipid A, core sugars, and the O antigen."
     ]
    ],
@@ -6654,11 +6654,11 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "nmen-csf.jpg",
+     "nmen-csf.webp",
      "Purulent CSF in bacterial meningitis."
     ],
     [
-     "lobar-pneumonia.jpg",
+     "lobar-pneumonia.webp",
      "Lobar consolidation in pneumococcal pneumonia."
     ]
    ],
@@ -6776,7 +6776,7 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    ],
    "images": [
     [
-     "fig-abx-targets.jpg",
+     "fig-abx-targets.webp",
      "Where each antibiotic class acts."
     ]
    ],

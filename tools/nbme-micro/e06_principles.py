@@ -11,8 +11,8 @@ E("gram-stain", "Gram Stain, Cell Walls & Special Stains", "Principles & Pharmac
          ("Acid-fast", "Mycolic acids resist acid-alcohol - mycobacteria, Nocardia"),
          ("No wall", "Mycoplasma - does not stain at all"),
          ("Too thin", "Treponema, Leptospira - dark-field or silver stain")],
-  images=[("fig-gram-wall.jpg", "Gram-positive and Gram-negative envelopes compared."),
-          ("fig-lps.jpg", "Lipopolysaccharide: lipid A, core sugars, and the O antigen.")],
+  images=[("fig-gram-wall.webp", "Gram-positive and Gram-negative envelopes compared."),
+          ("fig-lps.webp", "Lipopolysaccharide: lipid A, core sugars, and the O antigen.")],
   sections=[
     S("Why the colors happen", [
       H("Gram-positive organisms have a thick multilayer peptidoglycan wall that traps the crystal violet-iodine complex when alcohol is applied, so they stay purple. Gram-negative organisms have a thin peptidoglycan layer and a lipid-rich outer membrane that alcohol dissolves, so the complex washes out and they take up the pink safranin counterstain."),
@@ -37,7 +37,7 @@ E("genetics", "Bacterial Genetics & Gene Transfer", "Principles & Pharmacology",
          ("Transduction", "Phage-mediated; generalized or specialized"),
          ("Transposition", "Jumping genes within and between genomes"),
          ("Naturally competent", "SHiN - Strep pneumoniae, Haemophilus, Neisseria")],
-  images=[("fig-conjugation.jpg", "Conjugation: the donor extends a pilus, then transfers one plasmid strand.")],
+  images=[("fig-conjugation.webp", "Conjugation: the donor extends a pilus, then transfers one plasmid strand.")],
   sections=[
     S("The four mechanisms", [
       H("Transformation is uptake of naked DNA from the environment. Naturally competent organisms are remembered as SHiN: Streptococcus pneumoniae, Haemophilus influenzae, and Neisseria. Because the DNA is free in solution, adding DNase prevents it - the classic experimental discriminator."),
@@ -59,7 +59,7 @@ E("cell-wall-abx", "Cell Wall Inhibitors", "Principles & Pharmacology",
          ("Cephalosporin gaps", "LAME - Listeria, Atypicals, MRSA, Enterococci"),
          ("Aztreonam", "Gram-negative only; safe in penicillin allergy"),
          ("Ertapenem", "The one carbapenem without Pseudomonas coverage")],
-  images=[("fig-abx-targets.jpg", "Antibiotic classes grouped by the bacterial structure each attacks.")],
+  images=[("fig-abx-targets.webp", "Antibiotic classes grouped by the bacterial structure each attacks.")],
   sections=[
     S("Mechanism", [
       H("Peptidoglycan is built from sugar chains cross-linked through peptide stems ending in D-Ala-D-Ala. Transpeptidases (penicillin-binding proteins) form those cross-links. The beta-lactam ring is a structural mimic of D-Ala-D-Ala, so the enzyme binds the drug instead of its substrate and is irreversibly acylated."),
@@ -86,7 +86,7 @@ E("protein-synth-abx", "Protein Synthesis Inhibitors", "Principles & Pharmacolog
          ("Mnemonic", "'Buy AT 30, CCEL at 50'"),
          ("Aminoglycosides", "Need oxygen for uptake - useless against anaerobes"),
          ("Linezolid", "Serotonin syndrome risk; reversible myelosuppression")],
-  images=[("fig-abx-targets.jpg", "Where each antibiotic class acts.")],
+  images=[("fig-abx-targets.webp", "Where each antibiotic class acts.")],
   sections=[
     S("30S agents", [
       H("Aminoglycosides (gentamicin, tobramycin, amikacin) bind the 30S subunit, cause misreading of mRNA, and block initiation. They are bactericidal and concentration-dependent, which is why once-daily dosing is both effective and less toxic - it maximizes peak concentration and exploits the post-antibiotic effect while giving tubular cells a drug-free interval."),
@@ -158,8 +158,8 @@ E("syndromes", "Infections by System & Host", "Principles & Pharmacology",
          ("Meningitis >50", "S. pneumoniae, Listeria, Gram-negatives"),
          ("Bacterial CSF", "High neutrophils, LOW glucose, high protein"),
          ("Viral CSF", "Lymphocytes, NORMAL glucose, mildly high protein")],
-  images=[("nmen-csf.jpg", "Purulent CSF in bacterial meningitis."),
-          ("lobar-pneumonia.jpg", "Lobar consolidation in pneumococcal pneumonia.")],
+  images=[("nmen-csf.webp", "Purulent CSF in bacterial meningitis."),
+          ("lobar-pneumonia.webp", "Lobar consolidation in pneumococcal pneumonia.")],
   sections=[
     S("Meningitis and CSF", [
       H("Empiric therapy tracks the age-based organisms: neonates get ampicillin plus cefotaxime or gentamicin (covering GBS, E. coli, Listeria); children and adults get vancomycin plus ceftriaxone; over 50 or immunocompromised adds ampicillin for Listeria. Dexamethasone before or with the first dose reduces hearing loss and mortality in pneumococcal meningitis."),

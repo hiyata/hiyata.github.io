@@ -23,7 +23,7 @@ Two generated files, neither of which should be edited by hand:
   filename. The build refuses to attach a figure that has no entry here.
 
 ## Explanation figures
-`fig=F("fig-name.jpg", "caption")` attaches a teaching diagram to an explanation, and
+`fig=F("fig-name.webp", "caption")` attaches a teaching diagram to an explanation, and
 `steps=[...]` adds a numbered walkthrough above it. Figures live in
 `assets/images/nbme/micro/` with a `fig-` prefix. Every figure must be openly licensed
 (public domain, CC0, CC BY, or CC BY-SA); the page prints its title, author, and licence
@@ -47,9 +47,10 @@ against the current item's stem, options and explanation. Ctrl/Cmd+K opens it an
 ## Images
 `fetch_images.py` downloads figures from Wikimedia Commons and records attribution:
 
-    python3 tools/nbme-micro/fetch_images.py wanted.tsv   # localname.jpg <TAB> File:Commons Title.jpg
+    python3 tools/nbme-micro/fetch_images.py wanted.tsv   # localname.webp <TAB> File:Commons Title.jpg
     python3 tools/nbme-micro/fetch_images.py --check      # credits.json vs files on disk
 
+Downloads are re-encoded as WebP (a `.jpg` local name is rewritten to `.webp`).
 It refuses any licence that is not public domain, CC0, CC BY, or CC BY-SA, and writes
 the title, author, licence, and source page into `credits.json`. Both builds refuse to
 attach an image with no credit, so attribution always reaches the page.
