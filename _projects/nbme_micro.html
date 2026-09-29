@@ -533,6 +533,15 @@ date: 2026-09-28
     padding:0.12rem 0.45rem; border-radius:2px; margin-bottom:0.5rem;
   }
   .nbme-enc-summary{ font-size:0.95rem; line-height:1.6; color: var(--nbme-ink); margin:0.35rem 0 0.9rem; }
+  .nbme-enc-quiz-row{ margin-bottom:1rem; }
+  .nbme-enc-quiz-btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background: var(--nbme-primary); color:#fff; border:none; border-radius:3px;
+    padding:0.5rem 0.9rem; font: 700 0.85rem/1 var(--nbme-sans); cursor:pointer;
+  }
+  .nbme-enc-quiz-btn:hover{ background: var(--nbme-primary-hover, #2358c4); }
+  .nbme-enc-quiz-btn[disabled]{ background: var(--nbme-border); color: var(--nbme-muted); cursor:default; }
+  .nbme-enc-quiz-btn .n{ background: rgba(255,255,255,0.25); border-radius:10px; padding:0.05rem 0.5rem; font-weight:700; }
   .nbme-enc-tx{
     background: var(--nbme-green-bg); border-left:3px solid var(--nbme-green);
     padding:0.55rem 0.8rem; font-size:0.86rem; line-height:1.55; border-radius:0 3px 3px 0;
@@ -1594,6 +1603,64 @@ date: 2026-09-28
     return scored.sort(function(a,b){ return b.s - a.s; }).slice(0, 4).map(function(x){ return x.e; });
   }
 
+  // The mirror of encRelatedTo: given an encyclopedia entry, find the practice
+  // questions it covers, for the "Quiz me on this" button. Question topics in
+  // this bank are consistently written "Organism: aspect" (e.g. "S. aureus:
+  // coagulase & clumping factor"), so a topic starting with one of the entry's
+  // names is the strongest possible signal - far more precise than searching
+  // the full question text, which often avoids naming the organism outright.
+  // Short abbreviations ("TB", "HIV", "MAC") need a whole-word match, not a bare
+  // substring check - "tb" as a substring also turns up inside "outbreak".
+  function encTopicHas(topic, term){
+    if(term.length >= 5) return topic.indexOf(term) !== -1;
+    var esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp('(^|[^a-z0-9])' + esc + '([^a-z0-9]|$)', 'i').test(topic);
+  }
+
+  function encQuestionsFor(e){
+    if(!e) return [];
+    var names = [e.name].concat(e.aka || [])
+      .map(function(t){ return String(t).toLowerCase(); })
+      .filter(function(t){ return t.length >= 2; });
+    // Many question topics abbreviate to the bare genus ("Legionella: clinical",
+    // "Listeria: epidemiology") rather than the full binomial the entry is titled
+    // with, so a "Genus species"-named entry also matches on the genus alone.
+    var binomial = /^[A-Z][a-z]+ [a-z]+/.exec(e.name);
+    if(binomial) names.push(e.name.split(' ')[0].toLowerCase());
+    names = names.filter(function(t, i){ return names.indexOf(t) === i; });
+    var keywords = (e.keywords || []).map(function(t){ return String(t).toLowerCase(); })
+      .filter(function(t){ return t.length >= 3; });
+    // Matching stays scoped to the topic string alone, never the full stem/options/
+    // explanation - a first attempt that also searched the full text matched 1 in 5
+    // of the ENTIRE bank for "S. aureus", because the organism gets a passing mention
+    // in dozens of unrelated differential-diagnosis explanations. The topic ("S.
+    // aureus: coagulase & clumping factor") is short and names what the question is
+    // actually about, which is what "quiz me on THIS organism" needs.
+    var scored = [];
+    ALL_QUESTIONS.forEach(function(q){
+      var topic = (q.topic || '').toLowerCase();
+      var score = 0;
+      names.forEach(function(n){
+        if(topic.indexOf(n) === 0) score += 10;              // "s. aureus: ..." - the strongest signal
+        else if(encTopicHas(topic, n)) score += 4;            // named later in the topic
+      });
+      keywords.forEach(function(k){ if(encTopicHas(topic, k)) score += 2; });
+      if(score > 0) scored.push({ q:q, s:score });
+    });
+    return scored.sort(function(a,b){ return b.s - a.s; }).map(function(x){ return x.q; });
+  }
+
+  function encQuizOnEntry(e){
+    var qs = encQuestionsFor(e);
+    if(!qs.length) return;
+    if(state.screen === 'quiz' && state.block && state.block.length &&
+       !confirm('Start a new block on ' + e.name + ' (' + qs.length + ' question' + (qs.length===1?'':'s') + ')? Your current block progress will be lost.')){
+      return;
+    }
+    encClose();
+    startBlock(qs.map(function(q){ return q.id; }));
+  }
+
   function encEnsure(){
     if(encEl) return encEl;
     encEl = document.createElement('div');
@@ -1798,13 +1865,24 @@ date: 2026-09-28
              '<h3>' + esc(sec.h) + '</h3>' + paras + '</div>';
     }).join('');
 
+    var quizCount = encQuestionsFor(e).length;
+    var quizHtml = '<div class="nbme-enc-quiz-row">' +
+      '<button type="button" class="nbme-enc-quiz-btn" id="nbme-enc-quiz-btn" ' + (quizCount ? '' : 'disabled title="No practice questions matched yet"') + '>' +
+        '&#9654; Quiz me on this' + (quizCount ? ' <span class="n">' + quizCount + '</span>' : '') +
+      '</button>' +
+    '</div>';
+
     host.innerHTML =
       relatedHtml +
       '<div class="nbme-enc-group-tag">' + esc(e.group) + '</div>' +
       '<h2 class="nbme-enc-title">' + esc(e.name) + '</h2>' +
       '<p class="nbme-enc-summary">' + esc(e.summary) + '</p>' +
+      quizHtml +
       (e.treatment ? '<div class="nbme-enc-tx"><b>Treatment.</b> ' + esc(e.treatment) + '</div>' : '') +
       quickHtml + figsHtml + sectionsHtml + encCreditsHtml(e);
+
+    var quizBtn = host.querySelector('#nbme-enc-quiz-btn');
+    if(quizBtn) quizBtn.addEventListener('click', function(){ encQuizOnEntry(e); });
 
     encApplyHy();
   }
