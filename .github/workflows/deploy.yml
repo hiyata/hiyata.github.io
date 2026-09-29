@@ -1,0 +1,58 @@
+name: Deploy site
+
+# Builds with the Jekyll version pinned in Gemfile.lock, so the live site
+# matches `bundle exec jekyll build` locally. (The legacy Pages builder uses
+# the github-pages gem's Jekyll 3.x and ignores the Gemfile.)
+
+on:
+  push:
+    branches: [main]
+  # Feed commits are pushed by the bot token with [skip ci], which never
+  # triggers a push workflow, so deploy once that workflow finishes instead.
+  workflow_run:
+    workflows: ["Update reading feeds"]
+    types: [completed]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

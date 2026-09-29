@@ -1,6 +1,8 @@
 ---
 layout: default
 title: What I'm Reading
+permalink: /reading/
+redirect_from: /what_im_reading.html
 ---
 
 <header class="page-header">
