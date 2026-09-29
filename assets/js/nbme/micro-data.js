@@ -1640,7 +1640,7 @@ window.NBME_MICRO_DATA = {
       "topic": "S. aureus: osteomyelitis",
       "stem": "A previously healthy 9-year-old boy has fever and a painful distal femur for 5 days. MRI shows metaphyseal osteomyelitis. Which organism is the most likely cause, and which property helps it bind bone matrix?",
       "options": {
-        "A": "S. aureus, using MSCRAMM adhesins for bone matrix",
+        "A": "S. aureus, using MSCRAMM adhesins for collagen and fibronectin",
         "B": "Kingella kingae, using urease to invade bone",
         "C": "Pseudomonas aeruginosa, using pyocyanin pigment",
         "D": "Streptococcus pyogenes, using its hyaluronic acid capsule",
@@ -2738,7 +2738,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Aminoglycosides inhibit the beta-lactamases enterococci produce",
         "B": "Enterococci are intrinsically resistant to ampicillin alone",
-        "C": "The cell wall agent lets the aminoglycoside enter the cell",
+        "C": "The cell wall agent lets aminoglycosides enter the cell",
         "D": "Only aminoglycosides penetrate the vegetation itself",
         "E": "The combination prevents biofilm from forming on the valve"
       },
@@ -3385,7 +3385,7 @@ window.NBME_MICRO_DATA = {
         "B": "It glucosylates Rho GTPases",
         "C": "It ADP-ribosylates Gs",
         "D": "It is a zinc metalloprotease that cleaves MAP kinase kinase (lethal factor)",
-        "E": "It is a calmodulin-dependent adenylyl cyclase (edema factor)"
+        "E": "It is a calmodulin-dependent adenylyl cyclase producing uncontrolled cAMP"
       },
       "answer": "E",
       "explanation": "Edema factor is itself an adenylyl cyclase, activated by host calmodulin. It raises cAMP and causes edema, and impairs neutrophils. Lethal factor is a zinc protease that cleaves MAPKK, causing macrophage death and cytokine release. Protective antigen delivers both. B. pertussis also secretes an adenylate cyclase toxin, separate from pertussis toxin, which ADP-ribosylates Gi. Cholera and heat-labile toxins raise cAMP by ADP-ribosylating Gs.",
@@ -3717,7 +3717,7 @@ window.NBME_MICRO_DATA = {
       "topic": "C. botulinum vs other paralyses",
       "stem": "A 40-year-old man develops blurred vision, diplopia, dysphagia, and then descending bilateral arm weakness 24 hours after eating home-canned green beans. Mental status is normal. Pupils are dilated and poorly reactive. Which feature best distinguishes this from Guillain-Barré syndrome?",
       "options": {
-        "A": "Descending paralysis with no sensory loss",
+        "A": "Paralysis progressing downward, sensation preserved",
         "B": "A preceding episode of Campylobacter diarrhea",
         "C": "Ascending paralysis that starts in the legs",
         "D": "Loss of vibration sense in both feet",
@@ -5600,7 +5600,7 @@ window.NBME_MICRO_DATA = {
         "B": "Heat-stable enterotoxin raising cGMP",
         "C": "Intimin with its translocated receptor (Tir)",
         "D": "Phage-encoded Shiga-like toxin",
-        "E": "P fimbriae binding Gal-Gal on kidney epithelium"
+        "E": "P fimbriae binding Gal-Gal on urinary epithelium"
       },
       "answer": "E",
       "explanation": "A green metallic sheen on EMB agar is characteristic of E. coli, which ferments lactose vigorously. Uropathogenic E. coli (UPEC) is the leading cause of UTI and pyelonephritis. Type 1 fimbriae bind mannose on bladder epithelium (cystitis). P fimbriae (pap genes) bind Gal-Gal residues on kidney epithelium and are linked to pyelonephritis. K1 capsule causes neonatal meningitis. Intimin/Tir is EPEC and EHEC.",
@@ -6817,7 +6817,7 @@ window.NBME_MICRO_DATA = {
         "A": "Catalase, which neutralizes hydrogen peroxide in the mucus",
         "B": "Coagulase, which forms a fibrin shield",
         "C": "Lipase, which digests the mucous layer",
-        "D": "Urease, which produces ammonia to buffer gastric acid",
+        "D": "Urease, which raises local pH by releasing ammonia",
         "E": "Mucinase alone"
       },
       "answer": "D",
@@ -6905,7 +6905,7 @@ window.NBME_MICRO_DATA = {
         "A": "Combination R-CHOP chemotherapy",
         "B": "Total gastrectomy",
         "C": "Observation only",
-        "D": "H. pylori eradication",
+        "D": "Eradication of the causative organism",
         "E": "Radiation therapy"
       },
       "answer": "D",
@@ -7559,7 +7559,7 @@ window.NBME_MICRO_DATA = {
         "A": "Culture on Thayer-Martin agar",
         "B": "A Tzanck smear of the base",
         "C": "Nontreponemal serology alone, which is reliably positive here",
-        "D": "Dark-field microscopy of the lesion exudate",
+        "D": "Dark-field microscopy of exudate from the ulcer",
         "E": "Gram stain of exudate from the ulcer"
       },
       "answer": "D",
@@ -10557,7 +10557,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A patient with MRSA right-sided endocarditis and septic pulmonary emboli is switched to daptomycin. Later he develops MRSA pneumonia that is not from emboli. Why is daptomycin not used for pneumonia, and which lab value should be monitored?",
       "options": {
         "A": "It concentrates in bile; monitor bilirubin",
-        "B": "It is inactivated by pulmonary surfactant; monitor CPK for myopathy",
+        "B": "It is inactivated by surfactant in the lungs; monitor CPK for myopathy",
         "C": "It is a prodrug activated only within the heart; monitor troponin",
         "D": "It causes bronchospasm; monitor peak flow",
         "E": "It cannot penetrate lung tissue due to size; monitor ALT"
@@ -11688,14 +11688,14 @@ window.NBME_MICRO_DATA = {
         "B": "Fluconazole to prevent Cryptococcus",
         "C": "Azithromycin to prevent MAC",
         "D": "TMP-SMX for Pneumocystis and Toxoplasma",
-        "E": "Valganciclovir to prevent CMV"
+        "E": "Pyrimethamine alone to prevent Toxoplasma reactivation"
       },
       "answer": "D",
       "explanation": "HIV prophylaxis thresholds: CD4 <200 → TMP-SMX for Pneumocystis (dapsone or atovaquone if allergic). CD4 <100 with positive Toxoplasma IgG → TMP-SMX (already covers both). CD4 <50 → azithromycin for MAC only if ART is not started right away. Primary prophylaxis for CMV or Cryptococcus is not routine. The most important step is starting ART.",
       "wrong": {
         "C": "MAC prophylaxis is considered below 50 and is often unnecessary once ART starts.",
         "B": "Primary antifungal prophylaxis is not routine.",
-        "E": "Primary CMV prophylaxis is not recommended.",
+        "E": "Pyrimethamine is never used without sulfadiazine and leucovorin.",
         "A": "Isoniazid is given only for latent infection confirmed by testing."
       },
       "tables": [
@@ -14291,7 +14291,7 @@ window.NBME_MICRO_DATA = {
         "A": "Subacute sclerosing panencephalitis from measles",
         "B": "Toxoplasma encephalitis",
         "C": "Primary CNS lymphoma from EBV",
-        "D": "Progressive multifocal leukoencephalopathy",
+        "D": "JC virus reactivation causing demyelination",
         "E": "HSV encephalitis"
       },
       "answer": "D",
@@ -16981,7 +16981,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Past, resolved infection with immunity",
         "B": "False-positive result; no HBV infection",
-        "C": "Window period of acute hepatitis B",
+        "C": "Window period of hepatitis B",
         "D": "Immunity from vaccination",
         "E": "Chronic hepatitis B"
       },
@@ -17227,7 +17227,7 @@ window.NBME_MICRO_DATA = {
       "topic": "HBV: histology",
       "stem": "A liver biopsy from a patient with long-standing viral hepatitis is shown. Many hepatocytes have finely granular, pale eosinophilic cytoplasm. Immunostaining for a viral surface antigen is positive. What is this finding, and what causes it?",
       "options": {
-        "A": "Ground-glass hepatocytes packed with HBsAg",
+        "A": "Ground-glass hepatocellular inclusions packed with HBsAg",
         "B": "Owl's eye inclusions from CMV",
         "C": "Councilman bodies from hepatocyte apoptosis in yellow fever",
         "D": "Steatosis from hepatitis C genotype 3",
@@ -17499,7 +17499,7 @@ window.NBME_MICRO_DATA = {
         "A": "It is spread mainly by the fecal-oral route in water",
         "B": "Superinfection is milder than a simultaneous co-infection would be",
         "C": "The hepatitis B vaccine gives no protection against it",
-        "D": "A defective RNA virus needing HBsAg, severe in superinfection",
+        "D": "A defective RNA virus needing HBsAg, worse when it strikes a carrier",
         "E": "It is a DNA virus that replicates independently"
       },
       "answer": "D",
@@ -19116,7 +19116,7 @@ window.NBME_MICRO_DATA = {
         "A": "It is reliably killed by standard water chlorination systems",
         "B": "It is a helminth whose eggs are passed in stool",
         "C": "Metronidazole reliably cures it in AIDS patients",
-        "D": "Chlorine-resistant oocysts, with ART the key treatment in AIDS",
+        "D": "Chlorine resistance in water, with ART the key treatment in AIDS",
         "E": "It invades the liver and forms abscesses there"
       },
       "answer": "D",
@@ -19273,7 +19273,7 @@ window.NBME_MICRO_DATA = {
         "B": "Avoid all mosquito exposure",
         "C": "Receive the MMR vaccine during pregnancy",
         "D": "Avoid only unpasteurized soft cheeses",
-        "E": "Avoid cat litter and undercooked meat"
+        "E": "Avoid cat litter and thoroughly cook all meat"
       },
       "answer": "E",
       "explanation": "Cats are the definitive host. Oocysts are shed in cat feces, and tissue cysts are found in undercooked meat (pork, lamb, venison). Primary infection during pregnancy can cross the placenta, causing the triad of chorioretinitis, hydrocephalus, and diffuse intracranial calcifications, plus 'blueberry muffin' rash. Congenital CMV has periventricular calcifications and microcephaly. Spiramycin is used in pregnancy to lower transmission, and pyrimethamine-sulfadiazine to treat a confirmed fetal infection.",
@@ -19605,7 +19605,7 @@ window.NBME_MICRO_DATA = {
       "topic": "Malaria: life cycle",
       "stem": "In the Plasmodium life cycle, which stage is injected into humans by the female Anopheles mosquito, and where does it go first?",
       "options": {
-        "A": "Sporozoites, which go first to the liver",
+        "A": "Sporozoites, which travel to the liver",
         "B": "Trophozoites, which infect tissue macrophages",
         "C": "Merozoites, which infect red cells directly",
         "D": "Gametocytes, which mature within the spleen",
@@ -19694,7 +19694,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Blood group AB phenotype",
         "B": "Hereditary hemochromatosis",
-        "C": "Sickle cell trait",
+        "C": "One copy of the sickle hemoglobin gene",
         "D": "Duffy antigen positive red cells",
         "E": "Selective IgA deficiency"
       },
@@ -21607,7 +21607,7 @@ window.NBME_MICRO_DATA = {
         "B": "The fluid contains a neurotoxin",
         "C": "The cyst is malignant",
         "D": "Aspiration causes massive bleeding from vascular malformations",
-        "E": "Spillage of cyst fluid can cause anaphylaxis and seed new cysts"
+        "E": "Spillage of the fluid can cause anaphylaxis and disseminate the parasite"
       },
       "answer": "E",
       "explanation": "Echinococcus granulosus: dogs are definitive hosts and sheep are intermediate hosts. Humans ingest eggs from dog feces, and larvae form hydatid cysts (liver more often than lung) containing protoscolices ('hydatid sand'). Rupture releases antigenic fluid, which can cause anaphylaxis, and seeds daughter cysts. Treat with albendazole plus surgery or PAIR (puncture, aspiration, injection of hypertonic saline or ethanol, re-aspiration). E. multilocularis (foxes) causes an invasive, tumor-like alveolar liver lesion.",
@@ -23756,7 +23756,7 @@ window.NBME_MICRO_DATA = {
       "topic": "Actinomyces: pelvic infection",
       "stem": "A 38-year-old woman with an intrauterine device in place for 8 years has pelvic pain, weight loss, and an adnexal mass. Pathology shows abscesses with yellow granules containing branching Gram-positive filaments. What is the organism, and what is its normal habitat?",
       "options": {
-        "A": "Actinomyces israelii; normal mucosal flora",
+        "A": "Actinomyces israelii; commensal mucosal and gut flora",
         "B": "Clostridium perfringens; found in soil and colon",
         "C": "Nocardia asteroides; found in soil",
         "D": "Aspergillus fumigatus; found in decaying vegetation",
@@ -23902,7 +23902,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "The typhoid Vi polysaccharide vaccine for travelers",
         "B": "The BCG vaccine before departure",
-        "C": "The quadrivalent conjugate meningococcal vaccine",
+        "C": "A conjugate vaccine covering four serogroups",
         "D": "The Japanese encephalitis vaccine",
         "E": "A serogroup B protein vaccine alone"
       },
@@ -24468,7 +24468,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Mesenteric nodes; a conjugate pertussis-typhoid vaccine exists",
         "B": "The liver; a toxoid vaccine",
-        "C": "The gallbladder; oral Ty21a and injectable Vi vaccines",
+        "C": "The gallbladder; prevention uses both an oral and an injectable vaccine",
         "D": "The spleen; BCG",
         "E": "The terminal ileum; there is no vaccine"
       },
@@ -25316,7 +25316,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Ornithodoros soft tick",
         "B": "Amblyomma americanum, commonly called the lone star tick",
-        "C": "Ixodes scapularis, which also carries Lyme and Babesia",
+        "C": "Ixodes scapularis, the same vector as Lyme disease and Babesia",
         "D": "Rhipicephalus sanguineus",
         "E": "Dermacentor variabilis"
       },
@@ -26102,7 +26102,7 @@ window.NBME_MICRO_DATA = {
       "topic": "Catalase test interpretation",
       "stem": "Hydrogen peroxide is added to colonies from a blood agar plate, and vigorous bubbling occurs. What does this indicate?",
       "options": {
-        "A": "The organism makes catalase, which splits hydrogen peroxide",
+        "A": "The organism makes catalase, breaking down the reagent",
         "B": "The organism makes hyaluronidase, which spreads infection",
         "C": "The organism makes urease, which splits urea to ammonia",
         "D": "The organism makes coagulase, which converts fibrinogen",
@@ -26709,7 +26709,7 @@ window.NBME_MICRO_DATA = {
         "A": "The organism lost the penicillin-binding protein that vancomycin blocks",
         "B": "The organism acquired the vanA gene cluster from an enterococcus",
         "C": "An efflux pump now actively exports vancomycin from the cytoplasm",
-        "D": "A thickened cell wall traps vancomycin before it reaches its target",
+        "D": "A dense, overbuilt cell wall traps vancomycin before it reaches its target",
         "E": "The organism began producing a vancomycin-hydrolyzing enzyme"
       },
       "answer": "D",
@@ -27974,7 +27974,7 @@ window.NBME_MICRO_DATA = {
         "B": "A 21-day course of oral doxycycline started today",
         "C": "Lyme serology today, with treatment only if positive",
         "D": "Intravenous ceftriaxone given as a single dose now",
-        "E": "A single 200 mg dose of doxycycline within 72 hours"
+        "E": "A single 200 mg dose of doxycycline within three days"
       },
       "answer": "E",
       "explanation": "A single 200 mg dose of doxycycline can be offered when an identified Ixodes tick has been attached at least 36 hours, removal was within 72 hours, and local infection rates are high. Serology is useless this early because antibodies take weeks. A full treatment course is reserved for actual disease such as erythema migrans.",
@@ -28115,7 +28115,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A 5-year-old in Oklahoma has fever, headache, and a petechial rash spreading from the wrists after a tick bite. The parents ask whether doxycycline will stain the child's teeth. What is the best response?",
       "options": {
         "A": "Doxycycline is contraindicated below the age of eight years",
-        "B": "Short courses do not appreciably stain teeth and are recommended",
+        "B": "Short courses cause minimal dental effects and are recommended",
         "C": "Treatment should be delayed until serology confirms the diagnosis",
         "D": "Chloramphenicol is preferred in children despite its toxicity",
         "E": "Amoxicillin is an equally effective alternative in this illness"
@@ -28202,7 +28202,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Desensitize to penicillin, then treat with penicillin",
         "B": "Treat with doxycycline for fourteen days instead",
-        "C": "Treat with intramuscular ceftriaxone for ten days",
+        "C": "Avoid penicillin entirely and treat with intramuscular ceftriaxone",
         "D": "Defer treatment until after she has delivered",
         "E": "Treat with azithromycin as a single oral dose"
       },
@@ -28212,7 +28212,7 @@ window.NBME_MICRO_DATA = {
         "B": "Tetracyclines are contraindicated in pregnancy.",
         "E": "Macrolide-resistant T. pallidum is common and it does not reliably treat the fetus.",
         "D": "Delay allows transplacental infection and fetal loss.",
-        "C": "Ceftriaxone data are limited and it is not the standard in pregnancy."
+        "C": "Ceftriaxone data in pregnancy are limited; desensitization to the only proven regimen is preferred instead."
       },
       "tables": [
         {
@@ -29615,7 +29615,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A mother with an active cold sore asks how to avoid infecting her newborn. Which advice is most appropriate?",
       "options": {
         "A": "Take oral acyclovir, which fully prevents any transmission",
-        "B": "Avoid kissing the baby and wash hands before handling her",
+        "B": "Do not kiss the baby, and wash hands before handling her",
         "C": "Stop breastfeeding until the cold sore has fully healed",
         "D": "Keep the infant isolated in a negative-pressure room",
         "E": "No precautions are needed since oral herpes is harmless"
@@ -30060,7 +30060,7 @@ window.NBME_MICRO_DATA = {
         "B": "A healthy 10-year-old with two documented MMR doses",
         "C": "A healthy 2-year-old with one prior MMR dose already given",
         "D": "A 25-year-old health care worker with two MMR doses",
-        "E": "A 4-month-old infant exposed in the same waiting room"
+        "E": "A 4-month-old infant too young for vaccination"
       },
       "answer": "E",
       "explanation": "Susceptible contacts can receive MMR within 72 hours, but immune globulin (within 6 days) is used for those who cannot receive live vaccine or are at high risk: infants under 12 months, pregnant women without evidence of immunity, and severely immunocompromised patients. Already-immune contacts need nothing.",
@@ -30546,7 +30546,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A healthy 30-year-old man has a routine visit and reports no specific risk factors. What is the recommended approach to HIV testing?",
       "options": {
         "A": "Screen only patients who inject drugs or have received transfusions",
-        "B": "Screen at least once, since routine testing is advised for all adults",
+        "B": "Screen at least once, since universal HIV screening is advised for all adults",
         "C": "Screen only patients who report high-risk sexual behavior",
         "D": "Defer screening because his risk factors are clearly absent",
         "E": "Screen only if the patient has symptoms suggesting infection"
@@ -30571,7 +30571,7 @@ window.NBME_MICRO_DATA = {
         "A": "Vaccination is contraindicated in patients with diabetes",
         "B": "Vaccination is needed only after a documented exposure has occurred",
         "C": "Vaccination is recommended only for health care workers",
-        "D": "Hepatitis B vaccination is now recommended for all adults under sixty",
+        "D": "Vaccination is now recommended for all adults under sixty",
         "E": "Vaccination provides protection for only about one year"
       },
       "answer": "D",
@@ -30844,7 +30844,7 @@ window.NBME_MICRO_DATA = {
       "topic": "Cryptococcal antigen screening",
       "stem": "A patient presents with a CD4 count of 60 cells/microliter and no neurologic symptoms. Serum cryptococcal antigen is positive. What is the next step?",
       "options": {
-        "A": "Lumbar puncture to look for cryptococcal meningitis",
+        "A": "Lumbar puncture to check for occult meningitis",
         "B": "Start fluconazole and begin antiretroviral therapy the same day",
         "C": "Begin empiric treatment for Pneumocystis pneumonia",
         "D": "Repeat the antigen test in three months to confirm",
@@ -31044,7 +31044,7 @@ window.NBME_MICRO_DATA = {
       "stem": "A patient with candidemia is started on micafungin. Blood cultures remain positive after three days. A central venous catheter remains in place. What is the most important next step?",
       "options": {
         "A": "Change to oral nystatin suspension therapy",
-        "B": "Remove the central venous catheter",
+        "B": "Remove the indwelling vascular device",
         "C": "Continue current therapy without any changes",
         "D": "Increase the micafungin dose substantially",
         "E": "Add fluconazole to the echinocandin therapy"
@@ -31749,7 +31749,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Biliary obstruction with cholangitis on imaging studies",
         "B": "Aspirated material containing abundant neutrophils and bacteria",
-        "C": "Positive Entamoeba serology with a single lesion in a young man",
+        "C": "Positive Entamoeba serology in a young man from an endemic area",
         "D": "Multiple abscesses with growth of enteric organisms on culture",
         "E": "Recent colonic surgery with an anastomotic leak identified"
       },
@@ -31965,7 +31965,7 @@ window.NBME_MICRO_DATA = {
       "options": {
         "A": "Cultures, broad antibiotics, fluids, and lactate measurement",
         "B": "Antibiotics withheld until culture results are available",
-        "C": "Vasopressors first, with fluids withheld to avoid overload",
+        "C": "Vasopressors guided by the lactate value, with fluids withheld",
         "D": "Imaging first, with antibiotics withheld until a source is found",
         "E": "Corticosteroids given first, before antibiotics or fluids"
       },
@@ -31973,7 +31973,7 @@ window.NBME_MICRO_DATA = {
       "explanation": "Sepsis bundles call for measuring lactate, obtaining blood cultures before antibiotics, giving broad-spectrum antibiotics, and starting 30 mL/kg crystalloid for hypotension or lactate of 4 or more, with vasopressors if hypotension persists. Every hour of delay in effective antibiotics increases mortality in septic shock. Source identification and control follow promptly.",
       "wrong": {
         "D": "Delaying antibiotics for imaging increases mortality.",
-        "C": "Fluid resuscitation precedes or accompanies vasopressors.",
+        "C": "Fluid resuscitation precedes or accompanies vasopressors, regardless of the lactate trend.",
         "B": "Cultures take days; empiric therapy cannot wait.",
         "E": "Steroids are considered only for refractory shock."
       }
