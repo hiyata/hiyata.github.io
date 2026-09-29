@@ -1825,6 +1825,28 @@ date: 2026-09-28
     }
   }
 
+  var encReturnFocusTo = null;
+
+  // Keeps Tab/Shift+Tab cycling inside the modal. Without this, a keyboard user
+  // tabs out of the overlay onto controls in the exam it is covering — invisible
+  // but still reachable, so Enter/Space there could submit an answer unseen.
+  function encFocusables(){
+    var sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    return Array.prototype.slice.call(encEl.querySelectorAll(sel))
+      .filter(function(el){ return el.offsetParent !== null; }); // skip hidden (display:none) elements
+  }
+  function encTrapTab(ev){
+    if(ev.key !== 'Tab' || !encState.open) return;
+    var items = encFocusables();
+    if(!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if(ev.shiftKey && document.activeElement === first){
+      ev.preventDefault(); last.focus();
+    } else if(!ev.shiftKey && document.activeElement === last){
+      ev.preventDefault(); first.focus();
+    }
+  }
+
   function encOpen(opts){
     if(!ENC){ return; }
     encEnsure();
@@ -1841,6 +1863,7 @@ date: 2026-09-28
     encEl.querySelector('#nbme-enc-mode').value = encState.hy === 'only' ? 'only' : 'highlight';
     encEl.querySelector('#nbme-enc-search').value = encState.query;
 
+    encReturnFocusTo = document.activeElement;
     encState.open = true;
     encEl.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1858,10 +1881,17 @@ date: 2026-09-28
     document.body.style.overflow = '';
     var lb = document.getElementById('nbme-enc-lightbox');
     if(lb) lb.classList.remove('open');
+    // Return focus to whatever opened the encyclopedia (the book icon, or the
+    // "Open Encyclopedia" button), rather than leaving it on the now-hidden close button.
+    if(encReturnFocusTo && document.contains(encReturnFocusTo) && encReturnFocusTo.focus){
+      encReturnFocusTo.focus();
+    }
+    encReturnFocusTo = null;
   }
 
   document.addEventListener('keydown', function(ev){
     if(ev.key === 'Escape' && encState.open){ encClose(); return; }
+    if(encState.open){ encTrapTab(ev); }
     // Ctrl/Cmd+K opens the encyclopedia from anywhere, as in most reference tools
     if((ev.ctrlKey || ev.metaKey) && (ev.key === 'k' || ev.key === 'K')){
       ev.preventDefault();
