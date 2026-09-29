@@ -91,6 +91,7 @@ E("s-pyogenes", "Streptococcus pyogenes (Group A)", "Gram-Positive Cocci",
   images=[("beta-hemolysis.jpg", "Beta-hemolysis: complete clearing of blood agar around the colonies."),
           ("erysipelas.jpg", "Erysipelas: a raised, sharply demarcated plaque involving superficial dermis and lymphatics."),
           ("strep-tongue.jpg", "Strawberry tongue in scarlet fever."),
+          ("scarlet-rash.jpg", "Scarlet fever: a diffuse sandpaper-textured rash accentuated in skin folds."),
           ("necrotizing-fasciitis.jpg", "Necrotizing fasciitis - note how modest the skin looks relative to the patient's pain.")],
   sections=[
     S("Identification and structure", [

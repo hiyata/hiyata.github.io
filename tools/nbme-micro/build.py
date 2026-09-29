@@ -190,8 +190,16 @@ def main():
     print("difficulty:", dict(collections.Counter(q["difficulty"] for q in out)))
     print("with why:", sum(1 for q in out if q.get("wrong")), " full why:", sum(1 for q in out if len(q.get("wrong", {})) == 4), " with tables:", sum(1 for q in out if q.get("tables")))
     print("answer spread:", dict(sorted(collections.Counter(q['answer'] for q in out).items())))
-    unused = set(os.listdir(IMG_DIR)) - set(used) if os.path.isdir(IMG_DIR) else set()
-    if unused: print("unused images:", sorted(unused))
+    enc_used = set()
+    for f in os.listdir(HERE):
+        if f.startswith("e") and f[1:3].isdigit() and f.endswith(".py"):
+            try:
+                mod = importlib.import_module(f[:-3])
+                enc_used.update(im[0] for e in mod.ENTRIES for im in e.get("images") or [])
+            except Exception as e:
+                print(f"  (could not scan {f} for encyclopedia image usage: {e})")
+    unused = set(os.listdir(IMG_DIR)) - set(used) - enc_used if os.path.isdir(IMG_DIR) else set()
+    if unused: print("unused images (not in the question bank or encyclopedia):", sorted(unused))
 
 if __name__ == "__main__":
     main()

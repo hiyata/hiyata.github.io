@@ -812,6 +812,13 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "title": "File:Staphylococcus aureus Gram.jpg"
   },
   {
+   "file": "scarlet-rash.jpg",
+   "artist": "The original uploader was Estreya at English Wikipedia .",
+   "lic": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Scarlet_fever_2.jpg",
+   "title": "File:Scarlet fever 2.jpg"
+  },
+  {
    "file": "schisto-haem.jpg",
    "artist": "CDC, Public Health Image Library (PHIL)",
    "lic": "Public domain",
@@ -1660,6 +1667,10 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
     [
      "strep-tongue.jpg",
      "Strawberry tongue in scarlet fever."
+    ],
+    [
+     "scarlet-rash.jpg",
+     "Scarlet fever: a diffuse sandpaper-textured rash accentuated in skin folds."
     ],
     [
      "necrotizing-fasciitis.jpg",
