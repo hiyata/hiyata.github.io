@@ -15,7 +15,7 @@ title: About
         <span class="hl">virology</span>. My main project so far: a curated, 58,046-genome dataset spanning 15
         virus families, and neural networks trained on raw k-mer frequency that predict whether a virus can
         infect humans, then get interrogated to find out which sequence motifs actually drove that call.
-        I currently work with <a href="https://www.med.wayne.edu/profile/dx0934">Dr. Phil Pellett</a> at Wayne
+        I currently work with <a href="https://biochemmicroimmuno.med.wayne.edu/" target="_blank" rel="noopener">Dr. Phil Pellett</a> at Wayne
         State University School of Medicine in Detroit.
       </p>
       <div class="about-hero-social">

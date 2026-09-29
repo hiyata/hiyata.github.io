@@ -17,7 +17,7 @@ custom_js: home
         <h1>Hi, I'm Alan. I'm interested in searching for host-specific patterns imprinted in viral genomes.</h1>
         <p>
           I'm a researcher at Wayne State University School of Medicine, working with
-          <a href="https://biochemmicroimmuno.med.wayne.edu/profile/dx0934" target="_blank" rel="noopener">Dr. Phil Pellett</a>.
+          <a href="https://biochemmicroimmuno.med.wayne.edu/" target="_blank" rel="noopener">Dr. Phil Pellett</a>.
           Most recently, that meant building a 58,046-genome dataset across 15 virus families and training neural
           networks on raw k-mer frequency (no alignment, no annotation) to tell human-infecting viruses from
           everything else. This site is where I keep track of what I'm building and learning along the way.
