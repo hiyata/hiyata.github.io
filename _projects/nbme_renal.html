@@ -253,6 +253,13 @@ date: 2026-09-23
   }
   .nbme-images figcaption{ font-size:0.72rem; color: var(--nbme-muted); text-align:center; margin-top:0.3rem; }
 
+  .nbme-resume{
+    display:flex; flex-wrap:wrap; gap:.75rem; align-items:center; justify-content:space-between;
+    margin:1rem 1.25rem 0; padding:.85rem 1rem; border:1px solid var(--nbme-accent);
+    border-radius:8px; background: var(--nbme-accent-tint);
+  }
+  .nbme-resume-actions{ display:flex; gap:.5rem; }
+  .nbme-kbd-hint{ margin-top:.5rem; font-size:.8rem; color: var(--nbme-muted); }
   .nbme-choices{
     display:flex; flex-direction:column;
     background: var(--nbme-card); border: 1px solid var(--nbme-border); border-radius:4px;
@@ -692,10 +699,106 @@ date: 2026-09-23
 
   // ---------------- render dispatch ----------------
   function render(){
-    if(state.screen === 'setup') renderSetup();
-    else if(state.screen === 'quiz') renderQuiz();
+    if(state.screen === 'setup'){ renderSetup(); renderResumeBanner(); }
+    else if(state.screen === 'quiz'){ renderQuiz(); saveBlock(); }
     else renderResults();
   }
+
+  // ---------------- unfinished-block persistence ----------------
+  // An in-progress block is saved after every action, so a refresh, a closed
+  // tab or a back-swipe can be resumed from the setup screen.
+  var BLOCK_KEY = STORAGE_KEY + '-block';
+  function saveBlock(){
+    if(state.screen !== 'quiz' || !state.block.length) return;
+    try{
+      localStorage.setItem(BLOCK_KEY, JSON.stringify({
+        index: state.index,
+        timerSeconds: state.timerSeconds,
+        savedAt: Date.now(),
+        items: state.block.map(function(it){
+          return { id: it.source.id, displayOrder: it.displayOrder, userChoice: it.userChoice,
+                   submitted: it.submitted, marked: it.marked, struck: it.struck,
+                   highlights: it.highlights, timeSpentMs: it.timeSpentMs };
+        })
+      }));
+    }catch(e){}
+  }
+  function clearSavedBlock(){ try{ localStorage.removeItem(BLOCK_KEY); }catch(e){} }
+  function loadSavedBlock(){
+    try{
+      var saved = JSON.parse(localStorage.getItem(BLOCK_KEY) || 'null');
+      if(!saved || !saved.items || !saved.items.length) return null;
+      var byId = {};
+      ALL_QUESTIONS.forEach(function(q){ byId[q.id] = q; });
+      // The bank may have been rebuilt since; drop the save if any question is gone.
+      if(!saved.items.every(function(it){ return byId[it.id]; })) { clearSavedBlock(); return null; }
+      saved.byId = byId;
+      return saved;
+    }catch(e){ return null; }
+  }
+  function resumeBlock(saved){
+    state.block = saved.items.map(function(it){
+      return { source: saved.byId[it.id], displayOrder: it.displayOrder, userChoice: it.userChoice,
+               submitted: it.submitted, marked: it.marked, struck: it.struck || {},
+               highlights: it.highlights || [], startedAt: null, timeSpentMs: it.timeSpentMs || 0 };
+    });
+    state.index = Math.min(saved.index || 0, state.block.length - 1);
+    state.navigatorOpen = false;
+    state.timerHidden = false;
+    state.screen = 'quiz';
+    startTimer(saved.timerSeconds || 0);
+    render();
+  }
+  function renderResumeBanner(){
+    var saved = loadSavedBlock();
+    if(!saved) return;
+    var answered = saved.items.filter(function(it){ return it.submitted; }).length;
+    var when = new Date(saved.savedAt).toLocaleString([], { month:'short', day:'numeric', hour:'numeric', minute:'2-digit' });
+    var bar = root.querySelector('.nbme-topbar');
+    (bar || root).insertAdjacentHTML(bar ? 'afterend' : 'afterbegin',
+      '<div class="nbme-resume" role="status">' +
+        '<div><b>Unfinished block</b> &middot; ' + answered + ' of ' + saved.items.length + ' answered &middot; saved ' + esc(when) + '</div>' +
+        '<div class="nbme-resume-actions">' +
+          '<button class="nbme-btn nbme-btn-primary" id="nbme-resume-btn">Resume</button>' +
+          '<button class="nbme-btn" id="nbme-discard-btn">Discard</button>' +
+        '</div>' +
+      '</div>');
+    document.getElementById('nbme-resume-btn').addEventListener('click', function(){ resumeBlock(saved); });
+    document.getElementById('nbme-discard-btn').addEventListener('click', function(){
+      if(confirm('Discard the unfinished block? Answers you already submitted stay in your stats.')){
+        clearSavedBlock(); render();
+      }
+    });
+  }
+  window.addEventListener('pagehide', saveBlock); // keep the timer current
+  // The app re-renders from scratch on load, so a restored scroll offset only hides the resume banner.
+  if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  // ---------------- keyboard shortcuts (quiz screen) ----------------
+  // A-E or 1-5 choose, Enter submits then advances, arrows move, M marks.
+  document.addEventListener('keydown', function(ev){
+    if(state.screen !== 'quiz' || state.navigatorOpen) return;
+    if(typeof encState !== 'undefined' && encState.open) return;
+    if(ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    var t = ev.target;
+    if(t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    var item = state.block[state.index];
+    if(!item) return;
+    var k = ev.key;
+    var pos = 'abcde'.indexOf(k.toLowerCase());
+    if(pos === -1 && /^[1-5]$/.test(k)) pos = +k - 1;
+    if(pos !== -1 && k.length === 1){
+      var letter = item.displayOrder[pos];
+      if(letter && !item.submitted && !item.struck[letter]){ item.userChoice = letter; render(); ev.preventDefault(); }
+    } else if(k === 'Enter'){
+      if(t && t.tagName === 'BUTTON') return; // let a focused button do its own thing
+      if(!item.submitted && item.userChoice) submitAnswer();
+      else if(item.submitted) goNextItem();
+      ev.preventDefault();
+    } else if(k === 'ArrowRight'){ goNextItem(); ev.preventDefault(); }
+    else if(k === 'ArrowLeft'){ goPrev(); ev.preventDefault(); }
+    else if(k === 'm' || k === 'M'){ toggleMark(); ev.preventDefault(); }
+  });
 
   function matchesFilters(q){
     return !!state.selectedTags[q.tag];
@@ -781,6 +884,7 @@ date: 2026-09-23
             '</label>' +
             '<label><input type="checkbox" id="nbme-shuffle-q" ' + (state.shuffleQuestions ? 'checked' : '') + ' /> Shuffle question order</label>' +
             '<label><input type="checkbox" id="nbme-shuffle-c" ' + (state.shuffleChoices ? 'checked' : '') + ' /> Shuffle answer choices</label>' +
+            '<p class="nbme-kbd-hint">Keyboard: A&ndash;E choose &middot; Enter submit / next &middot; &larr; &rarr; move &middot; M mark</p>' +
           '</div>' +
 
           '<div class="nbme-start-row">' +
@@ -1034,6 +1138,7 @@ date: 2026-09-23
         if(confirm('End this block now? Unanswered questions will not be scored.')) finishBlock();
       } else if(confirm('Exit without answering any questions?')){
         stopTimer();
+        clearSavedBlock();
         state.screen = 'setup';
         render();
       }
@@ -1134,6 +1239,7 @@ date: 2026-09-23
     var correctCount = submittedItems.filter(function(it){ return it.userChoice === it.source.answer; }).length;
     recordAttempt(stats, correctCount, submittedItems.length);
     saveStats(stats);
+    clearSavedBlock();
     state.screen = 'results';
     state.navigatorOpen = false;
     render();
