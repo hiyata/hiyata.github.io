@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('loading-overlay');
   const viewport = document.querySelector('.home-viewport');
   const header = document.querySelector('.site-header');
-  const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelectorAll('.nav-link[data-nav-section]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsIntersectionObserver = 'IntersectionObserver' in window;
@@ -70,23 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstSection = navSections.keys().next().value;
     setActiveNav(firstSection);
   }
-
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      header?.classList.toggle('nav-open', !expanded);
-    });
-  }
-
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      if (header?.classList.contains('nav-open')) {
-        header.classList.remove('nav-open');
-        navToggle?.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
 
   let lastScrollY = window.scrollY;
   let ticking = false;

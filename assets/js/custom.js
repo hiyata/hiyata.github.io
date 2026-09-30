@@ -11,6 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Mobile menu. Lives here, not in home.js, so it works on every page.
+  const header = document.querySelector('.site-header');
+  const navToggle = document.querySelector('.nav-toggle');
+  const setNavOpen = (open) => {
+    header.classList.toggle('nav-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  };
+  if (header && navToggle) {
+    navToggle.addEventListener('click', () => setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+    header.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', () => setNavOpen(false)));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && header.classList.contains('nav-open')) { setNavOpen(false); navToggle.focus(); }
+    });
+  }
+
   const transitionOverlay = document.getElementById('page-transition-overlay');
   const transitionDuration = 500; // ms
   const minimumLoadTime = 200; // ms
