@@ -1,9 +1,27 @@
 :root {
-  --ai-color: #2563eb;
-  --virology-color: #dc2626;
-  --genomics-color: #059669;
-  --physiology-color: #b45309;
+  --ai-color: #1d4ed8;
+  --virology-color: #b91c1c;
+  --genomics-color: #065f46;
+  --physiology-color: #92400e;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ai-color: #93c5fd;
+    --virology-color: #fca5a5;
+    --genomics-color: #6ee7b7;
+    --physiology-color: #fcd34d;
+  }
+  :root:not([data-theme="light"]) .cta-button { color: var(--bg); }
+}
+
+:root[data-theme="dark"] {
+  --ai-color: #93c5fd;
+  --virology-color: #fca5a5;
+  --genomics-color: #6ee7b7;
+  --physiology-color: #fcd34d;
+}
+:root[data-theme="dark"] .cta-button { color: var(--bg); }
 
 body {
   font-family: var(--sans);

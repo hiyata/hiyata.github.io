@@ -9,7 +9,7 @@ custom_js: home
   <div class="loading-spinner" role="status" aria-label="Loading"></div>
 </div>
 
-<main class="home-viewport" id="content">
+<div class="home-viewport" id="content">
   <section class="masthead" id="home">
     <div class="masthead-grid">
       <div class="masthead-copy" data-animate="fade-up">
@@ -191,6 +191,6 @@ custom_js: home
       </div>
     </div>
   </section>
-</main>
+</div>
 
 <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>

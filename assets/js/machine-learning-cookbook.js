@@ -57,9 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---------------- Wrap tables for horizontal scroll on small screens ---------------- */
-  article.querySelectorAll('table').forEach((table) => {
+  article.querySelectorAll('table').forEach((table, i) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'table-scroll';
+    wrapper.tabIndex = 0; // lets keyboard users scroll a wide table
+    wrapper.setAttribute('role', 'region');
+    let heading = table.previousElementSibling;
+    while (heading && !/^H[2-4]$/.test(heading.tagName)) heading = heading.previousElementSibling;
+    wrapper.setAttribute('aria-label', `Table ${i + 1}${heading ? ': ' + heading.textContent.trim() : ''}`);
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
   });

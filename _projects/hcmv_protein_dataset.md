@@ -61,8 +61,8 @@ permalink: /hcmv-analysis/
     <!-- Control Panel -->
     <div class="control-panel">
         <div class="search-section">
-            <input type="text" id="geneSearch" placeholder="Search genes..." class="search-input">
-            <select id="temporalClassSelect" class="data-select">
+            <input type="text" id="geneSearch" placeholder="Search genes..." aria-label="Search genes" class="search-input">
+            <select id="temporalClassSelect" class="data-select" aria-label="Temporal class">
                 <option value="all">All Temporal Classes</option>
             </select>
         </div>
@@ -81,7 +81,7 @@ permalink: /hcmv-analysis/
              <button id="toggleRelative" class="download-btn" style="background: #8e44ad;" title="Toggle Relative Abundance">
                 <i class="fas fa-exchange-alt"></i> Use Relative Abundance
             </button>
-            <button id="toggleIncomplete" class="download-btn" style="background: #e67e22;" title="Toggle Hide Incomplete">
+            <button id="toggleIncomplete" class="download-btn" style="background: #b35a00;" title="Toggle Hide Incomplete">
                 <i class="fas fa-filter"></i> Hide Incomplete
             </button>
             <button id="downloadData" class="download-btn" title="Download Data">
@@ -104,13 +104,13 @@ permalink: /hcmv-analysis/
         <!-- Details Panel -->
         <aside class="details-panel">
             <div id="geneDetails" class="gene-details">
-                <h3>Gene Details</h3>
+                <h2>Gene Details</h2>
                 <div class="details-content">
                     Select a gene to view details
                 </div>
             </div>
             <div class="statistics-panel">
-                <h3>Statistics</h3>
+                <h2>Statistics</h2>
                 <div id="statsContent" class="stats-content"></div>
             </div>
         </aside>
@@ -120,9 +120,9 @@ permalink: /hcmv-analysis/
 <style>
     :root {
     --primary-color: #2c3e50;
-    --secondary-color: #3498db;
+    --secondary-color: #1f6fa8;
     --accent-color: #e74c3c;
-    --success-color: #2ecc71;
+    --success-color: #1e8449;
     --warning-color: #f1c40f;
     --background-color: #f5f6fa;
     --card-background: #ffffff;
@@ -336,8 +336,8 @@ permalink: /hcmv-analysis/
     gap: 1.5rem;
 }
 
-.gene-details h3,
-.statistics-panel h3 {
+.gene-details h2,
+.statistics-panel h2 {
     margin: 0 0 1rem 0;
     font-size: 1.1rem;
     color: var(--primary-color);

@@ -187,26 +187,26 @@ function Explore(){
           <div className="row">
             <div className="field flex1">
               <label className="label">Heart Rate (BPM): {bpm}</label>
-              <input type="range" min="30" max="180" step="1" value={bpm} onChange={e=>setBpm(+e.target.value)}/>
+              <input aria-label="Heart rate (BPM)" type="range" min="30" max="180" step="1" value={bpm} onChange={e=>setBpm(+e.target.value)}/>
             </div>
             <div className="field" style={{width:120}}>
               <label className="label">BPM</label>
-              <input type="number" min="30" max="180" value={bpm} onChange={e=>setBpm(clamp(+e.target.value||0,30,180))}/>
+              <input aria-label="Heart rate (BPM), exact value" type="number" min="30" max="180" value={bpm} onChange={e=>setBpm(clamp(+e.target.value||0,30,180))}/>
             </div>
           </div>
 
           <div className="row">
             <div className="field flex1">
               <label className="label">PR (ms): {pr}</label>
-              <input type="range" min="100" max="260" step="5" value={pr} onChange={e=>setPr(+e.target.value)}/>
+              <input aria-label="PR interval (ms)" type="range" min="100" max="260" step="5" value={pr} onChange={e=>setPr(+e.target.value)}/>
             </div>
             <div className="field flex1">
               <label className="label">QRS (ms): {qrs}</label>
-              <input type="range" min="70" max="160" step="5" value={qrs} onChange={e=>setQrs(+e.target.value)}/>
+              <input aria-label="QRS duration (ms)" type="range" min="70" max="160" step="5" value={qrs} onChange={e=>setQrs(+e.target.value)}/>
             </div>
             <div className="field flex1">
               <label className="label">QT (ms): {qt}</label>
-              <input type="range" min="280" max="520" step="5" value={qt} onChange={e=>setQt(+e.target.value)}/>
+              <input aria-label="QT interval (ms)" type="range" min="280" max="520" step="5" value={qt} onChange={e=>setQt(+e.target.value)}/>
             </div>
           </div>
 

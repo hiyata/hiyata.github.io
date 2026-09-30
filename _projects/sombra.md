@@ -188,8 +188,9 @@ The map below displays the geographical locations where each was collected. Thei
         <div id="chartContainer" class="animate" style="height: 400px; width: 100%;">
             <canvas id="sampleChart"></canvas>
         </div>
-        <div id="strainList" class="animate" style="height: 200px; width: 100%; overflow-y: auto; margin-top: 20px;">
+        <div id="strainList" class="animate" tabindex="0" role="region" aria-label="Strain list" style="height: 200px; width: 100%; overflow-y: auto; margin-top: 20px;">
             <h3>Strain List</h3>
+            <h4 id="strainListTitle"></h4>
             <ul id="strainListContent"></ul>
         </div>
     </div>
@@ -445,9 +446,7 @@ function updateChart(data, labels) {
 function updateStrainList(strains, title) {
     const strainListContent = document.getElementById('strainListContent');
     strainListContent.innerHTML = '';
-    const titleElement = document.createElement('h4');
-    titleElement.textContent = title;
-    strainListContent.appendChild(titleElement);
+    document.getElementById('strainListTitle').textContent = title;
     strains.forEach(strain => {
         const li = document.createElement('li');
         li.textContent = `${strain.Strain} (ID: ${strain.ID})`;

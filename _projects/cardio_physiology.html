@@ -609,7 +609,7 @@ function QuizMode(){
         <div className="stack">
           <div className="field">
             <label className="label">Cell type</label>
-            <select value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
+            <select aria-label="Cell type" value={cellTypeId} onChange={(e)=>{setCellTypeId(e.target.value);lastTargetRef.current=null;setCurrentQuestion(null);}} disabled={showResult}>
               {CELL_TYPES.map(c=>
                 <option key={c.id} value={c.id}>{c.name}</option>
               )}
@@ -830,7 +830,7 @@ function ExploreMode(){
           <div className="row">
             <div className="field flex1">
               <label className="label">Cell type</label>
-              <select value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
+              <select aria-label="Cell type" value={cellTypeId} onChange={(e)=>setCellTypeId(e.target.value)}>
                 {CELL_TYPES.map(c=>
                   <option key={c.id} value={c.id}>{c.name}</option>
                 )}
@@ -838,7 +838,7 @@ function ExploreMode(){
             </div>
             <div className="field flex1">
               <label className="label">Drug preset</label>
-              <select value={preset} onChange={(e)=>setPreset(e.target.value)}>
+              <select aria-label="Drug preset" value={preset} onChange={(e)=>setPreset(e.target.value)}>
                 {Object.keys(DRUG_PRESETS).map(p=>
                   <option key={p} value={p}>{p}</option>
                 )}
@@ -848,7 +848,7 @@ function ExploreMode(){
           <div className="row">
             <div className="field flex1">
               <label className="label">Environment</label>
-              <select value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
+              <select aria-label="Environment" value={envPreset} onChange={(e)=>setEnvPreset(e.target.value)}>
                 {Object.keys(ENV_PRESETS).map(p=>
                   <option key={p} value={p}>{p}</option>
                 )}
@@ -856,7 +856,7 @@ function ExploreMode(){
             </div>
             <div className="field flex1">
               <label className="label">Pacing (BPM): {bpm}</label>
-              <input type="range" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
+              <input type="range" aria-label="Pacing (BPM)" min="20" max="220" step="1" value={bpm} onChange={(e)=>setBpm(+e.target.value)} />
             </div>
           </div>
 
@@ -879,14 +879,14 @@ function ExploreMode(){
                       <div className="row" style={{justifyContent:'space-between'}}>
                         <div style={{fontWeight:600,fontSize:14}}>{CHANNEL_LABELS[key]}</div>
                         <label style={{fontSize:12}}>
-                          <input type="checkbox" checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
+                          <input type="checkbox" aria-label={`Knock out ${CHANNEL_LABELS[key]}`} checked={!!ko[key]} onChange={(e)=>setKo({...ko,[key]:e.target.checked})}/> KO
                         </label>
                       </div>
                       <div className="row">
-                        <input type="range" min="0" max="200" step="5" disabled={!!ko[key]}
+                        <input type="range" aria-label={`${CHANNEL_LABELS[key]} conductance (%)`} min="0" max="200" step="5" disabled={!!ko[key]}
                           value={ko[key]?0:(params[key]??100)}
                           onChange={(e)=>setParams({...params,[key]:+e.target.value})}/>
-                        <input type="number" min="0" max="200" step="5" disabled={!!ko[key]}
+                        <input type="number" aria-label={`${CHANNEL_LABELS[key]} conductance (%), exact value`} min="0" max="200" step="5" disabled={!!ko[key]}
                           value={ko[key]?0:(params[key]??100)}
                           onChange={(e)=>setParams({...params,[key]:clamp(+e.target.value||0,0,200)})}/>
                       </div>
