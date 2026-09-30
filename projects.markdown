@@ -2,6 +2,7 @@
 layout: default
 title: Project Showcase
 permalink: /projects/
+redirect_from: /hcmv-analysis/
 custom_css: projects
 custom_js: projects
 aos: true
