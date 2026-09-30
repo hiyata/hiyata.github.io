@@ -120,7 +120,9 @@ custom_js: home
         </div>
         <p class="section-lede">Some of the projects I've worked on, mixing research with a bit of design and storytelling.</p>
         <div class="cards-grid">
-          {% for project in site.projects limit:3 %}
+          {% comment %} Projects with `featured: N` in their front matter, lowest N first. {% endcomment %}
+          {% assign featured_projects = site.projects | where_exp: "p", "p.featured" | sort: "featured" %}
+          {% for project in featured_projects limit:3 %}
           <article class="project-card" data-animate="fade-up" data-animate-delay="{{ forloop.index0 | times: 80 }}">
             <div class="project-card-body">
               <h3><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>

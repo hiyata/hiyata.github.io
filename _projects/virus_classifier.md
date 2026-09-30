@@ -5,6 +5,7 @@ category: virology
 excerpt: A 58,046-genome dataset and neural network framework that predicts whether a virus can infect humans directly from raw genome sequence, no alignment or annotation required. Published in Virus Evolution.
 presented_at: Virus Evolution, 2026
 permalink: /virus-host-classifier/
+featured: 1
 ---
 
 <article class="post-page">

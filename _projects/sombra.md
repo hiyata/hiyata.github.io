@@ -4,6 +4,7 @@ category: virology
 excerpt: A system to generate artificial HCMV genomes and simulate evolution to characterize geographical strain diversity. 
 title: System for Operational Modeling of Biological Replication and Adaptation (SOMBRA)
 presented_at: IHW 2024
+featured: 3
 ---
 
 # SOMBRA: A New Frontier in HCMV Evolutionary Research

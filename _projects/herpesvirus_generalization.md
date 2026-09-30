@@ -5,6 +5,7 @@ category: virology
 excerpt: A deep neural network trained only on Betaherpesvirus genomes correctly predicts human-host compatibility for Alpha- and Gammaherpesvirus genomes it never saw during training, 79% accuracy on two genuinely held-out subfamilies.
 presented_at: Lab Retreat Talk
 permalink: /herpesvirus-generalization/
+featured: 2
 ---
 
 <article class="post-page">
