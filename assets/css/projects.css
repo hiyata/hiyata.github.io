@@ -207,6 +207,19 @@ body {
   color: var(--physiology-color);
 }
 
+.project-archived {
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  color: var(--ink-soft);
+  margin: 0 auto 0 0.4rem; /* sit beside the category chip */
+}
+
 .project-index {
   font-family: var(--mono);
   font-size: 0.7rem;

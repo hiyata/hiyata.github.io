@@ -30,13 +30,18 @@ aos: true
       <div class="project-card" data-category="{{ project.category }}">
         <div class="project-header">
           <span class="project-category">{{ project.category | capitalize }}</span>
+          {% if project.archived %}<span class="project-archived">Archived</span>{% endif %}
           <span class="project-index">No. {{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
         </div>
         <div class="project-body">
           <h2 class="project-title">{{ project.title }}</h2>
           <p class="project-excerpt">{{ project.excerpt | strip_html | truncate: 120 }}</p>
           <div class="project-meta">
-            <span class="project-date">{{ project.date | date: "%B %Y" }}{% if project.presented_at %} &middot; {{ project.presented_at }}{% endif %}</span>
+            {% comment %} Undated collection pages get the build time as their date; show only real dates. {% endcomment %}
+            {% assign has_date = false %}
+            {% assign project_ts = project.date | date: '%s' %}{% assign build_ts = site.time | date: '%s' %}
+            {% if project_ts != build_ts %}{% assign has_date = true %}{% endif %}
+            <span class="project-date">{% if has_date %}{{ project.date | date: "%B %Y" }}{% endif %}{% if has_date and project.presented_at %} &middot; {% endif %}{{ project.presented_at }}</span>
             <a href="{{ project.url | relative_url }}" class="read-more">View Details</a>
           </div>
         </div>

@@ -4,6 +4,8 @@ title: COVID-19 Case Prediction Model Comparison
 excerpt: A COVID-19 case prediction model comparing LSTM/GRU, ARIMA, Random Forest, and XGBoost algorithms.
 category: virology
 permalink: /covid-prediction/
+date: 2024-08-18
+archived: true
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.4.0/plotly.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" defer></script>
@@ -26,6 +28,15 @@ permalink: /covid-prediction/
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .covid-page .archived-note {
+            background-color: #f3f4f6;
+            border-left: 4px solid #6b7280;
+            color: #374151;
+            padding: 0.9rem 1.1rem;
+            margin: 1rem 0 1.25rem;
+            border-radius: 4px;
+            line-height: 1.55;
         }
         .covid-page .alert {
             background-color: #f8d7da;
@@ -110,11 +121,13 @@ permalink: /covid-prediction/
 <div class="covid-page">
 <div class="covid-container">
     <h1>COVID-19 Case Prediction Model Comparison</h1>
-    <div class="alert">
-        <strong>Important Notice:</strong> Due to the discontinuation of daily COVID-19 case reporting to the WHO, our daily predictions have been discontinued. The information below represents our last available data and predictions.
+    <div class="archived-note">
+        <strong>Archived project &middot; 2024.</strong> Most countries stopped reporting COVID-19 cases to the WHO in 2024,
+        so these models were retired. Everything below is the final set of predictions, compared against reported
+        cases through August 18, 2024.
     </div>
     <p>
-        This page displays a 7-day comparison of COVID-19 case predictions using four different models:
+        This page compares weekly COVID-19 case predictions from four different models:
         LSTM/GRU (Long Short-Term Memory/Gated Recurrent Unit), ARIMA (AutoRegressive Integrated Moving Average),
         Random Forest, and XGBoost. The graphs below show our predictions against the actual reported cases
         and compare the performance of all models.
@@ -149,14 +162,14 @@ permalink: /covid-prediction/
         </div>
     </div>
     <div class="last-updated">
-        Last Updated: <span id="last-updated">Loading...</span>
+        Final update: <span id="last-updated">Loading...</span>
     </div>
 </div>
 
 <div class="covid-container">
-    <h2>7-Day Model Comparison</h2>
+    <h2>Final Seven Weeks: Predicted vs. Reported Cases</h2>
     <p>
-        This chart displays the actual cases and predicted number of COVID-19 cases for the last 7 days,
+        This chart displays the actual cases and predicted number of COVID-19 cases for the final seven weeks of reported data (weekly totals, July 7 to August 18, 2024),
         comparing all four models: LSTM/GRU, ARIMA, Random Forest, and XGBoost.
     </p>
     <div id="comparison-chart" class="chart-container"></div>
@@ -288,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const layout = {
-            title: '7-Day COVID-19 Case Prediction Comparison',
+            title: 'Weekly COVID-19 Cases: Predictions vs. Reported (Jul–Aug 2024)',
             xaxis: { title: 'Date' },
             yaxis: { title: 'Number of Cases' },
             legend: {orientation: 'h', y: -0.2}
