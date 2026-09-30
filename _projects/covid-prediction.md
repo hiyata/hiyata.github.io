@@ -63,15 +63,18 @@ permalink: /covid-prediction/
             color: #2980b9;
             margin: 10px 0;
         }
+        .covid-page p {
+            color: #4a5563;
+        }
         .covid-page .performance-label {
             font-size: 0.9em;
-            color: #7f8c8d;
+            color: #5f6b6d;
         }
         .covid-page .last-updated {
             text-align: center;
             margin-top: 20px;
             font-style: italic;
-            color: #7f8c8d;
+            color: #5f6b6d;
         }
         .covid-page .chart-container {
             height: 500px;

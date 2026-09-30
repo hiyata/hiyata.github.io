@@ -5,7 +5,7 @@
   --surface-dark: #17140f;
   --ink: #18140e;
   --ink-soft: #4a4438;
-  --ink-faint: #8a8172;
+  --ink-faint: #6f685c;
   --accent: #c2410c;
   --accent-hover: #9a3412;
   --accent-soft: rgba(194, 65, 12, 0.1);
@@ -191,7 +191,7 @@ td {
   border-bottom: 1px solid var(--border);
 }
 
-th {
+table th {
   font-family: var(--mono);
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -622,7 +622,7 @@ body.page-transitioning #page-transition-overlay {
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
-  color: #766f5f;
+  color: #868072;
 }
 
 @media (max-width: 1100px) {

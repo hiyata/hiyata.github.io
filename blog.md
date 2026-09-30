@@ -109,7 +109,7 @@ permalink: /blog/
     padding: 0.6rem 1.1rem;
     border-radius: var(--radius-sm);
     background: var(--ink);
-    color: #fff;
+    color: var(--bg);
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 600;
