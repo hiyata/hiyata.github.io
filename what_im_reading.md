@@ -245,7 +245,7 @@ redirect_from: /what_im_reading.html
                         </a>
                     </h3>
                     <div class="author">Kevin P. Murphy</div>
-                    <p>I cannot recommend this book enough. I will warn new readers that it is VERY heavy in statistics and mathematics. If you are just starting out, this might be a good book later down the line. </p>
+                    <p>I can't recommend this book enough. Fair warning for newcomers: it is very heavy on statistics and mathematics, so if you're just starting out, it might be one to save for later. </p>
                 </div>
             </div>
 
@@ -274,7 +274,7 @@ redirect_from: /what_im_reading.html
             <div class="details">
                 <h3><a href="https://academic.oup.com/bioinformatics/article/37/15/2112/6128680" target="_blank" rel="noopener">DNABERT</a></h3>
                 <div class="author">Yanrong Ji, Zhihan Zhou, Han Liu, Ramana V Davuluri.</div>
-                <p>Published in 2021, this is the first foundational model trained on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
+                <p>Published in 2021, this was one of the first foundation models trained on DNA sequences. DNABERT is a 110-million parameter model trained on DNA k-mers.</p>
             </div>
         </div>
 

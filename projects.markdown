@@ -30,7 +30,7 @@ aos: true
     {% for project in site.projects %}
       <div class="project-card" data-category="{{ project.category }}">
         <div class="project-header">
-          <span class="project-category">{{ project.category | capitalize }}</span>
+          {% assign cat = project.category %}<span class="project-category">{% case cat %}{% when "ai" %}AI{% when "usmle" %}USMLE{% else %}{{ cat | capitalize }}{% endcase %}</span>
           {% if project.archived %}<span class="project-archived">Archived</span>{% endif %}
           <span class="project-index">No. {{ forloop.index | prepend: '00' | slice: -2, 2 }}</span>
         </div>

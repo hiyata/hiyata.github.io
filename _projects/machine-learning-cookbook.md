@@ -82,7 +82,7 @@ Machine Learning (ML) is a subset of Artificial Intelligence that focuses on dev
 
 The field of machine learning has grown exponentially in recent years, driven by increases in computing power, the availability of large datasets, and breakthroughs in algorithms. Today, machine learning powers a wide range of applications, from recommendation systems and fraud detection to autonomous vehicles and medical diagnosis.
 
-As we embark on this journey into the world of machine learning, it's crucial to understand that the success of any ML project heavily depends on its initial design stages. This section will introduce you to the fundamental steps in designing a machine learning project, setting the stage for the more advanced topics we'll cover later in this course.
+As we embark on this journey into the world of machine learning, it's crucial to understand that the success of any ML project heavily depends on its initial design stages. This section will introduce you to the fundamental steps in designing a machine learning project, setting the stage for the more advanced topics we'll cover later in this guide.
 
 ### 1.1 Research Question and Hypothesis Formation
 
@@ -125,7 +125,7 @@ Once you have a clear research question, the next step is to form a hypothesis. 
 2. **Falsifiable**: There should be a possibility of proving it wrong.
 3. **Based on prior knowledge**: Informed by existing research or domain expertise.
 
-For example, given the research question about disease spread, a hypothesis might be:
+For example, for a research question about disease spread, a hypothesis might be:
 
 "Spikes in new infections can be predicted by increases in wastewater pathogens and holiday travel seasons."
 {: .pull-quote-text}
@@ -152,9 +152,9 @@ If you don't already have data, you'll need to collect it. In the fields of viro
 
 1. **Accessing existing databases**
 
-   Existing databases are repositories of previously collected and curated data, often made available for research purposes. Many of these databases 
+   Existing databases are repositories of previously collected and curated data, often made available for research purposes.
 
-   Numerous databases provide valuable data for research, here are some I've found useful:
+   Numerous databases provide valuable data for research. Here are some I've found useful:
 
    - **Genomics**: 
      - [GenBank](https://www.ncbi.nlm.nih.gov/genbank/): A comprehensive database of publicly available DNA sequences.
@@ -162,11 +162,11 @@ If you don't already have data, you'll need to collect it. In the fields of viro
 
    - **Virology**: 
      - [BV-BRC (formerly ViPR)](https://www.bv-brc.org/): A database of viral genomics data, including sequence data, gene and protein annotations, and epidemiological data.
-     - [NCBI Virus(NCBI VIRUS)](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/): NCBI's virus-specific database, containing expansive genomic sequence information and metadata on viruses.
+     - [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/): NCBI's virus-specific database, containing expansive genomic sequence information and metadata on viruses.
 
    - **Epidemiology**: 
      - [WHO Global Health Observatory](https://www.who.int/data/gho): Provides data and statistics for health-related topics across the world.
-     - [CDC Wonder](https://wonder.cdc.gov/): An online database of epidemiological data made available by the Centers for Disease Control and Prevention.
+     - [CDC WONDER](https://wonder.cdc.gov/): An online database of epidemiological data made available by the Centers for Disease Control and Prevention.
 
    - **Medicine**: 
      - [PubMed Central](https://www.ncbi.nlm.nih.gov/pmc/): A free full-text archive of biomedical and life sciences journal literature.
@@ -197,11 +197,11 @@ If you don't already have data, you'll need to collect it. In the fields of viro
    - [EBI Web Services](https://www.ebi.ac.uk/Tools/webservices/): Offers APIs for various bioinformatics tools and databases.
    - [EMBL-EBI Proteins API](https://www.ebi.ac.uk/proteins/api/doc/): Allows programmatic access to protein sequence data.
 
-    NCBI E-utilities can be used to programmatically search for and download all published genetic sequences related to a specific virus strain. Using API's for the first time can be intimidatig. It takes some time to learn to write and run the codes to fetch the data, however, the payoff is huge. 
+    NCBI E-utilities can be used to programmatically search for and download all published genetic sequences related to a specific virus strain. Using APIs for the first time can be intimidating. It takes some time to learn to write and run the code to fetch the data, but the payoff is huge. 
 
 4. **Sensors or IoT devices**
 
-   Sensors and Internet of Things (IoT) devices are hardware that can collect data from the physical world and transmit it digitally. Unless you have access to data, you will probably be using data collected by someone else. 
+   Sensors and Internet of Things (IoT) devices are hardware that can collect data from the physical world and transmit it digitally. Unless you have access to the devices themselves, you will probably be using data collected by someone else. 
 
    - **Epidemiology**: Smart thermometers and wearable devices can provide real-time data on fever prevalence in a population.
    - **Medicine**: Continuous glucose monitors can provide detailed data on blood sugar levels for diabetes research.
@@ -326,7 +326,7 @@ Here's a comprehensive table of common model architectures, their categories, ty
 | Model Architecture | Category | Typical Use Cases | Advantages | Limitations |
 |--------------------|----------|-------------------|------------|-------------|
 | Linear Regression | Supervised (Regression) | Simple predictive modeling, trend analysis | Highly interpretable, fast to train | Assumes linear relationship, sensitive to outliers |
-| Logistic Regression | Supervised (Classification) | Binary classification, probability estimation | Probabilistic output, relatively simple | Limited to linearly separable problems |
+| Logistic Regression | Supervised (Classification) | Binary classification, probability estimation | Probabilistic output, relatively simple | Learns only a linear decision boundary unless features are transformed |
 | Decision Trees | Supervised (Both) | Classification, regression, feature importance analysis | Highly interpretable, handles nonlinear relationships | Prone to overfitting, unstable |
 | Random Forests | Supervised (Both) | Complex classification or regression tasks | Robust to overfitting, handles nonlinearity well | Less interpretable than single trees, computationally intensive |
 | Gradient Boosting Machines (e.g., XGBoost) | Supervised (Both) | Winning many Kaggle competitions, various prediction tasks | Often achieves state-of-the-art results, handles different data types | Can be prone to overfitting, requires careful tuning |
@@ -365,7 +365,7 @@ Remember, the "best" model often depends on your specific problem, data, and con
 
 The design stages of a machine learning project lay the foundation for all subsequent work. By carefully defining your research question, thoroughly assessing your data, and thoughtfully selecting an appropriate model architecture, you set yourself up for success in the complex world of machine learning.
 
-As we progress through this course, we'll delve deeper into each of these areas, exploring advanced techniques for data preprocessing, feature engineering, model training, and evaluation. We'll also discuss important considerations like ethics, interpretability, and real-world deployment.
+As we progress through this guide, we'll delve deeper into each of these areas, exploring advanced techniques for data preprocessing, feature engineering, model training, and evaluation. We'll also discuss important considerations like ethics, interpretability, and real-world deployment.
 
 Remember, machine learning is as much an art as it is a science. While these guidelines provide a solid starting point, don't be afraid to iterate, experiment, and adapt your approach as you gain more insight into your specific problem and data.
 
@@ -393,8 +393,8 @@ Linear and logistic regression are foundational models in machine learning, part
 
 - **Steps in Implementation**:
   - **Data Generation**: In the example provided, synthetic data is generated to simulate temperature, humidity, and population density, and their relationship with outbreak severity is modeled.
-  - **Model Training**: The data is split into training and test sets, and the features are scaled to standardize the range of the variables. This is important in linear regression as it ensures that all features contribute equally to the model.
-  - **Evaluation**: The model is trained using the training data, and predictions are made on the test data. The performance of the model is evaluated using the Mean Squared Error (MSE), a metric that quantifies the average squared difference between the actual and predicted values.
+  - **Preprocessing**: The data is split into training and test sets, and the features are scaled to standardize the range of the variables. Scaling doesn't change a linear regression's predictions, but it puts the coefficients on a common scale, so their magnitudes can be compared as a rough measure of importance.
+  - **Training and Evaluation**: The model is trained using the training data, and predictions are made on the test data. The performance of the model is evaluated using the Mean Squared Error (MSE), a metric that quantifies the average squared difference between the actual and predicted values.
 
 - **Feature Importance**:
   - Linear regression provides direct insights into feature importance through the magnitude and sign of the coefficients. In the example, the coefficient values indicate how changes in temperature, humidity, and population density are expected to impact the severity of an outbreak. For instance, a positive coefficient for temperature suggests that as temperature increases, so does the severity of the outbreak.
@@ -404,10 +404,12 @@ Linear and logistic regression are foundational models in machine learning, part
 - **Concept**:
   - Logistic regression is a classification algorithm used when the target variable is categorical, particularly binary. It models the probability that a given input belongs to a particular class, using a logistic function to ensure that the output is between 0 and 1.
   - The logistic regression model is expressed as:
-    \[
-    P(y=1|x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \dots + \beta_n x_n)}}
-    \]
-    where \( P(y=1|x) \) is the probability of the target being class 1 given the input features.
+
+    $$
+    P(y=1 \mid x) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \dots + \beta_n x_n)}}
+    $$
+
+    where $$P(y=1 \mid x)$$ is the probability of the target being class 1 given the input features.
 
 - **Application Example**:
   - Logistic regression is applied in situations where the outcome is binary, such as predicting whether an outbreak will occur or not based on environmental factors. This is particularly useful in public health for making decisions based on the likelihood of an outbreak.
@@ -447,7 +449,7 @@ Decision trees and ensemble methods are more advanced models that offer greater 
   - Random Forests can be used for virus strain classification based on genomic markers. By considering multiple decision trees, the model can capture complex interactions between the genetic markers that differentiate between strains, leading to more accurate classification.
 
 - **Steps in Implementation**:
-  - **Data Preparation**: The genomic data is split into training and test sets, and the features are scaled. Scaling helps in ensuring that no single feature dominates the decision-making process.
+  - **Data Preparation**: The genomic data is split into training and test sets, and the features are scaled. Tree-based models don't actually need scaling, since each split looks at one feature at a time, but it does no harm and keeps the pipeline consistent with models that do.
   - **Model Training**: The Random Forest classifier is trained using multiple decision trees, each built on a random subset of the training data. The ensemble approach ensures that the model is robust and less likely to overfit.
   - **Evaluation**: The model’s performance is evaluated using a classification report, which provides metrics like precision, recall, and F1-score for each class. These metrics give a detailed understanding of the model’s performance across different classes.
 
@@ -571,7 +573,7 @@ Convolutional Neural Networks (CNNs) are a specialized type of neural network de
 Recurrent Neural Networks (RNNs) are designed for sequential data, where the order of inputs is crucial. They are commonly used for time-series analysis, natural language processing, and tasks where temporal dynamics are important.
 
 - **Concept**:
-  - RNNs have a looping mechanism that allows information to persist, making them ideal for tasks where context from previous data points is needed to make predictions. Each neuron in an RNN layer takes input from both the current time step and the previous time step, maintaining a hidden state that evolves over time.
+  - RNNs have a looping mechanism that allows information to persist, making them ideal for tasks where context from previous data points is needed to make predictions. At each time step, an RNN layer combines the current input with its hidden state from the previous step, so the hidden state evolves over time.
   - There are several variants of RNNs, including Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs), which are designed to handle the vanishing gradient problem and capture long-term dependencies more effectively.
 
 - **Pseudocode**:
@@ -611,7 +613,7 @@ Transformers are a powerful class of deep learning models that have revolutioniz
 
 - **Concept**:
   - Unlike RNNs, transformers do not process data sequentially. Instead, they use a mechanism called self-attention, which allows the model to weigh the importance of different parts of the input sequence when making predictions. This enables transformers to capture long-range dependencies without the limitations of sequential processing.
-  - Transformers are composed of an encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence. In tasks like machine translation or text generation, this allows the model to effectively map one sequence to another.
+  - The original transformer uses an encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence, which suits tasks like machine translation. Many later models keep only one half: encoder-only models (e.g., BERT, DNABERT) for classification and embedding, and decoder-only models (e.g., GPT-style models) for generation.
 
 - **Pseudocode**:
     ```python
@@ -635,7 +637,7 @@ Transformers are a powerful class of deep learning models that have revolutioniz
   - Transformers are highly effective in processing long genomic sequences where distant elements of the sequence may interact. For example, they can be used to predict gene expression levels, annotate genomes, or identify functional regions within a sequence.
 
 - **Steps in Implementation**:
-  - **Model Architecture**: A transformer model is built with multiple layers of self-attention and feedforward networks. The input is processed in parallel, making the model highly efficient for long sequences.
+  - **Model Architecture**: A transformer model is built with multiple layers of self-attention and feedforward networks. The input is processed in parallel, which makes training much faster than with RNNs. The catch is that standard self-attention's cost grows with the square of the sequence length, a real constraint for long genomes.
   - **Training**: Transformers are trained using large datasets and require significant computational resources. They typically use the Adam optimizer and are trained on tasks like sequence-to-sequence prediction or classification.
   - **Evaluation**: The model’s performance is evaluated using metrics appropriate to the task, such as accuracy for classification or BLEU score for translation tasks.
 
@@ -720,7 +722,7 @@ Generative Adversarial Networks (GANs) are a class of deep learning models used 
 - **Steps in Implementation**:
   - **Model Architecture**: The GAN consists of a generator network that produces synthetic data and a discriminator network that evaluates it. Both networks are trained simultaneously, with the generator trying to fool the discriminator and the discriminator trying to correctly classify real and fake data.
   - **Training**: GANs are notoriously difficult to train due to the delicate balance between the generator and discriminator. Techniques like progressively growing GANs or using Wasserstein loss can help stabilize training.
-  - **Evaluation**: Evaluating GANs involves not only assessing the quality of the generated data but also ensuring that the generator is not simply memorizing the training data (a phenomenon known as mode collapse). Techniques like the Inception Score or Fréchet Inception Distance are commonly used for this purpose.
+  - **Evaluation**: Evaluating GANs involves not only assessing the quality of the generated data but also checking that the generator is not simply memorizing the training data, and that it is not producing only a narrow range of outputs (a failure known as mode collapse). Techniques like the Inception Score or Fréchet Inception Distance are commonly used for this purpose.
 
 - **Challenges and Considerations**:
   - **Training Instability**: GANs are difficult to train and require careful tuning of hyperparameters and architectures. The training process can be unstable, with the generator or discriminator dominating, leading to poor results.
@@ -1046,7 +1048,7 @@ Feature scaling and normalization are techniques used to standardize the range o
 
 - **Techniques**:
   - **Min-Max Scaling**: Rescales the feature values to a fixed range, typically [0, 1], by subtracting the minimum value and dividing by the range (maximum - minimum). This is useful when the algorithm assumes or requires a bounded feature range.
-  - **Standardization**: Rescales the feature values to have a mean of 0 and a standard deviation of 1, which is essential for algorithms that assume normally distributed data.
+  - **Standardization**: Rescales the feature values to have a mean of 0 and a standard deviation of 1, which is standard for algorithms that are sensitive to feature scale (e.g., SVMs, regularized regression, PCA). Note that it centers and rescales the data but does not make it normally distributed.
   - **Normalization**: Rescales each data point so that it has a unit norm (e.g., a length of 1). This is particularly useful in contexts where the direction of the data point is more important than its magnitude, such as in text classification using cosine similarity.
 
 - **Pseudocode**:
@@ -1200,7 +1202,7 @@ For regression tasks, where the goal is to predict continuous values, different 
     ```
 
 - **R-squared (R²)**:
-  - **Definition**: R² is the proportion of variance in the target variable that is explained by the model. It ranges from 0 to 1, with higher values indicating better model performance. An R² value close to 1 suggests that the model explains most of the variability in the response data, while a value near 0 indicates that the model does not explain the variability well.
+  - **Definition**: R² is the proportion of variance in the target variable that is explained by the model. On training data it typically ranges from 0 to 1, with higher values indicating better model performance; on held-out data it can go negative, meaning the model does worse than simply predicting the mean. An R² value close to 1 suggests that the model explains most of the variability in the response data, while a value near 0 indicates that the model does not explain the variability well.
   - **When to Use**: Use R² when you need to understand how well the model explains the variance in the data and when comparing different models.
   
   - **Pseudocode**:
@@ -1216,7 +1218,7 @@ Cross-validation is a robust technique used to evaluate a model’s ability to g
 
 - **Concept**:
   - **k-Fold Cross-Validation**: The most common form of cross-validation is k-fold cross-validation. Here, the dataset is divided into k equal parts (folds). The model is trained on k-1 folds and tested on the remaining fold. This process is repeated k times, with each fold serving as the test set once. The performance metrics from each iteration are averaged to provide a final evaluation score. This method helps reduce the variability associated with the random partitioning of the data.
-  - **Leave-One-Out Cross-Validation (LOOCV)**: This is an extreme case of k-fold cross-validation where k equals the number of data points in the dataset. The model is trained on all but one data point and tested on the remaining one. This process is repeated for each data point, and the results are averaged. LOOCV provides an unbiased estimate of model performance but can be computationally expensive for large datasets.
+  - **Leave-One-Out Cross-Validation (LOOCV)**: This is an extreme case of k-fold cross-validation where k equals the number of data points in the dataset. The model is trained on all but one data point and tested on the remaining one. This process is repeated for each data point, and the results are averaged. LOOCV gives a nearly unbiased estimate of model performance, though that estimate can have high variance, and it can be computationally expensive for large datasets.
   - **Stratified Cross-Validation**: When dealing with imbalanced datasets, stratified cross-validation ensures that each fold maintains the same class distribution as the entire dataset. This is particularly important in classification tasks where certain classes may be underrepresented.
 
 - **Pseudocode**:
@@ -1340,7 +1342,7 @@ Underfitting occurs when a model is too simple to capture the underlying pattern
   - Oversimplified decision boundaries that fail to capture the complexity of the data.
   
 - **Techniques to Address Underfitting**:
-  - **Increase Model Complexity**: Use a more complex model (e.g., deeper neural network, more trees in a forest) that can capture the underlying patterns in the data. This might involve adding more layers or neurons in a neural network or using more sophisticated algorithms.
+  - **Increase Model Complexity**: Use a more complex model (e.g., a deeper neural network, or deeper trees in a forest) that can capture the underlying patterns in the data. This might involve adding more layers or neurons in a neural network or using more sophisticated algorithms.
   - **Feature Engineering**: Create more informative features or use non-linear transformations to help the model better capture the data’s complexity. This can include adding interaction terms, polynomial features, or domain-specific features that make the model more powerful.
   - **Reduce Regularization**: If regularization is too strong, it can lead to underfitting. Reducing the regularization parameter can allow the model to fit the training data better by giving it more flexibility.
 
@@ -1429,7 +1431,7 @@ Calibration refers to the process of adjusting the outputs of a probabilistic mo
   - **Overfitting**: As with any model, there is a risk of overfitting during calibration. Overfitting can occur if the calibration method is too complex relative to the amount of data, leading to a model that performs well on the calibration dataset but poorly on new data. To mitigate this, it’s important to validate the calibration on an independent dataset.
   - **Complexity**: Calibration methods add an additional layer of complexity to the modeling process, and it’s important to ensure that this complexity is justified by the improvement in probability estimates. In some cases, a simpler model with slightly less accurate probabilities might be preferable if it is more interpretable and easier to implement.
 
-In this expanded section, we have thoroughly explored the various aspects of model evaluation and interpretation. These processes are essential for building robust, reliable, and interpretable models, especially in critical fields like healthcare and genomics. By carefully evaluating and interpreting models, researchers can ensure that their models not only perform well but also provide insights that are actionable and trustworthy. Whether through the use of sophisticated metrics, cross-validation techniques, or advanced interpretability methods, the goal is to create models that are not just accurate but also meaningful and understandable.
+In this section, we have explored the various aspects of model evaluation and interpretation. These processes are essential for building robust, reliable, and interpretable models, especially in critical fields like healthcare and genomics. By carefully evaluating and interpreting models, researchers can ensure that their models not only perform well but also provide insights that are actionable and trustworthy. Whether through the use of sophisticated metrics, cross-validation techniques, or advanced interpretability methods, the goal is to create models that are not just accurate but also meaningful and understandable.
 
 ## 7. Ethical Considerations and Responsible AI
 
@@ -1477,7 +1479,7 @@ Transparency and explainability are essential for building trust in AI systems. 
 
 - **Building Trust**: Transparency helps build trust among users and stakeholders by providing insights into how the AI system works and how decisions are made. When users understand the decision-making process, they are more likely to trust and accept the system’s outcomes.
 - **Accountability**: Transparency ensures that AI systems can be held accountable for their decisions. This is particularly important in scenarios where AI decisions have significant consequences, such as in autonomous vehicles or legal decision-making.
-- **Regulatory Compliance**: Increasingly, regulations require that AI systems be transparent and explainable. For instance, the European Union’s General Data Protection Regulation (GDPR) includes provisions for the right to explanation, which mandates that individuals have the right to understand how decisions affecting them are made by automated systems.
+- **Regulatory Compliance**: Increasingly, regulations require that AI systems be transparent and explainable. For instance, the European Union’s General Data Protection Regulation (GDPR) gives people rights around automated decision-making, including access to “meaningful information about the logic involved” (Articles 13–15 and 22). How far this amounts to a full “right to explanation” is still debated. The EU AI Act (2024) adds transparency requirements for high-risk AI systems, including many medical applications.
 
 #### **Enhancing Explainability**
 

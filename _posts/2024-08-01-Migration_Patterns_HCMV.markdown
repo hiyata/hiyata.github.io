@@ -13,17 +13,17 @@ most widespread and host-specific viruses we know. Herpesviruses are thought to 
 with their hosts across hundreds of millions of years<sup><a href="#ref-1">1</a></sup>, and as a
 result they tend to be tightly adapted to a single host species, rarely infecting anything
 outside their normal range. HCMV is also extremely common: seroprevalence in adults runs as high
-as 80% worldwide<sup><a href="#ref-2">2</a></sup>. Most infected adults never notice, the virus
+as 80% worldwide<sup><a href="#ref-2">2</a></sup>. Most infected adults never notice: the virus
 simply establishes life-long residency in their cells and stays quiet.
 </p>
 
 <p>
-That long, quiet coexistence is the interesting part. Most of the pathogens that make headlines,
-SARS-CoV-2, Ebola, HIV, are zoonotic in origin: they jumped into humans relatively recently, and
-spillover events like that tend to be the source of the deadliest outbreaks, the host hasn't had
+That long, quiet coexistence is the interesting part. Most of the pathogens that make headlines
+(SARS-CoV-2, Ebola, HIV) are zoonotic in origin: they jumped into humans relatively recently, and
+spillover events like that tend to be the source of the deadliest outbreaks, because the host hasn't had
 time to adapt. HCMV is the opposite case. It has been shaped by, and shaping, human hosts for a
 very long time, and that history shows up directly in its genome. Recent work on HCMV strain
-collections has found that strains cluster geographically, sequences sampled from southeast
+collections has found that strains cluster geographically: sequences sampled from southeast
 Africa, for instance, sit apart from the rest of the dataset as one of its most distinct groups.
 That's the pattern this post digs into.
 </p>
@@ -58,7 +58,7 @@ If HCMV diversified as it traveled with us, its genomic map should echo our own 
 at least roughly. Human genetic diversity carries a well-documented signature of the
 out-of-Africa expansion: populations that migrated furthest from the origin generally show
 reduced diversity relative to those that stayed closer to it, a serial founder-effect pattern
-repeated at every step of the journey. Immune-related genes are no exception, historic
+repeated at every step of the journey. Immune-related genes are no exception: historic
 migration and the pathogens encountered along the way have measurably shaped how human immune
 variation is distributed across populations today<sup><a href="#ref-4">4</a></sup>.
 </p>
@@ -75,21 +75,21 @@ variation is distributed across populations today<sup><a href="#ref-4">4</a></su
 
 <p>
 Line the two maps up against the HCMV projection above and the parallel is hard to miss: the
-same broad strokes, an African origin, a long Eurasian spread, more isolated founder populations
-at the far ends of the migration routes, show up in both the human genetic record and, more
+same broad strokes (an African origin, a long Eurasian spread, more isolated founder populations
+at the far ends of the migration routes) show up in both the human genetic record and, more
 faintly so far, in HCMV's.
 </p>
 
 <h2>An open question worth testing</h2>
 <p>
-Primary HCMV infection is usually silent in healthy adults, but not always, some people develop
+Primary HCMV infection is usually silent in healthy adults, but not always: some people develop
 mononucleosis<sup><a href="#ref-3">3</a></sup>, and we still don't have a good explanation for why.
 One hypothesis this pattern suggests: HCMV strains that co-evolved with a given human population
 over a long stretch of shared history may simply be better tolerated by descendants of that
-population than a strain introduced more recently from elsewhere, the same logic that makes a
+population than a strain introduced more recently from elsewhere. The same logic that makes a
 pathogen most dangerous right after it jumps into a new host applies, in a milder form, to
 mismatches between a well-adapted virus and an unfamiliar host population. That's a hypothesis,
-not a finding, the strain-clustering pattern above is suggestive, not proof, but it's a concrete,
+not a finding. The strain-clustering pattern above is suggestive, not proof, but it's a concrete,
 testable direction: pairing strain phylogeography with host ancestry and clinical outcome data
 is the natural next step.
 </p>

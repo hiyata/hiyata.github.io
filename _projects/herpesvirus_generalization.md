@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Does a Human-Adaptation Signal Learned in One Herpesvirus Genus Transfer to the Others?
+title: Does a Human-Adaptation Signal Learned in One Herpesvirus Subfamily Transfer to the Others?
 category: virology
-excerpt: A deep neural network trained only on Betaherpesvirus genomes correctly predicts human-host compatibility for Alpha- and Gammaherpesvirus genomes it never saw during training, 79% accuracy on a genuinely held-out genus.
+excerpt: A deep neural network trained only on Betaherpesvirus genomes correctly predicts human-host compatibility for Alpha- and Gammaherpesvirus genomes it never saw during training, 79% accuracy on two genuinely held-out subfamilies.
 presented_at: Lab Retreat Talk
 permalink: /herpesvirus-generalization/
 ---
@@ -21,8 +21,8 @@ permalink: /herpesvirus-generalization/
     <div class="post-page-content">
 
       <p>
-        A genome is a low-dimensional record of everything a virus does inside a cell, entry,
-        replication, persistence, immune evasion, compressed into four letters. The
+        A genome is a low-dimensional record of everything a virus does inside a cell (entry,
+        replication, persistence, immune evasion), compressed into four letters. The
         <a href="{{ '/virus-host-classifier' | relative_url }}">host-range classifier project</a>
         showed that a neural network can pull a human-adaptation signal out of that record using
         nothing but k-mer frequency. This follow-up asks a narrower, harder question: is that
@@ -32,7 +32,7 @@ permalink: /herpesvirus-generalization/
 
       <p>
         <em>Orthoherpesviridae</em> is a good place to ask that question. It splits into three
-        subfamilies, Alpha-, Beta-, and Gammaherpesvirinae, that diverged long ago and differ in
+        subfamilies (Alpha-, Beta-, and Gammaherpesvirinae) that diverged long ago and differ in
         cell tropism, latency strategy, and genome organization, but all share the family's core
         biology. If a model trained only on Betaherpesvirus genomes can still recognize human
         infection in Alpha- and Gammaherpesvirus genomes it has never seen, that's evidence the
@@ -55,7 +55,7 @@ permalink: /herpesvirus-generalization/
         </div>
         <div class="stat-strip-item">
           <span class="stat-strip-value">79%</span>
-          <span class="stat-strip-label">accuracy on that fully unseen genus split</span>
+          <span class="stat-strip-label">accuracy on the fully unseen subfamilies</span>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ permalink: /herpesvirus-generalization/
         We labeled every genome in <em>Orthoherpesviridae</em> human or non-human from NCBI host
         fields and taxonomy, then extracted 6-mer nucleotide frequencies exactly as in the
         host-range classifier. But instead of a random train/test split, the training set was
-        restricted to <em>Betaherpesvirus</em> genomes only (n = 440), human cytomegalovirus,
+        restricted to <em>Betaherpesvirus</em> genomes only (n = 440): human cytomegalovirus,
         HHV-6, HHV-7 and their non-human relatives. Every <em>Alphaherpesvirus</em> (HSV-1, HSV-2,
         VZV) and <em>Gammaherpesvirus</em> (EBV, KSHV) genome, 1,220 sequences in total, was held
         out completely. The model never saw a single one during training.
@@ -84,7 +84,7 @@ permalink: /herpesvirus-generalization/
       <h2>Watching the model learn, epoch by epoch</h2>
       <p>
         After every training epoch, we ran PCA on the model's learned embeddings for the full
-        dataset, training and held-out genera together, and watched how the space reorganized.
+        dataset, training and held-out subfamilies together, and watched how the space reorganized.
         At epoch 1, human and non-human sequences from every subfamily are scattered together
         with no structure. By epoch 25, distinct clusters have formed, and critically, the
         separation shows up not just for the Betaherpesvirus training genomes but for the
@@ -93,7 +93,7 @@ permalink: /herpesvirus-generalization/
 
       <figure class="figure-wide">
         <video src="{{ '/assets/videos/pca_embeddings_video_combined_hcmv_training_pca.webm' | relative_url }}" controls preload="metadata" playsinline></video>
-        <figcaption>PCA of the model's learned embeddings across training epochs, colored by true and predicted host. Structure that starts as noise resolves into clusters that hold up even for genera the model never trained on.</figcaption>
+        <figcaption>PCA of the model's learned embeddings across training epochs, colored by true and predicted host. Structure that starts as noise resolves into clusters that hold up even for subfamilies the model never trained on.</figcaption>
       </figure>
 
       <h2>The result: it generalizes, and the baselines don't</h2>
@@ -110,11 +110,11 @@ permalink: /herpesvirus-generalization/
 
       <p>
         Logistic regression is the most telling failure: 0.00 precision, recall, and F1 on the
-        human class. It didn't just generalize poorly, it never learned a usable linear boundary
-        for human-host signal outside the training genus at all. XGBoost does better overall
-        (66% accuracy) but only by leaning hard on non-human predictions, recall on that class is
-        1.00 while non-human recall is 0.32. The deep network is the only model that holds a
-        genuinely balanced boundary across a genus it never trained on. This result held up
+        human class. It didn't just generalize poorly; it never learned a usable linear boundary
+        for human-host signal outside the training subfamily at all. XGBoost does better overall
+        (66% accuracy) but only by leaning hard on non-human predictions: recall on that class is
+        1.00, while human recall is only 0.32. The deep network is the only model that holds a
+        genuinely balanced boundary across subfamilies it never trained on. This result held up
         across more than 300 architecture and hyperparameter configurations we tested before
         settling on the final design.
       </p>
@@ -122,7 +122,7 @@ permalink: /herpesvirus-generalization/
       <h2>Looking inside a wrong answer</h2>
       <p>
         Aggregate accuracy hides individual failures, and those failures are often the more
-        useful thing to look at. Below is the network's neuron activations for a single held-out
+        useful thing to look at. Below are the network's neuron activations for a single held-out
         genome, Cervid alphaherpesvirus 2 (a non-human virus infecting reindeer), propagating
         through each dense layer to a final prediction. The model calls it human. It's wrong, but
         watching where the activations diverge from a typical non-human pattern is exactly the

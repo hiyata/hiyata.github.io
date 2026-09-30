@@ -85,13 +85,13 @@ permalink: /virus-host-classifier/
         We manually checked 1,000 of Tier 3's AI-powered calls against GenBank records and the
         primary literature. It was right 97.2% of the time, and the misses clustered almost
         entirely around enteroviruses, where the host information genuinely isn't in the
-        metadata, it's only findable by tracking down the associated paper.
+        metadata; it's only findable by tracking down the associated paper.
       </p>
 
       <p>
         The final set: 58,046 genomes, split almost evenly between human-associated (52.0%) and
         non-human-associated (48.0%) sequences. To keep the model honest, we didn't split
-        train/validation/test randomly, near-duplicate strains would leak across the boundary.
+        train/validation/test randomly, because near-duplicate strains would leak across the boundary.
         Instead we clustered 6-mer profiles with UMAP and DBSCAN and kept every sequence in a
         cluster on the same side of the split.
       </p>
@@ -100,7 +100,7 @@ permalink: /virus-host-classifier/
       <p>
         The input feature is deliberately simple: k-mer frequency, the normalized count of every
         possible substring of length <em>k</em> in a genome, for k = 3 through 8. No alignment,
-        no gene annotation, no reference genome required, just how often each short nucleotide
+        no gene annotation, no reference genome required: just how often each short nucleotide
         pattern shows up. We benchmarked this feature against three model families: logistic
         regression, random forest, and a small feed-forward neural network (two hidden layers,
         64 and 32 units).
@@ -153,7 +153,7 @@ permalink: /virus-host-classifier/
         up something we didn't expect: viruses with weak predicted human-adaptation
         (rabies, Eastern equine encephalitis) have dramatically higher human fatality rates, while
         viruses with strong predicted adaptation (HPV, human cytomegalovirus) are nearly always
-        mild. The zoonotic middle ground, monkeypox, dengue, West Nile, sits exactly where you'd
+        mild. The zoonotic middle ground (monkeypox, dengue, West Nile) sits exactly where you'd
         expect: transitional probability, epidemic rather than purely fatal.
       </p>
 
@@ -162,11 +162,11 @@ permalink: /virus-host-classifier/
         <p>
           The model kept flagging human roseoloviruses (HHV-6A, HHV-6B, HHV-7) as non-human,
           despite them being common, mild human infections. Ablating individual k-mers traced the
-          signal to fragments of the telomeric repeat <code>TTAGGG</code>, sequence roseoloviruses
+          signal to fragments of the telomeric repeat <code>TTAGGG</code>, a sequence roseoloviruses
           carry at their genome termini to integrate into host chromosome telomeres during
           latency. Almost no other human herpesvirus in the training set uses that persistence
           strategy, so the network had learned to associate telomeric motifs with non-human
-          hosts. It wasn't wrong about the sequence pattern, it had just never seen this
+          hosts. It wasn't wrong about the sequence pattern; it had just never seen this
           particular human trick before. Gallid alphaherpesvirus 2 (Marek's disease virus),
           which uses the same telomeric-integration strategy in chickens, clusters right next to
           the misclassified roseoloviruses in embedding space.
@@ -180,8 +180,8 @@ permalink: /virus-host-classifier/
         trained classifier. Predicted human-adaptation probability separated the two groups
         cleanly (Mann-Whitney and Kolmogorov-Smirnov, both p &lt; 1&times;10<sup>-300</sup>;
         Cohen's d = 2.61), even though the model had never seen a coronavirus during training.
-        Gene-level ablation on paired genomes, bat coronavirus RaTG13 (2013), Wuhan-Hu-1 (2019),
-        and a 2024 human isolate, showed the human-adaptive signal concentrating in ORF1ab, ORF3a,
+        Gene-level ablation on paired genomes (bat coronavirus RaTG13 from 2013, Wuhan-Hu-1 from 2019,
+        and a 2024 human isolate) showed the human-adaptive signal concentrating in ORF1ab, ORF3a,
         E, M, and N as the lineage spent more time circulating in humans.
       </p>
       <p>
@@ -189,7 +189,7 @@ permalink: /virus-host-classifier/
         collected from December 2019 through January 2025, and found a small but statistically
         significant upward drift (p &lt; 0.0001) consistent with the virus continuing to
         accumulate human-adaptive signal well after the initial outbreak. That trend deserves its
-        own interactive chart, one is planned for this page.
+        own interactive chart; one is planned for this page.
       </p>
 
       <h2>Where this goes next</h2>

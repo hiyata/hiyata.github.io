@@ -26,7 +26,7 @@ However, the current state of research is constrained by two primary challenges:
 <div style="text-align: center; margin: 20px 0;">
   <img src="images/sombra_rules-system.png" alt="SOMBRA Rules System" style="max-width: 90%; height: auto;">
   <p style="font-weight: bold; color: black; margin-top: 10px;">
-    Figure 4: Overview of the SOMBRA system for operational modeling of biological replication and adaptation.
+    Overview of the SOMBRA system for operational modeling of biological replication and adaptation.
   </p>
 </div>
 
@@ -57,12 +57,12 @@ SOMBRA offers a novel approach to addressing these challenges by simulating the 
 - **Indel Hotspots**: Positions within indel hotspots are subject to stochastic insertions or deletions.
   
 - **Recombination Events**: These are simulated by mixing segments from different sequences at random breakpoints, enhancing genetic diversity.
+  
+- **Final Output**: The synthetic sequences are saved in FASTA and TSV formats, ready for further analysis.
 
 ### Future Directions
 
 - **Generative Models Integration**: Future versions of SOMBRA will integrate generative models to further improve the biological relevance of the newly generated sequences.
-  
-- **Final Output**: The synthetic sequences are saved in FASTA and TSV formats, ready for further analysis.
 
 <div id="neuralNetwork" style="width: 100%; height: 400px; position: relative;"></div>
 
@@ -90,13 +90,13 @@ The scatterplot above depicts a multidimensional scaling (MDS) analysis of the m
     </div>
   </div>
   <div style="flex: 1; padding-left: 20px;">
-    <p>The scatterplot above depicts a multidimensional scaling (MDS) analysis of the merged reference dataset, revealing genomic clusters associated with the continent where each sample was collected. Notably, African strains cluster on the periphery of the European strains. Strains from the Americas cluster near Europe, although they have a larger range. This finding is consistent with recent publications (1).</p>
+    <p>SOMBRA-generated artificial HCMV genomes largely follow this pattern, with African strains clustering at the periphery of the European and American groups (Figure 1).</p>
   </div>
 </div>
 
 <div style="display: flex; align-items: center; margin-top: 20px;">
   <div style="flex: 1; padding-right: 20px;">
-    <p>SOMBRA-generated artificial HCMV genomes largely follow this pattern, with African strains clustering at the periphery of the European and American groups. Panel A depicts the original output from the MDS analyses, while Panel B shows an inversion of point positions around the centroid, revealing similar patterns with Asian, African, and Oceanic strains on the periphery and European and American strains at the center.</p>
+    <p>Inverting point positions around the centroid (Figure 2) reveals a similar pattern, with Asian, African, and Oceanic strains on the periphery and European and American strains at the center.</p>
   </div>
   <div style="flex: 1;">
     <img src="images/mds_centroid_inversion_artificial.png" alt="mds_centroid_inversion_artificial" style="max-width: 100%; height: auto;">
@@ -106,8 +106,6 @@ The scatterplot above depicts a multidimensional scaling (MDS) analysis of the m
   </div>
 </div>
 
-
-SOMBRA-generated artificial HCMV genomes largely follow this pattern, with African strains clustering at the periphery of the European and American groups. Panel A depicts the original output from the MDS analyses, while Panel B shows an inversion of point positions around the centroid, revealing similar patterns with Asian, African, and Oceanic strains on the periphery and European and American strains at the center.
 
 <div style="display: flex; align-items: flex-start;">
   <div style="flex: 1;">
@@ -172,7 +170,7 @@ With this, we hope that the continued development of SOMBRA leads to a powerful 
 
 ## Dataset 
 
-The map below displays the geographical locations where each was collected. Their strains and ID are attached as well. 
+The map below shows where each strain was collected, with the strain names and IDs listed alongside.
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
     <div style="width: 60%;">
