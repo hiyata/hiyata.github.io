@@ -45,6 +45,18 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      # Opens every page in headless Chromium; a JS error, a missing file or
+      # a broken internal link fails here, so the broken build never deploys.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Smoke-test the built site
+        run: |
+          npm install --no-save --no-package-lock playwright@1
+          npx playwright install --with-deps chromium
+          node .github/scripts/smoke_test.mjs _site
+
       - uses: actions/upload-pages-artifact@v3
 
   deploy:
