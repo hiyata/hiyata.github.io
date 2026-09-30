@@ -167,7 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((response) => response.text())
       .then((data) => {
         const viewer = window.$3Dmol.createViewer(container, {
-          backgroundColor: 'transparent',
+          backgroundColor: 'white',
+          backgroundAlpha: 0,
         });
         viewer.addModel(data, 'pdb');
         viewer.setStyle({}, { cartoon: { color: 'spectrum' } });

@@ -5,6 +5,7 @@ excerpt: A working reference on applying machine learning to epidemiology and vi
 category: ai
 custom_css: machine-learning-cookbook
 custom_js: machine-learning-cookbook
+math: true
 ---
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>

@@ -4,6 +4,7 @@ title: Project Showcase
 permalink: /projects/
 custom_css: projects
 custom_js: projects
+aos: true
 ---
 
 <header class="projects-header">
