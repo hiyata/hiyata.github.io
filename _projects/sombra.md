@@ -795,7 +795,7 @@ function createScatterPlot(data) {
 
 // Main function to load and process data
 function loadData() {
-    Papa.parse('hcmv_strains.csv', {
+    Papa.parse('{{ "/assets/csv_files/hcmv_strains.csv" | relative_url }}', {
         download: true,
         header: true,
         complete: function(results) {
