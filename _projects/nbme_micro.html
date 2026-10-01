@@ -446,7 +446,7 @@ date: 2026-09-28
   /* ---------- Encyclopedia overlay ---------- */
   .nbme-enc-overlay{
     /* The overlay is appended to <body>, outside .nbme-app, so it cannot inherit
-       the app's custom properties — it carries its own copy of the palette. */
+       the app's custom properties: it carries its own copy of the palette. */
     --nbme-navy:#1c3f6e; --nbme-bar-ink:#ffffff; --nbme-card:#ffffff;
     --nbme-page:#f4f5f7; --nbme-border:#d3d7dc; --nbme-border-soft:#e6e8eb;
     --nbme-ink:#1a1a1a; --nbme-muted:#65707d;
@@ -470,15 +470,19 @@ date: 2026-09-28
     background: var(--nbme-navy); color: var(--nbme-bar-ink);
     padding:0.7rem 1rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;
   }
-  .nbme-enc-head h2{ margin:0; font-size:1rem; font-weight:700; letter-spacing:0.01em; }
+  .nbme-enc-head h2{ margin:0; font-size:1rem; font-weight:700; letter-spacing:0.01em; color: var(--nbme-bar-ink); }
   .nbme-enc-head .sub{ font-size:0.72rem; opacity:0.75; }
   .nbme-enc-head .nbme-spacer{ flex:1 1 auto; }
   .nbme-enc-close{
     background: rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.3);
     color:#fff; font-size:1.05rem; line-height:1; cursor:pointer; border-radius:3px;
-    width:30px; height:30px; flex:none;
+    width:30px; height:30px; flex:none; display:flex; align-items:center; justify-content:center;
   }
   .nbme-enc-close:hover{ background: rgba(255,255,255,0.28); }
+  .nbme-enc-overlay.fullscreen .nbme-enc-panel{
+    width:100%; max-width:none; height:100%; border-radius:0;
+  }
+  .nbme-enc-overlay.fullscreen{ padding:0; }
 
   .nbme-enc-toolbar{
     display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;
@@ -603,6 +607,56 @@ date: 2026-09-28
     margin:0.25rem 0.3rem 0 0; font-family: var(--nbme-sans);
   }
   .nbme-enc-related button:hover{ background: var(--nbme-accent); color:#fff; }
+
+  /* Beyond Step 1: history/timeline and current research, collapsed by default
+     so it never competes with the exam-relevant sections above it. */
+  .nbme-enc-beyond{
+    margin-top:1.4rem; border:1px solid var(--nbme-border); border-radius:4px;
+    background:#fbfcfd;
+  }
+  .nbme-enc-beyond > summary{
+    list-style:none; cursor:pointer; padding:0.65rem 0.9rem; font-size:0.86rem;
+    font-weight:700; color: var(--nbme-navy); display:flex; align-items:center; gap:0.5rem;
+    user-select:none;
+  }
+  .nbme-enc-beyond > summary::-webkit-details-marker{ display:none; }
+  .nbme-enc-beyond > summary::before{
+    content:'\25B8'; display:inline-block; transition:transform 0.15s ease; font-size:0.8em;
+  }
+  .nbme-enc-beyond[open] > summary::before{ transform:rotate(90deg); }
+  .nbme-enc-beyond > summary .hint{ font-weight:400; color: var(--nbme-muted); font-size:0.78rem; }
+  .nbme-enc-beyond-body{ padding:0.2rem 1rem 1rem; border-top:1px solid var(--nbme-border-soft); }
+  .nbme-enc-beyond h4{
+    font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color: var(--nbme-muted);
+    margin:1rem 0 0.5rem;
+  }
+  .nbme-enc-beyond h4:first-child{ margin-top:0.9rem; }
+
+  .nbme-enc-timeline{ display:flex; flex-direction:column; gap:0.3rem; margin:0 0 0.9rem; }
+  .nbme-enc-tl-item{
+    border:1px solid var(--nbme-border-soft); border-radius:3px; background:#fff; overflow:hidden;
+  }
+  .nbme-enc-tl-btn{
+    width:100%; display:flex; align-items:baseline; gap:0.6rem; text-align:left;
+    background:none; border:none; cursor:pointer; padding:0.4rem 0.6rem; font-family: var(--nbme-sans);
+  }
+  .nbme-enc-tl-btn .y{ flex:none; font-weight:700; font-size:0.78rem; color: var(--nbme-primary); min-width:3.6em; }
+  .nbme-enc-tl-btn .label{ font-size:0.84rem; color: var(--nbme-ink); }
+  .nbme-enc-tl-btn::after{ content:'\25BE'; margin-left:auto; flex:none; color: var(--nbme-muted); font-size:0.75em; }
+  .nbme-enc-tl-item.open .nbme-enc-tl-btn::after{ transform:rotate(180deg); display:inline-block; }
+  .nbme-enc-tl-detail{
+    display:none; padding:0 0.6rem 0.6rem 4.2em; font-size:0.83rem; line-height:1.55; color: var(--nbme-ink);
+  }
+  .nbme-enc-tl-item.open .nbme-enc-tl-detail{ display:block; }
+
+  .nbme-enc-reviews{ list-style:none; margin:0 0 0.3rem; padding:0; display:flex; flex-direction:column; gap:0.4rem; }
+  .nbme-enc-reviews li{
+    font-size:0.83rem; line-height:1.5; padding:0.45rem 0.6rem; background:#fff;
+    border:1px solid var(--nbme-border-soft); border-radius:3px;
+  }
+  .nbme-enc-reviews a{ color: var(--nbme-primary); font-weight:600; text-decoration:none; }
+  .nbme-enc-reviews a:hover{ text-decoration:underline; }
+  .nbme-enc-reviews .meta{ display:block; color: var(--nbme-muted); font-size:0.78rem; margin-top:0.1rem; }
 
   /* Encyclopedia entry point on the setup screen */
   .nbme-enc-promo{
@@ -1133,7 +1187,7 @@ date: 2026-09-28
             '<div class="nbme-enc-promo">' +
               '<div class="txt">' +
                 '<h2>Microbiology Encyclopedia</h2>' +
-                '<p>' + window.NBME_MICRO_ENCYCLOPEDIA.entries.length + ' organisms and topics, each with the underlying science and a Step 1 high-yield layer you can highlight or read on its own. Searchable by organism, disease, toxin, or buzzword &mdash; and available inside a block without losing your place.</p>' +
+                '<p>' + window.NBME_MICRO_ENCYCLOPEDIA.entries.length + ' organisms and topics, each with the underlying science and a Step 1 high-yield layer you can highlight or read on its own. Searchable by organism, disease, toxin, or buzzword, and available inside a block without losing your place.</p>' +
               '</div>' +
               '<button class="nbme-btn" data-enc-open="1">Open Encyclopedia</button>' +
             '</div>'
@@ -1685,7 +1739,7 @@ date: 2026-09-28
       .map(function(x){ return x.e; });
   }
 
-  // Which entries relate to the question currently on screen — offered as chips
+  // Which entries relate to the question currently on screen: offered as chips
   // at the top of the entry so the reader can jump straight to the relevant bug.
   function encRelatedTo(q){
     if(!q || !ENC) return [];
@@ -1779,6 +1833,9 @@ date: 2026-09-28
           '<h2>Microbiology Encyclopedia</h2>' +
           '<span class="sub" id="nbme-enc-sub"></span>' +
           '<div class="nbme-spacer"></div>' +
+          '<button class="nbme-enc-close nbme-enc-fullscreen" id="nbme-enc-fullscreen" title="Full screen" aria-label="Toggle full screen">' +
+            '<svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2H2v4M10 2h4v4M6 14H2v-4M10 14h4v-4"/></svg>' +
+          '</button>' +
           '<button class="nbme-enc-close" id="nbme-enc-close" title="Close (Esc)" aria-label="Close">&times;</button>' +
         '</div>' +
         '<div class="nbme-enc-toolbar">' +
@@ -1804,6 +1861,11 @@ date: 2026-09-28
       if(ev.target === encEl) encClose();
     });
     encEl.querySelector('#nbme-enc-close').addEventListener('click', encClose);
+    encEl.querySelector('#nbme-enc-fullscreen').addEventListener('click', encToggleFullscreen);
+    document.addEventListener('fullscreenchange', function(){
+      var on = document.fullscreenElement === encEl.querySelector('.nbme-enc-panel');
+      encEl.classList.toggle('fullscreen', on);
+    });
 
     var search = encEl.querySelector('#nbme-enc-search');
     search.addEventListener('input', function(){
@@ -1817,7 +1879,7 @@ date: 2026-09-28
       encEl.querySelector('#nbme-enc-detail').scrollTop = 0;
     });
     search.addEventListener('keydown', function(ev){
-      if(ev.key === 'Escape'){ ev.stopPropagation(); encClose(); }
+      if(ev.key === 'Escape' && !document.fullscreenElement){ ev.stopPropagation(); encClose(); }
     });
 
     var hy = encEl.querySelector('#nbme-enc-hy');
@@ -1854,7 +1916,9 @@ date: 2026-09-28
         return;
       }
       var img = ev.target.closest('[data-lightbox-src]');
-      if(img) encLightbox(img.getAttribute('data-lightbox-src'));
+      if(img){ encLightbox(img.getAttribute('data-lightbox-src')); return; }
+      var tl = ev.target.closest('[data-tl-toggle]');
+      if(tl) tl.closest('.nbme-enc-tl-item').classList.toggle('open');
     });
 
     return encEl;
@@ -1871,10 +1935,52 @@ date: 2026-09-28
     return '<details class="nbme-credits"><summary>Image credits (' + files.length + ')</summary><ul>' +
       files.map(function(f){
         var c = ENC_CREDIT[f];
-        return '<li><b>' + esc(f) + '</b> \u2014 <a href="' + esc(c.page) + '" target="_blank" rel="noopener">' +
+        return '<li><b>' + esc(f) + '</b>: <a href="' + esc(c.page) + '" target="_blank" rel="noopener">' +
                esc(String(c.title).replace(/^File:/, '')) + '</a>' +
                (c.artist ? ', ' + esc(c.artist) : '') + ' (' + esc(c.lic || 'see source') + ')</li>';
       }).join('') + '</ul></details>';
+  }
+
+  // History/timeline and current-research are collapsed by default: they sit
+  // below every Step 1 section so a reader skimming for exam content never
+  // has to scroll past them. <details> gives free collapse + keyboard support.
+  function encBeyondHtml(e){
+    var hist = e.history || {p: [], timeline: []};
+    var res = e.research || {p: [], reviews: []};
+    var hasHist = (hist.p && hist.p.length) || (hist.timeline && hist.timeline.length);
+    var hasRes = (res.p && res.p.length) || (res.reviews && res.reviews.length);
+    if(!hasHist && !hasRes) return '';
+
+    var body = '';
+    if(hasHist){
+      body += '<h4>History &amp; discovery</h4>' +
+        hist.p.map(function(t){ return '<p class="nbme-enc-p">' + esc(t) + '</p>'; }).join('');
+      if(hist.timeline && hist.timeline.length){
+        body += '<div class="nbme-enc-timeline">' + hist.timeline.map(function(tl, i){
+          var hasDetail = !!tl.t;
+          return '<div class="nbme-enc-tl-item" data-tl-i="' + i + '">' +
+            '<button type="button" class="nbme-enc-tl-btn" data-tl-toggle="' + i + '" ' +
+              (hasDetail ? '' : 'disabled') + '>' +
+              '<span class="y">' + esc(tl.y) + '</span><span class="label">' + esc(tl.label) + '</span>' +
+            '</button>' +
+            (hasDetail ? '<div class="nbme-enc-tl-detail">' + esc(tl.t) + '</div>' : '') +
+          '</div>';
+        }).join('') + '</div>';
+      }
+    }
+    if(hasRes){
+      body += '<h4>Current research</h4>' +
+        res.p.map(function(t){ return '<p class="nbme-enc-p">' + esc(t) + '</p>'; }).join('');
+      if(res.reviews && res.reviews.length){
+        body += '<ul class="nbme-enc-reviews">' + res.reviews.map(function(r){
+          return '<li><a href="' + esc(r.url) + '" target="_blank" rel="noopener">' + esc(r.title) + '</a>' +
+            '<span class="meta">' + esc(r.journal) + ', ' + esc(r.year) + '</span></li>';
+        }).join('') + '</ul>';
+      }
+    }
+    return '<details class="nbme-enc-beyond"><summary>Beyond Step 1: history &amp; current research' +
+      '<span class="hint">discovery timeline, open questions, review articles</span></summary>' +
+      '<div class="nbme-enc-beyond-body">' + body + '</div></details>';
   }
 
   function encById(id){
@@ -1986,7 +2092,7 @@ date: 2026-09-28
       '<p class="nbme-enc-summary">' + esc(e.summary) + '</p>' +
       quizHtml +
       (e.treatment ? '<div class="nbme-enc-tx"><b>Treatment.</b> ' + esc(e.treatment) + '</div>' : '') +
-      quickHtml + figsHtml + sectionsHtml + encCreditsHtml(e);
+      quickHtml + figsHtml + sectionsHtml + encCreditsHtml(e) + encBeyondHtml(e);
 
     var quizBtn = host.querySelector('#nbme-enc-quiz-btn');
     if(quizBtn) quizBtn.addEventListener('click', function(){ encQuizOnEntry(e); });
@@ -2013,7 +2119,7 @@ date: 2026-09-28
   var encReturnFocusTo = null;
 
   // Keeps Tab/Shift+Tab cycling inside the modal. Without this, a keyboard user
-  // tabs out of the overlay onto controls in the exam it is covering — invisible
+  // tabs out of the overlay onto controls in the exam it is covering, invisible
   // but still reachable, so Enter/Space there could submit an answer unseen.
   function encFocusables(){
     var sel = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -2059,8 +2165,26 @@ date: 2026-09-28
     setTimeout(function(){ s.focus(); s.select(); }, 30);
   }
 
+  // Prefers the real Fullscreen API (works across screens, hides the browser
+  // chrome on supporting devices); falls back to a CSS-only "maximize" when
+  // it's unavailable or blocked (iOS Safari, some embedded webviews).
+  function encToggleFullscreen(){
+    var panel = encEl.querySelector('.nbme-enc-panel');
+    if(document.fullscreenEnabled === false || !panel.requestFullscreen){
+      encEl.classList.toggle('fullscreen');
+      return;
+    }
+    if(document.fullscreenElement){
+      document.exitFullscreen();
+    } else {
+      panel.requestFullscreen().catch(function(){ encEl.classList.toggle('fullscreen'); });
+    }
+  }
+
   function encClose(){
     if(!encEl) return;
+    if(document.fullscreenElement) document.exitFullscreen();
+    encEl.classList.remove('fullscreen');
     encState.open = false;
     encEl.classList.remove('open');
     document.body.style.overflow = '';
@@ -2075,7 +2199,13 @@ date: 2026-09-28
   }
 
   document.addEventListener('keydown', function(ev){
-    if(ev.key === 'Escape' && encState.open){ encClose(); return; }
+    if(ev.key === 'Escape' && encState.open){
+      // Native fullscreen already consumes this Escape to exit itself; let it,
+      // rather than also closing the whole panel underneath it.
+      if(document.fullscreenElement) return;
+      encClose();
+      return;
+    }
     if(encState.open){ encTrapTab(ev); }
     // Ctrl/Cmd+K opens the encyclopedia from anywhere, as in most reference tools
     if((ev.ctrlKey || ev.metaKey) && (ev.key === 'k' || ev.key === 'K')){

@@ -1117,7 +1117,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "enterococcus",
@@ -1210,7 +1218,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "s-aureus",
@@ -1388,7 +1404,56 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [
+     "Boils and surgical-wound suppuration were already a named clinical problem - 'laudable pus' was once thought a healthy part of healing - when the German surgeon Friedrich Julius Rosenbach gave the organism its name in 1884, coining 'Staphylococcus aureus' for the golden-pigmented clusters he saw under the microscope and linking them to the abscesses he was studying.",
+     "The organism itself had been seen before Rosenbach named it. Robert Koch had noted similar clustered cocci in 1878, and the Scottish surgeon Alexander Ogston, working at Aberdeen in the early 1880s, did the work that mattered most for medicine: he cultured 'micrococci' from surgical abscesses, reproduced abscesses by injecting the culture into animals, and in 1880-1882 argued publicly - against real skepticism from a profession still absorbing germ theory - that a specific organism, not some vague humoral imbalance, caused surgical sepsis. Ogston is the one usually credited with first connecting the clustered coccus to suppurative disease; Rosenbach supplied the name and the first pure culture characterization.",
+     "The next defining chapter was resistance, not discovery. Penicillin, introduced into general use in the early 1940s, was followed within a few years by penicillinase-producing strains; by the 1950s hospital outbreaks of penicillin-resistant staph were common enough to be a named problem. Methicillin was released in 1959 specifically to get around the penicillinase, and the first methicillin-resistant isolate was reported in England by 1961 - resistance to the fix arrived before the fix had even spread. The mecA gene and the PBP2a protein it encodes were worked out molecularly only decades later, but the clinical pattern (a new drug, rapid local triumph, resistant strains within a few years) was already established as the organism's signature by the 1960s.",
+     "What changed starting in the 1990s was where MRSA was found: no longer only in hospitals and the chronically ill, but in otherwise healthy people with no healthcare contact - athletes, prisoners, children - carrying genetically distinct, community-associated lineages such as USA300 that often carried Panton-Valentine leukocidin. That shift, documented through the 1990s and crystallized in US outbreak reports around 2003-2005, reframed S. aureus from a hospital problem into a community one and is the direct ancestor of the surveillance and infection-control practices still in place today."
+    ],
+    "timeline": [
+     {
+      "y": "1880-1882",
+      "label": "Ogston links clustered cocci to surgical abscesses",
+      "t": "Alexander Ogston cultures 'micrococci' from human abscesses, reproduces abscesses in mice and guinea pigs by injecting the culture, and presents the case that a specific living organism - not a nonspecific humoral process - causes surgical sepsis, at a time when germ theory was still being argued over in surgical wards."
+     },
+     {
+      "y": "1884",
+      "label": "Rosenbach names Staphylococcus aureus",
+      "t": "Friedrich Julius Rosenbach isolates the organism in pure culture and names it for the golden (aureus) pigment of its colonies, formally distinguishing it from the white-colonied staphylococci later called S. albus (now largely S. epidermidis)."
+     },
+     {
+      "y": "1928-1940s",
+      "label": "Penicillin, then the first resistant strains",
+      "t": "Penicillin's antistaphylococcal activity, discovered by Fleming in 1928, enters clinical use in the early 1940s; penicillinase-producing resistant strains are already a recognized hospital problem by the late 1940s, only a few years into widespread use."
+     },
+     {
+      "y": "1959-1961",
+      "label": "Methicillin, and MRSA almost immediately",
+      "t": "Methicillin is introduced in 1959 to evade staphylococcal penicillinase; the first methicillin-resistant S. aureus isolate is reported in England in 1961, before methicillin resistance mechanisms were even understood."
+     },
+     {
+      "y": "1996-2003",
+      "label": "Community-associated MRSA emerges",
+      "t": "Genetically distinct MRSA lineages carrying Panton-Valentine leukocidin begin causing skin and soft-tissue infections, and necrotizing pneumonia, in people with no hospital contact; US case clusters reported through the early 2000s establish 'community-associated MRSA' as a distinct epidemiologic category from hospital-associated strains."
+     }
+    ]
+   },
+   "research": {
+    "p": [
+     "Active areas include anti-virulence strategies that neutralize toxins or block quorum sensing (the agr system) rather than killing the organism outright, aiming to disarm S. aureus without the selection pressure that drives resistance; vaccine candidates targeting surface adhesins and toxins, which have so far had a difficult track record in human trials despite protecting animals; and phage therapy and monoclonal antibodies against toxins such as alpha-hemolysin as adjuncts for severe or recurrent infection.",
+     "A major open question is why every S. aureus vaccine tested in humans to date has failed despite strong preclinical data - the leading explanations involve the organism's redundant and overlapping virulence factors, its ability to subvert antibody function (via protein A and other mechanisms), and the limits of animal models that do not reproduce human immune memory to a lifelong colonizer."
+    ],
+    "reviews": [
+     {
+      "title": "Staphylococcus aureus: A Review of the Pathogenesis and Virulence Mechanisms",
+      "journal": "Antibiotics (MDPI)",
+      "year": "2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12108373/"
+     }
+    ]
+   }
   },
   {
    "id": "s-agalactiae",
@@ -1480,7 +1545,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "s-pneumoniae",
@@ -1607,7 +1680,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "s-pyogenes",
@@ -1748,7 +1829,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "viridans",
@@ -1837,7 +1926,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "actino-nocardia",
@@ -1927,7 +2024,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "bacillus",
@@ -2030,7 +2135,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "clostridia",
@@ -2141,7 +2254,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "c-diphtheriae",
@@ -2236,7 +2357,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "listeria",
@@ -2323,7 +2452,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "neisseria",
@@ -2454,7 +2591,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "bordetella",
@@ -2529,7 +2674,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "haemophilus",
@@ -2621,7 +2774,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "legionella",
@@ -2704,7 +2865,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "pseudomonas",
@@ -2804,7 +2973,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "zoonotic-gneg",
@@ -2916,7 +3093,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "e-coli",
@@ -3013,7 +3198,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "klebsiella",
@@ -3117,7 +3310,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "salm-shig",
@@ -3223,7 +3424,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "vibrio-campy-hpylori",
@@ -3338,7 +3547,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "borrelia",
@@ -3449,7 +3666,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "leptospira",
@@ -3515,7 +3740,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "treponema",
@@ -3634,7 +3867,61 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [
+     "Syphilis appeared in Europe as an explosive, highly lethal epidemic starting around 1494-1495, during and after the French invasion of Naples, which is why the disease was called 'the French disease' by the Italians, 'the Neapolitan disease' by the French, and a dozen other nationality-blaming names across Europe within a decade. Where it came from before that is still debated: the 'Columbian hypothesis' holds that it came back to Europe with Columbus's crews from the Americas in 1493, while a competing view holds that it existed in Europe earlier in a milder or unrecognized form and simply became more virulent or more noticed. Skeletal evidence has been used to argue both sides and the question is not fully settled.",
+     "For roughly four centuries the cause was unknown and treatment was mercury, given by ointment, fumigation, or injection, which was toxic and only marginally effective - the old joke that medicine let you 'be in Venus for a night and pay for it with Mercury for a lifetime' describes a real and common clinical experience. Syphilis, gonorrhea, and other conditions were also not reliably distinguished from each other for most of this period, muddying both diagnosis and the historical record of what was actually being treated.",
+     "The causative organism was only identified in 1905, when the zoologist Fritz Schaudinn and the dermatologist Erich Hoffmann, examining material from syphilitic lesions in Berlin, found thin corkscrew-shaped organisms under dark-field microscopy and named them Spirochaeta pallida (later reclassified to the genus Treponema) for how faintly they stained. Within a year, August von Wassermann developed a complement-fixation blood test for antibody to the organism - the first practical syphilis blood test and the ancestor of the nontreponemal tests still used for monitoring treatment today.",
+     "Treatment improved stepwise rather than all at once: Paul Ehrlich's arsenical compound Salvarsan (1910) was a genuine advance over mercury and one of the first deliberately designed chemotherapeutic drugs in medical history, but it was still toxic and required a long course. Penicillin, shown to cure syphilis by John Mahoney's US Public Health Service group in 1943, was the real turning point and remains, more than eighty years and billions of treated infections later, a drug the organism has still never evolved resistance to. The same decades also produced one of the most notorious ethical failures in the history of American medicine: the US Public Health Service's Tuskegee study (1932-1972) tracked the natural history of untreated syphilis in Black men in Alabama without their informed consent, and continued withholding known-effective penicillin from study participants long after 1943, a scandal that still shapes research-ethics regulation today."
+    ],
+    "timeline": [
+     {
+      "y": "1494-1495",
+      "label": "Syphilis explodes across Europe",
+      "t": "A severe, rapidly lethal epidemic of a new-seeming disease spreads with French and other armies in and after the siege of Naples; contemporaries disagree about where it came from but agree it is new and terrifying, and nationality-blaming names for it spread across Europe within a decade."
+     },
+     {
+      "y": "1905",
+      "label": "Schaudinn and Hoffmann find the organism",
+      "t": "Working in Berlin, zoologist Fritz Schaudinn and dermatologist Erich Hoffmann identify a thin, corkscrew-shaped spirochete in material from syphilitic lesions and name it Spirochaeta (later Treponema) pallidum."
+     },
+     {
+      "y": "1906",
+      "label": "Wassermann develops the first blood test",
+      "t": "August von Wassermann introduces a complement-fixation test for antitreponemal antibody, making syphilis the first major infection diagnosable by a standardized blood test rather than clinical appearance alone."
+     },
+     {
+      "y": "1910",
+      "label": "Salvarsan: an early designed chemotherapy",
+      "t": "Paul Ehrlich's arsenical compound Salvarsan becomes the first real alternative to centuries of mercury treatment, though it is still toxic and a precursor to, rather than a solution for, modern antimicrobial therapy."
+     },
+     {
+      "y": "1932-1972",
+      "label": "The Tuskegee study",
+      "t": "The US Public Health Service begins observing the untreated natural history of syphilis in Black men in Macon County, Alabama, without informed consent, and continues withholding treatment for decades after penicillin is shown to cure the disease; the study is exposed by press reporting in 1972 and later prompts the Belmont Report and modern human-subjects research regulation."
+     },
+     {
+      "y": "1943",
+      "label": "Penicillin cures syphilis",
+      "t": "John Mahoney and colleagues at the US Public Health Service demonstrate that penicillin cures syphilis, replacing arsenicals as first-line treatment; T. pallidum has not developed clinically significant penicillin resistance in the more than eight decades since."
+     }
+    ]
+   },
+   "research": {
+    "p": [
+     "Global case counts have risen sharply since the 2000s, including congenital syphilis, which has driven renewed interest in a vaccine - something that has never existed for this disease, partly because T. pallidum cannot be cultured in standard artificial media, which has historically slowed laboratory study of its surface proteins and limited reagent availability.",
+     "Current work focuses on the organism's small set of rare outer-membrane proteins (which it minimizes, likely as an immune-evasion strategy, making them harder to target but also attractive vaccine candidates), antigenic variation in the TprK protein as a mechanism of immune escape and reinfection, and genomic surveillance of circulating strains, including monitoring for macrolide resistance (already common, which is why azithromycin is no longer first-line) and watching closely for any sign of emerging penicillin resistance."
+    ],
+    "reviews": [
+     {
+      "title": "Resurgence of syphilis: focusing on emerging clinical strategies and preclinical models",
+      "journal": "Journal of Translational Medicine",
+      "year": "2023",
+      "url": "https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-023-04685-4"
+     }
+    ]
+   }
   },
   {
    "id": "mtb",
@@ -3774,7 +4061,61 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [
+     "Tuberculosis is ancient - DNA evidence and characteristic skeletal lesions (Pott disease of the spine) place it in human populations for thousands of years, and it was a leading cause of death in industrializing Europe by the 18th and 19th centuries, when it was known as 'consumption' or 'phthisis' for the way it visibly wasted its victims. Before the organism was known, tuberculosis was widely believed to be hereditary, or a disease of poets and artists linked to a particular temperament (the Romantic-era 'consumptive' image), rather than a contagious infection - an idea that persisted in lay culture even after the scientific case for contagion was made.",
+     "Robert Koch changed that on March 24, 1882, when he announced to the Berlin Physiological Society that he had identified, stained, and cultured a specific bacillus from tubercular tissue and shown it caused the disease in animals - fulfilling what became known as Koch's postulates, a set of criteria for proving a microbe causes a specific disease that he had developed partly through this very work. The announcement is considered one of the foundational moments of medical microbiology, and March 24 is marked as World Tuberculosis Day for exactly this reason. Koch's bacillus was slow to grow and difficult to stain by ordinary methods, which is why acid-fast staining (developed soon after by Paul Ehrlich and refined by Franz Ziehl and Friedrich Neelsen) became essential to working with it.",
+     "For sixty years after Koch's discovery, treatment remained primarily environmental: sanatoriums offering rest, fresh air, and good nutrition, sometimes combined with collapse therapy (deliberately collapsing a lung, surgically or by inducing a pneumothorax, to 'rest' diseased tissue) - measures that helped some patients but had no direct antimicrobial effect and left mortality high. The era of real chemotherapy began with streptomycin, isolated from Streptomyces griseus by Albert Schatz working in Selman Waksman's lab and first used against TB in 1944; isoniazid followed in the early 1950s and rifampin in the 1960s, and the combination regimens built from these drugs are the direct ancestors of the RIPE therapy used today.",
+     "The BCG vaccine, derived by Albert Calmette and Camille Guerin from an attenuated strain of Mycobacterium bovis, was first given to humans in 1921 and remains the only TB vaccine in widespread use a century later - it protects children against severe disseminated and meningeal disease reasonably well but gives inconsistent, often poor protection against adult pulmonary disease, which is the single biggest reason TB remains a leading infectious killer worldwide despite a century of vaccination and seventy years of effective drugs."
+    ],
+    "timeline": [
+     {
+      "y": "1882",
+      "label": "Koch identifies the tubercle bacillus",
+      "t": "Robert Koch announces to the Berlin Physiological Society that he has isolated, cultured, and demonstrated the causative role of Mycobacterium tuberculosis, applying what became known as Koch's postulates and marking one of the founding moments of medical microbiology; the date is now observed as World Tuberculosis Day."
+     },
+     {
+      "y": "1908-1910s",
+      "label": "Acid-fast staining refined",
+      "t": "Franz Ziehl and Friedrich Neelsen refine an acid-fast staining method (building on earlier work by Paul Ehrlich and Robert Koch) that remains, in essentially its original form, the standard rapid stain for AFB smears today."
+     },
+     {
+      "y": "1921",
+      "label": "BCG vaccine first given to humans",
+      "t": "Albert Calmette and Camille Guerin, after years developing an attenuated Mycobacterium bovis strain, give the first human dose of what becomes the BCG vaccine, still the only TB vaccine in routine use a century later."
+     },
+     {
+      "y": "1943-1944",
+      "label": "Streptomycin: the first effective anti-TB drug",
+      "t": "Albert Schatz, working in Selman Waksman's laboratory, isolates streptomycin from Streptomyces griseus; it is first used clinically against tuberculosis in 1944 and is the first antibiotic shown to cure the disease, ending the sanatorium era."
+     },
+     {
+      "y": "1952",
+      "label": "Isoniazid introduced",
+      "t": "Isoniazid is introduced into clinical use and rapidly becomes a backbone drug once combination therapy is shown necessary to prevent the resistance that emerged quickly with streptomycin used alone."
+     },
+     {
+      "y": "1960s",
+      "label": "Rifampin and the modern multidrug regimen",
+      "t": "Rifampin's introduction completes the drug set that, combined with pyrazinamide and ethambutol, forms the modern short-course RIPE regimen still used for drug-susceptible disease today."
+     }
+    ]
+   },
+   "research": {
+    "p": [
+     "Current priorities include shorter and simpler treatment regimens (four-month and even shorter all-oral regimens for drug-susceptible and drug-resistant disease have shown promise in recent trials), new or improved vaccines beyond century-old BCG (several candidates, including M72/AS01E, are in late-stage trials aiming for better protection against adult pulmonary disease), and better point-of-care diagnostics for rifampin and isoniazid resistance in low-resource settings.",
+     "A central unsolved problem is latent infection itself: roughly a quarter of the world's population is estimated to carry latent M. tuberculosis, the biology of what keeps most of those infections dormant for life while a minority reactivate is incompletely understood, and there is no reliable biomarker that distinguishes a latent infection likely to reactivate from one that never will - which is why current practice treats latency as a binary risk category rather than a graded one."
+    ],
+    "reviews": [
+     {
+      "title": "Mycobacterium tuberculosis: Pathogenesis and therapeutic targets",
+      "journal": "MedComm",
+      "year": "2023",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10477518/"
+     }
+    ]
+   }
   },
   {
    "id": "ntm",
@@ -3861,7 +4202,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "chlamydia",
@@ -3960,7 +4309,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "other-bacteria",
@@ -4033,7 +4390,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "mycoplasma",
@@ -4104,7 +4469,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "rickettsia",
@@ -4204,7 +4577,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "hpv-polyoma-pox",
@@ -4318,7 +4699,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "herpesviruses",
@@ -4481,7 +4870,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "arbo-other-rna",
@@ -4595,7 +4992,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "picorna-calici",
@@ -4687,7 +5092,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "hiv",
@@ -4802,7 +5215,66 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [
+     "Clusters of unusual illness - Pneumocystis pneumonia and Kaposi sarcoma in previously healthy young gay men - were first formally reported by the CDC in June and July 1981. Because early cases were concentrated in gay men, the condition was initially called GRID (gay-related immune deficiency) and even informally 'gay cancer' in some press coverage, a framing that both stigmatized patients and delayed recognition that the disease was spreading in other groups - hemophiliacs receiving factor concentrate, injection drug users, and recipients of blood transfusions - which made clear by 1982 that the cause was an infectious agent transmitted by blood and sexual contact, not anything specific to sexual orientation. The CDC introduced the name AIDS (acquired immunodeficiency syndrome) in September 1982 specifically to correct course.",
+     "The causative virus was isolated in 1983 by Francoise Barre-Sinoussi and Luc Montalier's group at the Pasteur Institute in Paris, who called it LAV (lymphadenopathy-associated virus); Robert Gallo's group at the US National Cancer Institute reported a closely related virus in 1984 that they called HTLV-III, and for a period the two labs' claims to priority, and to credit for a promising blood test, became a genuine international scientific and legal dispute between the French and US governments, settled in 1987 with an agreement to share credit and royalties. The viruses were eventually recognized as the same one, renamed HIV in 1986, and in 2008 Barre-Sinoussi and Montagnier (but notably not Gallo) were awarded the Nobel Prize in Physiology or Medicine for the discovery.",
+     "The first antiretroviral drug, zidovudine (AZT), was approved in 1987 after a strikingly fast trial, but used alone it only delayed progression and resistance emerged quickly - the late 1980s and early 1990s remained a period of near-certain progression to death after diagnosis, and the activism of patient groups such as ACT UP during these years was a major force in accelerating drug approval processes and research funding. The turning point was 1995-1996, when protease inhibitors became available and clinical trials established that combining three drugs from different classes - highly active antiretroviral therapy (HAART) - could suppress the virus durably rather than just slowing it; mortality in treated populations fell dramatically within just a year or two of HAART's introduction, one of the fastest transformations of a uniformly fatal disease into a manageable chronic one in the history of medicine.",
+     "Since then the frontier has moved from survival to cure and prevention: the 'Berlin patient,' Timothy Ray Brown, became the first person cured of HIV in 2008 after a bone marrow transplant (for leukemia, not for HIV) from a donor with the naturally HIV-resistant CCR5-delta32 mutation, a result replicated in a handful of similar transplant cases since; pre-exposure prophylaxis was approved in 2012 and has become a major prevention tool; and the research effort has shifted heavily toward understanding and eliminating the latent reservoir of integrated provirus that antiretroviral therapy controls but cannot clear, which is the central barrier to a cure for the tens of millions of people living with HIV today."
+    ],
+    "timeline": [
+     {
+      "y": "1981",
+      "label": "First cases recognized",
+      "t": "The CDC reports clusters of Pneumocystis pneumonia and Kaposi sarcoma in previously healthy young gay men in Los Angeles and New York; the disease is initially called GRID before its spread through blood products and other routes makes clear it is an infectious disease of the blood and sexual contact, not of any one group."
+     },
+     {
+      "y": "1982",
+      "label": "The name AIDS replaces GRID",
+      "t": "The CDC introduces 'acquired immunodeficiency syndrome' (AIDS) to replace the stigmatizing 'GRID' label, reflecting the recognition that hemophiliacs, transfusion recipients, and injection drug users were also affected."
+     },
+     {
+      "y": "1983-1984",
+      "label": "The virus is isolated, twice",
+      "t": "Francoise Barre-Sinoussi and Luc Montagnier's team in Paris isolate LAV; Robert Gallo's team in the US isolates HTLV-III. The two are later shown to be the same virus, renamed HIV in 1986, after a priority dispute between the French and US teams that was formally settled by treaty in 1987."
+     },
+     {
+      "y": "1987",
+      "label": "Zidovudine (AZT): the first antiretroviral",
+      "t": "AZT becomes the first approved anti-HIV drug after an unusually fast trial; used as monotherapy it only delays disease progression, since resistance emerges quickly against a single agent."
+     },
+     {
+      "y": "1995-1996",
+      "label": "Combination therapy (HAART) changes everything",
+      "t": "Protease inhibitors reach the clinic and trials establish that three-drug combination therapy durably suppresses the virus; population mortality among treated patients falls sharply within one to two years, transforming AIDS from a near-certain death sentence into a manageable chronic infection."
+     },
+     {
+      "y": "2008",
+      "label": "First cure, and a Nobel Prize",
+      "t": "Timothy Ray Brown (the 'Berlin patient') is cured of HIV after a bone marrow transplant from a CCR5-delta32 donor given for his leukemia; the same year, Barre-Sinoussi and Montagnier share the Nobel Prize in Physiology or Medicine for discovering the virus."
+     },
+     {
+      "y": "2012",
+      "label": "PrEP approved",
+      "t": "Tenofovir-emtricitabine is approved for pre-exposure prophylaxis, giving HIV-negative people at substantial risk a highly effective prevention tool outside of condoms and treatment-as-prevention."
+     }
+    ]
+   },
+   "research": {
+    "p": [
+     "The central problem for cure research is the latent reservoir: a small pool of resting CD4 cells carrying integrated, transcriptionally silent provirus that antiretroviral therapy does not touch and that reignites viremia within weeks if treatment stops. 'Shock and kill' strategies try to force the reservoir to express viral antigen so the immune system or targeted therapies can clear it; 'block and lock' strategies try to push it deeper into permanent silence instead; broadly neutralizing antibodies and therapeutic vaccines are being tested as ways to control rebound without daily pills.",
+     "Prevention has moved toward long-acting and even infrequent dosing - injectable cabotegravir given every two months is now available, and longer-acting formulations and implants are in trials - aimed at the real-world adherence problems that limit daily oral PrEP, especially in the regions carrying the largest burden of new infections."
+    ],
+    "reviews": [
+     {
+      "title": "Progress Note 2024: Curing HIV; Not in My Lifetime or Just Around the Corner?",
+      "journal": "Pathogens and Immunity",
+      "year": "2024",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10919397/"
+     }
+    ]
+   }
   },
   {
    "id": "influenza",
@@ -4888,7 +5360,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "paramyxo",
@@ -4989,7 +5469,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "hepatitis",
@@ -5098,7 +5586,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "aspergillus-mucor",
@@ -5191,7 +5687,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "candida",
@@ -5282,7 +5786,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "crypto-pcp",
@@ -5377,7 +5889,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "superficial-fungi",
@@ -5470,7 +5990,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "dimorphic",
@@ -5568,7 +6096,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "intestinal-protozoa",
@@ -5669,7 +6205,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "malaria-babesia",
@@ -5778,7 +6322,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "tissue-protozoa",
@@ -5908,7 +6460,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "cestodes-trematodes",
@@ -6020,7 +6580,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "nematodes",
@@ -6147,7 +6715,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "antifungal-antiviral",
@@ -6232,7 +6808,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "genetics",
@@ -6318,7 +6902,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "cell-wall-abx",
@@ -6418,7 +7010,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "other-abx",
@@ -6510,7 +7110,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "gram-stain",
@@ -6606,7 +7214,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "syndromes",
@@ -6727,7 +7343,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "protein-synth-abx",
@@ -6819,7 +7443,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   },
   {
    "id": "vaccines",
@@ -6896,7 +7528,15 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
       }
      ]
     }
-   ]
+   ],
+   "history": {
+    "p": [],
+    "timeline": []
+   },
+   "research": {
+    "p": [],
+    "reviews": []
+   }
   }
  ]
 };

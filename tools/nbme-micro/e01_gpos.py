@@ -1,5 +1,5 @@
 """Encyclopedia: Gram-positive cocci and rods."""
-from ecore import E, S, P, H
+from ecore import E, S, P, H, HISTORY, RESEARCH, TL, REVIEW
 
 ENTRIES = [
 E("s-aureus", "Staphylococcus aureus", "Gram-Positive Cocci",
@@ -49,7 +49,26 @@ E("s-aureus", "Staphylococcus aureus", "Gram-Positive Cocci",
       P("Vancomycin-intermediate strains (VISA) thicken the cell wall, filling it with free D-Ala-D-Ala termini that act as decoys and sequester vancomycin before it reaches the membrane where wall synthesis occurs. Fully vancomycin-resistant strains (VRSA) are rare and arise by acquiring the vanA operon from enterococci, which replaces the terminal D-Ala with D-lactate and drops binding affinity a thousandfold."),
       P("Inducible clindamycin resistance is mediated by erm methylases, which methylate 23S rRNA and block macrolides, lincosamides, and streptogramin B. An isolate that is erythromycin-resistant but clindamycin-susceptible is tested with a D-test; a flattened zone between the disks reveals induction and predicts treatment failure."),
     ]),
+  ],
+  history=HISTORY([
+    "Boils and surgical-wound suppuration were already a named clinical problem - 'laudable pus' was once thought a healthy part of healing - when the German surgeon Friedrich Julius Rosenbach gave the organism its name in 1884, coining 'Staphylococcus aureus' for the golden-pigmented clusters he saw under the microscope and linking them to the abscesses he was studying.",
+    "The organism itself had been seen before Rosenbach named it. Robert Koch had noted similar clustered cocci in 1878, and the Scottish surgeon Alexander Ogston, working at Aberdeen in the early 1880s, did the work that mattered most for medicine: he cultured 'micrococci' from surgical abscesses, reproduced abscesses by injecting the culture into animals, and in 1880-1882 argued publicly - against real skepticism from a profession still absorbing germ theory - that a specific organism, not some vague humoral imbalance, caused surgical sepsis. Ogston is the one usually credited with first connecting the clustered coccus to suppurative disease; Rosenbach supplied the name and the first pure culture characterization.",
+    "The next defining chapter was resistance, not discovery. Penicillin, introduced into general use in the early 1940s, was followed within a few years by penicillinase-producing strains; by the 1950s hospital outbreaks of penicillin-resistant staph were common enough to be a named problem. Methicillin was released in 1959 specifically to get around the penicillinase, and the first methicillin-resistant isolate was reported in England by 1961 - resistance to the fix arrived before the fix had even spread. The mecA gene and the PBP2a protein it encodes were worked out molecularly only decades later, but the clinical pattern (a new drug, rapid local triumph, resistant strains within a few years) was already established as the organism's signature by the 1960s.",
+    "What changed starting in the 1990s was where MRSA was found: no longer only in hospitals and the chronically ill, but in otherwise healthy people with no healthcare contact - athletes, prisoners, children - carrying genetically distinct, community-associated lineages such as USA300 that often carried Panton-Valentine leukocidin. That shift, documented through the 1990s and crystallized in US outbreak reports around 2003-2005, reframed S. aureus from a hospital problem into a community one and is the direct ancestor of the surveillance and infection-control practices still in place today.",
+  ], timeline=[
+    TL("1880-1882", "Ogston links clustered cocci to surgical abscesses", "Alexander Ogston cultures 'micrococci' from human abscesses, reproduces abscesses in mice and guinea pigs by injecting the culture, and presents the case that a specific living organism - not a nonspecific humoral process - causes surgical sepsis, at a time when germ theory was still being argued over in surgical wards."),
+    TL("1884", "Rosenbach names Staphylococcus aureus", "Friedrich Julius Rosenbach isolates the organism in pure culture and names it for the golden (aureus) pigment of its colonies, formally distinguishing it from the white-colonied staphylococci later called S. albus (now largely S. epidermidis)."),
+    TL("1928-1940s", "Penicillin, then the first resistant strains", "Penicillin's antistaphylococcal activity, discovered by Fleming in 1928, enters clinical use in the early 1940s; penicillinase-producing resistant strains are already a recognized hospital problem by the late 1940s, only a few years into widespread use."),
+    TL("1959-1961", "Methicillin, and MRSA almost immediately", "Methicillin is introduced in 1959 to evade staphylococcal penicillinase; the first methicillin-resistant S. aureus isolate is reported in England in 1961, before methicillin resistance mechanisms were even understood."),
+    TL("1996-2003", "Community-associated MRSA emerges", "Genetically distinct MRSA lineages carrying Panton-Valentine leukocidin begin causing skin and soft-tissue infections, and necrotizing pneumonia, in people with no hospital contact; US case clusters reported through the early 2000s establish 'community-associated MRSA' as a distinct epidemiologic category from hospital-associated strains."),
   ]),
+  research=RESEARCH([
+    "Active areas include anti-virulence strategies that neutralize toxins or block quorum sensing (the agr system) rather than killing the organism outright, aiming to disarm S. aureus without the selection pressure that drives resistance; vaccine candidates targeting surface adhesins and toxins, which have so far had a difficult track record in human trials despite protecting animals; and phage therapy and monoclonal antibodies against toxins such as alpha-hemolysin as adjuncts for severe or recurrent infection.",
+    "A major open question is why every S. aureus vaccine tested in humans to date has failed despite strong preclinical data - the leading explanations involve the organism's redundant and overlapping virulence factors, its ability to subvert antibody function (via protein A and other mechanisms), and the limits of animal models that do not reproduce human immune memory to a lifelong colonizer.",
+  ], reviews=[
+    REVIEW("Staphylococcus aureus: A Review of the Pathogenesis and Virulence Mechanisms", "Antibiotics (MDPI)", "2025", "https://pmc.ncbi.nlm.nih.gov/articles/PMC12108373/"),
+  ]),
+),
 
 E("cons", "Coagulase-Negative Staphylococci", "Gram-Positive Cocci",
   "Skin commensals that turn pathogenic on plastic: S. epidermidis on devices, S. saprophyticus in the urine of young women, S. lugdunensis behaving like S. aureus.",

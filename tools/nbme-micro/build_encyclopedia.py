@@ -62,6 +62,9 @@ def main():
                 errors.append(f"{e['id']}: missing image {f}")
             elif f not in credits:
                 errors.append(f"{e['id']}: no credit recorded for {f}")
+        for r in e.get("research", {}).get("reviews", []):
+            if not r["url"].startswith(("http://", "https://")):
+                errors.append(f"{e['id']}: review {r['title']!r} has a non-url link {r['url']!r}")
 
     if errors:
         print("ERRORS:")
