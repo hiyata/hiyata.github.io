@@ -20,12 +20,15 @@ def S(heading, paras):
     return {"h": heading, "p": paras}
 
 
-def TL(year, label, text=""):
+def TL(year, label, text="", img=None):
     """One timeline milestone, collapsed to `year` + `label` until the reader
     clicks it open, at which point `text` (a paragraph) is shown. `year` is a
     string so it can be a range or a qualifier ("1928", "1940s", "2003 (SARS)").
+    `img` is an optional filename in assets/images/nbme/micro/ (must be
+    credited in credits.json, same as a section figure) shown as the node's
+    portrait/photo on the timeline rail.
     """
-    return {"y": str(year), "label": label, "t": text}
+    return {"y": str(year), "label": label, "t": text, "img": img or ""}
 
 
 def REVIEW(title, journal, year, url):

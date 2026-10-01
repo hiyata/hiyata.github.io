@@ -632,22 +632,50 @@ date: 2026-09-28
   }
   .nbme-enc-beyond h4:first-child{ margin-top:0.9rem; }
 
-  .nbme-enc-timeline{ display:flex; flex-direction:column; gap:0.3rem; margin:0 0 0.9rem; }
-  .nbme-enc-tl-item{
-    border:1px solid var(--nbme-border-soft); border-radius:3px; background:#fff; overflow:hidden;
+  /* A real timeline rail: a vertical line threading through each node, with a
+     round portrait (when we have one) or a plain dot for milestones that don't. */
+  .nbme-enc-timeline{ position:relative; margin:0.3rem 0 1rem; }
+  .nbme-enc-timeline::before{
+    content:''; position:absolute; left:27px; top:2px; bottom:2px; width:2px;
+    background: var(--nbme-border);
   }
+  .nbme-enc-tl-item{ position:relative; display:flex; gap:0.85rem; padding-bottom:1.15rem; }
+  .nbme-enc-tl-item:last-child{ padding-bottom:0; }
+  .nbme-enc-tl-node{
+    position:relative; z-index:1; flex:none; width:56px; height:56px; border-radius:50%;
+    border:3px solid #fbfcfd; box-shadow:0 0 0 1.5px var(--nbme-border); background:var(--nbme-page);
+    overflow:hidden; padding:0; cursor:zoom-in; transition:box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .nbme-enc-tl-node img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .nbme-enc-tl-node:hover{ box-shadow:0 0 0 1.5px var(--nbme-primary); transform:scale(1.04); }
+  .nbme-enc-tl-node.noimg{
+    width:16px; height:16px; margin:20px; cursor:default; background: var(--nbme-accent);
+    box-shadow:0 0 0 1.5px var(--nbme-border);
+  }
+  .nbme-enc-tl-node.noimg:hover{ transform:none; box-shadow:0 0 0 1.5px var(--nbme-border); }
+  .nbme-enc-tl-main{ flex:1 1 auto; min-width:0; padding-top:0.5rem; }
   .nbme-enc-tl-btn{
     width:100%; display:flex; align-items:baseline; gap:0.6rem; text-align:left;
-    background:none; border:none; cursor:pointer; padding:0.4rem 0.6rem; font-family: var(--nbme-sans);
+    background:none; border:none; cursor:pointer; padding:0; font-family: var(--nbme-sans);
   }
-  .nbme-enc-tl-btn .y{ flex:none; font-weight:700; font-size:0.78rem; color: var(--nbme-primary); min-width:3.6em; }
-  .nbme-enc-tl-btn .label{ font-size:0.84rem; color: var(--nbme-ink); }
-  .nbme-enc-tl-btn::after{ content:'\25BE'; margin-left:auto; flex:none; color: var(--nbme-muted); font-size:0.75em; }
-  .nbme-enc-tl-item.open .nbme-enc-tl-btn::after{ transform:rotate(180deg); display:inline-block; }
+  .nbme-enc-tl-btn .y{ flex:none; font-weight:700; font-size:0.78rem; color: var(--nbme-primary); }
+  .nbme-enc-tl-btn .label{ font-size:0.87rem; color: var(--nbme-ink); font-weight:600; line-height:1.3; }
+  .nbme-enc-tl-btn::after{
+    content:'\25BE'; margin-left:auto; flex:none; color: var(--nbme-muted); font-size:0.75em;
+    transition:transform 0.15s ease;
+  }
+  .nbme-enc-tl-item.open .nbme-enc-tl-btn::after{ transform:rotate(180deg); }
   .nbme-enc-tl-detail{
-    display:none; padding:0 0.6rem 0.6rem 4.2em; font-size:0.83rem; line-height:1.55; color: var(--nbme-ink);
+    display:none; margin-top:0.4rem; font-size:0.83rem; line-height:1.6; color: var(--nbme-ink);
+    padding-right:0.4rem;
   }
   .nbme-enc-tl-item.open .nbme-enc-tl-detail{ display:block; }
+  .nbme-enc-tl-cap{ margin-top:0.35rem; font-size:0.74rem; color: var(--nbme-muted); font-style:italic; }
+  @media (max-width: 480px){
+    .nbme-enc-timeline::before{ left:19px; }
+    .nbme-enc-tl-node{ width:40px; height:40px; }
+    .nbme-enc-tl-node.noimg{ width:14px; height:14px; margin:13px; }
+  }
 
   .nbme-enc-reviews{ list-style:none; margin:0 0 0.3rem; padding:0; display:flex; flex-direction:column; gap:0.4rem; }
   .nbme-enc-reviews li{
@@ -1929,8 +1957,9 @@ date: 2026-09-28
 
   // Every figure is openly licensed; the licence and author travel with it.
   function encCreditsHtml(e){
-    var files = (e.images || []).map(function(im){ return im[0]; })
-                 .filter(function(f){ return ENC_CREDIT[f]; });
+    var tlImgs = ((e.history && e.history.timeline) || []).map(function(tl){ return tl.img; }).filter(Boolean);
+    var files = (e.images || []).map(function(im){ return im[0]; }).concat(tlImgs)
+                 .filter(function(f, i, a){ return ENC_CREDIT[f] && a.indexOf(f) === i; });
     if(!files.length) return '';
     return '<details class="nbme-credits"><summary>Image credits (' + files.length + ')</summary><ul>' +
       files.map(function(f){
@@ -1958,12 +1987,22 @@ date: 2026-09-28
       if(hist.timeline && hist.timeline.length){
         body += '<div class="nbme-enc-timeline">' + hist.timeline.map(function(tl, i){
           var hasDetail = !!tl.t;
+          var src = tl.img ? IMAGE_BASE + tl.img : '';
+          var node = src
+            ? '<button type="button" class="nbme-enc-tl-node" data-lightbox-src="' + esc(src) + '" title="' + esc(tl.label) + '">' +
+                '<img src="' + esc(src) + '" alt="' + esc(tl.label) + '" loading="lazy" /></button>'
+            : '<span class="nbme-enc-tl-node noimg" aria-hidden="true"></span>';
           return '<div class="nbme-enc-tl-item" data-tl-i="' + i + '">' +
-            '<button type="button" class="nbme-enc-tl-btn" data-tl-toggle="' + i + '" ' +
-              (hasDetail ? '' : 'disabled') + '>' +
-              '<span class="y">' + esc(tl.y) + '</span><span class="label">' + esc(tl.label) + '</span>' +
-            '</button>' +
-            (hasDetail ? '<div class="nbme-enc-tl-detail">' + esc(tl.t) + '</div>' : '') +
+            node +
+            '<div class="nbme-enc-tl-main">' +
+              '<button type="button" class="nbme-enc-tl-btn" data-tl-toggle="' + i + '" ' +
+                (hasDetail ? '' : 'disabled') + '>' +
+                '<span class="y">' + esc(tl.y) + '</span><span class="label">' + esc(tl.label) + '</span>' +
+              '</button>' +
+              (hasDetail ? '<div class="nbme-enc-tl-detail">' + esc(tl.t) +
+                (src ? '<div class="nbme-enc-tl-cap">Click the portrait to view it full size.</div>' : '') +
+              '</div>' : '') +
+            '</div>' +
           '</div>';
         }).join('') + '</div>';
       }

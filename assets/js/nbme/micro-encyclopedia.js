@@ -455,6 +455,104 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
    "title": "File:Hand Foot Mouth Disease.png"
   },
   {
+   "file": "hist-barresinoussi.webp",
+   "artist": "Nicolas Chauveau / European Union, 2011 / EC - Audiovisual Service",
+   "lic": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7oise_Barr%C3%A9-Sinoussi,_M%C3%A1ire_Geoghegan-Quinn_%26_Alice_Dautry_-_2011.jpg",
+   "title": "File:Françoise Barré-Sinoussi, Máire Geoghegan-Quinn & Alice Dautry - 2011.jpg"
+  },
+  {
+   "file": "hist-calmette.webp",
+   "artist": "Agence de presse Meurisse",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Albert_Calmette_1923.jpg",
+   "title": "File:Albert Calmette 1923.jpg"
+  },
+  {
+   "file": "hist-ehrlich.webp",
+   "artist": "Unknown",
+   "lic": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Paul_Ehrlich_(1854-1915)_Wellcome_M0019390.jpg",
+   "title": "File:Portrait of Paul Ehrlich (1854-1915) Wellcome M0019390.jpg"
+  },
+  {
+   "file": "hist-gallo.webp",
+   "artist": "NIH",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Robert_Gallo.jpg",
+   "title": "File:Robert Gallo.jpg"
+  },
+  {
+   "file": "hist-guerin.webp",
+   "artist": "Unknown author Unknown author",
+   "lic": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Camille_Gu%C3%A9rin.jpg",
+   "title": "File:Camille Guérin.jpg"
+  },
+  {
+   "file": "hist-hoffmann.webp",
+   "artist": "Unknown author Unknown author",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Erich_Hoffmann_(Hautarzt_-_dermatologist)_at_around_the_age_of_60_(1928).jpg",
+   "title": "File:Erich Hoffmann (Hautarzt - dermatologist) at around the age of 60 (1928).jpg"
+  },
+  {
+   "file": "hist-koch.webp",
+   "artist": "Wilhelm Fechner",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Robert_Koch.jpg",
+   "title": "File:Robert Koch.jpg"
+  },
+  {
+   "file": "hist-mahoney.webp",
+   "artist": "Unknown photographer",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:John_Friend_Mahoney.jpg",
+   "title": "File:John Friend Mahoney.jpg"
+  },
+  {
+   "file": "hist-montagnier.webp",
+   "artist": "Danica Bijeljac",
+   "lic": "CC BY-SA 3.0 igo",
+   "page": "https://commons.wikimedia.org/wiki/File:Luc_Montagnier_-_UNESCO_Photobank_(80344735).jpg",
+   "title": "File:Luc Montagnier - UNESCO Photobank (80344735).jpg"
+  },
+  {
+   "file": "hist-ogston.webp",
+   "artist": "Unknown author Unknown author",
+   "lic": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Alexander_Ogston.jpg",
+   "title": "File:Alexander Ogston.jpg"
+  },
+  {
+   "file": "hist-rosenbach.webp",
+   "artist": "Unknown",
+   "lic": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Anton-Julius-Friedrich-Rosenbach-.jpg",
+   "title": "File:Anton-Julius-Friedrich-Rosenbach-.jpg"
+  },
+  {
+   "file": "hist-schaudinn.webp",
+   "artist": "Meisenbach Riffarth, Berlin",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Fritz_Schaudinn.jpg",
+   "title": "File:Fritz Schaudinn.jpg"
+  },
+  {
+   "file": "hist-waksman.webp",
+   "artist": "New York World-Telegram and the Sun staff photographer: Higgins, Roger, photographer.",
+   "lic": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Selman_Waksman_NYWTS.jpg",
+   "title": "File:Selman Waksman NYWTS.jpg"
+  },
+  {
+   "file": "hist-wassermann.webp",
+   "artist": "Unknown",
+   "lic": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_August_Von_Wassermann_Wellcome_M0012739.jpg",
+   "title": "File:Portrait of August Von Wassermann Wellcome M0012739.jpg"
+  },
+  {
    "file": "histo-mac.webp",
    "artist": "Yale Rosen from USA",
    "lic": "CC BY-SA 2.0",
@@ -1416,27 +1514,32 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
      {
       "y": "1880-1882",
       "label": "Ogston links clustered cocci to surgical abscesses",
-      "t": "Alexander Ogston cultures 'micrococci' from human abscesses, reproduces abscesses in mice and guinea pigs by injecting the culture, and presents the case that a specific living organism - not a nonspecific humoral process - causes surgical sepsis, at a time when germ theory was still being argued over in surgical wards."
+      "t": "Alexander Ogston cultures 'micrococci' from human abscesses, reproduces abscesses in mice and guinea pigs by injecting the culture, and presents the case that a specific living organism - not a nonspecific humoral process - causes surgical sepsis, at a time when germ theory was still being argued over in surgical wards.",
+      "img": "hist-ogston.webp"
      },
      {
       "y": "1884",
       "label": "Rosenbach names Staphylococcus aureus",
-      "t": "Friedrich Julius Rosenbach isolates the organism in pure culture and names it for the golden (aureus) pigment of its colonies, formally distinguishing it from the white-colonied staphylococci later called S. albus (now largely S. epidermidis)."
+      "t": "Friedrich Julius Rosenbach isolates the organism in pure culture and names it for the golden (aureus) pigment of its colonies, formally distinguishing it from the white-colonied staphylococci later called S. albus (now largely S. epidermidis).",
+      "img": "hist-rosenbach.webp"
      },
      {
       "y": "1928-1940s",
       "label": "Penicillin, then the first resistant strains",
-      "t": "Penicillin's antistaphylococcal activity, discovered by Fleming in 1928, enters clinical use in the early 1940s; penicillinase-producing resistant strains are already a recognized hospital problem by the late 1940s, only a few years into widespread use."
+      "t": "Penicillin's antistaphylococcal activity, discovered by Fleming in 1928, enters clinical use in the early 1940s; penicillinase-producing resistant strains are already a recognized hospital problem by the late 1940s, only a few years into widespread use.",
+      "img": ""
      },
      {
       "y": "1959-1961",
       "label": "Methicillin, and MRSA almost immediately",
-      "t": "Methicillin is introduced in 1959 to evade staphylococcal penicillinase; the first methicillin-resistant S. aureus isolate is reported in England in 1961, before methicillin resistance mechanisms were even understood."
+      "t": "Methicillin is introduced in 1959 to evade staphylococcal penicillinase; the first methicillin-resistant S. aureus isolate is reported in England in 1961, before methicillin resistance mechanisms were even understood.",
+      "img": ""
      },
      {
       "y": "1996-2003",
       "label": "Community-associated MRSA emerges",
-      "t": "Genetically distinct MRSA lineages carrying Panton-Valentine leukocidin begin causing skin and soft-tissue infections, and necrotizing pneumonia, in people with no hospital contact; US case clusters reported through the early 2000s establish 'community-associated MRSA' as a distinct epidemiologic category from hospital-associated strains."
+      "t": "Genetically distinct MRSA lineages carrying Panton-Valentine leukocidin begin causing skin and soft-tissue infections, and necrotizing pneumonia, in people with no hospital contact; US case clusters reported through the early 2000s establish 'community-associated MRSA' as a distinct epidemiologic category from hospital-associated strains.",
+      "img": ""
      }
     ]
    },
@@ -3879,32 +3982,44 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
      {
       "y": "1494-1495",
       "label": "Syphilis explodes across Europe",
-      "t": "A severe, rapidly lethal epidemic of a new-seeming disease spreads with French and other armies in and after the siege of Naples; contemporaries disagree about where it came from but agree it is new and terrifying, and nationality-blaming names for it spread across Europe within a decade."
+      "t": "A severe, rapidly lethal epidemic of a new-seeming disease spreads with French and other armies in and after the siege of Naples; contemporaries disagree about where it came from but agree it is new and terrifying, and nationality-blaming names for it spread across Europe within a decade.",
+      "img": ""
      },
      {
       "y": "1905",
       "label": "Schaudinn and Hoffmann find the organism",
-      "t": "Working in Berlin, zoologist Fritz Schaudinn and dermatologist Erich Hoffmann identify a thin, corkscrew-shaped spirochete in material from syphilitic lesions and name it Spirochaeta (later Treponema) pallidum."
+      "t": "Working in Berlin, zoologist Fritz Schaudinn and dermatologist Erich Hoffmann identify a thin, corkscrew-shaped spirochete in material from syphilitic lesions and name it Spirochaeta (later Treponema) pallidum.",
+      "img": "hist-schaudinn.webp"
+     },
+     {
+      "y": "1905",
+      "label": "Hoffmann, the clinician of the pair",
+      "t": "Erich Hoffmann, a dermatologist, supplied the diseased clinical material and the clinical framing; Schaudinn, a zoologist studying protozoa, supplied the microscopy eye that spotted the spirochete moving in it - the discovery needed both specialties.",
+      "img": "hist-hoffmann.webp"
      },
      {
       "y": "1906",
       "label": "Wassermann develops the first blood test",
-      "t": "August von Wassermann introduces a complement-fixation test for antitreponemal antibody, making syphilis the first major infection diagnosable by a standardized blood test rather than clinical appearance alone."
+      "t": "August von Wassermann introduces a complement-fixation test for antitreponemal antibody, making syphilis the first major infection diagnosable by a standardized blood test rather than clinical appearance alone.",
+      "img": "hist-wassermann.webp"
      },
      {
       "y": "1910",
       "label": "Salvarsan: an early designed chemotherapy",
-      "t": "Paul Ehrlich's arsenical compound Salvarsan becomes the first real alternative to centuries of mercury treatment, though it is still toxic and a precursor to, rather than a solution for, modern antimicrobial therapy."
+      "t": "Paul Ehrlich's arsenical compound Salvarsan becomes the first real alternative to centuries of mercury treatment, though it is still toxic and a precursor to, rather than a solution for, modern antimicrobial therapy.",
+      "img": "hist-ehrlich.webp"
      },
      {
       "y": "1932-1972",
       "label": "The Tuskegee study",
-      "t": "The US Public Health Service begins observing the untreated natural history of syphilis in Black men in Macon County, Alabama, without informed consent, and continues withholding treatment for decades after penicillin is shown to cure the disease; the study is exposed by press reporting in 1972 and later prompts the Belmont Report and modern human-subjects research regulation."
+      "t": "The US Public Health Service begins observing the untreated natural history of syphilis in Black men in Macon County, Alabama, without informed consent, and continues withholding treatment for decades after penicillin is shown to cure the disease; the study is exposed by press reporting in 1972 and later prompts the Belmont Report and modern human-subjects research regulation.",
+      "img": ""
      },
      {
       "y": "1943",
       "label": "Penicillin cures syphilis",
-      "t": "John Mahoney and colleagues at the US Public Health Service demonstrate that penicillin cures syphilis, replacing arsenicals as first-line treatment; T. pallidum has not developed clinically significant penicillin resistance in the more than eight decades since."
+      "t": "John Mahoney and colleagues at the US Public Health Service demonstrate that penicillin cures syphilis, replacing arsenicals as first-line treatment; T. pallidum has not developed clinically significant penicillin resistance in the more than eight decades since.",
+      "img": "hist-mahoney.webp"
      }
     ]
    },
@@ -4073,32 +4188,44 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
      {
       "y": "1882",
       "label": "Koch identifies the tubercle bacillus",
-      "t": "Robert Koch announces to the Berlin Physiological Society that he has isolated, cultured, and demonstrated the causative role of Mycobacterium tuberculosis, applying what became known as Koch's postulates and marking one of the founding moments of medical microbiology; the date is now observed as World Tuberculosis Day."
+      "t": "Robert Koch announces to the Berlin Physiological Society that he has isolated, cultured, and demonstrated the causative role of Mycobacterium tuberculosis, applying what became known as Koch's postulates and marking one of the founding moments of medical microbiology; the date is now observed as World Tuberculosis Day.",
+      "img": "hist-koch.webp"
      },
      {
       "y": "1908-1910s",
       "label": "Acid-fast staining refined",
-      "t": "Franz Ziehl and Friedrich Neelsen refine an acid-fast staining method (building on earlier work by Paul Ehrlich and Robert Koch) that remains, in essentially its original form, the standard rapid stain for AFB smears today."
+      "t": "Franz Ziehl and Friedrich Neelsen refine an acid-fast staining method (building on earlier work by Paul Ehrlich and Robert Koch) that remains, in essentially its original form, the standard rapid stain for AFB smears today.",
+      "img": ""
      },
      {
       "y": "1921",
-      "label": "BCG vaccine first given to humans",
-      "t": "Albert Calmette and Camille Guerin, after years developing an attenuated Mycobacterium bovis strain, give the first human dose of what becomes the BCG vaccine, still the only TB vaccine in routine use a century later."
+      "label": "Calmette and Guerin give the first BCG dose",
+      "t": "Albert Calmette, after years developing an attenuated Mycobacterium bovis strain with veterinarian Camille Guerin, gives the first human dose of what becomes the BCG vaccine, still the only TB vaccine in routine use a century later.",
+      "img": "hist-calmette.webp"
+     },
+     {
+      "y": "1921",
+      "label": "Guerin, the other half of BCG",
+      "t": "Camille Guerin, a veterinary microbiologist, spent over a decade with Calmette subculturing the bovine strain some 230 times to attenuate it - unglamorous, repetitive bench work that is easy to leave out of the story but is most of what actually produced the vaccine.",
+      "img": "hist-guerin.webp"
      },
      {
       "y": "1943-1944",
       "label": "Streptomycin: the first effective anti-TB drug",
-      "t": "Albert Schatz, working in Selman Waksman's laboratory, isolates streptomycin from Streptomyces griseus; it is first used clinically against tuberculosis in 1944 and is the first antibiotic shown to cure the disease, ending the sanatorium era."
+      "t": "Albert Schatz, working in Selman Waksman's laboratory, isolates streptomycin from Streptomyces griseus; it is first used clinically against tuberculosis in 1944 and is the first antibiotic shown to cure the disease, ending the sanatorium era.",
+      "img": "hist-waksman.webp"
      },
      {
       "y": "1952",
       "label": "Isoniazid introduced",
-      "t": "Isoniazid is introduced into clinical use and rapidly becomes a backbone drug once combination therapy is shown necessary to prevent the resistance that emerged quickly with streptomycin used alone."
+      "t": "Isoniazid is introduced into clinical use and rapidly becomes a backbone drug once combination therapy is shown necessary to prevent the resistance that emerged quickly with streptomycin used alone.",
+      "img": ""
      },
      {
       "y": "1960s",
       "label": "Rifampin and the modern multidrug regimen",
-      "t": "Rifampin's introduction completes the drug set that, combined with pyrazinamide and ethambutol, forms the modern short-course RIPE regimen still used for drug-susceptible disease today."
+      "t": "Rifampin's introduction completes the drug set that, combined with pyrazinamide and ethambutol, forms the modern short-course RIPE regimen still used for drug-susceptible disease today.",
+      "img": ""
      }
     ]
    },
@@ -5227,37 +5354,50 @@ window.NBME_MICRO_ENCYCLOPEDIA = {
      {
       "y": "1981",
       "label": "First cases recognized",
-      "t": "The CDC reports clusters of Pneumocystis pneumonia and Kaposi sarcoma in previously healthy young gay men in Los Angeles and New York; the disease is initially called GRID before its spread through blood products and other routes makes clear it is an infectious disease of the blood and sexual contact, not of any one group."
+      "t": "The CDC reports clusters of Pneumocystis pneumonia and Kaposi sarcoma in previously healthy young gay men in Los Angeles and New York; the disease is initially called GRID before its spread through blood products and other routes makes clear it is an infectious disease of the blood and sexual contact, not of any one group.",
+      "img": ""
      },
      {
       "y": "1982",
       "label": "The name AIDS replaces GRID",
-      "t": "The CDC introduces 'acquired immunodeficiency syndrome' (AIDS) to replace the stigmatizing 'GRID' label, reflecting the recognition that hemophiliacs, transfusion recipients, and injection drug users were also affected."
+      "t": "The CDC introduces 'acquired immunodeficiency syndrome' (AIDS) to replace the stigmatizing 'GRID' label, reflecting the recognition that hemophiliacs, transfusion recipients, and injection drug users were also affected.",
+      "img": ""
      },
      {
-      "y": "1983-1984",
-      "label": "The virus is isolated, twice",
-      "t": "Francoise Barre-Sinoussi and Luc Montagnier's team in Paris isolate LAV; Robert Gallo's team in the US isolates HTLV-III. The two are later shown to be the same virus, renamed HIV in 1986, after a priority dispute between the French and US teams that was formally settled by treaty in 1987."
+      "y": "1983",
+      "label": "Barre-Sinoussi and Montagnier isolate LAV",
+      "t": "At the Institut Pasteur in Paris, Francoise Barre-Sinoussi and Luc Montagnier's team isolate a retrovirus from a patient's lymph node and call it lymphadenopathy-associated virus (LAV) - the first isolation of what would be renamed HIV.",
+      "img": "hist-barresinoussi.webp"
+     },
+     {
+      "y": "1984",
+      "label": "Gallo isolates HTLV-III, and a dispute begins",
+      "t": "Robert Gallo's team at the US National Cancer Institute reports a closely related virus, HTLV-III, and a blood test for it; the French and US groups' competing priority claims become a formal dispute between the two governments, resolved by treaty in 1987 with shared credit - the viruses were the same one, renamed HIV in 1986.",
+      "img": "hist-gallo.webp"
      },
      {
       "y": "1987",
       "label": "Zidovudine (AZT): the first antiretroviral",
-      "t": "AZT becomes the first approved anti-HIV drug after an unusually fast trial; used as monotherapy it only delays disease progression, since resistance emerges quickly against a single agent."
+      "t": "AZT becomes the first approved anti-HIV drug after an unusually fast trial; used as monotherapy it only delays disease progression, since resistance emerges quickly against a single agent.",
+      "img": ""
      },
      {
       "y": "1995-1996",
       "label": "Combination therapy (HAART) changes everything",
-      "t": "Protease inhibitors reach the clinic and trials establish that three-drug combination therapy durably suppresses the virus; population mortality among treated patients falls sharply within one to two years, transforming AIDS from a near-certain death sentence into a manageable chronic infection."
+      "t": "Protease inhibitors reach the clinic and trials establish that three-drug combination therapy durably suppresses the virus; population mortality among treated patients falls sharply within one to two years, transforming AIDS from a near-certain death sentence into a manageable chronic infection.",
+      "img": ""
      },
      {
       "y": "2008",
       "label": "First cure, and a Nobel Prize",
-      "t": "Timothy Ray Brown (the 'Berlin patient') is cured of HIV after a bone marrow transplant from a CCR5-delta32 donor given for his leukemia; the same year, Barre-Sinoussi and Montagnier share the Nobel Prize in Physiology or Medicine for discovering the virus."
+      "t": "Timothy Ray Brown (the 'Berlin patient') is cured of HIV after a bone marrow transplant from a CCR5-delta32 donor given for his leukemia; the same year, Barre-Sinoussi and Montagnier share the Nobel Prize in Physiology or Medicine for discovering the virus - Gallo, despite his role in proving HIV causes AIDS and developing the blood test, did not share it.",
+      "img": "hist-montagnier.webp"
      },
      {
       "y": "2012",
       "label": "PrEP approved",
-      "t": "Tenofovir-emtricitabine is approved for pre-exposure prophylaxis, giving HIV-negative people at substantial risk a highly effective prevention tool outside of condoms and treatment-as-prevention."
+      "t": "Tenofovir-emtricitabine is approved for pre-exposure prophylaxis, giving HIV-negative people at substantial risk a highly effective prevention tool outside of condoms and treatment-as-prevention.",
+      "img": ""
      }
     ]
    },

@@ -65,6 +65,14 @@ def main():
         for r in e.get("research", {}).get("reviews", []):
             if not r["url"].startswith(("http://", "https://")):
                 errors.append(f"{e['id']}: review {r['title']!r} has a non-url link {r['url']!r}")
+        for tl in e.get("history", {}).get("timeline", []):
+            f = tl.get("img")
+            if not f:
+                continue
+            if not os.path.exists(os.path.join(IMG_DIR, f)):
+                errors.append(f"{e['id']}: missing timeline image {f}")
+            elif f not in credits:
+                errors.append(f"{e['id']}: no credit recorded for timeline image {f}")
 
     if errors:
         print("ERRORS:")
@@ -77,7 +85,8 @@ def main():
     for e in entries:
         e.pop("_src", None)
 
-    used = sorted({f for e in entries for f, _ in e["images"]})
+    used = sorted({f for e in entries for f, _ in e["images"]} |
+                  {tl["img"] for e in entries for tl in e.get("history", {}).get("timeline", []) if tl.get("img")})
     data = {
         "title": "Microbiology Encyclopedia",
         "subtitle": "Every organism in the bank: the science of how it works, with the Step 1 high-yield layer marked.",
