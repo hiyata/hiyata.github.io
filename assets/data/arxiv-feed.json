@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-10-01T22:42:51+00:00",
+  "generated_at": "2026-10-02T12:39:11+00:00",
   "items": [
+    {
+      "title": "OpenMTB-Audit: Exposing Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
+      "link": "http://arxiv.org/abs/2610.01497v1",
+      "date": "2026-10-01T11:39:31Z",
+      "authors": [
+        "Negin Ashrafi",
+        "Jia Luo",
+        "Stacey M. Frumm",
+        "Roxana Daneshjou"
+      ],
+      "summary": "Molecular tumor boards integrate genomic findings, clinical context, and therapeutic evidence to support precision oncology. As AI enters this workflow, a key safety challenge is distinguishing truly unsupported..."
+    },
     {
       "title": "GenoMorph: Pathway-Grounded Genomic Disease Reasoning via Adaptive Latent Computation",
       "link": "http://arxiv.org/abs/2609.34079v1",
@@ -88,16 +100,6 @@
         "Ilias Georgakopoulos-Soares"
       ],
       "summary": "Artificial intelligence is reshaping biological research across an increasingly connected digital-to-physical workflow. General-purpose large language models can retrieve and integrate scientific information, support..."
-    },
-    {
-      "title": "Multi-Modal Tumor Survival Prediction via Graph-Guided Mixture of Experts",
-      "link": "http://arxiv.org/abs/2609.14072v1",
-      "date": "2026-09-12T17:43:01Z",
-      "authors": [
-        "H Mathavan",
-        "H Liu"
-      ],
-      "summary": "Large Language Models (LLMs) have displayed impressive capabilities in handling tasks that require few demonstration examples, making them effective few-shot learners. Despite their potential, LLMs face challenges when..."
     }
   ]
 }
