@@ -1,6 +1,28 @@
 {
-  "generated_at": "2026-10-04T21:29:02+00:00",
+  "generated_at": "2026-10-05T05:44:53+00:00",
   "items": [
+    {
+      "title": "SoftGene: Protein Language Model-Enhanced Soft Prompting for Interpretable Gene Set Annotation",
+      "link": "http://arxiv.org/abs/2610.03029v1",
+      "date": "2026-10-02T09:07:55Z",
+      "authors": [
+        "Drew Ross",
+        "Arya Hadizadeh Moghaddam",
+        "Dongjie Wang",
+        "Xiaoyu Zhang",
+        "Zijun Yao"
+      ],
+      "summary": "Gene set analysis is a cornerstone of functional genomics, yet it remains labor-intensive and heavily dependent on manual curation and expert biological interpretation. While Large Language Models (LLMs) have emerged as..."
+    },
+    {
+      "title": "BootLoops: an LLM-driven toolkit for exact quantitative science",
+      "link": "http://arxiv.org/abs/2610.02286v1",
+      "date": "2026-10-01T14:55:49Z",
+      "authors": [
+        "Matthew D. Schwartz"
+      ],
+      "summary": "Much of quantitative science involves difficult mathematical computations: a Feynman integral, evidence for an evolutionary tree, or a regulatory statistic. These are often estimated by Monte Carlo or heuristic search,..."
+    },
     {
       "title": "OpenMTB-Audit: Exposing Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
       "link": "http://arxiv.org/abs/2610.01497v1",
@@ -79,27 +101,6 @@
         "Hamid Alinejad-Rokny"
       ],
       "summary": "Disease severity classification for genetic conditions is subjective and labor-intensive, creating bottlenecks in genomic screening, where commercial panels vary widely in size and overlap. We developed an autonomous AI..."
-    },
-    {
-      "title": "Democratizing Clinical Tumor Whole Genome Sequencing: 18-hour End-to-end Analysis via Trillion-parameter Large Language Models Locally Deployed on Consumer-grade Hardware",
-      "link": "http://arxiv.org/abs/2609.17620v1",
-      "date": "2026-09-14T20:38:24Z",
-      "authors": [
-        "Rui Xiao",
-        "Yili Xu"
-      ],
-      "summary": "Whole genome sequencing (WGS) is essential for precision oncology, yet its clinical adoption remains limited by prohibitive computational costs and multi-day turnaround times. This work presents a fully localized..."
-    },
-    {
-      "title": "Artificial intelligence and biosecurity: capabilities, threat pathways, and defense-in-depth governance",
-      "link": "http://arxiv.org/abs/2609.16213v1",
-      "date": "2026-09-14T18:44:00Z",
-      "authors": [
-        "Candace S. Y. Chan",
-        "Aris Karatzikos",
-        "Ilias Georgakopoulos-Soares"
-      ],
-      "summary": "Artificial intelligence is reshaping biological research across an increasingly connected digital-to-physical workflow. General-purpose large language models can retrieve and integrate scientific information, support..."
     }
   ]
 }
