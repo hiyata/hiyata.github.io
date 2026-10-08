@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-10-07T23:07:01+00:00",
+  "generated_at": "2026-10-08T06:08:20+00:00",
   "items": [
+    {
+      "title": "AI-Assisted Computational Reproducibility on the FABRIC Testbed",
+      "link": "http://arxiv.org/abs/2606.25879v2",
+      "date": "2026-06-24T14:23:14Z",
+      "authors": [
+        "Komal Thareja",
+        "Paul Ruth",
+        "Berent Aldikacti",
+        "Michael Zink"
+      ],
+      "summary": "Computational reproducibility remains difficult despite being central to scientific research. In this paper, we show how the international FABRIC testbed, combined with a large language model (LLM) coding agent through..."
+    },
     {
       "title": "Aligning Multimodal Patient Evidence with Biomedical Knowledge Graphs for Clinical LLMs",
       "link": "http://arxiv.org/abs/2610.06685v1",
@@ -86,16 +98,6 @@
         "Yin Xia"
       ],
       "summary": "In large-scale hypothesis testing, computing exact $p$-values or $e$-values is often resource-intensive, creating a need for budget-aware inferential methods. We propose a general framework for active hypothesis testing..."
-    },
-    {
-      "title": "Motif-Vocab: StatisticallyCalibrated Transcription-Factor-Identity Tokenization forGenomic Language Models",
-      "link": "http://arxiv.org/abs/2609.28386v1",
-      "date": "2026-09-23T16:58:41Z",
-      "authors": [
-        "Liangyu Li",
-        "Michael White"
-      ],
-      "summary": "Tokenization is a central design choice in genomic language models, yet most deoxyribonucleic acid (DNA) tokenizers use characters, fixed-length k-mers, or frequency-derived subwords without explicitly using prior..."
     }
   ]
 }
