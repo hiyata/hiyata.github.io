@@ -1,6 +1,36 @@
 {
-  "generated_at": "2026-10-08T23:22:37+00:00",
+  "generated_at": "2026-10-09T06:12:18+00:00",
   "items": [
+    {
+      "title": "Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants",
+      "link": "http://arxiv.org/abs/2610.12281v1",
+      "date": "2026-10-08T16:38:32Z",
+      "authors": [
+        "Pratik Dutta",
+        "Matthew B. Obusan",
+        "Max Chao",
+        "Rekha Sathian",
+        "Nimisha Papineni",
+        "Ramana V. Davuluri"
+      ],
+      "summary": "Over 90% of disease-associated variants from genome-wide association studies fall in noncoding regulatory regions, yet their functional interpretation remains a central open problem in genomic medicine. Large language..."
+    },
+    {
+      "title": "RAGenome: Scaling Retrieval-Based Genomic Language Models to Long Contexts",
+      "link": "http://arxiv.org/abs/2610.11761v1",
+      "date": "2026-10-08T11:44:58Z",
+      "authors": [
+        "Frederikke Isa Marin",
+        "Panagiotis Antoniadis",
+        "Dionysia Danai Brilli",
+        "Andreas Bjerregaard",
+        "Rachael DeVries",
+        "Yan Li",
+        "Ole Winther",
+        "Wouter Boomsma"
+      ],
+      "summary": "The genome holds the blueprint that governs the biological properties of the cell. Consequently, advancing our knowledge of genomic function is crucial both for a broader understanding of biology and for continued..."
+    },
     {
       "title": "AI-Assisted Computational Reproducibility on the FABRIC Testbed",
       "link": "http://arxiv.org/abs/2606.25879v2",
@@ -75,29 +105,6 @@
         "Roxana Daneshjou"
       ],
       "summary": "Molecular tumor boards integrate genomic findings, clinical context, and therapeutic evidence to support precision oncology. As AI enters this workflow, a key safety challenge is distinguishing truly unsupported..."
-    },
-    {
-      "title": "GenoMorph: Pathway-Grounded Genomic Disease Reasoning via Adaptive Latent Computation",
-      "link": "http://arxiv.org/abs/2609.34079v1",
-      "date": "2026-09-28T01:14:04Z",
-      "authors": [
-        "Tanmoy Kanti Halder",
-        "Akash Ghosh",
-        "Arijit Roy",
-        "Sriparna Saha"
-      ],
-      "summary": "Large language models (LLMs) have demonstrated strong capabilities in biological reasoning; however, genomic disease inference remains largely dependent on memorized gene-disease associations rather than understanding..."
-    },
-    {
-      "title": "Active Hypothesis Testing under Computational Budgets",
-      "link": "http://arxiv.org/abs/2512.01423v3",
-      "date": "2025-12-01T08:59:34Z",
-      "authors": [
-        "Qi Kuang",
-        "Bowen Gang",
-        "Yin Xia"
-      ],
-      "summary": "In large-scale hypothesis testing, computing exact $p$-values or $e$-values is often resource-intensive, creating a need for budget-aware inferential methods. We propose a general framework for active hypothesis testing..."
     }
   ]
 }
