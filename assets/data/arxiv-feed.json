@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-10-11T22:00:13+00:00",
+  "generated_at": "2026-10-12T06:01:57+00:00",
   "items": [
+    {
+      "title": "Artificial Intelligence-Assisted Systems Biology Reconstruction of Diabetic Bone Marrow Dysfunction",
+      "link": "http://arxiv.org/abs/2610.13721v1",
+      "date": "2026-10-09T15:19:24Z",
+      "authors": [
+        "Paolo Madeddu"
+      ],
+      "summary": "This study aimed to reconstruct a regulatory network suitable for systems biology analysis of diabetic bone marrow. Three artificial intelligence large language models independently analysed 18 Discovery and 43..."
+    },
     {
       "title": "Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants",
       "link": "http://arxiv.org/abs/2610.12281v1",
@@ -93,18 +102,6 @@
         "Matthew D. Schwartz"
       ],
       "summary": "Much of quantitative science involves difficult mathematical computations: a Feynman integral, evidence for an evolutionary tree, or a regulatory statistic. These are often estimated by Monte Carlo or heuristic search,..."
-    },
-    {
-      "title": "OpenMTB-Audit: Exposing Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
-      "link": "http://arxiv.org/abs/2610.01497v1",
-      "date": "2026-10-01T11:39:31Z",
-      "authors": [
-        "Negin Ashrafi",
-        "Jia Luo",
-        "Stacey M. Frumm",
-        "Roxana Daneshjou"
-      ],
-      "summary": "Molecular tumor boards integrate genomic findings, clinical context, and therapeutic evidence to support precision oncology. As AI enters this workflow, a key safety challenge is distinguishing truly unsupported..."
     }
   ]
 }
