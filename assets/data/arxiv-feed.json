@@ -1,6 +1,33 @@
 {
-  "generated_at": "2026-10-13T22:47:14+00:00",
+  "generated_at": "2026-10-14T04:56:58+00:00",
   "items": [
+    {
+      "title": "Training-Data Extraction from Genomic Language Models",
+      "link": "http://arxiv.org/abs/2610.15396v1",
+      "date": "2026-10-11T06:50:22Z",
+      "authors": [
+        "Tianhao Mao",
+        "Zihao Wang",
+        "Dongfang Zhao",
+        "Rui Zhu",
+        "Xiaofeng Wang",
+        "Haixu Tang"
+      ],
+      "summary": "Genomic language models generate long nucleotide continuations from short prefixes, exposing a direct route for studying training-sequence extraction through the generation interface. We present an output-only black-box..."
+    },
+    {
+      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
+      "link": "http://arxiv.org/abs/2503.15846v3",
+      "date": "2025-03-20T04:58:53Z",
+      "authors": [
+        "Xuanming Cui",
+        "Jaiminkumar Ashokbhai Bhoi",
+        "Chionh Wei Peng",
+        "Adriel Kuek",
+        "Ser Nam Lim"
+      ],
+      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
+    },
     {
       "title": "Artificial Intelligence-Assisted Systems Biology Reconstruction of Diabetic Bone Marrow Dysfunction",
       "link": "http://arxiv.org/abs/2610.13721v1",
@@ -80,28 +107,6 @@
         "Ilias Georgakopoulos-Soares"
       ],
       "summary": "Genomic language models can write synthetic DNA that carries no record of its origin. A generation-time watermark could provide a provenance signal, if a verifier can detect it using only the DNA sequence, a key, and..."
-    },
-    {
-      "title": "SoftGene: Protein Language Model-Enhanced Soft Prompting for Interpretable Gene Set Annotation",
-      "link": "http://arxiv.org/abs/2610.03029v1",
-      "date": "2026-10-02T09:07:55Z",
-      "authors": [
-        "Drew Ross",
-        "Arya Hadizadeh Moghaddam",
-        "Dongjie Wang",
-        "Xiaoyu Zhang",
-        "Zijun Yao"
-      ],
-      "summary": "Gene set analysis is a cornerstone of functional genomics, yet it remains labor-intensive and heavily dependent on manual curation and expert biological interpretation. While Large Language Models (LLMs) have emerged as..."
-    },
-    {
-      "title": "BootLoops: an LLM-driven toolkit for exact quantitative science",
-      "link": "http://arxiv.org/abs/2610.02286v1",
-      "date": "2026-10-01T14:55:49Z",
-      "authors": [
-        "Matthew D. Schwartz"
-      ],
-      "summary": "Much of quantitative science involves difficult mathematical computations: a Feynman integral, evidence for an evolutionary tree, or a regulatory statistic. These are often estimated by Monte Carlo or heuristic search,..."
     }
   ]
 }
