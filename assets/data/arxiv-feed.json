@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-10-15T21:25:06+00:00",
+  "generated_at": "2026-10-16T04:34:46+00:00",
   "items": [
+    {
+      "title": "AutoOnboarder: Autonomously Onboarding LLM Agents",
+      "link": "http://arxiv.org/abs/2610.21218v1",
+      "date": "2026-10-15T04:07:34Z",
+      "authors": [
+        "Tanay Arora",
+        "Cong Liu"
+      ],
+      "summary": "Agentic large language models have been documented to lose reasoning capability when placed inside a harness, the software that mediates their observations and actions. To reconcile these losses, we introduce..."
+    },
     {
       "title": "Training-Data Extraction from Genomic Language Models",
       "link": "http://arxiv.org/abs/2610.15396v1",
@@ -96,17 +106,6 @@
         "Nicholas Konz"
       ],
       "summary": "Clinical questions often depend on linking a patient's multimodal evidence to external biomedical knowledge, yet existing predictive systems rarely represent such links explicitly, so they can neither be traced to their..."
-    },
-    {
-      "title": "Tracing model-generated DNA with position-independent watermarking",
-      "link": "http://arxiv.org/abs/2610.04763v1",
-      "date": "2026-10-03T20:56:43Z",
-      "authors": [
-        "Kimon Antonios Provatas1",
-        "Christos Galanopoulos",
-        "Ilias Georgakopoulos-Soares"
-      ],
-      "summary": "Genomic language models can write synthetic DNA that carries no record of its origin. A generation-time watermark could provide a provenance signal, if a verifier can detect it using only the DNA sequence, a key, and..."
     }
   ]
 }
