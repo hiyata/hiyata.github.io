@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-25T20:53:11+00:00",
+  "generated_at": "2026-10-26T04:50:45+00:00",
   "items": [
+    {
+      "title": "Phronix: The Capability-Centric Learning Paradigm for Agents",
+      "link": "http://arxiv.org/abs/2610.31789v1",
+      "date": "2026-10-22T18:29:52Z",
+      "authors": [
+        "Hariharan Devarajan",
+        "Neeraj Rajesh",
+        "Aniruddha Marathe",
+        "Nikoli Dryden",
+        "Kin Ng",
+        "Michela Taufer"
+      ],
+      "summary": "Scientific computing increasingly relies on large language model-based agents for performance engineering tasks such as instrumentation, analysis, and workflow porting. However, agent effectiveness depends heavily on..."
+    },
     {
       "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
       "link": "http://arxiv.org/abs/2603.08913v3",
@@ -89,18 +103,6 @@
         "Wouter Boomsma"
       ],
       "summary": "The genome holds the blueprint that governs the biological properties of the cell. Consequently, advancing our knowledge of genomic function is crucial both for a broader understanding of biology and for continued..."
-    },
-    {
-      "title": "AI-Assisted Computational Reproducibility on the FABRIC Testbed",
-      "link": "http://arxiv.org/abs/2606.25879v2",
-      "date": "2026-06-24T14:23:14Z",
-      "authors": [
-        "Komal Thareja",
-        "Paul Ruth",
-        "Berent Aldikacti",
-        "Michael Zink"
-      ],
-      "summary": "Computational reproducibility remains difficult despite being central to scientific research. In this paper, we show how the international FABRIC testbed, combined with a large language model (LLM) coding agent through..."
     }
   ]
 }
