@@ -1,6 +1,27 @@
 {
-  "generated_at": "2026-10-29T22:46:45+00:00",
+  "generated_at": "2026-10-30T05:52:45+00:00",
   "items": [
+    {
+      "title": "Advancing Clinical Genomic Analysis with a Skill-Centred Agent",
+      "link": "http://arxiv.org/abs/2610.40556v1",
+      "date": "2026-10-29T17:40:24Z",
+      "authors": [
+        "Qiaoyu Zheng",
+        "Weike Zhao",
+        "Yanjie Fan",
+        "Ye Cao",
+        "Mengqi Jiang",
+        "Xiao Zhou",
+        "Xiaoman Zhang",
+        "Pengcheng Qiu",
+        "Yongguo Yu",
+        "Yanfeng Wang",
+        "Ya Zhang",
+        "Chaoyi Wu",
+        "Weidi Xie"
+      ],
+      "summary": "Clinical genomic analysis requires experts to integrate evolving guidelines, databases, and computational evidence. As sequencing has become increasingly accessible, this complex and labor-intensive process has become a..."
+    },
     {
       "title": "Phronix: The Capability-Centric Learning Paradigm for Agents",
       "link": "http://arxiv.org/abs/2610.31789v1",
@@ -87,22 +108,6 @@
         "Ramana V. Davuluri"
       ],
       "summary": "Over 90% of disease-associated variants from genome-wide association studies fall in noncoding regulatory regions, yet their functional interpretation remains a central open problem in genomic medicine. Large language..."
-    },
-    {
-      "title": "RAGenome: Scaling Retrieval-Based Genomic Language Models to Long Contexts",
-      "link": "http://arxiv.org/abs/2610.11761v1",
-      "date": "2026-10-08T11:44:58Z",
-      "authors": [
-        "Frederikke Isa Marin",
-        "Panagiotis Antoniadis",
-        "Dionysia Danai Brilli",
-        "Andreas Bjerregaard",
-        "Rachael DeVries",
-        "Yan Li",
-        "Ole Winther",
-        "Wouter Boomsma"
-      ],
-      "summary": "The genome holds the blueprint that governs the biological properties of the cell. Consequently, advancing our knowledge of genomic function is crucial both for a broader understanding of biology and for continued..."
     }
   ]
 }
