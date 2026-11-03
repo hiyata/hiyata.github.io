@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-03T00:59:46+00:00",
+  "generated_at": "2026-11-03T14:19:13+00:00",
   "items": [
+    {
+      "title": "Tracing the Scientific Discovery Capacity of LLMs to Their Training Data",
+      "link": "http://arxiv.org/abs/2611.03617v1",
+      "date": "2026-11-02T18:50:54Z",
+      "authors": [
+        "Arda Uzunoglu",
+        "Mahler Revsine",
+        "Michael Schatz",
+        "Benjamin Van Durme",
+        "Mehrdad Farajtabar",
+        "Daniel Khashabi",
+        "Eric Nalisnick"
+      ],
+      "summary": "Large language models (LLMs) show growing promise for scientific discovery, yet basic questions remain about what enables reliable discovery. How can we trace the scientific discovery capacity of LLMs to their training..."
+    },
     {
       "title": "Advancing Clinical Genomic Analysis with a Skill-Centred Agent",
       "link": "http://arxiv.org/abs/2610.40556v1",
@@ -94,20 +109,6 @@
         "Paolo Madeddu"
       ],
       "summary": "This study aimed to reconstruct a regulatory network suitable for systems biology analysis of diabetic bone marrow. Three artificial intelligence large language models independently analysed 18 Discovery and 43..."
-    },
-    {
-      "title": "Unlocking the Regulatory Genome by ARGUS: An Evidence-Constrained Agentic Framework for Interpreting Single Nucleotide Variants",
-      "link": "http://arxiv.org/abs/2610.12281v1",
-      "date": "2026-10-08T16:38:32Z",
-      "authors": [
-        "Pratik Dutta",
-        "Matthew B. Obusan",
-        "Max Chao",
-        "Rekha Sathian",
-        "Nimisha Papineni",
-        "Ramana V. Davuluri"
-      ],
-      "summary": "Over 90% of disease-associated variants from genome-wide association studies fall in noncoding regulatory regions, yet their functional interpretation remains a central open problem in genomic medicine. Large language..."
     }
   ]
 }
