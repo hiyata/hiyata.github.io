@@ -1,6 +1,28 @@
 {
-  "generated_at": "2026-11-03T23:25:26+00:00",
+  "generated_at": "2026-11-04T06:27:37+00:00",
   "items": [
+    {
+      "title": "A Self-Evolving Agent for Longitudinal Personal Health Management",
+      "link": "http://arxiv.org/abs/2607.13940v2",
+      "date": "2026-07-15T15:22:11Z",
+      "authors": [
+        "Haoran Li",
+        "Jiebi Deng",
+        "Tong Jin",
+        "Jinghong Han",
+        "Yuxin Wang",
+        "Zexin Wang",
+        "Jinyu Sun",
+        "Qingyi Si",
+        "Weikang Gong",
+        "Xiahai Zhuang",
+        "Jia You",
+        "Wei Cheng",
+        "Jianfeng Feng",
+        "Hongcheng Guo"
+      ],
+      "summary": "Medical large language models and agents show strong single-encounter question answering and evidence interpretation but struggle to accumulate and govern experience across encounters. We present HealthJev, an..."
+    },
     {
       "title": "Tracing the Scientific Discovery Capacity of LLMs to Their Training Data",
       "link": "http://arxiv.org/abs/2611.03617v1",
@@ -100,15 +122,6 @@
         "Ser Nam Lim"
       ],
       "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
-    },
-    {
-      "title": "Artificial Intelligence-Assisted Systems Biology Reconstruction of Diabetic Bone Marrow Dysfunction",
-      "link": "http://arxiv.org/abs/2610.13721v1",
-      "date": "2026-10-09T15:19:24Z",
-      "authors": [
-        "Paolo Madeddu"
-      ],
-      "summary": "This study aimed to reconstruct a regulatory network suitable for systems biology analysis of diabetic bone marrow. Three artificial intelligence large language models independently analysed 18 Discovery and 43..."
     }
   ]
 }
