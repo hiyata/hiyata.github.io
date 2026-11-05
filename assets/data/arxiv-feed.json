@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-11-04T19:47:42+00:00",
+  "generated_at": "2026-11-05T06:51:03+00:00",
   "items": [
+    {
+      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
+      "link": "http://arxiv.org/abs/2503.15846v4",
+      "date": "2025-03-20T04:58:53Z",
+      "authors": [
+        "Xuanming Cui",
+        "Jaiminkumar Ashokbhai Bhoi",
+        "Chionh Wei Peng",
+        "Adriel Kuek",
+        "Ser Nam Lim"
+      ],
+      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
+    },
+    {
+      "title": "Darwin Family: MRI-Trust-Weighted Evolutionary Merging for Training-Free Scaling of Language-Model Reasoning",
+      "link": "http://arxiv.org/abs/2605.14386v2",
+      "date": "2026-05-14T05:09:12Z",
+      "authors": [
+        "Taebong Kim",
+        "Youngsik Hong",
+        "Minsik Kim",
+        "Sunyoung Choi",
+        "Jaewon Jang",
+        "Junghoon Shin",
+        "Minseo Kim"
+      ],
+      "summary": "We present Darwin Family, a framework for training-free evolutionary merging of large language models via gradient-free weight-space recombination. We ask whether frontier-level reasoning performance can be improved..."
+    },
     {
       "title": "A Self-Evolving Agent for Longitudinal Personal Health Management",
       "link": "http://arxiv.org/abs/2607.13940v2",
@@ -95,33 +123,6 @@
         "Cong Liu"
       ],
       "summary": "Agentic large language models have been documented to lose reasoning capability when placed inside a harness, the software that mediates their observations and actions. To reconcile these losses, we introduce..."
-    },
-    {
-      "title": "Training-Data Extraction from Genomic Language Models",
-      "link": "http://arxiv.org/abs/2610.15396v1",
-      "date": "2026-10-11T06:50:22Z",
-      "authors": [
-        "Tianhao Mao",
-        "Zihao Wang",
-        "Dongfang Zhao",
-        "Rui Zhu",
-        "Xiaofeng Wang",
-        "Haixu Tang"
-      ],
-      "summary": "Genomic language models generate long nucleotide continuations from short prefixes, exposing a direct route for studying training-sequence extraction through the generation interface. We present an output-only black-box..."
-    },
-    {
-      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
-      "link": "http://arxiv.org/abs/2503.15846v3",
-      "date": "2025-03-20T04:58:53Z",
-      "authors": [
-        "Xuanming Cui",
-        "Jaiminkumar Ashokbhai Bhoi",
-        "Chionh Wei Peng",
-        "Adriel Kuek",
-        "Ser Nam Lim"
-      ],
-      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
     }
   ]
 }
