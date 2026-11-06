@@ -1,6 +1,29 @@
 {
-  "generated_at": "2026-11-05T19:58:55+00:00",
+  "generated_at": "2026-11-06T06:51:04+00:00",
   "items": [
+    {
+      "title": "RIVER: Evidence-guided multi-agent retrieval for enzyme--reaction discovery",
+      "link": "http://arxiv.org/abs/2611.07757v1",
+      "date": "2026-11-05T10:01:08Z",
+      "authors": [
+        "Yifan Chang",
+        "Yunze Li",
+        "Feifei Jiang",
+        "Juntao Wu",
+        "Xin Chen",
+        "Han Hu",
+        "Yucheng Wu",
+        "Wei Tang",
+        "Mingqian Ma",
+        "Wanli Ouyang",
+        "Kaipeng Zhang",
+        "Lei Bai",
+        "Hongting Tang",
+        "Feiran Li",
+        "Yuchen Ren"
+      ],
+      "summary": "Enzyme function annotation and the identification of candidate enzymes for a given reaction are essential steps in connecting genomic information to biochemical reaction networks. However, existing methods rely on..."
+    },
     {
       "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
       "link": "http://arxiv.org/abs/2503.15846v4",
@@ -113,16 +136,6 @@
         "Erman Ayday"
       ],
       "summary": "Genomic language models (GLMs) have emerged as powerful tools for learning representations of DNA sequences, enabling advances in variant prediction, regulatory element identification, and cross-task transfer learning...."
-    },
-    {
-      "title": "AutoOnboarder: Autonomously Onboarding LLM Agents",
-      "link": "http://arxiv.org/abs/2610.21218v1",
-      "date": "2026-10-15T04:07:34Z",
-      "authors": [
-        "Tanay Arora",
-        "Cong Liu"
-      ],
-      "summary": "Agentic large language models have been documented to lose reasoning capability when placed inside a harness, the software that mediates their observations and actions. To reconcile these losses, we introduce..."
     }
   ]
 }
