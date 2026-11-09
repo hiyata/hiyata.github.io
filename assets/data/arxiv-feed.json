@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-11-08T22:08:49+00:00",
+  "generated_at": "2026-11-09T06:37:02+00:00",
   "items": [
+    {
+      "title": "C3P: Contrastive promoter-protein pretraining yields representations capturing bacterial gene regulation",
+      "link": "http://arxiv.org/abs/2605.25242v2",
+      "date": "2026-05-24T20:01:33Z",
+      "authors": [
+        "Cameron Dufault",
+        "Scott Xu",
+        "Alan M. Moses"
+      ],
+      "summary": "Despite the increasing scale of genome language models (gLMs), their ability to decode the function of regulatory sequences remains unclear. gLM pretraining relies on sequence reconstruction, which may struggle due to..."
+    },
     {
       "title": "RIVER: Evidence-guided multi-agent retrieval for enzyme--reaction discovery",
       "link": "http://arxiv.org/abs/2611.07757v1",
@@ -123,19 +134,6 @@
         "Michela Taufer"
       ],
       "summary": "Scientific computing increasingly relies on large language model-based agents for performance engineering tasks such as instrumentation, analysis, and workflow porting. However, agent effectiveness depends heavily on..."
-    },
-    {
-      "title": "Quantifying Memorization and Privacy Risks in Genomic Language Models",
-      "link": "http://arxiv.org/abs/2603.08913v3",
-      "date": "2026-03-09T20:30:37Z",
-      "authors": [
-        "Alexander Nemecek",
-        "Wenbiao Li",
-        "Xiaoqian Jiang",
-        "Jaideep Vaidya",
-        "Erman Ayday"
-      ],
-      "summary": "Genomic language models (GLMs) have emerged as powerful tools for learning representations of DNA sequences, enabling advances in variant prediction, regulatory element identification, and cross-task transfer learning...."
     }
   ]
 }
