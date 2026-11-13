@@ -1,6 +1,33 @@
 {
-  "generated_at": "2026-11-12T19:56:45+00:00",
+  "generated_at": "2026-11-13T06:48:51+00:00",
   "items": [
+    {
+      "title": "DrSai: an agentic AI system toward autonomous physics analysis workflows at BESIII",
+      "link": "http://arxiv.org/abs/2604.22541v2",
+      "date": "2026-04-24T13:32:47Z",
+      "authors": [
+        "Mingfeng He",
+        "Fayu Jiang",
+        "Junkun Jiao",
+        "Mingrun Li",
+        "Ke Li",
+        "Yipu Liao",
+        "Beijiang Liu",
+        "Tong Liu",
+        "Fazhi Qi",
+        "Zijie Shang",
+        "Weimin Song",
+        "Yue Sun",
+        "Xiongfei Wang",
+        "Hong Wang",
+        "Dongbo Xiong",
+        "Changzheng Yuan",
+        "Bolun Zhang",
+        "Zhengde Zhang",
+        "Xuliang Zhu"
+      ],
+      "summary": "High Energy Physics (HEP) experiments like BESIII produce petabyte-scale data. Extracting physics results requires complex workflows (simulation, reconstruction, statistical analysis, etc.) that traditionally take..."
+    },
     {
       "title": "C3P: Contrastive promoter-protein pretraining yields representations capturing bacterial gene regulation",
       "link": "http://arxiv.org/abs/2605.25242v2",
@@ -120,20 +147,6 @@
         "Weidi Xie"
       ],
       "summary": "Clinical genomic analysis requires experts to integrate evolving guidelines, databases, and computational evidence. As sequencing has become increasingly accessible, this complex and labor-intensive process has become a..."
-    },
-    {
-      "title": "Phronix: The Capability-Centric Learning Paradigm for Agents",
-      "link": "http://arxiv.org/abs/2610.31789v1",
-      "date": "2026-10-22T18:29:52Z",
-      "authors": [
-        "Hariharan Devarajan",
-        "Neeraj Rajesh",
-        "Aniruddha Marathe",
-        "Nikoli Dryden",
-        "Kin Ng",
-        "Michela Taufer"
-      ],
-      "summary": "Scientific computing increasingly relies on large language model-based agents for performance engineering tasks such as instrumentation, analysis, and workflow porting. However, agent effectiveness depends heavily on..."
     }
   ]
 }
