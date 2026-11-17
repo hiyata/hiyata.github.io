@@ -1,6 +1,18 @@
 {
-  "generated_at": "2026-11-16T22:07:08+00:00",
+  "generated_at": "2026-11-17T07:57:39+00:00",
   "items": [
+    {
+      "title": "UncertainGen: Scalable Uncertainty-Aware Representation Learning of DNA Sequences",
+      "link": "http://arxiv.org/abs/2509.26116v2",
+      "date": "2025-09-30T11:36:09Z",
+      "authors": [
+        "Abdulkadir Celikkanat",
+        "Andres R. Masegosa",
+        "Mads Albertsen",
+        "Thomas D. Nielsen"
+      ],
+      "summary": "Learning effective representations of DNA sequences is fundamental to genomic data analysis, especially in the presence of high sequence similarity and inter-species DNA sharing. Existing approaches rely on..."
+    },
     {
       "title": "DrSai: an agentic AI system toward autonomous physics analysis workflows at BESIII",
       "link": "http://arxiv.org/abs/2604.22541v2",
@@ -126,27 +138,6 @@
         "Eric Nalisnick"
       ],
       "summary": "Large language models (LLMs) show growing promise for scientific discovery, yet basic questions remain about what enables reliable discovery. How can we trace the scientific discovery capacity of LLMs to their training..."
-    },
-    {
-      "title": "Advancing Clinical Genomic Analysis with a Skill-Centred Agent",
-      "link": "http://arxiv.org/abs/2610.40556v1",
-      "date": "2026-10-29T17:40:24Z",
-      "authors": [
-        "Qiaoyu Zheng",
-        "Weike Zhao",
-        "Yanjie Fan",
-        "Ye Cao",
-        "Mengqi Jiang",
-        "Xiao Zhou",
-        "Xiaoman Zhang",
-        "Pengcheng Qiu",
-        "Yongguo Yu",
-        "Yanfeng Wang",
-        "Ya Zhang",
-        "Chaoyi Wu",
-        "Weidi Xie"
-      ],
-      "summary": "Clinical genomic analysis requires experts to integrate evolving guidelines, databases, and computational evidence. As sequencing has become increasingly accessible, this complex and labor-intensive process has become a..."
     }
   ]
 }
