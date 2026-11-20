@@ -1,6 +1,15 @@
 {
-  "generated_at": "2026-11-19T20:40:16+00:00",
+  "generated_at": "2026-11-20T07:19:39+00:00",
   "items": [
+    {
+      "title": "Self-Replicating Language Models",
+      "link": "http://arxiv.org/abs/2611.25839v1",
+      "date": "2026-11-19T09:55:02Z",
+      "authors": [
+        "Arend Hintze"
+      ],
+      "summary": "Whether large language models (LLMs) and LLM-based agents are a form of life is a scientifically interesting question. Under the Darwinian definition of life, it is also a practical one, because a system capable of..."
+    },
     {
       "title": "UncertainGen: Scalable Uncertainty-Aware Representation Learning of DNA Sequences",
       "link": "http://arxiv.org/abs/2509.26116v2",
@@ -123,21 +132,6 @@
         "Hongcheng Guo"
       ],
       "summary": "Medical large language models and agents show strong single-encounter question answering and evidence interpretation but struggle to accumulate and govern experience across encounters. We present HealthJev, an..."
-    },
-    {
-      "title": "Tracing the Scientific Discovery Capacity of LLMs to Their Training Data",
-      "link": "http://arxiv.org/abs/2611.03617v1",
-      "date": "2026-11-02T18:50:54Z",
-      "authors": [
-        "Arda Uzunoglu",
-        "Mahler Revsine",
-        "Michael Schatz",
-        "Benjamin Van Durme",
-        "Mehrdad Farajtabar",
-        "Daniel Khashabi",
-        "Eric Nalisnick"
-      ],
-      "summary": "Large language models (LLMs) show growing promise for scientific discovery, yet basic questions remain about what enables reliable discovery. How can we trace the scientific discovery capacity of LLMs to their training..."
     }
   ]
 }
