@@ -1,6 +1,31 @@
 {
-  "generated_at": "2026-11-22T19:43:22+00:00",
+  "generated_at": "2026-11-23T07:42:43+00:00",
   "items": [
+    {
+      "title": "Tracing the Scientific Discovery Capacity of LLMs to Their Training Data",
+      "link": "http://arxiv.org/abs/2611.03617v2",
+      "date": "2026-11-02T18:50:54Z",
+      "authors": [
+        "Arda Uzunoglu",
+        "Mahler Revsine",
+        "Michael Schatz",
+        "Benjamin Van Durme",
+        "Mehrdad Farajtabar",
+        "Daniel Khashabi",
+        "Eric Nalisnick"
+      ],
+      "summary": "Large language models (LLMs) show growing promise for scientific discovery, yet basic questions remain about what enables reliable discovery. How can we trace the scientific discovery capacity of LLMs to their training..."
+    },
+    {
+      "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
+      "link": "http://arxiv.org/abs/2611.26717v1",
+      "date": "2026-11-19T19:15:33Z",
+      "authors": [
+        "Tanzimul Alam Fahim",
+        "Mohammad Arif Hossain"
+      ],
+      "summary": "Synthesizing relational training data such as knowledge graphs with a large language model typically emits structured objects one at a time, which keeps each object valid but leaves the relationships between them..."
+    },
     {
       "title": "Self-Replicating Language Models",
       "link": "http://arxiv.org/abs/2611.25839v1",
@@ -95,43 +120,6 @@
         "Ser Nam Lim"
       ],
       "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
-    },
-    {
-      "title": "Darwin Family: MRI-Trust-Weighted Evolutionary Merging for Training-Free Scaling of Language-Model Reasoning",
-      "link": "http://arxiv.org/abs/2605.14386v2",
-      "date": "2026-05-14T05:09:12Z",
-      "authors": [
-        "Taebong Kim",
-        "Youngsik Hong",
-        "Minsik Kim",
-        "Sunyoung Choi",
-        "Jaewon Jang",
-        "Junghoon Shin",
-        "Minseo Kim"
-      ],
-      "summary": "We present Darwin Family, a framework for training-free evolutionary merging of large language models via gradient-free weight-space recombination. We ask whether frontier-level reasoning performance can be improved..."
-    },
-    {
-      "title": "A Self-Evolving Agent for Longitudinal Personal Health Management",
-      "link": "http://arxiv.org/abs/2607.13940v2",
-      "date": "2026-07-15T15:22:11Z",
-      "authors": [
-        "Haoran Li",
-        "Jiebi Deng",
-        "Tong Jin",
-        "Jinghong Han",
-        "Yuxin Wang",
-        "Zexin Wang",
-        "Jinyu Sun",
-        "Qingyi Si",
-        "Weikang Gong",
-        "Xiahai Zhuang",
-        "Jia You",
-        "Wei Cheng",
-        "Jianfeng Feng",
-        "Hongcheng Guo"
-      ],
-      "summary": "Medical large language models and agents show strong single-encounter question answering and evidence interpretation but struggle to accumulate and govern experience across encounters. We present HealthJev, an..."
     }
   ]
 }
