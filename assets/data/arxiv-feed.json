@@ -1,6 +1,40 @@
 {
-  "generated_at": "2026-11-23T23:55:54+00:00",
+  "generated_at": "2026-11-24T09:57:00+00:00",
   "items": [
+    {
+      "title": "Genome-to-Image Translation: Reconstructing Escherichia coli Morphology from Genomic Sequences",
+      "link": "http://arxiv.org/abs/2611.31132v1",
+      "date": "2026-11-23T18:03:48Z",
+      "authors": [
+        "Son T. Huynh",
+        "Thuy T. Le",
+        "Thu H. A. Huynh",
+        "Binh T. Nguyen"
+      ],
+      "summary": "Antimicrobial resistance in Escherichia coli is established in routine practice by culture-based susceptibility testing, which is slow relative to the clinical need for an early treatment decision. Resistance status..."
+    },
+    {
+      "title": "HGDNA: Overlapping k-mer Tokenization for Efficient Autoregressive Genomic Language Models",
+      "link": "http://arxiv.org/abs/2611.29400v1",
+      "date": "2026-11-22T11:16:38Z",
+      "authors": [
+        "Xudong Wang",
+        "Siwei Cheng",
+        "Haozhe Hu"
+      ],
+      "summary": "The domain of genomic language models (gLMs) has advanced rapidly, with models pretrained on diverse multi-species genomic corpora demonstrating their remarkable capabilities. While the effect of simple nucleotide-level..."
+    },
+    {
+      "title": "BQDNA: Multi-Head Binary Spherical Quantization for Genomic Sequence Modeling",
+      "link": "http://arxiv.org/abs/2611.29395v1",
+      "date": "2026-11-22T11:12:24Z",
+      "authors": [
+        "Xudong Wang",
+        "Siwei Cheng",
+        "Haozhe Hu"
+      ],
+      "summary": "Decoding biological information from long, repetitive DNA remains challenging. Genomic language models (gLMs) often follow the conventional language-model pretrain-and-adapt paradigm. However, the lack of inherent..."
+    },
     {
       "title": "Tracing the Scientific Discovery Capacity of LLMs to Their Training Data",
       "link": "http://arxiv.org/abs/2611.03617v2",
@@ -73,53 +107,6 @@
         "Xuliang Zhu"
       ],
       "summary": "High Energy Physics (HEP) experiments like BESIII produce petabyte-scale data. Extracting physics results requires complex workflows (simulation, reconstruction, statistical analysis, etc.) that traditionally take..."
-    },
-    {
-      "title": "C3P: Contrastive promoter-protein pretraining yields representations capturing bacterial gene regulation",
-      "link": "http://arxiv.org/abs/2605.25242v2",
-      "date": "2026-05-24T20:01:33Z",
-      "authors": [
-        "Cameron Dufault",
-        "Scott Xu",
-        "Alan M. Moses"
-      ],
-      "summary": "Despite the increasing scale of genome language models (gLMs), their ability to decode the function of regulatory sequences remains unclear. gLM pretraining relies on sequence reconstruction, which may struggle due to..."
-    },
-    {
-      "title": "RIVER: Evidence-guided multi-agent retrieval for enzyme--reaction discovery",
-      "link": "http://arxiv.org/abs/2611.07757v1",
-      "date": "2026-11-05T10:01:08Z",
-      "authors": [
-        "Yifan Chang",
-        "Yunze Li",
-        "Feifei Jiang",
-        "Juntao Wu",
-        "Xin Chen",
-        "Han Hu",
-        "Yucheng Wu",
-        "Wei Tang",
-        "Mingqian Ma",
-        "Wanli Ouyang",
-        "Kaipeng Zhang",
-        "Lei Bai",
-        "Hongting Tang",
-        "Feiran Li",
-        "Yuchen Ren"
-      ],
-      "summary": "Enzyme function annotation and the identification of candidate enzymes for a given reaction are essential steps in connecting genomic information to biochemical reaction networks. However, existing methods rely on..."
-    },
-    {
-      "title": "A Closer Look at Dynamic Scene Graph Generation In the Era of Multimodal Large Language Models",
-      "link": "http://arxiv.org/abs/2503.15846v4",
-      "date": "2025-03-20T04:58:53Z",
-      "authors": [
-        "Xuanming Cui",
-        "Jaiminkumar Ashokbhai Bhoi",
-        "Chionh Wei Peng",
-        "Adriel Kuek",
-        "Ser Nam Lim"
-      ],
-      "summary": "Dynamic Scene Graph Generation (DSGG) aims to capture objects and their evolving relations in videos. Despite recent progress, the practicality and quality of generated scene graphs remain limited compared to the rapid..."
     }
   ]
 }
