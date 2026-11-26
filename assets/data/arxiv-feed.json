@@ -1,6 +1,34 @@
 {
-  "generated_at": "2026-11-25T21:44:12+00:00",
+  "generated_at": "2026-11-26T08:24:00+00:00",
   "items": [
+    {
+      "title": "RHOPE: LLM-Augmented Adaptive Experimental Design with Complex Contextual Information",
+      "link": "http://arxiv.org/abs/2611.33767v1",
+      "date": "2026-11-25T04:30:32Z",
+      "authors": [
+        "Bowen Shi",
+        "Bo Li"
+      ],
+      "summary": "Experimental design allocates limited measurement effort across candidate treatments to learn their expected outcomes. Adaptive designs refine allocations as evidence accumulates, improving estimation and treatment..."
+    },
+    {
+      "title": "Large Language Model Agents for Evidence Based Genetic Disease Severity Classification",
+      "link": "http://arxiv.org/abs/2609.19569v3",
+      "date": "2026-09-17T01:56:38Z",
+      "authors": [
+        "Tohid Ghasemnejad",
+        "Ahmadreza Argha",
+        "Mark Grosser",
+        "John Wang",
+        "Min Yang",
+        "Thantrira Porntaveetus",
+        "Tony Roscioli",
+        "Nigel H. Lovell",
+        "Mahmoud Aarabi",
+        "Hamid Alinejad-Rokny"
+      ],
+      "summary": "Disease severity classification for genetic conditions is subjective and labor-intensive, creating bottlenecks in genomic screening, where commercial panels vary widely in size and overlap. We developed an autonomous AI..."
+    },
     {
       "title": "Genome-to-Image Translation: Reconstructing Escherichia coli Morphology from Genomic Sequences",
       "link": "http://arxiv.org/abs/2611.31132v1",
@@ -68,45 +96,6 @@
         "Arend Hintze"
       ],
       "summary": "Whether large language models (LLMs) and LLM-based agents are a form of life is a scientifically interesting question. Under the Darwinian definition of life, it is also a practical one, because a system capable of..."
-    },
-    {
-      "title": "UncertainGen: Scalable Uncertainty-Aware Representation Learning of DNA Sequences",
-      "link": "http://arxiv.org/abs/2509.26116v2",
-      "date": "2025-09-30T11:36:09Z",
-      "authors": [
-        "Abdulkadir Celikkanat",
-        "Andres R. Masegosa",
-        "Mads Albertsen",
-        "Thomas D. Nielsen"
-      ],
-      "summary": "Learning effective representations of DNA sequences is fundamental to genomic data analysis, especially in the presence of high sequence similarity and inter-species DNA sharing. Existing approaches rely on..."
-    },
-    {
-      "title": "DrSai: an agentic AI system toward autonomous physics analysis workflows at BESIII",
-      "link": "http://arxiv.org/abs/2604.22541v2",
-      "date": "2026-04-24T13:32:47Z",
-      "authors": [
-        "Mingfeng He",
-        "Fayu Jiang",
-        "Junkun Jiao",
-        "Mingrun Li",
-        "Ke Li",
-        "Yipu Liao",
-        "Beijiang Liu",
-        "Tong Liu",
-        "Fazhi Qi",
-        "Zijie Shang",
-        "Weimin Song",
-        "Yue Sun",
-        "Xiongfei Wang",
-        "Hong Wang",
-        "Dongbo Xiong",
-        "Changzheng Yuan",
-        "Bolun Zhang",
-        "Zhengde Zhang",
-        "Xuliang Zhu"
-      ],
-      "summary": "High Energy Physics (HEP) experiments like BESIII produce petabyte-scale data. Extracting physics results requires complex workflows (simulation, reconstruction, statistical analysis, etc.) that traditionally take..."
     }
   ]
 }
